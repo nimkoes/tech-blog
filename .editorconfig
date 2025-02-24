@@ -1,0 +1,28 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+indent_size = 2
+indent_style = space
+insert_final_newline = false
+max_line_length = 120
+tab_width = 2
+
+[*.sass]
+indent_size = 2
+
+[*.scss]
+indent_size = 2
+
+[{*.yaml,*.yml}]
+indent_size = 2
+
+[.husky/**]
+end_of_line = lf
+
+[*.sh]
+end_of_line = lf
+
+[Dockerfile]
+end_of_line = lf

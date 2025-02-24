@@ -1,0 +1,51 @@
+.home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  gap: 3rem;
+  margin: auto;
+
+  &-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    > div {
+      position: relative;
+    }
+
+    > div > h2 {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 1rem 0 0.5rem;
+      background-color: hsla(var(--background), 0.8);
+      margin-bottom: 2rem;
+      font-size: var(--text-3xl);
+      font-weight: 900;
+      color: hsla(var(--primary-color));
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .home {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &-container {
+      flex: 1 1 auto;
+
+      > div > h2 {
+        text-align: left;
+      }
+    }
+  }
+}
