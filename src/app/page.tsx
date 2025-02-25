@@ -30,7 +30,7 @@ const HomePage = () => {
 
   return (
     <main className={styles.home}>
-      {/* 📌 네비게이션 영역 (항상 표시) */}
+      {/* 📌 네비게이션 패널 (항상 표시) */}
       <div className={styles.navigation}>
         <button className={styles.navButton} onClick={() => setIsCategoryOpen(!isCategoryOpen)}>
           📂
@@ -40,14 +40,16 @@ const HomePage = () => {
         </button>
       </div>
 
-      {/* 📂 카테고리 (파일 탐색기) */}
-      <div className={`${styles.categoryContainer} ${isCategoryOpen ? styles.show : styles.hide} ${isMobile ? styles.overlay : ""}`}>
-        <Category onSelect={handleSelect} />
-      </div>
+      <div className={styles.mainContainer}>
+        {/* 📂 카테고리 (파일 탐색기) */}
+        <div className={`${styles.categoryContainer} ${isCategoryOpen ? styles.show : styles.hide} ${isMobile ? styles.overlay : ""}`}>
+          <Category onSelect={handleSelect} />
+        </div>
 
-      {/* 📝 컨텐츠 영역 (에디터) */}
-      <div className={styles.contentContainer}>
-        <Contents mdPath={selectedMd} />
+        {/* 📝 컨텐츠 영역 (에디터) */}
+        <div className={styles.contentContainer}>
+          <Contents mdPath={selectedMd} />
+        </div>
       </div>
 
       {/* 🖥 로그 영역 (터미널) */}

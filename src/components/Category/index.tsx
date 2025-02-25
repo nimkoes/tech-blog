@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import {useState} from "react";
 import styles from "./Category.module.scss";
 import rawCategoryData from "@resources/category.json";
 
@@ -12,7 +12,7 @@ interface CategoryItemProps {
   onSelect?: (mdPath: string) => void;
 }
 
-const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: string) => void }> = ({ item, onSelect }) => {
+const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: string) => void }> = ({item, onSelect}) => {
   const [isOpen, setIsOpen] = useState(false);
   const hasChildren = item.children && item.children.length > 0;
 
@@ -27,7 +27,7 @@ const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: strin
       <div
         className={styles.categoryTitle}
         onClick={handleToggle} // 전체 클릭 가능하도록 변경
-        style={{ cursor: hasChildren ? "pointer" : "default" }}
+        style={{cursor: hasChildren ? "pointer" : "default"}}
       >
         {hasChildren && (
           <span className={styles.toggleIcon}>{isOpen ? "📂" : "📁"}</span>
@@ -43,7 +43,7 @@ const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: strin
               onSelect(item.mdPath);
             }
           }}
-          style={{ cursor: item.mdPath ? "pointer" : "default", color: item.mdPath ? "blue" : "inherit" }}
+          style={{cursor: "pointer"}}
         >
           {item.name}
         </span>
@@ -52,7 +52,7 @@ const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: strin
       {hasChildren && isOpen && (
         <ul className={styles.subCategoryList}>
           {item.children?.map((child) => (
-            <CategoryItem key={child.id} item={child} onSelect={onSelect} />
+            <CategoryItem key={child.id} item={child} onSelect={onSelect}/>
           ))}
         </ul>
       )}
@@ -60,11 +60,11 @@ const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: strin
   );
 };
 
-const Category: React.FC<{ onSelect: (mdPath: string) => void }> = ({ onSelect }) => (
+const Category: React.FC<{ onSelect: (mdPath: string) => void }> = ({onSelect}) => (
   <div className={styles.category}>
     <ul className={styles.categoryList}>
       {rawCategoryData.map((item) => (
-        <CategoryItem key={item.id} item={item} onSelect={onSelect} />
+        <CategoryItem key={item.id} item={item} onSelect={onSelect}/>
       ))}
     </ul>
   </div>

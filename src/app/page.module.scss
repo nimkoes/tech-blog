@@ -1,16 +1,16 @@
 /* 🌟 기본 레이아웃 */
 .home {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100vh;
   background-color: #2b2b2b;
   color: #a9b7c6;
   position: relative;
 }
 
-/* 📌 네비게이션 영역 (IntelliJ 스타일 좌측 고정 패널) */
+/* 📌 네비게이션 패널 (IntelliJ 스타일 좌측 고정) */
 .navigation {
-  width: 50px;
+  width: 31px;
   background: #3c3f41;
   display: flex;
   flex-direction: column;
@@ -28,10 +28,10 @@
   background: none;
   border: none;
   color: #a9b7c6;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
-  padding: 10px;
+  padding: 0px;
   border-radius: 5px;
 
   &:hover {
@@ -40,14 +40,21 @@
   }
 }
 
-/* 📂 카테고리 탐색기 (파일 목록) */
+/* 🌟 전체 컨텐츠 영역 (카테고리 + 컨텐츠) */
+.mainContainer {
+  display: flex;
+  flex-grow: 1;
+  height: calc(100vh - 200px); /* 로그 영역 공간 확보 */
+  margin-left: 15px; /* 네비게이션 패널 고려 */
+}
+
+/* 📂 카테고리 탐색기 */
 .categoryContainer {
   width: 260px;
   background: #313335;
   padding: 1rem;
   transition: transform 0.3s ease-in-out;
   overflow-y: auto;
-  margin-left: 50px; /* 네비게이션 영역을 고려하여 이동 */
 }
 
 .categoryContainer.hide {
@@ -65,7 +72,6 @@
   color: #abb2bf;
   padding: 2rem;
   overflow-y: auto;
-  margin-left: 50px; /* 네비게이션 영역을 고려하여 이동 */
 }
 
 /* 🖥 로그 (터미널) */
@@ -77,6 +83,10 @@
   transition: max-height 0.3s ease-in-out;
   max-height: 200px;
   overflow-y: auto;
+  position: fixed;
+  bottom: 0;
+  left: 31px; /* 네비게이션 패널 고려 */
+  right: 0;
 }
 
 .logContainer.hide {
@@ -89,6 +99,11 @@
 @media (max-width: 1024px) {
   .home {
     flex-direction: column;
+  }
+
+  .mainContainer {
+    flex-direction: column;
+    height: calc(100vh - 200px); /* 로그 영역 고려 */
   }
 
   .categoryContainer {
@@ -105,9 +120,5 @@
 
   .categoryContainer.overlay.show {
     transform: translateX(0);
-  }
-
-  .contentContainer {
-    flex-grow: 1;
   }
 }
