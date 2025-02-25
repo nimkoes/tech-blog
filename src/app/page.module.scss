@@ -24,6 +24,7 @@
       position: relative;
     }
 
+    // 기존 h2 스타일을 home-container 내부에만 한정
     > div > h2 {
       position: sticky;
       top: 0;
@@ -42,6 +43,39 @@
   }
 }
 
+// 🛠️ Markdown 내 h1~h6 스타일 수정 (이전 충돌 문제 해결)
+.markdown-content {
+  h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    margin-top: 1.5rem;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 2rem;
+    border-bottom: 3px solid #007acc;
+    padding-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    border-bottom: 2px solid rgba(0, 95, 153, 0.3);
+    padding-bottom: 0.3rem;
+    color: #005f99;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    color: #007acc;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    color: #005f99;
+  }
+}
+
+// 🌐 반응형 조정
 @media all and (min-width: 768px) {
   .home {
     flex-direction: row;
@@ -51,6 +85,7 @@
     &-container {
       flex: 1 1 auto;
 
+      // 기존 h2 스타일을 home-container 내부에만 적용 (Markdown h2와 분리)
       > div > h2 {
         text-align: left;
       }

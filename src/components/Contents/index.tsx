@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import styles from "./Contents.module.scss";
 
 const Contents: React.FC<{ mdPath: string }> = ({ mdPath }) => {
@@ -21,7 +26,35 @@ const Contents: React.FC<{ mdPath: string }> = ({ mdPath }) => {
     <div className={styles.activity}>
       <h2>CONTENTS</h2>
       <div className={styles.contentWrapper}>
-        {content ? <pre className={styles.mdContent}>{content}</pre> : <p>선택된 문서가 없습니다.</p>}
+        {content ? (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              code({ node, inline, className, children, ...props }: any) {
+                const match = /language-(\w+)/.exec(className || "");
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    style={atomDark}
+                    language={match[1]}
+                    PreTag="div"
+                    {...props}
+                  >
+                    {String(children).replace(/\n$/, "")}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code className={styles.inlineCode} {...props}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {content}
+          </ReactMarkdown>
+        ) : (
+          <p>선택된 문서가 없습니다.</p>
+        )}
       </div>
     </div>
   );

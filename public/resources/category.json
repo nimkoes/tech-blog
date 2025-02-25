@@ -1,0 +1,19 @@
+[
+  {
+    "id": "1",
+    "name": "back-end",
+    "children": [
+      {
+        "id": "1-1",
+        "name": "sample",
+        "children": [
+          {
+            "id": "1-1-1",
+            "name": "post 001",
+            "mdPath": "/posts/sample/test.md"
+          }
+        ]
+      }
+    ]
+  }
+]
