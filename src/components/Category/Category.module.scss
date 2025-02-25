@@ -22,7 +22,7 @@
   .categoryTitle {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
     cursor: pointer;
     font-weight: bold;
   }
@@ -38,7 +38,7 @@
 
   .subCategoryList {
     list-style-type: none;
-    padding-left: 0rem; /* 하위 요소 들여쓰기 */
+    padding-left: 0.5rem; /* 하위 요소 들여쓰기 */
   }
 
   .mdLink {

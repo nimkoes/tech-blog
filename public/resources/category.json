@@ -1,18 +1,12 @@
 [
   {
     "id": "1",
-    "name": "back-end",
+    "name": "version-control",
     "children": [
       {
         "id": "1-1",
-        "name": "sample",
-        "children": [
-          {
-            "id": "1-1-1",
-            "name": "post 001",
-            "mdPath": "/tech-blog/posts/sample/test.md"
-          }
-        ]
+        "name": "git command",
+        "mdPath": "/tech-blog/posts/version-control/git-session.md"
       }
     ]
   }
