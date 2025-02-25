@@ -30,9 +30,9 @@ const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: strin
         style={{ cursor: hasChildren ? "pointer" : "default" }}
       >
         {hasChildren && (
-          <span className={styles.toggleIcon}>{isOpen ? "▼" : "▶"}</span>
+          <span className={styles.toggleIcon}>{isOpen ? "📂" : "📁"}</span>
         )}
-        <span className={styles.folderIcon}>{hasChildren ? "📂" : "📄"}</span>
+        <span className={styles.folderIcon}>{hasChildren ? "" : "📄"}</span>
 
         {/* 📌 mdPath가 있으면 문서 열기, 없으면 폴더 열기/닫기 */}
         <span
@@ -62,7 +62,6 @@ const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: strin
 
 const Category: React.FC<{ onSelect: (mdPath: string) => void }> = ({ onSelect }) => (
   <div className={styles.category}>
-    <h2>CATEGORY</h2>
     <ul className={styles.categoryList}>
       {rawCategoryData.map((item) => (
         <CategoryItem key={item.id} item={item} onSelect={onSelect} />

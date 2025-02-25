@@ -14,8 +14,8 @@
   }
 
   .categoryItem {
-    margin: 0.3rem 0;
-    padding-left: 0.8rem; /* 기존보다 들여쓰기 줄임 */
+    margin: 0rem 0;
+    padding-left: 0.5rem; /* 들여쓰기 */
     position: relative;
   }
 
@@ -38,7 +38,7 @@
 
   .subCategoryList {
     list-style-type: none;
-    padding-left: 1rem; /* 하위 요소 들여쓰기 최소화 */
+    padding-left: 0rem; /* 하위 요소 들여쓰기 */
   }
 
   .mdLink {
