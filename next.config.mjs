@@ -20,6 +20,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: "/tech-blog", // GitHub Pages에서 배포될 경로 설정
+  assetPrefix: "/tech-blog/", // 정적 파일 경로 설정
+  trailingSlash: true, // GitHub Pages에서 모든 페이지가 `/`로 끝나도록 설정
   webpack,
 };
 
