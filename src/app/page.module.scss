@@ -1,4 +1,4 @@
-/* 🌟 햄버거 메뉴 버튼 */
+/* 🌟 햄버거 메뉴 버튼 (데스크톱에서도 사용 가능) */
 .hamburger {
   position: fixed;
   top: 1rem;
@@ -11,9 +11,9 @@
   color: hsla(var(--primary-color));
 }
 
-/* 📂 Category 컨테이너 */
+/* 📂 Category 컨테이너 (기본적으로 닫힘) */
 .categoryContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -100%; // 기본적으로 숨김
   width: 70%;
@@ -32,7 +32,7 @@
   left: 0;
 }
 
-/* ✅ 오버레이 (메뉴 열릴 때 활성화) */
+/* ✅ 오버레이 (메뉴 열릴 때 활성화 - 모바일 & 데스크톱 모두 적용) */
 .overlay {
   position: fixed;
   top: 0;
@@ -47,6 +47,7 @@
 .homeContainer {
   flex: 7;
   padding-top: 3rem;
+  cursor: pointer; // 📌 클릭할 수 있도록 커서 변경
 }
 
 /* 🌐 반응형 조정 (데스크톱 환경) */
@@ -55,25 +56,26 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
+  }
 
-    .categoryContainer {
-      position: relative;
-      left: 0;
-      width: auto;
-      max-width: 300px;
-      height: auto;
-      box-shadow: none;
-      overflow: visible;
-      padding-top: 0;
-    }
+  /* 📂 데스크톱에서도 접고 펼칠 수 있도록 수정 */
+  .categoryContainer {
+    position: fixed;
+    left: -300px; // 기본적으로 접혀 있음
+    width: 300px;
+    height: 100vh;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    background: hsla(var(--background), 0.95);
+  }
 
-    .hamburger {
-      display: none;
-    }
+  /* 📌 데스크톱에서도 햄버거 버튼 사용 가능 */
+  .showMenu {
+    left: 0;
+  }
 
-    .homeContainer {
-      padding-top: 0;
-    }
+  .hamburger {
+    display: block;
   }
 
   /* 📌 데스크톱에서는 오버레이 제거 */
