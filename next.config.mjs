@@ -1,18 +1,3 @@
-/** @type {import('next').NextConfig['webpack']} */
-const webpack = (config) => {
-  // css에서 케밥케이스와 tsx에서 카멜케이스 간의 전환
-  config.module.rules
-    .find(({ oneOf }) => !!oneOf)
-    .oneOf.filter(({ use }) => JSON.stringify(use)?.includes("css-loader"))
-    .reduce((acc, { use }) => acc.concat(use), [])
-    .forEach(({ options }) => {
-      // eslint-disable-next-line no-param-reassign
-      if (options.modules) options.modules.exportLocalsConvention = "camelCase";
-    });
-
-  return config;
-};
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -20,7 +5,17 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  webpack,
+  basePath: "/tech-blog", // ✅ 서브 디렉토리 설정
+  assetPrefix: "/tech-blog/", // ✅ 정적 파일 경로 설정
+  trailingSlash: true, // ✅ URL이 항상 `/`로 끝나도록 설정
+  async rewrites() {
+    return [
+      {
+        source: "/posts/:path*", // ✅ 원래 md 파일 경로
+        destination: "/tech-blog/posts/:path*", // ✅ GitHub Pages에서 요청할 실제 경로
+      },
+    ];
+  },
 };
 
 export default nextConfig;
