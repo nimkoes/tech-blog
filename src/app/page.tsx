@@ -1,15 +1,12 @@
 import styles from "./page.module.scss";
-import Careers from "~/components/Careers";
-import Activities from "~/components/Activities";
-import Aside from "~/components/Aside";
+import Menu from "../components/Menu";
+import Contents from "../components/Contents";
 
 const HomePage = () => (
   <main className={styles.home}>
-    <Aside />
-
+    <Menu />
     <div className={styles.homeContainer}>
-      <Careers />
-      <Activities />
+      <Contents />
     </div>
   </main>
 );

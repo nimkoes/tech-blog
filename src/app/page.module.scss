@@ -6,6 +6,14 @@
   gap: 3rem;
   margin: auto;
 
+  & > :first-child {
+    flex: 3;
+  }
+
+  .homeContainer {
+    flex: 7;
+  }
+
   &-container {
     margin: auto;
     display: flex;

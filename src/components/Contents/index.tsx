@@ -1,9 +1,9 @@
-import activityList from "@resources/activities.json";
-import styles from "./Activities.module.scss";
+import activityList from "@resources/contents.json";
+import styles from "./Contents.module.scss";
 
 const Activities = () => (
   <div className={styles.activity}>
-    <h2>ACTIVITIES & AWARD</h2>
+    <h2>CONTENTS</h2>
 
     <ul className={styles.activityList}>
       {activityList.map((activity) => (

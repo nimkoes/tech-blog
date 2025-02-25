@@ -1,9 +1,9 @@
-import styles from "./Career.module.scss";
-import careerList from "@resources/careers.json";
+import styles from "./Menu.module.scss";
+import careerList from "@resources/menu-category.json";
 
 const Careers = () => (
   <div className={styles.career}>
-    <h2>CAREER</h2>
+    <h2>CATEGORY</h2>
 
     <ol className={styles.careerList}>
       {careerList.sort((a, b) => b.id - a.id).map(({ id, from, to, contents }) => (
