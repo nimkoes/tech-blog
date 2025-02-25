@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import { useState } from "react";
 import styles from "./Category.module.scss";
 import rawCategoryData from "@resources/menu-category.json";
 
@@ -9,9 +9,10 @@ interface CategoryItemProps {
   name: string;
   mdPath?: string;
   children?: CategoryItemProps[];
+  onSelect?: (mdPath: string) => void;
 }
 
-const CategoryItem: React.FC<{ item: CategoryItemProps }> = ({item}) => {
+const CategoryItem: React.FC<{ item: CategoryItemProps; onSelect: (mdPath: string) => void }> = ({ item, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const hasChildren = item.children && item.children.length > 0;
 
@@ -23,12 +24,23 @@ const CategoryItem: React.FC<{ item: CategoryItemProps }> = ({item}) => {
         )}
         <span className={styles.folderIcon}>{hasChildren ? "📂" : "📄"}</span>
         <span className={styles.categoryName}>{item.name}</span>
-        {item.mdPath && <a href={item.mdPath} className={styles.mdLink}>(문서 보기)</a>}
+        {item.mdPath && (
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelect(item.mdPath || "");
+            }}
+            className={styles.mdLink}
+          >
+            (문서 보기)
+          </a>
+        )}
       </div>
       {hasChildren && isOpen && (
         <ul className={styles.subCategoryList}>
           {item.children?.map((child) => (
-            <CategoryItem key={child.id} item={child}/>
+            <CategoryItem key={child.id} item={child} onSelect={onSelect} />
           ))}
         </ul>
       )}
@@ -36,12 +48,12 @@ const CategoryItem: React.FC<{ item: CategoryItemProps }> = ({item}) => {
   );
 };
 
-const Category: React.FC = () => (
+const Category: React.FC<{ onSelect: (mdPath: string) => void }> = ({ onSelect }) => (
   <div className={styles.category}>
     <h2>CATEGORY</h2>
     <ul className={styles.categoryList}>
       {rawCategoryData.map((item) => (
-        <CategoryItem key={item.id} item={item}/>
+        <CategoryItem key={item.id} item={item} onSelect={onSelect} />
       ))}
     </ul>
   </div>
