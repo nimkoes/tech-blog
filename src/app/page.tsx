@@ -47,7 +47,7 @@ const HomePage = () => {
     <main className={styles.home}>
       {/* 📌 햄버거 메뉴 버튼 (모바일 & 데스크톱 모두 사용) */}
       <button className={styles.hamburger} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        ☰
+        <span>☰</span>
       </button>
 
       {/* 📂 Category (햄버거 메뉴 클릭 시 표시) */}

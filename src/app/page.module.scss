@@ -1,28 +1,50 @@
-/* 🌟 햄버거 메뉴 버튼 (데스크톱에서도 사용 가능) */
+/* 🌟 고정된 햄버거 버튼 (원형, 반투명 배경, 투명한 테두리) */
 .hamburger {
   position: fixed;
   top: 1rem;
   left: 1rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
+  width: 48px;  // 📌 버튼 크기 조정
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--green-500));  // 📌 반투명 배경
+  border: 0px;
+  border-radius: 50%;  // 📌 원형 버튼
   cursor: pointer;
-  z-index: 1000;
-  color: hsla(var(--primary-color));
+  z-index: 1100;  // 📌 가장 위로 올림 (Contents 위)
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+
+  span {
+    vertical-align: 1px;
+  }
+
+  &:hover {
+    //background: rgba(0, 0, 0, 0.5);
+    background: hsl(var(--background));
+    transform: scale(1.05);
+    color: hsl(var(--green-500));
+
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
-/* 📂 Category 컨테이너 (기본적으로 닫힘) */
+/* 📂 Category 컨테이너 (위치 고정) */
 .categoryContainer {
   position: fixed;
   top: 0;
-  left: -100%; // 기본적으로 숨김
-  width: 70%;
-  max-width: 300px;
+  left: -300px; // 기본적으로 숨김
+  width: 300px;
   height: 100vh;
   background: hsla(var(--background), 0.95);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease-in-out;
-  z-index: 999;
+  z-index: 1000; // 📌 햄버거 버튼보다 아래 계층
   overflow-y: auto;
   padding-top: 4rem;
 }
@@ -32,7 +54,7 @@
   left: 0;
 }
 
-/* ✅ 오버레이 (메뉴 열릴 때 활성화 - 모바일 & 데스크톱 모두 적용) */
+/* ✅ 오버레이 (모바일 & 데스크톱에서 Contents 클릭 시 메뉴 닫기) */
 .overlay {
   position: fixed;
   top: 0;
@@ -40,14 +62,14 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
-  z-index: 998;
+  z-index: 999;
 }
 
 /* 📜 Contents 컨테이너 */
 .homeContainer {
   flex: 7;
   padding-top: 3rem;
-  cursor: pointer; // 📌 클릭할 수 있도록 커서 변경
+  cursor: pointer;
 }
 
 /* 🌐 반응형 조정 (데스크톱 환경) */
@@ -61,7 +83,7 @@
   /* 📂 데스크톱에서도 접고 펼칠 수 있도록 수정 */
   .categoryContainer {
     position: fixed;
-    left: -300px; // 기본적으로 접혀 있음
+    left: -300px;
     width: 300px;
     height: 100vh;
     transition: left 0.3s ease-in-out;
