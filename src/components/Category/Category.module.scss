@@ -1,0 +1,50 @@
+.category {
+  margin: 1rem;
+  font-family: Arial, sans-serif;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .categoryList {
+    list-style-type: none;
+    padding-left: 0.5rem;
+  }
+
+  .categoryItem {
+    margin: 0.3rem 0;
+    padding-left: 0.8rem; /* 기존보다 들여쓰기 줄임 */
+    position: relative;
+  }
+
+  .categoryTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .toggleIcon {
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .folderIcon {
+    font-size: 1rem;
+  }
+
+  .subCategoryList {
+    list-style-type: none;
+    padding-left: 1rem; /* 하위 요소 들여쓰기 최소화 */
+  }
+
+  .mdLink {
+    font-size: 0.9rem;
+    color: blue;
+    text-decoration: underline;
+    margin-left: 0.5rem;
+  }
+}

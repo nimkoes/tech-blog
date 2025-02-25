@@ -1,11 +1,41 @@
 [
   {
-    "id": 1,
-    "from": "2023.08",
-    "to": "",
-    "contents": [
-      "수출입 물류 지원 솔루션 짐고(ZimGo) 서비스 백엔드 서버 운영",
-      "ZimGo Credit 정책 변경"
+    "id": "backend",
+    "name": "백엔드",
+    "children": [
+      {
+        "id": "zimgo",
+        "name": "짐고 서비스",
+        "children": [
+          {
+            "id": "credit-policy",
+            "name": "ZimGo Credit 정책 변경",
+            "mdPath": "/docs/backend/zimgo/credit-policy.md"
+          },
+          {
+            "id": "server-operation",
+            "name": "짐고 백엔드 서버 운영",
+            "mdPath": "/docs/backend/zimgo/server-operation.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "frontend",
+    "name": "프론트엔드",
+    "children": [
+      {
+        "id": "react",
+        "name": "React 개발",
+        "children": [
+          {
+            "id": "component-patterns",
+            "name": "컴포넌트 패턴",
+            "mdPath": "/docs/frontend/react/component-patterns.md"
+          }
+        ]
+      }
     ]
   }
 ]

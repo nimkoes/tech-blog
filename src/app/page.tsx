@@ -1,10 +1,10 @@
 import styles from "./page.module.scss";
-import Menu from "../components/Menu";
+import Category from "../components/Category";
 import Contents from "../components/Contents";
 
 const HomePage = () => (
   <main className={styles.home}>
-    <Menu />
+    <Category />
     <div className={styles.homeContainer}>
       <Contents />
     </div>
@@ -12,4 +12,3 @@ const HomePage = () => (
 );
 
 export default HomePage;
-
