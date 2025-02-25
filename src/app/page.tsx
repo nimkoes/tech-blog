@@ -24,6 +24,11 @@ const HomePage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // ✅ 메뉴 닫기 함수 (Contents 클릭 시 호출)
+  const closeMenu = () => {
+    if (isMobile) setIsMenuOpen(false);
+  };
+
   return (
     <main className={styles.home}>
       {/* 📌 햄버거 메뉴 버튼 */}
@@ -35,11 +40,19 @@ const HomePage = () => {
 
       {/* 📂 Category (햄버거 메뉴 클릭 시 표시) */}
       <div className={`${styles.categoryContainer} ${isMenuOpen ? styles.showMenu : ""}`}>
-        <Category onSelect={setSelectedMd} />
+        <Category
+          onSelect={(mdPath) => {
+            setSelectedMd(mdPath);
+            closeMenu(); // ✅ 문서 선택 시 메뉴 닫기
+          }}
+        />
       </div>
 
-      {/* 📝 Markdown Contents */}
-      <div className={styles.homeContainer}>
+      {/* ✅ 오버레이 (Contents 클릭 시 메뉴 닫기) */}
+      {isMenuOpen && <div className={styles.overlay} onClick={closeMenu}></div>}
+
+      {/* 📝 Markdown Contents (클릭하면 메뉴 닫힘) */}
+      <div className={styles.homeContainer} onClick={closeMenu}>
         <Contents mdPath={selectedMd} />
       </div>
     </main>

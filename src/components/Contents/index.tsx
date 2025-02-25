@@ -24,7 +24,6 @@ const Contents: React.FC<{ mdPath: string }> = ({ mdPath }) => {
 
   return (
     <div className={styles.activity}>
-      <h2>CONTENTS</h2>
       <div className={styles.contentWrapper}>
         {content ? (
           <ReactMarkdown
