@@ -1,107 +1,113 @@
-/* 🌟 고정된 햄버거 버튼 (원형, 반투명 배경, 투명한 테두리) */
-.hamburger {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  width: 48px;  // 📌 버튼 크기 조정
-  height: 48px;
+/* 🌟 기본 레이아웃 */
+.home {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: hsl(var(--green-500));  // 📌 반투명 배경
-  border: 0px;
-  border-radius: 50%;  // 📌 원형 버튼
-  cursor: pointer;
-  z-index: 1100;  // 📌 가장 위로 올림 (Contents 위)
-  color: #FFFFFF;
-  font-size: 1.5rem;
-  transition: background 0.3s ease, transform 0.2s ease-in-out;
+  flex-direction: row;
+  height: 100vh;
+  background-color: #2b2b2b;
+  color: #a9b7c6;
+  position: relative;
+}
 
-  span {
-    vertical-align: 1px;
-  }
+/* 📌 네비게이션 영역 (IntelliJ 스타일 좌측 고정 패널) */
+.navigation {
+  width: 50px;
+  background: #3c3f41;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  gap: 15px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1050;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  color: #a9b7c6;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  padding: 10px;
+  border-radius: 5px;
 
   &:hover {
-    //background: rgba(0, 0, 0, 0.5);
-    background: hsl(var(--background));
-    transform: scale(1.05);
-    color: hsl(var(--green-500));
-
-  }
-
-  &:active {
-    transform: scale(0.95);
+    background: #4e5254;
+    transform: scale(1.1);
   }
 }
 
-/* 📂 Category 컨테이너 (위치 고정) */
+/* 📂 카테고리 탐색기 (파일 목록) */
 .categoryContainer {
-  position: fixed;
-  top: 0;
-  left: -300px; // 기본적으로 숨김
-  width: 300px;
-  height: 100vh;
-  background: hsla(var(--background), 0.95);
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease-in-out;
-  z-index: 1000; // 📌 햄버거 버튼보다 아래 계층
+  width: 260px;
+  background: #313335;
+  padding: 1rem;
+  transition: transform 0.3s ease-in-out;
   overflow-y: auto;
-  padding-top: 4rem;
+  margin-left: 50px; /* 네비게이션 영역을 고려하여 이동 */
 }
 
-/* 📌 메뉴가 열릴 때 */
-.showMenu {
-  left: 0;
+.categoryContainer.hide {
+  transform: translateX(-100%);
 }
 
-/* ✅ 오버레이 (모바일 & 데스크톱에서 Contents 클릭 시 메뉴 닫기) */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+.categoryContainer.show {
+  transform: translateX(0);
+}
+
+/* 📜 컨텐츠 (에디터) */
+.contentContainer {
+  flex-grow: 1;
+  background: #282c34;
+  color: #abb2bf;
+  padding: 2rem;
+  overflow-y: auto;
+  margin-left: 50px; /* 네비게이션 영역을 고려하여 이동 */
+}
+
+/* 🖥 로그 (터미널) */
+.logContainer {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 999;
+  background: #1e1e1e;
+  color: #c5c5c5;
+  border-top: 2px solid #555;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-/* 📜 Contents 컨테이너 */
-.homeContainer {
-  flex: 7;
-  padding-top: 3rem;
-  cursor: pointer;
+.logContainer.hide {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-/* 🌐 반응형 조정 (데스크톱 환경) */
-@media all and (min-width: 768px) {
+/* 🌐 반응형 (작은 화면일 때) */
+@media (max-width: 1024px) {
   .home {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+    flex-direction: column;
   }
 
-  /* 📂 데스크톱에서도 접고 펼칠 수 있도록 수정 */
   .categoryContainer {
-    position: fixed;
-    left: -300px;
-    width: 300px;
-    height: 100vh;
-    transition: left 0.3s ease-in-out;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    background: hsla(var(--background), 0.95);
-  }
-
-  /* 📌 데스크톱에서도 햄버거 버튼 사용 가능 */
-  .showMenu {
+    position: absolute;
     left: 0;
+    top: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    z-index: 1000;
+    background: rgba(49, 51, 53, 0.95);
+    transform: translateX(-100%);
   }
 
-  .hamburger {
-    display: block;
+  .categoryContainer.overlay.show {
+    transform: translateX(0);
   }
 
-  /* 📌 데스크톱에서는 오버레이 제거 */
-  .overlay {
-    display: none;
+  .contentContainer {
+    flex-grow: 1;
   }
 }

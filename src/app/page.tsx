@@ -4,68 +4,55 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.scss";
 import Category from "../components/Category";
 import Contents from "../components/Contents";
+import LogTerminal from "../components/LogTerminal";
 
 const HomePage = () => {
   const [selectedMd, setSelectedMd] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(true); // 카테고리 열림 여부
+  const [isLogOpen, setIsLogOpen] = useState(true); // 로그 열림 여부
+  const [isMobile, setIsMobile] = useState(false); // 반응형 감지
+  const [logs, setLogs] = useState<string[]>([]);
 
-  // 🖥️ 반응형 감지 (화면 크기에 따라 모바일 여부 설정)
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false); // 데스크톱에서는 기본적으로 닫힘
-      }
+      setIsMobile(window.innerWidth < 1024);
     };
 
-    handleResize(); // 초기 실행
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 🖱️ 스크롤 시 Category 자동 접기
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY + 50) {
-        setIsMenuOpen(false); // 아래로 스크롤하면 닫기
-      }
-      setLastScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
-  // ✅ 메뉴 닫기 함수 (Contents 클릭 시 호출)
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const handleSelect = (mdPath: string) => {
+    setSelectedMd(mdPath);
+    setLogs((prevLogs) => [...prevLogs, `${new Date().toLocaleTimeString()} : ${mdPath}`]);
   };
 
   return (
     <main className={styles.home}>
-      {/* 📌 햄버거 메뉴 버튼 (모바일 & 데스크톱 모두 사용) */}
-      <button className={styles.hamburger} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        <span>☰</span>
-      </button>
-
-      {/* 📂 Category (햄버거 메뉴 클릭 시 표시) */}
-      <div className={`${styles.categoryContainer} ${isMenuOpen ? styles.showMenu : ""}`}>
-        <Category
-          onSelect={(mdPath) => {
-            setSelectedMd(mdPath);
-            closeMenu(); // ✅ 문서 선택 시 메뉴 닫기
-          }}
-        />
+      {/* 📌 네비게이션 영역 (항상 표시) */}
+      <div className={styles.navigation}>
+        <button className={styles.navButton} onClick={() => setIsCategoryOpen(!isCategoryOpen)}>
+          📂
+        </button>
+        <button className={styles.navButton} onClick={() => setIsLogOpen(!isLogOpen)}>
+          🖥
+        </button>
       </div>
 
-      {/* ✅ 오버레이 (모바일 & 데스크톱에서 Contents 클릭 시 메뉴 닫기) */}
-      {isMenuOpen && <div className={styles.overlay} onClick={closeMenu}></div>}
+      {/* 📂 카테고리 (파일 탐색기) */}
+      <div className={`${styles.categoryContainer} ${isCategoryOpen ? styles.show : styles.hide} ${isMobile ? styles.overlay : ""}`}>
+        <Category onSelect={handleSelect} />
+      </div>
 
-      {/* 📝 Markdown Contents (클릭하면 메뉴 닫힘) */}
-      <div className={styles.homeContainer} onClick={closeMenu}>
+      {/* 📝 컨텐츠 영역 (에디터) */}
+      <div className={styles.contentContainer}>
         <Contents mdPath={selectedMd} />
+      </div>
+
+      {/* 🖥 로그 영역 (터미널) */}
+      <div className={`${styles.logContainer} ${isLogOpen ? styles.show : styles.hide}`}>
+        <LogTerminal logs={logs} />
       </div>
     </main>
   );
