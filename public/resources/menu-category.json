@@ -8,11 +8,6 @@
         "name": "짐고 서비스",
         "children": [
           {
-            "id": "credit-policy",
-            "name": "ZimGo Credit 정책 변경",
-            "mdPath": "../posts/sample/test.md"
-          },
-          {
             "id": "server-operation",
             "name": "짐고 백엔드 서버 운영",
             "mdPath": "../../posts/sample/test.md"
@@ -32,7 +27,7 @@
           {
             "id": "component-patterns",
             "name": "컴포넌트 패턴",
-            "mdPath": "/posts/sample/test.md"
+            "mdPath": "../../posts/sample/test2.md"
           }
         ]
       }
