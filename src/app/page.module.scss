@@ -1,132 +1,170 @@
+/* 🌟 공통 변수 정의 */
+$nav-width-pc: 50px; /* 네비게이션 패널 너비 (PC) */
+$nav-width-tablet: 40px; /* 네비게이션 패널 너비 (태블릿) */
+$nav-width-mobile: 35px; /* 네비게이션 패널 너비 (모바일) */
+
+$category-width: 260px; /* 카테고리 너비 */
+$log-height-pc: 200px; /* 로그 영역 높이 (PC) */
+$log-height-tablet: 180px; /* 로그 영역 높이 (태블릿) */
+$log-height-mobile: 150px; /* 로그 영역 높이 (모바일) */
+
 /* 🌟 기본 레이아웃 */
 .home {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #2b2b2b;
-  color: #a9b7c6;
-  position: relative;
+  display: flex; /* 좌우 배치를 위한 flex 적용 */
+  flex-direction: column; /* 세로 정렬 */
+  height: 100vh; /* 전체 화면 높이 설정 */
+  background-color: #2b2b2b; /* 배경색 */
+  color: #a9b7c6; /* 텍스트 색상 */
+  position: relative; /* 내부 요소 위치 조정 */
 }
 
-/* 📌 네비게이션 패널 (IntelliJ 스타일 좌측 고정) */
+/* 📌 네비게이션 패널 (좌측 고정, IntelliJ 스타일) */
 .navigation {
-  width: 50px;
-  background: #3c3f41;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 0;
-  gap: 15px;
-  position: fixed;
+  width: $nav-width-pc; /* 네비게이션 패널 너비 (PC) */
+  background: #3c3f41; /* 배경색 */
+  display: flex; /* 내부 요소 정렬을 위한 flex 적용 */
+  flex-direction: column; /* 세로 정렬 */
+  align-items: center; /* 중앙 정렬 */
+  padding: 10px 0; /* 위아래 여백 */
+  gap: 15px; /* 버튼 간격 */
+  position: fixed; /* 화면 고정 */
   left: 0;
   top: 0;
-  height: 100vh;
-  z-index: 1050;
+  height: 100vh; /* 전체 높이 */
+  z-index: 1050; /* 우선 순위 */
 }
 
+/* 📌 네비게이션 버튼 */
 .navButton {
-  background: none;
-  border: none;
-  color: #a9b7c6;
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  background: none; /* 배경 제거 */
+  border: none; /* 테두리 제거 */
+  color: #a9b7c6; /* 아이콘 색상 */
+  font-size: 1.8rem; /* 아이콘 크기 */
+  cursor: pointer; /* 클릭 가능하도록 설정 */
+  transition: background 0.2s, transform 0.2s; /* 부드러운 애니메이션 */
   padding: 0px;
-  border-radius: 5px;
+  border-radius: 5px; /* 버튼 둥글게 */
 
   &:hover {
-    background: #4e5254;
-    transform: scale(1.1);
+    background: #4e5254; /* 호버 시 배경색 변경 */
+    transform: scale(1.1); /* 호버 시 크기 확대 */
   }
 }
 
-/* 🌟 전체 컨텐츠 영역 (카테고리 + 컨텐츠) */
+/* 🌟 메인 컨테이너 (카테고리 + 컨텐츠) */
 .mainContainer {
-  display: flex;
-  flex-grow: 1;
-  height: calc(100vh - 200px); /* 로그 영역 공간 확보 */
-  margin-left: 15px; /* 네비게이션 패널 고려 */
+  display: flex; /* 카테고리 + 컨텐츠를 나란히 정렬 */
+  flex-grow: 1; /* 컨텐츠가 남은 영역을 모두 차지하도록 설정 */
+  height: calc(100vh - $log-height-pc); /* 로그 영역을 제외한 높이 (PC) */
+  margin-left: $nav-width-pc; /* 네비게이션 패널 고려 */
+  transition: margin-left 0.3s ease-in-out; /* 애니메이션 효과 */
 }
 
 /* 📂 카테고리 탐색기 */
 .categoryContainer {
-  width: 260px;
-  background: #313335;
-  padding: 1rem;
-  transition: transform 0.3s ease-in-out;
-  overflow-y: auto;
+  width: $category-width; /* 카테고리 너비 */
+  background: #313335; /* 배경색 */
+  padding: 1rem; /* 내부 여백 */
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out; /* 애니메이션 효과 */
+  overflow-y: auto; /* 스크롤 가능하도록 설정 */
+  height: calc(100vh - $log-height-pc); /* 로그 영역을 제외한 높이 (PC) */
 }
 
+/* 📌 카테고리 숨김 처리 */
 .categoryContainer.hide {
-  transform: translateX(-100%);
-}
-
-.categoryContainer.show {
-  transform: translateX(0);
+  width: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 /* 📜 컨텐츠 (에디터) */
 .contentContainer {
-  flex-grow: 1;
-  background: #282c34;
-  color: #abb2bf;
-  padding: 2rem;
-  overflow-y: auto;
+  flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 */
+  background: #282c34; /* 배경색 */
+  color: #abb2bf; /* 텍스트 색상 */
+  padding: 2rem; /* 내부 여백 */
+  overflow-y: auto; /* 스크롤 가능하도록 설정 */
+  transition: width 0.3s ease-in-out; /* 애니메이션 효과 */
 }
 
 /* 🖥 로그 (터미널) */
 .logContainer {
-  width: 100%;
-  background: #1e1e1e;
-  color: #c5c5c5;
-  border-top: 2px solid #555;
-  transition: max-height 0.3s ease-in-out;
-  max-height: 200px;
-  overflow-y: auto;
-  position: fixed;
+  width: 100%; /* 전체 너비 차지 */
+  background: #1e1e1e; /* 배경색 */
+  color: #c5c5c5; /* 텍스트 색상 */
+  border-top: 2px solid #555; /* 상단 경계선 */
+  transition: max-height 0.3s ease-in-out; /* 애니메이션 효과 */
+  max-height: $log-height-pc; /* 로그 높이 (PC) */
+  overflow-y: auto; /* 스크롤 가능하도록 설정 */
+  position: fixed; /* 하단 고정 */
   bottom: 0;
-  left: 31px; /* 네비게이션 패널 고려 */
+  left: $nav-width-pc; /* 네비게이션 패널 고려 */
   right: 0;
 }
 
+/* 📌 로그 숨김 처리 */
 .logContainer.hide {
   max-height: 0;
   padding: 0;
   overflow: hidden;
 }
 
-/* 🌐 반응형 (작은 화면일 때) */
+/* 🌐 태블릿 (1024px 이하) */
 @media (max-width: 1024px) {
-  .home {
-    flex-direction: column;
-  }
-
   .navigation {
-    width: 31px;
+    width: $nav-width-tablet; /* 네비게이션 패널 너비 (태블릿) */
   }
 
   .navButton {
-    font-size: 0.8rem;
+    font-size: 1.2rem; /* 버튼 크기 조정 */
   }
 
   .mainContainer {
-    flex-direction: column;
-    height: calc(100vh - 200px); /* 로그 영역 고려 */
+    height: calc(100vh - $log-height-tablet); /* 로그 제외한 높이 (태블릿) */
+    margin-left: $nav-width-tablet; /* 네비게이션 고려 */
   }
 
   .categoryContainer {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 80%;
-    max-width: 300px;
-    height: 100vh;
-    z-index: 1000;
-    background: rgba(49, 51, 53, 0.95);
-    transform: translateX(-100%);
+    height: calc(100vh - $log-height-tablet); /* 로그 제외한 높이 (태블릿) */
+    width: $category-width; /* 태블릿에서도 동일한 너비 유지 */
   }
 
-  .categoryContainer.overlay.show {
-    transform: translateX(0);
+  .logContainer {
+    max-height: $log-height-tablet; /* 로그 높이 조정 (태블릿) */
+    left: $nav-width-tablet; /* 네비게이션 패널 고려 */
+  }
+}
+
+/* 📱 모바일 (768px 이하) */
+@media (max-width: 768px) {
+  .navigation {
+    width: $nav-width-mobile; /* 네비게이션 패널 너비 (모바일) */
+  }
+
+  .navButton {
+    font-size: 1rem; /* 버튼 크기 조정 */
+  }
+
+  .mainContainer {
+    height: calc(100vh - $log-height-mobile); /* 로그 제외한 높이 (모바일) */
+    margin-left: $nav-width-mobile; /* 네비게이션 고려 */
+  }
+
+  .categoryContainer {
+    width: 100%; /* 모바일에서는 전체 화면 차지 */
+    height: calc(100vh - $log-height-mobile); /* 로그 제외한 높이 (모바일) */
+    position: absolute; /* 컨텐츠 위에 덮이는 형태 */
+    background: rgba(49, 51, 53, 0.95); /* 반투명 배경 */
+    transform: translateX(-100%); /* 기본적으로 숨김 */
+    z-index: 1000; /* 우선 순위 */
+  }
+
+  .categoryContainer.show {
+    transform: translateX(0); /* 표시될 때 애니메이션 */
+  }
+
+  .logContainer {
+    max-height: $log-height-mobile; /* 로그 높이 조정 (모바일) */
+    left: $nav-width-mobile; /* 네비게이션 패널 고려 */
   }
 }
