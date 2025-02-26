@@ -9,5 +9,16 @@
         "mdPath": "/tech-blog/posts/version-control/git-session.md"
       }
     ]
+  },
+  {
+    "id": "2",
+    "name": "dummy",
+    "children": [
+      {
+        "id": "2-1",
+        "name": "sample",
+        "mdPath": "/tech-blog/posts/sample/test.md"
+      }
+    ]
   }
 ]

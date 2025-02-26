@@ -10,7 +10,7 @@
 
 /* 📌 네비게이션 패널 (IntelliJ 스타일 좌측 고정) */
 .navigation {
-  width: 31px;
+  width: 50px;
   background: #3c3f41;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
   background: none;
   border: none;
   color: #a9b7c6;
-  font-size: 0.8rem;
+  font-size: 1.8rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
   padding: 0px;
@@ -99,6 +99,14 @@
 @media (max-width: 1024px) {
   .home {
     flex-direction: column;
+  }
+
+  .navigation {
+    width: 31px;
+  }
+
+  .navButton {
+    font-size: 0.8rem;
   }
 
   .mainContainer {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import styles from "./page.module.scss";
 import Category from "../components/Category";
 import Contents from "../components/Contents";
@@ -43,18 +43,18 @@ const HomePage = () => {
       <div className={styles.mainContainer}>
         {/* 📂 카테고리 (파일 탐색기) */}
         <div className={`${styles.categoryContainer} ${isCategoryOpen ? styles.show : styles.hide} ${isMobile ? styles.overlay : ""}`}>
-          <Category onSelect={handleSelect} />
+          <Category onSelect={handleSelect}/>
         </div>
 
         {/* 📝 컨텐츠 영역 (에디터) */}
         <div className={styles.contentContainer}>
-          <Contents mdPath={selectedMd} />
+          <Contents mdPath={selectedMd}/>
         </div>
       </div>
 
       {/* 🖥 로그 영역 (터미널) */}
       <div className={`${styles.logContainer} ${isLogOpen ? styles.show : styles.hide}`}>
-        <LogTerminal logs={logs} />
+        <LogTerminal logs={logs}/>
       </div>
     </main>
   );

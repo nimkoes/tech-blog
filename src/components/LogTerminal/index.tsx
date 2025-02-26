@@ -2,7 +2,7 @@
 
 import styles from "./LogTerminal.module.scss";
 
-const LogTerminal: React.FC<{ logs: string[] }> = ({ logs }) => {
+const LogTerminal: React.FC<{ logs: string[] }> = ({logs}) => {
   return (
     <div className={styles.terminal}>
       {logs.length > 0 ? (
