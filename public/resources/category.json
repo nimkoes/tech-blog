@@ -1,23 +1,34 @@
 [
   {
-    "id": "1",
-    "name": "version-control",
+    "id": "0",
+    "name": "nimkoes tech blog",
     "children": [
       {
-        "id": "1-1",
-        "name": "git command",
-        "mdPath": "/tech-blog/posts/version-control/git-session.md"
-      }
-    ]
-  },
-  {
-    "id": "2",
-    "name": "dummy",
-    "children": [
+        "id": "1",
+        "name": "version-control",
+        "children": [
+          {
+            "id": "1-1",
+            "name": "git command",
+            "mdPath": "/tech-blog/posts/version-control/git-session.md"
+          }
+        ]
+      },
       {
-        "id": "2-1",
-        "name": "sample",
-        "mdPath": "/tech-blog/posts/sample/test.md"
+        "id": "2",
+        "name": "dummy",
+        "children": [
+          {
+            "id": "2-1",
+            "name": "sample",
+            "mdPath": "/tech-blog/posts/sample/test.md"
+          },
+          {
+            "id": "2-2",
+            "name": "sample2",
+            "mdPath": "/tech-blog/posts/sample/test2.md"
+          }
+        ]
       }
     ]
   }
