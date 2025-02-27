@@ -60,6 +60,19 @@
 .categoryView {
   width: 300px; /* 카테고리 패널 너비 */
   background-color: #787878; /* 배경 색상 */
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out; /* 부드러운 전환 효과 */
+}
+
+/* 📌 카테고리 숨김 처리 */
+.categoryView.hide {
+  width: 0; /* 숨길 때 너비 0 */
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 📌 카테고리 표시 */
+.categoryView.show {
+  width: 300px; /* 다시 표시될 때 원래 너비 */
 }
 
 /* 📜 컨텐츠 영역 */
@@ -74,13 +87,25 @@
 
 /* 🖥 로그 영역 */
 .logView {
-  flex-shrink: 0; /* 크기가 자동으로 줄어들지 않도록 설정 */
-  height: 300px; /* 로그 영역 높이 */
-  background-color: #ccc; /* 배경 색상 */
+  flex-shrink: 0;
+  height: 300px;
+  background-color: #ccc;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  overflow: hidden; /* 부모 요소에서 스크롤을 숨김 */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out; /* 부드러운 전환 효과 */
+}
+
+/* 📌 로그 숨김 처리 */
+.logView.hide {
+  max-height: 0; /* 숨길 때 높이 0 */
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 📌 로그 표시 */
+.logView.show {
+  max-height: 300px; /* 다시 표시될 때 원래 높이 */
 }
 
 /* ✅ 로그 내용을 출력하는 컨테이너 */
@@ -91,7 +116,6 @@
   color: #fff; /* 글자색 */
   padding: 10px;
   font-family: monospace; /* 코드 스타일 폰트 적용 */
-  border-radius: 5px;
   max-height: 100%; /* 최대 높이 설정 */
   white-space: pre-wrap; /* 자동 줄바꿈 */
 }
