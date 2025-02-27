@@ -1,170 +1,39 @@
-/* 🌟 공통 변수 정의 (웹사이트 전체에서 사용될 크기를 변수로 저장하여 유지보수를 쉽게 만듦) */
-$nav-width-pc: 50px;       /* 🖥️ PC 환경에서 네비게이션 패널(왼쪽 메뉴 버튼들의 영역) 너비 */
-$nav-width-tablet: 40px;   /* 📱 태블릿 환경에서 네비게이션 패널의 너비 */
-$nav-width-mobile: 35px;   /* 📱 모바일 환경에서 네비게이션 패널의 너비 */
-
-$category-width: 260px;    /* 📂 카테고리 패널(파일 탐색기 역할을 하는 영역)의 너비 (고정값) */
-$log-height-pc: 200px;     /* 🖥️ PC 환경에서 로그 영역(터미널 패널)의 높이 */
-$log-height-tablet: 180px; /* 📱 태블릿 환경에서 로그 영역의 높이 */
-$log-height-mobile: 150px; /* 📱 모바일 환경에서 로그 영역의 높이 */
-
-/* 🌟 기본 레이아웃 (웹사이트의 전체적인 구조를 설정하는 스타일) */
 .home {
-  display: flex; /* 내부 요소들을 가로 또는 세로로 배치할 수 있도록 flexbox 사용 */
-  flex-direction: column; /* 내부 요소들을 세로(위 → 아래) 방향으로 정렬 (네비게이션, 메인 컨텐츠, 로그 순서) */
-  height: 100vh; /* 브라우저의 높이(뷰포트 높이) 100%를 차지하여 화면 전체를 채움 */
-  background-color: #2b2b2b; /* 배경 색상을 IntelliJ와 유사한 다크 테마로 설정 */
-  color: #a9b7c6; /* 기본 텍스트 색상을 IntelliJ 스타일의 회색 계열로 설정 */
-  position: relative; /* 내부 요소들이 위치를 조정할 때 기준이 되는 relative 속성 적용 */
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: stretch;
 }
 
-/* 📌 네비게이션 패널 (좌측 고정된 버튼 영역, 사용자가 카테고리와 로그 영역을 열고 닫을 수 있도록 함) */
-.navigation {
-  width: $nav-width-pc; /* PC 환경에서 네비게이션 패널의 너비 */
-  background: #3c3f41; /* IntelliJ 스타일의 다크 그레이 배경 적용 */
-  display: flex; /* 내부 아이콘을 가로 또는 세로로 정렬하기 위해 flexbox 적용 */
-  flex-direction: column; /* 버튼들을 세로로 정렬 */
-  align-items: center; /* 아이콘을 중앙 정렬하여 보기 좋게 배치 */
-  padding: 10px 0; /* 상하 패딩을 적용하여 버튼과 화면 경계 사이에 여백 추가 */
-  gap: 15px; /* 버튼들 사이의 간격 설정 */
-  position: fixed; /* 스크롤해도 화면 좌측에 항상 고정되도록 설정 */
-  left: 0; /* 화면의 가장 왼쪽에 배치 */
-  top: 0; /* 화면의 가장 위쪽에 배치 */
-  height: 100vh; /* 전체 화면 높이를 차지하여 항상 표시되도록 설정 */
-  z-index: 1050; /* 다른 요소들보다 앞쪽에 위치하여 항상 보이도록 설정 */
+.navigationView {
+  flex-shrink: 0;
+  width: 100px;
+  background-color: #454545;
+
 }
 
-/* 📌 네비게이션 버튼 (카테고리 패널과 로그 패널을 여닫을 수 있는 버튼) */
-.navButton {
-  background: none; /* 배경색을 없애고 아이콘만 표시 */
-  border: none; /* 버튼 테두리를 없애 깔끔한 디자인 유지 */
-  color: #a9b7c6; /* 버튼 아이콘의 색상을 다크 테마와 잘 어울리는 색으로 설정 */
-  font-size: 1.8rem; /* 버튼 크기를 적절히 조정하여 클릭하기 편하게 설정 */
-  cursor: pointer; /* 마우스를 올리면 포인터(손가락) 모양으로 변경하여 클릭 가능함을 표시 */
-  transition: background 0.2s, transform 0.2s; /* 마우스 호버 시 부드러운 애니메이션 효과 적용 */
-  padding: 0px; /* 내부 여백 제거하여 아이콘만 깔끔하게 표시 */
-  border-radius: 5px; /* 버튼의 모서리를 살짝 둥글게 처리하여 부드러운 느낌 추가 */
-
-  &:hover {
-    background: #4e5254; /* 마우스를 올리면 버튼 배경이 살짝 어두워짐 */
-    transform: scale(1.1); /* 버튼이 1.1배 확대되어 클릭할 수 있는 느낌 강조 */
-  }
+.page {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
 }
 
-/* 🌟 메인 컨테이너 (카테고리 + 컨텐츠) */
-.mainContainer {
-  display: flex; /* 카테고리와 컨텐츠를 가로로 정렬 (좌: 카테고리, 우: 컨텐츠) */
-  flex-grow: 1; /* 컨텐츠 영역이 남은 공간을 모두 차지하도록 설정 */
-  height: calc(100vh - $log-height-pc); /* 전체 화면 높이에서 로그 영역의 높이를 뺀 값 */
-  margin-left: $nav-width-pc; /* 네비게이션 패널이 차지하는 공간만큼 왼쪽 여백 추가 */
-  transition: margin-left 0.3s ease-in-out; /* 좌우 너비 변경 시 부드러운 애니메이션 효과 적용 */
+.subPage {
+  display: flex;
+  flex-grow: 1;
 }
 
-/* 📂 카테고리 탐색기 (좌측 사이드바, 파일 탐색기 역할을 함) */
-.categoryContainer {
-  width: $category-width; /* 카테고리 패널(사이드바)의 너비 */
-  background: #313335; /* IntelliJ 스타일의 어두운 배경 적용 */
-  padding: 1rem; /* 내부 여백 추가 */
-  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out; /* 애니메이션 효과 적용 */
-  overflow-y: auto; /* 내용이 많아질 경우 스크롤 가능하도록 설정 */
-  height: calc(100vh - $log-height-pc); /* 전체 높이에서 로그 영역의 높이를 뺀 값 */
+.categoryView {
+  width: 100px;
+  background-color: #787878;
 }
 
-/* 📌 카테고리 숨김 처리 (숨겨지면 너비가 0이 되어 화면에서 사라짐) */
-.categoryContainer.hide {
-  width: 0; /* 숨길 때 너비를 0으로 설정하여 완전히 사라지도록 설정 */
-  padding: 0; /* 내부 여백 제거하여 불필요한 공간 차지 방지 */
-  overflow: hidden; /* 내부 내용을 스크롤할 수 없도록 설정 */
+.contentsView {
+  flex-grow: 1;
 }
 
-/* 📜 컨텐츠 (문서 또는 코드 편집기가 표시되는 메인 영역) */
-.contentContainer {
-  flex-grow: 1; /* 카테고리가 숨겨지면 컨텐츠 영역이 자동으로 확장 */
-  background: #282c34; /* IntelliJ 스타일의 다크 테마 배경 */
-  color: #abb2bf; /* 기본 텍스트 색상 */
-  padding: 2rem; /* 내부 여백 추가 */
-  overflow-y: auto; /* 내용이 많아지면 스크롤 가능하도록 설정 */
-  transition: width 0.3s ease-in-out; /* 너비 변경 시 부드러운 애니메이션 효과 적용 */
-}
-
-/* 🖥 로그 (터미널 영역) */
-.logContainer {
-  width: 100%; /* 전체 너비를 차지하도록 설정 */
-  background: #1e1e1e; /* 터미널 스타일의 다크 배경 */
-  color: #c5c5c5; /* 텍스트 색상을 IntelliJ 터미널과 유사하게 설정 */
-  border-top: 2px solid #555; /* 상단에 구분선을 추가하여 터미널 영역을 구분 */
-  transition: max-height 0.3s ease-in-out; /* 높이 변경 시 부드러운 애니메이션 효과 적용 */
-  max-height: $log-height-pc; /* PC 환경에서 로그 영역의 높이 설정 */
-  overflow-y: auto; /* 로그가 많아질 경우 스크롤 가능하도록 설정 */
-  position: fixed; /* 화면 하단에 고정 */
-  bottom: 0; /* 페이지 하단에 배치 */
-  left: $nav-width-pc; /* 네비게이션 패널을 고려한 왼쪽 정렬 */
-  right: 0; /* 오른쪽 끝까지 확장 */
-}
-
-/* 📌 로그 숨김 처리 */
-.logContainer.hide {
-  max-height: 0; /* 숨길 때 높이를 0으로 설정하여 완전히 사라지도록 설정 */
-  padding: 0; /* 내부 여백 제거 */
-  overflow: hidden; /* 내부 내용을 보이지 않도록 설정 */
-}
-
-/* 🌐 태블릿 (1024px 이하) */
-@media (max-width: 1024px) {
-  .navigation {
-    width: $nav-width-tablet; /* 태블릿 환경에서 네비게이션 너비 조정 */
-  }
-
-  .navButton {
-    font-size: 1.2rem; /* 버튼 크기 조정 */
-  }
-
-  .mainContainer {
-    height: calc(100vh - $log-height-tablet); /* 태블릿 환경에서 로그 영역 제외한 높이 */
-    margin-left: $nav-width-tablet; /* 네비게이션 크기 조정 */
-  }
-
-  .categoryContainer {
-    height: calc(100vh - $log-height-tablet); /* 태블릿 환경에서 카테고리 높이 조정 */
-    width: $category-width; /* 태블릿에서도 동일한 너비 유지 */
-  }
-
-  .logContainer {
-    max-height: $log-height-tablet; /* 태블릿 환경에서 로그 높이 조정 */
-    left: $nav-width-tablet; /* 네비게이션 패널 고려 */
-  }
-}
-
-/* 📱 모바일 (768px 이하) */
-@media (max-width: 768px) {
-  .navigation {
-    width: $nav-width-mobile; /* 모바일 환경에서 네비게이션 너비 조정 */
-  }
-
-  .navButton {
-    font-size: 1rem; /* 버튼 크기 축소 */
-  }
-
-  .mainContainer {
-    height: calc(100vh - $log-height-mobile); /* 모바일 환경에서 로그 제외한 높이 */
-    margin-left: $nav-width-mobile; /* 네비게이션 패널 고려 */
-  }
-
-  .categoryContainer {
-    width: 100%; /* 모바일에서는 전체 화면 차지 */
-    height: calc(100vh - $log-height-mobile); /* 모바일 환경에서 로그 제외한 높이 */
-    position: absolute; /* 컨텐츠 위에 덮이는 형태 */
-    background: rgba(49, 51, 53, 0.95); /* 반투명 배경 */
-    transform: translateX(-100%); /* 기본적으로 숨김 */
-    z-index: 1000; /* 우선 순위 */
-  }
-
-  .categoryContainer.show {
-    transform: translateX(0); /* 표시될 때 애니메이션 */
-  }
-
-  .logContainer {
-    max-height: $log-height-mobile; /* 모바일 환경에서 로그 높이 조정 */
-    left: $nav-width-mobile; /* 네비게이션 패널 고려 */
-  }
+.logView {
+  flex-shrink: 0;
+  height: 300px;
+  background-color: #ccc;
 }
