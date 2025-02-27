@@ -1,121 +1,145 @@
+/* 🌟 공통 변수 정의 */
+$nav-width: 50px;
+$category-width: 200px;
+$log-height: 150px;
+
+/* 🌟 폰트 크기 정의 */
+$nav-font-size: 1rem;
+$category-font-size: 0.9rem;
+$content-font-size: 0.85rem;
+$log-font-size: 0.85rem;
+
 /* 🌟 전체 레이아웃 */
 .home {
-  display: flex; /* 가로 방향 정렬을 위한 flex 적용 */
-  height: 100%; /* 부모 요소의 높이를 모두 차지하도록 설정 */
-  width: 100%; /* 부모 요소의 너비를 모두 차지하도록 설정 */
-  justify-content: stretch; /* 내부 요소들이 가능한 공간을 모두 차지하도록 설정 */
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: stretch;
 }
 
-/* 🌟 내비게이션 버튼 (세로 정렬) 추가 */
+/* 📌 내비게이션 영역 */
 .navigationView {
-  display: flex; /* 내부 요소 정렬을 위해 flex 사용 */
-  flex-direction: column; /* 내부 버튼들을 세로로 정렬 */
-  flex-shrink: 0; /* 네비게이션 패널 크기를 유지하면서 줄어들지 않도록 설정 */
-  width: 100px; /* 네비게이션 패널의 너비 (고정) */
-  background-color: #454545; /* 배경 색상 (IntelliJ 스타일) */
-  align-items: center; /* 버튼들을 중앙 정렬 */
-  justify-content: flex-start; /* 내부 요소를 상단에 정렬 */
-  padding: 10px 0; /* 위아래 여백 추가 */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: $nav-width;
+  background-color: #454545;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 0;
 }
 
-/* 📌 내비게이션 버튼 (아이콘 형식) */
+/* 📌 내비게이션 버튼 컨테이너 */
 .navigation {
-  display: flex; /* 버튼들을 정렬할 수 있도록 flex 사용 */
-  flex-direction: column; /* 버튼들을 세로로 정렬 */
-  align-items: center; /* 버튼들이 중앙에 위치하도록 정렬 */
-  gap: 10px; /* 버튼들 사이의 간격 설정 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
 }
 
 /* 📌 개별 버튼 스타일 */
 .navButton {
-  background: none; /* 배경 제거 (투명 버튼) */
-  border: none; /* 테두리 제거 */
-  color: #a9b7c6; /* 아이콘 색상 (회색 계열) */
-  font-size: 1.8rem; /* 아이콘 크기 */
-  cursor: pointer; /* 클릭 가능하도록 설정 */
-  transition: background 0.2s, transform 0.2s; /* 마우스 오버 시 부드러운 애니메이션 효과 */
-  padding: 8px; /* 버튼 내부 여백 추가 */
-  border-radius: 5px; /* 버튼을 살짝 둥글게 처리 */
+  background: none;
+  border: none;
+  color: #a9b7c6;
+  font-size: $nav-font-size;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 5px;
+  transition: background 0.2s, transform 0.2s;
 
   &:hover {
-    background: #4e5254; /* 마우스 오버 시 버튼 배경 변경 */
-    transform: scale(1.1); /* 버튼을 살짝 확대 */
+    background: #4e5254;
+    transform: scale(1.1);
   }
 }
 
 /* 📌 메인 컨텐츠 영역 */
 .page {
-  display: flex; /* 내부 요소를 정렬하기 위해 flex 사용 */
-  flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 */
-  flex-direction: column; /* 내부 요소들을 세로로 배치 */
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
 }
 
 /* 📌 서브 페이지 (카테고리 + 컨텐츠) */
 .subPage {
-  display: flex; /* 가로 배치를 위한 flex 적용 */
-  flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 */
+  display: flex;
+  flex-grow: 1;
+  height: calc(100vh - $log-height);
+  overflow: hidden;
 }
 
 /* 📂 카테고리 영역 */
 .categoryView {
-  width: 300px; /* 카테고리 패널 너비 */
-  background-color: #787878; /* 배경 색상 */
-  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out; /* 부드러운 전환 효과 */
+  width: $category-width;
+  background-color: #787878;
+  font-size: $category-font-size;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  overflow-y: auto;
 }
 
 /* 📌 카테고리 숨김 처리 */
 .categoryView.hide {
-  width: 0; /* 숨길 때 너비 0 */
+  width: 0;
   padding: 0;
   overflow: hidden;
 }
 
 /* 📌 카테고리 표시 */
 .categoryView.show {
-  width: 300px; /* 다시 표시될 때 원래 너비 */
+  width: $category-width;
 }
 
 /* 📜 컨텐츠 영역 */
 .contentsView {
   display: flex;
-  flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 (카테고리 제외) */
-  overflow-y: auto; /* 세로 스크롤 활성화 */
+  flex-grow: 1;
   flex-direction: column;
-  white-space: pre-wrap; /* 긴 텍스트가 자동 줄바꿈 되도록 설정 */
-  word-break: break-word; /* 단어가 너무 길어도 잘리도록 설정 */
+  overflow-y: auto;
+  background: #282c34;
+  color: #abb2bf;
+  padding: 1rem;
+  font-size: $content-font-size;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* 🖥 로그 영역 */
 .logView {
-  flex-shrink: 0;
-  height: 300px;
-  background-color: #ccc;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  height: $log-height;
+  background-color: #ccc;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out; /* 부드러운 전환 효과 */
+  position: fixed;
+  bottom: 0;
+  left: $nav-width;
+  right: 0;
+  transition: max-height 0.3s ease-in-out;
 }
 
 /* 📌 로그 숨김 처리 */
 .logView.hide {
-  max-height: 0; /* 숨길 때 높이 0 */
+  max-height: 0;
   padding: 0;
   overflow: hidden;
 }
 
 /* 📌 로그 표시 */
 .logView.show {
-  max-height: 300px; /* 다시 표시될 때 원래 높이 */
+  max-height: $log-height;
 }
 
 /* ✅ 로그 내용을 출력하는 컨테이너 */
 .logContainer {
-  flex-grow: 1; /* 로그 메시지가 많아지면 자동 확장 */
-  overflow-y: auto; /* 스크롤 활성화 */
-  background: #222; /* 로그 배경색 */
-  color: #fff; /* 글자색 */
+  flex-grow: 1;
+  overflow-y: auto;
+  background: #222;
+  color: #fff;
   padding: 10px;
-  font-family: monospace; /* 코드 스타일 폰트 적용 */
-  max-height: 100%; /* 최대 높이 설정 */
-  white-space: pre-wrap; /* 자동 줄바꿈 */
+  font-size: $log-font-size;
+  font-family: monospace;
+  max-height: 100%;
+  white-space: pre-wrap;
 }
