@@ -10,7 +10,7 @@
           {
             "id": "1-1",
             "name": "git command",
-            "mdPath": "/tech-blog/posts/version-control/git-session.md"
+            "mdPath": "/tech-blog/posts/version-control"
           }
         ]
       },
@@ -21,12 +21,7 @@
           {
             "id": "2-1",
             "name": "sample",
-            "mdPath": "/tech-blog/posts/sample/test.md"
-          },
-          {
-            "id": "2-2",
-            "name": "sample2",
-            "mdPath": "/tech-blog/posts/sample/test2.md"
+            "mdPath": "/tech-blog/posts/sample"
           }
         ]
       }

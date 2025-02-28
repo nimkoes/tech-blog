@@ -74,7 +74,7 @@ const HomePage = () => {
 
           {/* 콘텐츠 영역 */}
           <div className={styles.contentsView}>
-            {content ? <pre>{content}</pre> : <p>📄 Markdown 파일을 선택하세요.</p>}
+            {content ? content : <p>📄 Markdown 파일을 선택하세요.</p>}
           </div>
         </div>
 
