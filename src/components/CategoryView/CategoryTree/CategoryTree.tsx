@@ -1,4 +1,6 @@
-import styles from "~/components/CategoryView/CategoryView.module.scss";
+"use client";
+
+import styles from "./CategoryTree.module.scss";
 
 interface CategoryItem {
   id: string;
@@ -18,10 +20,10 @@ const CategoryTree = ({
   depth: number;
   toggleFolder: (id: string) => void;
   openFolders: { [key: string]: boolean };
-  highlightText: (text: string) => JSX.Element | string;
+  highlightText: (text: string) => React.ReactNode;
 }) => {
   return (
-    <ul className={styles.categoryTree} style={{paddingLeft: `${depth * 15}px`}}>
+    <ul className={styles.categoryTree} style={{ paddingLeft: `${depth * 15}px` }}>
       {data.map((item) => (
         <li key={item.id} className={styles.treeItem}>
           {item.children ? (
@@ -32,8 +34,13 @@ const CategoryTree = ({
             <span className={styles.file}>{highlightText(item.name)}</span>
           )}
           {item.children && openFolders[item.id] && (
-            <CategoryTree data={item.children} depth={depth + 1} toggleFolder={toggleFolder} openFolders={openFolders}
-                          highlightText={highlightText}/>
+            <CategoryTree
+              data={item.children}
+              depth={depth + 1}
+              toggleFolder={toggleFolder}
+              openFolders={openFolders}
+              highlightText={highlightText}
+            />
           )}
         </li>
       ))}

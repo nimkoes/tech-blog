@@ -1,9 +1,10 @@
 "use client";
 
-import {ReactNode, useState} from "react";
+import { ReactNode, useState } from "react";
 import styles from "./CategoryView.module.scss";
 import categoryData from "@resources/category.json";
-import CategoryControl from "~/components/CategoryView/CategoryControl/CategoryControl";
+import CategoryControl from "./CategoryControl/CategoryControl";
+import CategoryTree from "./CategoryTree/CategoryTree";
 
 interface CategoryItem {
   id: string;
@@ -53,55 +54,27 @@ const CategoryView = () => {
       </>
     );
   };
-  // 📂 폴더 클릭 시 토글
-  const toggleFolder = (id: string) => {
-    setOpenFolders((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
 
   return (
     <div className={styles.categoryView}>
-      <CategoryControl expandAll={expandAll} collapseAll={collapseAll} setSearchQuery={setSearchQuery}/>
-      <CategoryTree data={categoryData} depth={0} toggleFolder={toggleFolder} openFolders={openFolders}
-                    highlightText={highlightText}/>
+      <CategoryControl
+        expandAll={expandAll}
+        collapseAll={collapseAll}
+        setSearchQuery={setSearchQuery}
+      />
+      <CategoryTree
+        data={categoryData}
+        depth={0}
+        toggleFolder={(id) =>
+          setOpenFolders((prev) => ({
+            ...prev,
+            [id]: !prev[id],
+          }))
+        }
+        openFolders={openFolders}
+        highlightText={highlightText}
+      />
     </div>
-  );
-};
-
-// ✅ 폴더 & 파일을 트리 구조로 렌더링하는 재귀 컴포넌트
-const CategoryTree = ({
-                        data,
-                        depth,
-                        toggleFolder,
-                        openFolders,
-                        highlightText,
-                      }: {
-  data: CategoryItem[];
-  depth: number;
-  toggleFolder: (id: string) => void;
-  openFolders: { [key: string]: boolean };
-  highlightText: (text: string) => React.ReactNode;  // ✅ 타입 수정
-}) => {
-  return (
-    <ul className={styles.categoryTree} style={{paddingLeft: `${depth * 15}px`}}>
-      {data.map((item) => (
-        <li key={item.id} className={styles.treeItem}>
-          {item.children ? (
-            <span onClick={() => toggleFolder(item.id)} className={styles.folder}>
-              {openFolders[item.id] ? "📂" : "📁"} {highlightText(item.name)}
-            </span>
-          ) : (
-            <span className={styles.file}>{highlightText(item.name)}</span>
-          )}
-          {item.children && openFolders[item.id] && (
-            <CategoryTree data={item.children} depth={depth + 1} toggleFolder={toggleFolder} openFolders={openFolders}
-                          highlightText={highlightText}/>
-          )}
-        </li>
-      ))}
-    </ul>
   );
 };
 
