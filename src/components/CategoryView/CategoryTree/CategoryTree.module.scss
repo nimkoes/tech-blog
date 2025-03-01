@@ -1,0 +1,26 @@
+.arrow {
+  width: 13px;
+  display: inline-block;
+  text-align: center;
+  color: #ccc;
+}
+
+.folderIcon {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* 📂 폴더 스타일 */
+.folder {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #cccccc;
+}
+
+/* 📄 파일 스타일 */
+.file {
+  color: rgba(114, 204, 238, 0.78);
+}

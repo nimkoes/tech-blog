@@ -15,7 +15,8 @@ const CategoryTree = ({
                         toggleFolder,
                         openFolders,
                         highlightText,
-                        onFileSelect = () => {},
+                        onFileSelect = () => {
+                        },
                       }: {
   data: CategoryItem[];
   depth: number;
@@ -30,7 +31,27 @@ const CategoryTree = ({
         <li key={item.id} className={styles.treeItem}>
           {item.children ? (
             <span onClick={() => toggleFolder(item.id)} className={styles.folder}>
-              {openFolders[item.id] ? "📂" : "📁"} {highlightText(item.name)}
+              <span className={styles.arrow}>
+                {openFolders[item.id] ? (
+                  <svg viewBox="0 0 24 24">
+                    <path fill="#AEB2B8" d="M5 8l7 8 7-8z"/>
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24">
+                    <path fill="#AEB2B8" d="M8 5l8 7-8 7z"/>
+                  </svg>
+                )}
+              </span>
+
+              {/* IntelliJ 스타일 폴더 아이콘 */}
+              <span className={styles.folderIcon}>
+                  <svg viewBox="0 0 24 24">
+                    <path fill="#cccccc"
+                          d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
+                  </svg>
+              </span>
+              {highlightText(item.name)}
+              {/*{openFolders[item.id] ? "📂" : "📁"} {highlightText(item.name)}*/}
             </span>
           ) : (
             <span

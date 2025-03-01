@@ -20,7 +20,6 @@ const LogView = ({logs, onClose}: LogViewProps) => {
         </button>
       </div>
 
-      {/* ✅ 로그 출력 영역 */}
       <LogContainer logs={logs}/>
     </div>
   );

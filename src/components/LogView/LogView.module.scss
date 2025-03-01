@@ -1,5 +1,4 @@
 $log-height: 150px;
-$log-font-size: 0.85rem;
 
 /* 🖥 로그 전체 영역 */
 .logView {
@@ -12,6 +11,7 @@ $log-font-size: 0.85rem;
   left: 50px;
   right: 0;
   transition: max-height 0.3s ease-in-out;
+  border-top: 1px solid #000;
 }
 
 /* ✅ 상단 헤더 (닫기 버튼) - 고정 */
