@@ -5,36 +5,8 @@
     "children": [
       {
         "id": "1",
-        "displayName": "sample",
-        "children": [
-          {
-            "id": "1-1",
-            "displayName": "test",
-            "fileName": "git-command"
-          }
-        ]
-      },
-      {
-        "id": "2",
-        "displayName": "test",
-        "children": [
-          {
-            "id": "2-1",
-            "displayName": "another",
-            "children": [
-              {
-                "id": "2-1-1",
-                "displayName": "what.md",
-                "fileName": "what"
-              }
-            ]
-          },
-          {
-            "id": "2-2",
-            "displayName": "abc.md",
-            "fileName": "abc"
-          }
-        ]
+        "displayName": "useful git command",
+        "fileName": "0001250302-git"
       }
     ]
   }
