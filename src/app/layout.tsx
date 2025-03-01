@@ -1,21 +1,11 @@
-import type {Metadata} from "next";
 import "~/styles/index.scss";
-
-export const metadata: Metadata = {
-  title: "TECH BLOG",
-  description: "tech blog for nimkoes",
-};
+import styles from "./layout.module.scss";
 
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
     <head>
-      {/*TODO*/}
-      {/*<meta name="google-site-verification" content="qjAYKAWDvi1a8R2WjIvp8VV8QmEiYymdpjXx5nBcyak" />*/}
-      <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
-      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin=""/>
-      <link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" type="text/css"/>
-
+      <title>Nimkoes Tech Blog</title>
       <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
@@ -23,7 +13,23 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
       />
     </head>
 
-    <body>{children}</body>
+    <body className={styles.home}>
+
+    <aside className={styles.navigationView}>
+      <div className={styles.navigation}>
+        <button className={styles.navButton}>📂</button>
+        <button className={styles.navButton}>🖥</button>
+      </div>
+    </aside>
+
+    <div className={styles.page}>
+      <div className={styles.subPage}>
+        <div className={`${styles.categoryView}`}></div>
+        <div className={styles.contentsView}> {children}</div>
+      </div>
+      <div className={`${styles.logView}`}></div>
+    </div>
+    </body>
     </html>
   );
 }
