@@ -1,11 +1,53 @@
-.button {
+/* 📌 컨트롤 전체 레이아웃 */
+.categoryControl {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  color: white;
+}
+
+/* 📌 버튼과 검색창을 같은 줄에 배치 */
+.controls {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* 📌 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
+.iconButton {
   background: none;
-  border: 1px solid #ccc;
-  padding: 5px;
+  border: none;
+  color: white;
   cursor: pointer;
-  transition: background 0.2s;
+  padding: 3px;
+  transition: background 0.2s, transform 0.2s;
 
   &:hover {
-    background: #777;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    border-radius: 5px;
   }
+}
+
+/* 📌 검색 입력창 (돋보기 클릭 전에는 숨김) */
+.searchInput {
+  display: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-left: 5px;
+  color: #444444;
+  background-color: rgba(153, 163, 163, 0.64);
+}
+
+/* 📌 검색창 활성화 시 표시 */
+.searchActive {
+  display: block;
+}
+
+/* 📌 버튼 그룹을 오른쪽 정렬 */
+.actionButtons {
+  display: flex;
+  margin-left: auto;
 }
