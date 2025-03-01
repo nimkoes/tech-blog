@@ -1,5 +1,8 @@
 import "~/styles/index.scss";
 import styles from "./layout.module.scss";
+import Navigation from "~/components/NavigationView/NavigationView";
+import CategoryView from "~/components/CategoryView/CategoryView";
+import LogView from "~/components/LogView/LogView";
 
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -14,20 +17,14 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
     </head>
 
     <body className={styles.home}>
-
-    <aside className={styles.navigationView}>
-      <div className={styles.navigation}>
-        <button className={styles.navButton}>📂</button>
-        <button className={styles.navButton}>🖥</button>
-      </div>
-    </aside>
+    <Navigation/>
 
     <div className={styles.page}>
       <div className={styles.subPage}>
-        <div className={`${styles.categoryView}`}></div>
+        <CategoryView/>
         <div className={styles.contentsView}> {children}</div>
       </div>
-      <div className={`${styles.logView}`}></div>
+      <LogView/>
     </div>
     </body>
     </html>

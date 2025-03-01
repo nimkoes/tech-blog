@@ -1,0 +1,24 @@
+$category-width: 200px;
+$category-font-size: 0.9rem;
+
+/* 📂 카테고리 영역 */
+.categoryView {
+  width: $category-width;
+  flex-shrink: 0;
+  background-color: #787878;
+  font-size: $category-font-size;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+/* 📌 카테고리 숨김 처리 */
+.categoryView.hide {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 📌 카테고리 표시 */
+.categoryView.show {
+  width: $category-width;
+}

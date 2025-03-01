@@ -1,5 +1,3 @@
-import createMDX from '@next/mdx'
-
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
@@ -12,6 +10,4 @@ const nextConfig = {
   trailingSlash: true, // ✅ URL이 항상 `/`로 끝나도록 설정
 };
 
-const withMDX = createMDX({})
-
-export default withMDX(nextConfig);
+export default nextConfig;

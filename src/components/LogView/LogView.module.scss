@@ -1,0 +1,43 @@
+$nav-width: 50px;
+$log-height: 150px;
+$log-font-size: 0.85rem;
+
+/* 🖥 로그 영역 */
+.logView {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: $log-height;
+  background-color: #ccc;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: $nav-width;
+  right: 0;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* 📌 로그 숨김 처리 */
+.logView.hide {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 📌 로그 표시 */
+.logView.show {
+  max-height: $log-height;
+}
+
+/* ✅ 로그 내용을 출력하는 컨테이너 */
+.logContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+  background: #222;
+  color: #fff;
+  padding: 10px;
+  font-size: $log-font-size;
+  font-family: monospace;
+  max-height: 100%;
+  white-space: pre-wrap;
+}
