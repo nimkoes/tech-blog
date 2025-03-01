@@ -15,15 +15,17 @@ const CategoryTree = ({
                         toggleFolder,
                         openFolders,
                         highlightText,
+                        onFileSelect = () => {},
                       }: {
   data: CategoryItem[];
   depth: number;
   toggleFolder: (id: string) => void;
   openFolders: { [key: string]: boolean };
   highlightText: (text: string) => React.ReactNode;
+  onFileSelect: (fileName: string) => void;
 }) => {
   return (
-    <ul className={styles.categoryTree} style={{ paddingLeft: `${depth * 15}px` }}>
+    <ul className={styles.categoryTree} style={{paddingLeft: `${depth * 15}px`}}>
       {data.map((item) => (
         <li key={item.id} className={styles.treeItem}>
           {item.children ? (
@@ -31,7 +33,10 @@ const CategoryTree = ({
               {openFolders[item.id] ? "📂" : "📁"} {highlightText(item.name)}
             </span>
           ) : (
-            <span className={styles.file}>{highlightText(item.name)}</span>
+            <span
+              className={styles.file}
+              onClick={() => onFileSelect && onFileSelect(item.name)}
+            >{highlightText(item.name)}</span>
           )}
           {item.children && openFolders[item.id] && (
             <CategoryTree
@@ -40,6 +45,7 @@ const CategoryTree = ({
               toggleFolder={toggleFolder}
               openFolders={openFolders}
               highlightText={highlightText}
+              onFileSelect={onFileSelect}
             />
           )}
         </li>

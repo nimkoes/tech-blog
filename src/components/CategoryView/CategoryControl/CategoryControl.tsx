@@ -36,7 +36,7 @@ const CategoryControl = ({ expandAll, collapseAll, setSearchQuery, onClose }: Ca
         {/* 🔍 검색 입력창 (돋보기를 클릭하면 표시) */}
         <input
           type="text"
-          placeholder="검색..."
+          placeholder="Search..."
           value={searchTerm}
           onChange={handleSearchChange}
           className={`${styles.searchInput} ${isSearchOpen ? styles.searchActive : ""}`}

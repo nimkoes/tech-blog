@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import {ReactNode, useState} from "react";
 import styles from "./CategoryView.module.scss";
 import categoryData from "@resources/category.json";
 import CategoryControl from "./CategoryControl/CategoryControl";
@@ -13,7 +13,14 @@ interface CategoryItem {
   children?: CategoryItem[];
 }
 
-const CategoryView = ({ onClose }: { onClose: () => void }) => { // ✅ onClose props 추가
+const CategoryView = ({
+                        onClose,
+                        onFileSelect,
+                      }: {
+  onClose: () => void;
+  onFileSelect: (fileName: string) => void;
+
+}) => { // ✅ onClose props 추가
   const [openFolders, setOpenFolders] = useState<{ [key: string]: boolean }>({});
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -74,6 +81,7 @@ const CategoryView = ({ onClose }: { onClose: () => void }) => { // ✅ onClose 
         }
         openFolders={openFolders}
         highlightText={highlightText}
+        onFileSelect={onFileSelect}
       />
     </div>
   );

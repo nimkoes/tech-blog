@@ -1,0 +1,11 @@
+/* ✅ 로그 목록 (스크롤 적용) */
+.logContainer {
+  flex-grow: 1;
+  overflow-y: auto; // ✅ 사용자가 자유롭게 스크롤 가능
+  background: #222;
+  color: #fff;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  height: 100%;
+}
