@@ -13,7 +13,7 @@ interface CategoryItem {
   children?: CategoryItem[];
 }
 
-const CategoryView = () => {
+const CategoryView = ({ onClose }: { onClose: () => void }) => { // ✅ onClose props 추가
   const [openFolders, setOpenFolders] = useState<{ [key: string]: boolean }>({});
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -61,6 +61,7 @@ const CategoryView = () => {
         expandAll={expandAll}
         collapseAll={collapseAll}
         setSearchQuery={setSearchQuery}
+        onClose={onClose} // ✅ 부모에서 전달받은 onClose 함수 실행
       />
       <CategoryTree
         data={categoryData}

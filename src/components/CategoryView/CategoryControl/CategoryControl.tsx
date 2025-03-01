@@ -1,15 +1,16 @@
 "use client";
 
-import {useState} from "react";
+import { useState } from "react";
 import styles from "./CategoryControl.module.scss";
 
 interface CategoryControlProps {
   expandAll: () => void;
   collapseAll: () => void;
   setSearchQuery: (query: string) => void;
+  onClose: () => void; // ✅ 카테고리 닫기 이벤트 추가
 }
 
-const CategoryControl = ({expandAll, collapseAll, setSearchQuery}: CategoryControlProps) => {
+const CategoryControl = ({ expandAll, collapseAll, setSearchQuery, onClose }: CategoryControlProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false); // 🔍 검색창 토글 상태
 
@@ -57,7 +58,7 @@ const CategoryControl = ({expandAll, collapseAll, setSearchQuery}: CategoryContr
               <path d="M6 3l6 6 6-6"/>
             </svg>
           </button>
-          <button onClick={collapseAll} className={styles.iconButton}>
+          <button onClick={onClose} className={styles.iconButton}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                  strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14"/>
