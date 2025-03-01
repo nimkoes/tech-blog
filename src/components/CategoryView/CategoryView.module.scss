@@ -41,14 +41,20 @@
   span {
     display: flex;
     align-items: center;
-    gap: 5px;
   }
 }
 
 .folder {
-  color: #ffffff;
+  color: #cccccc;
 }
 
 .file {
   color: rgba(114, 204, 238, 0.78);
+}
+
+/* 🔍 검색어 하이라이트 */
+.highlight {
+  background-color: rgba(246, 246, 22, 0.93);
+  color: black;
+  border-radius: 3px;
 }
