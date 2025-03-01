@@ -8,8 +8,8 @@ import CategoryTree from "./CategoryTree/CategoryTree";
 
 interface CategoryItem {
   id: string;
-  name: string;
-  mdPath?: string;
+  displayName: string;
+  fileName?: string;
   children?: CategoryItem[];
 }
 
