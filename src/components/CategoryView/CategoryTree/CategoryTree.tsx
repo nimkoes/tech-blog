@@ -1,11 +1,10 @@
-"use client";
-
+import Link from "next/link";
 import styles from "./CategoryTree.module.scss";
 
 interface CategoryItem {
   id: string;
-  name: string;
-  mdPath?: string;
+  displayName: string;
+  fileName?: string;
   children?: CategoryItem[];
 }
 
@@ -50,14 +49,18 @@ const CategoryTree = ({
                           d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
                   </svg>
               </span>
-              {highlightText(item.name)}
-              {/*{openFolders[item.id] ? "📂" : "📁"} {highlightText(item.name)}*/}
+              {highlightText(item.displayName)}
             </span>
           ) : (
-            <span
-              className={styles.file}
-              onClick={() => onFileSelect && onFileSelect(item.name)}
-            >{highlightText(item.name)}</span>
+
+            <Link href={`/post/${encodeURIComponent(item.fileName || "")}`} className={styles.file} legacyBehavior>
+              <a
+                className={styles.file}
+                onClick={() => onFileSelect(item.displayName)} // 로그 기록
+              >
+                {highlightText(item.displayName)}
+              </a>
+            </Link>
           )}
           {item.children && openFolders[item.id] && (
             <CategoryTree

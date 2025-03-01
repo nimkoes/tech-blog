@@ -1,0 +1,32 @@
+/* 📄 page.module.scss (Markdown 스타일링) */
+.markdown {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #282c34;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.markdown h1, .markdown h2, .markdown h3 {
+  color: #ff9800;
+}
+
+.markdown a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.markdown pre {
+  background: #000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.markdown code {
+  font-family: "Courier New", Courier, monospace;
+  background: #444;
+  padding: 2px 4px;
+  border-radius: 3px;
+}

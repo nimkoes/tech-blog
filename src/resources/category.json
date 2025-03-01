@@ -1,27 +1,38 @@
 [
   {
     "id": "0",
-    "name": "nimkoes tech blog",
+    "displayName": "nimkoes tech blog",
     "children": [
       {
         "id": "1",
-        "name": "version-control",
+        "displayName": "sample",
         "children": [
           {
             "id": "1-1",
-            "name": "git command",
-            "mdPath": "/tech-blog/posts/version-control"
+            "displayName": "test",
+            "fileName": "git-command"
           }
         ]
       },
       {
         "id": "2",
-        "name": "dummy",
+        "displayName": "test",
         "children": [
           {
             "id": "2-1",
-            "name": "sample",
-            "mdPath": "/tech-blog/posts/sample"
+            "displayName": "another",
+            "children": [
+              {
+                "id": "2-1-1",
+                "displayName": "what.md",
+                "fileName": "what"
+              }
+            ]
+          },
+          {
+            "id": "2-2",
+            "displayName": "abc.md",
+            "fileName": "abc"
           }
         ]
       }
