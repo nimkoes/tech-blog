@@ -1,0 +1,81 @@
+.tocHeader {
+  display: flex;
+  align-items: center; /* ✅ 세로 중앙 정렬 */
+  gap: 6px; /* ✅ 아이콘과 텍스트 사이 간격 */
+  margin-bottom: 8px;
+  white-space: nowrap; /* ✅ 줄바꿈 방지 */
+}
+
+.tocText {
+  font-weight: bold;
+  font-size: 13px;
+  color: #CCCCCC;
+}
+
+.tocWrapper {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 250px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.visible {
+  opacity: 1;
+}
+
+.tocBox {
+  background: rgb(93 65 94 / 35%);
+  padding: 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(3px);
+  color: #d4d4d4;
+  font-size: 12px;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.tocBox strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tocBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tocBox li {
+  margin-bottom: 4px;
+}
+
+.tocBox a {
+  color: #d4d4d4;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.level1 {
+  font-weight: bold;
+}
+
+.level2 {
+  padding-left: 10px;
+}
+
+.level3 {
+  padding-left: 20px;
+}
