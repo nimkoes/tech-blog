@@ -1,6 +1,9 @@
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
+  experimental: {
+    appDir: true, // ✅ App Router 사용
+  },
   images: {
     unoptimized: true,
   },
