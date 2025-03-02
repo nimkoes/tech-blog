@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "types": [
+      "@types/prismjs"
+    ],
     "lib": [
       "dom",
       "dom.iterable",
@@ -16,23 +20,27 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
+      "@/*": [
+        "src/*"
+      ],
       "~/*": [
         "./src/*"
       ],
       "@resources/*": [
         "./src/resources/*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "src",
+    "src/types/**/*.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"

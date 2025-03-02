@@ -12,17 +12,17 @@ interface PostProps {
 // ✅ Markdown 파일이 저장된 폴더 경로
 const postsDirectory = path.join(process.cwd(), "public/resources");
 
-// ✅ 🔥 정적 사이트 생성을 위한 모든 Markdown 파일을 반환 (URL 인코딩 적용)
+// ✅ 🔥 정적 사이트 생성을 위한 모든 Markdown 파일을 반환
 export async function generateStaticParams() {
   const filenames = fs.readdirSync(postsDirectory);
   return filenames.map((filename) => ({
-    slug: encodeURIComponent(filename.replace(/\.md$/, "")), // 🔥 URL 인코딩 적용
+    slug: filename.replace(/\.md$/, ""), // 🔥 ".md" 확장자 제거
   }));
 }
 
-// ✅ 🔥 SEO를 위한 메타데이터 생성 (디코딩 후 사용)
+// ✅ 🔥 SEO를 위한 메타데이터 생성
 export async function generateMetadata({ params }: PostProps) {
-  const slug = decodeURIComponent(params.slug); // 🔥 URL 디코딩 적용
+  const slug = params.slug;
   const filePath = path.join(postsDirectory, `${slug}.md`);
 
   if (!fs.existsSync(filePath)) {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PostProps) {
 
 // ✅ 🔥 Markdown을 HTML로 변환하여 렌더링
 export default async function PostPage({ params }: PostProps) {
-  const slug = decodeURIComponent(params.slug); // 🔥 URL 디코딩 적용
+  const slug = params.slug;
   const filePath = path.join(postsDirectory, `${slug}.md`);
 
   if (!fs.existsSync(filePath)) {

@@ -1,6 +1,8 @@
 /* 📂 카테고리 영역 */
 .categoryView {
-  width: 200px;
+  width: 20%;
+  min-width: 200px;
+  max-width: 250px;
   flex-shrink: 0;
   background-color: #323232;
   font-size: 0.9rem;

@@ -36,17 +36,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       toggleCategory={() => setIsCategoryVisible((prev) => !prev)}
       toggleLog={() => setIsLogVisible((prev) => !prev)}
     />
-    <div className={styles.page}>
-      <div className={styles.subPage}>
-        {isCategoryVisible && <CategoryView
-          onClose={() => setIsCategoryVisible(false)}
-          onFileSelect={handleFileSelect}
-        />}
-        <div className={styles.contentsView}>{children}</div>
+    {/*<div className={styles.page}>*/}
+    <div className={styles.page} style={{height: isLogVisible ? "calc(100vh - 150px)" : "100vh"}}>
+        <div className={styles.subPage}>
+          {isCategoryVisible && <CategoryView
+            onClose={() => setIsCategoryVisible(false)}
+            onFileSelect={handleFileSelect}
+          />}
+          <div className={styles.contentsView}>{children}</div>
+        </div>
+        {isLogVisible && <LogView logs={logs} onClose={() => setIsLogVisible(false)}/>}
       </div>
-      {isLogVisible && <LogView logs={logs} onClose={() => setIsLogVisible(false)} />}
-    </div>
     </body>
     </html>
-  );
+);
 }
