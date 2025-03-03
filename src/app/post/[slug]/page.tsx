@@ -9,6 +9,7 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import styles from "./page.module.scss";
 import TableOfContents from "@/components/TableOfContents/TableOfContents";
+import PostHeader from "@/app/post/[slug]/PostHeader";
 
 interface PostProps {
     params: { slug: string };
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: PostProps) {
     };
 }
 
-// ✅ Markdown을 HTML로 변환하여 렌더링
+// ✅ Markdown에서 메타데이터 읽기
 export default async function PostPage({ params }: PostProps) {
     const filePath = path.join(postsDirectory, `${params.slug}.md`);
     if (!fs.existsSync(filePath)) {
@@ -48,7 +49,7 @@ export default async function PostPage({ params }: PostProps) {
     }
 
     const fileContents = fs.readFileSync(filePath, "utf8");
-    const { content } = matter(fileContents);
+    const { content, data } = matter(fileContents);
 
     const processedContent = await remark()
         .use(remarkGfm)
@@ -59,8 +60,34 @@ export default async function PostPage({ params }: PostProps) {
 
     return (
         <article className={styles.markdown}>
+            <PostHeader title={data.title} description={data.description} author={data.author} date={data.date} tags={data.tags} />
             <TableOfContents />
             <div dangerouslySetInnerHTML={{ __html: processedContent.toString() }} />
         </article>
     );
 }
+
+// // ✅ Markdown을 HTML로 변환하여 렌더링
+// export default async function PostPage({ params }: PostProps) {
+//     const filePath = path.join(postsDirectory, `${params.slug}.md`);
+//     if (!fs.existsSync(filePath)) {
+//         return <div className={styles.notFound}>게시물을 찾을 수 없습니다.</div>;
+//     }
+//
+//     const fileContents = fs.readFileSync(filePath, "utf8");
+//     const { content } = matter(fileContents);
+//
+//     const processedContent = await remark()
+//         .use(remarkGfm)
+//         .use(remarkRehype)
+//         .use(rehypeHighlight)
+//         .use(rehypeStringify)
+//         .process(content);
+//
+//     return (
+//         <article className={styles.markdown}>
+//             <TableOfContents />
+//             <div dangerouslySetInnerHTML={{ __html: processedContent.toString() }} />
+//         </article>
+//     );
+// }
