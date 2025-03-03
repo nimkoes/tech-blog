@@ -25,10 +25,11 @@ const CategoryTree = ({
   onFileSelect: (fileName: string) => void;
 }) => {
   return (
-    <ul className={styles.categoryTree} style={{paddingLeft: `${depth * 15}px`}}>
+    <ul className={styles.categoryTree} style={{ paddingLeft: `${depth * 15}px` }}>
       {data.map((item) => (
         <li key={item.id} className={styles.treeItem}>
           {item.children ? (
+            // 📂 폴더 아이콘과 토글 버튼
             <span onClick={() => toggleFolder(item.id)} className={styles.folder}>
               <span className={styles.arrow}>
                 {openFolders[item.id] ? (
@@ -52,12 +53,16 @@ const CategoryTree = ({
               {highlightText(item.displayName)}
             </span>
           ) : (
-
-            <Link href={`/post/${encodeURIComponent(item.fileName || "")}`} className={styles.file} legacyBehavior>
-              <a
-                className={styles.file}
-                onClick={() => onFileSelect(item.displayName)} // 로그 기록
-              >
+            // 📄 파일 아이콘 + 파일명 링크
+            <Link href={`/post/${encodeURIComponent(item.fileName || "")}`} legacyBehavior>
+              <a className={styles.file} onClick={() => onFileSelect(item.displayName)}>
+                {/* ✅ 파일 아이콘 추가 */}
+                <span className={styles.fileIcon}>
+                  <svg viewBox="0 0 24 24">
+                    <path fill="#AEB2B8"
+                          d="M6 2c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5z"/>
+                  </svg>
+                </span>
                 {highlightText(item.displayName)}
               </a>
             </Link>

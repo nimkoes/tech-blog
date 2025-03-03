@@ -9,7 +9,22 @@
   width: 15px;
   height: 15px;
   display: flex;
-  align-items: center;
+  vertical-align: middle;
+  padding-right: 1.5px;
+  position: relative;
+  top: -1.5px;
+}
+
+.fileIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  position: relative;
+  top: -2px;
+  svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /* 📂 폴더 스타일 */
