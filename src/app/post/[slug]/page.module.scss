@@ -75,3 +75,12 @@
   color: #bbb;
   font-style: italic;
 }
+
+.markdown img {
+  max-width: 80%;  /* 부모 컨테이너 기준으로 최대 크기 조정 */
+  height: auto;      /* 비율 유지 */
+  display: block;    /* 인라인 속성 제거 */
+  margin: 20px auto; /* 가운데 정렬 */
+  border-radius: 5px; /* 둥근 테두리 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+}
