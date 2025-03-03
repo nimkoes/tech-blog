@@ -9,14 +9,16 @@
   font-family: "JetBrains Mono", "Fira Code", "Consolas", "Menlo", "monospace";
 }
 
-/* 📝 블로그 소개 영역 */
+/* 블로그 소개 영역 */
 .intro {
   margin-bottom: 30px;
+
   h1 {
     font-size: 2rem;
     font-weight: bold;
     color: #e06c75;
   }
+
   p {
     font-size: 1rem;
     color: #aeb2b8;
@@ -24,7 +26,7 @@
   }
 }
 
-/* 🚀 주요 기능 & TODO LIST 스타일 */
+/* 주요 기능 & TODO LIST 스타일 */
 .section {
   text-align: left;
   width: 60%;
@@ -48,8 +50,8 @@
       margin: 5px 0;
       color: #aeb2b8;
       display: flex;
-      align-items: center; /* ✅ 아이콘과 텍스트를 같은 줄에 정렬 */
-      gap: 5px; /* ✅ 아이콘과 텍스트 간격 */
+      align-items: center;
+      gap: 5px;
 
       strong {
         color: #d4d4d4;
@@ -63,8 +65,76 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3px; /* ✅ 내부 여백 추가 */
-  transition: background 0.3s ease-in-out; /* ✅ 부드러운 애니메이션 효과 */
+  padding: 3px;
+  transition: background 0.3s ease-in-out;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// tablet
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 1024px) {
+  .home {
+  }
+
+  .intro {
+    h1 {
+    }
+
+    p {
+    }
+  }
+
+  .section {
+
+    h2 {
+    }
+
+    ul {
+
+      li {
+
+        strong {
+        }
+      }
+    }
+  }
+
+  .icon {
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// mobile
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 768px) {
+  .home {
+  }
+
+  .intro {
+    h1 {
+    }
+
+    p {
+    }
+  }
+
+  .section {
+
+    h2 {
+    }
+
+    ul {
+
+      li {
+
+        strong {
+        }
+      }
+    }
+  }
+
+  .icon {
+  }
 }

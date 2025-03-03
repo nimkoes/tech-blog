@@ -1,9 +1,9 @@
 .tocHeader {
   display: flex;
-  align-items: center; /* ✅ 세로 중앙 정렬 */
-  gap: 6px; /* ✅ 아이콘과 텍스트 사이 간격 */
+  align-items: center; /* 세로 중앙 정렬 */
+  gap: 6px; /* 아이콘과 텍스트 사이 간격 */
   margin-bottom: 8px;
-  white-space: nowrap; /* ✅ 줄바꿈 방지 */
+  white-space: nowrap; /* 줄바꿈 방지 */
 }
 
 .tocText {
@@ -78,4 +78,98 @@
 
 .level3 {
   padding-left: 20px;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// tablet
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 1024px) {
+  .tocHeader {
+  }
+
+  .tocText {
+  }
+
+  .tocWrapper {
+
+    &:hover {
+    }
+  }
+
+  .visible {
+  }
+
+  .tocBox {
+  }
+
+  .tocBox strong {
+  }
+
+  .tocBox ul {
+  }
+
+  .tocBox li {
+  }
+
+  .tocBox a {
+
+    &:hover {
+    }
+  }
+
+  .level1 {
+  }
+
+  .level2 {
+  }
+
+  .level3 {
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// mobile
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 768px) {
+  .tocHeader {
+  }
+
+  .tocText {
+  }
+
+  .tocWrapper {
+
+    &:hover {
+    }
+  }
+
+  .visible {
+  }
+
+  .tocBox {
+  }
+
+  .tocBox strong {
+  }
+
+  .tocBox ul {
+  }
+
+  .tocBox li {
+  }
+
+  .tocBox a {
+
+    &:hover {
+    }
+  }
+
+  .level1 {
+  }
+
+  .level2 {
+  }
+
+  .level3 {
+  }
 }

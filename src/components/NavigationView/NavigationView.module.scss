@@ -1,6 +1,4 @@
-$nav-font-size: 1rem;
-
-/* 📌 내비게이션 영역 */
+/* 내비게이션 영역 */
 .navigationView {
   display: flex;
   flex-direction: column;
@@ -13,7 +11,7 @@ $nav-font-size: 1rem;
   border-right: 1px solid #000;
 }
 
-/* 📌 내비게이션 버튼 컨테이너 */
+/* 내비게이션 버튼 컨테이너 */
 .navigation {
   display: flex;
   flex-direction: column;
@@ -21,12 +19,12 @@ $nav-font-size: 1rem;
   gap: 5px;
 }
 
-/* 📌 개별 버튼 스타일 */
+/* 개별 버튼 스타일 */
 .navButton {
   background: none;
   border: none;
   color: #a9b7c6;
-  font-size: $nav-font-size;
+  font-size: 1rem;
   cursor: pointer;
   padding: 2px;
   border-radius: 5px;
@@ -46,5 +44,52 @@ $nav-font-size: 1rem;
   svg {
     width: 18px;
     height: 18px;
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// tablet
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 1024px) {
+  .navigationView {
+  }
+
+  .navigation {
+  }
+
+  .navButton {
+
+    &:hover {
+    }
+
+    &.active {
+    }
+
+    svg {
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// mobile
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 768px) {
+  .navigationView {
+  }
+
+  .navigation {
+  }
+
+  .navButton {
+
+    &:hover {
+    }
+
+    &.active {
+    }
+
+    svg {
+    }
   }
 }

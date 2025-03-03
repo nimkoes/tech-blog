@@ -21,29 +21,77 @@
   margin-right: 1px;
   position: relative;
   top: -2px;
+
   svg {
     width: 16px;
     height: 16px;
   }
 }
 
-/* 📂 폴더 스타일 */
+/* 폴더 스타일 */
 .folder {
   display: flex;
   align-items: center;
   color: #cccccc;
-  white-space: nowrap;  // ✅ 폴더명 줄 바꿈 방지
+  white-space: nowrap; // 폴더명 줄 바꿈 방지
   overflow: hidden;
-  text-overflow: ellipsis;  // 너무 길 경우 ... 처리
-  max-width: 100%; // ✅ 부모 요소 너비를 초과하지 않도록 설정
+  text-overflow: ellipsis; // 너무 길 경우 ... 처리
+  max-width: 100%; // 부모 요소 너비를 초과하지 않도록 설정
 }
 
-/* 📄 파일 스타일 */
+/* 파일 스타일 */
 .file {
-  //color: rgba(114, 204, 238, 0.78);
   color: #cccccc;
-  white-space: nowrap;  // ✅ 파일명 줄 바꿈 방지
+  white-space: nowrap; // 파일명 줄 바꿈 방지
   overflow: hidden;
-  text-overflow: ellipsis;  // 너무 길 경우 ... 처리
-  max-width: 100%; // ✅ 부모 요소 너비를 초과하지 않도록 설정
+  text-overflow: ellipsis; // 너무 길 경우 ... 처리
+  max-width: 100%; // 부모 요소 너비를 초과하지 않도록 설정
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// tablet
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 1024px) {
+  .arrow {
+  }
+
+  .folderIcon {
+  }
+
+  .fileIcon {
+
+    svg {
+
+    }
+  }
+
+  .folder {
+  }
+
+  .file {
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// mobile
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 768px) {
+  .arrow {
+  }
+
+  .folderIcon {
+  }
+
+  .fileIcon {
+
+    svg {
+
+    }
+  }
+
+  .folder {
+  }
+
+  .file {
+  }
 }

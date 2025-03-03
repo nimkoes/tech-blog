@@ -1,4 +1,4 @@
-/* 📌 컨트롤 전체 레이아웃 */
+/* 컨트롤 전체 레이아웃 */
 .categoryControl {
   display: flex;
   align-items: center;
@@ -7,7 +7,7 @@
   margin-bottom: 10px;
 }
 
-/* 📌 버튼과 검색창을 같은 줄에 배치 */
+/* 버튼과 검색창을 같은 줄에 배치 */
 .controls {
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
   justify-content: space-between;
 }
 
-/* 📌 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
+/* 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
 .iconButton {
   background: none;
   border: none;
@@ -31,7 +31,7 @@
   }
 }
 
-/* 📌 검색 입력창 (돋보기 클릭 전에는 숨김) */
+/* 검색 입력창 (돋보기 클릭 전에는 숨김) */
 .searchInput {
   display: none;
   border: none;
@@ -42,13 +42,65 @@
   background-color: rgba(153, 163, 163, 0.64);
 }
 
-/* 📌 검색창 활성화 시 표시 */
+/* 검색창 활성화 시 표시 */
 .searchActive {
   display: block;
 }
 
-/* 📌 버튼 그룹을 오른쪽 정렬 */
+/* 버튼 그룹을 오른쪽 정렬 */
 .actionButtons {
   display: flex;
   margin-left: auto;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// tablet
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 1024px) {
+  .categoryControl {
+  }
+
+  .controls {
+  }
+
+  .iconButton {
+
+    &:hover {
+    }
+  }
+
+  .searchInput {
+  }
+
+  .searchActive {
+  }
+
+  .actionButtons {
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// mobile
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 768px) {
+  .categoryControl {
+  }
+
+  .controls {
+  }
+
+  .iconButton {
+
+    &:hover {
+    }
+  }
+
+  .searchInput {
+  }
+
+  .searchActive {
+  }
+
+  .actionButtons {
+  }
 }
