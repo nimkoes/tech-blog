@@ -12,7 +12,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const [isLogVisible, setIsLogVisible] = useState(true);
   const [logs, setLogs] = useState<string[]>([]);
 
-  /* MD 파일 선택 시 로그 추가*/
+  /* MD 파일 선택 시 로그 추가 */
   const handleFileSelect = (fileName: string) => {
     const timestamp = new Date().toLocaleString("ko-KR", {
       year: "numeric",
@@ -33,21 +33,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </head>
     <body className={styles.home}>
     <NavigationView
+      isCategoryOpen={isCategoryVisible}
+      isLogOpen={isLogVisible}
       toggleCategory={() => setIsCategoryVisible((prev) => !prev)}
       toggleLog={() => setIsLogVisible((prev) => !prev)}
     />
-    {/*<div className={styles.page}>*/}
-    <div className={styles.page} style={{height: isLogVisible ? "calc(100vh - 150px)" : "100vh"}}>
-        <div className={styles.subPage}>
-          {isCategoryVisible && <CategoryView
-            onClose={() => setIsCategoryVisible(false)}
-            onFileSelect={handleFileSelect}
-          />}
-          <div className={styles.contentsView}>{children}</div>
-        </div>
-        {isLogVisible && <LogView logs={logs} onClose={() => setIsLogVisible(false)}/>}
+    <div className={styles.page} style={{ height: isLogVisible ? "calc(100vh - 150px)" : "100vh" }}>
+      <div className={styles.subPage}>
+        {isCategoryVisible && (
+          <CategoryView onClose={() => setIsCategoryVisible(false)} onFileSelect={handleFileSelect} />
+        )}
+        <div className={styles.contentsView}>{children}</div>
       </div>
+      {isLogVisible && <LogView logs={logs} onClose={() => setIsLogVisible(false)} />}
+    </div>
     </body>
     </html>
-);
+  );
 }
