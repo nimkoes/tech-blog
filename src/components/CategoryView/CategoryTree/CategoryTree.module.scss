@@ -40,7 +40,8 @@
 
 /* 📄 파일 스타일 */
 .file {
-  color: rgba(114, 204, 238, 0.78);
+  //color: rgba(114, 204, 238, 0.78);
+  color: #cccccc;
   white-space: nowrap;  // ✅ 파일명 줄 바꿈 방지
   overflow: hidden;
   text-overflow: ellipsis;  // 너무 길 경우 ... 처리
