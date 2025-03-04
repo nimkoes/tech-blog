@@ -1,38 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "./ScrollToTop.module.scss";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
+  const checkScrollPosition = useCallback((element: HTMLElement) => {
+    const scrollTop = element.scrollTop;
+    const shouldBeVisible = scrollTop > 100;
+    setIsVisible(shouldBeVisible);
+  }, []);
+
   useEffect(() => {
-    // contentsView 요소 찾기
-    const contentsView = document.querySelector('[class*="layout_contentsView_"]');
+    // 스크롤 가능한 컨테이너 찾기
+    const scrollContainer = document.querySelector('.contentsView') as HTMLElement;
     
-    if (!contentsView) {
-      console.warn('ContentsView element not found');
+    if (!scrollContainer) {
+      console.warn('Scroll container not found');
       return;
     }
 
-    const checkScrollPosition = () => {
-      const scrollTop = (contentsView as HTMLElement).scrollTop;
-      const shouldBeVisible = scrollTop > 100;
-      setIsVisible(shouldBeVisible);
-    };
-
     // 초기 스크롤 위치 체크
-    checkScrollPosition();
+    checkScrollPosition(scrollContainer);
 
     // 스크롤 이벤트 리스너 등록
-    contentsView.addEventListener("scroll", checkScrollPosition, { passive: true });
-    return () => contentsView.removeEventListener("scroll", checkScrollPosition);
-  }, []);
+    const handleScroll = () => checkScrollPosition(scrollContainer);
+    scrollContainer.addEventListener("scroll", handleScroll, { passive: true });
+    
+    return () => {
+      scrollContainer.removeEventListener("scroll", handleScroll);
+    };
+  }, [checkScrollPosition]);
 
   const scrollToTop = () => {
-    const contentsView = document.querySelector('[class*="layout_contentsView_"]');
-    if (contentsView) {
-      (contentsView as HTMLElement).scrollTo({
+    const scrollContainer = document.querySelector('.contentsView') as HTMLElement;
+    if (scrollContainer) {
+      scrollContainer.scrollTo({
         top: 0,
         behavior: "smooth"
       });

@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <div className={styles.page} style={{ height: isLogOpen ? "calc(100vh - 150px)" : "100vh" }}>
       <div className={styles.subPage}>
         <CategoryView onFileSelect={handleFileSelect} />
-        <div className={styles.contentsView}>{children}</div>
+        <div className={`${styles.contentsView} contentsView`}>{children}</div>
       </div>
       <LogView logs={logs} />
     </div>
