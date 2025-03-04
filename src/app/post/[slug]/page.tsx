@@ -75,8 +75,10 @@ export default async function PostPage({params}: PostProps) {
         <TableOfContents/>
         <div dangerouslySetInnerHTML={{__html: processedContent.toString()}}/>
       </article>
-      <GoToHome/>
-      {/*<ScrollToTop/>*/}
+      <div className={styles.floatingButtons}>
+        <GoToHome/>
+      </div>
+      <ScrollToTop/>
     </>
   );
 }

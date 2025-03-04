@@ -1,4 +1,6 @@
-import React from 'react';
+"use client"; // 클라이언트 전용 컴포넌트로 설정
+
+import React, { useEffect, useState } from "react";
 
 interface FolderIconProps {
   width?: number;
@@ -7,10 +9,16 @@ interface FolderIconProps {
 }
 
 const FolderIcon: React.FC<FolderIconProps> = ({ width = 24, height = 24, className }) => {
+  const [iconSize, setIconSize] = useState(width); // 서버에서 받은 초기 width 유지
+
+  useEffect(() => {
+    setIconSize(18); // 클라이언트에서 width 조정
+  }, []);
+
   return (
     <svg
-      width={width}
-      height={height}
+      width={iconSize}
+      height={iconSize}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,4 +30,4 @@ const FolderIcon: React.FC<FolderIconProps> = ({ width = 24, height = 24, classN
   );
 };
 
-export default FolderIcon; 
+export default FolderIcon;
