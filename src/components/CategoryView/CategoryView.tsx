@@ -1,10 +1,12 @@
 "use client";
 
-import {ReactNode, useState} from "react";
+import {ReactNode} from "react";
 import styles from "./CategoryView.module.scss";
 import categoryData from "@resources/category.json";
 import CategoryControl from "./CategoryControl/CategoryControl";
 import CategoryTree from "./CategoryTree/CategoryTree";
+import useCategoryStore from "../../store/categoryStore";
+import useNavigationStore from "../../store/navigationStore";
 
 interface CategoryItem {
   id: string;
@@ -14,35 +16,20 @@ interface CategoryItem {
 }
 
 const CategoryView = ({
-                        onClose,
-                        onFileSelect,
-                      }: {
-  onClose: () => void;
+  onFileSelect,
+}: {
   onFileSelect: (fileName: string) => void;
-
-}) => { // ✅ onClose props 추가
-  const [openFolders, setOpenFolders] = useState<{ [key: string]: boolean }>({});
-  const [searchQuery, setSearchQuery] = useState("");
-
-  // 📂 전체 폴더 열기
-  const expandAll = () => {
-    const allOpen: { [key: string]: boolean } = {};
-    const traverse = (items: CategoryItem[]) => {
-      items.forEach((item) => {
-        if (item.children) {
-          allOpen[item.id] = true;
-          traverse(item.children);
-        }
-      });
-    };
-    traverse(categoryData);
-    setOpenFolders(allOpen);
-  };
-
-  // 📁 전체 폴더 접기
-  const collapseAll = () => {
-    setOpenFolders({});
-  };
+}) => {
+  const { 
+    openFolders, 
+    searchQuery, 
+    toggleFolder, 
+    setSearchQuery, 
+    expandAll, 
+    collapseAll 
+  } = useCategoryStore();
+  
+  const { isCategoryOpen, toggleCategory } = useNavigationStore();
 
   // 🔍 파일명 하이라이트 처리
   const highlightText = (text: string): ReactNode => {
@@ -62,23 +49,24 @@ const CategoryView = ({
     );
   };
 
+  const handleClose = () => {
+    toggleCategory();
+  };
+
+  if (!isCategoryOpen) return null;
+
   return (
     <div className={styles.categoryView}>
       <CategoryControl
         expandAll={expandAll}
         collapseAll={collapseAll}
         setSearchQuery={setSearchQuery}
-        onClose={onClose} // ✅ 부모에서 전달받은 onClose 함수 실행
+        onClose={handleClose}
       />
       <CategoryTree
         data={categoryData}
         depth={0}
-        toggleFolder={(id) =>
-          setOpenFolders((prev) => ({
-            ...prev,
-            [id]: !prev[id],
-          }))
-        }
+        toggleFolder={toggleFolder}
         openFolders={openFolders}
         highlightText={highlightText}
         onFileSelect={onFileSelect}

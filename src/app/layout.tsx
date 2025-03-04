@@ -6,11 +6,11 @@ import NavigationView from "~/components/NavigationView/NavigationView";
 import CategoryView from "~/components/CategoryView/CategoryView";
 import LogView from "~/components/LogView/LogView";
 import { useState } from "react";
+import useNavigationStore from "~/store/navigationStore";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const [isCategoryVisible, setIsCategoryVisible] = useState(false);
-  const [isLogVisible, setIsLogVisible] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
+  const { isLogOpen } = useNavigationStore();
 
   /* MD 파일 선택 시 로그 추가 */
   const handleFileSelect = (fileName: string) => {
@@ -32,20 +32,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <title>Nimkoes Tech Blog</title>
     </head>
     <body className={styles.home}>
-    <NavigationView
-      isCategoryOpen={isCategoryVisible}
-      isLogOpen={isLogVisible}
-      toggleCategory={() => setIsCategoryVisible((prev) => !prev)}
-      toggleLog={() => setIsLogVisible((prev) => !prev)}
-    />
-    <div className={styles.page} style={{ height: isLogVisible ? "calc(100vh - 150px)" : "100vh" }}>
+    <NavigationView />
+    <div className={styles.page} style={{ height: isLogOpen ? "calc(100vh - 150px)" : "100vh" }}>
       <div className={styles.subPage}>
-        {isCategoryVisible && (
-          <CategoryView onClose={() => setIsCategoryVisible(false)} onFileSelect={handleFileSelect} />
-        )}
+        <CategoryView onFileSelect={handleFileSelect} />
         <div className={styles.contentsView}>{children}</div>
       </div>
-      {isLogVisible && <LogView logs={logs} onClose={() => setIsLogVisible(false)} />}
+      <LogView logs={logs} />
     </div>
     </body>
     </html>

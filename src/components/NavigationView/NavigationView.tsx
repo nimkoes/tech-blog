@@ -5,22 +5,13 @@ import styles from "./NavigationView.module.scss";
 import Button from "../common/Button/Button";
 import FolderIcon from "../common/icons/FolderIcon";
 import LogIcon from "../common/icons/LogIcon";
+import useNavigationStore from "../../store/navigationStore";
 
-interface NavigationViewProps {
-  isCategoryOpen: boolean;
-  isLogOpen: boolean;
-  toggleCategory: () => void;
-  toggleLog: () => void;
-}
-
-const NavigationView = ({
-  isCategoryOpen,
-  isLogOpen,
-  toggleCategory,
-  toggleLog,
-}: NavigationViewProps) => {
+const NavigationView = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const iconSize = isMobile ? 18 : 30;
+  
+  const { isCategoryOpen, isLogOpen, toggleCategory, toggleLog } = useNavigationStore();
 
   return (
     <aside className={styles.navigationView}>
