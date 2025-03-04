@@ -2,7 +2,7 @@
 .categoryControl {
   display: flex;
   align-items: center;
-  padding: 3px;
+  padding: 5px;
   color: white;
   margin-bottom: 10px;
 }
@@ -84,6 +84,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .categoryControl {
+    padding: 1px;
   }
 
   .controls {

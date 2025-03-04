@@ -7,13 +7,13 @@
 .title {
   color: #ffffff !important;
   border-bottom: 0 !important;
-  font-size: 2.3rem !important;
+  font-size: 2.6rem !important;
   font-weight: bold;
   margin-bottom: 8px;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #b0b0b0;
   margin-bottom: 12px;
 }
@@ -21,14 +21,14 @@
 .meta {
   display: flex;
   gap: 10px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #aaaaaa;
   margin-bottom: 12px;
 }
 
 .tags {
   display: flex;
-  font-size: 0.8rem;
+  font-size: 1rem;
   gap: 6px;
 }
 
@@ -37,7 +37,7 @@
   color: #4af6b6;
   padding: 3px 5px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 0.85rem;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -68,20 +68,28 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .postHeader {
+    padding-bottom: 0.35rem;
+    border-bottom: 3px solid #cccccc;
+    margin-bottom: 1.5rem;
   }
 
   .title {
+    font-size: 1.6rem !important;
   }
 
   .description {
+    font-size: 1rem;
   }
 
   .meta {
+    font-size: 0.8rem;
   }
 
   .tags {
+    font-size: 0.8rem;
   }
 
   .tag {
+    font-size: 0.6rem;
   }
 }

@@ -2,13 +2,13 @@
 .logView {
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 250px;
   background-color: #ccc;
   position: fixed;
   bottom: 0;
-  left: 50px;
+  left: 60px;
   right: 0;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
   border-top: 1px solid #000;
 }
 
@@ -16,7 +16,7 @@
 .logHeader {
   display: flex;
   justify-content: flex-end;
-  padding: 5px;
+  padding: 10px;
   background: #444;
   position: sticky;
   top: 0;
@@ -51,11 +51,15 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .logView {
+    height: 200px;
+    left: 35px;
   }
 
   .logHeader {
+    padding: 5px;
   }
 
   .closeButton {
+    font-size: 16px;
   }
 }
