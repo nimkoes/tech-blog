@@ -1,0 +1,36 @@
+.goToHome {
+  position: fixed;
+  right: 25px;
+  bottom: 50vh;
+  background: rgba(91, 91, 91, 0.7);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  z-index: 10000;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+  }
+
+  /* ✅ 태블릿 */
+  @media screen and (max-width: 1024px) {
+    right: 15px;
+    bottom: 15px; /* ✅ 태블릿에서 버튼 위치 조정 */
+    font-size: 14px;
+  }
+
+  /* ✅ 모바일 */
+  @media screen and (max-width: 768px) {
+    right: 10px;
+    bottom: 10px; /* ✅ 모바일에서 버튼 위치 조정 */
+    font-size: 12px;
+    padding: 8px;
+  }
+}

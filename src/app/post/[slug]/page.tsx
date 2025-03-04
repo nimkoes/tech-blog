@@ -9,6 +9,7 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import styles from "./page.module.scss";
 import TableOfContents from "@/components/TableOfContents/TableOfContents";
+import GoToHome from "@/components/GoToHome/GoToHome";
 import PostHeader from "@/app/post/[slug]/PostHeader";
 
 interface PostProps {
@@ -66,11 +67,14 @@ export default async function PostPage({params}: PostProps) {
     );
 
   return (
-    <article className={styles.markdown}>
-      <PostHeader title={data.title} description={data.description} author={data.author} date={data.date}
-                  tags={data.tags}/>
-      <TableOfContents/>
-      <div dangerouslySetInnerHTML={{__html: processedContent.toString()}}/>
-    </article>
+    <>
+      <article className={styles.markdown}>
+        <PostHeader title={data.title} description={data.description} author={data.author} date={data.date}
+          tags={data.tags}/>
+        <TableOfContents/>
+        <div dangerouslySetInnerHTML={{__html: processedContent.toString()}}/>
+      </article>
+      <GoToHome/>
+    </>
   );
 }
