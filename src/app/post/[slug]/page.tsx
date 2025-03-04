@@ -10,6 +10,7 @@ import "highlight.js/styles/github-dark.css";
 import styles from "./page.module.scss";
 import TableOfContents from "@/components/TableOfContents/TableOfContents";
 import GoToHome from "@/components/GoToHome/GoToHome";
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import PostHeader from "@/app/post/[slug]/PostHeader";
 
 interface PostProps {
@@ -75,6 +76,7 @@ export default async function PostPage({params}: PostProps) {
         <div dangerouslySetInnerHTML={{__html: processedContent.toString()}}/>
       </article>
       <GoToHome/>
+      {/*<ScrollToTop/>*/}
     </>
   );
 }
