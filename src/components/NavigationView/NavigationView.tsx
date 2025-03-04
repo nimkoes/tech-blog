@@ -1,42 +1,47 @@
 "use client";
 
+import { useMediaQuery } from 'react-responsive';
 import styles from "./NavigationView.module.scss";
+import Button from "../common/Button/Button";
+import FolderIcon from "../common/icons/FolderIcon";
+import LogIcon from "../common/icons/LogIcon";
 
-const NavigationView = ({
-                          isCategoryOpen,
-                          isLogOpen,
-                          toggleCategory,
-                          toggleLog,
-                        }: {
+interface NavigationViewProps {
   isCategoryOpen: boolean;
   isLogOpen: boolean;
   toggleCategory: () => void;
   toggleLog: () => void;
-}) => {
+}
+
+const NavigationView = ({
+  isCategoryOpen,
+  isLogOpen,
+  toggleCategory,
+  toggleLog,
+}: NavigationViewProps) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const iconSize = isMobile ? 18 : 30;
+
   return (
     <aside className={styles.navigationView}>
       <div className={styles.navigation}>
-        {/* 📌 카테고리 버튼 */}
-        <button
+        <Button
+          variant="icon"
           className={`${styles.navButton} ${isCategoryOpen ? styles.active : ""}`}
           onClick={toggleCategory}
+          aria-label="카테고리 보기"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#AEB2B8" d="M2 4c0-1.1.9-2 2-2h5l2 2h9c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4z"/>
-            <path fill="#7D848D" d="M2 8h20v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V8z"/>
-          </svg>
-        </button>
+          <FolderIcon width={iconSize} height={iconSize} />
+        </Button>
 
-        {/* 📌 로그 버튼 */}
-        <button
+        <Button
+          variant="icon"
           className={`${styles.navButton} ${isLogOpen ? styles.active : ""}`}
           onClick={toggleLog}
+          aria-label="로그 보기"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="20" height="14" x="2" y="5" rx="2" ry="2" fill="#AEB2B8"/>
-            <path fill="black" d="M5 9l5 3-5 3V9zM12 15h6v-2h-6v2z"/>
-          </svg>
-        </button>
+          <LogIcon width={iconSize} height={iconSize} />
+        </Button>
       </div>
     </aside>
   );

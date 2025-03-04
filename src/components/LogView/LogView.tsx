@@ -2,6 +2,8 @@
 
 import styles from "./LogView.module.scss";
 import LogContainer from "./LogContainer/LogContainer";
+import Button from "../common/Button/Button";
+import CloseIcon from "../common/icons/CloseIcon";
 
 interface LogViewProps {
   logs: string[];
@@ -12,12 +14,14 @@ const LogView = ({logs, onClose}: LogViewProps) => {
   return (
     <div className={styles.logView}>
       <div className={styles.logHeader}>
-        <button className={styles.closeButton} onClick={onClose}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-               strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14"/>
-          </svg>
-        </button>
+        <Button
+          variant="icon"
+          className={styles.closeButton}
+          onClick={onClose}
+          aria-label="로그 창 닫기"
+        >
+          <CloseIcon />
+        </Button>
       </div>
 
       <LogContainer logs={logs}/>
