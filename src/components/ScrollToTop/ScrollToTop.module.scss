@@ -1,33 +1,34 @@
 .scrollToTop {
   position: fixed;
-  right: 25px !important;
-  bottom: 50vh !important;
+  right: 25px;
+  bottom: 49.5vh !important;
   background: rgba(91, 91, 91, 0.7);
   color: white;
   border: none;
-  padding: 2px 7px;
-  font-size: 20px;
-  border-radius: 5px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  z-index: 100;
-
   pointer-events: none;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &.visible {
-    opacity: 0.8;
+    opacity: 1;
     pointer-events: auto;
   }
 
   &:hover {
     background: rgba(255, 255, 255, 0.9);
     color: black;
-    transform: translateY(-2px);
   }
 }
 
@@ -53,6 +54,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .scrollToTop {
-    font-size: 15px;
+    font-size: 1rem;
   }
 }

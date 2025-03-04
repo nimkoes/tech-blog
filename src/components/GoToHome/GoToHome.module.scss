@@ -1,16 +1,24 @@
 .goToHome {
   position: fixed;
-  right: 25px !important;
-  bottom: 53.5vh !important;
+  right: 25px;
+  bottom: 53vh !important;
   background: rgba(91, 91, 91, 0.7);
   color: white;
-  padding: 2px 6px;
-  font-size: 20px;
-  border-radius: 5px;
+  border: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   opacity: 1;
   z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background: rgba(255, 255, 255, 0.9);
@@ -24,9 +32,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
   .goToHome {
-
-    &:hover {
-    }
   }
 }
 
@@ -35,9 +40,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .goToHome {
-    bottom: 52.8vh !important;
-    font-size: 15px;
-    &:hover {
-    }
+    font-size: 1rem;
   }
 }
