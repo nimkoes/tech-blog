@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const [isCategoryVisible, setIsCategoryVisible] = useState(false);
-  const [isLogVisible, setIsLogVisible] = useState(true);
+  const [isLogVisible, setIsLogVisible] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
 
   /* MD 파일 선택 시 로그 추가 */
