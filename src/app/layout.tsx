@@ -5,6 +5,7 @@ import styles from "./layout.module.scss";
 import NavigationView from "~/components/NavigationView/NavigationView";
 import CategoryView from "~/components/CategoryView/CategoryView";
 import LogView from "~/components/LogView/LogView";
+import ImagePopup from "~/components/ImagePopup/ImagePopup";
 import { useState } from "react";
 import useNavigationStore from "~/store/navigationStore";
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </div>
       <LogView logs={logs} />
     </div>
+    <ImagePopup />
     </body>
     </html>
   );
