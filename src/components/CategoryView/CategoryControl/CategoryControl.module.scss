@@ -1,45 +1,58 @@
 /* 컨트롤 전체 레이아웃 */
 .categoryControl {
-  display: flex;
-  align-items: center;
   padding: 5px;
-  color: white;
-  margin-bottom: 10px;
 }
 
 /* 버튼과 검색창을 같은 줄에 배치 */
 .controls {
   display: flex;
-  align-items: center;
-  width: 100%;
   justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  .categoryControl:hover & {
+    opacity: 1;
+  }
 }
 
 /* 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
 .iconButton {
   background: none;
   border: none;
-  color: white;
+  color: #cccccc;
   cursor: pointer;
-  padding: 3px;
-  transition: background 0.2s, transform 0.2s;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
-    border-radius: 5px;
+    color: #ffffff;
   }
 }
 
 /* 검색 입력창 (돋보기 클릭 전에는 숨김) */
 .searchInput {
-  display: none;
+  background: #444;
   border: none;
-  outline: none;
-  width: 100%;
-  margin-left: 5px;
-  color: #444444;
-  background-color: rgba(153, 163, 163, 0.64);
+  color: white;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 3px;
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  &.searchActive {
+    width: 150px;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    background: #555;
+  }
 }
 
 /* 검색창 활성화 시 표시 */
@@ -50,33 +63,13 @@
 /* 버튼 그룹을 오른쪽 정렬 */
 .actionButtons {
   display: flex;
-  margin-left: auto;
+  gap: 5px;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
-  .categoryControl {
-  }
-
-  .controls {
-  }
-
-  .iconButton {
-
-    &:hover {
-    }
-  }
-
-  .searchInput {
-  }
-
-  .searchActive {
-  }
-
-  .actionButtons {
-  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -88,20 +81,12 @@
   }
 
   .controls {
-  }
-
-  .iconButton {
-
-    &:hover {
-    }
+    opacity: 1;
   }
 
   .searchInput {
-  }
-
-  .searchActive {
-  }
-
-  .actionButtons {
+    &.searchActive {
+      width: 100px;
+    }
   }
 }
