@@ -89,11 +89,11 @@
 
   .searchInput {
     &.searchActive {
-      width: 100px;
+      width: 100%;
       font-size: 16px;
     }
     
-    padding: 8px 5px;
+    padding: 5px 5px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

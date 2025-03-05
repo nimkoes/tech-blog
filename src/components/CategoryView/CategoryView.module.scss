@@ -74,31 +74,32 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .categoryView {
-    width: 20%;
-    min-width: 150px;
-    max-width: 200px;
-    font-size: 0.75rem;
-    padding: 10px;
-    color: #fff;
-    height: 100%;
-    border-right: 1px solid #000;
+    position: fixed;
+    left: 35px;
+    width: 60%;
+    max-width: 300px;
+    background-color: rgba(50, 50, 50, 0.95);
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+
+    /* 내비게이션 & 로그 영역 제외 */
+    bottom: var(--log-height, 0px);
   }
 
-  .categoryTree {
+  .categoryView.open {
+    transform: translateX(0);
   }
 
-  .treeItem {
-
-    &:hover {
-    }
-  }
-
-  .folder {
-  }
-
-  .file {
-  }
-
-  .highlight {
+  /* 배경: 페이지만 가리고, 네비 & 로그 영역은 유지 */
+  .backdrop {
+    position: fixed;
+    top: var(--navigation-height, 50px);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--navigation-height) - var(--log-height, 0px));
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
   }
 }

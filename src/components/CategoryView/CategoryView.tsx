@@ -8,13 +8,6 @@ import CategoryTree from "./CategoryTree/CategoryTree";
 import useCategoryStore from "../../store/categoryStore";
 import useNavigationStore from "../../store/navigationStore";
 
-interface CategoryItem {
-  id: string;
-  displayName: string;
-  fileName?: string;
-  children?: CategoryItem[];
-}
-
 const CategoryView = ({
   onFileSelect,
 }: {
@@ -56,22 +49,29 @@ const CategoryView = ({
   if (!isCategoryOpen) return null;
 
   return (
-    <div className={styles.categoryView}>
-      <CategoryControl
-        expandAll={expandAll}
-        collapseAll={collapseAll}
-        setSearchQuery={setSearchQuery}
-        onClose={handleClose}
-      />
-      <CategoryTree
-        data={categoryData}
-        depth={0}
-        toggleFolder={toggleFolder}
-        openFolders={openFolders}
-        highlightText={highlightText}
-        onFileSelect={onFileSelect}
-      />
-    </div>
+    <>
+      {/* 모바일에서만 배경 추가 (내비게이션 & 로그는 침범하지 않음) */}
+      {isCategoryOpen && window.innerWidth <= 768 && (
+        <div className={styles.backdrop} onClick={handleClose}></div>
+      )}
+
+      <div className={`${styles.categoryView} ${isCategoryOpen ? styles.open : ""}`}>
+        <CategoryControl
+          expandAll={expandAll}
+          collapseAll={collapseAll}
+          setSearchQuery={setSearchQuery}
+          onClose={handleClose}
+        />
+        <CategoryTree
+          data={categoryData}
+          depth={0}
+          toggleFolder={toggleFolder}
+          openFolders={openFolders}
+          highlightText={highlightText}
+          onFileSelect={onFileSelect}
+        />
+      </div>
+    </>
   );
 };
 
