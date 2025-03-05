@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const BASE_PATH = '/tech-blog';
+const DOMAIN = 'https://nimkoes.github.io';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const postsDirectory = path.join(process.cwd(), 'public/resources');
@@ -22,9 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             const slug = file.replace('.md', '');
 
             return {
-              url: `${BASE_PATH}/post/${slug}`,
-              lastModified: new Date(data.date || new Date()), // ✅ `Date` 객체로 유지
-              changeFrequency: 'weekly' as const, // ✅ 리터럴 타입 사용
+              url: `${DOMAIN}${BASE_PATH}/post/${slug}`,
+              lastModified: new Date(data.date || new Date()).toISOString(),
+              changeFrequency: 'weekly',
               priority: 0.8,
             };
           } catch (error) {
@@ -40,13 +41,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes: MetadataRoute.Sitemap = [
     {
-      url: BASE_PATH,
-      lastModified: new Date(), // ✅ `Date` 객체 유지
-      changeFrequency: 'daily' as const, // ✅ 리터럴 타입 사용
+      url: DOMAIN,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'daily',
       priority: 1,
+    },
+    {
+      url: `${DOMAIN}${BASE_PATH}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'daily',
+      priority: 1,
+    },
+    {
+      url: `${DOMAIN}/google-site-verification.html`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'yearly',
+      priority: 0.1,
     },
     ...posts,
   ];
 
-  return routes; // ✅ 오타 수정 (preturn → return)
+  return routes;
 }

@@ -1,13 +1,13 @@
 import { MetadataRoute } from 'next'
 
-const BASE_PATH = '/tech-blog'
+const DOMAIN = 'https://nimkoes.github.io'
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', '/tech-blog/'],
         disallow: [
           '/private/',
           '/admin/',
@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/'],
       },
     ],
-    sitemap: `${BASE_PATH}/sitemap.xml`,
-    host: 'https://nimkoes.github.io',
+    sitemap: `${DOMAIN}/sitemap.xml`,
+    host: DOMAIN,
   }
 } 
