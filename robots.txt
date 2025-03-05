@@ -13,4 +13,4 @@ User-Agent: CCBot
 Disallow: /
 
 Host: https://nimkoes.github.io
-Sitemap: https://raw.githubusercontent.com/nimkoes/tech-blog/main/sitemap.xml
+Sitemap: https://nimkoes.github.io/sitemap.xml
