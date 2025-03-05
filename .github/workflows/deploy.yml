@@ -49,12 +49,23 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy verification files to root
+      # sitemap.xml과 robots.txt를 레포지토리 루트로 복사하고 커밋
+      - name: Copy and commit search engine files
         run: |
-          cp public/google-site-verification.html out/google-site-verification.html || true
-          cp out/tech-blog/sitemap.xml out/sitemap.xml || true
+          # sitemap.xml 복사
+          cp out/tech-blog/sitemap.xml sitemap.xml
+          
+          # robots.txt 복사
+          cp out/tech-blog/robots.txt robots.txt
+          
+          # 변경사항 커밋
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add sitemap.xml robots.txt
+          git commit -m "Update sitemap.xml and robots.txt" || echo "No changes to commit"
+          git push origin main || echo "No changes to push"
 
-      - name: Deploy
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
