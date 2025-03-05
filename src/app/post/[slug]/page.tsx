@@ -12,6 +12,7 @@ import TableOfContents from "@/components/TableOfContents/TableOfContents";
 import GoToHome from "@/components/GoToHome/GoToHome";
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import PostHeader from "@/app/post/[slug]/PostHeader";
+import KakaoAdFit from "@/components/KakaoAdFit/KakaoAdFit";
 
 interface PostProps {
   params: { slug: string };
@@ -67,14 +68,19 @@ export default async function PostPage({params}: PostProps) {
       })
     );
 
+  const contentHtml = processedContent.toString();
+
   return (
     <>
-      <article className={styles.markdown}>
+      <div className={styles.container}>
         <PostHeader title={data.title} description={data.description} author={data.author} date={data.date}
           tags={data.tags}/>
         <TableOfContents/>
-        <div dangerouslySetInnerHTML={{__html: processedContent.toString()}}/>
-      </article>
+        <article className={styles.markdown}>
+          <KakaoAdFit className={styles.postAd} />
+          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        </article>
+      </div>
       <div className={styles.floatingButtons}>
         <GoToHome/>
       </div>

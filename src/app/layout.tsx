@@ -128,6 +128,14 @@ export default function RootLayout({
       <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.kakao_ad_client = 'YOUR_KAKAO_AD_CLIENT_ID'; // 실제 광고 클라이언트 ID로 변경해주세요
+          `,
+        }}
+      />
     </head>
     <ClientLayout>{children}</ClientLayout>
     </html>
