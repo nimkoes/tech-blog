@@ -19,7 +19,7 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-Sitemap: https://raw.githubusercontent.com/nimkoes/${REPO}/main/sitemap.xml
+Sitemap: ${DOMAIN}/sitemap.xml
 Host: ${DOMAIN}
 `
 }
@@ -47,7 +47,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/'],
       },
     ],
-    sitemap: `https://raw.githubusercontent.com/nimkoes/${REPO}/main/sitemap.xml`,
+    sitemap: `${DOMAIN}/sitemap.xml`,
     host: DOMAIN,
   }
 } 
