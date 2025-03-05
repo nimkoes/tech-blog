@@ -13,6 +13,7 @@ import GoToHome from "@/components/GoToHome/GoToHome";
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import PostHeader from "@/app/post/[slug]/PostHeader";
 import KakaoAdFit from "@/components/KakaoAdFit/KakaoAdFit";
+import GoogleAdsense from "@/components/GoogleAdsense/GoogleAdsense";
 
 interface PostProps {
   params: { slug: string };
@@ -54,21 +55,31 @@ export default async function PostPage({params}: PostProps) {
   const fileContents = fs.readFileSync(filePath, "utf8");
   const {content, data} = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeHighlight)
-    .use(rehypeStringify)
-    .process(
-      content.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
-        if (src.startsWith("images/")) {
-          return `![${alt}](/resources/${src.replace("./", "")})`;
-        }
-        return match;
-      })
-    );
+  // 본문을 h2 태그를 기준으로 분할
+  const sections = content.split(/(?=## )/);
+  const middleIndex = Math.floor(sections.length / 2);
 
-  const contentHtml = processedContent.toString();
+  // 각 섹션을 HTML로 변환
+  const processSection = async (section: string) => {
+    const processed = await remark()
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeHighlight)
+      .use(rehypeStringify)
+      .process(
+        section.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
+          if (src.startsWith("images/")) {
+            return `![${alt}](/resources/${src.replace("./", "")})`;
+          }
+          return match;
+        })
+      );
+    return processed.toString();
+  };
+
+  // 첫 번째 부분과 두 번째 부분의 HTML 생성
+  const firstHalf = await Promise.all(sections.slice(0, middleIndex).map(processSection));
+  const secondHalf = await Promise.all(sections.slice(middleIndex).map(processSection));
 
   return (
     <>
@@ -77,8 +88,19 @@ export default async function PostPage({params}: PostProps) {
           tags={data.tags}/>
         <TableOfContents/>
         <article className={styles.markdown}>
-          <KakaoAdFit className={styles.postAd} />
-          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+          <KakaoAdFit className={styles.topAd} />
+          <div dangerouslySetInnerHTML={{ __html: firstHalf.join('') }} />
+          <GoogleAdsense
+            className={styles.middleAd}
+            client="ca-pub-6151583773425822"
+            slot="your-ad-slot-id"
+          />
+          <div dangerouslySetInnerHTML={{ __html: secondHalf.join('') }} />
+          <GoogleAdsense
+            className={styles.bottomAd}
+            client="ca-pub-6151583773425822"
+            slot="your-ad-slot-id"
+          />
         </article>
       </div>
       <div className={styles.floatingButtons}>

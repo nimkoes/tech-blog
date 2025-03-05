@@ -106,6 +106,7 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? '',
     other: {
       'naver-site-verification': [process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION ?? ''],
+      'google-adsense-account': ['ca-pub-6151583773425822'],
     },
   },
   category: 'technology',
@@ -123,18 +124,17 @@ export default function RootLayout({
       <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
       <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"/>
       <meta name="naver-site-verification" content="1df124e1d8331da4467178ffddd6188e1d413576"/>
+      <meta name="google-adsense-account" content="ca-pub-6151583773425822"/>
 
       <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
       <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
-      <script
-        type="text/javascript"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.kakao_ad_client = 'YOUR_KAKAO_AD_CLIENT_ID'; // 실제 광고 클라이언트 ID로 변경해주세요
-          `,
-        }}
+      
+      <script 
+        async 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6151583773425822"
+        crossOrigin="anonymous"
       />
     </head>
     <ClientLayout>{children}</ClientLayout>
