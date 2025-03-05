@@ -55,7 +55,7 @@ jobs:
         with:
           repository: nimkoes/nimkoes.github.io
           path: nimkoes.github.io
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
       # sitemap.xml과 robots.txt를 nimkoes.github.io 레포지토리로 복사하고 커밋
       - name: Update search engine files in nimkoes.github.io
@@ -66,8 +66,8 @@ jobs:
           
           # nimkoes.github.io 레포지토리에 커밋 및 푸시
           cd nimkoes.github.io
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          git config --global user.name 'nimkoes'
+          git config --global user.email 'xxxeppa@gmail.com'
           git add sitemap.xml robots.txt
           git commit -m "Update sitemap.xml and robots.txt from tech-blog" || echo "No changes to commit"
           git push || echo "No changes to push"
