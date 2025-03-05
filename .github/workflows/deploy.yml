@@ -53,10 +53,10 @@ jobs:
       - name: Copy and commit search engine files
         run: |
           # sitemap.xml 복사
-          cp out/tech-blog/sitemap.xml sitemap.xml
+          cp out/sitemap.xml sitemap.xml
           
           # robots.txt 복사
-          cp out/tech-blog/robots.txt robots.txt
+          cp out/robots.txt robots.txt
           
           # 변경사항 커밋
           git config --global user.name 'GitHub Actions'
