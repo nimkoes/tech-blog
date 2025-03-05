@@ -3,67 +3,50 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const DOMAIN = 'https://nimkoes.dev' // 실제 도메인으로 변경해주세요
+const BASE_PATH = '/tech-blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const postsDirectory = path.join(process.cwd(), "public/resources")
-  
-  // 정적 페이지 목록
-  const staticPages = [
+  const postsDirectory = path.join(process.cwd(), 'public/resources')
+  let posts: MetadataRoute.Sitemap = []
+
+  try {
+    if (fs.existsSync(postsDirectory)) {
+      const files = fs.readdirSync(postsDirectory)
+      posts = files
+        .filter(file => file.endsWith('.md'))
+        .map(file => {
+          try {
+            const fullPath = path.join(postsDirectory, file)
+            const fileContents = fs.readFileSync(fullPath, 'utf8')
+            const { data } = matter(fileContents)
+            const slug = file.replace('.md', '')
+            
+            return {
+              url: `${BASE_PATH}/post/${slug}`,
+              lastModified: new Date(data.date || new Date()).toISOString(),
+              changeFrequency: 'weekly',
+              priority: 0.8,
+            }
+          } catch (error) {
+            console.error(`Error processing file ${file}:`, error)
+            return null
+          }
+        })
+        .filter((item): item is NonNullable<typeof item> => item !== null)
+    }
+  } catch (error) {
+    console.error('Error reading posts directory:', error)
+  }
+
+  const routes = [
     {
-      url: DOMAIN,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
+      url: BASE_PATH,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'daily',
       priority: 1,
     },
-    {
-      url: `${DOMAIN}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${DOMAIN}/projects`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
+    ...posts,
   ]
 
-  // 블로그 포스트 목록
-  const files = fs.readdirSync(postsDirectory)
-  const posts = files
-    .filter(file => file.endsWith('.md'))
-    .map(file => {
-      const fileContents = fs.readFileSync(path.join(postsDirectory, file), 'utf8')
-      const { data } = matter(fileContents)
-      const slug = file.replace('.md', '')
-      
-      return {
-        url: `${DOMAIN}/post/${slug}`,
-        lastModified: new Date(data.date).toISOString(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-      }
-    })
-    .sort((a, b) => b.lastModified.localeCompare(a.lastModified))
-
-  // 태그 페이지 목록 (고유한 태그 추출)
-  const tags = new Set<string>()
-  files.forEach(file => {
-    const fileContents = fs.readFileSync(path.join(postsDirectory, file), 'utf8')
-    const { data } = matter(fileContents)
-    if (Array.isArray(data.tags)) {
-      data.tags.forEach((tag: string) => tags.add(tag))
-    }
-  })
-
-  const tagPages = Array.from(tags).map(tag => ({
-    url: `${DOMAIN}/tags/${tag}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.5,
-  }))
-
-  return [...staticPages, ...posts, ...tagPages]
+  preturn routes
 } 

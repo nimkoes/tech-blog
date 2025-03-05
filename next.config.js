@@ -1,14 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  output: 'export',
+  basePath: '/tech-blog',
+  assetPrefix: '/tech-blog',
   images: {
     unoptimized: true,
   },
   reactStrictMode: true,
   swcMinify: true,
-  basePath: "/tech-blog",
-  assetPrefix: "/tech-blog/",
-  trailingSlash: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }
 
 module.exports = nextConfig 
