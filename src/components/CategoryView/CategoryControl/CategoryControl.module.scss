@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease-in-out;
 
   .categoryControl:hover & {
@@ -43,15 +43,18 @@
   width: 0;
   opacity: 0;
   transition: all 0.3s ease;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 
   &.searchActive {
-    width: 150px;
+    width: 100%;
     opacity: 1;
   }
 
   &:focus {
     outline: none;
     background: #555;
+    font-size: 16px;
   }
 }
 
@@ -87,6 +90,12 @@
   .searchInput {
     &.searchActive {
       width: 100px;
+      font-size: 16px;
     }
+    
+    padding: 8px 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 }
