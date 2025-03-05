@@ -1,0 +1,114 @@
+3:I[4707,[],""]
+5:I[6423,[],""]
+6:I[4829,["679","static/chunks/679-09931d2c20ac23c4.js","185","static/chunks/app/layout-04b5cc4ae96ec103.js"],"default"]
+4:["slug","0008250303-kubernetes","d"]
+0:["tugn7ZYrCi5paj1z_qOlq",[[["",{"children":["post",{"children":[["slug","0008250303-kubernetes","d"],{"children":["__PAGE__?{\"slug\":\"0008250303-kubernetes\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["post",{"children":[["slug","0008250303-kubernetes","d"],{"children":["__PAGE__",{},[["$L1","$L2",[["$","link","0",{"rel":"stylesheet","href":"/tech-blog/_next/static/css/86708423b213bf15.css","precedence":"next","crossOrigin":"$undefined"}]]],null],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","post","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","post","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/tech-blog/_next/static/css/2902b82ade31b364.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"ko","className":"__className_c5102c","children":[["$","head",null,{"children":[["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}],["$","meta",null,{"name":"theme-color","content":"#ffffff","media":"(prefers-color-scheme: light)"}],["$","meta",null,{"name":"theme-color","content":"#000000","media":"(prefers-color-scheme: dark)"}],["$","meta",null,{"name":"naver-site-verification","content":"1df124e1d8331da4467178ffddd6188e1d413576"}],["$","meta",null,{"name":"google-adsense-account","content":"ca-pub-6151583773425822"}],["$","link",null,{"rel":"dns-prefetch","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"dns-prefetch","href":"https://fonts.gstatic.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com","crossOrigin":"anonymous"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","script",null,{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6151583773425822","crossOrigin":"anonymous"}]]}],["$","$L6",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]}]]}]],null],null],["$L7",null]]]]
+8:I[2089,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+9:I[3299,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+a:I[1040,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+c:I[2786,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+d:I[6798,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+b:T296c,<p><img src="/tech-blog/resources/images/kubernetes/0008-01.png" alt="0008-01"></p>
+<p>본격적인 사용 방법을 알아보기에 앞서 ConfigMap 과 Secret 이 언제 사용되는지 먼저 정리한다.</p>
+<p><img src="/tech-blog/resources/images/kubernetes/0008-02.png" alt="0008-02"></p>
+<p>개발 환경과 운영 환경이 있다. A Service 는 환경에 따라 SSH 설정 및 User 와 key 값을 설정해야 한다. 하지만 이 값은 Container 안에 있는 Service 에 들어있는 값이기 때문에 이
+값을 바꾼다는 것은 환경에 따라 Container Image 를 따로 관리해야 한다는 것을 의미한다. 단순히 이 값을 관리하기 위해 용량이 큰 Image 를 별도로 관리하는 것은 부담되는 일이다.</p>
+<p>보통 환경에 따라 변하는 값들을 외부에서 결정할 수 있도록 한다. 이것을 도와주는 것이 ConfigMap 과 Secret 이라는 오브젝트 이다. 관리 해야 하는 일반적인 상수들을 모아 ConfigMap 을 만들고
+key 값과 같이 보안과 관련 된 값을 모아 Secret 을 만든다.</p>
+<p>Pod 를 생성할 때 ConfigMap 과 Secret 오브젝트를 연결할 수 있는데 Container 의 환경변수에 이 데이터들이 들어가게 된다. A Service 의 입장에서는 Env (환경변수) 값을 읽어서
+로직을 처리하게 된다.</p>
+<p>운영 환경에서는 ConfigMap 과 Secret 의 데이터만 바꿔주면 똑같은 Container Image 를 사용해서 의도한 대로 동작하게 할 수 있다.</p>
+<h1>Env (Literal)</h1>
+<p>가장 기본적인 형태인 상수를 입력하는 방법이다.</p>
+<p><img src="/tech-blog/resources/images/kubernetes/0008-03.png" alt="0008-03"></p>
+<p>ConfigMap 은 key 와 value 로 구성되어 있다. 그래서 필요한 상수들을 정의하면 Pod 를 만들 때 이 ConfigMap 을 가져와서 Container 안에 환경 변수로 설정할 수 있다. Secret
+도 동일한 기능을 하는데 비밀번호와 같은 보안과 관련 된 값들을 저장하는 용도로 사용 한다. ConfigMap 과 다른 Secret 의 특징은 값을 넣을 때 Base64 인코딩 한 값을 넣어야 한다는 것인데
+Secret 의 보안적인 요소는 아닌 단순한 규칙일 뿐이다. 이 값 이 Pod 에 주입 될 때 자동으로 디코딩 되기 때문에 환경 변수에서는 인코딩 전의 값이 보이게 된다.</p>
+<p>일반적인 오브젝트의 값들은 k8s DB 에 저장이 되는 반면 Secret 은 메모리에 저장이 된다. 파일에 저장되어 있는 것보다 메모리에 저장되어 있는 것이 보안 상 유리하기 때문이다. 또한 ConfigMap 은
+key-value 를 제한 없이 입력할 수 있는 반면 Secret 은 1 메가 까지 입력할 수 있는데 너무 많은 값을 넣으면 메모리를 사용하기 때문에 시스템에 영향을 줄 수도 있다.</p>
+<pre><code class="hljs language-yml"><span class="hljs-comment"># ConfigMap 설정 예시</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">ConfigMap</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">cm-dev</span>
+<span class="hljs-attr">data:</span>
+  <span class="hljs-attr">SSH:</span> <span class="hljs-string">'false'</span>    <span class="hljs-comment"># key: value 형태의 상수를 입력</span>
+  <span class="hljs-attr">User:</span> <span class="hljs-string">dev</span>
+</code></pre>
+<pre><code class="hljs language-yml"><span class="hljs-comment"># Secret 설정 예시</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Secret</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">sec-dev</span>
+<span class="hljs-attr">data:</span>
+  <span class="hljs-attr">Key:</span> <span class="hljs-string">MTIzNA==</span>   <span class="hljs-comment"># key: value 형태로 입력하되 value 는 BASE64 인코딩 한 값 사용</span>
+</code></pre>
+<pre><code class="hljs language-yml"><span class="hljs-comment"># ConfigMap 과 Secret 을 사용하는 Pod 설정 예시</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pod-1</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">containers:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">container</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">kubetm/init</span>
+      <span class="hljs-attr">envFrom:</span> <span class="hljs-comment"># envFrom 으로 사용 할 ConfigMap 과 Secret 을 참조</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">configMapRef:</span>
+            <span class="hljs-attr">name:</span> <span class="hljs-string">cm-dev</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">secretRef:</span>
+            <span class="hljs-attr">name:</span> <span class="hljs-string">sec-dev</span>
+</code></pre>
+<h1>Env (File)</h1>
+<p><img src="/tech-blog/resources/images/kubernetes/0008-04.png" alt="0008-04"></p>
+<p>파일을 ConfigMap 에 담을 경우 파일의 이름이 ConfigMap 의 이름이 key 가 되고 내용이 value 가 된다. 이것을 Pod 를 만들 때 환경변수로 넣을 때 그대로 넣게 될 경우 key 가 파일
+이름이 되어 자연스럽지 않다. 그래서 key 를 새로 정의해서 Content 를 넣는 방법을 사용 한다.</p>
+<p>file 을 ConfigMap 으로 만드는 것은 대시보드에서 지원하지 않기 때문에 master node 에서 kubectl 명령을 사용 한다.</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_"># </span><span class="bash">cm-file 이라는 ConfigMap 생성</span>
+echo "Content" >> file.txt
+kubectl create configmap cm-file --from-file=./file.txt
+</code></pre>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_"># </span><span class="bash">sec-file 이라는 Secret 생성</span>
+echo "Content" >> file.txt
+kubectl create secret generic sec-file --from-file=./file.txt
+</code></pre>
+<p>Secret 생성시 file 의 내용이 BASE64 로 인코딩 된다. 그렇기 때문에 미리 내용을 BASE64 로 인코딩 하였다면 두 번 인코딩 될 수 있으므로 주의해야한다.</p>
+<pre><code class="hljs language-yml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pod-file</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">containers:</span> <span class="hljs-comment"># Container 에</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">container</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">kubetm/init</span>
+      <span class="hljs-attr">env:</span> <span class="hljs-comment"># 환경변수를 넣을 건데</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">file</span>           <span class="hljs-comment"># 이 환경변수의 이름은 file 이다.</span>
+          <span class="hljs-attr">valueFrom:</span> <span class="hljs-comment"># 이 파일의 값을 가져올건데</span>
+            <span class="hljs-attr">configMapKeyRef:</span> <span class="hljs-comment"># 그 값은 ConfigMap 의 Key 를 참조 한다.</span>
+              <span class="hljs-attr">name:</span> <span class="hljs-string">cm-file</span>    <span class="hljs-comment"># ConfigMap 의 이름은 cm-file 이고</span>
+              <span class="hljs-attr">key:</span> <span class="hljs-string">file.txt</span>    <span class="hljs-comment"># cm-file 안에 있는 file.txt 라는 key 에 대한 value 입력</span>
+</code></pre>
+<p>Volume Mount (file)</p>
+<p><img src="/tech-blog/resources/images/kubernetes/0008-05.png" alt="0008-05"></p>
+<p>file 을 ConfigMap 에 담는 것 까지는 앞서 본 것과 동일하다.</p>
+<pre><code class="hljs language-yml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pod-mount</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">containers:</span> <span class="hljs-comment"># Container 안에</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">container</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">kubetm/init</span>
+      <span class="hljs-attr">volumeMounts:</span> <span class="hljs-comment"># Volume 을 mount 하는데</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">file-volume</span>
+          <span class="hljs-attr">mountPath:</span> <span class="hljs-string">/mount</span>    <span class="hljs-comment"># 그 때 mount path 이고</span>
+  <span class="hljs-attr">volumes:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">file-volume</span>      <span class="hljs-comment"># maount 할 Volume 을 보면</span>
+      <span class="hljs-attr">configMap:</span> <span class="hljs-comment"># 이 Vloume 안에는 configMap 을 담았고</span>
+        <span class="hljs-attr">name:</span> <span class="hljs-string">cm-file</span>        <span class="hljs-comment"># configMap 의 이름은 cm-file 이다.</span>
+</code></pre>
+<p>마지막으로 Env (File) 과 Volume Mount (File) 방식은 큰 차이점이 있다.</p>
+<p>Env (File) 같은 경우 Pod 를 만들 때 환경변수 값을 한 번 주입하면 그것으로 끝이기 때문에 ConfigMap 의 데이터가 바뀌어도 Pod 의 환경변수 값은 바뀌지 않는다. Pod 가 다시 만들어질
+경우에는 갱신이 된다.</p>
+<p>반면 Volume Mount (File) 방식은 mount 자체가 원본과 연결해 준다는 것을 의미하기 때문에 ConfigMap 의 데이터가 바뀔 경우 Pod 에 mount 된 내용도 같이 바뀌게 된다.</p>2:[["$","div",null,{"className":"$undefined","children":[["$","header",null,{"className":"PostHeader_postHeader__OohTH","children":[["$","h1",null,{"className":"PostHeader_title__NoKGt","children":"ConfigMap, Secret (Env, Mount)"}],["$","p",null,{"className":"PostHeader_description__moC_r","children":""}],["$","div",null,{"className":"PostHeader_meta__9Swgx","children":[["$","span",null,{"className":"$undefined","children":"nimkoes"}],["$","span",null,{"className":"$undefined","children":"2021-03-02"}]]}],["$","div",null,{"className":"PostHeader_tags__lGQ1Q","children":[["$","span","Kubernetes",{"className":"PostHeader_tag__Jf7BC","children":"Kubernetes"}],["$","span","k8s",{"className":"PostHeader_tag__Jf7BC","children":"k8s"}],["$","span","infra",{"className":"PostHeader_tag__Jf7BC","children":"infra"}]]}]]}],["$","$L8",null,{}],["$","article",null,{"className":"page_markdown__SVl4d","children":[["$","$L9",null,{"className":"page_topAd__ctbB7"}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":""}}],["$","$La",null,{"className":"page_middleAd__4qBOv","client":"ca-pub-6151583773425822","slot":"your-ad-slot-id"}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$b"}}],["$","$La",null,{"className":"page_bottomAd__f0OO_","client":"ca-pub-6151583773425822","slot":"your-ad-slot-id"}]]}]]}],["$","div",null,{"className":"page_floatingButtons__qJiZU","children":["$","$Lc",null,{}]}],["$","$Ld",null,{}]]
+7:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"ConfigMap, Secret (Env, Mount) | Nimkoes Tech Blog"}],["$","meta","3",{"name":"description","content":"기본 설명"}],["$","meta","4",{"name":"application-name","content":"Nimkoes Tech Blog"}],["$","link","5",{"rel":"author","href":"https://nimkoes.github.io/tech-blog"}],["$","meta","6",{"name":"author","content":"Nimkoes"}],["$","link","7",{"rel":"manifest","href":"/tech-blog/site.webmanifest","crossOrigin":"use-credentials"}],["$","meta","8",{"name":"keywords","content":"tech-blog,backend,software architect,infrastructure,development"}],["$","meta","9",{"name":"creator","content":"Nimkoes"}],["$","meta","10",{"name":"publisher","content":"Nimkoes"}],["$","meta","11",{"name":"robots","content":"index, follow, nocache"}],["$","meta","12",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","13",{"name":"category","content":"technology"}],["$","link","14",{"rel":"canonical","href":"https://nimkoes.github.io/tech-blog"}],["$","link","15",{"rel":"alternate","hrefLang":"ko-KR","href":"https://nimkoes.github.io/tech-blog"}],["$","meta","16",{"name":"format-detection","content":"telephone=no, address=no, email=no"}],["$","meta","17",{"name":"google-adsense-account","content":"ca-pub-6151583773425822"}],["$","meta","18",{"property":"og:title","content":"Nimkoes Tech Blog - 개발자의 기술 이야기"}],["$","meta","19",{"property":"og:description","content":"I work diligently to become lazy ☕"}],["$","meta","20",{"property":"og:url","content":"https://nimkoes.github.io/tech-blog"}],["$","meta","21",{"property":"og:site_name","content":"Nimkoes Tech Blog"}],["$","meta","22",{"property":"og:locale","content":"ko_KR"}],["$","meta","23",{"property":"og:image","content":"https://nimkoes.github.io/tech-blog/og-image.png"}],["$","meta","24",{"property":"og:image:width","content":"1200"}],["$","meta","25",{"property":"og:image:height","content":"630"}],["$","meta","26",{"property":"og:image:alt","content":"Nimkoes Tech Blog"}],["$","meta","27",{"property":"og:image:type","content":"image/png"}],["$","meta","28",{"property":"og:type","content":"website"}],["$","meta","29",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","30",{"name":"twitter:site","content":"@nimkoes"}],["$","meta","31",{"name":"twitter:creator","content":"@nimkoes"}],["$","meta","32",{"name":"twitter:title","content":"Nimkoes Tech Blog"}],["$","meta","33",{"name":"twitter:description","content":"I work diligently to become lazy ☕"}],["$","meta","34",{"name":"twitter:image","content":"https://nimkoes.github.io/tech-blog/og-image.png"}],["$","link","35",{"rel":"icon","href":"/tech-blog/favicon.ico","sizes":"any"}],["$","link","36",{"rel":"icon","href":"/tech-blog/icon.svg","type":"image/svg+xml"}],["$","link","37",{"rel":"icon","href":"/tech-blog/favicon-32x32.png","sizes":"32x32","type":"image/png"}],["$","link","38",{"rel":"icon","href":"/tech-blog/favicon-16x16.png","sizes":"16x16","type":"image/png"}],["$","link","39",{"rel":"apple-touch-icon","href":"/tech-blog/apple-touch-icon.png","sizes":"180x180","type":"image/png"}],["$","link","40",{"rel":"mask-icon","href":"/tech-blog/safari-pinned-tab.svg","color":"#5bbad5"}],["$","meta","41",{"name":"next-size-adjust"}]]
+1:null

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nimkoes Tech Blog</title>
+    <link>https://nimkoes.github.io</link>
+    <description>프론트엔드, 백엔드 개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Wed, 05 Mar 2025 11:46:00 GMT</lastBuildDate>
+    <atom:link href="https://nimkoes.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title><![CDATA[Git 명령어 모음]]></title>
+      <link>https://nimkoes.github.io/post/0001250302-git</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0001250302-git</guid>
+      <pubDate>Sat, 22 Feb 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[Git을 효율적으로 사용하기 위한 기본 명령어 모음입니다.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Kubernetes 사용 이유]]></title>
+      <link>https://nimkoes.github.io/post/0002250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0002250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+
+원활한 서비스 제공을 위해 필요한 자원을 미리 준비하는 것은 비용과 관리 측면에서 어려움이 있다.
+
+![0002-01](/tech-blog/resources/images/kubernetes/0002-01.png)
+
+## As-Is
+
+A, B, C 각 서비스는 시간대 별로 필요한 자원이 유동적으로 바뀌지만, 서버 자원을 동적으로 변경할 수 없어 최대 부하를 견딜 수 있는 자원을 미리 준비시켜야 한다.
+각 서비스별 장애 상황에 대비해 최소 하나의 백업 서버가 필요하기 때문에 3대의 서버가 추가로 필요하다.
+무중단 서비스를 제공하기 ...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[VM 과 Container 비교]]></title>
+      <link>https://nimkoes.github.io/post/0003250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0003250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0003-01](/tech-blog/resources/images/kubernetes/0003-01.png)
+
+VM 과 Container 모두 공통적으로 하나의 서버(Host Server)가 있고 그 서버에는 Host OS 가 올라간다.
+
+VM 의 경우 Host OS 위에 VM 을 가상화 하기 위한 여러 Hypervisor 가 있고 그 위에 Guest OS 를 올려 다수의 VM 을 만들 수 있다. 이 Guest OS 역시 Host OS 와 같이
+독립적으로 사용해서 각각의 OS 에 애플리케이션을 설치하고 서비스를 만들어 제공할 ...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Kubernetes 훑어보기]]></title>
+      <link>https://nimkoes.github.io/post/0004250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0004250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0004-01](/tech-blog/resources/images/kubernetes/0004-01.png)
+
+Kubernetes 는 한 대의 서버를 Master 로 사용하고 다른 서버는 Node 로 하나의 Master 에 다수의 Node 들이 연결 된다. 이렇게 연결 된 하나의 묶음이 Kubernetes Cluster 가
+된다.
+
+Master 는 Kubernetes 의 전반적인 기능들을 컨트롤 하고, Node 들은 자원을 제공하는 역할을 한다. 만약 Cluster 전체 자원을 늘리고 싶으면 Node 를 계속 추가하면 된다.
+...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Pod (Container, Label, NodeSchedule)]]></title>
+      <link>https://nimkoes.github.io/post/0005250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0005250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0005-01](/tech-blog/resources/images/kubernetes/0005-01.png)
+
+# Pod
+
+Pod 안에는 하나의 독립 된 서비스를 구동할 수 있는 Container 들이 있다. 그리고 각 Container 들은 서비스가 연결될 수 있도록 port 를 가지고 있다. 하나의 Container 는 하나 이상의
+port 를 가질 수 있지만, 하나의 Pod 내에서 같은 port 를 가지는 Container 는 존재할 수 없다.
+
+![0005-02](/tech-blog/resources/images/kub...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Service (ClusterIP, NodePort, LoadBalancer)]]></title>
+      <link>https://nimkoes.github.io/post/0006250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0006250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0006-01](/tech-blog/resources/images/kubernetes/0006-01.png)
+
+# ClusterIP
+
+Service 는 기본적으로 아래 그림과 같이 자신의 ClusterIp 를 가지고 있다.
+
+![0006-02](/tech-blog/resources/images/kubernetes/0006-02.png)
+
+그리고 이 Service 를 Pod 에 연결시켜두면 Service 의 IP 를 통해 Pod 에 접근할 수 있게 된다.
+
+앞서 Pod 에도 동일하게 Cluster 내에서 접근할 수 있는 IP 가...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Volume (emptyDir, hostPath, PVC/PV)]]></title>
+      <link>https://nimkoes.github.io/post/0007250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0007250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0007-01](/tech-blog/resources/images/kubernetes/0007-01.png)
+
+# emptyDir
+
+Container 간 데이터 공유를 위해 Volume 을 사용하는 것을 말한다. 최초 Volume 이 생성될 때는 항상 내용이 비어있기 때문에 emptyDir 이란 이름을 가지게 되었다.
+
+![0007-02](/tech-blog/resources/images/kubernetes/0007-02.png)
+
+만약 Container 1 이 web 역할을 하는 서버이고 Container 2 는 백엔드를 처...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[ConfigMap, Secret (Env, Mount)]]></title>
+      <link>https://nimkoes.github.io/post/0008250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0008250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0008-01](/tech-blog/resources/images/kubernetes/0008-01.png)
+
+본격적인 사용 방법을 알아보기에 앞서 ConfigMap 과 Secret 이 언제 사용되는지 먼저 정리한다.
+
+![0008-02](/tech-blog/resources/images/kubernetes/0008-02.png)
+
+개발 환경과 운영 환경이 있다. A Service 는 환경에 따라 SSH 설정 및 User 와 key 값을 설정해야 한다. 하지만 이 값은 Container 안에 있는 Service 에 들어있는 값...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Namespace, ResourceQuota, LimitRange]]></title>
+      <link>https://nimkoes.github.io/post/0009250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0009250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+본격적인 사용 방법을 알아보기에 앞서 Namespace, ResourceQuota, LimitRange 를 왜 사용해야 하는지 먼저 정리한다.
+
+![0009-01](/tech-blog/resources/images/kubernetes/0009-01.png)
+
+k8s Cluster 라고 해서 전체 사용할 수 있는 자원이 있다. 일반적으로 Memory, CPU 가 있고 Cluster 안에는 다수의 Namespace 를 Namespace 안에는 다수의 Pod 를 만들 수
+있다. 각 Pod 는 필요한 자원을 Cluster 자원을 공유하여...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Replication Controller, ReplicaSet (Template, Replicas, Selector)]]></title>
+      <link>https://nimkoes.github.io/post/0010250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0010250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0010-01](/tech-blog/resources/images/kubernetes/0010-01.png)
+
+k8s 의 Controller 는 서비스를 관리하고 운영하는데 큰 도움을 준다.
+
+# Auto Healing
+
+Node 위에 Pod 가 있는데 이 Pod 가 갑자기 다운 되거나 이 Pod 가 Scheduling 되어 있는 Node 가 다운 될 경우 Controller 는 장애를 바로 인지하고 Pod 를 다른 Node 에 새로
+만들어 준다.
+
+# Software Update
+
+다수의 Pod 에 대한 버전을 upgrade...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Deployment (Recreate, RollingUpdate)]]></title>
+      <link>https://nimkoes.github.io/post/0011250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0011250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+Deployment 는 하나의 운영 중인 서비스를 업데이트 하여 다시 배포해야 할 때 도움을 주는 Controller 이다.
+
+Deployment 에 대해 알아보기에 앞서 k8s 에서 사용하는 몇 가지 업그레이드 방법에 대해 알아 본다.
+
+![0011-01](/tech-blog/resources/images/kubernetes/0011-01.png)
+
+업그레이드 방법에는 크게 ReCreate, Rolling Update, Bule/Green, Canary 등이 있다.
+
+# ReCreate
+
+Deployment 를 만들면 v1 의 ...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[DaemonSet, Job, CronJob]]></title>
+      <link>https://nimkoes.github.io/post/0012250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0012250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+DaemonSet, Job, CronJob Controller 가 무엇이고 언제 사용 하는지 정리 한다.
+
+# DaemonSet
+
+각 Node 에 자원이 다르게 남아있는 상태에서 ReplicaSet 의 경우 Pod 를 Scheduler 에 의존해서 Node 에 배치할 때, 만약 Node1 에 자원이 많이 남아있는 경우 Pod 를 많이 배치할
+것이다. 그리고 Node3 과 같이 자원이 별로 없으면 Pod 를 배치하지 않을 수도 있다.
+
+![0012-01](/tech-blog/resources/images/kubernetes/0012...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Pod - Lifecycle]]></title>
+      <link>https://nimkoes.github.io/post/0013250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0013250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+Pod 에는 Lifecycle 이 존재하고 어떤 Pod 든 만들어지고 사라지는 과정을 거치게 된다. Lifecycle 은 각 단계 별로 하는 행동이 다르다는 특징을 갖는다. Pod 역시 단계별로 주요 행동들이 있고,
+앞으로 알아 볼 ReadinessProbe, LivenessProbe, Qos, Policy 등 다양한 기능들이 Pod 의 특정 단계와 관련이 있기 때문에 Lifecycle 에 대해 잘 알아야 한다.
+
+Pod 를 생성하고 나면 아래와 같이 Status 에 대한 값을 확인할 수 있다.
+
+```yml
+status:
+  p...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Pod - ReadinessProbe, LivenessProb]]></title>
+      <link>https://nimkoes.github.io/post/0014250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0014250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0014-01](/tech-blog/resources/images/kubernetes/0014-01.png)
+
+Pod 를 만들면 그 안에 Container 가 생기고 Pod 와 Container 의 상태가 Running 이 되면서 그 안에 있는 Application 도 정상적으로 구동이 되고 있을 것이다. 그리고
+Service 에 연결 되는데 이 Service 의 IP 가 외부에 노출되어 다수의 사용자에 의해 서비스가 이용 된다.
+
+![0014-02](/tech-blog/resources/images/kubernetes/001...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Pod - QoS Classes]]></title>
+      <link>https://nimkoes.github.io/post/0015250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0015250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+![0015-01](/tech-blog/resources/images/kubernetes/0015-01.png)
+
+리소스를 균등하게 사용하고 있는 3개의 Pod 를 가진 Node 가 있다.
+![0015-02](/tech-blog/resources/images/kubernetes/0015-02.png)
+
+각 Pod 가 Node 의 리소스를 균등하게 사용하고 있기 때문에 특정 Pod 에 추가 리소스를 할당 할 수 없는 상황에서 Pod1 이 추가 리소스를 필요로 하는 상황이 발생 했다. 그럼 Pod1 이 리소스 부족으로
+에러가 발생하고...]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Pod - NodeScheduling]]></title>
+      <link>https://nimkoes.github.io/post/0016250303-kubernetes</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0016250303-kubernetes</guid>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[
+Pod 는 기본적으로 Scheduler 에 의해 Node 에 할당 되지만 사용자의 의도에 의해 Node 를 지정할 수 있고, 운영자가 특정 노드를 사용하지 못하도록 관리 할 수도 있다.
+
+# Node 선택 (NodeName, NodeSelector, NodeAffinity)
+
+Pod 를 특정 Node 에 할당 되도록 선택하기 위한 용도로 사용 한다.
+
+![0016-01](/tech-blog/resources/images/kubernetes/0016-01.png)
+
+Node1, Node2, Node3 은 서버가 한국에 있고, Nod...]]></description>
+    </item>
+  </channel>
+</rss>

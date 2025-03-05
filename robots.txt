@@ -1,0 +1,16 @@
+User-Agent: *
+Allow: /
+Allow: /tech-blog/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /*?*
+Disallow: /*.json$
+
+User-Agent: GPTBot
+Disallow: /
+
+User-Agent: CCBot
+Disallow: /
+
+Host: https://nimkoes.github.io
+Sitemap: https://nimkoes.github.io/sitemap.xml

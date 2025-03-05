@@ -1,0 +1,144 @@
+3:I[4707,[],""]
+5:I[6423,[],""]
+6:I[4829,["679","static/chunks/679-09931d2c20ac23c4.js","185","static/chunks/app/layout-04b5cc4ae96ec103.js"],"default"]
+4:["slug","0007250303-kubernetes","d"]
+0:["tugn7ZYrCi5paj1z_qOlq",[[["",{"children":["post",{"children":[["slug","0007250303-kubernetes","d"],{"children":["__PAGE__?{\"slug\":\"0007250303-kubernetes\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["post",{"children":[["slug","0007250303-kubernetes","d"],{"children":["__PAGE__",{},[["$L1","$L2",[["$","link","0",{"rel":"stylesheet","href":"/tech-blog/_next/static/css/86708423b213bf15.css","precedence":"next","crossOrigin":"$undefined"}]]],null],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","post","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","post","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/tech-blog/_next/static/css/2902b82ade31b364.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"ko","className":"__className_c5102c","children":[["$","head",null,{"children":[["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}],["$","meta",null,{"name":"theme-color","content":"#ffffff","media":"(prefers-color-scheme: light)"}],["$","meta",null,{"name":"theme-color","content":"#000000","media":"(prefers-color-scheme: dark)"}],["$","meta",null,{"name":"naver-site-verification","content":"1df124e1d8331da4467178ffddd6188e1d413576"}],["$","meta",null,{"name":"google-adsense-account","content":"ca-pub-6151583773425822"}],["$","link",null,{"rel":"dns-prefetch","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"dns-prefetch","href":"https://fonts.gstatic.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com","crossOrigin":"anonymous"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","script",null,{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6151583773425822","crossOrigin":"anonymous"}]]}],["$","$L6",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]}]]}]],null],null],["$L7",null]]]]
+8:I[2089,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+9:I[3299,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+a:I[1040,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+c:I[2786,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+d:I[6798,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+b:T32d9,<p><img src="/tech-blog/resources/images/kubernetes/0007-01.png" alt="0007-01"></p>
+<h1>emptyDir</h1>
+<p>Container 간 데이터 공유를 위해 Volume 을 사용하는 것을 말한다. 최초 Volume 이 생성될 때는 항상 내용이 비어있기 때문에 emptyDir 이란 이름을 가지게 되었다.</p>
+<p><img src="/tech-blog/resources/images/kubernetes/0007-02.png" alt="0007-02"></p>
+<p>만약 Container 1 이 web 역할을 하는 서버이고 Container 2 는 백엔드를 처리해주는 서버라고 하자. 이 때 web 서버로부터 받은 파일을 mount 된 Volume 에 저장해두고 백엔드의
+Container 역시 같은 Volume 을 mount 해두면 이 두 서버가 Volume 을 자신의 로컬에 있는 파일 처럼 사용할 수 있다. 즉 두 서버 간 파일 전송 없이 같은 파일을 사용할 수 있다.</p>
+<p>추가로 Volume 은 Pod 안에 생성되기 때문에 만약 Pod 에 문제가 발생하여 다시 생성 될 경우 모든 데이터가 삭제된다. 그러므로 일시적으로 사용 할 데이터만 넣는 것이 좋다.</p>
+<pre><code class="hljs language-yml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pod-volume-1</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">containers:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">container1</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">kubetm/init</span>
+      <span class="hljs-attr">volumeMounts:</span> <span class="hljs-comment"># Volume mount</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">empty-dir</span>
+          <span class="hljs-attr">mountPath:</span> <span class="hljs-string">/mount1</span>  <span class="hljs-comment"># Container1 이 사용하는 path => /mount1</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">container2</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">kubetm/init</span>
+      <span class="hljs-attr">volumeMounts:</span> <span class="hljs-comment"># Volume mount</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">empty-dir</span>
+          <span class="hljs-attr">mountPath:</span> <span class="hljs-string">/mount2</span>  <span class="hljs-comment"># Container2 가 사용하는 path => /mount2</span>
+  <span class="hljs-attr">volumes:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">empty-dir</span>
+      <span class="hljs-attr">emptyDir:</span> { }          <span class="hljs-comment"># Volume 의 속성으로 emptyDir 을 지정</span>
+
+<span class="hljs-comment"># mountPath : Container 가 이 Path 로 Volume 을 연결함을 의미</span>
+<span class="hljs-comment"># mountPath 의 경로가 다르지만 Path 가 지정되는 Volume 의 이름이</span>
+<span class="hljs-comment">#  empty-dir 로 동일하기 때문에 container 마다 자신이 원하는 경로를 사용하고 있지만</span>
+<span class="hljs-comment">#  결국 같은 Volume 을 mount 하고 있다.</span>
+</code></pre>
+<h1>hostPath</h1>
+<p>이름에서 알 수 있듯 하나의 host 즉, Pod 들이 올라가 있는 Node 에 path 를 Volume 으로 사용한다.</p>
+<p><img src="/tech-blog/resources/images/kubernetes/0007-03.png" alt="0007-03"></p>
+<p>emptyDir 과 다른 점은 Path 를 각 Pod 들이 mount 해서 공유하기 때문에 Pod 가 삭제 되어도 Node 에 있는 데이터는 사라지지 않는다. 데이터가 사라지지 않아 좋아 보이지만 Pod 입장에서
+문제가 있다.</p>
+<p><img src="/tech-blog/resources/images/kubernetes/0007-04.png" alt="0007-04"></p>
+<p>만약 다양한 이유로 Pod 가 다시 생성될 때 다른 Node 에 만들어지는 경우 Pod 가 사용하던 Volume 은 hostPath 에 mount 되어있었기 때문에 Volume 을 사용할 수 없게 된다. 왜냐하면
+Pod 는 자신이 올라간 Node 에 있는 Volume 만 사용할 수 있기 때문이다.</p>
+<p>Pod 가 다시 생성되는 경우 발생하는 문제를 해결한다고 하면, Node 가 생성될 때마다 같은 이름의 경로를 만들어서 직접 Node 에 있는 Path 끼리 mount 해주면 되긴 하지만 이 방법은 k8s 가 해주지
+않고 관리자가 직접 설정해줘야 한다. 이렇게 구성하는 것이 그렇게 어렵고 복잡한 것은 아니지만 실수할 여지가 있기 때문에 추천하는 방법은 아니다.</p>
+<p>각 Node 는 기본적으로 시스템 파일 또는 다양한 설정 파일과 같이 자기 자신을 위해 사용되는 파일들이 있다. Pod 자신이 할당되어 있는 host 에 데이터를 읽거나 써야할 때 사용하면 된다.</p>
+<pre><code class="hljs language-yml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pod-volume-3</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">nodeSelector:</span>
+    <span class="hljs-attr">kubernetes.io/hostname:</span> <span class="hljs-string">k8s-node1</span>
+  <span class="hljs-attr">containers:</span> <span class="hljs-comment"># Pod 를 만들 때 Conatiner 에서 </span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">container</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">kubetm/init</span>
+      <span class="hljs-attr">volumeMounts:</span> <span class="hljs-comment"># Volume 을 mount 하는데</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">host-path</span>         <span class="hljs-comment"># host-path 라는 이름의 Volume 을 사용 하고</span>
+          <span class="hljs-attr">mountPath:</span> <span class="hljs-string">/mount1</span>      <span class="hljs-comment"># Path 는 mount1 이다.</span>
+  <span class="hljs-attr">volumes:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">host-path</span>          <span class="hljs-comment"># host-path 라는 이름의 Volume</span>
+      <span class="hljs-attr">hostPath:</span> <span class="hljs-comment"># hostPath 라는 속성을 사용한다.</span>
+        <span class="hljs-attr">path:</span> <span class="hljs-string">/node-v</span>           <span class="hljs-comment"># Path 는 node-v 이고 </span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">Directory</span>         <span class="hljs-comment"># type 은 Directory 이다.</span>
+
+<span class="hljs-comment"># 추가로 hostPaht 의 path: /node-v 는 이 Pod 가 만들어지기 전에 만들어져 있어야 한다.</span>
+</code></pre>
+<p>hostPath 는 Pod 의 데이터를 저장하기 위한 용도가 아니고 Node 에 있는 데이터를 Pod 에서 사용하기 위한 용도이다.</p>
+<h1>PVC/PV (Persistent Volume Claim/ Persistent Volume)</h1>
+<p>PVC/PV 는 Pod 에 영속성 있는 Volume 을 제공하기 위한 기능이다.</p>
+<p><img src="/tech-blog/resources/images/kubernetes/0007-05.png" alt="0007-05"></p>
+<p>실제 Volume 의 형태는 다양하다. Local Volume 도 있지만 외부에 원격으로 사용되는 형태의 aws, git 등과 같은 Volume 들도 있다.</p>
+<p>Pod 는 이런 PV 에 바로 연결하지 않고 PVC 를 통해 PV 와 연결 된다. k8s 는 Volume 사용에 있어서 User 영역과 Admin 영역으로 나누었다. Admin 은 k8s 를 관리하는 운영자이고
+User 는 Pod 에 Service 를 만들고 배포를 관리하는 서비스 담당자 이다.</p>
+<p>앞서 Volume 의 종류가 다양하기 때문에 각 Volume 에 연결하기 위한 방법과 설정이 상이하다.</p>
+<pre><code class="hljs language-yml"><span class="hljs-comment"># 각 Volume 에 따라 서로 다른 설정 값이 사용 되는 예시 (nfs, iscsi, gitrepo)</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">PersistentVolume</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pv-01</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">nfs:</span>
+    <span class="hljs-attr">server:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-string">.xxx</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">/sda/data</span>
+  <span class="hljs-attr">iscsi:</span>
+    <span class="hljs-attr">targetPortal:</span> <span class="hljs-number">163.180</span><span class="hljs-number">.11</span>
+    <span class="hljs-attr">iqn:</span> <span class="hljs-string">iqn.200.qnap:...</span>
+    <span class="hljs-attr">lun:</span> <span class="hljs-number">0</span>
+    <span class="hljs-attr">fsType:</span> <span class="hljs-string">ext4</span>
+    <span class="hljs-attr">readOnly:</span> <span class="hljs-literal">no</span>
+    <span class="hljs-attr">chapAuthSession:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">gitRepo:</span>
+    <span class="hljs-attr">repository:</span> <span class="hljs-string">github.com...</span>
+    <span class="hljs-attr">revision:</span> <span class="hljs-string">master</span>
+    <span class="hljs-attr">directory:</span> <span class="hljs-string">.</span>
+</code></pre>
+<p>그렇기 때문에 이런 설정들을 전문적으로 관리하는 PV 들을 만들어 사용하고 User 는 이것을 사용 하기 위해 PVC 를 만들게 된다.</p>
+<pre><code class="hljs language-yml"><span class="hljs-comment"># PV 를 사용하기 위한 User 의 PVC 설정 예시</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">PersistentVolumeClaim</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pvc-01</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">accessModes:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">ReadWriteOnce</span>          <span class="hljs-comment"># 읽기 쓰기 모드가 가능한</span>
+  <span class="hljs-attr">resources:</span>
+    <span class="hljs-attr">requests:</span>
+      <span class="hljs-attr">storage:</span> <span class="hljs-string">1G</span>          <span class="hljs-comment"># 용량 1 기가인 Volume 을 요청</span>
+  <span class="hljs-attr">storageClassName:</span> <span class="hljs-string">""</span>     <span class="hljs-comment"># 공백으로 넣으면 현재 만들어진 PV 중 선택 된다</span>
+  <span class="hljs-comment"># 이 값을 "" 대신 생략하게 되면 다른 동작을 할 수 있다.</span>
+</code></pre>
+<pre><code class="hljs language-yml"><span class="hljs-comment"># PVC 를 사용하는 Pod 설정 예시</span>
+<span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Pod</span>
+<span class="hljs-attr">metadata:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">pod-volume-3</span>
+<span class="hljs-attr">spec:</span>
+  <span class="hljs-attr">containers:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">container</span>
+      <span class="hljs-attr">image:</span> <span class="hljs-string">kubetm/init</span>
+      <span class="hljs-attr">volumeMounts:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">pvc-pv</span>         <span class="hljs-comment"># 만든어진 PVC 를 Container 에서 사용</span>
+          <span class="hljs-attr">mountPath:</span> <span class="hljs-string">/mount3</span>
+  <span class="hljs-attr">volumes:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">pvc-pv</span>
+      <span class="hljs-attr">persistentVolumeClaim:</span>
+        <span class="hljs-attr">claimName:</span> <span class="hljs-string">pvc-01</span>     <span class="hljs-comment"># 앞서 만든 PVC 이름을 연결</span>
+</code></pre>
+<p>처리 흐름을 정리하면 다음과 같다.</p>
+<ol>
+<li>최초 Admin 이 PV 를 만들어 둔다.</li>
+<li>사용자 (User) 가 PVC 를 만든다.</li>
+<li>k8s 가 PVC 내용에 맞는 적정한 Volume 에 연결 해준다.</li>
+<li>이후 Pod 생성시 PVC 를 사용한다.</li>
+</ol>2:[["$","div",null,{"className":"$undefined","children":[["$","header",null,{"className":"PostHeader_postHeader__OohTH","children":[["$","h1",null,{"className":"PostHeader_title__NoKGt","children":"Volume (emptyDir, hostPath, PVC/PV)"}],["$","p",null,{"className":"PostHeader_description__moC_r","children":""}],["$","div",null,{"className":"PostHeader_meta__9Swgx","children":[["$","span",null,{"className":"$undefined","children":"nimkoes"}],["$","span",null,{"className":"$undefined","children":"2021-03-02"}]]}],["$","div",null,{"className":"PostHeader_tags__lGQ1Q","children":[["$","span","Kubernetes",{"className":"PostHeader_tag__Jf7BC","children":"Kubernetes"}],["$","span","k8s",{"className":"PostHeader_tag__Jf7BC","children":"k8s"}],["$","span","infra",{"className":"PostHeader_tag__Jf7BC","children":"infra"}]]}]]}],["$","$L8",null,{}],["$","article",null,{"className":"page_markdown__SVl4d","children":[["$","$L9",null,{"className":"page_topAd__ctbB7"}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":""}}],["$","$La",null,{"className":"page_middleAd__4qBOv","client":"ca-pub-6151583773425822","slot":"your-ad-slot-id"}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$b"}}],["$","$La",null,{"className":"page_bottomAd__f0OO_","client":"ca-pub-6151583773425822","slot":"your-ad-slot-id"}]]}]]}],["$","div",null,{"className":"page_floatingButtons__qJiZU","children":["$","$Lc",null,{}]}],["$","$Ld",null,{}]]
+7:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Volume (emptyDir, hostPath, PVC/PV) | Nimkoes Tech Blog"}],["$","meta","3",{"name":"description","content":"기본 설명"}],["$","meta","4",{"name":"application-name","content":"Nimkoes Tech Blog"}],["$","link","5",{"rel":"author","href":"https://nimkoes.github.io/tech-blog"}],["$","meta","6",{"name":"author","content":"Nimkoes"}],["$","link","7",{"rel":"manifest","href":"/tech-blog/site.webmanifest","crossOrigin":"use-credentials"}],["$","meta","8",{"name":"keywords","content":"tech-blog,backend,software architect,infrastructure,development"}],["$","meta","9",{"name":"creator","content":"Nimkoes"}],["$","meta","10",{"name":"publisher","content":"Nimkoes"}],["$","meta","11",{"name":"robots","content":"index, follow, nocache"}],["$","meta","12",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","13",{"name":"category","content":"technology"}],["$","link","14",{"rel":"canonical","href":"https://nimkoes.github.io/tech-blog"}],["$","link","15",{"rel":"alternate","hrefLang":"ko-KR","href":"https://nimkoes.github.io/tech-blog"}],["$","meta","16",{"name":"format-detection","content":"telephone=no, address=no, email=no"}],["$","meta","17",{"name":"google-adsense-account","content":"ca-pub-6151583773425822"}],["$","meta","18",{"property":"og:title","content":"Nimkoes Tech Blog - 개발자의 기술 이야기"}],["$","meta","19",{"property":"og:description","content":"I work diligently to become lazy ☕"}],["$","meta","20",{"property":"og:url","content":"https://nimkoes.github.io/tech-blog"}],["$","meta","21",{"property":"og:site_name","content":"Nimkoes Tech Blog"}],["$","meta","22",{"property":"og:locale","content":"ko_KR"}],["$","meta","23",{"property":"og:image","content":"https://nimkoes.github.io/tech-blog/og-image.png"}],["$","meta","24",{"property":"og:image:width","content":"1200"}],["$","meta","25",{"property":"og:image:height","content":"630"}],["$","meta","26",{"property":"og:image:alt","content":"Nimkoes Tech Blog"}],["$","meta","27",{"property":"og:image:type","content":"image/png"}],["$","meta","28",{"property":"og:type","content":"website"}],["$","meta","29",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","30",{"name":"twitter:site","content":"@nimkoes"}],["$","meta","31",{"name":"twitter:creator","content":"@nimkoes"}],["$","meta","32",{"name":"twitter:title","content":"Nimkoes Tech Blog"}],["$","meta","33",{"name":"twitter:description","content":"I work diligently to become lazy ☕"}],["$","meta","34",{"name":"twitter:image","content":"https://nimkoes.github.io/tech-blog/og-image.png"}],["$","link","35",{"rel":"icon","href":"/tech-blog/favicon.ico","sizes":"any"}],["$","link","36",{"rel":"icon","href":"/tech-blog/icon.svg","type":"image/svg+xml"}],["$","link","37",{"rel":"icon","href":"/tech-blog/favicon-32x32.png","sizes":"32x32","type":"image/png"}],["$","link","38",{"rel":"icon","href":"/tech-blog/favicon-16x16.png","sizes":"16x16","type":"image/png"}],["$","link","39",{"rel":"apple-touch-icon","href":"/tech-blog/apple-touch-icon.png","sizes":"180x180","type":"image/png"}],["$","link","40",{"rel":"mask-icon","href":"/tech-blog/safari-pinned-tab.svg","color":"#5bbad5"}],["$","meta","41",{"name":"next-size-adjust"}]]
+1:null
