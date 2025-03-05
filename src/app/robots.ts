@@ -1,14 +1,30 @@
 import { MetadataRoute } from 'next'
 
-const DOMAIN = 'https://nimkoes.dev' // 실제 도메인으로 변경해주세요
+const BASE_PATH = '/tech-blog'
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/private/', '/admin/'],
-    },
-    sitemap: '/sitemap.xml',
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: [
+          '/private/',
+          '/admin/',
+          '/*?*',
+          '/*.json$',
+        ],
+      },
+      {
+        userAgent: 'GPTBot',
+        disallow: ['/'],
+      },
+      {
+        userAgent: 'CCBot',
+        disallow: ['/'],
+      },
+    ],
+    sitemap: `${BASE_PATH}/sitemap.xml`,
+    host: 'https://nimkoes.github.io',
   }
 } 

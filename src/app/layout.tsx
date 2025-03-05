@@ -20,43 +20,55 @@ export const metadata: Metadata = {
     template: '%s | Nimkoes Tech Blog',
     default: 'Nimkoes Tech Blog - 개발자의 기술 이야기',
   },
-  description: '프론트엔드, 백엔드 개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.',
+  description: 'I work diligently to become lazy ☕',
+  applicationName: 'Nimkoes Tech Blog',
   keywords: [
-    '개발 블로그',
-    '프론트엔드',
-    '백엔드',
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Next.js',
-    '소프트웨어 아키텍처',
-    '개발 문화',
+    'tech-blog',
+    'backend',
+    'software architect',
+    'infrastructure',
+    'development'
   ],
-  authors: [{ name: 'Nimkoes', url: `${SITE_URL}${BASE_PATH}` }],
+  authors: [{ 
+    name: 'Nimkoes',
+    url: `${SITE_URL}${BASE_PATH}`,
+  }],
   creator: 'Nimkoes',
+  publisher: 'Nimkoes',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
     siteName: 'Nimkoes Tech Blog',
     url: `${SITE_URL}${BASE_PATH}`,
+    title: 'Nimkoes Tech Blog - 개발자의 기술 이야기',
+    description: 'I work diligently to become lazy ☕',
     images: [
       {
         url: `${BASE_PATH}/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'Nimkoes Tech Blog',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Nimkoes Tech Blog',
-    description: '프론트엔드, 백엔드 개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.',
+    description: 'I work diligently to become lazy ☕',
     images: [`${BASE_PATH}/og-image.png`],
+    creator: '@nimkoes',
+    site: '@nimkoes',
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
@@ -75,10 +87,28 @@ export const metadata: Metadata = {
     apple: [
       { url: `${BASE_PATH}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
     ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: `${BASE_PATH}/safari-pinned-tab.svg`,
+        color: '#5bbad5'
+      },
+    ],
   },
+  manifest: `${BASE_PATH}/site.webmanifest`,
   alternates: {
     canonical: `${SITE_URL}${BASE_PATH}`,
+    languages: {
+      'ko-KR': `${SITE_URL}${BASE_PATH}`,
+    },
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? '',
+    other: {
+      'naver-site-verification': [process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION ?? ''],
+    },
+  },
+  category: 'technology',
 }
 
 export default function RootLayout({
@@ -90,6 +120,12 @@ export default function RootLayout({
     <html lang="ko" className={inter.className}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <ClientLayout>{children}</ClientLayout>
     </html>
