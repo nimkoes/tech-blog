@@ -42,7 +42,6 @@ jobs:
       - name: Copy verification files to root
         run: |
           cp public/google-site-verification.html out/google-site-verification.html
-          cp out/tech-blog/sitemap.xml out/sitemap.xml
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
