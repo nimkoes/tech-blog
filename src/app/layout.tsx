@@ -120,10 +120,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={inter.className}>
     <head>
-      <meta 
-        name="viewport" 
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-      />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
       <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
       <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"/>
       <meta name="naver-site-verification" content="1df124e1d8331da4467178ffddd6188e1d413576"/>
@@ -133,9 +130,9 @@ export default function RootLayout({
       <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
       <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous"/>
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
-      
-      <script 
-        async 
+
+      <script
+        async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6151583773425822"
         crossOrigin="anonymous"
       />
