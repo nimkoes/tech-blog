@@ -1,13 +1,4 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import ClientLayout from './ClientLayout'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
-})
 
 export const metadata: Metadata = {
   title: {
@@ -69,19 +60,4 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="ko" className={inter.className}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      </head>
-      <ClientLayout>{children}</ClientLayout>
-    </html>
-  );
-}
+} 

@@ -1,13 +1,14 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  reactStrictMode: true,
-  output: "export",
   images: {
     unoptimized: true,
   },
+  reactStrictMode: true,
+  swcMinify: true,
   basePath: "/tech-blog",
   assetPrefix: "/tech-blog/",
   trailingSlash: true,
-};
+}
 
-export default nextConfig;
+module.exports = nextConfig 
