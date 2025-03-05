@@ -55,7 +55,7 @@ jobs:
         with:
           repository: nimkoes/nimkoes.github.io
           path: nimkoes.github.io
-          token: ${{ secrets.PAT_TOKEN }}  # Personal Access Token 필요
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # sitemap.xml과 robots.txt를 nimkoes.github.io 레포지토리로 복사하고 커밋
       - name: Update search engine files in nimkoes.github.io
