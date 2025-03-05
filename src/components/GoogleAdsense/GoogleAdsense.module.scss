@@ -1,0 +1,13 @@
+.adContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  min-height: 100px;
+  width: 100%;
+  background-color: transparent;
+  
+  @media (max-width: 768px) {
+    margin: 1.5rem auto;
+  }
+} 
