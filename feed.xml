@@ -5,7 +5,7 @@
     <link>https://nimkoes.github.io</link>
     <description>프론트엔드, 백엔드 개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 05 Mar 2025 22:15:19 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Mar 2025 03:28:34 GMT</lastBuildDate>
     <atom:link href="https://nimkoes.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
@@ -14,6 +14,20 @@
       <guid isPermaLink="true">https://nimkoes.github.io/post/0001250302-git</guid>
       <pubDate>Sat, 22 Feb 2025 00:00:00 GMT</pubDate>
       <description><![CDATA[Git을 효율적으로 사용하기 위한 기본 명령어 모음입니다.]]></description>
+    </item>
+    <item>
+      <title><![CDATA[사이트 모음]]></title>
+      <link>https://nimkoes.github.io/post/0017250306-site-link</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0017250306-site-link</guid>
+      <pubDate>Sat, 06 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[도움이 됐거나 될거나 될 것 같거나]]></description>
+    </item>
+    <item>
+      <title><![CDATA[도서 모음]]></title>
+      <link>https://nimkoes.github.io/post/0019250306-book</link>
+      <guid isPermaLink="true">https://nimkoes.github.io/post/0019250306-book</guid>
+      <pubDate>Sat, 06 Mar 2021 00:00:00 GMT</pubDate>
+      <description><![CDATA[읽었거나 인상적이었더나 보고싶거나]]></description>
     </item>
     <item>
       <title><![CDATA[Kubernetes 사용 이유]]></title>

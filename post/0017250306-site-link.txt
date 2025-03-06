@@ -1,0 +1,84 @@
+3:I[4707,[],""]
+5:I[6423,[],""]
+6:I[4829,["679","static/chunks/679-09931d2c20ac23c4.js","185","static/chunks/app/layout-60854d1f1824ac37.js"],"default"]
+4:["slug","0017250306-site-link","d"]
+0:["9RYVYThQMA6zGLvgqtXgu",[[["",{"children":["post",{"children":[["slug","0017250306-site-link","d"],{"children":["__PAGE__?{\"slug\":\"0017250306-site-link\"}",{}]}]}]},"$undefined","$undefined",true],["",{"children":["post",{"children":[["slug","0017250306-site-link","d"],{"children":["__PAGE__",{},[["$L1","$L2",[["$","link","0",{"rel":"stylesheet","href":"/tech-blog/_next/static/css/799d05b7e4a5b89c.css","precedence":"next","crossOrigin":"$undefined"}]]],null],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","post","children","$4","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","post","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/tech-blog/_next/static/css/1f59140b53390c8f.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"ko","className":"__className_c5102c","children":[["$","head",null,{"children":[["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"}],["$","meta",null,{"name":"theme-color","content":"#ffffff","media":"(prefers-color-scheme: light)"}],["$","meta",null,{"name":"theme-color","content":"#000000","media":"(prefers-color-scheme: dark)"}],["$","meta",null,{"name":"naver-site-verification","content":"1df124e1d8331da4467178ffddd6188e1d413576"}],["$","meta",null,{"name":"google-adsense-account","content":"ca-pub-6151583773425822"}],["$","link",null,{"rel":"dns-prefetch","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"dns-prefetch","href":"https://fonts.gstatic.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com","crossOrigin":"anonymous"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","script",null,{"async":true,"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6151583773425822","crossOrigin":"anonymous"}]]}],["$","$L6",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]}]]}]],null],null],["$L7",null]]]]
+8:I[2089,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+9:I[3299,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+b:I[1040,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+d:I[2786,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+e:I[6798,["605","static/chunks/app/post/%5Bslug%5D/page-5fc1a46522590ee2.js"],"default"]
+a:T67a,<h1>다이어그램 &#x26; 시각화</h1><h2><a href="https://mermaid.live/edit">Mermaid Live Editor</a></h2>
+<ul>
+<li>마크다운 문법으로 다이어그램을 쉽게 그릴 수 있는 온라인 에디터</li>
+<li>UML, 시퀀스 다이어그램, 플로우차트 등 다양한 다이어그램 지원</li>
+</ul><h2><a href="https://excalidraw.com/">Excalidraw</a></h2>
+<ul>
+<li>자유로운 스타일의 다이어그램과 화이트보드 스타일의 그림을 그릴 수 있는 도구</li>
+<li>팀 협업에 적합한 실시간 공유 기능 제공</li>
+</ul>
+<h1>도구</h1><h2><a href="https://slackmojis.com/">Slack Emoji Maker</a></h2>
+<ul>
+<li>슬랙용 커스텀 이모지를 쉽게 만들 수 있는 도구</li>
+<li>다양한 템플릿과 편집 기능 제공</li>
+</ul><h2><a href="https://carbon.now.sh/">Carbon</a></h2>
+<ul>
+<li>코드 스니펫을 아름다운 이미지로 변환해주는 도구</li>
+<li>다양한 테마와 커스터마이징 옵션 제공</li>
+</ul>
+<h1>API 테스트 &#x26; 개발</h1><h2><a href="https://www.postman.com/">Postman</a></h2>
+<ul>
+<li>API 개발, 테스트, 문서화를 위한 종합 플랫폼</li>
+<li>팀 협업과 API 모킹 기능 제공</li>
+</ul><h2><a href="https://editor.swagger.io/">Swagger Editor</a></h2>
+<ul>
+<li>OpenAPI/Swagger 스펙을 작성하고 문서화할 수 있는 온라인 에디터</li>
+<li>실시간 미리보기와 유효성 검사 기능 제공</li>
+</ul>
+<h1>코드 품질 &#x26; 성능</h1><h2><a href="https://www.sonarqube.org/">SonarQube</a></h2>
+<ul>
+<li>코드 품질 분석 및 보안 취약점 검사 도구</li>
+<li>다양한 프로그래밍 언어 지원</li>
+</ul>c:T72a,<h2><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a></h2>
+<ul>
+<li>웹 페이지의 성능, 접근성, SEO 등을 분석하는 도구</li>
+<li>Chrome DevTools에 내장되어 있음</li>
+</ul>
+<h1>학습 &#x26; 참고 자료</h1><h2><a href="https://developer.mozilla.org/">MDN Web Docs</a></h2>
+<ul>
+<li>웹 개발에 대한 포괄적인 문서와 가이드</li>
+<li>최신 웹 기술과 표준에 대한 정보 제공</li>
+</ul><h2><a href="https://devdocs.io/">DevDocs</a></h2>
+<ul>
+<li>다양한 프로그래밍 언어와 프레임워크의 API 문서를 한 곳에서 검색</li>
+<li>오프라인 사용 가능</li>
+</ul>
+<h1>디자인 &#x26; UI/UX</h1><h2><a href="https://www.figma.com/">Figma</a></h2>
+<ul>
+<li>UI/UX 디자인을 위한 협업 도구</li>
+<li>실시간 협업과 컴포넌트 시스템 지원</li>
+</ul><h2><a href="https://colorhunt.co/">Color Hunt</a></h2>
+<ul>
+<li>웹 디자인에 활용할 수 있는 색상 팔레트 제공</li>
+<li>커뮤니티 기반의 색상 조합 공유</li>
+</ul>
+<h1>버전 관리 &#x26; 협업</h1><h2><a href="https://github.com/">GitHub</a></h2>
+<ul>
+<li>코드 버전 관리와 협업을 위한 플랫폼</li>
+<li>GitHub Actions를 통한 CI/CD 지원</li>
+</ul><h2><a href="https://gitlab.com/">GitLab</a></h2>
+<ul>
+<li>GitHub의 대안으로, 추가적인 DevOps 기능 제공</li>
+<li>자체 호스팅 옵션 제공</li>
+</ul>
+<h1>보안</h1><h2><a href="https://owasp.org/">OWASP</a></h2>
+<ul>
+<li>웹 애플리케이션 보안에 대한 정보와 가이드라인 제공</li>
+<li>보안 취약점 데이터베이스 운영</li>
+</ul><h2><a href="https://haveibeenpwned.com/">Have I Been Pwned</a></h2>
+<ul>
+<li>이메일 주소나 비밀번호가 데이터 유출에 포함되었는지 확인</li>
+<li>보안 경고 서비스 제공</li>
+</ul>2:[["$","div",null,{"className":"$undefined","children":[["$","header",null,{"className":"PostHeader_postHeader__OohTH","children":[["$","h1",null,{"className":"PostHeader_title__NoKGt","children":"사이트 모음"}],["$","p",null,{"className":"PostHeader_description__moC_r","children":"도움이 됐거나 될거나 될 것 같거나"}],["$","div",null,{"className":"PostHeader_meta__9Swgx","children":[["$","span",null,{"className":"$undefined","children":"nimkoes"}],["$","span",null,{"className":"$undefined","children":"2021-03-06"}]]}],["$","div",null,{"className":"PostHeader_tags__lGQ1Q","children":[["$","span","memo",{"className":"PostHeader_tag__Jf7BC","children":"memo"}],["$","span","site",{"className":"PostHeader_tag__Jf7BC","children":"site"}],["$","span","link",{"className":"PostHeader_tag__Jf7BC","children":"link"}]]}]]}],["$","$L8",null,{}],["$","article",null,{"className":"page_markdown__SVl4d","children":[["$","$L9",null,{"className":"page_topAd__ctbB7"}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$a"}}],["$","$Lb",null,{"className":"page_middleAd__4qBOv","client":"ca-pub-6151583773425822","slot":"your-ad-slot-id"}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$c"}}],["$","$Lb",null,{"className":"page_bottomAd__f0OO_","client":"ca-pub-6151583773425822","slot":"your-ad-slot-id"}]]}]]}],["$","div",null,{"className":"page_floatingButtons__qJiZU","children":["$","$Ld",null,{}]}],["$","$Le",null,{}]]
+7:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"사이트 모음 | Nimkoes Tech Blog"}],["$","meta","3",{"name":"description","content":"도움이 됐거나 될거나 될 것 같거나"}],["$","meta","4",{"name":"application-name","content":"Nimkoes Tech Blog"}],["$","link","5",{"rel":"author","href":"https://nimkoes.github.io/tech-blog"}],["$","meta","6",{"name":"author","content":"Nimkoes"}],["$","link","7",{"rel":"manifest","href":"/tech-blog/site.webmanifest","crossOrigin":"use-credentials"}],["$","meta","8",{"name":"keywords","content":"tech-blog,backend,software architect,infrastructure,development"}],["$","meta","9",{"name":"creator","content":"Nimkoes"}],["$","meta","10",{"name":"publisher","content":"Nimkoes"}],["$","meta","11",{"name":"robots","content":"index, follow, nocache"}],["$","meta","12",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","13",{"name":"category","content":"technology"}],["$","link","14",{"rel":"canonical","href":"https://nimkoes.github.io/tech-blog"}],["$","link","15",{"rel":"alternate","hrefLang":"ko-KR","href":"https://nimkoes.github.io/tech-blog"}],["$","meta","16",{"name":"format-detection","content":"telephone=no, address=no, email=no"}],["$","meta","17",{"name":"google-adsense-account","content":"ca-pub-6151583773425822"}],["$","meta","18",{"property":"og:title","content":"Nimkoes Tech Blog - 개발자의 기술 이야기"}],["$","meta","19",{"property":"og:description","content":"I work diligently to become lazy ☕"}],["$","meta","20",{"property":"og:url","content":"https://nimkoes.github.io/tech-blog"}],["$","meta","21",{"property":"og:site_name","content":"Nimkoes Tech Blog"}],["$","meta","22",{"property":"og:locale","content":"ko_KR"}],["$","meta","23",{"property":"og:image","content":"https://nimkoes.github.io/tech-blog/og-image.png"}],["$","meta","24",{"property":"og:image:width","content":"1200"}],["$","meta","25",{"property":"og:image:height","content":"630"}],["$","meta","26",{"property":"og:image:alt","content":"Nimkoes Tech Blog"}],["$","meta","27",{"property":"og:image:type","content":"image/png"}],["$","meta","28",{"property":"og:type","content":"website"}],["$","meta","29",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","30",{"name":"twitter:site","content":"@nimkoes"}],["$","meta","31",{"name":"twitter:creator","content":"@nimkoes"}],["$","meta","32",{"name":"twitter:title","content":"Nimkoes Tech Blog"}],["$","meta","33",{"name":"twitter:description","content":"I work diligently to become lazy ☕"}],["$","meta","34",{"name":"twitter:image","content":"https://nimkoes.github.io/tech-blog/og-image.png"}],["$","link","35",{"rel":"icon","href":"/tech-blog/favicon.ico","sizes":"any"}],["$","link","36",{"rel":"icon","href":"/tech-blog/icon.svg","type":"image/svg+xml"}],["$","link","37",{"rel":"icon","href":"/tech-blog/favicon-32x32.png","sizes":"32x32","type":"image/png"}],["$","link","38",{"rel":"icon","href":"/tech-blog/favicon-16x16.png","sizes":"16x16","type":"image/png"}],["$","link","39",{"rel":"apple-touch-icon","href":"/tech-blog/apple-touch-icon.png","sizes":"180x180","type":"image/png"}],["$","link","40",{"rel":"mask-icon","href":"/tech-blog/safari-pinned-tab.svg","color":"#5bbad5"}],["$","meta","41",{"name":"next-size-adjust"}]]
+1:null
