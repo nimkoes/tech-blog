@@ -25,7 +25,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
+  # Build and Upload job
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
@@ -48,6 +48,12 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # GitHub Pages 배포용 아티팩트 업로드
+      - name: Upload artifact for deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out  # Next.js 정적 빌드 폴더
 
       # nimkoes.github.io 레포지토리 클론
       - name: Checkout nimkoes.github.io
@@ -72,6 +78,7 @@ jobs:
           git commit -m "Update sitemap.xml and robots.txt from tech-blog" || echo "No changes to commit"
           git push || echo "No changes to push"
           cd ..
+
   # Deployment job
   deploy:
     environment:
