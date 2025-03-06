@@ -6,6 +6,77 @@ IntelliJ 스타일의 모던한 기술 블로그입니다. 마크다운으로 �
 
 이 블로그는 개발자들이 익숙한 IDE 스타일의 인터페이스를 제공하여, 기술 문서를 보다 편안하게 읽을 수 있는 환경을 제공합니다. 특히 다크 테마와 코드 하이라이팅, 직관적인 네비게이션 등을 통해 개발자 친화적인 읽기 경험을 제공합니다.
 
+### 시스템 동작 과정
+
+#### 간단한 버전
+```mermaid
+sequenceDiagram
+    actor User
+    participant Client
+    participant Server
+    participant FileSystem
+
+    User->>Client: 페이지 접근
+    Client->>Server: 페이지 요청
+    Server->>FileSystem: Markdown 파일 로드
+    FileSystem-->>Server: 파일 내용 반환
+    Server-->>Client: 렌더링된 컨텐츠
+    Client-->>User: 페이지 표시
+```
+
+#### 상세 버전
+```mermaid
+sequenceDiagram
+    actor User
+    participant Client
+    participant Router
+    participant Store
+    participant Server
+    participant Parser
+    participant FileSystem
+    participant Cache
+
+    User->>Client: 1. 페이지 접근
+    
+    rect rgb(200, 220, 250)
+        note right of Client: 초기화 프로세스
+        Client->>Router: 2. 라우트 분석
+        Router->>Store: 3. 상태 초기화
+        Store-->>Client: 4. 초기 상태 제공
+    end
+
+    rect rgb(220, 250, 200)
+        note right of Client: 문서 로드 프로세스
+        Client->>Server: 5. 문서 요청
+        Server->>FileSystem: 6. Markdown 파일 요청
+        FileSystem-->>Server: 7. Raw 파일 반환
+        Server->>Parser: 8. Frontmatter 파싱
+        Parser->>Parser: 9. Markdown → HTML 변환
+        Parser->>Parser: 10. 코드 하이라이팅
+        Parser-->>Server: 11. 변환된 컨텐츠
+        Server->>Cache: 12. 결과 캐싱
+    end
+
+    rect rgb(250, 220, 200)
+        note right of Client: UI 업데이트 프로세스
+        Server-->>Client: 13. 렌더링 데이터 전송
+        Client->>Store: 14. 상태 업데이트
+        Store-->>Client: 15. UI 업데이트 트리거
+        Client->>Client: 16. 목차 생성
+        Client->>Store: 17. 열람 기록 저장
+    end
+
+    Client-->>User: 18. 최종 페이지 표시
+
+    rect rgb(220, 200, 250)
+        note right of Client: 사용자 상호작용
+        User->>Client: 19. 카테고리/검색 사용
+        Client->>Store: 20. 상태 변경
+        Store-->>Client: 21. UI 실시간 업데이트
+        Client-->>User: 22. 결과 표시
+    end
+```
+
 ### 주요 기능
 - 📂 폴더 구조의 카테고리 탐색
 - 🔍 문서 검색 기능
@@ -15,7 +86,6 @@ IntelliJ 스타일의 모던한 기술 블로그입니다. 마크다운으로 �
 - 🔄 최근 열람 기록
 - ⬆️ 스크롤 투 탑
 - 🖼️ 이미지 팝업 뷰어
-- 💰 광고 통합 (Google AdSense, Kakao AdFit)
 
 ## 🛠 기술 스택
 
