@@ -38,43 +38,35 @@ sequenceDiagram
 
     User->>Client: 1. 페이지 접근
     
-    rect rgb(200, 220, 250)
-        note right of Client: 초기화 프로세스
-        Client->>Router: 2. 라우트 분석
-        Router->>Store: 3. 상태 초기화
-        Store-->>Client: 4. 초기 상태 제공
-    end
+    note right of Client: 초기화 프로세스
+    Client->>Router: 2. 라우트 분석
+    Router->>Store: 3. 상태 초기화
+    Store-->>Client: 4. 초기 상태 제공
 
-    rect rgb(220, 250, 200)
-        note right of Client: 문서 로드 프로세스
-        Client->>Server: 5. 문서 요청
-        Server->>FileSystem: 6. Markdown 파일 요청
-        FileSystem-->>Server: 7. Raw 파일 반환
-        Server->>Parser: 8. Frontmatter 파싱
-        Parser->>Parser: 9. Markdown → HTML 변환
-        Parser->>Parser: 10. 코드 하이라이팅
-        Parser-->>Server: 11. 변환된 컨텐츠
-        Server->>Cache: 12. 결과 캐싱
-    end
+    note right of Client: 문서 로드 프로세스
+    Client->>Server: 5. 문서 요청
+    Server->>FileSystem: 6. Markdown 파일 요청
+    FileSystem-->>Server: 7. Raw 파일 반환
+    Server->>Parser: 8. Frontmatter 파싱
+    Parser->>Parser: 9. Markdown → HTML 변환
+    Parser->>Parser: 10. 코드 하이라이팅
+    Parser-->>Server: 11. 변환된 컨텐츠
+    Server->>Cache: 12. 결과 캐싱
 
-    rect rgb(250, 220, 200)
-        note right of Client: UI 업데이트 프로세스
-        Server-->>Client: 13. 렌더링 데이터 전송
-        Client->>Store: 14. 상태 업데이트
-        Store-->>Client: 15. UI 업데이트 트리거
-        Client->>Client: 16. 목차 생성
-        Client->>Store: 17. 열람 기록 저장
-    end
+    note right of Client: UI 업데이트 프로세스
+    Server-->>Client: 13. 렌더링 데이터 전송
+    Client->>Store: 14. 상태 업데이트
+    Store-->>Client: 15. UI 업데이트 트리거
+    Client->>Client: 16. 목차 생성
+    Client->>Store: 17. 열람 기록 저장
 
     Client-->>User: 18. 최종 페이지 표시
 
-    rect rgb(220, 200, 250)
-        note right of Client: 사용자 상호작용
-        User->>Client: 19. 카테고리/검색 사용
-        Client->>Store: 20. 상태 변경
-        Store-->>Client: 21. UI 실시간 업데이트
-        Client-->>User: 22. 결과 표시
-    end
+    note right of Client: 사용자 상호작용
+    User->>Client: 19. 카테고리/검색 사용
+    Client->>Store: 20. 상태 변경
+    Store-->>Client: 21. UI 실시간 업데이트
+    Client-->>User: 22. 결과 표시
 ```
 
 ### 주요 기능
