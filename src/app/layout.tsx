@@ -57,14 +57,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Nimkoes Tech Blog',
-    description: 'I work diligently to become lazy ☕',
-    images: [`${BASE_PATH}/og-image.png`],
-    creator: '@nimkoes',
-    site: '@nimkoes',
-  },
   robots: {
     index: true,
     follow: true,
