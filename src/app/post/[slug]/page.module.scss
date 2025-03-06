@@ -4,7 +4,7 @@
   max-width: 100%;
   padding: 13px 14px;
   color: #d4d4d4;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   font-family: "JetBrains Mono", "Fira Code", "Consolas", "Menlo", "monospace";
   white-space: pre-wrap;
@@ -16,7 +16,7 @@
   font-size: 1.6rem;
   font-weight: bold;
   color: #e06c75;
-  border-bottom: 4px solid #3a3f4b;
+  border-bottom: 3px solid #3a3f4b;
   padding-bottom: 6px;
   margin-bottom: 23px;
 }
@@ -48,7 +48,7 @@
   padding: 12px;
   border-radius: 6px;
   overflow-x: auto;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   color: #ffffff;
   line-height: 1.35;
 }
@@ -106,34 +106,45 @@
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
+  /* Markdown 스타일 */
   .markdown {
+    padding: 10px 10px;
+    font-size: 0.9rem;
+    line-height: 1.2;
   }
 
+  /* 제목 스타일 */
   .markdown h1 {
+    border-bottom: 3px solid #3a3f4b;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
   }
 
   .markdown h2 {
+    border-bottom: 2px solid #3a3f4b;
+    padding-bottom: 3px;
+    margin-top: 10px;
+    margin-bottom: 3px;
   }
 
+  /* 목록 스타일 */
   .markdown ul {
+    padding-left: 12px;
   }
 
   .markdown ol {
+    padding-left: 12px;
   }
 
+  /* 코드 블록 스타일 */
   .markdown pre {
-  }
-
-  .markdown code {
-  }
-
-  .markdown pre code {
-  }
-
-  .markdown blockquote {
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.25;
   }
 
   .markdown img {
+    max-width: 60%; /* 부모 컨테이너 기준으로 최대 크기 조정 */
   }
 }
 

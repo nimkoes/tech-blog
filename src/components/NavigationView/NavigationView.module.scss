@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: 60px;
+  width: 80px;
   background-color: #323232;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px 10px;
+  padding: 1rem 1rem;
   border-right: 1px solid #000;
 }
 
@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 1rem;
 }
 
 /* 개별 버튼 스타일 */
@@ -38,8 +38,8 @@
 
   /* SVG 크기 조절 */
   svg {
-    width: 30px;
-    height: 30px;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }
 
@@ -48,17 +48,35 @@
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
+  /* 내비게이션 영역 */
   .navigationView {
+    width: 60px;
+    padding: 0.8rem 0.8rem;
   }
 
+  /* 내비게이션 버튼 컨테이너 */
   .navigation {
+    gap: 0.8rem;
   }
 
+  /* 개별 버튼 스타일 */
   .navButton {
+    padding: 1px !important;
+
     &:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      transform: scale(1.1);
     }
 
     &.active {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      transform: scale(1.1);
+    }
+
+    /* SVG 크기 조절 */
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
     }
   }
 }
@@ -73,7 +91,7 @@
   }
 
   .navigation {
-    gap: 7px;
+    gap: 10px;
   }
 
   .navButton {

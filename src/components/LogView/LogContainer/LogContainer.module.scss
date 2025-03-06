@@ -5,7 +5,7 @@
   background: #222;
   color: #fff;
   padding: 10px;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-family: monospace;
   height: 100%;
 }
@@ -16,6 +16,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
   .logContainer {
+    padding: 7px;
+    font-size: 0.8rem;
   }
 }
 
@@ -24,6 +26,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .logContainer {
-    font-size: 0.75rem;
+    padding: 5px;
+    font-size: 0.7rem;
   }
 }

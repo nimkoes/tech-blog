@@ -1,6 +1,6 @@
 /* 컨트롤 전체 레이아웃 */
 .categoryControl {
-  padding: 5px;
+  padding: 10px;
 }
 
 /* 버튼과 검색창을 같은 줄에 배치 */
@@ -8,8 +8,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 
   .categoryControl:hover & {
     opacity: 1;
@@ -39,7 +39,7 @@
   color: white;
   padding: 5px;
   margin-right: 10px;
-  border-radius: 3px;
+  border-radius: 10px;
   width: 0;
   opacity: 0;
   transition: all 0.3s ease;
@@ -66,13 +66,51 @@
 /* 버튼 그룹을 오른쪽 정렬 */
 .actionButtons {
   display: flex;
-  gap: 5px;
+  gap: 1rem;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
+  /* 컨트롤 전체 레이아웃 */
+  .categoryControl {
+    padding: 5px;
+  }
+
+  /* 버튼과 검색창을 같은 줄에 배치 */
+  .controls {
+    opacity: 0;
+
+    .categoryControl:hover & {
+      opacity: 1;
+    }
+  }
+
+  /* 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
+  .iconButton {
+    padding: 1px;
+  }
+
+  /* 검색 입력창 (돋보기 클릭 전에는 숨김) */
+  .searchInput {
+    padding: 3px;
+    margin-right: 5px;
+    opacity: 0;
+    font-size: 13px;
+
+    &:focus {
+      outline: none;
+      background: #555;
+      font-size: 13px;
+    }
+  }
+
+  /* 버튼 그룹을 오른쪽 정렬 */
+  .actionButtons {
+    display: flex;
+    gap: 0.2rem;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -87,15 +125,15 @@
     opacity: 1;
   }
 
+  /* 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
+  .iconButton {
+    padding: 1px;
+  }
+
   .searchInput {
     &.searchActive {
       width: 100%;
-      font-size: 16px;
+      font-size: 12px;
     }
-    
-    padding: 5px 5px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
   }
 }

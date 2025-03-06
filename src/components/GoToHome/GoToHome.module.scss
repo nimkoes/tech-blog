@@ -1,20 +1,20 @@
 .goToHome {
   position: fixed;
   right: 25px;
-  bottom: 53vh !important;
+  bottom: 54vh !important;
   background: rgba(91, 91, 91, 0.7);
   color: white;
   border: none;
   padding: 0;
-  width: 32px;
-  height: 32px;
+  width: 45px;
+  height: 45px;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-  opacity: 1;
+  opacity: 0.8;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -32,6 +32,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
   .goToHome {
+    bottom: 53vh !important;
+    width: 35px;
+    height: 35px;
   }
 }
 
@@ -40,7 +43,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .goToHome {
-    font-size: 1rem;
-    bottom: 54vh !important;
+    bottom: 52.5vh !important;
+    width: 30px;
+    height: 30px;
   }
 }

@@ -6,8 +6,8 @@
   color: white;
   border: none;
   padding: 0;
-  width: 32px;
-  height: 32px;
+  width: 45px;
+  height: 45px;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 10px;
@@ -22,7 +22,7 @@
   justify-content: center;
 
   &.visible {
-    opacity: 1;
+    opacity: 0.8;
     pointer-events: auto;
   }
 
@@ -46,6 +46,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
   .scrollToTop {
+    width: 35px;
+    height: 35px;
   }
 }
 
@@ -54,6 +56,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .scrollToTop {
-    font-size: 1rem;
+    width: 30px;
+    height: 30px;
   }
 }
