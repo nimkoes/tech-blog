@@ -24,7 +24,12 @@
           {"id": "10-15", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016250303-kubernetes"}
         ]
       },
-      {"id": "20", "displayName": "useful git command", "fileName": "0001250302-git"}
+      {
+        "id": "20",
+        "displayName": "Spring Security",
+        "fileName": "0020250308-spring-security-inner-structure"
+      },
+      {"id": "30", "displayName": "useful git command", "fileName": "0001250302-git"}
     ]
   }, {
     "id": "100",
