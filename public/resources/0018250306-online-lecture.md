@@ -25,6 +25,7 @@ tags: [ "memo", "online", "lecture", "study" ]
 [`inflearn` `백기선님` `04H 53M` `스프링 프레임워크 핵심 기술`][112]
 
 [`youtube` `이성미님` `따배도:따라하면서 배우는 도커`][113]
+[`youtube` `개발자 유미` `스프링 시큐리티 내부 구조`][114]
 
 # Infra
 
@@ -76,6 +77,8 @@ tags: [ "memo", "online", "lecture", "study" ]
 [112]:https://www.inflearn.com/course/spring-framework_core
 
 [113]:http://youtube.com/playlist?list=PLApuRlvrZKogb78kKq1wRvrjg1VMwYrvi
+
+[114]:https://www.youtube.com/playlist?list=PLJkjrxxiBSFCFM0pjDwm6F98veieD0MER
 
 [200]:https://www.youtube.com/playlist?list=PLApuRlvrZKohaBHvXAOhUD-RxD0uQ3z0c
 
