@@ -102,8 +102,6 @@ export default function HomePage() {
         <h2>🛠 TODO TASK</h2>
         <ul>
           <li>seo 최적화</li>
-          <li>Tablet 반응형 작업</li>
-          <li>펼치기/접기 마우스 오버시 나타나도록 작업</li>
           <li>tag 활용하기</li>
         </ul>
       </div>
