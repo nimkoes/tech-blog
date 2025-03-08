@@ -31,7 +31,8 @@
           {"id": "20-1", "displayName": "[chap.01] Spring Security 동작 원리 개요", "fileName": "0020250308-spring-security-inner-structure"},
           {"id": "20-2", "displayName": "[chap.02] SecurityFilterChain 등록", "fileName": "0021250308-spring-security-inner-structure"},
           {"id": "20-3", "displayName": "[chap.03] SecurityFilterChain 구조", "fileName": "0022250308-spring-security-inner-structure"},
-          {"id": "20-4", "displayName": "[chap.04] SecurityContextHolder", "fileName": "0023250308-spring-security-inner-structure"}
+          {"id": "20-4", "displayName": "[chap.04] SecurityContextHolder", "fileName": "0023250308-spring-security-inner-structure"},
+          {"id": "20-5", "displayName": "[chap.05] 필터 상속과 요청 전파", "fileName": "0024250308-spring-security-inner-structure"}
         ]
       },
       {"id": "30", "displayName": "useful git command", "fileName": "0001250302-git"}
