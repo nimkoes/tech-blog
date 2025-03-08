@@ -103,6 +103,11 @@ export default function HomePage() {
         <ul>
           <li>seo 최적화</li>
           <li>tag 활용하기</li>
+          <li>Log 영역 클릭시 게시물로 이동</li>
+          <li>Log 영역 기록된 내용 삭제 버튼</li>
+          <li>검색할 때 필터링 (검색 결과만 남기기)</li>
+          <li>local storage 활용?</li>
+          <li>릴리즈 노트?</li>
         </ul>
       </div>
     </div>
