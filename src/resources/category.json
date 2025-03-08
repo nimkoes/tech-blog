@@ -27,7 +27,11 @@
       {
         "id": "20",
         "displayName": "Spring Security",
-        "fileName": "0020250308-spring-security-inner-structure"
+        "children": [
+          {"id": "20-1", "displayName": "[chap.01] Spring Security 동작 원리 개요", "fileName": "0020250308-spring-security-inner-structure"},
+          {"id": "20-2", "displayName": "[chap.02] SecurityFilterChain 등록", "fileName": "0021250308-spring-security-inner-structure"},
+          {"id": "20-3", "displayName": "[chap.03] SecurityFilterChain 구조", "fileName": "0022250308-spring-security-inner-structure"}
+        ]
       },
       {"id": "30", "displayName": "useful git command", "fileName": "0001250302-git"}
     ]
