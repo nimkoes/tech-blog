@@ -33,7 +33,8 @@
           {"id": "20-3", "displayName": "[chap.03] SecurityFilterChain 구조", "fileName": "0022250308-spring-security-inner-structure"},
           {"id": "20-4", "displayName": "[chap.04] SecurityContextHolder", "fileName": "0023250308-spring-security-inner-structure"},
           {"id": "20-5", "displayName": "[chap.05] 필터 상속과 요청 전파", "fileName": "0024250308-spring-security-inner-structure"},
-          {"id": "20-6", "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter", "fileName": "0025250309-spring-security-inner-structure"}
+          {"id": "20-6", "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter", "fileName": "0025250309-spring-security-inner-structure"},
+          {"id": "20-7", "displayName": "[chap.07] DisableEncodeUrlFilter", "fileName": "0026250309-spring-security-inner-structure"}
         ]
       },
       {"id": "30", "displayName": "useful git command", "fileName": "0001250302-git"}
