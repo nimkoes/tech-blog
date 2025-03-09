@@ -37,7 +37,8 @@
           {"id": "20-7", "displayName": "[chap.07] DisableEncodeUrlFilter", "fileName": "0026250309-spring-security-inner-structure"},
           {"id": "20-8", "displayName": "[chap.08] WebAsyncManagerIntegrationFilter", "fileName": "0027250309-spring-security-inner-structure"},
           {"id": "20-9", "displayName": "[chap.09] SecurityContextHolderFilter", "fileName": "0028250309-spring-security-inner-structure"},
-          {"id": "20-10", "displayName": "[chap.10] HeaderWriterFilter", "fileName": "0029250309-spring-security-inner-structure"}
+          {"id": "20-10", "displayName": "[chap.10] HeaderWriterFilter", "fileName": "0029250309-spring-security-inner-structure"},
+          {"id": "20-11", "displayName": "[chap.11] CorsFilter", "fileName": "0030250309-spring-security-inner-structure"}
         ]
       },
       {"id": "30", "displayName": "useful git command", "fileName": "0001250302-git"}
