@@ -163,5 +163,5 @@ public class LogoutFilter extends GenericFilterBean {
 }
 ```
 
-위 코드에서 `chain.doFilter(request, response);` 를 호출하면 다음 필터가 실행됨.  
-이후 요청이 돌아올 때(응답 시점) 다시 실행될 수 있음.
+위 코드에서 `chain.doFilter(request, response);` 를 호출하면 다음 필터가 실행된다.  
+이후 요청이 돌아올 때(응답 시점) 다시 실행될 수 있다.
