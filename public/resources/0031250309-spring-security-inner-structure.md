@@ -37,7 +37,7 @@ public final class CsrfFilter extends OncePerRequestFilter {
 }
 ```
 
-### 주요 로직: `doFilterInternal`
+### 주요 로직: doFilterInternal
 
 ```java
 @Override
