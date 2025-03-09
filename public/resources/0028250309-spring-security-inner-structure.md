@@ -1,5 +1,5 @@
 ---
-title: "Spring Security 내부 구조 여덟 번째 시간"
+title: "Spring Security 내부 구조 아홉 번째 시간"
 author: "nimkoes"
 date: "2025-03-09"
 tags: [ "study", "spring", "spring security" ]
