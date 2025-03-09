@@ -23,7 +23,6 @@ tags: [ "study", "spring", "spring security" ]
 
 ![0024-02](/tech-blog/resources/images/spring-security-inner-structure/0024-02.png)
 
-- 
 - `SecurityFilterChain` 에서 필터들은 체인 형태로 연결되며, 각 필터가 특정 보안 로직을 수행한 후 다음 필터로 요청을 전달한다.
 
 ### 상속의 이점

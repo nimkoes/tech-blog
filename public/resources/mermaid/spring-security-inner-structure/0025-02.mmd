@@ -1,0 +1,50 @@
+sequenceDiagram
+  participant Client as 클라이언트
+  participant SampleController as SampleController
+  participant SecurityFilterChain as SecurityFilterChain
+  participant CustomGenericFilter as CustomGenericFilter
+  participant CustomOnceFilter as CustomOnceFilter
+  participant ExternalRedirect as 외부 리디렉션
+
+  Client->>SampleController: GET<br>/test-filter-before-redirect
+  activate SampleController
+
+  SampleController->>SecurityFilterChain: 요청 전달
+  activate SecurityFilterChain
+
+  SecurityFilterChain->>CustomGenericFilter: CustomGenericFilter 실행<br>print 'CustomGenericFilter'
+  activate CustomGenericFilter
+  CustomGenericFilter-->>SecurityFilterChain: 필터 실행 완료
+  deactivate CustomGenericFilter
+
+  SecurityFilterChain->>CustomOnceFilter: CustomOnceFilter 실행<br>print 'CustomOnceFilter'
+  activate CustomOnceFilter
+  CustomOnceFilter-->>SecurityFilterChain: 필터 실행 완료
+  deactivate CustomOnceFilter
+
+  SecurityFilterChain-->>SampleController: 요청 처리 계속
+  deactivate SecurityFilterChain
+
+  SampleController->>Client: HTTP 302 Redirect<br>(Location: /test-filter-after)
+  deactivate SampleController
+
+  Client->>ExternalRedirect: GET /test-filter-after (새로운 요청)
+  activate ExternalRedirect
+  ExternalRedirect->>SecurityFilterChain: 요청 전달
+  activate SecurityFilterChain
+
+  SecurityFilterChain->>CustomGenericFilter: CustomGenericFilter 실행<br>print 'CustomGenericFilter'
+  activate CustomGenericFilter
+  CustomGenericFilter-->>SecurityFilterChain: 필터 실행 완료
+  deactivate CustomGenericFilter
+
+  SecurityFilterChain->>CustomOnceFilter: CustomOnceFilter 실행<br>print 'CustomOnceFilter'
+  activate CustomOnceFilter
+  CustomOnceFilter-->>SecurityFilterChain: 필터 실행 완료
+  deactivate CustomOnceFilter
+
+  SecurityFilterChain-->>ExternalRedirect: 요청 처리 계속
+  deactivate SecurityFilterChain
+
+  ExternalRedirect-->>Client: Response("hello security!")
+  deactivate ExternalRedirect
