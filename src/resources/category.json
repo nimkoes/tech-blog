@@ -52,7 +52,14 @@
           {"id": "20-22", "displayName": "[chap.22] AuthorizationFilter", "fileName": "0041250309-spring-security-inner-structure"}
         ]
       },
-      {"id": "30", "displayName": "useful git command", "fileName": "0001250302-git"}
+      {
+        "id": "30",
+        "displayName": "Nuggets",
+        "children": [
+          {"id": "30-1", "displayName": "useful git command", "fileName": "0001250302-git"},
+          {"id": "30-1", "displayName": "@SneakyThrows", "fileName": "0042250310-sneaky-throws"}
+        ]
+      }
     ]
   }, {
     "id": "100",
