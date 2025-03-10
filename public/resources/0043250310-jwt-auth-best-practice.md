@@ -2,7 +2,7 @@
 title: "JWT 기반 인증 서버 개발의 best practice"
 author: "nimkoes"
 date: "2025-03-10"
-tags: [ "study", "nuggets", "authorization", "authentication", "best practice" ]
+tags: [ "study", "nuggets", "authorization", "authentication", "best practice", "jwt" ]
 ---
 
 ## 토큰 설계 원칙
