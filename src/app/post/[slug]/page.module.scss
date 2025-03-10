@@ -29,7 +29,7 @@
   border-bottom: 2px solid #3a3f4b;
   padding-top: 1rem;
   padding-bottom: 1px;
-  margin-bottom: 1px;
+  margin-bottom: -10px;
 }
 
 .markdown h3 {
@@ -38,17 +38,17 @@
   color: #d19a66;
   padding-top: 1rem;
   padding-bottom: 1px;
-  margin-bottom: 1px;
+  margin-bottom: -20px;
 }
 
 /* 목록 스타일 */
 .markdown ul {
-  padding-left: 15px;
+  padding-left: 1rem;
   list-style-type: disc;
 }
 
 .markdown ol {
-  padding-left: 15px;
+  padding-left: 2rem;
   list-style-type: decimal;
 }
 
@@ -135,11 +135,11 @@
 
   /* 목록 스타일 */
   .markdown ul {
-    padding-left: 12px;
+    padding-left: 20px;
   }
 
   .markdown ol {
-    padding-left: 12px;
+    padding-left: 30px;
   }
 
   /* 코드 블록 스타일 */
@@ -177,11 +177,11 @@
   }
 
   .markdown ul {
-    padding-left: 10px;
+    padding-left: 15px;
   }
 
   .markdown ol {
-    padding-left: 10px;
+    padding-left: 25px;
   }
 
   .markdown pre {
