@@ -79,5 +79,94 @@ Spring Security 프로젝트에 참여하는 것을 환영합니다. 다양한 �
 ## Social Media
 
 최신 소식을 확인하려면 `Twitter` 에서 [`@SpringSecurity`](https://x.com/SpringSecurity) 및 [`Spring Security` 팀](https://x.com/SpringSecurity/lists/team)을 팔로우하세요.  
-`Spring` 프레임워크 전체에 대한 소식을 확인하려면 [`@SpringCentral`](https://x.com/SpringCentral) 을 팔로우하세요.  
+`Spring` 프레임워크 전체에 대한 소식을 확인하려면 [`@SpringCentral`](https://x.com/SpringCentral) 을 팔로우하세요.
+
+# Getting Spring Security
+
+이 섹션에서는 `Spring Security` 바이너리를 얻는 방법을 설명합니다. 소스 코드를 얻는 방법은 Source Code 섹션을 참고하세요.
+
+## Release Numbering
+
+`Spring Security` 의 버전 형식은 `MAJOR`.`MINOR`.`PATCH` 형태로 구성됩니다.
+
+- `MAJOR`
+  - 기존 코드와 호환되지 않을 수 있는 변경 사항이 포함될 수 있습니다.
+  - 일반적으로 최신 보안 관행을 반영하여 보안을 강화하기 위해 변경됩니다.
+- `MINOR`
+  - 새로운 기능이 추가되지만, 기존 기능에 영향을 주지 않는 수동적 업데이트(`passive update`) 로 간주됩니다.
+- `PATCH`
+  - 기존 버전과 완벽하게 호환되어야 합니다.
+  - 단, 버그 수정으로 인해 일부 동작이 변경될 가능성이 있습니다.
+
+## Usage
+
+대부분의 오픈 소스 프로젝트와 마찬가지로, `Spring Security` 는 `Maven` 아티팩트로 의존성을 배포합니다. 따라서 `Maven` 과 `Gradle` 모두에서 사용할 수 있습니다.  
+다음 섹션에서는 `Spring Boot` 및 독립 실행형(`Standalone`) 환경에서 `Spring Security` 를 빌드 도구와 통합하는 방법을 예제로 설명합니다.
+
+### Spring Boot
+
+`Spring Boot` 는 `spring-boot-starter-security` 스타터를 제공하며, 이는 `Spring Security` 와 관련된 의존성을 모아둔 스타터입니다.  
+`Spring Security` 를 가장 간단하고 권장되는 방식으로 사용하려면, `Spring Initializr` 를 이용하는 것이 좋습니다.  
+`Spring Initializr` 는 다음 방법을 통해 사용할 수 있습니다.
+
+- IDE 연동을 통해 생성 (`Eclipse`, `IntelliJ`, `NetBeans`)
+- 웹 사이트에서 직접 생성 (`start.spring.io`)
+
+또는, 아래 예제와 같이 스타터를 수동으로 추가할 수도 있습니다.
+
+```xml
+
+<dependencies>
+  <!-- ... other dependency elements ... -->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+  </dependency>
+</dependencies>
+```
+
+```yml
+dependencies {
+  implementation "org.springframework.boot:spring-boot-starter-security"
+}
+```
+
+`Spring Boot` 는 `Maven BOM`(Bill of Materials) 을 제공하여 의존성 버전을 자동으로 관리합니다.  
+따라서 `Spring Security` 의존성을 추가할 때 버전을 명시할 필요가 없습니다.  
+만약 `Spring Security` 의 버전을 변경하려면, 아래와 같이 빌드 속성(`build property`) 을 사용하여 오버라이드할 수 있습니다.
+
+```xml
+
+<properties>
+  <!-- ... -->
+  <spring-security.version>6.4.3</spring-security.version>
+</properties>
+```
+
+```yml
+ext['spring-security.version']='6.4.3'
+```
+
+`Spring Security` 는 `Major` 버전에서만 기존 기능과 호환되지 않는 변경 사항을 적용합니다.  
+따라서 `Spring Boot` 는 호환성이 유지되는 범위 내에서 최신 버전의 `Spring Security` 를 안전하게 사용할 수 있도록 관리합니다.  
+그러나 경우에 따라 `Spring Framework` 의 버전도 함께 업데이트해야 할 수도 있습니다.  
+이 경우, 아래와 같이 빌드 속성(`build property`) 을 추가하여 `Spring Framework` 버전을 변경할 수 있습니다.
+
+```xml
+
+<properties>
+  <!-- ... -->
+  <spring.version>6.2.3</spring.version>
+</properties>
+```
+
+```yml
+ext['spring.version']='6.2.3'
+```
+
+`LDAP`, `OAuth 2.0` 등의 추가 기능을 사용하려는 경우, 해당 기능과 관련된 프로젝트 모듈(`Project Modules`) 및 의존성(`Dependencies`) 을 함께 포함해야 합니다.
+
+
+> > https://docs.spring.io/spring-security/reference/getting-spring-security.html#getting-maven-no-boot
+
 
