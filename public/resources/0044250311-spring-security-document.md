@@ -133,7 +133,7 @@ dependencies {
 
 `Spring Boot` 는 `Maven BOM`(Bill of Materials) 을 제공하여 의존성 버전을 자동으로 관리합니다.  
 따라서 `Spring Security` 의존성을 추가할 때 버전을 명시할 필요가 없습니다.  
-만약 `Spring Security` 의 버전을 변경하려면, 아래와 같이 빌드 속성(`build property`) 을 사용하여 오버라이드할 수 있습니다.
+만약 `Spring Security` 의 버전을 변경하려면, 아래와 같이 빌드 속성(`build property`) 을 사용하여 오버라이드할 수 있습니다.  
 
 ```xml
 
@@ -150,7 +150,7 @@ ext['spring-security.version']='6.4.3'
 `Spring Security` 는 `Major` 버전에서만 기존 기능과 호환되지 않는 변경 사항을 적용합니다.  
 따라서 `Spring Boot` 는 호환성이 유지되는 범위 내에서 최신 버전의 `Spring Security` 를 안전하게 사용할 수 있도록 관리합니다.  
 그러나 경우에 따라 `Spring Framework` 의 버전도 함께 업데이트해야 할 수도 있습니다.  
-이 경우, 아래와 같이 빌드 속성(`build property`) 을 추가하여 `Spring Framework` 버전을 변경할 수 있습니다.
+이 경우, 아래와 같이 빌드 속성(`build property`) 을 추가하여 `Spring Framework` 버전을 변경할 수 있습니다.  
 
 ```xml
 
@@ -164,9 +164,145 @@ ext['spring-security.version']='6.4.3'
 ext['spring.version']='6.2.3'
 ```
 
-`LDAP`, `OAuth 2.0` 등의 추가 기능을 사용하려는 경우, 해당 기능과 관련된 프로젝트 모듈(`Project Modules`) 및 의존성(`Dependencies`) 을 함께 포함해야 합니다.
+`LDAP`, `OAuth 2.0` 등의 추가 기능을 사용하려는 경우, 해당 기능과 관련된 프로젝트 모듈(`Project Modules`) 및 의존성(`Dependencies`) 을 함께 포함해야 합니다.  
+
+### Standalone Usage (Without Spring Boot)
+
+'Spring Boot' 없이 'Spring Security' 를 단독으로 사용하는 경우, 'Spring Security' 의 'BOM'(Bill of Materials) 을 사용하는 것이 권장됩니다.  
+이를 통해 프로젝트 전반에서 일관된 버전의 'Spring Security' 를 유지할 수 있습니다.  
+
+'''xml
+<dependencyManagement>
+	<dependencies>
+		<!-- ... other dependency elements ... -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-bom</artifactId>
+			<version>{spring-security-version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+'''
+
+'''yml
+plugins {
+	id "io.spring.dependency-management" version "1.0.6.RELEASE"
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.security:spring-security-bom:6.4.3'
+	}
+}
+'''
+
+최소한의 'Spring Security' 'Maven' 의존성 구성은 일반적으로 다음 예제와 같습니다.  
+
+'''xml
+<dependencies>
+	<!-- ... other dependency elements ... -->
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+	</dependency>
+</dependencies>
+'''
+
+'''yml
+dependencies {
+	implementation "org.springframework.security:spring-security-web"
+	implementation "org.springframework.security:spring-security-config"
+}
+'''
+
+'LDAP', 'OAuth 2.0' 등의 추가 기능을 사용하려면, 해당 기능에 맞는 프로젝트 모듈('Project Modules') 및 의존성('Dependencies') 을 추가해야 합니다.  
+'Spring Security' 는 'Spring Framework 6.2.3' 버전을 기준으로 빌드되었지만, 일반적으로 'Spring Framework 5.x' 의 최신 버전과도 호환됩니다.  
+그러나 'Spring Security'의 전이적('transitive') 의존성 때문에 'Spring Framework 6.2.3' 이 자동으로 포함될 수 있으며, 이로 인해 클래스 경로('Classpath') 문제가 발생할 수 있습니다.  
+이를 해결하는 가장 쉬운 방법은 'spring-framework-bom' 을 'pom.xml' 의 '<dependencyManagement>' 섹션이나, 'build.gradle' 의 'dependencyManagement' 섹션에 추가하는 것입니다.  
+
+'''xml
+<dependencyManagement>
+	<dependencies>
+		<!-- ... other dependency elements ... -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-framework-bom</artifactId>
+			<version>6.2.3</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+'''
+
+'''yml
+plugins {
+	id "io.spring.dependency-management" version "1.0.6.RELEASE"
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework:spring-framework-bom:6.2.3'
+	}
+}
+'''
+
+위의 예제는 'Spring Security' 의 모든 전이적('transitive') 의존성이 'Spring Framework 6.2.3' 모듈을 사용하도록 보장합니다.  
 
 
-> > https://docs.spring.io/spring-security/reference/getting-spring-security.html#getting-maven-no-boot
+### Maven Repositories
 
+모든 'GA'(General Availability) 릴리스 는 'Maven Central' 에 배포되므로, 빌드 설정에서 추가적인 'Maven' 저장소를 선언할 필요가 없습니다.  
+'Gradle' 을 사용하는 경우, 'mavenCentral()' 저장소 를 설정하면 'GA' 릴리스를 가져오는 데 충분합니다.  
 
+'''yml
+repositories {
+	mavenCentral()
+}
+'''
+
+'SNAPSHOT' 버전을 사용하는 경우, 'Spring Snapshot' 저장소를 정의해야 합니다.  
+
+'''xml
+<repositories>
+	<!-- ... possibly other repository elements ... -->
+	<repository>
+		<id>spring-snapshot</id>
+		<name>Spring Snapshot Repository</name>
+		<url>https://repo.spring.io/snapshot</url>
+	</repository>
+</repositories>
+'''
+
+'''yml
+repositories {
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+'''
+
+'Milestone' 또는 'RC' (Release Candidate) 버전을 사용하는 경우, 'Spring Milestone' 저장소를 정의해야 합니다.  
+
+'''xml
+<repositories>
+	<!-- ... possibly other repository elements ... -->
+	<repository>
+		<id>spring-milestone</id>
+		<name>Spring Milestone Repository</name>
+		<url>https://repo.spring.io/milestone</url>
+	</repository>
+</repositories>
+'''
+
+'''yml
+repositories {
+	maven { url 'https://repo.spring.io/milestone' }
+}
+'''
+
+https://docs.spring.io/spring-security/reference/features/index.html
