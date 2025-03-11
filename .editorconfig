@@ -26,3 +26,6 @@ end_of_line = lf
 
 [Dockerfile]
 end_of_line = lf
+
+[*.md]
+max_line_length = off

@@ -60,6 +60,13 @@
           {"id": "30-2", "displayName": "@SneakyThrows", "fileName": "0042250310-sneaky-throws"},
           {"id": "30-3", "displayName": "jwt 기반 인증 서버 개발 best practice", "fileName": "0043250310-jwt-auth-best-practice"}
         ]
+      },
+      {
+        "id": "40",
+        "displayName": "reading Document",
+        "children": [
+          {"id": "40-1", "displayName": "String Security 6.4.3", "fileName": "0044250311-spring-security-document"}
+        ]
       }
     ]
   }, {
