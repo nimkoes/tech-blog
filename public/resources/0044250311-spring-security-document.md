@@ -1,5 +1,6 @@
 ---
 title: "Spring Security 6.4.3 Document 읽기"
+description: "Overview"
 author: "nimkoes"
 date: "2025-03-11"
 tags: [ "study", "document", "spring security" ]

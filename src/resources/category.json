@@ -65,7 +65,13 @@
         "id": "40",
         "displayName": "reading Document",
         "children": [
-          {"id": "40-1", "displayName": "String Security 6.4.3", "fileName": "0044250311-spring-security-document"}
+          {
+            "id": "40-1", "displayName": "String Security 6.4.3",
+            "children": [
+              {"id": "40-1-1", "displayName": "Overview", "fileName": "0044250311-spring-security-document"},
+              {"id": "40-1-2", "displayName": "Features > Authentication", "fileName": "0045250312-spring-security-document"}
+            ]
+          }
         ]
       }
     ]

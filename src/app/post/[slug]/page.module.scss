@@ -5,17 +5,30 @@
   padding: 13px 14px;
   color: #d4d4d4;
   font-size: 1.2rem;
-  line-height: 1.2;
+  line-height: 2rem;
   font-family: "JetBrains Mono", "Fira Code", "Consolas", "Menlo", "monospace";
   white-space: pre-wrap;
   word-break: break-word;
+
+  /* 링크 스타일 */
+  a {
+    text-decoration: underline;
+    text-decoration-color: #095fe9; /* 파란색 밑줄 */
+    text-underline-offset: 7px; /* 밑줄과 텍스트 사이 간격 */
+    color: inherit; /* 기본 텍스트 색상 유지 */
+    transition: color 0.2s ease; /* 부드러운 색상 전환 효과 */
+
+    &:hover {
+      color: #144ba5 !important; /* 마우스 오버시 파란색으로 변경 */
+    }
+  }
 }
 
 /* 제목 스타일 */
 .markdown h1 {
   font-size: 2.3rem;
   font-weight: bold;
-  color: rgba(231, 70, 81, 0.83);
+  color: rgba(213, 94, 98, 0.98);
   border-bottom: 3px solid #3a3f4b;
   padding-top: 1rem;
   padding-bottom: 1px;
@@ -120,7 +133,7 @@
   .markdown {
     padding: 10px 10px;
     font-size: 0.9rem;
-    line-height: 1.2;
+    line-height: 1.8rem;
   }
 
   /* 제목 스타일 */
@@ -161,7 +174,7 @@
   .markdown {
     padding: 1px 1px;
     font-size: 0.75rem;
-    line-height: 1.05;
+    line-height: 1.6;
   }
 
   .markdown h1 {
