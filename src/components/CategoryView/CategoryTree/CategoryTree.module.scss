@@ -30,28 +30,33 @@
 
 /* 폴더 스타일 */
 .folder {
-  display: flex;
+  display: ruby;
   align-items: center;
   color: #cccccc;
-  white-space: nowrap; // 폴더명 줄 바꿈 방지
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; // 너무 길 경우 ... 처리
-  max-width: 100%; // 부모 요소 너비를 초과하지 않도록 설정
+  text-overflow: ellipsis;
+  max-width: 100%;
+  line-height: 1.5;
 }
 
 /* 파일 스타일 */
 .file {
   color: #cccccc;
-  white-space: nowrap; // 파일명 줄 바꿈 방지
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; // 너무 길 경우 ... 처리
-  max-width: 100%; // 부모 요소 너비를 초과하지 않도록 설정
+  text-overflow: ellipsis;
+  max-width: 100%;
+  line-height: 1.5;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
+  .folder, .file {
+    font-size: 0.9rem;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -70,7 +75,11 @@
   .fileIcon {
     svg {
       width: 13px;
-      height: 13px
+      height: 13px;
     }
+  }
+
+  .folder, .file {
+    font-size: 0.85rem;
   }
 }

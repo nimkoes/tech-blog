@@ -24,16 +24,16 @@
   color: #a9b7c6 !important;
   padding: 2px !important;
   border-radius: 5px !important;
-  transition: background 0.4s, transform 0.4s !important;
+  transition: background 0.3s, transform 0.3s !important;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1) !important;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   &.active {
     background-color: rgba(255, 255, 255, 0.2) !important;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   /* SVG 크기 조절 */
@@ -42,7 +42,6 @@
     height: 3.5rem;
   }
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // tablet
@@ -65,12 +64,12 @@
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.1) !important;
-      transform: scale(1.1);
+      transform: scale(1.03);
     }
 
     &.active {
       background-color: rgba(255, 255, 255, 0.2) !important;
-      transform: scale(1.1);
+      transform: scale(1.03);
     }
 
     /* SVG 크기 조절 */
@@ -98,9 +97,11 @@
     padding: 1px !important;
 
     &:hover {
+      transform: scale(1.02);
     }
 
     &.active {
+      transform: scale(1.02);
     }
 
     /* SVG 크기 조절 */

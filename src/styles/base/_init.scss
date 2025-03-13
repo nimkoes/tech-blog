@@ -1,12 +1,45 @@
+:root {
+  // 모노스페이스 폰트 스택 (단순화)
+  --font-mono: "JetBrains Mono", monospace;
+  
+  // 폰트 사이즈 시스템
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.75rem;
+  
+  // 행간
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  
+  // 여백
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+}
+
 html,
 body {
   min-height: 100%;
   background-color: hsl(var(--background));
   color: hsl(var(--zinc-700));
-  font-family: "Pretendard Variable", sans-serif;
+  font-family: var(--font-mono);
+  font-size: var(--font-base);
+  line-height: var(--leading-normal);
   font-weight: 400;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga" 0;  /* 리가처 비활성화 */
+}
+
+* {
+  font-family: var(--font-mono);  /* 모든 요소에 동일한 폰트 적용 */
 }
 
 body {

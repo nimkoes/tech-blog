@@ -1,13 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import ClientLayout from './ClientLayout'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
-})
+import '@fontsource/jetbrains-mono/400.css'
+import '@fontsource/jetbrains-mono/500.css'
+import '@fontsource/jetbrains-mono/600.css'
 
 const BASE_PATH = '/tech-blog'
 const SITE_URL = process.env.NODE_ENV === 'production'
@@ -110,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko" className={inter.className}>
+    <html lang="ko">
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
       <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>

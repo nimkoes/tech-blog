@@ -33,11 +33,11 @@ const CategoryTree = ({
             <span onClick={() => toggleFolder(item.id)} className={styles.folder}>
               <span className={styles.arrow}>
                 {openFolders[item.id] ? (
-                  <svg viewBox="0 0 24 24">
+                  <svg viewBox="0 -4 24 24">
                     <path fill="#AEB2B8" d="M5 8l7 8 7-8z"/>
                   </svg>
                 ) : (
-                  <svg viewBox="0 0 24 24">
+                  <svg viewBox="0 -4 24 24">
                     <path fill="#AEB2B8" d="M8 5l8 7-8 7z"/>
                   </svg>
                 )}
