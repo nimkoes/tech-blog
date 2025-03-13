@@ -52,6 +52,10 @@
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 
+  /* 모바일 환경에서 확대 방지 */
+  touch-action: manipulation;
+  font-size: 16px !important;
+
   &.searchActive {
     width: 100%;
     opacity: 1;
@@ -60,7 +64,7 @@
   &:focus {
     outline: none;
     background: #555;
-    font-size: 16px;
+    font-size: 16px !important;
   }
 }
 
@@ -144,7 +148,7 @@
   .searchInput {
     &.searchActive {
       width: 100%;
-      font-size: 12px;
+      font-size: 16px !important;
     }
 
     padding: 5px 5px;
@@ -154,5 +158,8 @@
     max-height: 30px;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    /* 모바일 환경에서 확대 방지를 위한 추가 속성 */
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
   }
 }
