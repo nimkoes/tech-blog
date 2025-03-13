@@ -45,6 +45,7 @@
   transition: all 0.3s ease;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 
   &.searchActive {
     width: 100%;
@@ -140,5 +141,8 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    max-height: 30px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
