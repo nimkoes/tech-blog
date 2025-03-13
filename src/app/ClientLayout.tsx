@@ -10,6 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import useNavigationStore from "~/store/navigationStore";
 
 const STORAGE_KEY = 'nktbsdb';
+const MAX_LOGS = 30;
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [logs, setLogs] = useState<string[]>([]);
@@ -22,7 +23,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       const savedLogs = localStorage.getItem(STORAGE_KEY);
       if (savedLogs) {
         try {
-          setLogs(JSON.parse(savedLogs));
+          const parsedLogs = JSON.parse(savedLogs);
+          // 저장된 로그가 30개를 초과하면 최근 30개만 유지
+          setLogs(parsedLogs.slice(-MAX_LOGS));
         } catch (e) {
           console.error('Failed to parse saved logs:', e);
           localStorage.removeItem(STORAGE_KEY);
@@ -34,7 +37,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   // 로그가 변경될 때마다 LocalStorage에 저장
   useEffect(() => {
     if (typeof window !== 'undefined' && logs.length > 0) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(logs));
+      // 30개 초과시 최근 30개만 저장
+      const logsToStore = logs.slice(-MAX_LOGS);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(logsToStore));
     }
   }, [logs]);
 
@@ -73,7 +78,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       second: "2-digit",
     });
 
-    setLogs((prevLogs) => [...prevLogs, `${timestamp} - ${fileName}`]);
+    setLogs((prevLogs) => {
+      const newLogs = [...prevLogs, `${timestamp} - ${fileName}`];
+      // 30개 초과시 가장 오래된 로그 제거
+      return newLogs.slice(-MAX_LOGS);
+    });
   };
 
   // 로그 삭제 핸들러 수정
