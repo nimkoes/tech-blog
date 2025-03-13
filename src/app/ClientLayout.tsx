@@ -20,7 +20,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       let height = 250; // 기본 높이
 
       if (width <= 768) {
-        height = 150; // 모바일
+        height = 0; // 모바일
       } else if (width <= 1024) {
         height = 200; // 태블릿
       }
