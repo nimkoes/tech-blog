@@ -69,15 +69,22 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .home {
+    display: flex;
   }
 
   .page {
+    width: 100%;
   }
 
   .subPage {
+    display: flex;
+    height: 100%;
   }
 
   .contentsView {
+    width: 100%;
+    flex: 1;
+    padding: 15px;
   }
 
   .highlight {

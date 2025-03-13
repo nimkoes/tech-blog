@@ -68,28 +68,35 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .categoryView {
+    display: none;
+    position: absolute;
+    top: 0;
     left: 35px;
     width: 60%;
     max-width: 300px;
+    height: 100%;
     background-color: rgba(50, 50, 50, 0.95);
     z-index: 1000;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(-100%);
   }
 
   .categoryView.open {
-    transform: translateX(0);
+    display: block;
   }
 
   /* 배경: 페이지만 가리고, 네비 & 로그 영역은 유지 */
   .backdrop {
-    position: fixed;
-    top: var(--navigation-height, 50px);
+    display: none;
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - var(--navigation-height) - var(--log-height, 0px));
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
+  }
+
+  .backdrop.open {
+    display: block;
   }
 }
