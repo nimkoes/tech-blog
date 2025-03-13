@@ -9,10 +9,34 @@ import ImagePopup from "~/components/ImagePopup/ImagePopup";
 import { useState, useEffect, useRef } from "react";
 import useNavigationStore from "~/store/navigationStore";
 
+const STORAGE_KEY = 'nktbsdb';
+
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [logs, setLogs] = useState<string[]>([]);
   const { isLogOpen } = useNavigationStore();
   const [logViewHeight, setLogViewHeight] = useState(250); // 기본 높이 설정
+
+  // LocalStorage에서 로그 불러오기
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedLogs = localStorage.getItem(STORAGE_KEY);
+      if (savedLogs) {
+        try {
+          setLogs(JSON.parse(savedLogs));
+        } catch (e) {
+          console.error('Failed to parse saved logs:', e);
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+    }
+  }, []);
+
+  // 로그가 변경될 때마다 LocalStorage에 저장
+  useEffect(() => {
+    if (typeof window !== 'undefined' && logs.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(logs));
+    }
+  }, [logs]);
 
   useEffect(() => {
     const updateLogViewHeight = () => {
@@ -52,9 +76,12 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     setLogs((prevLogs) => [...prevLogs, `${timestamp} - ${fileName}`]);
   };
 
-  // 로그 삭제 핸들러 추가
+  // 로그 삭제 핸들러 수정
   const handleClearLogs = () => {
     setLogs([]);
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem(STORAGE_KEY);
+    }
   };
 
   return (

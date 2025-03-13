@@ -103,7 +103,6 @@ export default function HomePage() {
         <ul>
           <li>seo 최적화</li>
           <li>tag 활용하기</li>
-          <li>local storage 활용?</li>
           <li>릴리즈 노트?</li>
         </ul>
       </div>
