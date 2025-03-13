@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./CategoryTree.module.scss";
+import useCategoryStore from "../../../store/categoryStore";
 
 interface CategoryItem {
   id: string;
@@ -24,9 +25,39 @@ const CategoryTree = ({
   highlightText: (text: string) => React.ReactNode;
   onFileSelect: (fileName: string) => void;
 }) => {
+  const searchQuery = useCategoryStore((state) => state.searchQuery);
+
+  // 검색 결과에 따라 아이템을 필터링하는 함수
+  const filterItems = (items: CategoryItem[]): CategoryItem[] => {
+    if (!searchQuery) return items;
+
+    return items.filter(item => {
+      const matchesQuery = item.displayName.toLowerCase().includes(searchQuery.toLowerCase());
+      const hasMatchingChildren = item.children && filterItems(item.children).length > 0;
+      
+      if (item.children) {
+        // 폴더인 경우, 검색어와 일치하거나 일치하는 자식이 있는 경우 표시
+        return matchesQuery || hasMatchingChildren;
+      } else {
+        // 파일인 경우, 검색어와 일치하는 경우만 표시
+        return matchesQuery;
+      }
+    }).map(item => {
+      if (item.children) {
+        return {
+          ...item,
+          children: filterItems(item.children)
+        };
+      }
+      return item;
+    });
+  };
+
+  const filteredData = filterItems(data);
+
   return (
     <ul className={styles.categoryTree} style={{ paddingLeft: `${depth * 15}px` }}>
-      {data.map((item) => (
+      {filteredData.map((item) => (
         <li key={item.id} className={styles.treeItem}>
           {item.children ? (
             // 📂 폴더 아이콘과 토글 버튼
