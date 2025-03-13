@@ -29,18 +29,41 @@ const LogContainer = ({logs}: LogContainerProps) => {
     return match ? match[1] : null;
   };
 
-  // displayName으로 fileName 찾기
-  const findFileNameByDisplayName = (displayName: string, items: CategoryItem[]): string | null => {
+  // displayName으로 카테고리 경로와 fileName 찾기
+  const findCategoryPathAndFileName = (
+    displayName: string, 
+    items: CategoryItem[], 
+    parentPath: string[] = []
+  ): { path: string[], fileName: string | null } | null => {
     for (const item of items) {
+      const currentPath = [...parentPath, item.displayName];
+      
       if (item.displayName === displayName) {
-        return item.fileName || null;
+        return { 
+          path: currentPath,
+          fileName: item.fileName || null 
+        };
       }
+      
       if (item.children) {
-        const found = findFileNameByDisplayName(displayName, item.children);
+        const found = findCategoryPathAndFileName(displayName, item.children, currentPath);
         if (found) return found;
       }
     }
     return null;
+  };
+
+  // 카테고리 경로를 Spring Boot 스타일로 변환
+  const formatServerLogStyle = (path: string[]): string => {
+    // 마지막 항목(파일명)을 제외한 경로를 처리
+    const packagePath = path.slice(0, -1)
+      .map(segment => segment.charAt(0).toLowerCase())
+      .join('.');
+
+    // 마지막 항목은 그대로 사용
+    const fileName = path[path.length - 1];
+
+    return packagePath ? `${packagePath}.${fileName}` : fileName;
   };
 
   return (
@@ -48,18 +71,22 @@ const LogContainer = ({logs}: LogContainerProps) => {
       {logs.map((log, index) => {
         const displayName = extractDisplayName(log);
         const timestamp = log.split(" - ")[0];
-        const fileName = displayName ? findFileNameByDisplayName(displayName, categoryData) : null;
+        const categoryInfo = displayName ? findCategoryPathAndFileName(displayName, categoryData) : null;
+        
+        const formattedName = categoryInfo 
+          ? formatServerLogStyle(categoryInfo.path)
+          : displayName;
 
         return (
           <div key={index} className={styles.logItem}>
             <span className={styles.timestamp}>{timestamp}</span>
             {" - "}
-            {displayName && fileName ? (
+            {displayName && categoryInfo?.fileName ? (
               <Link 
-                href={`/post/${fileName}`}
+                href={`/post/${categoryInfo.fileName}`}
                 className={styles.fileLink}
               >
-                {displayName}
+                {formattedName}
               </Link>
             ) : (
               log
