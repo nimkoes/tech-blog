@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./CategoryControl.module.scss";
+import useCategoryStore from "../../../store/categoryStore";
 
 interface CategoryControlProps {
   expandAll: () => void;
@@ -13,6 +14,7 @@ interface CategoryControlProps {
 const CategoryControl = ({ expandAll, collapseAll, setSearchQuery, onClose }: CategoryControlProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false); // 🔍 검색창 토글 상태
+  const searchQuery = useCategoryStore((state) => state.searchQuery);
 
   // 🔍 검색어 변경 핸들러
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +25,7 @@ const CategoryControl = ({ expandAll, collapseAll, setSearchQuery, onClose }: Ca
 
   return (
     <div className={styles.categoryControl}>
-      <div className={styles.controls}>
+      <div className={`${styles.controls} ${searchQuery ? styles.hasSearchQuery : ""}`}>
         {/* 🔍 돋보기 아이콘 */}
         <button className={styles.iconButton} onClick={() => setIsSearchOpen(!isSearchOpen)}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
