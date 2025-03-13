@@ -116,10 +116,21 @@ const useCategoryStore = create<CategoryState>((set, get) => ({
       });
     };
     traverse(categoryData);
-    set({ openFolders: allOpen });
+    
+    // searchQuery가 있을 때는 lastOpenedFolders를 유지
+    set((state) => ({
+      openFolders: allOpen,
+      lastOpenedFolders: state.searchQuery ? state.lastOpenedFolders : allOpen
+    }));
   },
   
-  collapseAll: () => set({ openFolders: {} }),
+  collapseAll: () => {
+    // searchQuery가 있을 때는 lastOpenedFolders를 유지
+    set((state) => ({
+      openFolders: {},
+      lastOpenedFolders: state.searchQuery ? state.lastOpenedFolders : {}
+    }));
+  },
 
   searchFiles: (query: string) => {
     const { folders } = findMatchingItems(categoryData, query);
