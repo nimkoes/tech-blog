@@ -52,6 +52,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     setLogs((prevLogs) => [...prevLogs, `${timestamp} - ${fileName}`]);
   };
 
+  // 로그 삭제 핸들러 추가
+  const handleClearLogs = () => {
+    setLogs([]);
+  };
+
   return (
     <body className={styles.home}>
       <NavigationView />
@@ -60,7 +65,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           <CategoryView onFileSelect={handleFileSelect} />
           <div className={`${styles.contentsView} contentsView`}>{children}</div>
         </div>
-        <LogView logs={logs} />
+        <LogView logs={logs} onClearLogs={handleClearLogs} />
       </div>
       <ImagePopup />
     </body>
