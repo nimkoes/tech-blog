@@ -27,19 +27,36 @@ const CategoryView = ({
   // 🔍 파일명 하이라이트 처리
   const highlightText = (text: string): ReactNode => {
     if (!searchQuery) return text;
-    const regex = new RegExp(`(${searchQuery})`, "gi");
-
-    return (
-      <>
-        {text.split(regex).map((part, i) =>
-          regex.test(part) ? (
-            <span key={i} className={styles.highlight}>{part}</span>
-          ) : (
-            part
-          )
-        )}
-      </>
-    );
+    
+    // 정규식 특수문자를 이스케이프
+    const escapedQuery = searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedQuery})`, "gi");
+    
+    let lastIndex = 0;
+    const parts: ReactNode[] = [];
+    let match;
+    
+    // 원본 텍스트를 순회하면서 매칭되는 부분을 찾음
+    while ((match = regex.exec(text)) !== null) {
+      // 매칭 이전 부분을 추가
+      if (match.index > lastIndex) {
+        parts.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex, match.index)}</span>);
+      }
+      // 매칭된 부분을 하이라이트로 추가
+      parts.push(
+        <span key={`highlight-${match.index}`} className={styles.highlight}>
+          {match[0]}
+        </span>
+      );
+      lastIndex = regex.lastIndex;
+    }
+    
+    // 마지막 매칭 이후 남은 텍스트 추가
+    if (lastIndex < text.length) {
+      parts.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex)}</span>);
+    }
+    
+    return <>{parts}</>;
   };
 
   const handleClose = () => {

@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   color: #cccccc;
-  white-space: nowrap;
+  white-space: pre;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
@@ -43,7 +43,7 @@
 /* 파일 스타일 */
 .file {
   color: #cccccc;
-  white-space: nowrap;
+  white-space: pre;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
