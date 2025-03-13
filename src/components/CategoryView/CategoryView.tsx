@@ -56,20 +56,24 @@ const CategoryView = ({
       )}
 
       <div className={`${styles.categoryView} ${isCategoryOpen ? styles.open : ""}`}>
-        <CategoryControl
-          expandAll={expandAll}
-          collapseAll={collapseAll}
-          setSearchQuery={setSearchQuery}
-          onClose={handleClose}
-        />
-        <CategoryTree
-          data={categoryData}
-          depth={0}
-          toggleFolder={toggleFolder}
-          openFolders={openFolders}
-          highlightText={highlightText}
-          onFileSelect={onFileSelect}
-        />
+        <div className={styles.categoryControl}>
+          <CategoryControl
+            expandAll={expandAll}
+            collapseAll={collapseAll}
+            setSearchQuery={setSearchQuery}
+            onClose={handleClose}
+          />
+        </div>
+        <div className={styles.treeContainer}>
+          <CategoryTree
+            data={categoryData}
+            depth={0}
+            toggleFolder={toggleFolder}
+            openFolders={openFolders}
+            highlightText={highlightText}
+            onFileSelect={onFileSelect}
+          />
+        </div>
       </div>
     </>
   );
