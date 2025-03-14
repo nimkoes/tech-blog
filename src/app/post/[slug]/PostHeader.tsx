@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from "./PostHeader.module.scss";
-import TagModal from '@/components/TagModal/TagModal';
+import TagModal from '../../../components/TagModal/TagModal';
 
 interface DocumentInfo {
   title: string;
