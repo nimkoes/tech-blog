@@ -97,7 +97,7 @@ export default function HomePage() {
 
           <li>
             <span className={styles.icon}>
-              `tag`
+              tag
             </span>
             태그를 누르면 같은 태그가 작성된 문서를 검색할 수 있습니다.
           </li>
