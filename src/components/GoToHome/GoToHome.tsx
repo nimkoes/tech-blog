@@ -2,12 +2,19 @@
 
 import { useRouter } from "next/navigation";
 import styles from "./GoToHome.module.scss";
+import useNavigationStore from "../../store/navigationStore";
 
 export default function GoToHome() {
   const router = useRouter();
+  const { hideAll } = useNavigationStore();
+
+  const handleClick = () => {
+    hideAll();  // 카테고리와 로그 영역 숨김
+    router.push("/");  // 홈으로 이동
+  };
 
   return (
-    <button className={styles.goToHome} onClick={() => router.push("/")}>
+    <button className={styles.goToHome} onClick={handleClick}>
       <svg
         width="16"
         height="16"
