@@ -97,7 +97,12 @@ export default function HomePage() {
 
           <li>
             <span className={styles.icon}>
-              tag
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 13L12 21L3 12V3h9l8 8z"></path>
+                <circle cx="7" cy="7" r="1.5"></circle>
+              </svg>
             </span>
             태그를 누르면 같은 태그가 작성된 문서를 검색할 수 있습니다.
           </li>
