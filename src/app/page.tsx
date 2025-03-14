@@ -94,6 +94,13 @@ export default function HomePage() {
             </span>
             영역을 숨겨서 문서를 넓게 볼 수 있습니다.
           </li>
+
+          <li>
+            <span className={styles.icon}>
+              tag
+            </span>
+            태그를 누르면 같은 태그가 작성된 문서를 검색할 수 있습니다.
+          </li>
         </ul>
       </div>
 
@@ -102,7 +109,6 @@ export default function HomePage() {
         <h2>🛠 TODO TASK</h2>
         <ul>
           <li>seo 최적화</li>
-          <li>tag 활용하기</li>
           <li>릴리즈 노트?</li>
         </ul>
       </div>
