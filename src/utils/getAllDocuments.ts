@@ -48,6 +48,25 @@ function extractDocumentsFromCategory(category: CategoryItem): DocumentInfo[] {
   return documents;
 }
 
+function findDocumentByFileName(category: CategoryItem, fileName: string): DocumentInfo | null {
+  if (category.fileName === fileName && category.displayName && category.tags) {
+    return {
+      title: category.displayName,
+      tags: category.tags,
+      fileName: category.fileName
+    };
+  }
+
+  if (category.children) {
+    for (const child of category.children) {
+      const found = findDocumentByFileName(child, fileName);
+      if (found) return found;
+    }
+  }
+
+  return null;
+}
+
 function getCategoryData(): CategoryItem[] {
   try {
     // 상대 경로로 변경
@@ -86,6 +105,22 @@ export function getAllDocuments(): DocumentInfo[] {
   } catch (error) {
     console.error('Error in getAllDocuments:', error);
     return [];
+  }
+}
+
+export function getDocumentByFileName(fileName: string): DocumentInfo | null {
+  try {
+    const categoryData = getCategoryData();
+    
+    for (const category of categoryData) {
+      const found = findDocumentByFileName(category, fileName);
+      if (found) return found;
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Error in getDocumentByFileName:', error);
+    return null;
   }
 }
 

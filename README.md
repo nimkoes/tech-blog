@@ -154,7 +154,6 @@ title: 문서 제목
 description: 문서 설명
 author: 작성자
 date: YYYY-MM-DD
-tags: [tag1, tag2]
 ---
 ```
 

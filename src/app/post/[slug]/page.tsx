@@ -13,7 +13,7 @@ import GoToHome from "@/components/GoToHome/GoToHome";
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import PostHeader from "@/app/post/[slug]/PostHeader";
 import KakaoAdFit from "@/components/KakaoAdFit/KakaoAdFit";
-import { getAllDocuments, getAllTags } from "@/utils/getAllDocuments";
+import { getAllDocuments, getAllTags, getDocumentByFileName } from "@/utils/getAllDocuments";
 
 interface PostProps {
   params: { slug: string };
@@ -56,6 +56,10 @@ export default async function PostPage({ params }: PostProps) {
   const { content, data } = matter(fileContents);
   const documents = getAllDocuments();
   const allTags = getAllTags();
+  
+  // category.json에서 현재 문서의 태그 정보 가져오기
+  const currentDocument = getDocumentByFileName(params.slug);
+  const documentTags = currentDocument?.tags || [];
 
   // Markdown 내용을 HTML로 변환
   const processedContent = await remark()
@@ -80,7 +84,7 @@ export default async function PostPage({ params }: PostProps) {
           description={data.description} 
           author={data.author} 
           date={data.date} 
-          tags={data.tags} 
+          tags={documentTags}  // md 파일의 tags 대신 category.json의 tags 사용
           documents={documents}
           allTags={allTags}
         />
