@@ -1,79 +1,77 @@
-.postHeader {
+.header {
+  margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 3px solid #cccccc;
-  margin-bottom: 3rem;
+  border-bottom: 1px solid #3a3f4b;
 }
 
 .title {
-  color: #ffffff !important;
-  border-bottom: 0 !important;
-  font-size: 3rem !important;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-size: 2.5rem;
+  color: #e06c75;
+  margin-bottom: 1rem;
 }
 
 .description {
-  font-size: 2rem;
-  color: #b0b0b0;
-  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #abb2bf;
+  margin-bottom: 1rem;
 }
 
 .meta {
   display: flex;
-  gap: 10px;
-  font-size: 1.3rem;
-  color: #aaaaaa;
-  margin-bottom: 12px;
+  gap: 1rem;
+  color: #7f848e;
+  margin-bottom: 1rem;
+}
+
+.author {
+  &:before {
+    content: "작성자: ";
+  }
+}
+
+.date {
+  &:before {
+    content: "작성일: ";
+  }
 }
 
 .tags {
   display: flex;
-  font-size: 1rem;
-  gap: 6px;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .tag {
-  background: rgba(255, 255, 255, 0.1);
-  color: #4af6b6;
-  padding: 3px 5px;
-  border-radius: 8px;
-  font-size: 1rem;
+  background: none;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  background-color: rgba(42, 224, 217, 0.86);;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
-  .postHeader {
-    padding-bottom: 0.8rem;
-    border-bottom: 2px solid #cccccc;
-    margin-bottom: 2rem;
-  }
-
   .title {
-    font-size: 2rem !important;
-    margin-bottom: 5px;
+    font-size: 2rem;
   }
 
   .description {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-  }
-
-  .meta {
-    gap: 8px;
     font-size: 1rem;
-    margin-bottom: 5px;
-  }
-
-  .tags {
-    gap: 3px;
   }
 
   .tag {
-    padding: 3px 5px;
-    border-radius: 8px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -81,29 +79,21 @@
 // mobile
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
-  .postHeader {
-    padding-bottom: 0.35rem;
-    border-bottom: 3px solid #cccccc;
-    margin-bottom: 1.5rem;
-  }
-
   .title {
-    font-size: 1.6rem !important;
+    font-size: 1.5rem;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .meta {
-    font-size: 0.8rem;
-  }
-
-  .tags {
-    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .tag {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
   }
 }

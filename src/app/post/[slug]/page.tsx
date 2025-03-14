@@ -13,6 +13,7 @@ import GoToHome from "@/components/GoToHome/GoToHome";
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import PostHeader from "@/app/post/[slug]/PostHeader";
 import KakaoAdFit from "@/components/KakaoAdFit/KakaoAdFit";
+import { getAllDocuments, getAllTags } from "@/utils/getAllDocuments";
 
 interface PostProps {
   params: { slug: string };
@@ -53,6 +54,8 @@ export default async function PostPage({ params }: PostProps) {
 
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { content, data } = matter(fileContents);
+  const documents = getAllDocuments();
+  const allTags = getAllTags();
 
   // Markdown 내용을 HTML로 변환
   const processedContent = await remark()
@@ -72,7 +75,15 @@ export default async function PostPage({ params }: PostProps) {
   return (
     <>
       <div className={styles.container}>
-        <PostHeader title={data.title} description={data.description} author={data.author} date={data.date} tags={data.tags} />
+        <PostHeader 
+          title={data.title} 
+          description={data.description} 
+          author={data.author} 
+          date={data.date} 
+          tags={data.tags} 
+          documents={documents}
+          allTags={allTags}
+        />
         <TableOfContents />
         <article className={styles.markdown}>
           <KakaoAdFit className={styles.topAd} />
