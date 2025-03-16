@@ -45,7 +45,7 @@ function extractDocuments(categories: any[]): Document[] {
 }
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const { logs, addLog, clearLogs } = useLogStore();
+  const { logs, addLog, clearLogs, setLogs } = useLogStore();
   const { isLogOpen, isTagModalOpen, toggleTagModal } = useNavigationStore();
   const [logViewHeight, setLogViewHeight] = useState(250);
   const [documents, setDocuments] = useState<Document[]>([]);
@@ -73,13 +73,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         try {
           const parsedLogs = JSON.parse(savedLogs);
           clearLogs();
+          setLogs(parsedLogs.slice(-MAX_LOGS));
         } catch (e) {
           console.error('Failed to parse saved logs:', e);
           localStorage.removeItem(STORAGE_KEY);
         }
       }
     }
-  }, [clearLogs]);
+  }, [clearLogs, setLogs]);
 
   // 로그가 변경될 때마다 LocalStorage에 저장
   useEffect(() => {

@@ -14,7 +14,7 @@
 
 .tocWrapper {
   position: fixed;
-  top: 7vh;
+  top: 15vh;
   right: 10px;
   width: 330px;
   z-index: 100;
@@ -95,7 +95,7 @@
   }
 
   .tocWrapper {
-    top: 5vh;
+    top: 13vh;
     right: 5px;
     width: 270px;
     opacity: 0.3;
@@ -123,7 +123,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .tocWrapper {
-    top: 5vh;
+    top: 10vh;
     right: 5px;
     width: 180px;
     opacity: 0.75;
