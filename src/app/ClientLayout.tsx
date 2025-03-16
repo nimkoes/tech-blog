@@ -10,6 +10,7 @@ import TagModal from "~/components/TagModal/TagModal";
 import { useState, useEffect } from "react";
 import useNavigationStore from "~/store/navigationStore";
 import categoryData from '../resources/category.json';
+import { useLogStore } from "~/store/logStore";
 
 const STORAGE_KEY = 'nktbsdb';
 const MAX_LOGS = 30;
@@ -44,7 +45,7 @@ function extractDocuments(categories: any[]): Document[] {
 }
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const [logs, setLogs] = useState<string[]>([]);
+  const { logs, addLog, clearLogs } = useLogStore();
   const { isLogOpen, isTagModalOpen, toggleTagModal } = useNavigationStore();
   const [logViewHeight, setLogViewHeight] = useState(250);
   const [documents, setDocuments] = useState<Document[]>([]);
@@ -71,14 +72,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       if (savedLogs) {
         try {
           const parsedLogs = JSON.parse(savedLogs);
-          setLogs(parsedLogs.slice(-MAX_LOGS));
+          clearLogs();
         } catch (e) {
           console.error('Failed to parse saved logs:', e);
           localStorage.removeItem(STORAGE_KEY);
         }
       }
     }
-  }, []);
+  }, [clearLogs]);
 
   // 로그가 변경될 때마다 LocalStorage에 저장
   useEffect(() => {
@@ -120,17 +121,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       second: "2-digit",
     });
 
-    setLogs((prevLogs) => {
-      const newLogs = [...prevLogs, `${timestamp} - ${fileName}`];
-      return newLogs.slice(-MAX_LOGS);
-    });
+    addLog(`${timestamp} - ${fileName}`);
   };
 
   const handleClearLogs = () => {
-    setLogs([]);
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem(STORAGE_KEY);
-    }
+    clearLogs();
   };
 
   return (

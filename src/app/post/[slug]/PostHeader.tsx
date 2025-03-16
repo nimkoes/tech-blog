@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from 'react';
 import styles from "./PostHeader.module.scss";
-import TagModal from '../../../components/TagModal/TagModal';
+import TagModalWrapper from '../../../components/PostHeader/TagModalWrapper';
+import { useLogStore } from '../../../store/logStore';
 
 interface DocumentInfo {
   title: string;
@@ -29,45 +29,41 @@ export default function PostHeader({
   documents,
   allTags 
 }: PostHeaderProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const { addLog } = useLogStore();
 
-  const handleTagClick = (tag: string) => {
-    setSelectedTags([tag]);
-    setIsModalOpen(true);
+  const handleLogMessage = (message: string) => {
+    console.log('handleLogMessage called with:', message);
+    const now = new Date();
+    const timestamp = now.toLocaleString("ko-KR", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    console.log('Timestamp generated:', timestamp);
+    addLog(`${timestamp} - ${message}`);
+    console.log('Log added to store');
   };
 
   return (
-    <>
-      <header className={styles.postHeader}>
-        <h1 className={styles.title}>{title}</h1>
-        {description && <p className={styles.description}>{description}</p>}
-        <div className={styles.meta}>
-          {author && <span className={styles.author}>{author}</span>}
-          {date && <span className={styles.date}>{date}</span>}
-        </div>
-        {tags && tags.length > 0 && (
-          <div className={styles.tags}>
-            {tags.map((tag) => (
-              <button
-                key={tag}
-                className={styles.tag}
-                onClick={() => handleTagClick(tag)}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        )}
-      </header>
-
-      <TagModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        currentTags={selectedTags}
-        allTags={allTags}
-        documents={documents}
-      />
-    </>
+    <header className={styles.postHeader}>
+      <h1 className={styles.title}>{title}</h1>
+      {description && <p className={styles.description}>{description}</p>}
+      <div className={styles.meta}>
+        {author && <span className={styles.author}>{author}</span>}
+        {date && <span className={styles.date}>{date}</span>}
+      </div>
+      {tags && tags.length > 0 && (
+        <TagModalWrapper
+          documents={documents}
+          currentTags={[]}
+          allTags={allTags}
+          tags={tags}
+          onLogMessage={handleLogMessage}
+        />
+      )}
+    </header>
   );
 }

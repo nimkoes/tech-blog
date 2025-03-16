@@ -5,7 +5,7 @@ import styles from './TagModal.module.scss';
 import CloseIcon from '../common/icons/CloseIcon';
 import Button from '../common/Button/Button';
 import Link from 'next/link';
-import {usePathname} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 
 interface TagModalProps {
   isOpen: boolean;
@@ -24,6 +24,7 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set(currentTags));
   const [filteredDocs, setFilteredDocs] = useState(documents);
   const pathname = usePathname();
+  const router = useRouter();
   const currentFileName = pathname?.split('/').pop() || '';
 
   useEffect(() => {
@@ -88,10 +89,19 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
   };
 
   const handleDocumentClick = (doc: { title: string; fileName: string }) => {
+    console.log('Document Clicked:', doc.title);
     if (onLogMessage) {
+      console.log('Logging message:', doc.title);
+      // 모달을 닫고
+      onClose();
+      
+      // 로그를 기록
       onLogMessage(`${doc.title}`);
+      
+      console.log('Log recorded, navigating to:', `/post/${doc.fileName}`);
+      // 로그가 기록된 후 페이지 이동
+      router.push(`/post/${doc.fileName}`);
     }
-    onClose();
   };
 
   if (!isOpen) return null;
@@ -129,8 +139,7 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
           {filteredDocs.length > 0 ? (
             filteredDocs.map(doc => (
               <div key={doc.fileName} className={styles.documentItem}>
-                <Link
-                  href={`/post/${doc.fileName}`}
+                <button
                   className={`${styles.documentTitle} ${doc.fileName === currentFileName ? styles.current : ''}`}
                   onClick={() => handleDocumentClick(doc)}
                 >
@@ -138,7 +147,7 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
                   {doc.fileName === currentFileName && (
                     <span className={styles.currentIndicator}>현재 문서</span>
                   )}
-                </Link>
+                </button>
                 <div className={styles.documentTags}>
                   {doc.tags.map(tag => (
                     <span
