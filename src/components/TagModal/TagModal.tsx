@@ -89,10 +89,9 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
 
   const handleDocumentClick = (doc: { title: string; fileName: string }) => {
     if (onLogMessage) {
-      const now = new Date();
-      const timestamp = now.toISOString().slice(0, 19).replace('T', ' ');
-      onLogMessage(`${timestamp} - ${doc.title}`);
+      onLogMessage(`${doc.title}`);
     }
+    onClose();
   };
 
   if (!isOpen) return null;
