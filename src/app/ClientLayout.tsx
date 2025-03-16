@@ -6,16 +6,63 @@ import NavigationView from "~/components/NavigationView/NavigationView";
 import CategoryView from "~/components/CategoryView/CategoryView";
 import LogView from "~/components/LogView/LogView";
 import ImagePopup from "~/components/ImagePopup/ImagePopup";
-import { useState, useEffect, useRef } from "react";
+import TagModal from "~/components/TagModal/TagModal";
+import { useState, useEffect } from "react";
 import useNavigationStore from "~/store/navigationStore";
+import categoryData from '../resources/category.json';
 
 const STORAGE_KEY = 'nktbsdb';
 const MAX_LOGS = 30;
 
+interface Document {
+  title: string;
+  tags: string[];
+  fileName: string;
+}
+
+function extractDocuments(categories: any[]): Document[] {
+  let documents: Document[] = [];
+
+  categories.forEach(category => {
+    if (category.children) {
+      category.children.forEach((child: any) => {
+        if (child.fileName) {
+          documents.push({
+            title: child.displayName,
+            tags: child.tags || [],
+            fileName: child.fileName,
+          });
+        }
+        if (child.children) {
+          documents = documents.concat(extractDocuments([child]));
+        }
+      });
+    }
+  });
+
+  return documents;
+}
+
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [logs, setLogs] = useState<string[]>([]);
-  const { isLogOpen } = useNavigationStore();
-  const [logViewHeight, setLogViewHeight] = useState(250); // 기본 높이 설정
+  const { isLogOpen, isTagModalOpen, toggleTagModal } = useNavigationStore();
+  const [logViewHeight, setLogViewHeight] = useState(250);
+  const [documents, setDocuments] = useState<Document[]>([]);
+  const [allTags, setAllTags] = useState<string[]>([]);
+
+  // 문서와 태그 정보 로드
+  useEffect(() => {
+    const docs = extractDocuments(categoryData);
+    setDocuments(docs);
+    
+    // 모든 태그 추출 및 중복 제거
+    const tags = new Set<string>();
+    docs.forEach(doc => {
+      doc.tags?.forEach(tag => tags.add(tag));
+    });
+    const allTagsArray = Array.from(tags);
+    setAllTags(allTagsArray);
+  }, []);
 
   // LocalStorage에서 로그 불러오기
   useEffect(() => {
@@ -24,7 +71,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       if (savedLogs) {
         try {
           const parsedLogs = JSON.parse(savedLogs);
-          // 저장된 로그가 30개를 초과하면 최근 30개만 유지
           setLogs(parsedLogs.slice(-MAX_LOGS));
         } catch (e) {
           console.error('Failed to parse saved logs:', e);
@@ -37,7 +83,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   // 로그가 변경될 때마다 LocalStorage에 저장
   useEffect(() => {
     if (typeof window !== 'undefined' && logs.length > 0) {
-      // 30개 초과시 최근 30개만 저장
       const logsToStore = logs.slice(-MAX_LOGS);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(logsToStore));
     }
@@ -46,21 +91,18 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   useEffect(() => {
     const updateLogViewHeight = () => {
       const width = window.innerWidth;
-      let height = 250; // 기본 높이
+      let height = 250;
 
       if (width <= 768) {
-        height = 0; // 모바일
+        height = 0;
       } else if (width <= 1024) {
-        height = 200; // 태블릿
+        height = 200;
       }
 
       setLogViewHeight(height);
     };
 
-    // 초기 높이 설정
     updateLogViewHeight();
-
-    // 리사이즈 이벤트 리스너 등록
     window.addEventListener('resize', updateLogViewHeight);
 
     return () => {
@@ -80,12 +122,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
     setLogs((prevLogs) => {
       const newLogs = [...prevLogs, `${timestamp} - ${fileName}`];
-      // 30개 초과시 가장 오래된 로그 제거
       return newLogs.slice(-MAX_LOGS);
     });
   };
 
-  // 로그 삭제 핸들러 수정
   const handleClearLogs = () => {
     setLogs([]);
     if (typeof window !== 'undefined') {
@@ -94,16 +134,26 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   };
 
   return (
-    <body className={styles.home}>
-      <NavigationView />
-      <div className={styles.page} style={{ height: isLogOpen ? `calc(100vh - ${logViewHeight}px)` : "100vh" }}>
-        <div className={styles.subPage}>
-          <CategoryView onFileSelect={handleFileSelect} />
-          <div className={`${styles.contentsView} contentsView`}>{children}</div>
+    <>
+      <div className={styles.home}>
+        <NavigationView />
+        <div className={styles.page} style={{ height: isLogOpen ? `calc(100vh - ${logViewHeight}px)` : "100vh" }}>
+          <div className={styles.subPage}>
+            <CategoryView onFileSelect={handleFileSelect} />
+            <div className={`${styles.contentsView} contentsView`}>{children}</div>
+          </div>
+          <LogView logs={logs} onClearLogs={handleClearLogs} />
         </div>
-        <LogView logs={logs} onClearLogs={handleClearLogs} />
+        <ImagePopup />
+        <TagModal
+          isOpen={isTagModalOpen}
+          onClose={toggleTagModal}
+          documents={documents}
+          currentTags={[]}
+          allTags={allTags}
+          onLogMessage={handleFileSelect}
+        />
       </div>
-      <ImagePopup />
-    </body>
+    </>
   );
 } 

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import ClientLayout from './ClientLayout'
 import '@fontsource/jetbrains-mono/400.css'
 import '@fontsource/jetbrains-mono/500.css'
 import '@fontsource/jetbrains-mono/600.css'
+import ClientLayout from './ClientLayout'
 
 const BASE_PATH = '/tech-blog'
 const SITE_URL = process.env.NODE_ENV === 'production'
@@ -106,25 +106,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-      <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
-      <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"/>
-      <meta name="naver-site-verification" content="1df124e1d8331da4467178ffddd6188e1d413576"/>
-      <meta name="google-adsense-account" content="ca-pub-6151583773425822"/>
-
-      <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
-      <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous"/>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
-
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6151583773425822"
-        crossOrigin="anonymous"
-      />
-    </head>
-    <ClientLayout>{children}</ClientLayout>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }

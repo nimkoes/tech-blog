@@ -98,7 +98,6 @@ export default function HomePage() {
           <li>
             <span className={styles.icon}>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                    xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 13L12 21L3 12V3h9l8 8z"></path>
                 <circle cx="7" cy="7" r="1.5"></circle>

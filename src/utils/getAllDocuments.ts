@@ -71,19 +71,14 @@ function getCategoryData(): CategoryItem[] {
   try {
     // 상대 경로로 변경
     const categoryPath = path.join(process.cwd(), 'src/resources/category.json');
-    console.log('Category path:', categoryPath);
-    
     if (!fs.existsSync(categoryPath)) {
       console.error('Category file not found at:', categoryPath);
       return [];
     }
     
     const categoryContent = fs.readFileSync(categoryPath, 'utf8');
-    const categoryData = JSON.parse(categoryContent);
-    console.log('Category data loaded successfully');
-    return categoryData;
+    return JSON.parse(categoryContent);
   } catch (error) {
-    console.error('Error loading category data:', error);
     return [];
   }
 }
@@ -98,12 +93,8 @@ export function getAllDocuments(): DocumentInfo[] {
       documents.push(...extractedDocs);
     });
     
-    console.log('Total documents found:', documents.length);
-    console.log('Sample document:', documents[0]);
-    
     return documents;
   } catch (error) {
-    console.error('Error in getAllDocuments:', error);
     return [];
   }
 }
@@ -133,12 +124,8 @@ export function getAllTags(): string[] {
       extractTagsFromCategory(category).forEach(tag => allTags.add(tag));
     });
     
-    const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b));
-    console.log('All tags:', sortedTags);
-    
-    return sortedTags;
+    return Array.from(allTags).sort((a, b) => a.localeCompare(b));
   } catch (error) {
-    console.error('Error in getAllTags:', error);
     return [];
   }
 } 

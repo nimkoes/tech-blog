@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import styles from './TagModal.module.scss';
 import CloseIcon from '../common/icons/CloseIcon';
 import Button from '../common/Button/Button';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import {usePathname} from 'next/navigation';
 
 interface TagModalProps {
   isOpen: boolean;
@@ -20,16 +20,13 @@ interface TagModalProps {
   onLogMessage?: (message: string) => void;
 }
 
-export default function TagModal({ isOpen, onClose, currentTags, allTags, documents, onLogMessage }: TagModalProps) {
+export default function TagModal({isOpen, onClose, currentTags, allTags, documents, onLogMessage}: TagModalProps) {
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set(currentTags));
   const [filteredDocs, setFilteredDocs] = useState(documents);
   const pathname = usePathname();
   const currentFileName = pathname?.split('/').pop() || '';
 
   useEffect(() => {
-    console.log('Current documents:', documents);
-    console.log('Current tags:', currentTags);
-    console.log('All tags:', allTags);
   }, [documents, currentTags, allTags]);
 
   // 초기 태그 설정 및 문서 필터링
@@ -48,44 +45,37 @@ export default function TagModal({ isOpen, onClose, currentTags, allTags, docume
 
   // 활성화된 태그에 따라 문서 필터링
   useEffect(() => {
-    console.log('Active tags changed:', Array.from(activeTags));
-
     if (activeTags.size === 0) {
-      console.log('No active tags, showing all documents');
       setFilteredDocs(documents);
     } else {
       // 대소문자를 구분하지 않고 태그 비교
       const normalizedActiveTags = Array.from(activeTags).map(tag => tag.toLowerCase());
-      console.log('Normalized active tags:', normalizedActiveTags);
 
       const filtered = documents.filter(doc => {
         const normalizedDocTags = doc.tags.map(tag => tag.toLowerCase());
-        console.log('Document tags for', doc.title, ':', normalizedDocTags);
-        
+
         // 활성 태그 중 하나라도 문서의 태그에 포함되어 있는지 확인
-        return normalizedDocTags.some(docTag => 
+        return normalizedDocTags.some(docTag =>
           normalizedActiveTags.includes(docTag)
         );
       });
-      
+
       // 태그 일치 개수에 따라 정렬
       filtered.sort((a, b) => {
-        const matchCountA = a.tags.filter(tag => 
+        const matchCountA = a.tags.filter(tag =>
           normalizedActiveTags.includes(tag.toLowerCase())
         ).length;
-        const matchCountB = b.tags.filter(tag => 
+        const matchCountB = b.tags.filter(tag =>
           normalizedActiveTags.includes(tag.toLowerCase())
         ).length;
         return matchCountB - matchCountA;
       });
-      
-      console.log('Filtered documents:', filtered);
+
       setFilteredDocs(filtered);
     }
   }, [activeTags, documents]);
 
   const toggleTag = (tag: string) => {
-    console.log('Toggling tag:', tag);
     setActiveTags(prev => {
       const newTags = new Set(prev);
       if (newTags.has(tag)) {
@@ -118,7 +108,7 @@ export default function TagModal({ isOpen, onClose, currentTags, allTags, docume
             onClick={onClose}
             aria-label="모달 닫기"
           >
-            <CloseIcon />
+            <CloseIcon/>
           </Button>
         </div>
 
@@ -140,8 +130,8 @@ export default function TagModal({ isOpen, onClose, currentTags, allTags, docume
           {filteredDocs.length > 0 ? (
             filteredDocs.map(doc => (
               <div key={doc.fileName} className={styles.documentItem}>
-                <Link 
-                  href={`/post/${doc.fileName}`} 
+                <Link
+                  href={`/post/${doc.fileName}`}
                   className={`${styles.documentTitle} ${doc.fileName === currentFileName ? styles.current : ''}`}
                   onClick={() => handleDocumentClick(doc)}
                 >
@@ -152,8 +142,8 @@ export default function TagModal({ isOpen, onClose, currentTags, allTags, docume
                 </Link>
                 <div className={styles.documentTags}>
                   {doc.tags.map(tag => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className={`${styles.documentTag} ${activeTags.has(tag) ? styles.active : ''}`}
                       onClick={() => toggleTag(tag)}
                     >

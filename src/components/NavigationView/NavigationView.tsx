@@ -6,6 +6,7 @@ import styles from "./NavigationView.module.scss";
 import Button from "../common/Button/Button";
 import FolderIcon from "../common/icons/FolderIcon";
 import LogIcon from "../common/icons/LogIcon";
+import TagIcon from "../common/icons/TagIcon";
 import useNavigationStore from "../../store/navigationStore";
 
 const NavigationView = () => {
@@ -16,7 +17,7 @@ const NavigationView = () => {
     setIconSize(isMobile ? 18 : 30); // 클라이언트에서만 크기 변경
   }, [isMobile]);
 
-  const { isCategoryOpen, isLogOpen, toggleCategory, toggleLog } = useNavigationStore();
+  const { isCategoryOpen, isLogOpen, isTagModalOpen, toggleCategory, toggleLog, toggleTagModal } = useNavigationStore();
 
   return (
     <aside className={styles.navigationView}>
@@ -37,6 +38,15 @@ const NavigationView = () => {
           aria-label="로그 보기"
         >
           {iconSize !== null && <LogIcon width={iconSize} height={iconSize} />}
+        </Button>
+
+        <Button
+          variant="icon"
+          className={`${styles.navButton} ${isTagModalOpen ? styles.active : ""}`}
+          onClick={toggleTagModal}
+          aria-label="태그 보기"
+        >
+          {iconSize !== null && <TagIcon width={iconSize} height={iconSize} />}
         </Button>
       </div>
     </aside>
