@@ -8,14 +8,14 @@ date: "2025-03-12"
 # Features
 
 `Spring Security` 는 인증(`Authentication`), 인가(`Authorization`), 그리고 일반적인 보안 공격에 대한 보호를 포괄적으로 지원합니다.  
-또한, 다른 라이브러리와의 통합을 제공하여 사용을 더욱 쉽게 할 수 있도록 지원합니다.  
+또한, 다른 라이브러리와의 통합을 제공하여 사용을 더욱 쉽게 할 수 있도록 지원합니다.
 
 # Authentication
 
 `Spring Security` 는 인증(`Authentication`) 을 포괄적으로 지원합니다. 인증은 특정 리소스에 접근하려는 사용자의 신원을 확인하는 과정입니다.
 일반적인 인증 방식은 사용자에게 아이디(`username`) 와 비밀번호(`password`) 를 입력하도록 요구하는 것입니다.
-인증이 완료되면, 사용자의 신원을 확인할 수 있으며, 이후 인가(`Authorization`) 를 수행할 수 있습니다.  
-  
+인증이 완료되면, 사용자의 신원을 확인할 수 있으며, 이후 인가(`Authorization`) 를 수행할 수 있습니다.
+
 `Spring Security` 는 사용자 인증을 위한 기본적인 기능을 내장하고 있습니다. 이 섹션에서는 `Servlet` 환경과 `WebFlux` 환경에서 공통적으로 적용되는 일반적인 인증 지원을 다룹니다.
 각 스택(`Servlet` 및 `WebFlux`)에서 지원하는 구체적인 인증 방식에 대한 자세한 내용은 각각의 인증 관련 섹션을 참고하세요.
 
@@ -24,6 +24,8 @@ date: "2025-03-12"
 `Spring Security` 의 `PasswordEncoder` 인터페이스 는 비밀번호를 단방향(`one-way`)으로 변환하여 안전하게 저장할 수 있도록 해줍니다.
 `PasswordEncoder` 는 단방향 변환을 수행하기 때문에, 비밀번호 변환이 양방향(`two-way`) 이어야 하는 경우 (예를 들면 데이터베이스 인증을 위한 자격 증명 저장)에는 사용할 수 없습니다.
 일반적으로, `PasswordEncoder` 는 비밀번호를 저장할 때 사용되며, 사용자가 입력한 비밀번호와 저장된 비밀번호를 비교하는 데 활용됩니다.
+
+## Password Storage History
 
 시간이 지나면서 비밀번호를 저장하는 표준 방식은 발전해 왔습니다.
 초기에는 비밀번호를 평문(`plaintext`) 으로 저장하는 방식이 사용되었습니다.
@@ -66,6 +68,72 @@ date: "2025-03-12"
 사용자에게는 장기 자격 증명(예를 들어 사용자명과 비밀번호) 을 단기 자격 증명(예를 들어 세션, OAuth 토큰 등) 으로 교환하는 것이 권장됩니다.
 단기 자격 증명은 빠르게 검증할 수 있으며, 보안성을 잃지 않고 성능 저하를 방지할 수 있습니다.
 
+## DelegatingPasswordEncoder
 
-https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html#authentication-password-storage-dpe
+Spring Security 5.0 이전에는 기본 `PasswordEncoder` 가 `NoOpPasswordEncoder` 였으며, 이 경우 평문(plain-text) 비밀번호를 사용해야 했습니다.
+
+`Password Storage History` 섹션을 참고하면, 현재 기본 `PasswordEncoder` 가 `BCryptPasswordEncoder` 와 같은 방식일 것이라고 예상할 수도 있습니다.
+그러나, 이는 다음과 같은 세 가지 현실적인 문제를 고려하지 않은 것입니다.
+
+- 많은 애플리케이션이 이전 방식의 비밀번호 인코딩을 사용하고 있으며, 이를 쉽게 마이그레이션할 수 없습니다.
+- 비밀번호 저장의 모범 사례는 시간이 지나면서 계속 변화할 것입니다.
+- `Spring Security` 는 프레임워크로서 자주 하위 호환성을 깨는 변경을 할 수 없습니다.
+
+이러한 문제를 해결하기 위해, `Spring Security` 는 `DelegatingPasswordEncoder` 를 도입했습니다. 이 방식은 다음과 같은 이점을 제공합니다.
+
+- 현재 권장되는 비밀번호 저장 방식을 사용하여 인코딩을 보장합니다.
+- 기존(레거시) 포맷과 최신 포맷을 모두 검증할 수 있습니다.
+- 향후 더 안전한 방식이 나오면, 인코딩 방식을 업그레이드할 수 있습니다.
+
+`Spring Security` 에서는 `PasswordEncoderFactories` 를 사용하여 `DelegatingPasswordEncoder` 인스턴스를 쉽게 생성할 수 있습니다.
+
+**Create Default DelegatingPasswordEncoder**
+
+```java
+PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+```
+
+```kotlin
+val passwordEncoder: PasswordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder()
+```
+
+또는, 직접 사용자 정의 인스턴스를 생성할 수도 있습니다.
+
+**Create Custom DelegatingPasswordEncoder**
+
+
+```java
+String idForEncode = "bcrypt";
+Map encoders = new HashMap<>();
+encoders.put(idForEncode, new BCryptPasswordEncoder());
+encoders.put("noop", NoOpPasswordEncoder.getInstance());
+encoders.put("pbkdf2", Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_5());
+encoders.put("pbkdf2@SpringSecurity_v5_8", Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8());
+encoders.put("scrypt", SCryptPasswordEncoder.defaultsForSpringSecurity_v4_1());
+encoders.put("scrypt@SpringSecurity_v5_8", SCryptPasswordEncoder.defaultsForSpringSecurity_v5_8());
+encoders.put("argon2", Argon2PasswordEncoder.defaultsForSpringSecurity_v5_2());
+encoders.put("argon2@SpringSecurity_v5_8", Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8());
+encoders.put("sha256", new StandardPasswordEncoder());
+
+PasswordEncoder passwordEncoder = new DelegatingPasswordEncoder(idForEncode, encoders);
+```
+
+```kotlin
+val idForEncode = "bcrypt"
+val encoders: MutableMap<String, PasswordEncoder> = mutableMapOf()
+encoders[idForEncode] = BCryptPasswordEncoder()
+encoders["noop"] = NoOpPasswordEncoder.getInstance()
+encoders["pbkdf2"] = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_5()
+encoders["pbkdf2@SpringSecurity_v5_8"] = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8()
+encoders["scrypt"] = SCryptPasswordEncoder.defaultsForSpringSecurity_v4_1()
+encoders["scrypt@SpringSecurity_v5_8"] = SCryptPasswordEncoder.defaultsForSpringSecurity_v5_8()
+encoders["argon2"] = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_2()
+encoders["argon2@SpringSecurity_v5_8"] = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8()
+encoders["sha256"] = StandardPasswordEncoder()
+
+val passwordEncoder: PasswordEncoder = DelegatingPasswordEncoder(idForEncode, encoders)
+```
+
+
+https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html#authentication-password-storage-dpe-format
 
