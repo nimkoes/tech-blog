@@ -6,7 +6,7 @@ interface CloseIconProps {
   className?: string;
 }
 
-const CloseIcon: React.FC<CloseIconProps> = ({ width = 15, height = 15, className }) => {
+const CloseIcon: React.FC<CloseIconProps> = ({ width = 20, height = 20, className }) => {
   return (
     <svg
       width={width}
