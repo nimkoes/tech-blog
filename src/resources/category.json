@@ -7,58 +7,58 @@
         "id": "10",
         "displayName": "kubernetes",
         "children": [
-          {"id": "10-1", "displayName":"[chap.01] Kubernetes 사용 이유", "fileName": "0002250303-kubernetes", "tags": ["Kubernetes", "k8s", "infra", "Auto Scaling", "Auto Healing", "Deployment", "무중단 배포", "리소스 최적화", "Container Orchestration"]},
-          {"id": "10-2", "displayName":"[chap.02] VM 과 Container 비교", "fileName": "0003250303-kubernetes", "tags": ["VM", "Container", "Docker", "Kubernetes", "가상화", "Hypervisor", "OS 격리", "Namespace", "cgroups", "배포 전략"]},
-          {"id": "10-3", "displayName":"[chap.03] Kubernetes 훑어보기", "fileName": "0004250303-kubernetes", "tags": ["Kubernetes", "Cluster", "Master-Node", "Namespace", "Pod", "Container", "Volume", "Controller", "Deployment", "Scaling"]},
-          {"id": "10-4", "displayName":"[chap.04] Pod (Container, Label, NodeSchedule)", "fileName": "0005250303-kubernetes", "tags": ["Kubernetes", "Pod", "Container", "Label", "NodeScheduling", "Service", "Resource Management", "Scaling", "Networking"]},
-          {"id": "10-5", "displayName":"[chap.05] Service (ClusterIP, NodePort, LoadBalancer)", "fileName": "0006250303-kubernetes", "tags": ["Kubernetes", "Service", "ClusterIP", "NodePort", "LoadBalancer", "Networking", "External Access", "Traffic Management"]},
-          {"id": "10-6", "displayName":"[chap.06] Volume (emptyDir, hostPath, PVC/PV)", "fileName": "0007250303-kubernetes", "tags": ["Kubernetes", "Volume", "emptyDir", "hostPath", "PVC", "PV", "Storage", "Persistent Storage", "Data Management"]},
-          {"id": "10-7", "displayName":"[chap.07] ConfigMap, Secret (Env, Mount)", "fileName": "0008250303-kubernetes", "tags": ["Kubernetes", "ConfigMap", "Secret", "Environment Variables", "Volume Mount", "Security", "Configuration Management"]},
-          {"id": "10-8", "displayName":"[chap.08] Namespace, ResourceQuota, LimitRange", "fileName": "0009250303-kubernetes", "tags": ["Kubernetes", "Namespace", "ResourceQuota", "LimitRange", "Resource Management", "Scaling", "Pod Management", "Cluster Management"]},
-          {"id": "10-9", "displayName":"[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)", "fileName": "0010250303-kubernetes", "tags": ["Kubernetes", "ReplicationController", "ReplicaSet", "Auto Healing", "Scaling", "Selector", "Pod Management", "Template"]},
-          {"id": "10-10", "displayName":"[chap.10] Deployment (Recreate, RollingUpdate)", "fileName": "0011250303-kubernetes", "tags": ["Kubernetes", "Deployment", "ReCreate", "RollingUpdate", "BlueGreen", "Canary", "Scaling", "Zero Downtime Deployment", "Upgrade Strategy"]},
-          {"id": "10-11", "displayName":"[chap.11] DaemonSet, Job, CronJob", "fileName": "0012250303-kubernetes", "tags": ["Kubernetes", "DaemonSet", "Job", "CronJob", "Pod Scheduling", "Batch Processing", "Automation", "Log Collection", "Monitoring"]},
-          {"id": "10-12", "displayName":"[chap.12] Pod - Lifecycle", "fileName": "0013250303-kubernetes", "tags": ["Kubernetes", "Pod", "Lifecycle", "Container Status", "InitContainer", "CrashLoopBackOff", "Job", "Monitoring"]},
-          {"id": "10-13", "displayName":"[chap.13] Pod - ReadinessProbe, LivenessProb", "fileName": "0014250303-kubernetes", "tags": ["Kubernetes", "Pod", "ReadinessProbe", "LivenessProbe", "Health Check", "Service Availability", "Auto Recovery"]},
-          {"id": "10-14", "displayName":"[chap.14] Pod - QoS Classes", "fileName": "0015250303-kubernetes", "tags": ["Kubernetes", "Pod", "QoS Classes", "Guaranteed", "Burstable", "BestEffort", "Resource Management", "OOM Score"]},
-          {"id": "10-15", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016250303-kubernetes", "tags": ["Kubernetes", "Pod", "Node Scheduling", "NodeSelector", "NodeAffinity", "PodAffinity", "Anti-Affinity", "Taint", "Toleration"]}
+          {"id": "10-1", "displayName":"[chap.01] Kubernetes 사용 이유", "fileName": "0002250303-kubernetes", "tags": ["Kubernetes", "k8s", "infra", "무중단 배포", "Container Orchestration"]},
+          {"id": "10-2", "displayName":"[chap.02] VM 과 Container 비교", "fileName": "0003250303-kubernetes", "tags": ["VM", "Container", "Kubernetes"]},
+          {"id": "10-3", "displayName":"[chap.03] Kubernetes 훑어보기", "fileName": "0004250303-kubernetes", "tags": ["Kubernetes", "Pod", "Container", "Deployment"]},
+          {"id": "10-4", "displayName":"[chap.04] Pod (Container, Label, NodeSchedule)", "fileName": "0005250303-kubernetes", "tags": ["Kubernetes", "Pod", "Container", "Resource Management", "Scaling"]},
+          {"id": "10-5", "displayName":"[chap.05] Service (ClusterIP, NodePort, LoadBalancer)", "fileName": "0006250303-kubernetes", "tags": ["Kubernetes", "Service", "ClusterIP", "NodePort", "LoadBalancer"]},
+          {"id": "10-6", "displayName":"[chap.06] Volume (emptyDir, hostPath, PVC/PV)", "fileName": "0007250303-kubernetes", "tags": ["Kubernetes", "Volume", "emptyDir", "hostPath", "PVC", "PV", "Storage"]},
+          {"id": "10-7", "displayName":"[chap.07] ConfigMap, Secret (Env, Mount)", "fileName": "0008250303-kubernetes", "tags": ["Kubernetes", "ConfigMap", "Secret", "Environment Variables", "Volume Mount"]},
+          {"id": "10-8", "displayName":"[chap.08] Namespace, ResourceQuota, LimitRange", "fileName": "0009250303-kubernetes", "tags": ["Kubernetes", "Namespace", "ResourceQuota", "LimitRange"]},
+          {"id": "10-9", "displayName":"[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)", "fileName": "0010250303-kubernetes", "tags": ["Kubernetes", "ReplicationController", "ReplicaSet"]},
+          {"id": "10-10", "displayName":"[chap.10] Deployment (Recreate, RollingUpdate)", "fileName": "0011250303-kubernetes", "tags": ["Kubernetes", "Deployment", "ReCreate", "RollingUpdate"]},
+          {"id": "10-11", "displayName":"[chap.11] DaemonSet, Job, CronJob", "fileName": "0012250303-kubernetes", "tags": ["Kubernetes", "DaemonSet", "Job", "CronJob"]},
+          {"id": "10-12", "displayName":"[chap.12] Pod - Lifecycle", "fileName": "0013250303-kubernetes", "tags": ["Kubernetes", "Pod", "Lifecycle"]},
+          {"id": "10-13", "displayName":"[chap.13] Pod - ReadinessProbe, LivenessProb", "fileName": "0014250303-kubernetes", "tags": ["Kubernetes", "Pod", "ReadinessProbe", "LivenessProbe"]},
+          {"id": "10-14", "displayName":"[chap.14] Pod - QoS Classes", "fileName": "0015250303-kubernetes", "tags": ["Kubernetes", "Pod", "QoS Classes"]},
+          {"id": "10-15", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016250303-kubernetes", "tags": ["Kubernetes", "Pod", "Node Scheduling", "NodeSelector"]}
         ]
       },
       {
         "id": "20",
         "displayName": "Spring Security 내부 구조",
         "children": [
-          {"id": "20-1", "displayName": "[chap.01] Spring Security 동작 원리 개요", "fileName": "0020250308-spring-security-inner-structure", "tags": ["Spring Security", "Security Filter", "DelegatingFilterProxy", "FilterChainProxy", "SecurityFilterChain", "Authentication", "Authorization"]},
-          {"id": "20-2", "displayName": "[chap.02] SecurityFilterChain 등록", "fileName": "0021250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "HttpSecurity", "WebSecurityConfiguration", "SecurityMatcher", "Authentication", "Authorization", "BeanConfiguration"]},
-          {"id": "20-3", "displayName": "[chap.03] SecurityFilterChain 구조", "fileName": "0022250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "HttpSecurity", "Security Filters", "Authentication", "Authorization", "Custom Security Filter", "FilterChainProxy"]},
-          {"id": "20-4", "displayName": "[chap.04] SecurityContextHolder", "fileName": "0023250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolder", "Authentication", "Authorization", "SecurityContext", "ThreadLocal", "Session Management", "Spring Security Filters", "SecurityContextHolderStrategy"]},
-          {"id": "20-5", "displayName": "[chap.05] 필터 상속과 요청 전파", "fileName": "0024250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "Filter", "GenericFilterBean", "OncePerRequestFilter", "Servlet Filter", "FilterChain", "SecurityContext", "Authorization", "Authentication"]},
-          {"id": "20-6", "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter", "fileName": "0025250309-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "Filter", "GenericFilterBean", "OncePerRequestFilter", "FilterChain", "Redirect vs Forward", "Custom Security Filter", "SecurityContext"]},
-          {"id": "20-7", "displayName": "[chap.07] DisableEncodeUrlFilter", "fileName": "0026250309-spring-security-inner-structure", "tags": ["Spring Security", "DisableEncodeUrlFilter", "URL Encoding", "SecurityFilterChain", "Filter", "HttpServletResponseWrapper", "Session ID Exposure", "Spring Security Default Filters", "Security Risks"]},
-          {"id": "20-8", "displayName": "[chap.08] WebAsyncManagerIntegrationFilter", "fileName": "0027250309-spring-security-inner-structure", "tags": ["Spring Security", "WebAsyncManagerIntegrationFilter", "SecurityContext", "ThreadLocal", "Callable", "Async", "SecurityContextHolder", "Spring Security Filters", "Servlet Filter", "WebAsyncManager"]},
-          {"id": "20-9", "displayName": "[chap.09] SecurityContextHolderFilter", "fileName": "0028250309-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolderFilter", "SecurityContext", "SecurityContextRepository", "HttpSessionSecurityContextRepository", "NullSecurityContextRepository", "Spring Security Filters", "Servlet Filter", "SecurityContextPersistenceFilter", "Spring Security 5.8"]},
-          {"id": "20-10", "displayName": "[chap.10] HeaderWriterFilter", "fileName": "0029250309-spring-security-inner-structure", "tags": ["Spring Security", "HeaderWriterFilter", "Security Headers", "X-Content-Type-Options", "X-XSS-Protection", "Cache-Control", "X-Frame-Options", "Strict-Transport-Security", "Content-Security-Policy", "Permissions-Policy", "Spring Security Filters", "HTTP Security Headers"]},
-          {"id": "20-11", "displayName": "[chap.11] CorsFilter", "fileName": "0030250309-spring-security-inner-structure", "tags": ["Spring Security", "CorsFilter", "CORS Policy", "GenericFilter", "Cross-Origin Requests", "Security Headers", "CorsConfigurationSource", "Spring Security Filters", "SecurityFilterChain", "Allowed Origins", "Allowed Methods", "CORS Preflight Requests"]},
-          {"id": "20-12", "displayName": "[chap.12] CsrfFilter", "fileName": "0031250309-spring-security-inner-structure", "tags": ["Spring Security", "CsrfFilter", "CSRF Attack Prevention", "Security Filters", "CSRF Token", "HttpSessionCsrfTokenRepository", "CookieCsrfTokenRepository", "SecurityFilterChain", "Cross-Site Request Forgery", "CSRF Protection", "Spring Security CSRF", "Referer Header Validation"]},
-          {"id": "20-13", "displayName": "[chap.13] LogoutFilter", "fileName": "0032250309-spring-security-inner-structure", "tags": ["Spring Security", "LogoutFilter", "Authentication", "Security Filters", "LogoutHandler", "CompositeLogoutHandler", "Logout Success Handler", "SecurityContextHolder", "CookieClearingLogoutHandler", "HeaderWriterLogoutHandler", "SecurityFilterChain", "Session Logout", "Custom Logout Implementation"]},
-          {"id": "20-14", "displayName": "[chap.14] UsernamePasswordAuthenticationFilter", "fileName": "0033250309-spring-security-inner-structure", "tags": ["Spring Security", "UsernamePasswordAuthenticationFilter", "Authentication", "AuthenticationManager", "Security Filters", "AbstractAuthenticationProcessingFilter", "Form Login", "Session Authentication", "OAuth2LoginAuthenticationFilter", "AuthenticationProvider", "DaoAuthenticationProvider", "Spring Security Authentication", "SecurityFilterChain"]},
-          {"id": "20-15", "displayName": "[chap.15] DefaultLoginPageGeneratingFilter", "fileName": "0034250309-spring-security-inner-structure", "tags": ["Spring Security", "DefaultLoginPageGeneratingFilter", "Form Login", "OAuth2 Login", "Security Filters", "SecurityFilterChain", "Authentication", "Login Page", "Spring Security Authentication", "Security Context", "Filter Chain"]},
-          {"id": "20-16", "displayName": "[chap.16] DefaultLogoutPageGeneratingFilter", "fileName": "0035250309-spring-security-inner-structure", "tags": ["Spring Security", "DefaultLogoutPageGeneratingFilter", "Logout Page", "Security Filters", "SecurityFilterChain", "Authentication", "Logout Process", "CSRF Protection", "Security Context", "Filter Chain"]},
-          {"id": "20-17", "displayName": "[chap.17] BasicAuthenticationFilter", "fileName": "0036250309-spring-security-inner-structure", "tags": ["Spring Security", "BasicAuthenticationFilter", "HTTP Basic Authentication", "Security Filters", "SecurityFilterChain", "Authentication", "Authorization Header", "Security Context", "REST API Security", "AuthenticationManager"]},
-          {"id": "20-18", "displayName": "[chap.18] RequestCacheAwareFilter", "fileName": "0037250309-spring-security-inner-structure", "tags": ["Spring Security", "RequestCacheAwareFilter", "Security Filters", "SecurityFilterChain", "Authentication", "ExceptionTranslationFilter", "HttpSessionRequestCache", "AccessDeniedException", "Request Caching", "Security Context"]},
-          {"id": "20-19", "displayName": "[chap.19] SecurityContextHolderAwareRequestFilter", "fileName": "0038250309-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolderAwareRequestFilter", "Security Filters", "SecurityFilterChain", "ServletRequest", "Authentication", "SecurityContext", "AsyncContext", "Spring Security Integration", "Security API"]},
-          {"id": "20-20", "displayName": "[chap.20] AnonymousAuthenticationFilter", "fileName": "0039250309-spring-security-inner-structure", "tags": ["Spring Security", "AnonymousAuthenticationFilter", "Security Filters", "SecurityFilterChain", "Authentication", "SecurityContext", "AnonymousAuthenticationToken", "SecurityContextHolder", "Authorization", "Spring Security Integration"]},
-          {"id": "20-21", "displayName": "[chap.21] ExceptionTranslationFilter", "fileName": "0040250309-spring-security-inner-structure", "tags": ["Spring Security", "ExceptionTranslationFilter", "Security Filters", "SecurityFilterChain", "AuthenticationException", "AccessDeniedException", "Authorization", "Exception Handling", "SecurityContextHolder", "Spring Security Integration"]},
-          {"id": "20-22", "displayName": "[chap.22] AuthorizationFilter", "fileName": "0041250309-spring-security-inner-structure", "tags": ["Spring Security", "AuthorizationFilter", "Security Filters", "SecurityFilterChain", "Authorization", "Access Control", "Role-Based Access Control", "Authentication", "SecurityContextHolder", "Spring Security Integration"]}
+          {"id": "20-1", "displayName": "[chap.01] Spring Security 동작 원리 개요", "fileName": "0020250308-spring-security-inner-structure", "tags": ["Spring Security", "DelegatingFilterProxy", "FilterChainProxy", "SecurityFilterChain"]},
+          {"id": "20-2", "displayName": "[chap.02] SecurityFilterChain 등록", "fileName": "0021250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "Authentication", "Authorization"]},
+          {"id": "20-3", "displayName": "[chap.03] SecurityFilterChain 구조", "fileName": "0022250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "Authentication", "Authorization", "FilterChainProxy"]},
+          {"id": "20-4", "displayName": "[chap.04] SecurityContextHolder", "fileName": "0023250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolder", "Authentication", "Authorization", "ThreadLocal"]},
+          {"id": "20-5", "displayName": "[chap.05] 필터 상속과 요청 전파", "fileName": "0024250308-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "GenericFilterBean", "OncePerRequestFilter", "Authorization", "Authentication"]},
+          {"id": "20-6", "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter", "fileName": "0025250309-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "GenericFilterBean", "OncePerRequestFilter"]},
+          {"id": "20-7", "displayName": "[chap.07] DisableEncodeUrlFilter", "fileName": "0026250309-spring-security-inner-structure", "tags": ["Spring Security", "DisableEncodeUrlFilter"]},
+          {"id": "20-8", "displayName": "[chap.08] WebAsyncManagerIntegrationFilter", "fileName": "0027250309-spring-security-inner-structure", "tags": ["Spring Security", "WebAsyncManagerIntegrationFilter"]},
+          {"id": "20-9", "displayName": "[chap.09] SecurityContextHolderFilter", "fileName": "0028250309-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolderFilter"]},
+          {"id": "20-10", "displayName": "[chap.10] HeaderWriterFilter", "fileName": "0029250309-spring-security-inner-structure", "tags": ["Spring Security", "HeaderWriterFilter"]},
+          {"id": "20-11", "displayName": "[chap.11] CorsFilter", "fileName": "0030250309-spring-security-inner-structure", "tags": ["Spring Security", "CorsFilter"]},
+          {"id": "20-12", "displayName": "[chap.12] CsrfFilter", "fileName": "0031250309-spring-security-inner-structure", "tags": ["Spring Security", "CsrfFilter"]},
+          {"id": "20-13", "displayName": "[chap.13] LogoutFilter", "fileName": "0032250309-spring-security-inner-structure", "tags": ["Spring Security", "LogoutFilter"]},
+          {"id": "20-14", "displayName": "[chap.14] UsernamePasswordAuthenticationFilter", "fileName": "0033250309-spring-security-inner-structure", "tags": ["Spring Security", "UsernamePasswordAuthenticationFilter"]},
+          {"id": "20-15", "displayName": "[chap.15] DefaultLoginPageGeneratingFilter", "fileName": "0034250309-spring-security-inner-structure", "tags": ["Spring Security", "DefaultLoginPageGeneratingFilter"]},
+          {"id": "20-16", "displayName": "[chap.16] DefaultLogoutPageGeneratingFilter", "fileName": "0035250309-spring-security-inner-structure", "tags": ["Spring Security", "DefaultLogoutPageGeneratingFilter"]},
+          {"id": "20-17", "displayName": "[chap.17] BasicAuthenticationFilter", "fileName": "0036250309-spring-security-inner-structure", "tags": ["Spring Security", "BasicAuthenticationFilter"]},
+          {"id": "20-18", "displayName": "[chap.18] RequestCacheAwareFilter", "fileName": "0037250309-spring-security-inner-structure", "tags": ["Spring Security", "RequestCacheAwareFilter"]},
+          {"id": "20-19", "displayName": "[chap.19] SecurityContextHolderAwareRequestFilter", "fileName": "0038250309-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolderAwareRequestFilter"]},
+          {"id": "20-20", "displayName": "[chap.20] AnonymousAuthenticationFilter", "fileName": "0039250309-spring-security-inner-structure", "tags": ["Spring Security", "AnonymousAuthenticationFilter"]},
+          {"id": "20-21", "displayName": "[chap.21] ExceptionTranslationFilter", "fileName": "0040250309-spring-security-inner-structure", "tags": ["Spring Security", "ExceptionTranslationFilter"]},
+          {"id": "20-22", "displayName": "[chap.22] AuthorizationFilter", "fileName": "0041250309-spring-security-inner-structure", "tags": ["Spring Security", "AuthorizationFilter"]}
         ]
       },
       {
         "id": "30",
         "displayName": "Nuggets",
         "children": [
-          {"id": "30-1", "displayName": "useful git command", "fileName": "0001250302-git", "tags": ["Git", "버전관리", "Git 명령어", "Git Merge", "Git Rebase", "Git Reset", "Git Revert", "Git Stash", "Git Cherry-pick", "Git Amend"]},
-          {"id": "30-2", "displayName": "@SneakyThrows", "fileName": "0042250310-sneaky-throws", "tags": ["Lombok", "Java", "Spring", "SneakyThrows", "예외처리", "CheckedException", "RuntimeException", "파일입출력", "데이터베이스연결", "어노테이션"]},
-          {"id": "30-3", "displayName": "jwt 기반 인증 서버 개발 best practice", "fileName": "0043250310-jwt-auth-best-practice", "tags": ["JWT", "Spring Security", "OAuth2", "토큰 인증", "Refresh Token", "Access Token", "토큰 보안", "쿠키 인증", "보안 강화", "토큰 갱신", "토큰 무효화", "예외 처리", "로깅 및 모니터링"]}
+          {"id": "30-1", "displayName": "useful git command", "fileName": "0001250302-git", "tags": ["Git", "Git Merge", "Git Rebase", "Git Reset", "Git Revert", "Git Stash", "Git Cherry-pick", "Git Amend"]},
+          {"id": "30-2", "displayName": "@SneakyThrows", "fileName": "0042250310-sneaky-throws", "tags": ["Lombok", "Java", "Spring", "SneakyThrows"]},
+          {"id": "30-3", "displayName": "jwt 기반 인증 서버 개발 best practice", "fileName": "0043250310-jwt-auth-best-practice", "tags": ["JWT", "Spring Security", "OAuth2", "Refresh Token", "Access Token"]}
         ]
       },
       {
@@ -68,8 +68,8 @@
           {
             "id": "40-1", "displayName": "String Security 6.4.3",
             "children": [
-              {"id": "40-1-1", "displayName": "Overview", "fileName": "0044250311-spring-security-document", "tags": [ "study", "document", "spring security" ]},
-              {"id": "40-1-2", "displayName": "Features > Authentication", "fileName": "0045250312-spring-security-document", "tags": [ "study", "document", "spring security" ]}
+              {"id": "40-1-1", "displayName": "Overview", "fileName": "0044250311-spring-security-document", "tags": ["study", "document", "spring security"]},
+              {"id": "40-1-2", "displayName": "Features > Authentication", "fileName": "0045250312-spring-security-document", "tags": ["study", "document", "spring security"]}
             ]
           }
         ]
@@ -79,9 +79,9 @@
     "id": "100",
     "displayName": "util",
     "children": [
-      {"id": "110", "displayName": "LECTURE", "fileName": "0018250306-online-lecture", "tags": [ "memo", "online", "lecture", "study" ]},
-      {"id": "120", "displayName": "BOOK", "fileName": "0019250306-book", "tags": [ "memo", "book", "link" ]},
-      {"id": "130", "displayName": "SITE", "fileName": "0017250306-site-link", "tags": [ "memo", "site", "link" ]}
+      {"id": "110", "displayName": "LECTURE", "fileName": "0018250306-online-lecture", "tags": ["memo", "online", "lecture", "study"]},
+      {"id": "120", "displayName": "BOOK", "fileName": "0019250306-book", "tags": ["memo", "book", "link"]},
+      {"id": "130", "displayName": "SITE", "fileName": "0017250306-site-link", "tags": ["memo", "site", "link"]}
     ]
   }
 ]
