@@ -9,7 +9,6 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import styles from "./page.module.scss";
 import TableOfContents from "@/components/SideUtil/TableOfContents/TableOfContents";
-import GoToHome from "@/components/SideUtil/GoToHome/GoToHome";
 import ScrollToTop from "@/components/SideUtil/ScrollToTop/ScrollToTop";
 import PostHeader from "@/app/post/[slug]/PostHeader";
 import KakaoAdFit from "@/components/KakaoAdFit/KakaoAdFit";
@@ -95,7 +94,6 @@ export default async function PostPage({ params }: PostProps) {
         </article>
       </div>
       <div className={styles.floatingButtons}>
-        <GoToHome />
       </div>
       <ScrollToTop />
     </>
