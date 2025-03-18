@@ -98,6 +98,8 @@
   font-size: 1rem;
   margin-bottom: 0.5rem;
   position: relative;
+  text-align: left;
+  justify-content: flex-start;
 
   &:hover {
     color: rgba(42, 224, 217, 0.86);
