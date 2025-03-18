@@ -15,7 +15,7 @@
 .tocWrapper {
   position: fixed;
   top: 15vh;
-  right: 10px;
+  right: 75px;
   width: 330px;
   z-index: 100;
   opacity: 0.3;
@@ -84,7 +84,7 @@
 .tocButton {
   position: fixed;
   right: 25px;
-  bottom: 54vh; /* GoToHome 버튼 위에 동일한 간격으로 배치 */
+  top: 15vh;
   background: rgba(91, 91, 91, 0.7);
   color: white;
   border: none;
@@ -123,8 +123,7 @@
   }
 
   .tocWrapper {
-    top: 13vh;
-    right: 5px;
+    right: 65px;
     width: 270px;
     opacity: 0.3;
   }
@@ -146,7 +145,6 @@
   }
 
   .tocButton {
-    bottom: 53vh;
     width: 35px;
     height: 35px;
   }
@@ -157,8 +155,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .tocWrapper {
-    top: 10vh;
-    right: 5px;
+    right: 60px;
     width: 180px;
     opacity: 0.75;
   }
@@ -179,7 +176,6 @@
   }
 
   .tocButton {
-    bottom: 49vh;
     width: 30px;
     height: 30px;
   }
