@@ -81,6 +81,34 @@
   padding-left: 30px;
 }
 
+.tocButton {
+  position: fixed;
+  right: 25px;
+  bottom: 54vh; /* GoToHome 버튼 위에 동일한 간격으로 배치 */
+  background: rgba(91, 91, 91, 0.7);
+  color: white;
+  border: none;
+  padding: 0;
+  width: 45px;
+  height: 45px;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +144,12 @@
   .level3 {
     padding-left: 26px;
   }
+
+  .tocButton {
+    bottom: 53vh;
+    width: 35px;
+    height: 35px;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -142,5 +176,11 @@
 
   .level3 {
     padding-left: 20px;
+  }
+
+  .tocButton {
+    bottom: 49vh;
+    width: 30px;
+    height: 30px;
   }
 }

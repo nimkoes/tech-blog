@@ -12,6 +12,7 @@ interface TocItem {
 export default function TableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [isVisible, setIsVisible] = useState(false);
+  const [isTocVisible, setIsTocVisible] = useState(false);
 
   useEffect(() => {
     const updateHeadings = () => {
@@ -53,39 +54,49 @@ export default function TableOfContents() {
     }
   };
 
+  const toggleTocVisibility = () => {
+    setIsTocVisible(!isTocVisible);
+  };
+
   return (
-    <div
-      className={`${styles.tocWrapper} ${isVisible ? styles.visible : ""}`}
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-    >
-      <div className={styles.tocBox}>
-        <div className={styles.tocHeader}>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect x="2" y="4" width="20" height="16" rx="3" stroke="#CCCCCC" strokeWidth="1.5" />
-            <circle cx="6" cy="8" r="1.5" fill="#CCCCCC" />
-            <circle cx="6" cy="12" r="1.5" fill="#CCCCCC" />
-            <circle cx="6" cy="16" r="1.5" fill="#CCCCCC" />
-            <line x1="9" y1="8" x2="18" y2="8" stroke="#CCCCCC" strokeWidth="1.5" />
-            <line x1="9" y1="12" x2="18" y2="12" stroke="#CCCCCC" strokeWidth="1.5" />
-            <line x1="9" y1="16" x2="18" y2="16" stroke="#CCCCCC" strokeWidth="1.5" />
-          </svg>
-          <span className={styles.tocText}>Table of Contents</span>
+    <>
+      <button className={styles.tocButton} onClick={toggleTocVisibility} aria-label="Toggle Table of Contents">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="2" y="4" width="20" height="16" rx="3" stroke="#CCCCCC" strokeWidth="1.5" />
+          <circle cx="6" cy="8" r="1.5" fill="#CCCCCC" />
+          <circle cx="6" cy="12" r="1.5" fill="#CCCCCC" />
+          <circle cx="6" cy="16" r="1.5" fill="#CCCCCC" />
+          <line x1="9" y1="8" x2="18" y2="8" stroke="#CCCCCC" strokeWidth="1.5" />
+          <line x1="9" y1="12" x2="18" y2="12" stroke="#CCCCCC" strokeWidth="1.5" />
+          <line x1="9" y1="16" x2="18" y2="16" stroke="#CCCCCC" strokeWidth="1.5" />
+        </svg>
+      </button>
+      {isTocVisible && (
+        <div
+          className={`${styles.tocWrapper} ${isVisible ? styles.visible : ""}`}
+          onMouseEnter={() => setIsVisible(true)}
+          onMouseLeave={() => setIsVisible(false)}
+        >
+          <div className={styles.tocBox}>
+            <div className={styles.tocHeader}>
+              <span className={styles.tocText}>Table of Contents</span>
+            </div>
+            <ul>
+              {headings.map((heading) => (
+                <li key={heading.id} className={styles[`level${heading.level}`]}>
+                  <a onClick={() => handleClick(heading.id)}>{heading.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <ul>
-          {headings.map((heading) => (
-            <li key={heading.id} className={styles[`level${heading.level}`]}>
-              <a onClick={() => handleClick(heading.id)}>{heading.text}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
