@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import styles from "./GoToHome.module.scss";
-import useNavigationStore from "../../store/navigationStore";
+import useNavigationStore from "../../../store/navigationStore";
 
 export default function GoToHome() {
   const router = useRouter();
