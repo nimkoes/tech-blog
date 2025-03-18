@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: `${BASE_PATH}/favicon.ico`, sizes: 'any' },
-      { url: `${BASE_PATH}/icon.svg`, type: 'image/svg+xml' },
-      { url: `${BASE_PATH}/favicon-32x32.png`, sizes: '32x32', type: 'image/png' },
-      { url: `${BASE_PATH}/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
+      // { url: `${BASE_PATH}/icon.svg`, type: 'image/svg+xml' },
+      // { url: `${BASE_PATH}/favicon-32x32.png`, sizes: '32x32', type: 'image/png' },
+      // { url: `${BASE_PATH}/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
     ],
     apple: [
       { url: `${BASE_PATH}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
