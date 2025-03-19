@@ -67,7 +67,7 @@
 @media screen and (max-width: 1024px) {
   /* 카테고리 영역 */
   .categoryView {
-    width: 20%;
+    width: 30%;
     min-width: 200px;
     max-width: 300px;
     font-size: 1rem;
@@ -90,8 +90,8 @@
     position: fixed;
     //top: var(--navigation-height, 50px);
     left: 35px;
-    width: 60%;
-    max-width: 300px;
+    width: 70%;
+    max-width: 400px;
     //height: calc(100% - var(--navigation-height, 50px));
     background-color: rgba(50, 50, 50, 0.95);
     z-index: 1000;

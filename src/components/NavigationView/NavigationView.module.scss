@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: 80px;
+  width: 60px;
   background-color: #323232;
   align-items: center;
   justify-content: flex-start;
@@ -38,8 +38,8 @@
 
   /* SVG 크기 조절 */
   svg {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -49,7 +49,7 @@
 @media screen and (max-width: 1024px) {
   /* 내비게이션 영역 */
   .navigationView {
-    width: 60px;
+    width: 50px;
     padding: 0.8rem 0.8rem;
   }
 
@@ -74,8 +74,8 @@
 
     /* SVG 크기 조절 */
     svg {
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 25px;
+      height: 25px;
     }
   }
 }
@@ -85,7 +85,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .navigationView {
-    width: 35px;
+    width: 40px;
     padding: 10px 5px;
   }
 
@@ -106,8 +106,8 @@
 
     /* SVG 크기 조절 */
     svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
     }
   }
 }

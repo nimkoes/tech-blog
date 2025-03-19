@@ -8,17 +8,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.2s ease-in-out;
 
-  .categoryControl:hover & {
-    opacity: 1;
-  }
+  //.categoryControl:hover & {
+  //  opacity: 1;
+  //}
 
   /* 검색어가 입력된 상태에서는 항상 보이도록 설정 */
-  &.hasSearchQuery {
-    opacity: 1;
-  }
+  //&.hasSearchQuery {
+  //  opacity: 1;
+  //}
 }
 
 /* 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
@@ -89,16 +89,16 @@
 
   /* 버튼과 검색창을 같은 줄에 배치 */
   .controls {
-    opacity: 0;
+    opacity: 1;
 
-    .categoryControl:hover & {
-      opacity: 1;
-    }
+    //.categoryControl:hover & {
+    //  opacity: 1;
+    //}
 
     /* 검색어가 입력된 상태에서는 항상 보이도록 설정 */
-    &.hasSearchQuery {
-      opacity: 1;
-    }
+    //&.hasSearchQuery {
+    //  opacity: 1;
+    //}
   }
 
   /* 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
