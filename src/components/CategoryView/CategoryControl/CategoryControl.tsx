@@ -23,6 +23,12 @@ const CategoryControl = ({ expandAll, collapseAll, setSearchQuery, onClose }: Ca
     setSearchQuery(query);
   };
 
+  const handleClose = () => {
+    setSearchTerm(""); // 검색어 초기화
+    setIsSearchOpen(false); // 검색창 닫기
+    onClose();
+  };
+
   return (
     <div className={styles.categoryControl}>
       <div className={`${styles.controls} ${searchQuery ? styles.hasSearchQuery : ""}`}>
@@ -60,7 +66,7 @@ const CategoryControl = ({ expandAll, collapseAll, setSearchQuery, onClose }: Ca
               <path d="M6 3l6 6 6-6"/>
             </svg>
           </button>
-          <button onClick={onClose} className={styles.iconButton}>
+          <button onClick={handleClose} className={styles.iconButton}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                  strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14"/>

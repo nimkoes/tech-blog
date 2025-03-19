@@ -60,6 +60,7 @@ const CategoryView = ({
   };
 
   const handleClose = () => {
+    setSearchQuery("");
     toggleCategory();
   };
 
