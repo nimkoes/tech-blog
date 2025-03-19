@@ -6,6 +6,7 @@ import CloseIcon from '../common/icons/CloseIcon';
 import Button from '../common/Button/Button';
 import Link from 'next/link';
 import {usePathname, useRouter} from 'next/navigation';
+import Toast from '../common/Toast/Toast';
 
 interface TagModalProps {
   isOpen: boolean;
@@ -23,6 +24,7 @@ interface TagModalProps {
 export default function TagModal({isOpen, onClose, currentTags, allTags, documents, onLogMessage}: TagModalProps) {
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set(currentTags));
   const [filteredDocs, setFilteredDocs] = useState(documents);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
   const pathname = usePathname();
   const router = useRouter();
   const currentFileName = pathname?.split('/').pop() || '';
@@ -82,6 +84,10 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
       if (newTags.has(tag)) {
         newTags.delete(tag);
       } else {
+        if (newTags.size >= 5) {
+          setToastMessage('최대 5개의 태그를 선택할 수 있습니다.');
+          return prev;
+        }
         newTags.add(tag);
       }
       return newTags;
@@ -107,67 +113,75 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
   if (!isOpen) return null;
 
   return (
-    <div className={styles.modalOverlay}>
-      <div className={styles.modalContent}>
-        {/* 헤더 영역 */}
-        <div className={styles.modalHeader}>
-          <Button
-            variant="icon"
-            className={styles.closeButton}
-            onClick={onClose}
-            aria-label="모달 닫기"
-          >
-            <CloseIcon/>
-          </Button>
-        </div>
-
-        {/* 태그 영역 */}
-        <div className={styles.tagSection}>
-          {sortedTags.map(tag => (
-            <button
-              key={tag}
-              className={`${styles.tagButton} ${activeTags.has(tag) ? styles.active : ''}`}
-              onClick={() => toggleTag(tag)}
+    <>
+      <div className={styles.modalOverlay}>
+        <div className={styles.modalContent}>
+          {/* 헤더 영역 */}
+          <div className={styles.modalHeader}>
+            <Button
+              variant="icon"
+              className={styles.closeButton}
+              onClick={onClose}
+              aria-label="모달 닫기"
             >
-              {tag}
-            </button>
-          ))}
-        </div>
+              <CloseIcon/>
+            </Button>
+          </div>
 
-        {/* 문서 목록 영역 */}
-        <div className={styles.documentSection}>
-          {filteredDocs.length > 0 ? (
-            filteredDocs.map(doc => (
-              <div key={doc.fileName} className={styles.documentItem}>
-                <button
-                  className={`${styles.documentTitle} ${doc.fileName === currentFileName ? styles.current : ''}`}
-                  onClick={() => handleDocumentClick(doc)}
-                >
-                  {doc.title}
-                  {doc.fileName === currentFileName && (
-                    <span className={styles.currentIndicator}>현재 문서</span>
-                  )}
-                </button>
-                <div className={styles.documentTags}>
-                  {doc.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className={`${styles.documentTag} ${activeTags.has(tag) ? styles.active : ''}`}
-                      onClick={() => toggleTag(tag)}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+          {/* 태그 영역 */}
+          <div className={styles.tagSection}>
+            {sortedTags.map(tag => (
+              <button
+                key={tag}
+                className={`${styles.tagButton} ${activeTags.has(tag) ? styles.active : ''}`}
+                onClick={() => toggleTag(tag)}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+
+          {/* 문서 목록 영역 */}
+          <div className={styles.documentSection}>
+            {filteredDocs.length > 0 ? (
+              filteredDocs.map(doc => (
+                <div key={doc.fileName} className={styles.documentItem}>
+                  <button
+                    className={`${styles.documentTitle} ${doc.fileName === currentFileName ? styles.current : ''}`}
+                    onClick={() => handleDocumentClick(doc)}
+                  >
+                    {doc.title}
+                    {doc.fileName === currentFileName && (
+                      <span className={styles.currentIndicator}>현재 문서</span>
+                    )}
+                  </button>
+                  <div className={styles.documentTags}>
+                    {doc.tags.map(tag => (
+                      <span
+                        key={tag}
+                        className={`${styles.documentTag} ${activeTags.has(tag) ? styles.active : ''}`}
+                        onClick={() => toggleTag(tag)}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+              ))
+            ) : (
+              <div className={styles.noResults}>
+                일치하는 문서가 없습니다.
               </div>
-            ))
-          ) : (
-            <div className={styles.noResults}>
-              일치하는 문서가 없습니다.
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      {toastMessage && (
+        <Toast
+          message={toastMessage}
+          onClose={() => setToastMessage(null)}
+        />
+      )}
+    </>
   );
 } 
