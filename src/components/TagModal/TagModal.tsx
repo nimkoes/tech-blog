@@ -32,10 +32,13 @@ export default function TagModal({isOpen, onClose, currentTags, allTags, documen
   useEffect(() => {
   }, [documents, currentTags, allTags]);
 
-  // 초기 태그 설정 및 문서 필터링
+  // 모달이 열릴 때마다 태그 선택 상태 초기화
   useEffect(() => {
-    setActiveTags(new Set(currentTags));
-  }, [currentTags]);
+    if (isOpen) {
+      setActiveTags(new Set(currentTags));
+      setToastMessage(null);
+    }
+  }, [isOpen, currentTags]);
 
   // 태그 정렬: 활성화된 태그가 앞쪽에, 그 다음은 가나다순
   const sortedTags = [...allTags].sort((a, b) => {
