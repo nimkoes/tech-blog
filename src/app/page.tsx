@@ -26,6 +26,17 @@ export default function HomePage() {
 
           <li>
             <span className={styles.icon}>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                   strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="17" y1="17" x2="22" y2="22"/>
+              </svg>
+            </span>
+            등록된 문서를 검색할 수 있습니다.
+          </li>
+
+          <li>
+            <span className={styles.icon}>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="20" height="14" x="2" y="5" rx="2" ry="2" fill="#AEB2B8"/>
             <path fill="black" d="M5 9l5 3-5 3V9zM12 15h6v-2h-6v2z"/>
@@ -36,13 +47,13 @@ export default function HomePage() {
 
           <li>
             <span className={styles.icon}>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                   strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="17" y1="17" x2="22" y2="22"/>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 13L12 21L3 12V3h9l8 8z"></path>
+                <circle cx="7" cy="7" r="1.5"></circle>
               </svg>
             </span>
-            등록된 문서를 검색할 수 있습니다.
+            태그를 누르면 같은 태그가 작성된 문서를 검색할 수 있습니다.
           </li>
 
           <li>
@@ -84,27 +95,6 @@ export default function HomePage() {
             </span>
             등록된 문서를 펼쳐 보거나 접을 수 있습니다.
           </li>
-
-          <li>
-            <span className={styles.icon}>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                   strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14"/>
-              </svg>
-            </span>
-            영역을 숨겨서 문서를 넓게 볼 수 있습니다.
-          </li>
-
-          <li>
-            <span className={styles.icon}>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 13L12 21L3 12V3h9l8 8z"></path>
-                <circle cx="7" cy="7" r="1.5"></circle>
-              </svg>
-            </span>
-            태그를 누르면 같은 태그가 작성된 문서를 검색할 수 있습니다.
-          </li>
         </ul>
       </div>
 
@@ -113,7 +103,10 @@ export default function HomePage() {
         <h2>🛠 TODO TASK</h2>
         <ul>
           <li>seo 최적화</li>
-          <li>릴리즈 노트?</li>
+          <li>설정 메뉴 지원</li>
+          <li>문서 열람 기록 개수 사용자 설정</li>
+          <li>toc 버튼 위치 커스텀</li>
+          <li>다른 IDE 스타일로 변경 / 라이트,다크 모드 변환 지원</li>
         </ul>
       </div>
     </div>

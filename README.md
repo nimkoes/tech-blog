@@ -6,7 +6,7 @@ IntelliJ 스타일의 모던한 기술 블로그입니다. 마크다운으로 �
 
 이 블로그는 개발자들이 익숙한 IDE 스타일의 인터페이스를 제공하여, 기술 문서를 보다 편안하게 읽을 수 있는 환경을 제공합니다. 특히 다크 테마와 코드 하이라이팅, 직관적인 네비게이션 등을 통해 개발자 친화적인 읽기 경험을 제공합니다.
 
-### 시스템 동작 과정
+### 동작 과정
 
 #### 간단한 버전
 ```mermaid
@@ -61,23 +61,18 @@ sequenceDiagram
     Client->>Store: 17. 열람 기록 저장
 
     Client-->>User: 18. 최종 페이지 표시
-
-    note right of Client: 사용자 상호작용
-    User->>Client: 19. 카테고리/검색 사용
-    Client->>Store: 20. 상태 변경
-    Store-->>Client: 21. UI 실시간 업데이트
-    Client-->>User: 22. 결과 표시
 ```
 
 ### 주요 기능
-- 📂 폴더 구조의 카테고리 탐색
-- 🔍 문서 검색 기능
-- 📝 마크다운 렌더링
-- 📖 문서 목차 자동 생성
-- 📱 반응형 디자인
-- 🔄 최근 열람 기록
-- ⬆️ 스크롤 투 탑
-- 🖼️ 이미지 팝업 뷰어
+- 폴더 구조의 카테고리 탐색
+- 문서 제목 검색 기능
+- 문서 태그 검색 기능
+- 열람 기록 저장
+- 스크롤 이동 (목차 기반 이동, 최상단 이동)
+- 반응형 디자인
+- 이미지 팝업 뷰어
+- 마크다운 렌더링
+- 문서 목차 자동 생성
 
 ## 🛠 기술 스택
 
@@ -85,19 +80,15 @@ sequenceDiagram
 - Next.js 14 (App Router)
 - TypeScript
 - SCSS Modules
-- Zustand (상태 관리)
+- font
+    - JetBrains Mono (주 폰트)
+    - Fira Code, Consolas, Menlo (대체 폰트)
 
 ### Markdown Processing
 - Remark
 - Rehype
 - Gray Matter
 - Highlight.js
-
-### SEO & Analytics
-- Next.js SEO 최적화
-- Google Analytics
-- Google Search Console
-- Naver Search Advisor
 
 ## 🚀 시작하기
 
@@ -165,14 +156,6 @@ date: YYYY-MM-DD
 
 각 디바이스 환경에 최적화된 UI/UX를 제공합니다.
 
-## 🔍 SEO 최적화
-
-- 메타 태그 자동 생성
-- Open Graph 프로토콜 지원
-- 시맨틱 마크업
-- 사이트맵 자동 생성
-- 검색 엔진 최적화
-
 ## 📝 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 있습니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
@@ -180,10 +163,4 @@ date: YYYY-MM-DD
 ## 🤝 기여하기
 
 버그 리포트, 기능 제안, 풀 리퀘스트 등 모든 기여를 환영합니다. 
-자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조하세요.
 
-## 📞 문의하기
-
-프로젝트에 대한 문의사항이 있으시면 이슈를 생성하거나 다음 연락처로 문의해주세요:
-- Email: xxxelppa@gmail.com
-- Blog: https://nimkoes.github.io/tech-blog
