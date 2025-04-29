@@ -60,19 +60,6 @@
           {"id": "30-2", "displayName": "@SneakyThrows", "fileName": "0042250310-sneaky-throws", "tags": ["Lombok", "Java", "Spring", "SneakyThrows"]},
           {"id": "30-3", "displayName": "jwt 기반 인증 서버 개발 best practice", "fileName": "0043250310-jwt-auth-best-practice", "tags": ["JWT", "Spring Security", "OAuth2"]}
         ]
-      },
-      {
-        "id": "40",
-        "displayName": "reading Document",
-        "children": [
-          {
-            "id": "40-1", "displayName": "String Security 6.4.3",
-            "children": [
-              {"id": "40-1-1", "displayName": "Overview", "fileName": "0044250311-spring-security-document", "tags": ["study", "document", "spring security"]},
-              {"id": "40-1-2", "displayName": "Features > Authentication", "fileName": "0045250312-spring-security-document", "tags": ["study", "document", "spring security"]}
-            ]
-          }
-        ]
       }
     ]
   }, {
