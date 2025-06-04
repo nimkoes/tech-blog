@@ -82,48 +82,6 @@
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
-  /* 컨트롤 전체 레이아웃 */
-  .categoryControl {
-    padding: 5px;
-  }
-
-  /* 버튼과 검색창을 같은 줄에 배치 */
-  .controls {
-    opacity: 1;
-
-    //.categoryControl:hover & {
-    //  opacity: 1;
-    //}
-
-    /* 검색어가 입력된 상태에서는 항상 보이도록 설정 */
-    //&.hasSearchQuery {
-    //  opacity: 1;
-    //}
-  }
-
-  /* 아이콘 버튼 (돋보기, 폴더 열기/닫기 등) */
-  .iconButton {
-    padding: 1px;
-  }
-
-  /* 검색 입력창 (돋보기 클릭 전에는 숨김) */
-  .searchInput {
-    padding: 3px;
-    margin-right: 5px;
-    opacity: 0;
-    font-size: 13px;
-
-    &:focus {
-      outline: none;
-      background: #555;
-      font-size: 13px;
-    }
-  }
-
-  /* 버튼 그룹을 오른쪽 정렬 */
-  .actionButtons {
-    display: flex;
-  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////

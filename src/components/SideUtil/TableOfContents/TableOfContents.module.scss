@@ -113,41 +113,6 @@
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
-  .tocHeader {
-    gap: 8px; /* 아이콘과 텍스트 사이 간격 */
-    margin-bottom: 5px;
-  }
-
-  .tocText {
-    font-size: 1rem;
-  }
-
-  .tocWrapper {
-    right: 65px;
-    width: 270px;
-    opacity: 0.3;
-  }
-
-  .tocBox {
-    padding: 8px;
-    font-size: 0.75rem;
-    min-height: 13vh;
-    max-height: 35vh;
-    overflow-y: auto;
-  }
-
-  .level2 {
-    padding-left: 13px;
-  }
-
-  .level3 {
-    padding-left: 26px;
-  }
-
-  .tocButton {
-    width: 35px;
-    height: 35px;
-  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
