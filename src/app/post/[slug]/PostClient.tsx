@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import "highlight.js/styles/github-dark.css";
 import styles from './page.module.scss';
+import { extractDateAndSerial } from '~/utils/getAllDocuments';
 
 export default function PostClient({ slug, document }: { slug: string, document: any }) {
   const [markdown, setMarkdown] = useState<string | null>(null);
@@ -40,15 +41,16 @@ export default function PostClient({ slug, document }: { slug: string, document:
     <div key={slug} className={styles.container}>
       <div className={styles.postHeader}>
         <h1 className={styles.title}>{document.title}</h1>
-        <div className={styles.meta}>
-          {document.tags && document.tags.length > 0 && (
-            <div className={styles.tags}>
-              {document.tags.map((tag: string) => (
-                <span key={tag} className={styles.tag}>{tag}</span>
-              ))}
-            </div>
-          )}
+        <div className={styles.postDate}>
+          등록일 : {extractDateAndSerial(document.fileName).date}
         </div>
+        {document.tags && document.tags.length > 0 && (
+          <div className={styles.postTags}>
+            {document.tags.map((tag: string) => (
+              <span key={tag} className={styles.tagPill}>{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
       <article className={styles.markdown}>
         {markdown ? (
