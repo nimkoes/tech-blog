@@ -1,108 +1,161 @@
-.home {
+.main {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.filterSection {
+  margin-bottom: 2rem;
+}
+
+.selectedTags {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tagPill {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #f2f4f8;
+  color: #6b7684;
+  border-radius: 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px 0 rgba(60, 80, 120, 0.04);
+  user-select: none;
+  border: none;
+
+  &:hover, &:focus {
+    background-color: #e3e8ef;
+    color: #425066;
+    outline: none;
+  }
+
+  &.active {
+    background: #d0d6dd;
+    color: #222e3a;
+    font-weight: 600;
+  }
+}
+
+.clearButton {
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  text-align: center;
-  color: #d4d4d4;
-  overflow-y: auto;
-  font-family: "JetBrains Mono", "Fira Code", "Consolas", "Menlo", "monospace";
-}
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f2f4f8;
+  color: #6b7684;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-/* 블로그 소개 영역 */
-.intro {
-  margin-bottom: 30px;
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #e06c75;
-  }
-
-  p {
-    font-size: 1.3rem;
-    color: #aeb2b8;
-    margin-top: 5px;
+  &:hover {
+    background-color: #e3e8ef;
+    color: #425066;
   }
 }
 
-/* 주요 기능 & TODO LIST 스타일 */
-.section {
-  text-align: left;
-  width: 60%;
-  max-width: 600px;
-  margin-bottom: 30px;
-
-  h2 {
-    font-size: 1.7rem;
-    color: rgba(42, 224, 217, 0.86);;
-    border-bottom: 2px solid #3a3f4b;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      font-size: 0.9rem;
-      margin: 5px 0;
-      color: #aeb2b8;
+.postList {
       display: flex;
-      align-items: center;
-      gap: 5px;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-      strong {
-        color: #d4d4d4;
-      }
+.postCard {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.postTitle {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  a {
+    color: var(--text);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary);
     }
   }
 }
 
-/* 아이콘 */
-.icon {
+.postMeta {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
-  justify-content: center;
-  padding: 3px;
-  transition: background 0.3s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.postDate {
+  font-weight: 500;
+}
+
+.postTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.toast {
+  position: fixed;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #23272e;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 1.2rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(60, 80, 120, 0.13);
+  z-index: 9999;
+  opacity: 0.97;
+  animation: fadeInOut 2s;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.95); }
+  10% { opacity: 1; transform: translateX(-50%) scale(1.03); }
+  90% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.97); }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // tablet
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1024px) {
-  .home {
+  .main {
+    padding: 1.5rem 0;
   }
 
-  .intro {
-    h1 {
-    }
-
-    p {
-    }
-  }
-
-  .section {
-
-    h2 {
-    }
-
-    ul {
-
-      li {
-
-        strong {
-        }
-      }
-    }
-  }
-
-  .icon {
+  .postTitle {
+    font-size: 1.3rem;
   }
 }
 
@@ -110,42 +163,19 @@
 // mobile
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
-  .home {
+  .main {
+    padding: 1rem 0;
+    }
+
+  .postCard {
+    padding: 1rem;
   }
 
-  .intro {
-    h1 {
-      font-size: 1.5rem;
+  .postTitle {
+    font-size: 1.2rem;
     }
 
-    p {
-      font-size: 0.7rem;
-    }
-  }
-
-  .section {
-
-    h2 {
-      font-size: 1rem;
-    }
-
-    ul {
-
-      li {
-        font-size: 0.6rem;
-        margin: 3px 0;
-        gap: 3px;
-
-        strong {
-        }
-      }
-    }
-  }
-
-  .icon {
-    padding: 1px;
-    transition: background 0.3s ease-in-out;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+  .postMeta {
+    font-size: 0.85rem;
   }
 }

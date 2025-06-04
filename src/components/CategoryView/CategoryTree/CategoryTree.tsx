@@ -27,6 +27,8 @@ const CategoryTree = ({
 }) => {
   const searchQuery = useCategoryStore((state) => state.searchQuery);
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/tech-blog' : '';
+
   // 검색 결과에 따라 아이템을 필터링하는 함수
   const filterItems = (items: CategoryItem[]): CategoryItem[] => {
     if (!searchQuery) return items;
@@ -85,7 +87,7 @@ const CategoryTree = ({
             </span>
           ) : (
             // 📄 파일 아이콘 + 파일명 링크
-            <Link href={`/post/${encodeURIComponent(item.fileName || "")}`} legacyBehavior>
+            <Link href={`${basePath}/post/${encodeURIComponent(item.fileName || "")}`} legacyBehavior>
               <a className={styles.file} onClick={() => onFileSelect(item.displayName)}>
                 {/* ✅ 파일 아이콘 추가 */}
                 <span className={styles.fileIcon}>

@@ -27,7 +27,7 @@ export async function GET() {
   <channel>
     <title>Nimkoes Tech Blog</title>
     <link>${process.env.NEXT_PUBLIC_SITE_URL}</link>
-    <description>프론트엔드, 백엔드 개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.</description>
+    <description>개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.</description>
     <language>ko-KR</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>

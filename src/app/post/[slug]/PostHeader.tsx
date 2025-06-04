@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./PostHeader.module.scss";
-import TagModalWrapper from '../../../components/PostHeader/TagModalWrapper';
 import { useLogStore } from '../../../store/logStore';
 
 interface DocumentInfo {
@@ -32,7 +31,6 @@ export default function PostHeader({
   const { addLog } = useLogStore();
 
   const handleLogMessage = (message: string) => {
-    console.log('handleLogMessage called with:', message);
     const now = new Date();
     const timestamp = now.toLocaleString("ko-KR", {
       year: "numeric",
@@ -42,9 +40,7 @@ export default function PostHeader({
       minute: "2-digit",
       second: "2-digit",
     });
-    console.log('Timestamp generated:', timestamp);
     addLog(`${timestamp} - ${message}`);
-    console.log('Log added to store');
   };
 
   return (
@@ -55,15 +51,7 @@ export default function PostHeader({
         {author && <span className={styles.author}>{author}</span>}
         {date && <span className={styles.date}>{date}</span>}
       </div>
-      {tags && tags.length > 0 && (
-        <TagModalWrapper
-          documents={documents}
-          currentTags={[]}
-          allTags={allTags}
-          tags={tags}
-          onLogMessage={handleLogMessage}
-        />
-      )}
+      {/* 태그 등 추가 UI 필요시 여기에 구현 */}
     </header>
   );
 }

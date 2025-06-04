@@ -1,6 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import categoryData from '~/resources/category.json';
 
 interface CategoryItem {
   id: string;
@@ -67,33 +65,32 @@ function findDocumentByFileName(category: CategoryItem, fileName: string): Docum
   return null;
 }
 
-function getCategoryData(): CategoryItem[] {
-  try {
-    // 상대 경로로 변경
-    const categoryPath = path.join(process.cwd(), 'src/resources/category.json');
-    if (!fs.existsSync(categoryPath)) {
-      console.error('Category file not found at:', categoryPath);
-      return [];
-    }
-    
-    const categoryContent = fs.readFileSync(categoryPath, 'utf8');
-    return JSON.parse(categoryContent);
-  } catch (error) {
-    return [];
-  }
+export function extractDateAndSerial(fileName: string) {
+  // 예: 0001206012-hello-world
+  const serial = fileName.slice(0, 4);
+  const dateStr = fileName.slice(4, 10); // 6자리
+  // yyMMdd → yyyy-MM-dd로 변환
+  const year = parseInt(dateStr.slice(0, 2), 10);
+  const fullYear = year >= 70 ? 1900 + year : 2000 + year; // 70~99: 1900년대, 00~69: 2000년대
+  const month = dateStr.slice(2, 4);
+  const day = dateStr.slice(4, 6);
+  const date = `${fullYear}-${month}-${day}`;
+  return { serial, date, dateStr };
 }
 
 export function getAllDocuments(): DocumentInfo[] {
   try {
-    const categoryData = getCategoryData();
     const documents: DocumentInfo[] = [];
-    
     categoryData.forEach(category => {
-      const extractedDocs = extractDocumentsFromCategory(category);
-      documents.push(...extractedDocs);
+      documents.push(...extractDocumentsFromCategory(category));
     });
-    
-    return documents;
+    // 등록일 내림차순, 일련번호 내림차순 정렬
+    return documents.sort((a, b) => {
+      const { date: dateA, serial: serialA } = extractDateAndSerial(a.fileName);
+      const { date: dateB, serial: serialB } = extractDateAndSerial(b.fileName);
+      if (dateA !== dateB) return dateB.localeCompare(dateA);
+      return serialB.localeCompare(serialA);
+    });
   } catch (error) {
     return [];
   }
@@ -101,23 +98,18 @@ export function getAllDocuments(): DocumentInfo[] {
 
 export function getDocumentByFileName(fileName: string): DocumentInfo | null {
   try {
-    const categoryData = getCategoryData();
-    
     for (const category of categoryData) {
       const found = findDocumentByFileName(category, fileName);
       if (found) return found;
     }
-    
     return null;
   } catch (error) {
-    console.error('Error in getDocumentByFileName:', error);
     return null;
   }
 }
 
 export function getAllTags(): string[] {
   try {
-    const categoryData = getCategoryData();
     const allTags = new Set<string>();
     
     categoryData.forEach(category => {

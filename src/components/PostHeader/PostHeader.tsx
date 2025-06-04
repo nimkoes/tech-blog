@@ -1,5 +1,4 @@
 import styles from './PostHeader.module.scss';
-import TagModalWrapper from './TagModalWrapper';
 
 interface DocumentInfo {
   title: string;
@@ -21,12 +20,7 @@ export function PostHeader({ title, tags, documents, allTags }: PostHeaderProps)
   return (
     <div className={styles.postHeader}>
       <h1 className={styles.title}>{title}</h1>
-      <TagModalWrapper
-        documents={documents}
-        currentTags={tags}
-        allTags={allTags}
-        tags={tags}
-      />
+      {/* 태그 등 추가 UI 필요시 여기에 구현 */}
     </div>
   );
 } 
