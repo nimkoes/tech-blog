@@ -74,7 +74,7 @@ export default function SearchSidebar() {
         </div>
         <div className={styles.content}>
           <div className={styles.tagSection}>
-            <h2 className={styles.tagTitle}>Tags</h2>
+            {/*<h2 className={styles.tagTitle}>Tags</h2>*/}
             <div className={styles.tagList}>
               {filteredTags.map(tag => (
                 <button
