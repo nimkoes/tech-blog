@@ -87,7 +87,7 @@ const CategoryTree = ({
             </span>
           ) : (
             // 📄 파일 아이콘 + 파일명 링크
-            <Link href={`${basePath}/post/${encodeURIComponent(item.fileName || "")}`} legacyBehavior>
+            <Link href={`/post/${encodeURIComponent(item.fileName || "")}`} legacyBehavior>
               <a className={styles.file} onClick={() => onFileSelect(item.displayName)}>
                 {/* ✅ 파일 아이콘 추가 */}
                 <span className={styles.fileIcon}>

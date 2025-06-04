@@ -20,8 +20,6 @@ export default function Home() {
   } = useTagContext();
   const [posts, setPosts] = useState<Document[]>([]);
 
-  const basePath = process.env.NODE_ENV === 'production' ? '/tech-blog' : '';
-
   useEffect(() => {
     const allPosts = getAllDocuments();
     setPosts(allPosts);
@@ -69,7 +67,7 @@ export default function Home() {
           {filteredPosts.map(post => (
             <article key={post.fileName} className={styles.postCard}>
               <h2 className={styles.postTitle}>
-                <Link href={`${basePath}/post/${post.fileName}/`}>{post.title}</Link>
+                <Link href={`/post/${post.fileName}/`}>{post.title}</Link>
               </h2>
               <div className={styles.postMeta}>
                 <time className={styles.postDate}>
