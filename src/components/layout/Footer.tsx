@@ -9,15 +9,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Tech Blog. All rights reserved.
           </p>
           <div className={styles.links}>
-            <a 
-              href="https://github.com/nimkoes"
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.link}
-            >
-              GitHub
-            </a>
-            <a 
+            <a
               href="mailto:xxxelppa@gmail.com"
               className={styles.link}
             >
