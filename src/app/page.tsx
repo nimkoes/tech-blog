@@ -1,12 +1,19 @@
 "use client";
-import styles from './page.module.scss';
-import { getAllDocuments, extractDateAndSerial } from '~/utils/getAllDocuments';
-import Link from 'next/link';
+
+// React
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+
+// Components
 import Toast from '~/components/common/Toast';
 import { X } from 'lucide-react';
+
+// Utils & Context
+import { getAllDocuments, extractDateAndSerial } from '~/utils/getAllDocuments';
 import { useTagContext } from '~/context/TagContext';
+
+// Styles
+import styles from './page.module.scss';
 
 interface Document {
   title: string;
@@ -16,7 +23,7 @@ interface Document {
 
 export default function Home() {
   const {
-    selectedTags, setSelectedTags, handleTagSelect, toastMessage, setToastMessage, isSearchOpen, setIsSearchOpen
+    selectedTags, setSelectedTags, handleTagSelect, toastMessage, setToastMessage
   } = useTagContext();
   const [posts, setPosts] = useState<Document[]>([]);
 
@@ -34,7 +41,7 @@ export default function Home() {
   };
 
   const filteredPosts = selectedTags.length > 0
-    ? posts.filter(post => selectedTags.some(tag => post.tags.includes(tag)))
+    ? posts.filter(post => selectedTags.some((tag: string) => post.tags.includes(tag)))
     : posts;
 
   return (
@@ -43,7 +50,7 @@ export default function Home() {
         <div className={styles.filterSection}>
           {selectedTags.length > 0 && (
             <div className={styles.selectedTags}>
-              {selectedTags.map(tag => (
+              {selectedTags.map((tag: string) => (
                 <button
                   key={tag}
                   className={styles.tagPill}
