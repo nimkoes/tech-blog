@@ -1,6 +1,10 @@
 .main {
-  min-height: 100vh;
-  padding: 2rem 0;
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: calc(56px + 2rem);
   background-color: var(--background);
 }
 
@@ -159,7 +163,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
   .main {
-    padding: 1rem 0;
+    padding: 1rem;
+    padding-top: calc(56px + 1rem);
   }
 
   .postCard {
@@ -177,9 +182,8 @@
 
 @media (max-width: 600px) {
   .main {
-    padding-top: 56px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding: 0.5rem;
+    padding-top: calc(56px + 0.5rem);
   }
 
   .postCard {

@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./PostHeader.module.scss";
-import { useLogStore } from '../../../store/logStore';
 
 interface DocumentInfo {
   title: string;
@@ -28,21 +27,6 @@ export default function PostHeader({
   documents,
   allTags 
 }: PostHeaderProps) {
-  const { addLog } = useLogStore();
-
-  const handleLogMessage = (message: string) => {
-    const now = new Date();
-    const timestamp = now.toLocaleString("ko-KR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-    addLog(`${timestamp} - ${message}`);
-  };
-
   return (
     <header className={styles.postHeader}>
       <h1 className={styles.title}>{title}</h1>

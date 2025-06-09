@@ -1,114 +1,94 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   z-index: 100;
-  background-color: var(--background);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
 }
 
 .container {
-  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  gap: 1.5rem;
 }
 
 .logo {
-  flex: 1 1 auto;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-  position: static;
-  left: auto;
-  transform: none;
-}
-
-.nav {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: flex-end;
-  margin-left: 0;
-  min-width: 0;
-}
-
-.searchButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: none;
-  color: var(--text);
-  cursor: pointer;
-  transition: background-color 0.2s;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
 
   &:hover {
-    background-color: var(--hover);
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
+    color: #666;
   }
 }
 
-@media (max-width: 600px) {
-  .header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: #fff;
-    z-index: 100;
-    border-bottom: 1px solid #eee;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
+.githubLink {
+  font-size: 0.9rem;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #333;
   }
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// mobile
+////////////////////////////////////////////////////////////////////////////////
+@media screen and (max-width: 768px) {
   .container {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
+    padding: 0 0.5rem;
   }
-  .links {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: flex-start;
-    min-width: 0;
+
+  .left {
+    gap: 1rem;
   }
+
   .logo {
-    flex: 1 1 auto;
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    position: static;
-    left: auto;
-    transform: none;
+    font-size: 1rem;
   }
-  .nav {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 0;
-    min-width: 0;
+
+  .githubLink {
+    font-size: 0.8rem;
   }
-  .searchButton {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f3f4f6;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 8px;
+
+  .button {
+    padding: 0.5rem;
+    font-size: 0.8rem;
   }
 } 
