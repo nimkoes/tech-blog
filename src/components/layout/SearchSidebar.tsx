@@ -17,21 +17,23 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
   const tagContext = useTagContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [tags, setTags] = useState<string[]>([]);
+  const [tagCountMap, setTagCountMap] = useState<Record<string, number>>({});
   const [titleResults, setTitleResults] = useState<any[]>([]);
   const [tagResults, setTagResults] = useState<string[]>([]);
   const [isMobile, setIsMobile] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const allTags = getAllDocuments().reduce((acc: string[], doc) => {
+    const allDocs = getAllDocuments();
+    const tagMap: Record<string, number> = {};
+    allDocs.forEach(doc => {
       doc.tags.forEach((tag: string) => {
-        if (!acc.includes(tag)) {
-          acc.push(tag);
-        }
+        tagMap[tag] = (tagMap[tag] || 0) + 1;
       });
-      return acc;
-    }, []);
+    });
+    const allTags = Object.keys(tagMap);
     setTags(allTags);
+    setTagCountMap(tagMap);
   }, []);
 
   useEffect(() => {
@@ -42,13 +44,11 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
     }
 
     const searchTermLower = searchTerm.toLowerCase();
-    
     // 제목 검색 결과
     const titleResults = getAllDocuments().filter(doc => 
       doc.title.toLowerCase().includes(searchTermLower)
     );
     setTitleResults(titleResults);
-
     // 태그 검색 결과
     const tagResults = tags.filter(tag => 
       tag.toLowerCase().includes(searchTermLower)
@@ -103,7 +103,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                 className={`${styles.tagItem} ${styles.active}`}
                 onClick={() => handleTagClick(tag)}
               >
-                {tag}
+                {tag} <span className={styles.tagCount}>({tagCountMap[tag] || 0})</span>
               </button>
             ))}
           </div>
@@ -138,7 +138,6 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
-
               {searchTerm.trim() !== '' && (
                 <>
                   {titleResults.length > 0 && (
@@ -157,7 +156,6 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                       </div>
                     </div>
                   )}
-
                   {tagResults.length > 0 && (
                     <div className={styles.tagSection}>
                       <h3 className={styles.tagTitle}>태그 검색 결과</h3>
@@ -168,7 +166,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                             className={`${styles.tagItem} ${tagContext.selectedTags.includes(tag) ? styles.active : ''}`}
                             onClick={() => handleTagClick(tag)}
                           >
-                            {tag}
+                            {tag} <span className={styles.tagCount}>({tagCountMap[tag] || 0})</span>
                           </button>
                         ))}
                       </div>
@@ -176,8 +174,6 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                   )}
                 </>
               )}
-
-              {/* PC에서만 선택한 태그 영역 노출 */}
               {tagContext.selectedTags.length > 0 && (
                 <div className={styles.selectedTagsSection}>
                   <div className={styles.selectedTagsHeader}>
@@ -193,14 +189,12 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                         className={`${styles.tagItem} ${styles.active}`}
                         onClick={() => handleTagClick(tag)}
                       >
-                        {tag}
+                        {tag} <span className={styles.tagCount}>({tagCountMap[tag] || 0})</span>
                       </button>
                     ))}
                   </div>
                 </div>
               )}
-
-              {/* 전체 태그 영역 - 모바일에서 버튼 위치 조정 */}
               <div className={styles.tagSection}>
                 <div className={styles.sectionHeader}>
                   <h3 className={styles.tagTitle}>전체 태그</h3>
@@ -212,7 +206,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                       className={`${styles.tagItem} ${tagContext.selectedTags.includes(tag) ? styles.active : ''}`}
                       onClick={() => handleTagClick(tag)}
                     >
-                      {tag}
+                      {tag} <span className={styles.tagCount}>({tagCountMap[tag] || 0})</span>
                     </button>
                   ))}
                 </div>
@@ -253,7 +247,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                             className={`${styles.tagItem} ${tagContext.selectedTags.includes(tag) ? styles.active : ''}`}
                             onClick={() => handleTagClick(tag)}
                           >
-                            {tag}
+                            {tag} <span className={styles.tagCount}>({tagCountMap[tag] || 0})</span>
                           </button>
                         ))}
                       </div>
@@ -272,7 +266,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                       className={`${styles.tagItem} ${tagContext.selectedTags.includes(tag) ? styles.active : ''}`}
                       onClick={() => handleTagClick(tag)}
                     >
-                      {tag}
+                      {tag} <span className={styles.tagCount}>({tagCountMap[tag] || 0})</span>
                     </button>
                   ))}
                 </div>
