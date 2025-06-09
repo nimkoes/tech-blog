@@ -11,13 +11,26 @@
   box-shadow: 0 4px 24px 0 rgba(60, 80, 120, 0.13);
   z-index: 9999;
   opacity: 0.97;
-  animation: fadeInOut 2s;
+  animation: fadeInOut 2s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
+  backdrop-filter: blur(8px);
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; transform: translateX(-50%) scale(0.95); }
-  10% { opacity: 1; transform: translateX(-50%) scale(1.03); }
-  90% { opacity: 1; transform: translateX(-50%) scale(1); }
-  100% { opacity: 0; transform: translateX(-50%) scale(0.97); }
+  0% { 
+    opacity: 0; 
+    transform: translateX(-50%) translateY(-20px) scale(0.95);
+  }
+  10% { 
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0) scale(1.03);
+  }
+  90% { 
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateX(-50%) translateY(-20px) scale(0.97);
+  }
 }

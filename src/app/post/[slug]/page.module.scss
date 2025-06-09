@@ -4,7 +4,7 @@
   max-width: 100%;
   padding: 13px 14px;
   color: #d4d4d4;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 2rem;
   font-family: "JetBrains Mono", "Fira Code", "Consolas", "Menlo", "monospace";
   white-space: pre-wrap;
@@ -26,7 +26,7 @@
 
 /* 제목 스타일 */
 .markdown h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-bottom: 2px solid var(--border);
   padding-bottom: 0.3rem;
   color: #222e3a;
@@ -34,7 +34,7 @@
 }
 
 .markdown h2 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.2rem;
   color: #425066;
@@ -42,12 +42,13 @@
 }
 
 .markdown h3 {
-  font-size: 1.15rem;
+  font-size: 0.7rem;
   color: #6b7684;
   background: none;
 }
 
 .markdown h4, .markdown h5, .markdown h6 {
+  font-size: 0.5rem;
   color: #a0a7b4;
   background: none;
 }
@@ -341,20 +342,24 @@
 @media screen and (max-width: 768px) {
   .markdown {
     padding: 1px 1px;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     line-height: 1.6;
   }
 
   .markdown h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .markdown h2 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .markdown h3 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .markdown h4, .markdown h5, .markdown h6 {
+    font-size: 0.5rem;
   }
 
   .markdown ul, .markdown ol {
