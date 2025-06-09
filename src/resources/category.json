@@ -51,15 +51,6 @@
           {"id": "20-21", "displayName": "[chap.21] ExceptionTranslationFilter", "fileName": "0040250309-spring-security-inner-structure", "tags": ["Spring Security", "Filter", "ExceptionTranslationFilter"]},
           {"id": "20-22", "displayName": "[chap.22] AuthorizationFilter", "fileName": "0041250309-spring-security-inner-structure", "tags": ["Spring Security", "Filter", "AuthorizationFilter"]}
         ]
-      },
-      {
-        "id": "30",
-        "displayName": "Nuggets",
-        "children": [
-          {"id": "30-1", "displayName": "useful git command", "fileName": "0001250302-git", "tags": ["Git", "cli command"]},
-          {"id": "30-2", "displayName": "@SneakyThrows", "fileName": "0042250310-sneaky-throws", "tags": ["Lombok", "Java", "Spring", "SneakyThrows"]},
-          {"id": "30-3", "displayName": "jwt 기반 인증 서버 개발 best practice", "fileName": "0043250310-jwt-auth-best-practice", "tags": ["JWT", "Spring Security", "OAuth2"]}
-        ]
       }
     ]
   }, {
