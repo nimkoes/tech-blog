@@ -16,6 +16,11 @@ interface CategorySidebarProps {
   onClose: () => void;
 }
 
+function isMobile() {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(max-width: 768px)').matches;
+}
+
 export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
 
@@ -57,7 +62,11 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
             </button>
           )}
           {category.fileName ? (
-            <Link href={`/post/${category.fileName}`} className={styles.categoryLink}>
+            <Link 
+              href={`/post/${category.fileName}`}
+              className={styles.categoryLink}
+              onClick={() => { if (isMobile()) onClose(); }}
+            >
               {category.displayName}
             </Link>
           ) : (
