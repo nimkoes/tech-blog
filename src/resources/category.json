@@ -53,13 +53,5 @@
         ]
       }
     ]
-  }, {
-    "id": "100",
-    "displayName": "util",
-    "children": [
-      {"id": "110", "displayName": "LECTURE", "fileName": "0018250306-online-lecture", "tags": ["memo", "online", "lecture", "study"]},
-      {"id": "120", "displayName": "BOOK", "fileName": "0019250306-book", "tags": ["memo", "book", "link"]},
-      {"id": "130", "displayName": "SITE", "fileName": "0017250306-site-link", "tags": ["memo", "site", "link"]}
-    ]
   }
 ]
