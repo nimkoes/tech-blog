@@ -2,15 +2,20 @@
 
 import "~/styles/index.scss";
 import styles from "./layout.module.scss";
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import Header from "~/components/layout/Header";
 import SearchSidebar from "~/components/layout/SearchSidebar";
 import Footer from "~/components/layout/Footer";
 import React from 'react';
 import Toast from "~/components/common/Toast";
 import { TagContext } from '~/context/TagContext';
+import NoticePopup from '~/components/NoticePopup';
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+interface ClientLayoutProps {
+  children: ReactNode;
+}
+
+export default function ClientLayout({ children }: ClientLayoutProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [toastMessage, setToastMessage] = useState('');
@@ -49,6 +54,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             onClose={() => setToastMessage('')}
           />
         )}
+        <NoticePopup />
       </div>
     </TagContext.Provider>
   );

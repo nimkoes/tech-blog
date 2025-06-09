@@ -1,0 +1,148 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.popup {
+  background: var(--background);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  h2 {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--text);
+  }
+}
+
+.content {
+  padding: 1rem;
+  overflow-y: auto;
+  flex: 1;
+
+  p {
+    margin: 0 0 1rem;
+    line-height: 0.4;
+    color: var(--text);
+    font-size: 0.7rem;
+  }
+
+  ul {
+    margin: 0.5rem 0 1rem;
+    padding-left: 1rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      color: var(--text);
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 1.2rem;
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dismissButton {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: var(--primary-hover);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .popup {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .header h2 {
+    font-size: 0.7rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+} 
