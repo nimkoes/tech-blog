@@ -36,7 +36,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     <TagContext.Provider value={{
       selectedTags, setSelectedTags, handleTagSelect, toastMessage, setToastMessage,
       isSearchOpen, setIsSearchOpen,
-      onClose: () => setIsSearchOpen(false),
       onTagSelect: handleTagSelect
     }}>
       <div className={styles.layout}>
@@ -45,7 +44,9 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
           <div className={styles.content}>
             {children}
           </div>
-          <SearchSidebar />
+          <SearchSidebar isOpen={false} onClose={function(): void {
+                      throw new Error("Function not implemented.");
+                  } } />
         </main>
         <Footer />
         {toastMessage && (
@@ -58,4 +59,4 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
       </div>
     </TagContext.Provider>
   );
-} 
+}

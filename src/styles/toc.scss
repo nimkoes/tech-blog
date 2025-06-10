@@ -5,7 +5,7 @@ details summary {
 
 details ul {
   font-size: 0.8rem;
-  padding-left: 2em;
+  padding: 0 0 0 1.5rem !important;
 }
 
 @media (max-width: 768px) {
@@ -19,7 +19,7 @@ details ul {
 }
 
 details ul li {
-  margin: 0.3em 0;
+  margin: 0.15em 0;
 }
 
 html {
@@ -28,8 +28,8 @@ html {
 
 .tocCard {
   background: #f5f5f5;
-  border-radius: 12px;
-  padding: 1.2rem 1.5rem;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem 0 0.7rem;
   margin-bottom: 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   border: 1px solid #e0e0e0;

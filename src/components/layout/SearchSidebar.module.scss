@@ -376,13 +376,11 @@
   max-height: calc(100vh - 120px);
 }
 
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   .mobileFixedHeader, .mobileScrollArea {
     display: none !important;
   }
-}
 
-@media (max-width: 768px) {
   .sidebar {
     width: 100%;
     top: 56px;
