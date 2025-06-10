@@ -1,18 +1,14 @@
 'use client';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
 import "highlight.js/styles/github-dark.css";
 import styles from './page.module.scss';
 import { extractDateAndSerial } from '~/utils/getAllDocuments';
 import { generateTOC } from '~/utils/generateTOC';
 import TOC, { TOCItem } from './TOC';
 import '~/styles/toc.scss';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import { visit } from 'unist-util-visit';
 
 export default function PostClient({ slug, document }: { slug: string, document: any }) {
   const [markdown, setMarkdown] = useState<string | null>(null);

@@ -14,7 +14,7 @@ const TOC: React.FC<TOCProps> = ({ toc }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const el = document.getElementById(id);
-    console.log("id : " + id);
+
     if (el) {
       const headerOffset = 80; // 헤더 높이 + 여유 공간
       const elementPosition = el.offsetTop; // 요소의 절대 위치
