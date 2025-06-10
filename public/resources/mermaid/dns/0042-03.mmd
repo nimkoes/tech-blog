@@ -1,0 +1,4 @@
+graph LR
+  A[dev.example.com] -->|CNAME| B[staging.example.com]
+  B -->|CNAME| C[prod.example.com]
+  C -->|A 레코드| D[192.168.1.1]
