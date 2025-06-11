@@ -2,20 +2,20 @@
 
 import "~/styles/index.scss";
 import styles from "./layout.module.scss";
-import { useState, ReactNode } from "react";
+import {useState, ReactNode} from "react";
 import Header from "~/components/layout/Header";
 import SearchSidebar from "~/components/layout/SearchSidebar";
 import Footer from "~/components/layout/Footer";
 import React from 'react';
 import Toast from "~/components/common/Toast";
-import { TagContext } from '~/context/TagContext';
+import {TagContext} from '~/context/TagContext';
 import NoticePopup from '~/components/NoticePopup';
 
 interface ClientLayoutProps {
   children: ReactNode;
 }
 
-export default function ClientLayout({ children }: ClientLayoutProps) {
+export default function ClientLayout({children}: ClientLayoutProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [toastMessage, setToastMessage] = useState('');
@@ -39,23 +39,23 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
       onTagSelect: handleTagSelect
     }}>
       <div className={styles.layout}>
-        <Header onSearchClick={() => setIsSearchOpen(true)} />
+        <Header onSearchClick={() => setIsSearchOpen(true)}/>
         <main className={styles.main}>
           <div className={styles.content}>
             {children}
           </div>
-          <SearchSidebar isOpen={false} onClose={function(): void {
-                      throw new Error("Function not implemented.");
-                  } } />
+          <SearchSidebar isOpen={false} onClose={function (): void {
+            throw new Error("Function not implemented.");
+          }}/>
         </main>
-        <Footer />
+        <Footer/>
         {toastMessage && (
           <Toast
             message={toastMessage}
             onClose={() => setToastMessage('')}
           />
         )}
-        <NoticePopup />
+        <NoticePopup/>
       </div>
     </TagContext.Provider>
   );

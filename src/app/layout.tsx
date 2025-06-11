@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 import '@fontsource/jetbrains-mono/400.css'
 import '@fontsource/jetbrains-mono/500.css'
 import '@fontsource/jetbrains-mono/600.css'
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'infrastructure',
     'development'
   ],
-  authors: [{ 
+  authors: [{
     name: 'Nimkoes',
     url: `${SITE_URL}${BASE_PATH}`,
   }],
@@ -66,10 +66,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: `${BASE_PATH}/favicon.ico`, sizes: 'any' },
+      {url: `${BASE_PATH}/favicon.ico`, sizes: 'any'},
     ],
     apple: [
-      { url: `${BASE_PATH}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
+      {url: `${BASE_PATH}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png'},
     ],
     other: [
       {
@@ -97,15 +97,15 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
-}: {
+                                     children,
+                                   }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="ko">
-      <body>
-        <ClientLayout>{children}</ClientLayout>
-      </body>
+    <body>
+    <ClientLayout>{children}</ClientLayout>
+    </body>
     </html>
   );
 }

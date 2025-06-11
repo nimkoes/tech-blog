@@ -1,16 +1,16 @@
 "use client";
 
 // React
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import Link from 'next/link';
 
 // Components
 import Toast from '~/components/common/Toast';
-import { X } from 'lucide-react';
+import {X} from 'lucide-react';
 
 // Utils & Context
-import { getAllDocuments, extractDateAndSerial } from '~/utils/getAllDocuments';
-import { useTagContext } from '~/context/TagContext';
+import {getAllDocuments, extractSerial} from '~/utils/getAllDocuments';
+import {useTagContext} from '~/context/TagContext';
 
 // Styles
 import styles from './page.module.scss';
@@ -19,6 +19,8 @@ interface Document {
   title: string;
   tags: string[];
   fileName: string;
+  regDate: string;
+  lastModifiedDate: string;
 }
 
 export default function Home() {
@@ -57,14 +59,14 @@ export default function Home() {
                   onClick={() => handleTagSelect(tag)}
                 >
                   {tag}
-                  <X size={14} />
+                  <X size={14}/>
                 </button>
               ))}
               <button
                 className={styles.clearButton}
                 onClick={clearTags}
               >
-                <X size={16} />
+                <X size={16}/>
               </button>
             </div>
           )}
@@ -78,8 +80,16 @@ export default function Home() {
               </h2>
               <div className={styles.postMeta}>
                 <time className={styles.postDate}>
-                  {extractDateAndSerial(post.fileName).date}
+                  ✚ {post.regDate}
                 </time>
+
+                {/* regDate !== lastModifiedDate 인 경우에만 최종수정일 표시 */}
+                {post.regDate !== post.lastModifiedDate && (
+                  <time className={styles.postDate}>
+                    ✎ {post.lastModifiedDate}
+                  </time>
+                )}
+
                 <div className={styles.postTags}>
                   {post.tags.map(tag => (
                     <button
@@ -105,4 +115,4 @@ export default function Home() {
       )}
     </main>
   );
-} 
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import Link from 'next/link';
 import styles from './CategorySidebar.module.scss';
 import categoryData from '@/resources/category.json';
@@ -21,7 +21,7 @@ function isMobile() {
   return window.matchMedia('(max-width: 768px)').matches;
 }
 
-export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProps) {
+export default function CategorySidebar({isOpen, onClose}: CategorySidebarProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
 
   const toggleCategory = (categoryId: string) => {
@@ -45,13 +45,13 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
     const isExpanded = expandedCategories.has(category.id);
 
     return (
-      <div key={category.id} className={styles.categoryItem} style={{ paddingLeft: `${level * 16}px` }}>
-        <div 
+      <div key={category.id} className={styles.categoryItem} style={{paddingLeft: `${level * 16}px`}}>
+        <div
           className={styles.categoryHeader}
           onClick={() => handleCategoryClick(category)}
         >
           {hasChildren && (
-            <button 
+            <button
               className={`${styles.expandButton} ${isExpanded ? styles.expanded : ''}`}
               onClick={(e) => {
                 e.stopPropagation();
@@ -62,10 +62,12 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
             </button>
           )}
           {category.fileName ? (
-            <Link 
+            <Link
               href={`/post/${category.fileName}`}
               className={styles.categoryLink}
-              onClick={() => { if (isMobile()) onClose(); }}
+              onClick={() => {
+                if (isMobile()) onClose();
+              }}
             >
               {category.displayName}
             </Link>
@@ -95,4 +97,4 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
       </div>
     </div>
   );
-} 
+}

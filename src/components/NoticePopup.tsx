@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import styles from './NoticePopup.module.scss';
 
 const NOTICE_STORAGE_KEY = 'notice_popup_dismissed';
@@ -36,26 +36,26 @@ export default function NoticePopup() {
         <div className={styles.content}>
           <p>안녕하세요.</p>
           <p>블로그 운영 방식을 아래와 같이 조정하게 되었습니다.</p>
-          <br />
+          <br/>
           <p><strong>Github 블로그</strong></p>
           <ul>
             <li>기술 개념 정리</li>
             <li>코드 중심의 이론 기반 글</li>
           </ul>
-          <br />
+          <br/>
           <p><strong>Tistory 블로그</strong></p>
           <ul>
             <li>장애/오류 대응 사례</li>
             <li>기술서적 독후감</li>
             <li>개발 회고 및 경험 공유</li>
           </ul>
-          <br />
+          <br/>
           <p>각 블로그의 성격에 맞게 콘텐츠를 나누어</p>
           <p>더 깊이 있는 내용을 전달드리겠습니다.</p>
-          <br />
+          <br/>
           <p>블로그 및 포트폴리오 주소는</p>
           <p>하단 링크를 참고 부탁 드립니다.</p>
-          <br />
+          <br/>
           <p>감사합니다.</p>
           <div className={styles.links}>
             <a href="https://nimkoes.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
@@ -77,4 +77,4 @@ export default function NoticePopup() {
       </div>
     </div>
   );
-} 
+}

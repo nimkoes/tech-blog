@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { Search, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useTagContext } from '~/context/TagContext';
-import { getAllDocuments } from '~/utils/getAllDocuments';
+import {useState, useEffect, useRef} from 'react';
+import {Search, X} from 'lucide-react';
+import {useRouter} from 'next/navigation';
+import {useTagContext} from '~/context/TagContext';
+import {getAllDocuments} from '~/utils/getAllDocuments';
 import styles from './SearchSidebar.module.scss';
 
 interface SearchSidebarProps {
@@ -12,7 +12,7 @@ interface SearchSidebarProps {
   onClose: () => void;
 }
 
-export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
+export default function SearchSidebar({isOpen, onClose}: SearchSidebarProps) {
   const router = useRouter();
   const tagContext = useTagContext();
   const [searchTerm, setSearchTerm] = useState('');
@@ -45,12 +45,12 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
 
     const searchTermLower = searchTerm.toLowerCase();
     // 제목 검색 결과
-    const titleResults = getAllDocuments().filter(doc => 
+    const titleResults = getAllDocuments().filter(doc =>
       doc.title.toLowerCase().includes(searchTermLower)
     );
     setTitleResults(titleResults);
     // 태그 검색 결과
-    const tagResults = tags.filter(tag => 
+    const tagResults = tags.filter(tag =>
       tag.toLowerCase().includes(searchTermLower)
     );
     setTagResults(tagResults);
@@ -79,7 +79,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
   const renderMobileFixedHeader = () => (
     <div className={styles.mobileFixedHeader}>
       <div className={styles.searchInput}>
-        <Search className={styles.searchIcon} size={20} />
+        <Search className={styles.searchIcon} size={20}/>
         <input
           type="text"
           className={styles.input}
@@ -88,7 +88,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button className={styles.closeButton} onClick={onClose}>
-          <X size={24} />
+          <X size={24}/>
         </button>
       </div>
       {tagContext.selectedTags.length > 0 && (
@@ -124,12 +124,12 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
             <div className={styles.header}>
               <h2 className={styles.title}>검색</h2>
               <button className={styles.closeButton} onClick={onClose}>
-                <X size={24} />
+                <X size={24}/>
               </button>
             </div>
             <div className={styles.content}>
               <div className={styles.searchInput}>
-                <Search className={styles.searchIcon} size={20} />
+                <Search className={styles.searchIcon} size={20}/>
                 <input
                   type="text"
                   className={styles.input}
@@ -277,4 +277,4 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
       </div>
     </div>
   );
-} 
+}

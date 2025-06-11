@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import styles from './Toast.module.scss';
 
 interface ToastProps {
@@ -6,7 +6,7 @@ interface ToastProps {
   onClose: () => void;
 }
 
-export default function Toast({ message, onClose }: ToastProps) {
+export default function Toast({message, onClose}: ToastProps) {
   useEffect(() => {
     if (message) {
       const timer = setTimeout(() => {
@@ -24,4 +24,4 @@ export default function Toast({ message, onClose }: ToastProps) {
       {message}
     </div>
   );
-} 
+}

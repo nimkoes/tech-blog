@@ -1,16 +1,15 @@
 'use client';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import "highlight.js/styles/github-dark.css";
 import styles from './page.module.scss';
-import { extractDateAndSerial } from '~/utils/getAllDocuments';
-import { generateTOC } from '~/utils/generateTOC';
-import TOC, { TOCItem } from './TOC';
+import {generateTOC} from '~/utils/generateTOC';
+import TOC, {TOCItem} from './TOC';
 import '~/styles/toc.scss';
 
-export default function PostClient({ slug, document }: { slug: string, document: any }) {
+export default function PostClient({slug, document}: { slug: string, document: any }) {
   const [markdown, setMarkdown] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
   const [toc, setTOC] = useState<TOCItem[]>([]);
@@ -32,9 +31,9 @@ export default function PostClient({ slug, document }: { slug: string, document:
       .then(async (text) => {
         // gray-matter로 frontmatter 제거
         const matter = (await import('gray-matter')).default;
-        const { content } = matter(text);
+        const {content} = matter(text);
         setMarkdown(content);
-        const { toc, idMap } = generateTOC(content);
+        const {toc, idMap} = generateTOC(content);
         setTOC(toc);
         setIdMap(idMap);
       })
@@ -47,7 +46,7 @@ export default function PostClient({ slug, document }: { slug: string, document:
 
   // heading 렌더러: level+텍스트로 id를 찾아서 부여
   const HeadingRenderer = (level: 1 | 2 | 3 | 4 | 5 | 6) =>
-    function Heading({ children }: any) {
+    function Heading({children}: any) {
       // plain text 추출
       const text = String(children).replace(/<[^>]+>/g, '').trim();
       const id = idMap[`${level}_${text}`] || '';
@@ -60,7 +59,10 @@ export default function PostClient({ slug, document }: { slug: string, document:
       <div className={styles.postHeader}>
         <h1 className={styles.title}>{document.title}</h1>
         <div className={styles.postDate}>
-          등록일 : {extractDateAndSerial(document.fileName).date}
+          등록일 : {document.regDate}
+        </div>
+        <div className={styles.postDate}>
+          최종수정일 : {document.lastModifiedDate}
         </div>
         {document.tags && document.tags.length > 0 && (
           <div className={styles.postTags}>
@@ -70,7 +72,7 @@ export default function PostClient({ slug, document }: { slug: string, document:
           </div>
         )}
       </div>
-      {toc.length > 0 && <TOC toc={toc} />}
+      {toc.length > 0 && <TOC toc={toc}/>}
       <article className={styles.markdown}>
         {markdown ? (
           <ReactMarkdown
@@ -93,4 +95,4 @@ export default function PostClient({ slug, document }: { slug: string, document:
       </article>
     </div>
   );
-} 
+}

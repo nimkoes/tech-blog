@@ -1,14 +1,13 @@
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 
 export const metadata: Metadata = {
   title: {
     template: '%s | Nimkoes Tech Blog',
-    default: 'Nimkoes Tech Blog - 개발자의 기술 이야기',
+    default: 'Nimkoes Tech Blog - 개발자의 기술 블로그',
   },
-  description: '프론트엔드, 백엔드 개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.',
+  description: '개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.',
   keywords: [
     '개발 블로그',
-    '프론트엔드',
     '백엔드',
     'JavaScript',
     'TypeScript',
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
     '소프트웨어 아키텍처',
     '개발 문화',
   ],
-  authors: [{ name: 'Nimkoes' }],
+  authors: [{name: 'Nimkoes'}],
   creator: 'Nimkoes',
   openGraph: {
     type: 'website',
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Nimkoes Tech Blog',
-    description: '프론트엔드, 백엔드 개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.',
+    description: '개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -51,13 +50,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
+      {url: '/favicon.ico', sizes: 'any'},
       // { url: '/icon.svg', type: 'image/svg+xml' },
       // { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       // { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      {url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png'},
     ],
   },
 } 
