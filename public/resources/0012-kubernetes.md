@@ -1,10 +1,3 @@
----
-title: "DaemonSet, Job, CronJob"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 DaemonSet, Job, CronJob Controller 가 무엇이고 언제 사용 하는지 정리 한다.
 
 # DaemonSet

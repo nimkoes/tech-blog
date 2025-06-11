@@ -1,10 +1,3 @@
----
-title: "Namespace, ResourceQuota, LimitRange"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 본격적인 사용 방법을 알아보기에 앞서 Namespace, ResourceQuota, LimitRange 를 왜 사용해야 하는지 먼저 정리한다.
 
 ![0009-01](/tech-blog/resources/images/kubernetes/0009-01.png)

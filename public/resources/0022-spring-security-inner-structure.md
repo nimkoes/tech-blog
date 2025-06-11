@@ -1,9 +1,3 @@
----
-title: "Spring Security 내부 구조 세 번째 시간"
-author: "nimkoes"
-date: "2025-03-08"
----
-
 ## SecurityFilterChain 구조
 
 - `@EnableWebSecurity` 에 `debug` 모드를 `true` 로 설정하면, 요청이 통과하는 `SecurityFilterChain` 의 `filter` 목록이 출력 된다.

@@ -1,10 +1,3 @@
----
-title: "Replication Controller, ReplicaSet (Template, Replicas, Selector)"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0010-01](/tech-blog/resources/images/kubernetes/0010-01.png)
 
 k8s 의 Controller 는 서비스를 관리하고 운영하는데 큰 도움을 준다.

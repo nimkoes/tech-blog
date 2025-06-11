@@ -1,10 +1,3 @@
----
-title: "Service (ClusterIP, NodePort, LoadBalancer)"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0006-01](/tech-blog/resources/images/kubernetes/0006-01.png)
 
 # ClusterIP

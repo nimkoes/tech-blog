@@ -1,10 +1,3 @@
----
-title: "Pod - QoS Classes"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0015-01](/tech-blog/resources/images/kubernetes/0015-01.png)
 
 리소스를 균등하게 사용하고 있는 3개의 Pod 를 가진 Node 가 있다.

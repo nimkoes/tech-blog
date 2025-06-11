@@ -1,10 +1,3 @@
----
-title: "VM 과 Container 비교"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0003-01](/tech-blog/resources/images/kubernetes/0003-01.png)
 
 VM 과 Container 모두 공통적으로 하나의 서버(Host Server)가 있고 그 서버에는 Host OS 가 올라간다.

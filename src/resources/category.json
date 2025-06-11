@@ -58,6 +58,13 @@
         "children": [
           {"id": "30-01", "regDate" : "2025-06-10", "lastModifiedDate" : "2025-06-11", "displayName": "DNS와 레코드 타입 이해하기", "fileName": "0042-dns", "tags": ["DNS", "레코드 타입"]}
         ]
+      },
+      {
+        "id": "40",
+        "displayName": "번역",
+        "children": [
+          {"id": "40-01", "regDate" : "2025-06-11", "lastModifiedDate" : "2025-06-11", "displayName": "Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기", "fileName": "0043-aztfexport", "tags": ["infra", "terraform", "azure", "aztfexport"]}
+        ]
       }
     ]
   }

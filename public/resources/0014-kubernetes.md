@@ -1,10 +1,3 @@
----
-title: "Pod - ReadinessProbe, LivenessProb"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0014-01](/tech-blog/resources/images/kubernetes/0014-01.png)
 
 Pod 를 만들면 그 안에 Container 가 생기고 Pod 와 Container 의 상태가 Running 이 되면서 그 안에 있는 Application 도 정상적으로 구동이 되고 있을 것이다. 그리고

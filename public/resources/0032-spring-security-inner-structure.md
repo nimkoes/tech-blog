@@ -1,9 +1,3 @@
----
-title: "Spring Security 내부 구조 열 세 번째 시간"
-author: "nimkoes"
-date: "2025-03-09"
----
-
 # LogoutFilter
 
 ## LogoutFilter 목적

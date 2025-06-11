@@ -1,9 +1,3 @@
----
-title: "Spring Security 내부 구조 열 다섯 번째 시간"
-author: "nimkoes"
-date: "2025-03-09"
----
-
 # DefaultLoginPageGeneratingFilter
 
 ## DefaultLoginPageGeneratingFilter 목적

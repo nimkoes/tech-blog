@@ -1,10 +1,3 @@
----
-title: "Pod (Container, Label, NodeSchedule)"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0005-01](/tech-blog/resources/images/kubernetes/0005-01.png)
 
 # Pod

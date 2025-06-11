@@ -1,10 +1,3 @@
----
-title: "Pod - NodeScheduling"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 Pod 는 기본적으로 Scheduler 에 의해 Node 에 할당 되지만 사용자의 의도에 의해 Node 를 지정할 수 있고, 운영자가 특정 노드를 사용하지 못하도록 관리 할 수도 있다.
 
 # Node 선택 (NodeName, NodeSelector, NodeAffinity)

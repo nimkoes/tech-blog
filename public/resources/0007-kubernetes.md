@@ -1,10 +1,3 @@
----
-title: "Volume (emptyDir, hostPath, PVC/PV)"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0007-01](/tech-blog/resources/images/kubernetes/0007-01.png)
 
 # emptyDir

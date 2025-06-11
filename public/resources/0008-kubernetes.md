@@ -1,10 +1,3 @@
----
-title: "ConfigMap, Secret (Env, Mount)"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
 ![0008-01](/tech-blog/resources/images/kubernetes/0008-01.png)
 
 본격적인 사용 방법을 알아보기에 앞서 ConfigMap 과 Secret 이 언제 사용되는지 먼저 정리한다.

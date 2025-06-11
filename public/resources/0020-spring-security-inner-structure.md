@@ -1,9 +1,3 @@
----
-title: "Spring Security 내부 구조 첫 번째 시간"
-author: "nimkoes"
-date: "2025-03-08"
----
-
 # Spring Security 동작 원리 개요
 
 - 클라이언트의 요청은 `WAS`(Web Application Server / ex> `tomcat`) 의 `filter` 를 통과한 다음 `Spring Container`의 `Controller`에 도달한다.

@@ -1,9 +1,3 @@
----
-title: "Spring Security 내부 구조 두 번째 시간"
-author: "nimkoes"
-date: "2025-03-08"
----
-
 ## SecurityFilterChain 등록
 
 - `Spring Boot` 에서 `spring-boot-starter-security` 의존성을 추가하면 기본적으로 `DefaultSecurityFilterChain` 이 자동으로 생성된다.

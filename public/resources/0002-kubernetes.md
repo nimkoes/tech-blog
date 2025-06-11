@@ -1,11 +1,3 @@
----
-title: "Kubernetes 사용 이유"
-description: ""
-author: "nimkoes"
-date: "2021-03-02"
----
-
-
 원활한 서비스 제공을 위해 필요한 자원을 미리 준비하는 것은 비용과 관리 측면에서 어려움이 있다.
 
 ![0002-01](/tech-blog/resources/images/kubernetes/0002-01.png)

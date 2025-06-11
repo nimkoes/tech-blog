@@ -1,9 +1,3 @@
----
-title: "Spring Security 내부 구조 네 번째 시간"
-author: "nimkoes"
-date: "2025-03-08"
----
-
 # SecurityContextHolder
 
 ## SecurityFilterChain 에서 작업 상태 저장 필요
