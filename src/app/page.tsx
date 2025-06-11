@@ -76,7 +76,17 @@ export default function Home() {
           {filteredPosts.map(post => (
             <article key={post.fileName} className={styles.postCard}>
               <h2 className={styles.postTitle}>
-                <Link href={`/post/${post.fileName}/`}>{post.title}</Link>
+                {(() => {
+                  const lastModified = new Date(post.lastModifiedDate);
+                  const now = new Date();
+                  const diffTime = now.getTime() - lastModified.getTime();
+                  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+                  return (
+                    <Link href={`/post/${post.fileName}/`}>
+                      {diffDays <= 7 ? '🅝 ' : ''}{post.title}
+                    </Link>
+                  );
+                })()}
               </h2>
               <div className={styles.postMeta}>
                 <time className={styles.postDate}>
