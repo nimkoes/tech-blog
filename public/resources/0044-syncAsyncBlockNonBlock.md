@@ -80,15 +80,20 @@ InputStream in = conn.getInputStream(); // 여기서 멈춤 (블로킹)
 - C의 `select()` 혹은 `poll()`을 활용한 이벤트 루프
 - GUI 프로그램의 이벤트 폴링 루프
 
-### 예제 코드 (C)
+### 예제 코드 (Java)
 
-```c
-while (1) {
-    if (check_event()) {
-        printf("이벤트 발생\n");
+```java
+while (true) {
+    if (checkEvent()) {
+        System.out.println("이벤트 발생");
         break;
     }
-    sleep(1); // 1초마다 확인
+    try {
+        Thread.sleep(1000); // 1초마다 확인
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        break;
+    }
 }
 ```
 
@@ -139,12 +144,20 @@ String result = future.get(); // 여기서 블로킹
 - Spring WebFlux, Node.js
 - Kotlin Coroutine, Reactor, RxJava
 
-### 예제 코드 (JavaScript)
+### 예제 코드 (Java)
 
-```javascript
-fetch("https://example.com/data")
-  .then(response => response.json())
-  .then(data => console.log(data));
+```java
+CompletableFuture.supplyAsync(() -> {
+    // 비동기 작업 예시: 데이터 가져오기
+    try {
+        Thread.sleep(2000); // 지연 시뮬레이션
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+    return "데이터";
+}).thenAccept(data -> {
+    System.out.println("받은 데이터: " + data);
+});
 ```
 
 # 네 가지 조합 한눈에 보기
