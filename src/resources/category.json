@@ -56,21 +56,28 @@
         "id": "30",
         "displayName": "네트워크",
         "children": [
-          {"id": "30-01", "regDate" : "2025-06-10", "lastModifiedDate" : "2025-06-11", "displayName": "DNS와 레코드 타입 이해하기", "fileName": "0042-dns", "tags": ["DNS", "레코드 타입"]}
+          {"id": "30-01", "regDate" : "2025-06-30", "lastModifiedDate" : "2025-06-30", "displayName": "단위 테스트 (Unit Testing)", "fileName": "0045-unit-testing", "tags": ["테스트", "test"]}
         ]
       },
       {
         "id": "40",
-        "displayName": "기반지식",
+        "displayName": "네트워크",
         "children": [
-          {"id": "40-01", "regDate" : "2025-06-12", "lastModifiedDate" : "2025-06-12", "displayName": "동기/비동기 + 블로킹/논블로킹 네 가지 조합 정리", "fileName": "0044-syncAsyncBlockNonBlock", "tags": ["theory", "sync", "async", "blocking", "non blocking"]}
+          {"id": "40-01", "regDate" : "2025-06-10", "lastModifiedDate" : "2025-06-11", "displayName": "DNS와 레코드 타입 이해하기", "fileName": "0042-dns", "tags": ["DNS", "레코드 타입"]}
         ]
       },
       {
-        "id": "60",
+        "id": "50",
+        "displayName": "기반지식",
+        "children": [
+          {"id": "50-01", "regDate" : "2025-06-12", "lastModifiedDate" : "2025-06-12", "displayName": "동기/비동기 + 블로킹/논블로킹 네 가지 조합 정리", "fileName": "0044-syncAsyncBlockNonBlock", "tags": ["theory", "sync", "async", "blocking", "non blocking"]}
+        ]
+      },
+      {
+        "id": "80",
         "displayName": "번역",
         "children": [
-          {"id": "60-01", "regDate" : "2025-06-11", "lastModifiedDate" : "2025-06-11", "displayName": "Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기", "fileName": "0043-aztfexport", "tags": ["infra", "terraform", "azure", "aztfexport"]}
+          {"id": "80-01", "regDate" : "2025-06-11", "lastModifiedDate" : "2025-06-11", "displayName": "Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기", "fileName": "0043-aztfexport", "tags": ["infra", "terraform", "azure", "aztfexport"]}
         ]
       }
     ]
