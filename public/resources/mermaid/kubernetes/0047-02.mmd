@@ -1,0 +1,5 @@
+flowchart TD
+  A[kubelet 시작] --> B[/etc/kubernetes/manifests 확인/]
+  B --> C[pod YAML 발견]
+  C --> D[kubelet이 직접 Pod 생성]
+  D --> E[Pod은 노드에서만 보임]

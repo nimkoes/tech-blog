@@ -7,21 +7,28 @@
         "id": "10",
         "displayName": "kubernetes",
         "children": [
-          {"id": "10-01", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.01] Kubernetes 사용 이유", "fileName": "0002-kubernetes", "tags": ["Kubernetes", "introduce"]},
-          {"id": "10-02", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.02] VM 과 Container 비교", "fileName": "0003-kubernetes", "tags": ["Kubernetes"]},
-          {"id": "10-03", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.03] Kubernetes 훑어보기", "fileName": "0004-kubernetes", "tags": ["Kubernetes", "Pod", "Container"]},
-          {"id": "10-04", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.04] Pod (Container, Label, NodeSchedule)", "fileName": "0005-kubernetes", "tags": ["Kubernetes", "Pod", "Container", "Label", "NodeSchedule"]},
-          {"id": "10-05", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.05] Service (ClusterIP, NodePort, LoadBalancer)", "fileName": "0006-kubernetes", "tags": ["Kubernetes", "Service", "ClusterIP", "NodePort", "LoadBalancer"]},
-          {"id": "10-06", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.06] Volume (emptyDir, hostPath, PVC/PV)", "fileName": "0007-kubernetes", "tags": ["Kubernetes", "Volume", "emptyDir", "hostPath", "PVC/PV"]},
-          {"id": "10-07", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.07] ConfigMap, Secret (Env, Mount)", "fileName": "0008-kubernetes", "tags": ["Kubernetes", "ConfigMap", "Secret", "Environment Variables", "Volume Mount"]},
-          {"id": "10-08", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.08] Namespace, ResourceQuota, LimitRange", "fileName": "0009-kubernetes", "tags": ["Kubernetes", "Namespace", "ResourceQuota", "LimitRange"]},
-          {"id": "10-09", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)", "fileName": "0010-kubernetes", "tags": ["Kubernetes", "Controller", "ReplicaSet"]},
-          {"id": "10-10", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.10] Deployment (Recreate, RollingUpdate)", "fileName": "0011-kubernetes", "tags": ["Kubernetes", "Deployment", "ReCreate", "RollingUpdate"]},
-          {"id": "10-11", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.11] DaemonSet, Job, CronJob", "fileName": "0012-kubernetes", "tags": ["Kubernetes", "DaemonSet", "Job", "CronJob"]},
-          {"id": "10-12", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.12] Pod - Lifecycle", "fileName": "0013-kubernetes", "tags": ["Kubernetes", "Pod", "Lifecycle"]},
-          {"id": "10-13", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.13] Pod - ReadinessProbe, LivenessProb", "fileName": "0014-kubernetes", "tags": ["Kubernetes", "Pod", "ReadinessProbe", "LivenessProbe"]},
-          {"id": "10-14", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.14] Pod - QoS Classes", "fileName": "0015-kubernetes", "tags": ["Kubernetes", "Pod", "QoS Classes"]},
-          {"id": "10-15", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016-kubernetes", "tags": ["Kubernetes", "Pod", "Node Scheduling", "NodeSelector"]}
+          {
+            "id": "10-01",
+            "displayName": "대세는 쿠버네티스",
+            "children": [
+              {"id": "10-01-01", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.01] Kubernetes 사용 이유", "fileName": "0002-kubernetes", "tags": ["Kubernetes", "introduce"]},
+              {"id": "10-01-02", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.02] VM 과 Container 비교", "fileName": "0003-kubernetes", "tags": ["Kubernetes"]},
+              {"id": "10-01-03", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.03] Kubernetes 훑어보기", "fileName": "0004-kubernetes", "tags": ["Kubernetes", "Pod", "Container"]},
+              {"id": "10-01-04", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.04] Pod (Container, Label, NodeSchedule)", "fileName": "0005-kubernetes", "tags": ["Kubernetes", "Pod", "Container", "Label", "NodeSchedule"]},
+              {"id": "10-01-05", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.05] Service (ClusterIP, NodePort, LoadBalancer)", "fileName": "0006-kubernetes", "tags": ["Kubernetes", "Service", "ClusterIP", "NodePort", "LoadBalancer"]},
+              {"id": "10-01-06", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.06] Volume (emptyDir, hostPath, PVC/PV)", "fileName": "0007-kubernetes", "tags": ["Kubernetes", "Volume", "emptyDir", "hostPath", "PVC/PV"]},
+              {"id": "10-01-07", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.07] ConfigMap, Secret (Env, Mount)", "fileName": "0008-kubernetes", "tags": ["Kubernetes", "ConfigMap", "Secret", "Environment Variables", "Volume Mount"]},
+              {"id": "10-01-08", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.08] Namespace, ResourceQuota, LimitRange", "fileName": "0009-kubernetes", "tags": ["Kubernetes", "Namespace", "ResourceQuota", "LimitRange"]},
+              {"id": "10-01-09", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)", "fileName": "0010-kubernetes", "tags": ["Kubernetes", "Controller", "ReplicaSet"]},
+              {"id": "10-01-10", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.10] Deployment (Recreate, RollingUpdate)", "fileName": "0011-kubernetes", "tags": ["Kubernetes", "Deployment", "ReCreate", "RollingUpdate"]},
+              {"id": "10-01-11", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.11] DaemonSet, Job, CronJob", "fileName": "0012-kubernetes", "tags": ["Kubernetes", "DaemonSet", "Job", "CronJob"]},
+              {"id": "10-01-12", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.12] Pod - Lifecycle", "fileName": "0013-kubernetes", "tags": ["Kubernetes", "Pod", "Lifecycle"]},
+              {"id": "10-01-13", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.13] Pod - ReadinessProbe, LivenessProb", "fileName": "0014-kubernetes", "tags": ["Kubernetes", "Pod", "ReadinessProbe", "LivenessProbe"]},
+              {"id": "10-01-14", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.14] Pod - QoS Classes", "fileName": "0015-kubernetes", "tags": ["Kubernetes", "Pod", "QoS Classes"]},
+              {"id": "10-01-15", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016-kubernetes", "tags": ["Kubernetes", "Pod", "Node Scheduling", "NodeSelector"]}
+            ]
+          },
+          {"id": "10-02", "regDate" : "2025-07-02", "lastModifiedDate" : "2025-07-02", "displayName":"Kubernetes Static Pod 개념과 설정 방법", "fileName": "0047-kubernetes-static-pod", "tags": ["Kubernetes", "Pod", "static pod"]}
         ]
       },
       {

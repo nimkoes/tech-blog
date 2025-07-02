@@ -1,0 +1,8 @@
+flowchart TD
+  subgraph 사용자 요청
+    A[사용자] --> B[kubectl apply -f pod.yaml]
+  end
+  B --> C[API Server]
+  C --> D[etcd에 저장]
+  C --> E[kubelet이 watch로 감지]
+  E --> F[Pod 생성 및 관리]
