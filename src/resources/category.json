@@ -28,7 +28,7 @@
               {"id": "10-01-15", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016-kubernetes", "tags": ["Kubernetes", "Pod", "Node Scheduling", "NodeSelector"]}
             ]
           },
-          {"id": "10-02", "regDate" : "2025-07-02", "lastModifiedDate" : "2025-07-02", "displayName":"Kubernetes Static Pod 개념과 설정 방법", "fileName": "0047-kubernetes-static-pod", "tags": ["Kubernetes", "Pod", "static pod"]}
+          {"id": "10-02", "regDate" : "2025-07-02", "lastModifiedDate" : "2025-07-02", "displayName":"Kubernetes Static Pod 개념과 설정 방법", "fileName": "0056-kubernetes-static-pod", "tags": ["Kubernetes", "Pod", "static pod"]}
         ]
       },
       {
