@@ -68,7 +68,8 @@
             "displayName": "단위테스트",
             "children": [
               {"id": "30-01-01", "regDate" : "2025-06-30", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 (Unit Testing) 란", "fileName": "0045-what-is-unit-testing", "tags": ["테스트", "test"]},
-              {"id": "30-01-02", "regDate" : "2025-07-01", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 구조", "fileName": "0046-unit-testing-structure", "tags": ["테스트", "test"]}
+              {"id": "30-01-02", "regDate" : "2025-07-01", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 구조", "fileName": "0046-unit-testing-structure", "tags": ["테스트", "test"]},
+              {"id": "30-01-03", "regDate" : "2025-07-05", "lastModifiedDate" : "2025-07-05", "displayName": "좋은 단위 테스트의 4대 요소", "fileName": "0047-the-four-key-elements-of-a-good-unit-test", "tags": ["테스트", "test"]}
             ]
           }
         ]
