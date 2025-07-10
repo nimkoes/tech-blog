@@ -28,7 +28,8 @@
               {"id": "10-01-15", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016-kubernetes", "tags": ["Kubernetes", "Pod", "Node Scheduling", "NodeSelector"]}
             ]
           },
-          {"id": "10-02", "regDate" : "2025-07-02", "lastModifiedDate" : "2025-07-02", "displayName":"Kubernetes Static Pod 개념과 설정 방법", "fileName": "0056-kubernetes-static-pod", "tags": ["Kubernetes", "Pod", "static pod"]}
+          {"id": "10-02", "regDate" : "2025-07-02", "lastModifiedDate" : "2025-07-02", "displayName":"Kubernetes Static Pod 개념과 설정 방법", "fileName": "0056-kubernetes-static-pod", "tags": ["Kubernetes", "Pod", "static pod"]},
+          {"id": "10-03", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName":"Kubernetes Controller 개념과 설정 방법", "fileName": "0057-k8s-controller", "tags": ["Kubernetes", "Pod", "static pod"]}
         ]
       },
       {
@@ -67,10 +68,10 @@
             "id": "30-01",
             "displayName": "단위테스트",
             "children": [
-              {"id": "30-01-01", "regDate" : "2025-06-30", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 (Unit Testing) 란", "fileName": "0045-what-is-unit-testing", "tags": ["테스트", "test"]},
-              {"id": "30-01-02", "regDate" : "2025-07-01", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 구조", "fileName": "0046-unit-testing-structure", "tags": ["테스트", "test"]},
-              {"id": "30-01-03", "regDate" : "2025-07-05", "lastModifiedDate" : "2025-07-05", "displayName": "좋은 단위 테스트의 4대 요소", "fileName": "0047-the-four-key-elements-of-a-good-unit-test", "tags": ["테스트", "test"]},
-              {"id": "30-01-04", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName": "목과 테스트 취약성", "fileName": "0048-mock-and-test-fragility", "tags": ["테스트", "test"]}
+              {"id": "30-01-01", "regDate" : "2025-06-30", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 (Unit Testing) 란", "fileName": "0045-what-is-unit-testing", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
+              {"id": "30-01-02", "regDate" : "2025-07-01", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 구조", "fileName": "0046-unit-testing-structure", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
+              {"id": "30-01-03", "regDate" : "2025-07-05", "lastModifiedDate" : "2025-07-05", "displayName": "좋은 단위 테스트의 4대 요소", "fileName": "0047-the-four-key-elements-of-a-good-unit-test", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
+              {"id": "30-01-04", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName": "목과 테스트 취약성", "fileName": "0048-mock-and-test-fragility", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
             ]
           }
         ]
