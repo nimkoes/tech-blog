@@ -29,7 +29,8 @@
             ]
           },
           {"id": "10-02", "regDate" : "2025-07-02", "lastModifiedDate" : "2025-07-02", "displayName":"Kubernetes Static Pod 개념과 설정 방법", "fileName": "0056-kubernetes-static-pod", "tags": ["Kubernetes", "Pod", "static pod"]},
-          {"id": "10-03", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName":"Kubernetes Controller 개념과 설정 방법", "fileName": "0057-k8s-controller", "tags": ["Kubernetes", "Pod", "static pod"]}
+          {"id": "10-03", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName":"Kubernetes Controller 개념과 설정 방법", "fileName": "0057-k8s-controller", "tags": ["Kubernetes", "Pod", "controller"]},
+          {"id": "10-04", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName":"Kubernetes apply vs. create 정리", "fileName": "0058-k8s-apply-create", "tags": ["Kubernetes", "cli", "apply", "create"]}
         ]
       },
       {
