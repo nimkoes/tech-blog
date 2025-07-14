@@ -89,7 +89,7 @@
         "displayName": "기반지식",
         "children": [
           {"id": "50-01", "regDate" : "2025-06-12", "lastModifiedDate" : "2025-06-12", "displayName": "동기/비동기 + 블로킹/논블로킹 네 가지 조합 정리", "fileName": "0044-syncAsyncBlockNonBlock", "tags": ["theory", "sync", "async", "blocking", "non blocking"]},
-          {"id": "50-02", "regDate" : "2025-07-14", "lastModifiedDate" : "2025-07-14", "displayName": "네트워크 처리 흐름 정리", "fileName": "0059-network-traffic-flow", "tags": ["network", "traffic"]}
+          {"id": "50-02", "regDate" : "2025-07-13", "lastModifiedDate" : "2025-07-14", "displayName": "네트워크 처리 흐름 정리", "fileName": "0059-network-traffic-flow", "tags": ["network", "traffic"]}
         ]
       },
       {
