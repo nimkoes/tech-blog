@@ -71,6 +71,7 @@
 **브라우저 HTTP 요청 생성 과정**
 
 **1단계: HTTP 메서드 결정**
+
 ```
 요청 타입 분석:
 ┌─────────────┬────────┬──────────────┬───────────┐
@@ -83,6 +84,7 @@
 ```
 
 **2단계: HTTP 헤더 생성**
+
 ```
 HTTP 헤더 생성 과정:
 ┌─────────────┬───────────────────┬────────────────┬─────────────────┐
@@ -98,6 +100,7 @@ HTTP 헤더 생성 과정:
 ```
 
 **3단계: HTTP 요청 라인 생성**
+
 ```
 HTTP 요청 라인 구조:
 ┌──────────────┬──────────────┬──────────────┬───────────────┐
@@ -127,6 +130,7 @@ HTTP 요청 구조 (바이트 단위):
 ```
 
 **HTTP 요청 바이트 분석**
+
 ```
 HTTP 요청 바이트 구조:
 ┌─────────┬─────────────┬─────────┬──────────┬──────────────┐
@@ -157,6 +161,7 @@ HTTP 요청 바이트 구조:
 ```
 
 **쉽게 이해하기**
+
 - 브라우저는 마치 편지를 쓰기 전에 "어디로 보낼까?"를 결정하는 것과 같습니다
 - URL 파싱은 마치 편지봉투에 주소를 쓰는 것과 같습니다
 - HTTP 헤더는 마치 편지에 "발신자 정보"와 "특별 요청사항"을 적는 것과 같습니다
@@ -210,6 +215,7 @@ HTTP 요청 바이트 구조:
 **브라우저 DNS 캐시 검색 알고리즘 (상세)**
 
 **1단계: 캐시 키 생성 및 정규화**
+
 ```
 도메인명 정규화 과정:
 ┌─────────────────┬────────────────┬─────────────┬───────────────┬────────────┐
@@ -223,6 +229,7 @@ HTTP 요청 바이트 구조:
 ```
 
 **2단계: 해시 테이블 검색**
+
 ```
 해시 테이블 검색 과정:
 ┌──────┬────────────────────────┬────────────┬──────────────┬────────────┐
@@ -236,6 +243,7 @@ HTTP 요청 바이트 구조:
 ```
 
 **3단계: TTL 검증 (캐시 히트 시)**
+
 ```
 TTL 검증 과정:
 ┌────────────────┬─────────────┬──────────────┬──────┬─────────┬─────────┐
@@ -248,6 +256,7 @@ TTL 검증 과정:
 ```
 
 **4단계: 캐시 미스 처리**
+
 ```
 캐시 미스 처리 과정:
 ┌──────┬───────────────┬────────────────┬─────────────┬─────────┬───────────────┐
@@ -265,6 +274,7 @@ TTL 검증 과정:
 **상태 스냅샷 #2: 운영체제 DNS 리졸버 내부 상태**
 
 **운영체제 DNS 캐시 테이블 (상세)**
+
 ```
 OS DNS 캐시 테이블 (Linux /proc/net/dns_resolver):
 ┌────────────────┬────────────────┬──────┬─────────────┬──────────────┬─────────────┬─────────────┐
@@ -278,6 +288,7 @@ OS DNS 캐시 테이블 (Linux /proc/net/dns_resolver):
 ```
 
 **운영체제 DNS 설정 테이블**
+
 ```
 OS DNS 설정 (/etc/resolv.conf):
 ┌────────────┬──────────────────────┬────────┬──────────┬────────┐
@@ -295,6 +306,7 @@ OS DNS 설정 (/etc/resolv.conf):
 **운영체제 DNS 리졸버 알고리즘 (상세)**
 
 **1단계: 로컬 DNS 캐시 확인**
+
 ```
 로컬 DNS 캐시 검색 과정:
 ┌──────┬────────────────────────┬─────────────┬─────────────┬───────────────┐
@@ -308,6 +320,7 @@ OS DNS 설정 (/etc/resolv.conf):
 ```
 
 **2단계: hosts 파일 확인**
+
 ```
 hosts 파일 검색 과정:
 ┌──────┬─────────────────────────┬────────────┬───────────┬─────────────┐
@@ -321,6 +334,7 @@ hosts 파일 검색 과정:
 ```
 
 **3단계: DNS 서버 선택 및 질의**
+
 ```
 DNS 서버 선택 알고리즘:
 ┌───────────┬──────────────┬──────────┬─────────┬────────────┬────────────┐
@@ -333,6 +347,7 @@ DNS 서버 선택 알고리즘:
 ```
 
 **DNS 질의 패킷 생성 (상세)**
+
 ```
 DNS 질의 패킷 구조:
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -354,6 +369,7 @@ DNS 질의 패킷 구조:
 ```
 
 **DNS 질의 패킷 바이트 분석**
+
 ```
 DNS 패킷 바이트 구조:
 ┌────────┬──────────────┬──────────────────┬───────────────┬─────────────┬─────────────┐
@@ -378,138 +394,140 @@ DNS 패킷 바이트 구조:
 ```
 
 **운영체제 DNS 리졸버 상태 머신 (상세)**
+
 ```
 OS DNS 리졸버 상태 전이:
-┌──────────────┬─────────────────┬─────────────┬───────────────┬──────────────────┬─────────────┐
-│ current state│ event           │ next state  │ action        │ reference table  │ timeout     │
-├──────────────┼─────────────────┼─────────────┼───────────────┼──────────────────┼─────────────┤
-│ IDLE         │ 브라우저 요청   │ CACHE_CHECK │ OS 캐시 검색   │ /proc/net/dns    │ -           │
-│ CACHE_CHECK  │ 캐시 히트       │ RESOLVED    │ IP 반환       │ cache table      │ -           │
-│ CACHE_CHECK  │ 캐시 미스       │ HOSTS_CHECK │ hosts 파일    │ /etc/hosts       │ -           │
-│ HOSTS_CHECK  │ hosts 히트      │ RESOLVED    │ IP 반환       │ hosts table      │ -           │
-│ HOSTS_CHECK  │ hosts 미스      │ DNS_QUERY   │ DNS 서버      │ resolv.conf      │ -           │
-│ DNS_QUERY    │ DNS 응답        │ RESOLVED    │ IP 반환       │ network stack    │ -           │
-│ DNS_QUERY    │ DNS 타임아웃    │ RETRY       │ 재시도        │ retry logic      │ 2초         │
-│ RETRY        │ 최대 재시도     │ FAILED      │ 에러 처리      │ error handler    │ 3회         │
-│ RESOLVED     │ 캐시 업데이트   │ IDLE        │ 캐시 저장      │ cache table      │ -           │
-└──────────────┴─────────────────┴─────────────┴───────────────┴──────────────────┴─────────────┘
+┌───────────────┬─────────────────┬─────────────┬─────────────────┬──────────────────┬─────────┐
+│ current state │ event           │ next state  │ action          │ reference table  │ timeout │
+├───────────────┼─────────────────┼─────────────┼─────────────────┼──────────────────┼─────────┤
+│ IDLE          │ browser request │ CACHE_CHECK │ OS cache seatch │ /proc/net/dns    │ -       │
+│ CACHE_CHECK   │ cache hit       │ RESOLVED    │ IP return       │ cache table      │ -       │
+│ CACHE_CHECK   │ cache miss      │ HOSTS_CHECK │ hosts file      │ /etc/hosts       │ -       │
+│ HOSTS_CHECK   │ hosts hit       │ RESOLVED    │ IP return       │ hosts table      │ -       │
+│ HOSTS_CHECK   │ hosts miss      │ DNS_QUERY   │ DNS server      │ resolv.conf      │ -       │
+│ DNS_QUERY     │ DNS response    │ RESOLVED    │ IP return       │ network stack    │ -       │
+│ DNS_QUERY     │ DNS timeout     │ RETRY       │ retry           │ retry logic      │ 2s      │
+│ RETRY         │ maximum retry   │ FAILED      │ catch exception │ error handler    │ 3 times │
+│ RESOLVED      │ cache update    │ IDLE        │ save cache      │ cache table      │ -       │
+└───────────────┴─────────────────┴─────────────┴─────────────────┴──────────────────┴─────────┘
 ```
 
 **브라우저 내부 DNS 상태 머신 (상세)**
 
 ```
 DNS 상태 전이 머신:
-┌──────────────┬─────────────────┬─────────────┬───────────────┬──────────────────┬─────────────┐
-│ current state│ event           │ next state  │ action        │ reference table  │ timeout     │
-├──────────────┼─────────────────┼─────────────┼───────────────┼──────────────────┼─────────────┤
-│ IDLE         │ URL 입력        │ CACHE_CHECK │ 캐시 검색      │ browser cache    │ -           │
-│ CACHE_CHECK  │ 캐시 히트       │ RESOLVED    │ IP 반환       │ cache table      │ -           │
-│ CACHE_CHECK  │ 캐시 미스       │ HOSTS_CHECK │ hosts 파일    │ /etc/hosts       │ -           │
-│ HOSTS_CHECK  │ hosts 히트      │ RESOLVED    │ IP 반환       │ hosts table      │ -           │
-│ HOSTS_CHECK  │ hosts 미스      │ OS_RESOLVE  │ OS 호출       │ OS resolver      │ -           │
-│ OS_RESOLVE   │ OS 응답         │ RESOLVED    │ IP 반환       │ network stack    │ -           │
-│ OS_RESOLVE   │ OS 타임아웃     │ FAILED      │ 에러 처리      │ error handler    │ 5초         │
-│ RESOLVED     │ 캐시 업데이트   │ IDLE        │ 캐시 저장      │ cache table      │ -           │
-└──────────────┴─────────────────┴─────────────┴───────────────┴──────────────────┴─────────────┘
+┌───────────────┬──────────────┬─────────────┬─────────────────┬─────────────────┬─────────┐
+│ current state │ event        │ next state  │ action          │ reference table │ timeout │
+├───────────────┼──────────────┼─────────────┼─────────────────┼─────────────────┼─────────┤
+│ IDLE          │ URL input    │ CACHE_CHECK │ cache search    │ browser cache   │ -       │
+│ CACHE_CHECK   │ cache hit    │ RESOLVED    │ IP return       │ cache table     │ -       │
+│ CACHE_CHECK   │ cache miss   │ HOSTS_CHECK │ hosts file      │ /etc/hosts      │ -       │
+│ HOSTS_CHECK   │ hosts hit    │ RESOLVED    │ IP return       │ hosts table     │ -       │
+│ HOSTS_CHECK   │ hosts miss   │ OS_RESOLVE  │ OS call         │ OS resolver     │ -       │
+│ OS_RESOLVE    │ OS response  │ RESOLVED    │ IP return       │ network stack   │ -       │
+│ OS_RESOLVE    │ OS timeout   │ FAILED      │ cache exception │ error handler   │ 5s      │
+│ RESOLVED      │ cache update │ IDLE        │ save cache      │ cache table     │ -       │
+└───────────────┴──────────────┴─────────────┴─────────────────┴─────────────────┴─────────┘
 ```
 
 **브라우저 DNS API 호출 상세**
 
 **Chrome 브라우저 (V8 엔진) - 상세 구현**
+
 ```javascript
 // Chrome V8 엔진 DNS 리졸버 상세 구현
 class ChromeDNSResolver {
-    constructor() {
-        this.cache = new Map();
-        this.pendingRequests = new Map();
-        this.maxCacheSize = 1000;
-        this.defaultTTL = 300; // 5분
+  constructor() {
+    this.cache = new Map();
+    this.pendingRequests = new Map();
+    this.maxCacheSize = 1000;
+    this.defaultTTL = 300; // 5분
+  }
+
+  async resolve(hostname) {
+    // 1. 캐시 키 생성 및 정규화
+    const normalizedHostname = this.normalizeHostname(hostname);
+    const cacheKey = this.generateCacheKey(normalizedHostname);
+
+    // 2. 브라우저 캐시 확인
+    const cached = this.cache.get(cacheKey);
+    if (cached && !this.isExpired(cached)) {
+      console.log(`DNS 캐시 히트: ${hostname} -> ${cached.ip}`);
+      return cached.ip;
     }
-    
-    async resolve(hostname) {
-        // 1. 캐시 키 생성 및 정규화
-        const normalizedHostname = this.normalizeHostname(hostname);
-        const cacheKey = this.generateCacheKey(normalizedHostname);
-        
-        // 2. 브라우저 캐시 확인
-        const cached = this.cache.get(cacheKey);
-        if (cached && !this.isExpired(cached)) {
-            console.log(`DNS 캐시 히트: ${hostname} -> ${cached.ip}`);
-            return cached.ip;
-        }
-        
-        // 3. 진행 중인 요청 확인
-        if (this.pendingRequests.has(cacheKey)) {
-            return this.pendingRequests.get(cacheKey);
-        }
-        
-        // 4. OS DNS 리졸버 호출
-        const promise = this.resolveWithOS(normalizedHostname);
-        this.pendingRequests.set(cacheKey, promise);
-        
-        try {
-            const result = await promise;
-            this.updateCache(cacheKey, result);
-            this.pendingRequests.delete(cacheKey);
-            return result.ip;
-        } catch (error) {
-            this.pendingRequests.delete(cacheKey);
-            throw error;
-        }
+
+    // 3. 진행 중인 요청 확인
+    if (this.pendingRequests.has(cacheKey)) {
+      return this.pendingRequests.get(cacheKey);
     }
-    
-    normalizeHostname(hostname) {
-        return hostname.toLowerCase().replace(/\.$/, '');
+
+    // 4. OS DNS 리졸버 호출
+    const promise = this.resolveWithOS(normalizedHostname);
+    this.pendingRequests.set(cacheKey, promise);
+
+    try {
+      const result = await promise;
+      this.updateCache(cacheKey, result);
+      this.pendingRequests.delete(cacheKey);
+      return result.ip;
+    } catch (error) {
+      this.pendingRequests.delete(cacheKey);
+      throw error;
     }
-    
-    generateCacheKey(hostname) {
-        // FNV-1a 해시 함수 사용
-        let hash = 0x811c9dc5;
-        for (let i = 0; i < hostname.length; i++) {
-            const char = hostname.charCodeAt(i);
-            hash ^= char;
-            hash = (hash * 0x01000193) >>> 0; // 32비트 정수로 변환
-        }
-        return hash;
+  }
+
+  normalizeHostname(hostname) {
+    return hostname.toLowerCase().replace(/\.$/, '');
+  }
+
+  generateCacheKey(hostname) {
+    // FNV-1a 해시 함수 사용
+    let hash = 0x811c9dc5;
+    for (let i = 0; i < hostname.length; i++) {
+      const char = hostname.charCodeAt(i);
+      hash ^= char;
+      hash = (hash * 0x01000193) >>> 0; // 32비트 정수로 변환
     }
-    
-    isExpired(cachedEntry) {
-        const now = Date.now();
-        return (now - cachedEntry.timestamp) > (cachedEntry.ttl * 1000);
-    }
-    
-    async resolveWithOS(hostname) {
-        // 운영체제 DNS 리졸버 호출
-        return new Promise((resolve, reject) => {
-            const timeout = setTimeout(() => {
-                reject(new Error('DNS resolution timeout'));
-            }, 5000);
-            
-            // 실제 OS 호출 (Node.js 환경 시뮬레이션)
-            process.nextTick(() => {
-                clearTimeout(timeout);
-                resolve({
-                    ip: '20.123.45.67',
-                    ttl: 300,
-                    timestamp: Date.now()
-                });
-            });
+    return hash;
+  }
+
+  isExpired(cachedEntry) {
+    const now = Date.now();
+    return (now - cachedEntry.timestamp) > (cachedEntry.ttl * 1000);
+  }
+
+  async resolveWithOS(hostname) {
+    // 운영체제 DNS 리졸버 호출
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        reject(new Error('DNS resolution timeout'));
+      }, 5000);
+
+      // 실제 OS 호출 (Node.js 환경 시뮬레이션)
+      process.nextTick(() => {
+        clearTimeout(timeout);
+        resolve({
+          ip: '20.123.45.67',
+          ttl: 300,
+          timestamp: Date.now()
         });
+      });
+    });
+  }
+
+  updateCache(cacheKey, result) {
+    this.cache.set(cacheKey, {
+      ip: result.ip,
+      ttl: result.ttl,
+      timestamp: result.timestamp
+    });
+
+    // 캐시 크기 제한
+    if (this.cache.size > this.maxCacheSize) {
+      const firstKey = this.cache.keys().next().value;
+      this.cache.delete(firstKey);
     }
-    
-    updateCache(cacheKey, result) {
-        this.cache.set(cacheKey, {
-            ip: result.ip,
-            ttl: result.ttl,
-            timestamp: result.timestamp
-        });
-        
-        // 캐시 크기 제한
-        if (this.cache.size > this.maxCacheSize) {
-            const firstKey = this.cache.keys().next().value;
-            this.cache.delete(firstKey);
-        }
-    }
+  }
 }
 ```
 
@@ -518,6 +536,7 @@ class ChromeDNSResolver {
 **상태 스냅샷 #3: 네트워크 스택 DNS 패킷 처리**
 
 **UDP 소켓 생성 및 상태 관리**
+
 ```
 UDP 소켓 상태 테이블:
 ┌──────────────┬───────────────┬────────────┬───────────┬──────┬──────────────┐
@@ -530,87 +549,93 @@ UDP 소켓 상태 테이블:
 ```
 
 **UDP 소켓 생성 과정 (상세)**
+
 ```
 UDP 소켓 생성 알고리즘:
-┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
-│ step         │ operation            │ syscall     │ parameters   │ result      │ next action │
-├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-│ 1            │ 소켓 생성            │ socket()    │ AF_INET, SOCK_DGRAM│ fd=5     │ 바인딩      │
-│ 2            │ 소켓 옵션 설정       │ setsockopt()│ SO_REUSEADDR │ SUCCESS     │ 바인딩      │
-│ 3            │ 바인딩               │ bind()      │ 192.168.1.100:0│ SUCCESS   │ 연결        │
-│ 4            │ 연결 설정             │ connect()   │ 168.126.63.1:53│ SUCCESS   │ 전송        │
-│ 5            │ 데이터 전송           │ sendto()    │ DNS 패킷     │ 32 bytes   │ 응답 대기    │
-└──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┴─────────────┘
+┌──────┬───────────────────┬──────────────┬─────────────────────┬──────────┬───────────────┐
+│ step │ operation         │ syscall      │ parameters          │ result   │ next action   │
+├──────┼───────────────────┼──────────────┼─────────────────────┼──────────┼───────────────┤
+│ 1    │ create socket     │ socket()     │ AF_INET, SOCK_DGRAM │ fd=5     │ binding       │
+│ 2    │ set socker option │ setsockopt() │ SO_REUSEADDR        │ SUCCESS  │ binding       │
+│ 3    │ binding           │ bind()       │ 192.168.1.100:0     │ SUCCESS  │ connection    │
+│ 4    │ set connection    │ connect()    │ 168.126.63.1:53     │ SUCCESS  │ transfer      │
+│ 5    │ data transfer     │ sendto()     │ DNS packet          │ 32 bytes │ wait response │
+└──────┴───────────────────┴──────────────┴─────────────────────┴──────────┴───────────────┘
 ```
 
 **UDP 헤더 생성 (상세)**
+
 ```
 UDP 헤더 구조:
-┌─────────────────────────────────────────────────────┐
-│ UDP Header (8 bytes)                                │
-├─────────────────────────────────────────────────────┤
-│ Source Port: 54321 (2 bytes) - 출발 포트 (랜덤 할당)    │
-│ Dest Port: 53 (2 bytes) - 목적 포트 (DNS 표준)         │
-│ Length: 40 (2 bytes) - UDP 헤더 + 데이터 길이 (8+32)    │
-│ Checksum: 0xABCD (2 bytes) - 체크섬 (선택적)           │
-└─────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│ UDP Header (8 bytes)                                           │
+├────────────────────────────────────────────────────────────────┤
+│ Source Port: 54321 (2 bytes) - Source Port (Random Assignment) │
+│ Dest Port: 53 (2 bytes) - Destination Port (DNS Standard)      │
+│ Length: 40 (2 bytes) - UDP Header + Data Length (8+32)         │
+│ Checksum: 0xABCD (2 bytes) - Checksum (Optional)               │
+└────────────────────────────────────────────────────────────────┘
 ```
 
 **UDP 패킷 바이트 분석**
+
 ```
 UDP 패킷 바이트 구조:
-┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┬─────────────┐
-│ offset       │ bytes       │ value        │ meaning     │ encoding    │ description │
-├──────────────┼─────────────┼──────────────┼─────────────┼─────────────┼─────────────┤
-│ 0-1          │ 0xD431      │ 54321        │ 출발 포트    │ big-endian  │ 랜덤 할당    │
-│ 2-3          │ 0x0035      │ 53           │ 목적 포트    │ big-endian  │ DNS 표준     │
-│ 4-5          │ 0x0028      │ 40           │ 패킷 길이    │ big-endian  │ 헤더+데이터  │
-│ 6-7          │ 0xABCD      │ 체크섬       │ 무결성 검증   │ big-endian  │ 선택적       │
-│ 8-39         │ DNS 데이터    │ DNS 질의     │ DNS 프로토콜 │ binary      │ DNS 패킷    │
-└──────────────┴─────────────┴──────────────┴─────────────┴─────────────┴─────────────┘
+┌────────┬──────────┬───────────┬──────────────────┬────────────┬───────────────────┐
+│ offset │ bytes    │ value     │ meaning          │ encoding   │ description       │
+├────────┼──────────┼───────────┼──────────────────┼────────────┼───────────────────┤
+│ 0-1    │ 0xD431   │ 54321     │ Source Port      │ big-endian │ Random Assignment │
+│ 2-3    │ 0x0035   │ 53        │ Destination Port │ big-endian │ DNS Standard      │
+│ 4-5    │ 0x0028   │ 40        │ Packet Length    │ big-endian │ Header+Data       │
+│ 6-7    │ 0xABCD   │ Checksum  │ Integrity Check  │ big-endian │ Optional          │
+│ 8-39   │ DNS Data │ DNS Query │ DNS Protocol     │ binary     │ DNS Packet        │
+└────────┴──────────┴───────────┴──────────────────┴────────────┴───────────────────┘
 ```
 
 **IP 헤더 생성 (상세)**
+
 ```
 IP 헤더 구조:
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │ IP Header (20 bytes)                                                          │
 ├─────────────────────────────────────────────────────────────────────────────────┤
 │ Version: 4 (4 bits) - IPv4                                                   │
-│ IHL: 5 (4 bits) - 헤더 길이 (5*4=20 bytes)                                   │
-│ ToS: 0x00 (1 byte) - 서비스 타입 (일반)                                       │
-│ Total Length: 60 (2 bytes) - 전체 패킷 길이 (20+8+32)                         │
-│ ID: 0x1234 (2 bytes) - 패킷 식별자                                           │
+│ IHL: 5 (4 bits) - Header Length (5*4=20 bytes)                                   │
+│ ToS: 0x00 (1 byte) - Type of Service (Normal)                                       │
+│ Total Length: 60 (2 bytes) - Total Packet Length (20+8+32)                         │
+│ ID: 0x1234 (2 bytes) - Packet Identifier                                           │
 │ Flags: 0x4000 (3 bits) - Don't Fragment                                     │
-│ Fragment Offset: 0 (13 bits) - 단편화 오프셋                                 │
-│ TTL: 64 (1 byte) - 생존 시간                                                 │
-│ Protocol: 17 (1 byte) - UDP 프로토콜                                         │
-│ Checksum: 0xABCD (2 bytes) - IP 헤더 체크섬                                  │
-│ Source IP: 192.168.1.100 (4 bytes) - 출발 IP                                 │
-│ Dest IP: 168.126.63.1 (4 bytes) - 목적 IP                                    │
+│ Fragment Offset: 0 (13 bits) - Fragment Offset                                 │
+│ TTL: 64 (1 byte) - Time to Live                                                 │
+│ Protocol: 17 (1 byte) - UDP Protocol                                         │
+│ Checksum: 0xABCD (2 bytes) - IP Header Checksum                                  │
+│ Source IP: 192.168.1.100 (4 bytes) - Source IP                                 │
+│ Dest IP: 168.126.63.1 (4 bytes) - Destination IP                                    │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **IP 패킷 바이트 분석**
+
 ```
 IP 패킷 바이트 구조:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┬─────────────┐
 │ offset       │ bytes       │ value        │ meaning     │ encoding    │ description │
 ├──────────────┼─────────────┼──────────────┼─────────────┼─────────────┼─────────────┤
-│ 0            │ 0x45        │ Version=4, IHL=5│ IPv4 헤더 │ binary      │ 헤더 정보    │
-│ 1            │ 0x00        │ ToS=0        │ 일반 서비스  │ binary      │ 서비스 타입  │
-│ 2-3          │ 0x003C      │ 60           │ 전체 길이    │ big-endian  │ 패킷 크기    │
-│ 4-5          │ 0x1234      │ 패킷 ID      │ 식별자      │ big-endian  │ 랜덤 생성    │
-│ 6-7          │ 0x4000      │ Don't Fragment│ 플래그     │ big-endian  │ 단편화 방지  │
-│ 8            │ 0x40        │ TTL=64       │ 생존 시간    │ binary      │ 홉 카운트    │
-│ 9            │ 0x11        │ Protocol=17  │ UDP         │ binary      │ 프로토콜     │
-│ 10-11        │ 0xABCD      │ 체크섬       │ 무결성 검증   │ big-endian  │ 헤더 체크섬  │
-│ 12-15        │ 0xC0A80164  │ 192.168.1.100│ 출발 IP     │ big-endian  │ 로컬 IP      │
-│ 16-19        │ 0xA87E3F01  │ 168.126.63.1 │ 목적 IP     │ big-endian  │ DNS 서버 IP  │
+│ 0            │ 0x45        │ Version=4, IHL=5│ IPv4 Header │ binary      │ Header Info    │
+│ 1            │ 0x00        │ ToS=0        │ Normal Service  │ binary      │ Service Type  │
+│ 2-3          │ 0x003C      │ 60           │ Total Length    │ big-endian  │ Packet Size    │
+│ 4-5          │ 0x1234      │ Packet ID      │ Identifier      │ big-endian  │ Random Generation    │
+│ 6-7          │ 0x4000      │ Don't Fragment│ Flags     │ big-endian  │ No Fragmentation  │
+│ 8            │ 0x40        │ TTL=64       │ Time to Live    │ binary      │ Hop Count    │
+│ 9            │ 0x11        │ Protocol=17  │ UDP         │ binary      │ Protocol     │
+│ 10-11        │ 0xABCD      │ Checksum       │ Integrity Check   │ big-endian  │ Header Checksum  │
+│ 12-15        │ 0xC0A80164  │ 192.168.1.100│ Source IP     │ big-endian  │ Local IP      │
+│ 16-19        │ 0xA87E3F01  │ 168.126.63.1 │ Destination IP     │ big-endian  │ DNS Server IP  │
 └──────────────┴─────────────┴──────────────┴─────────────┴─────────────┴─────────────┘
 ```
 
 **라우팅 테이블 검색 (상세)**
+
 ```
 라우팅 테이블 구조:
 ┌────────────────┬─────────────┬───────────┬────────┬───────┬────────┐
@@ -624,19 +649,21 @@ IP 패킷 바이트 구조:
 ```
 
 **라우팅 결정 알고리즘 (상세)**
+
 ```
 라우팅 테이블 검색 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
 │ step         │ operation            │ target IP   │ match rule   │ result      │ next action │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-│ 1            │ 168.126.63.1 검색   │ 168.126.63.1│ 정확 매치     │ MATCH       │ 게이트웨이   │
-│ 2            │ 게이트웨이 확인      │ 192.168.1.1 │ 로컬 네트워크 │ LOCAL       │ ARP 테이블   │
-│ 3            │ 인터페이스 확인      │ eth0        │ 이더넷       │ READY       │ MAC 주소     │
-│ 4            │ MAC 주소 확인        │ ARP 캐시    │ MAC 검색     │ PENDING     │ ARP 요청     │
+│ 1            │ 168.126.63.1 Search   │ 168.126.63.1│ Exact Match     │ MATCH       │ Gateway   │
+│ 2            │ Gateway Check      │ 192.168.1.1 │ Local Network │ LOCAL       │ ARP Table   │
+│ 3            │ Interface Check      │ eth0        │ Ethernet       │ READY       │ MAC Address     │
+│ 4            │ MAC Address Check        │ ARP Cache    │ MAC Search     │ PENDING     │ ARP Request     │
 └──────────────┴──────────────────────┴─────────────┴─────────────┴─────────────┴─────────────┘
 ```
 
 **라우팅 테이블 검색 알고리즘 (상세 구현)**
+
 ```cpp
 // Linux 커널 라우팅 테이블 검색 알고리즘
 struct route_entry {
@@ -700,20 +727,21 @@ public:
 ```
 
 **라우팅 테이블 상태 머신**
+
 ```
 라우팅 상태 전이:
 ┌──────────────┬─────────────────┬─────────────┬───────────────┬──────────────────┬─────────────┐
 │ current state│ event           │ next state  │ action        │ reference table  │ timeout     │
 ├──────────────┼─────────────────┼─────────────┼───────────────┼──────────────────┼─────────────┤
-│ IDLE         │ 패킷 수신       │ LOOKUP      │ 라우팅 테이블  │ routing table    │ -           │
-│ LOOKUP       │ 정확 매치       │ GATEWAY     │ 게이트웨이    │ route cache      │ -           │
-│ LOOKUP       │ 부분 매치       │ GATEWAY     │ 게이트웨이    │ route cache      │ -           │
-│ LOOKUP       │ 매치 없음       │ DEFAULT     │ 기본 게이트웨이│ default route    │ -           │
-│ GATEWAY      │ 로컬 네트워크   │ LOCAL       │ 직접 전송      │ interface table  │ -           │
-│ GATEWAY      │ 원격 네트워크   │ FORWARD     │ 게이트웨이    │ ARP table        │ -           │
-│ LOCAL        │ MAC 주소 확인   │ READY       │ 프레임 생성    │ ARP cache        │ -           │
-│ FORWARD      │ MAC 주소 확인   │ READY       │ 프레임 생성    │ ARP cache        │ -           │
-│ READY        │ 전송            │ IDLE        │ 패킷 전송      │ network interface│ -           │
+│ IDLE         │ Packet Reception       │ LOOKUP      │ Routing Table  │ routing table    │ -           │
+│ LOOKUP       │ Exact Match       │ GATEWAY     │ Gateway    │ route cache      │ -           │
+│ LOOKUP       │ Partial Match       │ GATEWAY     │ Gateway    │ route cache      │ -           │
+│ LOOKUP       │ No Match       │ DEFAULT     │ Default Gateway│ default route    │ -           │
+│ GATEWAY      │ Local Network   │ LOCAL       │ Direct Transmission      │ interface table  │ -           │
+│ GATEWAY      │ Remote Network   │ FORWARD     │ Gateway    │ ARP table        │ -           │
+│ LOCAL        │ MAC Address Check   │ READY       │ Frame Generation    │ ARP cache        │ -           │
+│ FORWARD      │ MAC Address Check   │ READY       │ Frame Generation    │ ARP cache        │ -           │
+│ READY        │ Transmission            │ IDLE        │ Packet Transmission      │ network interface│ -           │
 └──────────────┴─────────────────┴─────────────┴───────────────┴──────────────────┴─────────────┘
 ```
 
@@ -722,6 +750,7 @@ public:
 **상태 스냅샷 #4: ARP 캐시 및 MAC 주소 처리**
 
 **ARP 캐시 테이블 (상세)**
+
 ```
 ARP 캐시 테이블 (/proc/net/arp):
 ┌───────────────┬───────────────────┬───────────┬───────┬────────────┬───────────┐
@@ -735,101 +764,108 @@ ARP 캐시 테이블 (/proc/net/arp):
 ```
 
 **ARP 캐시 검색 알고리즘 (상세)**
+
 ```
 ARP 캐시 검색 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
 │ step         │ operation            │ target IP   │ cache lookup │ result      │ next action │
 ├──────────────┼──────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-│ 1            │ 192.168.1.1 검색    │ 192.168.1.1 │ hash table   │ HIT         │ MAC 반환     │
-│ 2            │ MAC 주소 확인        │ 00:11:22:33:44:55│ valid     │ REACHABLE   │ 프레임 생성   │
-│ 3            │ TTL 검증             │ 300s        │ timestamp    │ VALID       │ 전송 준비     │
-│ 4            │ 인터페이스 확인      │ eth0        │ interface    │ READY       │ 전송         │
+│ 1            │ 192.168.1.1 Search    │ 192.168.1.1 │ hash table   │ HIT         │ MAC Return     │
+│ 2            │ MAC Address Check        │ 00:11:22:33:44:55│ valid     │ REACHABLE   │ Frame Generation   │
+│ 3            │ TTL Validation             │ 300s        │ timestamp    │ VALID       │ Transmission Ready     │
+│ 4            │ Interface Check      │ eth0        │ interface    │ READY       │ Transmission         │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┴─────────────┘
 ```
 
 **ARP 요청 과정 (상세)**
+
 ```
 ARP 요청 생성 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
 │ step         │ operation            │ ARP type    │ target       │ result      │ next action │
 ├──────────────┼──────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-│ 1            │ ARP 요청 생성        │ REQUEST     │ 192.168.1.1  │ PACKET      │ 브로드캐스트  │
-│ 2            │ 소스 MAC 설정        │ 00:11:22:33:44:55│ eth0     │ SRC_MAC     │ 브로드캐스트  │
-│ 3            │ 목적 MAC 설정        │ FF:FF:FF:FF:FF:FF│ broadcast │ DST_MAC     │ 브로드캐스트  │
-│ 4            │ ARP 헤더 생성        │ 0x0806      │ ARP 프로토콜 │ HEADER      │ 프레임 생성   │
-│ 5            │ 이더넷 프레임 생성   │ 0x0806      │ ARP 타입     │ FRAME        │ 전송         │
+│ 1            │ ARP Request Generation        │ REQUEST     │ 192.168.1.1  │ PACKET      │ Broadcast  │
+│ 2            │ Source MAC Setting        │ 00:11:22:33:44:55│ eth0     │ SRC_MAC     │ Broadcast  │
+│ 3            │ Destination MAC Setting        │ FF:FF:FF:FF:FF:FF│ broadcast │ DST_MAC     │ Broadcast  │
+│ 4            │ ARP Header Generation        │ 0x0806      │ ARP Protocol │ HEADER      │ Frame Generation   │
+│ 5            │ Ethernet Frame Generation   │ 0x0806      │ ARP Type     │ FRAME        │ Transmission         │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┴─────────────┘
 ```
 
 **ARP 패킷 구조 (상세)**
+
 ```
 ARP 패킷 구조:
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │ ARP Header (28 bytes)                                                         │
 ├─────────────────────────────────────────────────────────────────────────────────┤
-│ Hardware Type: 1 (2 bytes) - 이더넷 (0x0001)                                  │
+│ Hardware Type: 1 (2 bytes) - Ethernet (0x0001)                                  │
 │ Protocol Type: 0x0800 (2 bytes) - IPv4                                       │
-│ Hardware Size: 6 (1 byte) - MAC 주소 길이                                     │
-│ Protocol Size: 4 (1 byte) - IP 주소 길이                                      │
-│ Operation: 1 (2 bytes) - ARP 요청 (1=REQUEST, 2=REPLY)                       │
-│ Sender MAC: 00:11:22:33:44:55 (6 bytes) - 송신자 MAC                         │
-│ Sender IP: 192.168.1.100 (4 bytes) - 송신자 IP                               │
-│ Target MAC: 00:00:00:00:00:00 (6 bytes) - 목표 MAC (알 수 없음)              │
-│ Target IP: 192.168.1.1 (4 bytes) - 목표 IP                                   │
+│ Hardware Size: 6 (1 byte) - MAC Address Length                                     │
+│ Protocol Size: 4 (1 byte) - IP Address Length                                      │
+│ Operation: 1 (2 bytes) - ARP Request (1=REQUEST, 2=REPLY)                       │
+│ Sender MAC: 00:11:22:33:44:55 (6 bytes) - Sender MAC                         │
+│ Sender IP: 192.168.1.100 (4 bytes) - Sender IP                               │
+│ Target MAC: 00:00:00:00:00:00 (6 bytes) - Target MAC (Unknown)              │
+│ Target IP: 192.168.1.1 (4 bytes) - Target IP                                   │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **ARP 패킷 바이트 분석**
+
 ```
 ARP 패킷 바이트 구조:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┬─────────────┐
 │ offset       │ bytes       │ value        │ meaning     │ encoding    │ description │
 ├──────────────┼─────────────┼──────────────┼─────────────┼─────────────┼─────────────┤
-│ 0-1          │ 0x0001      │ 1            │ 이더넷      │ big-endian  │ 하드웨어 타입│
-│ 2-3          │ 0x0800      │ 0x0800       │ IPv4        │ big-endian  │ 프로토콜 타입│
-│ 4            │ 0x06        │ 6            │ MAC 길이     │ binary      │ 하드웨어 크기│
-│ 5            │ 0x04        │ 4            │ IP 길이      │ binary      │ 프로토콜 크기│
-│ 6-7          │ 0x0001      │ 1            │ ARP 요청    │ big-endian  │ 작업 코드    │
-│ 8-13         │ 0x001122334455│ 송신자 MAC  │ 00:11:22:33:44:55│ binary    │ 송신자 MAC   │
-│ 14-17        │ 0xC0A80164  │ 192.168.1.100│ 송신자 IP   │ big-endian  │ 송신자 IP    │
-│ 18-23        │ 0x000000000000│ 목표 MAC    │ 00:00:00:00:00:00│ binary    │ 목표 MAC     │
-│ 24-27        │ 0xC0A80101  │ 192.168.1.1  │ 목표 IP     │ big-endian  │ 목표 IP      │
+│ 0-1          │ 0x0001      │ 1            │ Ethernet      │ big-endian  │ Hardware Type│
+│ 2-3          │ 0x0800      │ 0x0800       │ IPv4        │ big-endian  │ Protocol Type│
+│ 4            │ 0x06        │ 6            │ MAC Length     │ binary      │ Hardware Size│
+│ 5            │ 0x04        │ 4            │ IP Length      │ binary      │ Protocol Size│
+│ 6-7          │ 0x0001      │ 1            │ ARP Request    │ big-endian  │ Operation Code    │
+│ 8-13         │ 0x001122334455│ Sender MAC  │ 00:11:22:33:44:55│ binary    │ Sender MAC   │
+│ 14-17        │ 0xC0A80164  │ 192.168.1.100│ Sender IP   │ big-endian  │ Sender IP    │
+│ 18-23        │ 0x000000000000│ Target MAC    │ 00:00:00:00:00:00│ binary    │ Target MAC     │
+│ 24-27        │ 0xC0A80101  │ 192.168.1.1  │ Target IP     │ big-endian  │ Target IP      │
 └──────────────┴─────────────┴──────────────┴─────────────┴─────────────┴─────────────┘
 ```
 
 **이더넷 프레임 생성 (상세)**
+
 ```
 이더넷 프레임 구조:
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │ Ethernet Frame (60 bytes minimum)                                             │
 ├─────────────────────────────────────────────────────────────────────────────────┤
-│ Preamble: 0xAAAAAAAA (7 bytes) - 프레임 동기화                                │
+│ Preamble: 0xAAAAAAAA (7 bytes) - Frame Synchronization                                │
 │ SFD: 0xAB (1 byte) - Start Frame Delimiter                                   │
-│ Dest MAC: FF:FF:FF:FF:FF:FF (6 bytes) - 브로드캐스트 MAC                     │
-│ Src MAC: 00:11:22:33:44:55 (6 bytes) - 송신자 MAC                           │
-│ Type: 0x0806 (2 bytes) - ARP 프로토콜                                        │
-│ Data: ARP 패킷 (28 bytes) - ARP 헤더 + 데이터                                │
+│ Dest MAC: FF:FF:FF:FF:FF:FF (6 bytes) - Broadcast MAC                     │
+│ Src MAC: 00:11:22:33:44:55 (6 bytes) - Sender MAC                           │
+│ Type: 0x0806 (2 bytes) - ARP Protocol                                        │
+│ Data: ARP Packet (28 bytes) - ARP Header + Data                                │
 │ FCS: 0x12345678 (4 bytes) - Frame Check Sequence (CRC32)                    │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **이더넷 프레임 바이트 분석**
+
 ```
 이더넷 프레임 바이트 구조:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┬─────────────┐
 │ offset       │ bytes       │ value        │ meaning     │ encoding    │ description │
 ├──────────────┼─────────────┼──────────────┼─────────────┼─────────────┼─────────────┤
-│ 0-6          │ 0xAAAAAAAA  │ 프리앰블     │ 동기화       │ binary      │ 7 bytes     │
-│ 7            │ 0xAB        │ SFD          │ 프레임 시작   │ binary      │ 1 byte      │
-│ 8-13         │ 0xFFFFFFFFFFFF│ 브로드캐스트│ FF:FF:FF:FF:FF:FF│ binary    │ 목적 MAC     │
-│ 14-19        │ 0x001122334455│ 송신자 MAC  │ 00:11:22:33:44:55│ binary    │ 소스 MAC     │
-│ 20-21        │ 0x0806      │ ARP          │ 프로토콜 타입 │ big-endian  │ 이더타입     │
-│ 22-49        │ ARP 패킷    │ ARP 데이터   │ ARP 헤더     │ binary      │ ARP 내용     │
-│ 50-53        │ 0x12345678  │ FCS          │ 체크섬       │ big-endian  │ CRC32       │
+│ 0-6          │ 0xAAAAAAAA  │ Preamble     │ Synchronization       │ binary      │ 7 bytes     │
+│ 7            │ 0xAB        │ SFD          │ Frame Start   │ binary      │ 1 byte      │
+│ 8-13         │ 0xFFFFFFFFFFFF│ Broadcast│ FF:FF:FF:FF:FF:FF│ binary    │ Destination MAC     │
+│ 14-19        │ 0x001122334455│ Sender MAC  │ 00:11:22:33:44:55│ binary    │ Source MAC     │
+│ 20-21        │ 0x0806      │ ARP          │ Protocol Type │ big-endian  │ Ethertype     │
+│ 22-49        │ ARP Packet    │ ARP Data   │ ARP Header     │ binary      │ ARP Content     │
+│ 50-53        │ 0x12345678  │ FCS          │ Checksum       │ big-endian  │ CRC32       │
 └──────────────┴─────────────┴──────────────┴─────────────┴─────────────┴─────────────┘
 ```
 
 **ARP 캐시 관리 알고리즘 (상세 구현)**
+
 ```cpp
 // Linux 커널 ARP 캐시 관리 알고리즘
 struct arp_entry {
@@ -963,23 +999,25 @@ private:
 ```
 
 **ARP 상태 머신 (상세)**
+
 ```
 ARP 상태 전이:
 ┌──────────────┬─────────────────┬─────────────┬───────────────┬──────────────────┬─────────────┐
 │ current state│ event           │ next state  │ action        │ reference table  │ timeout     │
 ├──────────────┼─────────────────┼─────────────┼───────────────┼──────────────────┼─────────────┤
-│ IDLE         │ 패킷 전송 요청   │ ARP_LOOKUP  │ ARP 캐시 검색 │ ARP cache        │ -           │
-│ ARP_LOOKUP   │ 캐시 히트       │ READY       │ MAC 반환      │ MAC table        │ -           │
-│ ARP_LOOKUP   │ 캐시 미스       │ ARP_REQUEST │ ARP 요청      │ ARP table        │ -           │
-│ ARP_REQUEST  │ ARP 응답        │ ARP_REPLY   │ MAC 저장      │ ARP cache        │ -           │
-│ ARP_REQUEST  │ ARP 타임아웃    │ ARP_RETRY   │ 재시도        │ retry logic      │ 1초         │
-│ ARP_RETRY    │ 최대 재시도     │ FAILED      │ 에러 처리      │ error handler    │ 3회         │
-│ ARP_REPLY    │ 캐시 업데이트   │ READY       │ MAC 반환      │ ARP cache        │ -           │
-│ READY        │ 프레임 생성     │ IDLE        │ 전송          │ ethernet frame   │ -           │
+│ IDLE         │ Packet Transmission Request   │ ARP_LOOKUP  │ ARP Cache Search │ ARP cache        │ -           │
+│ ARP_LOOKUP   │ Cache Hit       │ READY       │ MAC Return      │ MAC table        │ -           │
+│ ARP_LOOKUP   │ Cache Miss       │ ARP_REQUEST │ ARP Request      │ ARP table        │ -           │
+│ ARP_REQUEST  │ ARP Response        │ ARP_REPLY   │ MAC Save      │ ARP cache        │ -           │
+│ ARP_REQUEST  │ ARP Timeout    │ ARP_RETRY   │ Retry        │ retry logic      │ 1 second         │
+│ ARP_RETRY    │ Max Retry     │ FAILED      │ Error Handling      │ error handler    │ 3 times         │
+│ ARP_REPLY    │ Cache Update   │ READY       │ MAC Return      │ ARP cache        │ -           │
+│ READY        │ Frame Generation     │ IDLE        │ Transmission          │ ethernet frame   │ -           │
 └──────────────┴─────────────────┴─────────────┴───────────────┴──────────────────┴─────────────┘
 ```
 
 **쉽게 이해하기**
+
 - ARP 캐시는 마치 전화번호부와 같습니다. IP 주소를 MAC 주소로 변환하는 주소록입니다
 - ARP 요청은 마치 "192.168.1.1의 전화번호가 뭐예요?"라고 물어보는 것과 같습니다
 - 브로드캐스트는 마치 마을 전체에 "192.168.1.1 주인님 계세요?"라고 외치는 것과 같습니다
@@ -992,20 +1030,15 @@ ARP 상태 전이:
 - **네트워크 효율성**: ARP 캐시로 불필요한 ARP 요청을 줄여 네트워크 트래픽 최적화
 - **프로토콜 변환**: 네트워크 계층(IP)과 데이터 링크 계층(MAC) 간의 주소 변환
 - **브로드캐스트 활용**: 로컬 네트워크에서 목표 MAC 주소를 찾기 위한 효율적인 방법
-- **프레임 생성**: 최종적으로 네트워크 카드가 전송할 수 있는 이더넷 프레임 형태로 변환
-        this.cache.set(cacheKey, {
-            ip: result.ip,
-            ttl: result.ttl,
-            timestamp: result.timestamp
-        });
-        
+- **프레임 생성**: 최종적으로 네트워크 카드가 전송할 수 있는 이더넷 프레임 형태로 변환 this.cache.set(cacheKey, { ip: result.ip, ttl: result.ttl, timestamp: result.timestamp });
+
         // 캐시 크기 제한
         if (this.cache.size > this.maxCacheSize) {
             const firstKey = this.cache.keys().next().value;
             this.cache.delete(firstKey);
         }
-    }
-}
+  } }
+
 ```
 
 **Safari 브라우저 (WebKit 엔진) - 상세 구현**
@@ -1131,6 +1164,7 @@ public:
 ```
 
 **쉽게 이해하기**
+
 - 브라우저는 마치 개인 전화번호부를 먼저 확인하는 것과 같습니다
 - "www.my-app.com의 번호가 있나?" 확인 후 없으면 안내데스크에 물어봅니다
 - 캐시는 마치 자주 쓰는 번호를 메모해두는 것과 같습니다
@@ -1141,24 +1175,28 @@ public:
 **로컬 DNS 캐시 확인 과정 (상세)**
 
 **1단계: 브라우저 내부 캐시 검색**
+
 - 브라우저가 자체 DNS 캐시 테이블에서 `www.my-app.com` 검색
 - 해시 테이블 기반 O(1) 검색 수행
 - 캐시 키: `www.my-app.com` (소문자 정규화)
 - FNV-1a 해시 함수 사용하여 캐시 키 생성
 
 **2단계: hosts 파일 확인**
+
 - Windows: `C:\Windows\System32\drivers\etc\hosts` 파일 읽기
 - Mac/Linux: `/etc/hosts` 파일 읽기
 - 파일 내용 파싱하여 도메인-IP 매핑 확인
 - 라인별 파싱: 공백으로 구분된 IP와 도메인명
 
 **3단계: 운영체제 DNS 리졸버 호출**
+
 - Windows: `GetHostByName` 또는 `getaddrinfo` API 호출
 - Mac: `dscacheutil` 또는 `getaddrinfo` API 호출
 - Linux: `getaddrinfo` 시스템 콜 호출
 - 비동기 처리로 UI 블로킹 방지
 
 **쉽게 이해하기**
+
 - 브라우저는 먼저 "이 주소를 최근에 찾아본 적이 있나?" 확인
 - 마치 전화번호부에서 자주 쓰는 번호를 먼저 찾아보는 것과 같음
 - 찾아본 적이 없으면 운영체제에게 "이 주소의 전화번호를 알아봐" 요청
@@ -1180,8 +1218,8 @@ PC 네트워크 설정:
 │ default GW   │ 192.168.1.1   │ Router Address│ DHCP        │
 │ DNS server 1 │ 168.126.63.1  │ KT DNS        │ DHCP        │
 │ DNS server 2 │ 168.126.63.2  │ KT DNS backup │ DHCP        │
-│ DNS timeout  │ 5초           │ Timeout       │ OS Default  │
-│ DNS retries  │ 3회           │ Retry Count   │ OS Default  │
+│ DNS timeout  │ 5 seconds           │ Timeout       │ OS Default  │
+│ DNS retries  │ 3 times           │ Retry Count   │ OS Default  │
 └──────────────┴───────────────┴───────────────┴─────────────┘
 ```
 
@@ -1202,18 +1240,20 @@ OS DNS 캐시 테이블:
 **운영체제 DNS 리졸버 처리 과정 (상세)**
 
 **1단계: 로컬 캐시 검색**
+
 ```
 캐시 검색 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ step         │ operation            │ domain      │ cache type   │ result      │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
-│ 1            │ 해시 테이블 검색     │ www.my-app.com│ POSITIVE    │ MISS        │
-│ 2            │ NEGATIVE 캐시 확인  │ www.my-app.com│ NEGATIVE    │ MISS        │
-│ 3            │ 캐시 미스 처리       │ -           │ -            │ DNS 서버    │
+│ 1            │ Hash Table Search     │ www.my-app.com│ POSITIVE    │ MISS        │
+│ 2            │ NEGATIVE Cache Check  │ www.my-app.com│ NEGATIVE    │ MISS        │
+│ 3            │ Cache Miss Processing       │ -           │ -            │ DNS Server    │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┘
 ```
 
 **2단계: DNS 서버 선택**
+
 ```
 DNS 서버 선택 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
@@ -1226,44 +1266,46 @@ DNS 서버 선택 과정:
 ```
 
 **3단계: DNS 질의 패킷 생성**
+
 ```
 DNS 질의 패킷 구조 (상세):
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ field        │ value                │ size        │ description  │ RFC         │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
-│ Transaction ID│ 0x1234              │ 16 bits     │ 요청 식별자   │ RFC 1035    │
-│ Flags        │ 0x0100               │ 16 bits     │ 표준 질의     │ RFC 1035    │
-│ Questions    │ 1                    │ 16 bits     │ 질의 개수     │ RFC 1035    │
-│ Answer RRs   │ 0                    │ 16 bits     │ 응답 레코드   │ RFC 1035    │
-│ Authority RRs│ 0                    │ 16 bits     │ 권한 레코드   │ RFC 1035    │
-│ Additional RRs│ 0                   │ 16 bits     │ 추가 레코드   │ RFC 1035    │
-│ Name         │ www.my-app.com       │ variable    │ 도메인명     │ RFC 1035    │
-│ Type         │ A (1)                │ 16 bits     │ IPv4 주소    │ RFC 1035    │
-│ Class        │ IN (1)               │ 16 bits     │ 인터넷 클래스 │ RFC 1035    │
+│ Transaction ID│ 0x1234              │ 16 bits     │ Request Identifier   │ RFC 1035    │
+│ Flags        │ 0x0100               │ 16 bits     │ Standard Query     │ RFC 1035    │
+│ Questions    │ 1                    │ 16 bits     │ Query Count     │ RFC 1035    │
+│ Answer RRs   │ 0                    │ 16 bits     │ Answer Records   │ RFC 1035    │
+│ Authority RRs│ 0                    │ 16 bits     │ Authority Records   │ RFC 1035    │
+│ Additional RRs│ 0                   │ 16 bits     │ Additional Records   │ RFC 1035    │
+│ Name         │ www.my-app.com       │ variable    │ Domain Name     │ RFC 1035    │
+│ Type         │ A (1)                │ 16 bits     │ IPv4 Address    │ RFC 1035    │
+│ Class        │ IN (1)               │ 16 bits     │ Internet Class │ RFC 1035    │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┘
 ```
 
 **DNS 질의 패킷 바이트 구조**
+
 ```
 DNS Query Byte Structure:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
 │ offset       │ bytes       │ content      │ encoding    │ description │
 ├──────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-│ 0-1          │ 0x1234      │ Transaction ID│ Big Endian │ 요청 ID     │
-│ 2-3          │ 0x0100      │ Flags        │ Big Endian │ 표준 질의    │
-│ 4-5          │ 0x0001      │ Questions    │ Big Endian │ 질의 개수    │
-│ 6-7          │ 0x0000      │ Answer RRs   │ Big Endian │ 응답 개수    │
-│ 8-9          │ 0x0000      │ Authority RRs│ Big Endian │ 권한 개수    │
-│ 10-11        │ 0x0000      │ Additional RRs│ Big Endian │ 추가 개수    │
-│ 12           │ 0x03        │ Name length  │ -           │ www 길이     │
+│ 0-1          │ 0x1234      │ Transaction ID│ Big Endian │ Request ID     │
+│ 2-3          │ 0x0100      │ Flags        │ Big Endian │ Standard Query    │
+│ 4-5          │ 0x0001      │ Questions    │ Big Endian │ Query Count    │
+│ 6-7          │ 0x0000      │ Answer RRs   │ Big Endian │ Answer Count    │
+│ 8-9          │ 0x0000      │ Authority RRs│ Big Endian │ Authority Count    │
+│ 10-11        │ 0x0000      │ Additional RRs│ Big Endian │ Additional Count    │
+│ 12           │ 0x03        │ Name length  │ -           │ www Length     │
 │ 13-15        │ www         │ www          │ ASCII       │ www         │
-│ 16           │ 0x06        │ Name length  │ -           │ my-app 길이  │
+│ 16           │ 0x06        │ Name length  │ -           │ my-app Length  │
 │ 17-22        │ my-app      │ my-app       │ ASCII       │ my-app      │
-│ 23           │ 0x03        │ Name length  │ -           │ com 길이     │
+│ 23           │ 0x03        │ Name length  │ -           │ com Length     │
 │ 24-26        │ com         │ com          │ ASCII       │ com         │
-│ 27           │ 0x00        │ Name end     │ -           │ 이름 끝      │
-│ 28-29        │ 0x0001      │ Type A       │ Big Endian │ A 레코드     │
-│ 30-31        │ 0x0001      │ Class IN     │ Big Endian │ 인터넷 클래스 │
+│ 27           │ 0x00        │ Name end     │ -           │ Name End      │
+│ 28-29        │ 0x0001      │ Type A       │ Big Endian │ A Record     │
+│ 30-31        │ 0x0001      │ Class IN     │ Big Endian │ Internet Class │
 └──────────────┴─────────────┴──────────────┴─────────────┴─────────────┘
 ```
 
@@ -1279,33 +1321,36 @@ DNS Query Byte Structure:
 **로컬 DNS 서버 설정 확인 (상세)**
 
 **Windows DNS 설정 확인 과정**
+
 ```
 Windows DNS 설정 확인:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ step         │ action               │ command     │ result       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 1            │ 네트워크 설정 열기   │ ncpa.cpl    │ 네트워크 창   │
-│ 2            │ Wi-Fi 어댑터 선택   │ 더블클릭     │ 속성 창      │
-│ 3            │ TCP/IPv4 속성       │ 속성 버튼    │ IP 설정 창   │
-│ 4            │ DNS 서버 확인        │ 고급 → DNS  │ DNS 서버 목록 │
+│ 1            │ Open Network Settings   │ ncpa.cpl    │ Network Window   │
+│ 2            │ Select Wi-Fi Adapter   │ Double Click     │ Properties Window      │
+│ 3            │ TCP/IPv4 Properties       │ Properties Button    │ IP Settings Window   │
+│ 4            │ Check DNS Server        │ Advanced → DNS  │ DNS Server List │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **Mac DNS 설정 확인 과정**
+
 ```
 Mac DNS 설정 확인:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ step         │ action               │ menu        │ result       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 1            │ 시스템 환경설정      │ Apple 메뉴   │ 환경설정 창   │
-│ 2            │ 네트워크 선택        │ 네트워크     │ 네트워크 창   │
-│ 3            │ Wi-Fi 선택           │ Wi-Fi       │ Wi-Fi 설정   │
-│ 4            │ 고급 설정            │ 고급 버튼    │ 고급 설정 창  │
-│ 5            │ DNS 탭 선택          │ DNS 탭      │ DNS 서버 목록 │
+│ 1            │ System Preferences      │ Apple Menu   │ Preferences Window   │
+│ 2            │ Select Network        │ Network     │ Network Window   │
+│ 3            │ Select Wi-Fi           │ Wi-Fi       │ Wi-Fi Settings   │
+│ 4            │ Advanced Settings            │ Advanced Button    │ Advanced Settings Window  │
+│ 5            │ Select DNS Tab          │ DNS Tab      │ DNS Server List │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **일반적인 DNS 서버 설정**
+
 ```
 DNS 서버 설정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
@@ -1343,19 +1388,21 @@ UDP 소켓 테이블:
 ```
 
 **UDP 소켓 생성 과정 (상세)**
+
 ```
 UDP 소켓 생성 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ step         │ action               │ parameter   │ result       │ reference   │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
-│ 1            │ socket() 호출        │ AF_INET     │ 소켓 디스크립터 │ POSIX       │
-│ 2            │ 포트 할당            │ 동적 포트    │ 54321        │ OS          │
-│ 3            │ 소켓 테이블 등록      │ socket ID   │ 0x12345678   │ OS          │
-│ 4            │ 상태 설정            │ ESTABLISHED │ 연결 상태     │ OS          │
+│ 1            │ socket() Call        │ AF_INET     │ Socket Descriptor │ POSIX       │
+│ 2            │ Port Assignment            │ Dynamic Port    │ 54321        │ OS          │
+│ 3            │ Socket Table Registration      │ socket ID   │ 0x12345678   │ OS          │
+│ 4            │ Status Setting            │ ESTABLISHED │ Connection Status     │ OS          │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┘
 ```
 
 **UDP 소켓을 정리한 이유**
+
 - DNS 질의를 위해 운영체제가 UDP 소켓을 생성
 - 소켓은 네트워크 통신의 추상화된 인터페이스
 - "어느 포트로 어떤 서버와 통신할까?"를 관리
@@ -1369,20 +1416,22 @@ PC 라우팅 테이블:
 ┌──────────────┬───────────────┬─────────────┬───────────┬────────┬─────────────┐
 │ dest network │ subnet mask   │ gateway     │ interface │ metric │ description │
 ├──────────────┼───────────────┼─────────────┼───────────┼────────┼─────────────┤
-│ 0.0.0.0      │ 0.0.0.0       │ 192.168.1.1 │ Wi-Fi     │ 1      │ 기본 라우트   │
-│ 192.168.1.0  │ 255.255.255.0 │ 0.0.0.0     │ Wi-Fi     │ 1      │ 로컬 네트워크 │
-│ 127.0.0.0    │ 255.0.0.0     │ 0.0.0.0     │ Loopback  │ 1      │ 루프백       │
-│ 224.0.0.0    │ 240.0.0.0     │ 0.0.0.0     │ Wi-Fi     │ 1      │ 멀티캐스트   │
+│ 0.0.0.0      │ 0.0.0.0       │ 192.168.1.1 │ Wi-Fi     │ 1      │ Default Route   │
+│ 192.168.1.0  │ 255.255.255.0 │ 0.0.0.0     │ Wi-Fi     │ 1      │ Local Network │
+│ 127.0.0.0    │ 255.0.0.0     │ 0.0.0.0     │ Loopback  │ 1      │ Loopback       │
+│ 224.0.0.0    │ 240.0.0.0     │ 0.0.0.0     │ Wi-Fi     │ 1      │ Multicast   │
 └──────────────┴───────────────┴─────────────┴───────────┴────────┴─────────────┘
 ```
 
 **라우팅 테이블이 있는 장비들**
+
 - **PC**: 네트워크 스택에 라우팅 테이블 존재 (Windows: `route print`, Linux: `route -n`)
 - **스위치**: 라우팅 테이블 없음 (MAC 주소 테이블만 있음)
 - **라우터**: 라우팅 테이블 존재 (네트워크 간 패킷 전달)
 - **공유기**: 라우팅 테이블 존재 (라우터 기능 포함)
 
 **라우팅 테이블의 역할**
+
 - 목적지 IP 주소를 확인해서 **어느 네트워크 인터페이스**로 패킷을 보낼지 결정
 - 물리적 포트가 아니라 **논리적 네트워크 인터페이스** (Wi-Fi, 이더넷 등)
 - "이 IP로 가려면 어느 인터페이스를 통해 어느 게이트웨이로 보내야 할까?" 결정
@@ -1390,27 +1439,32 @@ PC 라우팅 테이블:
 **라우팅 테이블 각 항목의 의미**
 
 **dest network (목적지 네트워크)**
+
 - 패킷이 가야 할 네트워크 주소
 - 0.0.0.0 = 모든 네트워크 (기본 라우트)
 - 192.168.1.0 = 로컬 네트워크
 - 127.0.0.0 = 루프백 네트워크 (자기 자신)
 
 **subnet mask (서브넷 마스크)**
+
 - 네트워크 주소와 호스트 주소를 구분하는 마스크
 - 255.255.255.0 = 24비트 네트워크, 8비트 호스트
 - 0.0.0.0 = 모든 비트가 네트워크 (기본 라우트)
 
 **gateway (게이트웨이)**
+
 - 다음 홉(다음 라우터)의 IP 주소
 - 0.0.0.0 = 직접 전송 (같은 네트워크)
 - 192.168.1.1 = 공유기로 전송 (외부 네트워크)
 
 **interface (인터페이스)**
+
 - 패킷을 전송할 네트워크 인터페이스
 - Wi-Fi = 무선 랜 카드
 - Loopback = 가상 인터페이스 (자기 자신과 통신)
 
 **metric (메트릭)**
+
 - 라우팅 우선순위 (숫자가 작을수록 우선)
 - 같은 목적지에 여러 경로가 있을 때 사용
 - 1 = 가장 우선순위가 높음
@@ -1418,6 +1472,7 @@ PC 라우팅 테이블:
 **라우팅 결정 과정 (상세)**
 
 **1단계: 목적지 IP 주소 확인**
+
 - 목적지 IP: 168.126.63.1 (KT DNS 서버)
 - 이진수로 변환: 10101000.01111110.00111111.00000001
 - IP 주소 클래스: A 클래스 (첫 번째 옥텟이 1-126)
@@ -1425,6 +1480,7 @@ PC 라우팅 테이블:
 **2단계: 라우팅 테이블 순차 검색 (Longest Prefix Match)**
 
 **2-1. 첫 번째 규칙 검사 (0.0.0.0/0 - 기본 라우트)**
+
 ```
 목적지 IP: 168.126.63.1
 서브넷 마스크: 255.255.255.255 (0.0.0.0/0은 모든 주소 매칭)
@@ -1434,6 +1490,7 @@ PC 라우팅 테이블:
 ```
 
 **2-2. 두 번째 규칙 검사 (192.168.1.0/24 - 로컬 네트워크)**
+
 ```
 목적지 IP: 168.126.63.1
 서브넷 마스크: 255.255.255.0
@@ -1444,6 +1501,7 @@ PC 라우팅 테이블:
 ```
 
 **2-3. 세 번째 규칙 검사 (127.0.0.0/8 - 루프백)**
+
 ```
 목적지 IP: 168.126.63.1
 서브넷 마스크: 255.0.0.0
@@ -1454,6 +1512,7 @@ PC 라우팅 테이블:
 ```
 
 **2-4. 네 번째 규칙 검사 (224.0.0.0/4 - 멀티캐스트)**
+
 ```
 목적지 IP: 168.126.63.1
 서브넷 마스크: 240.0.0.0
@@ -1464,12 +1523,14 @@ PC 라우팅 테이블:
 ```
 
 **3단계: 최적 라우트 선택**
+
 - 첫 번째 규칙(0.0.0.0/0)이 매칭됨
 - 메트릭 값: 1 (가장 우선순위가 높음)
 - 선택된 라우트: 기본 라우트
 - 선택 이유: 다른 라우트들이 매칭되지 않아 기본 라우트 사용
 
 **4단계: 게이트웨이 및 인터페이스 결정**
+
 ```
 선택된 라우트 정보:
 - 목적지 네트워크: 0.0.0.0 (모든 네트워크)
@@ -1481,6 +1542,7 @@ PC 라우팅 테이블:
 ```
 
 **5단계: ARP 캐시 확인**
+
 ```
 ARP 캐시에서 게이트웨이 MAC 주소 확인:
 - IP: 192.168.1.1
@@ -1491,17 +1553,20 @@ ARP 캐시에서 게이트웨이 MAC 주소 확인:
 ```
 
 **6단계: 최종 결정**
+
 - **결정**: Wi-Fi 인터페이스를 통해 192.168.1.1(공유기)로 패킷 전송
 - **이유**: 168.126.63.1은 로컬 네트워크(192.168.1.0/24)에 속하지 않으므로 외부 네트워크로 전송
 - **다음 홉**: 192.168.1.1 (공유기)
 - **전송 방식**: 이더넷 프레임으로 캡슐화하여 Wi-Fi 인터페이스로 전송
 - **프로토콜**: UDP (DNS 질의)
 - **포트**: 53 (DNS 표준 포트)
+
 ```
 
 **라우팅 테이블 검색 알고리즘 (Longest Prefix Match)**
 
 ```
+
 라우팅 테이블 검색 알고리즘:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ step         │ operation            │ input       │ output       │ complexity  │
@@ -1575,10 +1640,11 @@ print(f"선택된 라우트: {selected_route}")
 ```
 
 **라우팅 테이블 검색 성능 분석**
+
 ```
 라우팅 테이블 검색 성능:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
-│ metric       │ time complexity      │ space       │ 최적화 방법   │ 실제 구현    │
+│ metric       │ time complexity      │ space       │ Optimization Method   │ Actual Implementation    │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
 │ Time Complexity│ O(n log n)         │ O(n)        │ Trie Structure│ Router      │
 │ Space Complexity│ O(n)              │ O(n)        │ Hash Table   │ Switch      │
@@ -1588,12 +1654,14 @@ print(f"선택된 라우트: {selected_route}")
 ```
 
 **쉽게 이해하기**
+
 - 라우팅 테이블 검색은 마치 우체국에서 "이 편지를 어느 방향으로 보낼까?" 결정하는 것과 같음
 - 각 규칙은 "이 주소로 가는 편지는 이 방향으로 보내라"는 안내표와 같음
 - 기본 라우트(0.0.0.0/0)는 "모르는 주소는 이 방향으로 보내라"는 기본 안내표와 같음
 - 서브넷 마스크는 "주소의 어느 부분까지 확인할까?"를 결정하는 마스크와 같음
 
 **쉽게 이해하기**
+
 - 라우팅 테이블은 마치 지도와 같습니다
 - "168.126.63.1로 가려면 어느 길로 가야 할까?" 확인
 - 로컬 네트워크가 아니므로 공유기(게이트웨이)를 통해 외부로 전송
@@ -1695,81 +1763,86 @@ PC ARP 캐시:
 ┌───────────────┬───────────────────┬───────────┬───────────┬─────────────┬─────────────┐
 │ IP address    │ MAC address       │ interface │ status    │ timestamp   │ TTL         │
 ├───────────────┼───────────────────┼───────────┼───────────┼─────────────┼─────────────┤
-│ 192.168.1.1   │ 00:11:22:33:44:55 │ Wi-Fi     │ REACHABLE │ 10:30:45    │ 300초       │
-│ 192.168.1.100 │ AA:BB:CC:DD:EE:FF │ Wi-Fi     │ PERMANENT │ 10:00:00    │ 무제한      │
+│ 192.168.1.1   │ 00:11:22:33:44:55 │ Wi-Fi     │ REACHABLE │ 10:30:45    │ 300 seconds       │
+│ 192.168.1.100 │ AA:BB:CC:DD:EE:FF │ Wi-Fi     │ PERMANENT │ 10:00:00    │ Unlimited      │
 │ 168.126.63.1  │                   │ -         │ -         │ -           │ -           │
 └───────────────┴───────────────────┴───────────┴───────────┴─────────────┴─────────────┘
 ```
 
 **ARP 캐시 검색 과정 (상세)**
+
 ```
 ARP 캐시 검색 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ step         │ operation            │ IP address  │ result       │ next action │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
-│ 1            │ 해시 테이블 검색     │ 192.168.1.1 │ HIT          │ MAC 사용    │
-│ 2            │ TTL 검증            │ 192.168.1.1 │ VALID        │ 프레임 생성  │
-│ 3            │ MAC 주소 반환       │ 00:11:22:33:44:55 │ OK     │ 이더넷 전송  │
+│ 1            │ Hash Table Search     │ 192.168.1.1 │ HIT          │ MAC Use    │
+│ 2            │ TTL Validation            │ 192.168.1.1 │ VALID        │ Frame Generation  │
+│ 3            │ MAC Address Return       │ 00:11:22:33:44:55 │ OK     │ Ethernet Transmission  │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┘
 ```
 
 **ARP 요청 과정 (캐시 미스 시)**
 
 **ARP 요청 패킷 구조**
+
 ```
 ARP Request Frame Structure:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ field        │ value                │ size        │ description  │ RFC         │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
-│ Hardware Type│ 1 (Ethernet)         │ 16 bits     │ 하드웨어 타입 │ RFC 826     │
-│ Protocol Type│ 0x0800 (IPv4)        │ 16 bits     │ 프로토콜 타입 │ RFC 826     │
-│ Hardware Size│ 6 (MAC address)      │ 8 bits      │ MAC 주소 크기 │ RFC 826     │
-│ Protocol Size│ 4 (IPv4 address)     │ 8 bits      │ IP 주소 크기  │ RFC 826     │
-│ Operation    │ 1 (Request)          │ 16 bits     │ ARP 요청     │ RFC 826     │
-│ Sender MAC   │ AA:BB:CC:DD:EE:FF    │ 6 bytes     │ 발신자 MAC   │ PC MAC      │
-│ Sender IP    │ 192.168.1.100        │ 4 bytes     │ 발신자 IP    │ PC IP       │
-│ Target MAC   │ 00:00:00:00:00:00    │ 6 bytes     │ 목표 MAC     │ 알 수 없음   │
-│ Target IP    │ 192.168.1.1          │ 4 bytes     │ 목표 IP      │ 공유기 IP   │
+│ Hardware Type│ 1 (Ethernet)         │ 16 bits     │ Hardware Type │ RFC 826     │
+│ Protocol Type│ 0x0800 (IPv4)        │ 16 bits     │ Protocol Type │ RFC 826     │
+│ Hardware Size│ 6 (MAC address)      │ 8 bits      │ MAC Address Size │ RFC 826     │
+│ Protocol Size│ 4 (IPv4 address)     │ 8 bits      │ IP Address Size  │ RFC 826     │
+│ Operation    │ 1 (Request)          │ 16 bits     │ ARP Request     │ RFC 826     │
+│ Sender MAC   │ AA:BB:CC:DD:EE:FF    │ 6 bytes     │ Sender MAC   │ PC MAC      │
+│ Sender IP    │ 192.168.1.100        │ 4 bytes     │ Sender IP    │ PC IP       │
+│ Target MAC   │ 00:00:00:00:00:00    │ 6 bytes     │ Target MAC     │ Unknown   │
+│ Target IP    │ 192.168.1.1          │ 4 bytes     │ Target IP      │ Router IP   │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┘
 ```
 
 **ARP 요청 처리 과정**
+
 ```
 ARP 요청 처리 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ step         │ action               │ target      │ method       │ result      │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
-│ 1            │ ARP 캐시 검색        │ 192.168.1.1 │ hash lookup  │ MISS        │
-│ 2            │ ARP 요청 생성        │ 브로드캐스트 │ ARP frame    │ REQUEST     │
-│ 3            │ 이더넷 프레임 생성   │ FF:FF:FF:FF:FF:FF │ broadcast │ 전송 준비    │
-│ 4            │ 네트워크 전송        │ 모든 기기    │ broadcast    │ 전송 완료    │
-│ 5            │ ARP 응답 대기        │ 192.168.1.1 │ timeout      │ 5초         │
+│ 1            │ ARP Cache Search        │ 192.168.1.1 │ hash lookup  │ MISS        │
+│ 2            │ ARP Request Generation        │ Broadcast │ ARP frame    │ REQUEST     │
+│ 3            │ Ethernet Frame Generation   │ FF:FF:FF:FF:FF:FF │ broadcast │ Transmission Ready    │
+│ 4            │ Network Transmission        │ All Devices    │ broadcast    │ Transmission Complete    │
+│ 5            │ ARP Response Wait        │ 192.168.1.1 │ timeout      │ 5 seconds         │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┘
 ```
 
 **이더넷 프레임 생성 (상세)**
 
 **이더넷 프레임 구조 (바이트 단위)**
+
 ```
 이더넷 프레임 구조:
 ┌────────────┬───────────────────┬────────┬───────────┬─────────────────┬─────────────┐
 │ field      │ value             │ size   │ desc      │ reference table │ byte offset │
 ├────────────┼───────────────────┼────────┼───────────┼─────────────────┼─────────────┤
-│ Dest MAC   │ 00:11:22:33:44:55 │ 6 byte │ 공유기 MAC  │ ARP cache       │ 0-5         │
+│ Dest MAC   │ 00:11:22:33:44:55 │ 6 byte │ Router MAC  │ ARP cache       │ 0-5         │
 │ Source MAC │ AA:BB:CC:DD:EE:FF │ 6 byte │ PC MAC    │ network card    │ 6-11        │
-│ Type       │ 0x0800            │ 2 byte │ IPv4      │ 고정값            │ 12-13       │
-│ Payload    │ IP packet         │ 가변    │ DNS query │ 네트워크 스택       │ 14-...      │
-│ FCS        │ 0x12345678        │ 4 byte │ checksum  │ 계산값            │ 마지막 4바이트│
+│ Type       │ 0x0800            │ 2 byte │ IPv4      │ Fixed Value            │ 12-13       │
+│ Payload    │ IP packet         │ Variable    │ DNS query │ Network Stack       │ 14-...      │
+│ FCS        │ 0x12345678        │ 4 byte │ checksum  │ Calculated Value            │ Last 4 bytes│
 └────────────┴───────────────────┴────────┴───────────┴─────────────────┴─────────────┘
 ```
 
 **이더넷 프레임 바이트 구조**
+
 ```
 이더넷 프레임 바이트 구조:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
 │ offset       │ bytes       │ content      │ encoding    │ description │
 ├──────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-│ 0-5          │ 00:11:22:33:44:55 │ Dest MAC │ Big Endian │ 공유기 MAC  │
+│ 0-5          │ 00:11:22:33:44:55 │ Dest MAC │ Big Endian │ Router MAC  │
 │ 6-11         │ AA:BB:CC:DD:EE:FF │ Source MAC│ Big Endian │ PC MAC      │
 │ 12-13        │ 0x0800      │ Type        │ Big Endian │ IPv4        │
 │ 14-17        │ 0x45         │ IP Version  │ -           │ IPv4, IHL=5 │
@@ -1786,20 +1859,21 @@ ARP 요청 처리 과정:
 │ 40-41        │ 0x0200       │ UDP Length  │ Big Endian │ 512 bytes   │
 │ 42-43        │ 0xEFGH       │ UDP Checksum│ Big Endian │ UDP checksum│
 │ 44-...       │ DNS Query    │ DNS payload │ -           │ DNS query   │
-│ ...-마지막   │ 0x12345678   │ FCS         │ Big Endian │ Frame checksum│
+│ ...-Last   │ 0x12345678   │ FCS         │ Big Endian │ Frame checksum│
 └──────────────┴─────────────┴──────────────┴─────────────┴─────────────┘
 ```
 
 **FCS (Frame Check Sequence) 계산 과정**
+
 ```
 FCS 계산 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┬─────────────┐
 │ step         │ operation            │ data        │ result       │ algorithm   │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┼─────────────┤
-│ 1            │ 프레임 데이터 수집   │ 전체 프레임  │ 바이트 배열   │ -           │
-│ 2            │ CRC-32 계산          │ 바이트 배열   │ 0x12345678   │ CRC-32      │
-│ 3            │ 1의 보수            │ 0x12345678   │ 0xEDCBA987   │ NOT 연산     │
-│ 4            │ FCS 추가             │ 프레임 끝    │ 완성된 프레임 │ -           │
+│ 1            │ Frame Data Collection   │ Entire Frame  │ Byte Array   │ -           │
+│ 2            │ CRC-32 Calculation          │ Byte Array   │ 0x12345678   │ CRC-32      │
+│ 3            │ 1's Complement            │ 0x12345678   │ 0xEDCBA987   │ NOT Operation     │
+│ 4            │ FCS Addition             │ Frame End    │ Completed Frame │ -           │
 └──────────────┴──────────────────────┴─────────────┴──────────────┴─────────────┘
 ```
 
@@ -2195,7 +2269,7 @@ TCP 상태 전이 머신:
 ├───────────────┼─────────────────┼─────────────┼───────────────┼──────────────────┼─────────────┤
 │ CLOSED        │ connect()       │ SYN_SENT    │ Send SYN      │ socket table     │ -           │
 │ SYN_SENT      │ receive SYN+ACK │ ESTABLISHED │ Send ACK      │ connection table │ retransmit  │
-│ SYN_SENT      │ timeout         │ CLOSED      │ Connection Fail│ error handler    │ 3초         │
+│ SYN_SENT      │ timeout         │ CLOSED      │ Connection Fail│ error handler    │ 3 seconds         │
 │ ESTABLISHED   │ data transfer   │ ESTABLISHED │ Data Transfer │ data buffer      │ -           │
 │ ESTABLISHED   │ close()         │ FIN_WAIT_1  │ Send FIN      │ socket table     │ -           │
 └───────────────┴─────────────────┴─────────────┴───────────────┴──────────────────┴─────────────┘
@@ -2217,66 +2291,71 @@ PC TCP 연결 테이블 (연결 후):
 **TCP 연결 생성 과정 (상세)**
 
 **1단계: 소켓 생성**
+
 ```
 소켓 생성 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ step         │ action               │ parameter   │ result       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 1            │ socket() 호출        │ AF_INET     │ Socket Descriptor │
-│ 2            │ 포트 할당            │ 동적 포트    │ 54323        │
-│ 3            │ 소켓 테이블 등록      │ socket ID   │ 0xABCD1234   │
-│ 4            │ 상태 설정            │ CLOSED      │ 초기 상태     │
+│ 1            │ socket() Call        │ AF_INET     │ Socket Descriptor │
+│ 2            │ Port Assignment            │ Dynamic Port    │ 54323        │
+│ 3            │ Socket Table Registration      │ socket ID   │ 0xABCD1234   │
+│ 4            │ Status Setting            │ CLOSED      │ Initial Status     │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **2단계: 연결 시작 (SYN 전송)**
+
 ```
 SYN 패킷 생성 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ field        │ value                │ calculation │ source       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ Source Port  │ 54323                │ 동적 할당    │ OS           │
-│ Dest Port    │ 443                  │ HTTPS 기본   │ RFC 2818     │
-│ Seq Number   │ 1234567890           │ 랜덤 생성    │ OS           │
-│ Ack Number   │ 0                    │ SYN 패킷    │ RFC 793      │
-│ Flags        │ SYN=1, ACK=0         │ 연결 시작    │ RFC 793      │
-│ Window Size  │ 65535                │ 버퍼 크기    │ OS 설정      │
+│ Source Port  │ 54323                │ Dynamic Assignment    │ OS           │
+│ Dest Port    │ 443                  │ HTTPS Default   │ RFC 2818     │
+│ Seq Number   │ 1234567890           │ Random Generation    │ OS           │
+│ Ack Number   │ 0                    │ SYN Packet    │ RFC 793      │
+│ Flags        │ SYN=1, ACK=0         │ Connection Start    │ RFC 793      │
+│ Window Size  │ 65535                │ Buffer Size    │ OS Setting      │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **3단계: SYN-ACK 수신 및 처리**
+
 ```
 SYN-ACK 처리 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ step         │ action               │ validation  │ result       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 1            │ 패킷 수신            │ 체크섬 검증  │ OK           │
-│ 2            │ SYN 플래그 확인      │ SYN=1       │ OK           │
-│ 3            │ ACK 플래그 확인      │ ACK=1       │ OK           │
-│ 4            │ Ack Number 검증      │ ISN+1       │ OK           │
-│ 5            │ 상태 업데이트        │ SYN_SENT→   │ ESTABLISHED  │
-│ 6            │ Seq Number 업데이트  │ 서버 ISN     │ 9876543210   │
+│ 1            │ Packet Reception            │ Checksum Validation  │ OK           │
+│ 2            │ SYN Flag Check      │ SYN=1       │ OK           │
+│ 3            │ ACK Flag Check      │ ACK=1       │ OK           │
+│ 4            │ Ack Number Validation      │ ISN+1       │ OK           │
+│ 5            │ Status Update        │ SYN_SENT→   │ ESTABLISHED  │
+│ 6            │ Seq Number Update  │ Server ISN     │ 9876543210   │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **4단계: ACK 전송**
+
 ```
 ACK 패킷 생성 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ field        │ value                │ calculation │ source       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ Source Port  │ 54323                │ 기존 소켓    │ 소켓 테이블   │
-│ Dest Port    │ 443                  │ 기존 소켓    │ 소켓 테이블   │
-│ Seq Number   │ 1234567891           │ ISN+1       │ 로컬 계산    │
-│ Ack Number   │ 9876543211           │ 서버 ISN+1  │ 서버 응답    │
-│ Flags        │ SYN=0, ACK=1         │ 연결 완료    │ RFC 793      │
-│ Window Size  │ 65535                │ 버퍼 크기    │ OS 설정      │
+│ Source Port  │ 54323                │ Existing Socket    │ Socket Table   │
+│ Dest Port    │ 443                  │ Existing Socket    │ Socket Table   │
+│ Seq Number   │ 1234567891           │ ISN+1       │ Local Calculation    │
+│ Ack Number   │ 9876543211           │ Server ISN+1  │ Server Response    │
+│ Flags        │ SYN=0, ACK=1         │ Connection Complete    │ RFC 793      │
+│ Window Size  │ 65535                │ Buffer Size    │ OS Setting      │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **TCP 헤더 상세 구조 (바이트 단위)**
 
 **TCP 헤더 (20바이트) - 바이트별 분석**
+
 ```
 TCP Header Byte Structure:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
@@ -2295,6 +2374,7 @@ TCP Header Byte Structure:
 ```
 
 **TCP 플래그 상세 분석**
+
 ```
 TCP Flags Bit Analysis:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
@@ -2313,6 +2393,7 @@ TCP Flags Bit Analysis:
 ```
 
 **TCP 체크섬 계산 과정**
+
 ```
 TCP Checksum Calculation:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
@@ -2325,6 +2406,7 @@ TCP Checksum Calculation:
 ```
 
 **쉽게 이해하기**
+
 - TCP 소켓 테이블은 마치 전화번호부와 같습니다
 - "어느 번호로 연결했는지" 기록하고 상태를 추적합니다
 - ESTABLISHED는 "통화 중" 상태와 같습니다
@@ -2336,24 +2418,28 @@ TCP Checksum Calculation:
 **TCP 연결 수립 과정 (상세)**
 
 **1단계: 소켓 생성 및 초기화**
+
 - 운영체제가 TCP 소켓 생성
 - 동적 포트 할당 (54323)
 - 소켓 테이블에 등록 (socket ID: 0xABCD1234)
 - 초기 상태: CLOSED
 
 **2단계: SYN 패킷 전송**
+
 - 클라이언트가 서버로 SYN 패킷 전송
 - 시퀀스 번호: 1234567890 (랜덤 생성)
 - 플래그: SYN=1, ACK=0
 - 상태 변경: CLOSED → SYN_SENT
 
 **3단계: SYN-ACK 패킷 수신**
+
 - 서버가 SYN-ACK 패킷 응답
 - 서버 시퀀스 번호: 9876543210
 - 확인 번호: 1234567891 (클라이언트 ISN + 1)
 - 플래그: SYN=1, ACK=1
 
 **4단계: ACK 패킷 전송**
+
 - 클라이언트가 ACK 패킷 전송
 - 시퀀스 번호: 1234567891
 - 확인 번호: 9876543211 (서버 ISN + 1)
@@ -2361,6 +2447,7 @@ TCP Checksum Calculation:
 - 상태 변경: SYN_SENT → ESTABLISHED
 
 **쉽게 이해하기**
+
 - TCP 연결은 마치 전화를 거는 과정과 같음
 - PC가 "여보세요?" (SYN) → 서버가 "네, 여보세요" (SYN-ACK) → PC가 "연결됐네요" (ACK)
 - 이 과정을 통해 양쪽이 서로 통신할 준비가 되었음을 확인
@@ -2435,41 +2522,44 @@ Azure Load Balancer 연결 풀:
 **Load Balancer 내부 처리 과정 (상세)**
 
 **1단계: 요청 수신 및 검증**
+
 ```
 요청 검증 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ step         │ validation           │ check       │ result       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 1            │ IP 주소 검증         │ 20.123.45.67│ OK           │
-│ 2            │ 포트 검증            │ 443 (HTTPS) │ OK           │
-│ 3            │ 프로토콜 검증        │ TCP         │ OK           │
-│ 4            │ 헬스 체크 확인       │ 백엔드 상태   │ OK           │
+│ 1            │ IP Address Validation         │ 20.123.45.67│ OK           │
+│ 2            │ Port Validation            │ 443 (HTTPS) │ OK           │
+│ 3            │ Protocol Validation        │ TCP         │ OK           │
+│ 4            │ Health Check Verification       │ Backend Status   │ OK           │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **2단계: 백엔드 선택 알고리즘**
+
 ```
 라운드 로빈 알고리즘 실행:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ request #    │ available backends   │ selected    │ reason       │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 1            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.5 │ 첫 번째    │
-│ 2            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.6 │ 두 번째    │
-│ 3            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.8 │ 세 번째    │
-│ 4            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.5 │ 순환       │
+│ 1            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.5 │ First    │
+│ 2            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.6 │ Second    │
+│ 3            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.8 │ Third    │
+│ 4            │ [10.0.1.5, 10.0.1.6, 10.0.1.8] │ 10.0.1.5 │ Rotation       │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **3단계: 연결 풀 업데이트**
+
 ```
 연결 풀 업데이트 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ action       │ data                 │ source      │ destination  │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 1            │ 새 연결 등록         │ client      │ connection pool│
-│ 2            │ 세션 ID 생성         │ LB          │ session table│
-│ 3            │ 타임스탬프 기록      │ system      │ connection pool│
-│ 4            │ 백엔드 선택 기록     │ algorithm   │ connection pool│
+│ 1            │ New Connection Registration         │ client      │ connection pool│
+│ 2            │ Session ID Generation         │ LB          │ session table│
+│ 3            │ Timestamp Recording      │ system      │ connection pool│
+│ 4            │ Backend Selection Recording     │ algorithm   │ connection pool│
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
@@ -2494,16 +2584,17 @@ Load Balancer 상태 테이블:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ backend      │ check method         │ interval    │ threshold    │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ 10.0.1.5     │ HTTP GET /health     │ 30초        │ 3회 실패     │
-│ 10.0.1.6     │ HTTP GET /health     │ 30초        │ 3회 실패     │
-│ 10.0.1.7     │ HTTP GET /health     │ 30초        │ 3회 실패     │
-│ 10.0.1.8     │ HTTP GET /health     │ 30초        │ 3회 실패     │
+│ 10.0.1.5     │ HTTP GET /health     │ 30 seconds        │ 3 failures     │
+│ 10.0.1.6     │ HTTP GET /health     │ 30 seconds        │ 3 failures     │
+│ 10.0.1.7     │ HTTP GET /health     │ 30 seconds        │ 3 failures     │
+│ 10.0.1.8     │ HTTP GET /health     │ 30 seconds        │ 3 failures     │
 └──────────────┴──────────────────────┴─────────────┴──────────────┘
 ```
 
 **Load Balancer 알고리즘 상세**
 
 **라운드 로빈 알고리즘 구현**
+
 ```python
 class RoundRobinLoadBalancer:
     def __init__(self, backends):
@@ -2532,13 +2623,14 @@ class RoundRobinLoadBalancer:
 **Load Balancer 패킷 처리 과정**
 
 **1단계: 패킷 수신 및 파싱**
+
 ```
 패킷 파싱 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
 │ field        │ value                │ extraction  │ validation   │
 ├──────────────┼──────────────────────┼─────────────┼──────────────┤
-│ Source IP    │ 203.248.252.100      │ IP 헤더     │ OK           │
-│ Dest IP      │ 20.123.45.67         │ IP 헤더     │ OK           │
+│ Source IP    │ 203.248.252.100      │ IP Header     │ OK           │
+│ Dest IP      │ 20.123.45.67         │ IP Header     │ OK           │
 │ Source Port  │ 54323                │ TCP 헤더    │ OK           │
 │ Dest Port    │ 443                  │ TCP 헤더    │ OK           │
 │ Protocol     │ TCP                  │ IP 헤더     │ OK           │
@@ -2546,6 +2638,7 @@ class RoundRobinLoadBalancer:
 ```
 
 **2단계: 백엔드 선택 및 NAT**
+
 ```
 NAT 처리 과정:
 ┌──────────────┬──────────────────────┬─────────────┬──────────────┐
@@ -2558,6 +2651,7 @@ NAT 처리 과정:
 ```
 
 **3단계: 연결 추적**
+
 ```
 연결 추적 테이블:
 ┌──────────────┬─────────────┬──────────────┬─────────────┬─────────────┐
@@ -2570,6 +2664,7 @@ NAT 처리 과정:
 ```
 
 **쉽게 이해하기**
+
 - Load Balancer는 마치 건물 안내 데스크와 같습니다
 - "어느 층으로 안내할까?" 결정하고 방문자 정보를 기록합니다
 - 헬스 체크는 마치 "각 층이 정상적으로 작동하나?" 확인하는 것과 같습니다
@@ -2581,21 +2676,25 @@ NAT 처리 과정:
 **Azure Load Balancer 수신 과정 (상세)**
 
 **1단계: 패킷 수신 및 검증**
+
 - 공인 IP: 20.123.45.67로 수신된 패킷 처리
 - TCP 헤더 파싱 및 프로토콜 검증
 - 헬스 체크를 통한 백엔드 풀 상태 확인
 
 **2단계: 백엔드 선택**
+
 - 라운드 로빈 알고리즘으로 AKS 노드 선택
 - 선택된 노드: aks-nodepool1-12345678-vmss000001 (10.0.1.5)
 - 연결 풀에 세션 정보 기록
 
 **3단계: NAT 처리 및 전달**
+
 - DNAT: 목적지 IP를 20.123.45.67 → 10.0.1.5로 변경
 - 포트 변환: 443 → 80
 - SNAT: 소스 IP를 클라이언트 → Load Balancer로 변경
 
 **쉽게 이해하기**
+
 - Azure Load Balancer는 마치 건물의 안내 데스크와 같음
 - 방문자가 들어오면 "어느 층으로 안내할까?" 결정
 - 여러 서버 중에서 한 대를 선택해서 요청을 전달
