@@ -3,6 +3,7 @@ import '@fontsource/jetbrains-mono/400.css'
 import '@fontsource/jetbrains-mono/500.css'
 import '@fontsource/jetbrains-mono/600.css'
 import ClientLayout from './ClientLayout'
+import Script from 'next/script'
 
 const BASE_PATH = '/tech-blog'
 const SITE_URL = process.env.NODE_ENV === 'production'
@@ -103,6 +104,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
+    <head>
+      {/* Google Analytics */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+        `}
+      </Script>
+    </head>
     <body>
     <ClientLayout>{children}</ClientLayout>
     </body>
