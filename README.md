@@ -20,6 +20,13 @@
 - Gray Matter
 - Highlight.js
 
+### SEO 및 검색 엔진 최적화
+
+- next-sitemap (자동 sitemap 생성)
+- robots.txt 자동 생성
+- 메타 태그 최적화
+- 구조화된 데이터 지원
+
 ## 시작하기
 
 ### 사전 요구사항
@@ -125,6 +132,79 @@ public/resources/
 - 파일 접근이 빠르고 효율적입니다.
 - 태그 기반 검색이 용이합니다.
 
+## SEO 및 Sitemap 관리
+
+### 자동 Sitemap 생성
+
+이 프로젝트는 `next-sitemap`을 사용하여 자동으로 sitemap을 생성합니다.
+
+#### 설정 파일
+
+`next-sitemap.config.js` 파일에서 sitemap 생성 옵션을 설정할 수 있습니다:
+
+```javascript
+module.exports = {
+  siteUrl: 'https://nimkoes.github.io',
+  generateRobotsTxt: true,
+  generateIndexSitemap: false,
+  outDir: './public',
+  exclude: ['/admin/*', '/api/*'],
+  additionalPaths: async (config) => {
+    // resources 디렉토리의 모든 .md 파일을 자동으로 포함
+    const result = [];
+    const fs = require('fs');
+    const path = require('path');
+    
+    const resourcesDir = path.join(process.cwd(), 'public', 'resources');
+    if (fs.existsSync(resourcesDir)) {
+      const files = fs.readdirSync(resourcesDir);
+      files.forEach(file => {
+        if (file.endsWith('.md')) {
+          const fileName = file.replace('.md', '');
+          result.push({
+            loc: `/tech-blog/post/${fileName}`,
+            lastmod: new Date().toISOString(),
+            changefreq: 'monthly',
+            priority: 0.7,
+          });
+        }
+      });
+    }
+    
+    return result;
+  },
+}
+```
+
+#### 사용 방법
+
+```bash
+# 빌드 시 자동으로 sitemap 생성
+npm run build
+
+# 수동으로 sitemap 생성
+npm run postbuild
+```
+
+#### 생성되는 파일들
+
+- `public/sitemap.xml`: 메인 sitemap 파일
+- `public/robots.txt`: 검색 엔진 크롤링 가이드
+
+#### 포함되는 URL들
+
+- 모든 포스트 페이지 (`/post/*`)
+- 모든 리소스 파일 (`/tech-blog/resources/*`)
+- 메인 페이지 및 정적 페이지
+- 자동으로 업데이트되는 lastmod 날짜
+
+### 검색 엔진 최적화
+
+- 메타 태그 자동 생성
+- Open Graph 태그 지원
+- Twitter Card 지원
+- 구조화된 데이터 (JSON-LD) 지원
+
 ## 반응형 디자인
 
 - Desktop (1024px 이상)
@@ -132,11 +212,46 @@ public/resources/
 
 각 디바이스 환경에 최적화된 UI/UX를 제공합니다.
 
+## 배포
+
+### GitHub Pages 배포
+
+1. GitHub 저장소에 코드를 푸시합니다.
+2. GitHub Actions를 통해 자동 배포가 설정되어 있습니다.
+3. 빌드 시 자동으로 sitemap이 생성됩니다.
+
+### 환경 변수
+
+프로덕션 환경에서 필요한 환경 변수:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://nimkoes.github.io
+NEXT_PUBLIC_SITE_NAME=Nimkoes Tech Blog
+```
+
 ## 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 있습니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
 ## 기여하기
 
-버그 리포트, 기능 제안, 풀 리퀘스트 등 모든 기여를 환영합니다. 
+버그 리포트, 기능 제안, 풀 리퀘스트 등 모든 기여를 환영합니다.
+
+### 기여 방법
+
+1. 이 저장소를 포크합니다.
+2. 새로운 브랜치를 생성합니다 (`git checkout -b feature/amazing-feature`).
+3. 변경사항을 커밋합니다 (`git commit -m 'Add some amazing feature'`).
+4. 브랜치에 푸시합니다 (`git push origin feature/amazing-feature`).
+5. Pull Request를 생성합니다.
+
+## 변경 이력
+
+### v0.1.0 (2025-01-27)
+
+- Next.js 14 기반 블로그 시스템 구축
+- 마크다운 문서 처리 시스템 구현
+- 자동 sitemap 생성 기능 추가
+- 반응형 디자인 적용
+- SEO 최적화 기능 추가 
 

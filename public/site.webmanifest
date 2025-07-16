@@ -10,14 +10,9 @@
   "orientation": "portrait",
   "shortcuts": [
     {
-      "name": "최근 글",
-      "url": "/tech-blog/recent",
-      "description": "최근에 작성된 글 목록"
-    },
-    {
-      "name": "태그",
-      "url": "/tech-blog/tags",
-      "description": "태그 목록"
+      "name": "홈",
+      "url": "/tech-blog",
+      "description": "블로그 메인 페이지"
     }
   ],
   "categories": ["technology", "blog", "development"],
