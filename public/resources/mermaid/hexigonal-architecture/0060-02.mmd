@@ -1,0 +1,8 @@
+flowchart TD
+  UI["사용자 요청 (웹, API 등)"] --> C1["OrderController<br>(입력 어댑터)"]
+  C1 --> C2["OrderApplicationService<br>(애플리케이션 서비스)"]
+  C2 --> D1["Order<br>(도메인 모델)"]
+  D1 --> C2
+
+  C2 --> P1["RewardRepository<br>(출력 포트)"]
+  P1 --> A1["JdbcRewardRepository<br>(출력 어댑터)"]
