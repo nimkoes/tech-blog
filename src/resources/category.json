@@ -73,7 +73,7 @@
               {"id": "30-01-02", "regDate" : "2025-07-01", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 구조", "fileName": "0046-unit-testing-structure", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
               {"id": "30-01-03", "regDate" : "2025-07-05", "lastModifiedDate" : "2025-07-05", "displayName": "좋은 단위 테스트의 4대 요소", "fileName": "0047-the-four-key-elements-of-a-good-unit-test", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
               {"id": "30-01-04", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName": "목과 테스트 취약성", "fileName": "0048-mock-and-test-fragility", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-05", "regDate" : "2025-07-21", "lastModifiedDate" : "2025-07-21", "displayName": "단위 테스트 스타일", "fileName": "0049-unit-test-style", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
+              {"id": "30-01-05", "regDate" : "2025-07-21", "lastModifiedDate" : "2025-07-22", "displayName": "단위 테스트 스타일", "fileName": "0049-unit-test-style", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
             ]
           }
         ]
