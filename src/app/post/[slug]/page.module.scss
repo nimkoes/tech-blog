@@ -121,6 +121,10 @@
   border: none;
   margin: 0;
 }
+[data-theme='dark'] .markdown code {
+  background: #2d2f34;
+  color: #e06c75;
+}
 
 /* 블록 인용 스타일 */
 .markdown blockquote {

@@ -4,6 +4,7 @@ import '@fontsource/jetbrains-mono/500.css'
 import '@fontsource/jetbrains-mono/600.css'
 import ClientLayout from './ClientLayout'
 import Script from 'next/script'
+import { ThemeProvider } from '~/context/ThemeContext';
 
 const BASE_PATH = '/tech-blog'
 const SITE_URL = process.env.NODE_ENV === 'production'
@@ -120,7 +121,9 @@ export default function RootLayout({
       </Script>
     </head>
     <body>
-    <ClientLayout>{children}</ClientLayout>
+      <ThemeProvider>
+        <ClientLayout>{children}</ClientLayout>
+      </ThemeProvider>
     </body>
     </html>
   );

@@ -33,6 +33,12 @@ html {
   margin-bottom: 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   border: 1px solid #e0e0e0;
+  color: #222;
+}
+[data-theme='dark'] .tocCard {
+  background: #23272e;
+  color: #eaeaea;
+  border: 1px solid #36393f;
 }
 
 .scrollTopBtn {

@@ -8,6 +8,21 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
+[data-theme='dark'] .header {
+  background: #23272e;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.18);
+}
+[data-theme='dark'] .header .container,
+[data-theme='dark'] .header .logo,
+[data-theme='dark'] .header .githubLink,
+[data-theme='dark'] .header .button {
+  color: #f4f5f7 !important;
+}
+[data-theme='dark'] .header .logo:hover,
+[data-theme='dark'] .header .githubLink:hover,
+[data-theme='dark'] .header .button:hover {
+  color: #fff !important;
+}
 
 .container {
   max-width: 1200px;
@@ -51,6 +66,7 @@
 .buttons {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .button {
@@ -64,6 +80,36 @@
 
   &:hover {
     color: #333;
+  }
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  color: #222;
+  box-shadow: none;
+  padding: 0;
+  vertical-align: middle;
+}
+[data-theme='dark'] .themeToggle {
+  background: none;
+  color: #f4f5f7;
+  &:hover {
+    background: #44474e;
+    color: #fff;
+  }
+  &:active {
+    background: #23272e;
+    color: #fff;
   }
 }
 

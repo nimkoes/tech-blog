@@ -4,6 +4,8 @@ import styles from './Header.module.scss';
 import SearchSidebar from './SearchSidebar';
 import CategorySidebar from './CategorySidebar';
 import {useTagContext} from '~/context/TagContext';
+import { useTheme } from '~/context/ThemeContext';
+import { Sun, Moon } from 'lucide-react';
 
 interface HeaderProps {
   onSearchClick?: () => void
@@ -13,6 +15,7 @@ export default function Header({onSearchClick}: HeaderProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const tagContext = useTagContext();
+  const { theme, toggleTheme } = useTheme();
 
   const handleSearchClick = () => {
     setIsSearchOpen(true);
@@ -51,6 +54,19 @@ export default function Header({onSearchClick}: HeaderProps) {
             >
               검색
             </button>
+            {theme && (
+              <button
+                className={styles.themeToggle}
+                aria-label="다크모드 토글"
+                onClick={toggleTheme}
+              >
+                {theme === 'dark' ? (
+                  <Moon size={22} />
+                ) : (
+                  <Sun size={22} />
+                )}
+              </button>
+            )}
           </div>
         </div>
       </header>
