@@ -89,7 +89,7 @@
   color: #eaeaea;
   border-radius: 7px;
   overflow-x: auto;
-  font-size: var(--code-base);
+  font-size: var(--code-small);
   line-height: var(--line-height-normal);
 }
 
@@ -386,4 +386,16 @@
 
   .tagPill.active {
   }
+}
+
+[data-theme='dark'] .tagPill {
+  background: #36393f;
+  color: #bdbdbd;
+  border: 1px solid #44474e;
+}
+[data-theme='dark'] .tagPill.active {
+  background: #44474e;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #5a5f67;
 }

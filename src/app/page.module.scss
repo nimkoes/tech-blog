@@ -30,12 +30,12 @@
   align-items: center;
   gap: 0.1rem;
   padding: 0.1rem 0.5rem;
-  background-color: #f2f4f8;
-  color: #6b7684;
+  background: rgba(120, 120, 120, 0.10);
+  color: #888;
   border-radius: 1.2rem;
   font-size: var(--ui-xs);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s, color 0.2s;
   box-shadow: 0 1px 4px 0 rgba(60, 80, 120, 0.04);
   user-select: none;
   border: none;
@@ -237,4 +237,26 @@
   .container {
     max-width: 100%;
   }
+}
+
+[data-theme='dark'] .postCard {
+  background-color: #23272e;
+  border: 1px solid #36393f;
+  color: #f4f5f7;
+}
+
+[data-theme='dark'] .tagPill {
+  background: rgba(60, 60, 60, 0.55);
+  color: #bdbdbd;
+}
+.tagPill.active {
+  background: #e0e7ff;
+  color: #3730a3;
+  font-weight: 600;
+}
+[data-theme='dark'] .tagPill.active {
+  background: #3a3f47;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #5a5f67;
 }
