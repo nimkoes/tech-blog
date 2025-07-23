@@ -1,10 +1,10 @@
 .custom-codeblock-root {
-  // margin: 0.7rem 0;
   border-radius: 10px;
   background: #23272e;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   font-family: var(--font-mono);
+  padding: 0;
 }
 
 .custom-codeblock-header {
@@ -44,13 +44,15 @@
 }
 
 .custom-codeblock-root pre {
-  background: #23272e;
+  background: none !important;
+  border-radius: 0 !important;
   color: #eaeaea;
   margin: 0;
   padding: 0.7rem 1rem 0.7rem 1rem;
   font-size: 1em;
   overflow-x: auto;
-  border-radius: 0 0 10px 10px;
+  box-shadow: none;
+  border: none;
 }
 
 .custom-codeblock-root pre code {
@@ -59,4 +61,8 @@
   font-size: 1em;
   font-family: var(--font-mono);
   line-height: 1.6;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin: 0;
 } 

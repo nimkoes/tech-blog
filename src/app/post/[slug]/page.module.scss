@@ -83,14 +83,16 @@
 
 /* 코드 블록 스타일 */
 .markdown pre {
-  margin: 0 0;
-  padding: 0.7rem;
-  background: #23272e;
-  color: #eaeaea;
-  border-radius: 7px;
+  background: none;
+  color: inherit;
+  border-radius: 0;
   overflow-x: auto;
   font-size: var(--code-small);
   line-height: var(--line-height-normal);
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
 }
 
 /* 블록 코드만 별도 스타일 */
@@ -398,4 +400,8 @@
   color: #fff;
   font-weight: 600;
   border: 1px solid #5a5f67;
+}
+
+[data-theme='dark'] .markdown pre code {
+  background: none !important;
 }
