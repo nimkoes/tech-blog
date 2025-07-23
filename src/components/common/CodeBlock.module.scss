@@ -1,0 +1,62 @@
+.custom-codeblock-root {
+  // margin: 0.7rem 0;
+  border-radius: 10px;
+  background: #23272e;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: var(--font-mono);
+}
+
+.custom-codeblock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #23272e;
+  color: #bdbdbd;
+  font-size: 0.93em;
+  padding: 0.35rem 0.9rem 0.35rem 0.9rem;
+  border-bottom: 3px solid #2d313a;
+}
+
+.custom-codeblock-lang {
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.03em;
+}
+
+.custom-codeblock-copy {
+  background: none;
+  border: none;
+  color: #bdbdbd;
+  font-size: 0.93em;
+  cursor: pointer;
+  padding: 0.1em 0.7em;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+.custom-codeblock-copy:hover {
+  background: #31343c;
+  color: #fff;
+}
+
+.custom-codeblock-copy:active {
+  background: #444950;
+}
+
+.custom-codeblock-root pre {
+  background: #23272e;
+  color: #eaeaea;
+  margin: 0;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  font-size: 1em;
+  overflow-x: auto;
+  border-radius: 0 0 10px 10px;
+}
+
+.custom-codeblock-root pre code {
+  background: none;
+  color: inherit;
+  font-size: 1em;
+  font-family: var(--font-mono);
+  line-height: 1.6;
+} 

@@ -61,9 +61,32 @@ pre {
   margin: 1rem 0;
 }
 
-code {
-  font-family: 'JetBrains Mono', monospace;
+pre > code, .markdown pre code, .custom-codeblock-root pre code {
+  font-family: var(--font-mono);
   font-size: var(--code-small);
+  background: none;
+  color: inherit;
+  border-radius: 0;
+  padding: 0;
+  vertical-align: baseline;
+  line-height: var(--line-height-tight);
+  box-shadow: none;
+  border: none;
+  margin: 0;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--code-small);
+  background: #f4f4f4;
+  color: #d6336c;
+  border-radius: 3px;
+  padding: 0.1em 0.2em;
+  vertical-align: middle;
+  line-height: var(--line-height-tight);
+  box-shadow: none;
+  border: none;
+  margin: 0;
 }
 
 blockquote {

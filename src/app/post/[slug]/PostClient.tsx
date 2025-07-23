@@ -1,6 +1,6 @@
 'use client';
 import {useEffect, useState} from 'react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import "highlight.js/styles/github-dark.css";
@@ -8,6 +8,7 @@ import styles from './page.module.scss';
 import {generateTOC} from '~/utils/generateTOC';
 import TOC, {TOCItem} from './TOC';
 import '~/styles/toc.scss';
+import CodeBlock from '~/components/common/CodeBlock';
 
 function ScrollTopButton() {
   const [show, setShow] = useState(false);
@@ -85,6 +86,30 @@ export default function PostClient({slug, document}: { slug: string, document: a
       return <Tag id={id}>{children}</Tag>;
     };
 
+type CodeProps = {
+  node?: any;
+  className?: string;
+  children?: React.ReactNode;
+  [key: string]: any;
+};
+
+const Code = ({ node, className, children, ...props }: CodeProps) => {
+  if ((node && node.type === 'inlineCode') || !className) {
+    return <code className={className} {...props}>{children}</code>;
+  }
+  return <CodeBlock className={className}>{children}</CodeBlock>;
+};
+
+const markdownComponents: Components = {
+  h1: HeadingRenderer(1),
+  h2: HeadingRenderer(2),
+  h3: HeadingRenderer(3),
+  h4: HeadingRenderer(4),
+  h5: HeadingRenderer(5),
+  h6: HeadingRenderer(6),
+  code: Code,
+};
+
   return (
     <div key={slug} className={styles.container}>
       <div className={styles.postHeader}>
@@ -109,14 +134,7 @@ export default function PostClient({slug, document}: { slug: string, document: a
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeHighlight]}
-            components={{
-              h1: HeadingRenderer(1),
-              h2: HeadingRenderer(2),
-              h3: HeadingRenderer(3),
-              h4: HeadingRenderer(4),
-              h5: HeadingRenderer(5),
-              h6: HeadingRenderer(6),
-            }}
+            components={markdownComponents}
           >
             {markdown}
           </ReactMarkdown>
