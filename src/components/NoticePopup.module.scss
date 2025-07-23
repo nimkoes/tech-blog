@@ -57,7 +57,7 @@
   font-size: var(--ui-large);
   cursor: pointer;
   padding: 0.25rem;
-  line-height: 1;
+  line-height: var(--line-height-tight);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {

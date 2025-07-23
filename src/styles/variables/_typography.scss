@@ -1,38 +1,28 @@
 /* 통합된 타이포그래피 시스템 */
 
 /*
-사용법:
-1. CSS 변수 사용: font-size: var(--body-base);
-2. 유틸리티 클래스 사용: class="body-base"
-3. 반응형: 모바일에서는 자동으로 크기가 조정됩니다
+줄간격(line-height) 시스템:
+- --line-height-tight: 1.25;      // 제목, 태그, 버튼 등 타이트한 줄간격
+- --line-height-normal: 1.5;      // 일반 본문, UI 기본
+- --line-height-relaxed: 1.75;    // 마크다운, 긴 본문 등 여유 있는 줄간격
 
-폰트 크기 시스템:
-- --font-size-xs: 0.75rem (12px) - 매우 작은 텍스트
-- --font-size-sm: 0.875rem (14px) - 작은 텍스트
-- --font-size-base: 1rem (16px) - 기본 텍스트
-- --font-size-lg: 1.125rem (18px) - 큰 텍스트
-- --font-size-xl: 1.25rem (20px) - 매우 큰 텍스트
-- --font-size-2xl: 1.5rem (24px) - 제목
-- --font-size-3xl: 1.875rem (30px) - 큰 제목
-- --font-size-4xl: 2.25rem (36px) - 매우 큰 제목
+// (필요시) 모바일용 줄간격 변수
+- --line-height-tight-mobile: 1.15;
+- --line-height-normal-mobile: 1.35;
+- --line-height-relaxed-mobile: 1.5;
 
-용도별 변수:
-- --heading-1 ~ --heading-6: 제목용
-- --body-large, --body-base, --body-small, --body-xs: 본문용
-- --code-large, --code-base, --code-small, --code-xs: 코드용
-- --ui-large, --ui-base, --ui-small, --ui-xs: UI 요소용
+사용 예시:
+  font-size: var(--body-base);
+  line-height: var(--line-height-normal);
 
-행간:
-- --line-height-tight: 1.25 - 제목용
-- --line-height-normal: 1.5 - 기본
-- --line-height-relaxed: 1.75 - 본문용
-
-폰트 가중치:
-- --font-weight-light: 300
-- --font-weight-normal: 400
-- --font-weight-medium: 500
-- --font-weight-semibold: 600
-- --font-weight-bold: 700
+반응형에서:
+@media (max-width: 768px) {
+  :root {
+    --line-height-tight: var(--line-height-tight-mobile);
+    --line-height-normal: var(--line-height-normal-mobile);
+    --line-height-relaxed: var(--line-height-relaxed-mobile);
+  }
+}
 */
 
 :root {
@@ -76,6 +66,10 @@
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
+  // 모바일용(더 타이트하게)
+  --line-height-tight-mobile: 1.15;
+  --line-height-normal-mobile: 1.35;
+  --line-height-relaxed-mobile: 1.5;
   
   // 폰트 가중치
   --font-weight-light: 300;
