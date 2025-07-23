@@ -1,6 +1,6 @@
 :root {
-  // 모노스페이스 폰트 스택 (단순화)
-  --font-mono: "JetBrains Mono", monospace;
+  // 모노스페이스 폰트 스택 (프로그래밍 친화)
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Menlo', monospace;
   
   // 여백
   --space-2: 0.5rem;
