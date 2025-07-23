@@ -44,9 +44,9 @@
 
   h2 {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: var(--body-base);
     color: var(--text);
-    line-height: 1.4;
+    line-height: var(--line-height-tight);
   }
 }
 
@@ -54,7 +54,7 @@
   background: none;
   border: none;
   color: var(--text-secondary);
-  font-size: 1.2rem;
+  font-size: var(--ui-large);
   cursor: pointer;
   padding: 0.25rem;
   line-height: 1;
@@ -73,9 +73,9 @@
 
   p {
     margin: 0 0 1rem;
-    line-height: 0.4;
+    line-height: var(--line-height-normal);
     color: var(--text);
-    font-size: 0.7rem;
+    font-size: var(--body-small);
   }
 
   ul {
@@ -84,9 +84,9 @@
 
     li {
       margin-bottom: 0.5rem;
-      line-height: 1.2;
+      line-height: var(--line-height-tight);
       color: var(--text);
-      font-size: 0.7rem;
+      font-size: var(--body-small);
     }
   }
 }
@@ -100,7 +100,7 @@
   a {
     color: var(--primary);
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: var(--body-base);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left;
 
@@ -126,7 +126,7 @@
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: var(--body-small);
   transition: background-color 0.2s ease;
 
   &:hover {
@@ -152,7 +152,7 @@
   }
 
   .header h2 {
-    font-size: 0.7rem;
+    font-size: var(--body-small);
   }
 
   .content {

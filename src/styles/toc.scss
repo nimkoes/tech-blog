@@ -1,20 +1,20 @@
 details summary {
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: var(--body-small);
 }
 
 details ul {
-  font-size: 0.8rem;
+  font-size: var(--body-small);
   padding: 0 0 0 1.5rem !important;
 }
 
 @media (max-width: 768px) {
   details summary {
-    font-size: 0.6rem;
+    font-size: var(--body-xs);
   }
   
   details ul {
-    font-size: 0.6rem;
+    font-size: var(--body-xs);
   }
 }
 

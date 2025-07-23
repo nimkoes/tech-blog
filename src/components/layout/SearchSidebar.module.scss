@@ -48,8 +48,8 @@
 }
 
 .title {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: var(--ui-base);
+  font-weight: var(--font-weight-semibold);
   color: var(--text);
   margin: 0;
 }
@@ -57,7 +57,7 @@
 .closeButton {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: var(--ui-large);
   color: var(--text-secondary);
   cursor: pointer;
   padding: 0.25rem;
@@ -102,7 +102,7 @@
 .searchIcon {
   color: var(--text-secondary);
   margin-right: 0.5rem;
-  font-size: 1rem;
+  font-size: var(--ui-base);
 }
 
 .input {
@@ -110,7 +110,7 @@
   border: none;
   background: none;
   color: var(--text);
-  font-size: 0.7rem;
+  font-size: var(--body-small);
   padding: 0.25rem 0;
   outline: none;
 
@@ -144,7 +144,7 @@
 }
 
 .postLink {
-  font-size: 0.6rem;
+  font-size: var(--ui-xs);
   color: var(--text);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -165,8 +165,8 @@
 }
 
 .tagTitle {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: var(--ui-base);
+  font-weight: var(--font-weight-semibold);
   color: var(--text);
   margin: 0;
   padding-top: 1rem;
@@ -186,7 +186,7 @@
   background-color: #f2f4f8;
   color: #6b7684;
   border-radius: 1.2rem;
-  font-size: 0.6rem;
+  font-size: var(--ui-xs);
   user-select: none;
   border: none;
   box-shadow: 0 1px 4px 0 rgba(60, 80, 120, 0.04);
@@ -206,7 +206,7 @@
   &.active {
     background: #d0d6dd;
     color: #222e3a;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
   }
 }
 
@@ -237,7 +237,7 @@
   background: none;
   border: none;
   color: var(--primary);
-  font-size: 0.7rem;
+  font-size: var(--body-small);
   cursor: pointer;
   padding: 0;
   text-decoration: none;
@@ -256,15 +256,15 @@
   margin-bottom: 0.75rem;
 
   h3 {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--ui-base);
+    font-weight: var(--font-weight-semibold);
     margin: 0;
     color: var(--text-color);
   }
 
   .viewInListLink {
     margin-left: 0.5rem;
-    font-size: 0.7rem;
+    font-size: var(--body-small);
     color: var(--primary-color);
     background: none;
     border: none;
@@ -314,7 +314,7 @@
   border: none;
   background: none;
   color: var(--text-color);
-  font-size: 0.7rem;
+  font-size: var(--body-small);
   padding: 0;
 }
 
@@ -322,7 +322,7 @@
   background: none;
   border: none;
   color: var(--text-color);
-  font-size: 1.2rem;
+  font-size: var(--ui-large);
   margin-right: 0.5rem;
   cursor: pointer;
   opacity: 0.7;
@@ -354,7 +354,7 @@
 
 .mobileFixedHeader .viewInListLink {
   align-self: flex-end;
-  font-size: 0.7rem;
+  font-size: var(--body-small);
   color: var(--primary-color);
   background: none;
   border: none;
@@ -398,6 +398,6 @@
 
   .tagItem {
     padding: 0.1rem;
-    font-size: 0.6rem;
+    font-size: var(--ui-xs);
   }
 } 

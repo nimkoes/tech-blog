@@ -1,6 +1,8 @@
-/* font-size */
+/* 기존 호환성을 위한 폰트 크기 변수들 */
+/* 새로운 타이포그래피 시스템 사용을 권장합니다 */
 
 :root {
+  /* 기존 변수들 (하위 호환성) */
   --text-xs: 0.75rem; /* 12px */
   --text-sm: 0.875rem; /* 14px */
   --text-md: 1rem; /* 16px */
@@ -14,4 +16,17 @@
   --text-7xl: 4.5rem; /* 72px */
   --text-8xl: 6rem; /* 96px */
   --text-9xl: 8rem; /* 128px */
+}
+
+/* 새로운 타이포그래피 시스템과 매핑 */
+:root {
+  /* 기존 변수들을 새로운 시스템으로 매핑 */
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
+  --text-md: var(--font-size-base);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+  --text-3xl: var(--font-size-3xl);
+  --text-4xl: var(--font-size-4xl);
 }

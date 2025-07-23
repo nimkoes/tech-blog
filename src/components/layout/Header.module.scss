@@ -26,8 +26,8 @@
 }
 
 .logo {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: var(--ui-large);
+  font-weight: var(--font-weight-semibold);
   color: #333;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -38,7 +38,7 @@
 }
 
 .githubLink {
-  font-size: 0.9rem;
+  font-size: var(--ui-base);
   color: #666;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -57,7 +57,7 @@
   background: none;
   border: none;
   padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  font-size: var(--ui-base);
   color: #666;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -80,15 +80,15 @@
   }
 
   .logo {
-    font-size: 1rem;
+    font-size: var(--ui-base);
   }
 
   .githubLink {
-    font-size: 0.8rem;
+    font-size: var(--ui-small);
   }
 
   .button {
     padding: 0.5rem;
-    font-size: 0.8rem;
+    font-size: var(--ui-small);
   }
 } 

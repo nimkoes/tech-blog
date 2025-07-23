@@ -1,0 +1,132 @@
+/* 통합된 타이포그래피 시스템 */
+
+/*
+사용법:
+1. CSS 변수 사용: font-size: var(--body-base);
+2. 유틸리티 클래스 사용: class="body-base"
+3. 반응형: 모바일에서는 자동으로 크기가 조정됩니다
+
+폰트 크기 시스템:
+- --font-size-xs: 0.75rem (12px) - 매우 작은 텍스트
+- --font-size-sm: 0.875rem (14px) - 작은 텍스트
+- --font-size-base: 1rem (16px) - 기본 텍스트
+- --font-size-lg: 1.125rem (18px) - 큰 텍스트
+- --font-size-xl: 1.25rem (20px) - 매우 큰 텍스트
+- --font-size-2xl: 1.5rem (24px) - 제목
+- --font-size-3xl: 1.875rem (30px) - 큰 제목
+- --font-size-4xl: 2.25rem (36px) - 매우 큰 제목
+
+용도별 변수:
+- --heading-1 ~ --heading-6: 제목용
+- --body-large, --body-base, --body-small, --body-xs: 본문용
+- --code-large, --code-base, --code-small, --code-xs: 코드용
+- --ui-large, --ui-base, --ui-small, --ui-xs: UI 요소용
+
+행간:
+- --line-height-tight: 1.25 - 제목용
+- --line-height-normal: 1.5 - 기본
+- --line-height-relaxed: 1.75 - 본문용
+
+폰트 가중치:
+- --font-weight-light: 300
+- --font-weight-normal: 400
+- --font-weight-medium: 500
+- --font-weight-semibold: 600
+- --font-weight-bold: 700
+*/
+
+:root {
+  // 기본 폰트 크기 (16px 기준)
+  --font-size-xs: 0.75rem;    // 12px
+  --font-size-sm: 0.875rem;   // 14px
+  --font-size-base: 1rem;     // 16px
+  --font-size-lg: 1.125rem;   // 18px
+  --font-size-xl: 1.25rem;    // 20px
+  --font-size-2xl: 1.5rem;    // 24px
+  --font-size-3xl: 1.875rem;  // 30px
+  --font-size-4xl: 2.25rem;   // 36px
+  
+  // 제목 크기
+  --heading-1: var(--font-size-4xl);
+  --heading-2: var(--font-size-3xl);
+  --heading-3: var(--font-size-2xl);
+  --heading-4: var(--font-size-xl);
+  --heading-5: var(--font-size-lg);
+  --heading-6: var(--font-size-base);
+  
+  // 본문 크기
+  --body-large: var(--font-size-lg);
+  --body-base: var(--font-size-base);
+  --body-small: var(--font-size-sm);
+  --body-xs: var(--font-size-xs);
+  
+  // 코드 크기
+  --code-large: var(--font-size-lg);
+  --code-base: var(--font-size-base);
+  --code-small: var(--font-size-sm);
+  --code-xs: var(--font-size-xs);
+  
+  // UI 요소 크기
+  --ui-large: var(--font-size-lg);
+  --ui-base: var(--font-size-base);
+  --ui-small: var(--font-size-sm);
+  --ui-xs: var(--font-size-xs);
+  
+  // 행간
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  // 폰트 가중치
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+// 반응형 폰트 크기
+@media (max-width: 768px) {
+  :root {
+    --font-size-xs: 0.625rem;   // 10px
+    --font-size-sm: 0.75rem;    // 12px
+    --font-size-base: 0.875rem; // 14px
+    --font-size-lg: 1rem;       // 16px
+    --font-size-xl: 1.125rem;   // 18px
+    --font-size-2xl: 1.25rem;   // 20px
+    --font-size-3xl: 1.5rem;    // 24px
+    --font-size-4xl: 1.875rem;  // 30px
+  }
+}
+
+// 유틸리티 클래스
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+
+.heading-1 { font-size: var(--heading-1); }
+.heading-2 { font-size: var(--heading-2); }
+.heading-3 { font-size: var(--heading-3); }
+.heading-4 { font-size: var(--heading-4); }
+.heading-5 { font-size: var(--heading-5); }
+.heading-6 { font-size: var(--heading-6); }
+
+.body-large { font-size: var(--body-large); }
+.body-base { font-size: var(--body-base); }
+.body-small { font-size: var(--body-small); }
+.body-xs { font-size: var(--body-xs); }
+
+.code-large { font-size: var(--code-large); }
+.code-base { font-size: var(--code-base); }
+.code-small { font-size: var(--code-small); }
+.code-xs { font-size: var(--code-xs); }
+
+.ui-large { font-size: var(--ui-large); }
+.ui-base { font-size: var(--ui-base); }
+.ui-small { font-size: var(--ui-small); }
+.ui-xs { font-size: var(--ui-xs); } 
