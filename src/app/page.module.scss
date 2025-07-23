@@ -9,7 +9,7 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -230,5 +230,11 @@
   .postCard:hover, .tagPill:hover {
     box-shadow: none;
     background: inherit;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
   }
 }
