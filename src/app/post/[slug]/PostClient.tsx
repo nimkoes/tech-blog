@@ -1,6 +1,6 @@
 'use client';
 import {useEffect, useState} from 'react';
-import ReactMarkdown, { Components } from 'react-markdown';
+import ReactMarkdown, {Components} from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import "highlight.js/styles/github-dark.css";
@@ -27,7 +27,7 @@ function ScrollTopButton() {
     <button
       className="scrollTopBtn"
       aria-label="맨 위로 이동"
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
     >
       {/* 임시 SVG 아이콘, 나중에 이미지로 교체 가능 */}
       {/* <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -87,29 +87,29 @@ export default function PostClient({slug, document}: { slug: string, document: a
       return <Tag id={id}>{children}</Tag>;
     };
 
-type CodeProps = {
-  node?: any;
-  className?: string;
-  children?: React.ReactNode;
-  [key: string]: any;
-};
+  type CodeProps = {
+    node?: any;
+    className?: string;
+    children?: React.ReactNode;
+    [key: string]: any;
+  };
 
-const Code = ({ node, className, children, ...props }: CodeProps) => {
-  if ((node && node.type === 'inlineCode') || !className) {
-    return <code className={className} {...props}>{children}</code>;
-  }
-  return <CodeBlock className={className}>{children}</CodeBlock>;
-};
+  const Code = ({node, className, children, ...props}: CodeProps) => {
+    if ((node && node.type === 'inlineCode') || !className) {
+      return <code className={className} {...props}>{children}</code>;
+    }
+    return <CodeBlock className={className}>{children}</CodeBlock>;
+  };
 
-const markdownComponents: Components = {
-  h1: HeadingRenderer(1),
-  h2: HeadingRenderer(2),
-  h3: HeadingRenderer(3),
-  h4: HeadingRenderer(4),
-  h5: HeadingRenderer(5),
-  h6: HeadingRenderer(6),
-  code: Code,
-};
+  const markdownComponents: Components = {
+    h1: HeadingRenderer(1),
+    h2: HeadingRenderer(2),
+    h3: HeadingRenderer(3),
+    h4: HeadingRenderer(4),
+    h5: HeadingRenderer(5),
+    h6: HeadingRenderer(6),
+    code: Code,
+  };
 
   return (
     <div key={slug} className={styles.container}>
@@ -148,9 +148,9 @@ const markdownComponents: Components = {
       <br/>
       <Giscus
         repo="nimkoes/tech-blog"
-        repoId={process.env.NEXT_PUBLIC_GISCUS_REPO_ID || ""}
-        category={process.env.NEXT_PUBLIC_GISCUS_CATEGORY || ""}
-        categoryId={process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || ""}
+        repoId="R_kgDON-8fIg"
+        category="Comments"
+        categoryId="DIC_kwDON-8fIs4CtWZk"
         mapping="pathname"
         strict="0"
         reactionsEnabled="1"
