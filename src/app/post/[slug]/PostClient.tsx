@@ -9,6 +9,7 @@ import {generateTOC} from '~/utils/generateTOC';
 import TOC, {TOCItem} from './TOC';
 import '~/styles/toc.scss';
 import CodeBlock from '~/components/common/CodeBlock';
+import Giscus from '~/components/common/Giscus';
 
 function ScrollTopButton() {
   const [show, setShow] = useState(false);
@@ -142,7 +143,24 @@ const markdownComponents: Components = {
           <div className={styles.loading}>불러오는 중...</div>
         )}
       </article>
-      <ScrollTopButton />
+      <br/>
+      <br/>
+      <br/>
+      <Giscus
+        repo="nimkoes/tech-blog"
+        repoId={process.env.NEXT_PUBLIC_GISCUS_REPO_ID || ""}
+        category={process.env.NEXT_PUBLIC_GISCUS_CATEGORY || ""}
+        categoryId={process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || ""}
+        mapping="pathname"
+        strict="0"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="bottom"
+        theme="preferred_color_scheme"
+        lang="ko"
+        loading="lazy"
+      />
+      <ScrollTopButton/>
     </div>
   );
 }
