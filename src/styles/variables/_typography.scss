@@ -77,6 +77,10 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+
+  // 폰트 패밀리
+  --font-family-base: var(--font-pretendard), var(--font-inter), sans-serif;
+  --font-family-code: var(--font-inter), var(--font-pretendard), monospace;
 }
 
 // 반응형 폰트 크기

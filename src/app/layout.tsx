@@ -1,10 +1,30 @@
 import type {Metadata} from 'next'
-import '@fontsource/jetbrains-mono/400.css'
-import '@fontsource/jetbrains-mono/500.css'
-import '@fontsource/jetbrains-mono/600.css'
+import localFont from 'next/font/local'
 import ClientLayout from './ClientLayout'
 import Script from 'next/script'
 import { ThemeProvider } from '~/context/ThemeContext';
+
+const pretendard = localFont({
+  src: [
+    { path: '../../public/fonts/Pretendard-Thin.woff2', weight: '100', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-ExtraLight.woff2', weight: '200', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-Light.woff2', weight: '300', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-Regular.woff2', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-Medium.woff2', weight: '500', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-SemiBold.woff2', weight: '600', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-Bold.woff2', weight: '700', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-ExtraBold.woff2', weight: '800', style: 'normal' },
+    { path: '../../public/fonts/Pretendard-Black.woff2', weight: '900', style: 'normal' },
+  ],
+  display: 'swap',
+  variable: '--font-pretendard',
+});
+
+const inter = localFont({
+  src: '../../public/fonts/InterVariable.woff2',
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 const BASE_PATH = '/tech-blog'
 const SITE_URL = process.env.NODE_ENV === 'production'
@@ -104,7 +124,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={`${pretendard.variable} ${inter.variable}`}>
     <head>
       {/* Google Analytics */}
       <Script
