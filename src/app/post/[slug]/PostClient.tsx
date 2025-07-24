@@ -10,6 +10,7 @@ import TOC, {TOCItem} from './TOC';
 import '~/styles/toc.scss';
 import CodeBlock from '~/components/common/CodeBlock';
 import Giscus from '~/components/common/Giscus';
+import ScrollProgressBar from '~/components/common/ScrollProgressBar';
 
 function ScrollTopButton() {
   const [show, setShow] = useState(false);
@@ -113,6 +114,7 @@ export default function PostClient({slug, document}: { slug: string, document: a
 
   return (
     <div key={slug} className={styles.container}>
+      <ScrollProgressBar />
       <div className={styles.postHeader}>
         <h1 className={styles.title}>{document.title}</h1>
         <div className={styles.postDate}>

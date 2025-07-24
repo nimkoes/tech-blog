@@ -1,0 +1,16 @@
+.progressBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px; /* 프로그레스 바의 높이 */
+  background-color: #e0e0e0; /* 바닥 배경색 */
+  z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #F0B3FF; /* 프로그레스 바 색상 (연하게 조정) */
+  width: 0%; /* 초기 너비 */
+  transition: width 0.1s ease-out; /* 부드러운 애니메이션 */
+}
