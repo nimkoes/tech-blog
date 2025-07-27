@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Info } from 'lucide-react';
+import { X } from 'lucide-react';
 import styles from './DateTooltip.module.scss';
 
 interface DateTooltipProps {
@@ -47,7 +47,7 @@ export default function DateTooltip({ regDate, lastModifiedDate, children }: Dat
       const rect = containerRef.current.getBoundingClientRect();
       setTooltipPosition({
         top: rect.bottom + window.scrollY - 5,
-        left: rect.left + window.scrollX + 80
+        left: rect.left + window.scrollX
       });
     }
   };
@@ -65,24 +65,7 @@ export default function DateTooltip({ regDate, lastModifiedDate, children }: Dat
     }
   };
 
-  const handleTouchStart = () => {
-    if (isMobile) {
-      updateTooltipPosition();
-      const timer = setTimeout(() => {
-        setShowTooltip(true);
-      }, 500);
-      setTouchTimer(timer);
-    }
-  };
-
-  const handleTouchEnd = () => {
-    if (isMobile && touchTimer) {
-      clearTimeout(touchTimer);
-      setTouchTimer(null);
-    }
-  };
-
-  const handleInfoClick = () => {
+  const handleClick = () => {
     if (isMobile) {
       updateTooltipPosition();
       setShowTooltip(!showTooltip);
@@ -130,20 +113,10 @@ export default function DateTooltip({ regDate, lastModifiedDate, children }: Dat
         className={styles.container}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
+        onClick={handleClick}
       >
         <div className={styles.content}>
           {children}
-          {isMobile && (
-            <button 
-              className={styles.infoButton}
-              onClick={handleInfoClick}
-              aria-label="날짜 정보 보기"
-            >
-              <Info size={14} />
-            </button>
-          )}
         </div>
       </div>
       
