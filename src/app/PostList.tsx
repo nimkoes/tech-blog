@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 // Components
 import Toast from '~/components/common/Toast';
+import DateTooltip from '~/components/common/DateTooltip';
 import { X } from 'lucide-react';
 
 // Utils & Context
@@ -82,15 +83,11 @@ export default function PostList({ initialPosts }: PostListProps) {
               })()}
             </h2>
             <div className={styles.postMeta}>
-              <time className={styles.postDate}>
-                ✚ {post.regDate}
-              </time>
-
-              {post.regDate !== post.lastModifiedDate && (
+              <DateTooltip regDate={post.regDate} lastModifiedDate={post.lastModifiedDate}>
                 <time className={styles.postDate}>
                   ✎ {post.lastModifiedDate}
                 </time>
-              )}
+              </DateTooltip>
 
               <div className={styles.postTags}>
                 {post.tags.map(tag => (
