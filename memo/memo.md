@@ -1,2 +1,4 @@
 - 함수형 프로그래밍 vs. 함수형 아키텍처
 - 유즈케이스
+- CompletableFuture, Mono
+- kotlin / CoroutineScope, launch, async, withContext, Dispatchers
