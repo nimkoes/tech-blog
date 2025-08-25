@@ -74,7 +74,8 @@
               {"id": "30-01-03", "regDate" : "2025-07-05", "lastModifiedDate" : "2025-07-05", "displayName": "좋은 단위 테스트의 4대 요소", "fileName": "0047-the-four-key-elements-of-a-good-unit-test", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
               {"id": "30-01-04", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName": "목과 테스트 취약성", "fileName": "0048-mock-and-test-fragility", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
               {"id": "30-01-05", "regDate" : "2025-07-21", "lastModifiedDate" : "2025-07-22", "displayName": "단위 테스트 스타일", "fileName": "0049-unit-test-style", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-06", "regDate" : "2025-08-10", "lastModifiedDate" : "2025-08-10", "displayName": "가치 있는 단위 테스트를 위한 리팩터링", "fileName": "0050-refactoring-for-valuable-unit-tests", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
+              {"id": "30-01-06", "regDate" : "2025-08-10", "lastModifiedDate" : "2025-08-10", "displayName": "가치 있는 단위 테스트를 위한 리팩터링", "fileName": "0050-refactoring-for-valuable-unit-tests", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
+              {"id": "30-01-07", "regDate" : "2025-08-25", "lastModifiedDate" : "2025-08-25", "displayName": "통합 테스트를 하는 이유", "fileName": "0051-reasons-for-integration-testing", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
             ]
           }
         ]
