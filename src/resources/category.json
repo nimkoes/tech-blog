@@ -77,7 +77,8 @@
               {"id": "30-01-06", "regDate" : "2025-08-10", "lastModifiedDate" : "2025-08-10", "displayName": "가치 있는 단위 테스트를 위한 리팩터링", "fileName": "0050-refactoring-for-valuable-unit-tests", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
               {"id": "30-01-07", "regDate" : "2025-08-25", "lastModifiedDate" : "2025-08-25", "displayName": "통합 테스트를 하는 이유", "fileName": "0051-reasons-for-integration-testing", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
               {"id": "30-01-08", "regDate" : "2025-10-21", "lastModifiedDate" : "2025-10-21", "displayName": "목 처리에 대한 모범 사례", "fileName": "0052-best-practices-for-handling-mock", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-09", "regDate" : "2025-10-23", "lastModifiedDate" : "2025-10-23", "displayName": "데이터베이스 테스트", "fileName": "0053-database-test", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
+              {"id": "30-01-09", "regDate" : "2025-10-23", "lastModifiedDate" : "2025-10-23", "displayName": "데이터베이스 테스트", "fileName": "0053-database-test", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
+              {"id": "30-01-10", "regDate" : "2025-10-26", "lastModifiedDate" : "2025-10-26", "displayName": "단위 테스트 안티 패턴", "fileName": "0054-unit-test-anti-pattern", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
             ]
           }
         ]
