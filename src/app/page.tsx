@@ -1,6 +1,5 @@
 // Utils
 import { getAllDocuments } from '~/utils/getAllDocuments';
-import Link from 'next/link';
 
 // Components
 import PostList from './PostList';
@@ -20,10 +19,31 @@ export default function Home() {
           <p className={styles.description}>
             잊을만 할 때 꺼내보려고 기록합니다.
           </p>
-          <div className={styles.quickLinks}>
-            <Link href="/?tags=Kubernetes" className={styles.quickLink}>Kubernetes</Link>
-            <Link href="/?tags=Spring%20Security" className={styles.quickLink}>Spring Security</Link>
-            <Link href="/?tags=unit%20test" className={styles.quickLink}>Unit Test</Link>
+          <div className={styles.externalLinks} aria-label="외부 링크">
+            <a
+              href="https://nimkoes.github.io/portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.externalLink}
+            >
+              Portfolio
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wxpjegiysxlovzvhvjncev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.externalLink}
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://xxxelppa.tistory.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.externalLink}
+            >
+              Tistory
+            </a>
           </div>
         </section>
         <PostList initialPosts={allPosts} />
