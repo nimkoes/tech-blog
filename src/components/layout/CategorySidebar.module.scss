@@ -111,6 +111,28 @@
 .recentSection {
   padding: 0 1rem 0.7rem;
   border-bottom: 1px solid var(--border);
+  max-height: 560px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+  transition:
+    max-height 0.28s ease,
+    opacity 0.2s ease,
+    transform 0.22s ease,
+    padding 0.22s ease,
+    border-color 0.22s ease,
+    margin-bottom 0.22s ease;
+}
+
+.recentSectionCollapsed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom-color: transparent;
+  pointer-events: none;
 }
 
 .sectionTitle {
@@ -179,6 +201,11 @@
   font-size: 10px;
   color: var(--text-secondary);
   line-height: 1.2;
+
+  time {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 .recentDate {
@@ -312,6 +339,9 @@
   font-size: 10px;
   padding: 0.12rem 0.36rem;
   color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .chevron {
@@ -349,6 +379,8 @@
   }
 
   span {
+    min-width: 0;
+    flex: 1;
     font-size: var(--ui-small);
     line-height: var(--line-height-tight);
   }
@@ -356,6 +388,11 @@
   small {
     font-size: 11px;
     color: var(--text-secondary);
+    flex: 0 0 auto;
+    min-width: 5.4rem;
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -460,6 +497,11 @@
   .recentSection {
     padding: 0 0.75rem 0.45rem;
     border-bottom: 0;
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    overflow: visible;
+    transition: none;
   }
 
   .recentList {
@@ -548,6 +590,12 @@
 
   .recentDate {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recentSection {
+    transition: none;
   }
 }
 

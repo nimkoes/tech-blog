@@ -7,16 +7,47 @@ export function generateTOC(markdown: string): { toc: TocItem[]; idMap: Record<s
   const tree = unified().use(remarkParse).parse(markdown);
   const toc: TocItem[] = [];
   const idMap: Record<string, string> = {};
-  const counters = [0, 0, 0, 0, 0, 0];
+  const seenByKey: Record<string, number> = {};
+
+  const readText = (node: any): string => {
+    if (!node) return '';
+
+    if (typeof node.value === 'string') {
+      return node.value;
+    }
+
+    if (!Array.isArray(node.children)) {
+      return '';
+    }
+
+    return node.children.map((child: any) => readText(child)).join('');
+  };
+
+  const normalizeText = (value: string) =>
+    value
+      .replace(/\s+/g, ' ')
+      .replace(/^[`"'“”‘’]+|[`"'“”‘’]+$/g, '')
+      .trim();
 
   visit(tree, 'heading', (node: any) => {
     const level = node.depth;
-    const text = node.children.map((c: any) => c.value || '').join('').trim();
-    counters[level - 1]++;
-    for (let i = level; i < counters.length; i++) counters[i] = 0;
-    const id = counters.slice(0, level).join('_');
+    // Long-form technical posts are easier to scan with h2/h3-only TOC.
+    if (level < 2 || level > 3) {
+      return;
+    }
+
+    const text = normalizeText(readText(node));
+    if (!text) {
+      return;
+    }
+
+    const baseKey = `${level}_${text}`;
+    const occurrence = (seenByKey[baseKey] || 0) + 1;
+    seenByKey[baseKey] = occurrence;
+
+    const id = `${level}_${toc.length + 1}`;
     toc.push({ level, text, id });
-    idMap[`${level}_${text}`] = id;
+    idMap[`${baseKey}__${occurrence}`] = id;
   });
 
   return { toc, idMap };

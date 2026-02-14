@@ -79,8 +79,10 @@
   --font-weight-bold: 700;
 
   // 폰트 패밀리
-  --font-family-base: var(--font-pretendard), var(--font-inter), sans-serif;
-  --font-family-code: var(--font-inter), var(--font-pretendard), monospace;
+  --font-family-dev: "D2Coding", "D2Coding ligature", "JetBrains Mono", "Fira Code", "Cascadia Code",
+    "IBM Plex Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-base: var(--font-family-dev);
+  --font-family-code: var(--font-family-dev);
   --font-mono: var(--font-family-code);
 }
 

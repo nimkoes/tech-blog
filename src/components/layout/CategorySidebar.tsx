@@ -39,6 +39,62 @@ function normalize(text: string) {
   return text.trim().toLowerCase();
 }
 
+function parseChapterOrder(title: string): number | null {
+  const matched = title.match(/\[chap\.(\d+)]/i);
+  if (!matched?.[1]) return null;
+
+  const value = Number.parseInt(matched[1], 10);
+  return Number.isFinite(value) ? value : null;
+}
+
+function parseFileOrder(fileName: string): number | null {
+  const matched = fileName.match(/^(\d{4})-/);
+  if (!matched?.[1]) return null;
+
+  const value = Number.parseInt(matched[1], 10);
+  return Number.isFinite(value) ? value : null;
+}
+
+function comparePostsForTrack(a: PostMeta, b: PostMeta): number {
+  const chapterA = parseChapterOrder(a.title);
+  const chapterB = parseChapterOrder(b.title);
+
+  if (chapterA !== null || chapterB !== null) {
+    if (chapterA === null) return 1;
+    if (chapterB === null) return -1;
+    if (chapterA !== chapterB) return chapterA - chapterB;
+  }
+
+  if (a.regDate !== b.regDate) {
+    return a.regDate.localeCompare(b.regDate);
+  }
+
+  const fileOrderA = parseFileOrder(a.fileName);
+  const fileOrderB = parseFileOrder(b.fileName);
+  if (fileOrderA !== null && fileOrderB !== null && fileOrderA !== fileOrderB) {
+    return fileOrderA - fileOrderB;
+  }
+
+  return a.title.localeCompare(b.title, 'ko', { numeric: true, sensitivity: 'base' });
+}
+
+function getTopicDisplayName(name: string): string {
+  if (name.trim().toLowerCase() === 'go') {
+    return 'golang';
+  }
+  return name;
+}
+
+function getLatestDate(posts: PostMeta[]): string {
+  if (posts.length === 0) {
+    return '-';
+  }
+
+  return posts.reduce((latest, post) => {
+    return post.lastModifiedDate > latest ? post.lastModifiedDate : latest;
+  }, posts[0].lastModifiedDate);
+}
+
 export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProps) {
   const [query, setQuery] = useState('');
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
@@ -61,20 +117,20 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
         const posts = collectSlugs(node)
           .map(slug => documentMap.get(slug))
           .filter((doc): doc is PostMeta => Boolean(doc))
-          .sort((a, b) => b.lastModifiedDate.localeCompare(a.lastModifiedDate));
+          .sort(comparePostsForTrack);
 
         return {
           id: node.id,
           name: node.displayName,
           posts,
-          latestDate: posts[0]?.lastModifiedDate || '-',
+          latestDate: getLatestDate(posts),
           uniqueTagCount: new Set(posts.flatMap(post => post.tags)).size,
         };
       })
       .filter(group => group.posts.length > 0);
   }, [documentMap]);
 
-  const recentPosts = useMemo(() => allDocuments.slice(0, 8), [allDocuments]);
+  const recentPosts = useMemo(() => allDocuments.slice(0, 5), [allDocuments]);
 
   const filteredGroups = useMemo(() => {
     const normalizedQuery = normalize(query);
@@ -84,7 +140,8 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
 
     return groups
       .map(group => {
-        const isGroupMatch = group.name.toLowerCase().includes(normalizedQuery);
+        const groupSearchSeed = `${group.name} ${getTopicDisplayName(group.name)}`.toLowerCase();
+        const isGroupMatch = groupSearchSeed.includes(normalizedQuery);
         if (isGroupMatch) {
           return group;
         }
@@ -101,7 +158,7 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
         return {
           ...group,
           posts: matchedPosts,
-          latestDate: matchedPosts[0]?.lastModifiedDate || group.latestDate,
+          latestDate: matchedPosts.length > 0 ? getLatestDate(matchedPosts) : group.latestDate,
           uniqueTagCount: new Set(matchedPosts.flatMap(post => post.tags)).size,
         };
       })
@@ -171,6 +228,7 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
 
   const showRecentSection = !isMobile || mobileView === 'recent';
   const showTopicSection = !isMobile || mobileView === 'topics';
+  const shouldCollapseRecentSection = !isMobile && query.trim().length > 0;
 
   if (!isOpen) {
     return null;
@@ -238,9 +296,10 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
         <div className={styles.panelBody}>
           {showRecentSection && (
             <section
-              className={styles.recentSection}
+              className={`${styles.recentSection} ${shouldCollapseRecentSection ? styles.recentSectionCollapsed : ''}`}
               role={isMobile ? 'tabpanel' : undefined}
               aria-labelledby={isMobile ? 'explore-tab-recent' : undefined}
+              aria-hidden={shouldCollapseRecentSection}
             >
               <h3 className={styles.sectionTitle}>최근 업데이트</h3>
               <ul className={styles.recentList}>
@@ -314,7 +373,7 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
                         aria-controls={`topic-${group.id}`}
                       >
                         <div className={styles.groupMeta}>
-                          <strong>{group.name}</strong>
+                          <strong>{getTopicDisplayName(group.name)}</strong>
                           <span>{group.posts.length}개 문서 · 태그 {group.uniqueTagCount}개</span>
                         </div>
                         <div className={styles.groupRight}>
@@ -331,7 +390,7 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
 
                       {isExpanded && (
                         <ul id={`topic-${group.id}`} className={styles.groupPosts}>
-                          {group.posts.slice(0, 12).map(post => (
+                          {group.posts.map(post => (
                             <li key={`${group.id}:${post.fileName}`}>
                               <Link href={`/post/${post.fileName}/`} className={styles.postLink} onClick={onClose}>
                                 <span>{post.title}</span>

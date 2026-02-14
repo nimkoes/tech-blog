@@ -11,55 +11,499 @@
             "id": "10-01",
             "displayName": "대세는 쿠버네티스",
             "children": [
-              {"id": "10-01-01", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.01] Kubernetes 사용 이유", "fileName": "0002-kubernetes", "tags": ["Kubernetes", "introduce"]},
-              {"id": "10-01-02", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.02] VM 과 Container 비교", "fileName": "0003-kubernetes", "tags": ["Kubernetes"]},
-              {"id": "10-01-03", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.03] Kubernetes 훑어보기", "fileName": "0004-kubernetes", "tags": ["Kubernetes", "Pod", "Container"]},
-              {"id": "10-01-04", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.04] Pod (Container, Label, NodeSchedule)", "fileName": "0005-kubernetes", "tags": ["Kubernetes", "Pod", "Container", "Label", "NodeSchedule"]},
-              {"id": "10-01-05", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.05] Service (ClusterIP, NodePort, LoadBalancer)", "fileName": "0006-kubernetes", "tags": ["Kubernetes", "Service", "ClusterIP", "NodePort", "LoadBalancer"]},
-              {"id": "10-01-06", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.06] Volume (emptyDir, hostPath, PVC/PV)", "fileName": "0007-kubernetes", "tags": ["Kubernetes", "Volume", "emptyDir", "hostPath", "PVC/PV"]},
-              {"id": "10-01-07", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.07] ConfigMap, Secret (Env, Mount)", "fileName": "0008-kubernetes", "tags": ["Kubernetes", "ConfigMap", "Secret", "Environment Variables", "Volume Mount"]},
-              {"id": "10-01-08", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.08] Namespace, ResourceQuota, LimitRange", "fileName": "0009-kubernetes", "tags": ["Kubernetes", "Namespace", "ResourceQuota", "LimitRange"]},
-              {"id": "10-01-09", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)", "fileName": "0010-kubernetes", "tags": ["Kubernetes", "Controller", "ReplicaSet"]},
-              {"id": "10-01-10", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.10] Deployment (Recreate, RollingUpdate)", "fileName": "0011-kubernetes", "tags": ["Kubernetes", "Deployment", "ReCreate", "RollingUpdate"]},
-              {"id": "10-01-11", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.11] DaemonSet, Job, CronJob", "fileName": "0012-kubernetes", "tags": ["Kubernetes", "DaemonSet", "Job", "CronJob"]},
-              {"id": "10-01-12", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.12] Pod - Lifecycle", "fileName": "0013-kubernetes", "tags": ["Kubernetes", "Pod", "Lifecycle"]},
-              {"id": "10-01-13", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.13] Pod - ReadinessProbe, LivenessProb", "fileName": "0014-kubernetes", "tags": ["Kubernetes", "Pod", "ReadinessProbe", "LivenessProbe"]},
-              {"id": "10-01-14", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.14] Pod - QoS Classes", "fileName": "0015-kubernetes", "tags": ["Kubernetes", "Pod", "QoS Classes"]},
-              {"id": "10-01-15", "regDate" : "2025-03-03", "lastModifiedDate" : "2025-03-03", "displayName":"[chap.15] Pod - NodeScheduling", "fileName": "0016-kubernetes", "tags": ["Kubernetes", "Pod", "Node Scheduling", "NodeSelector"]}
+              {
+                "id": "10-01-01",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.01] Kubernetes 사용 이유",
+                "fileName": "0002-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "introduce"
+                ]
+              },
+              {
+                "id": "10-01-02",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.02] VM 과 Container 비교",
+                "fileName": "0003-kubernetes",
+                "tags": [
+                  "Kubernetes"
+                ]
+              },
+              {
+                "id": "10-01-03",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.03] Kubernetes 훑어보기",
+                "fileName": "0004-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Pod",
+                  "Container"
+                ]
+              },
+              {
+                "id": "10-01-04",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.04] Pod (Container, Label, NodeSchedule)",
+                "fileName": "0005-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Pod",
+                  "Container",
+                  "Label",
+                  "NodeSchedule"
+                ]
+              },
+              {
+                "id": "10-01-05",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.05] Service (ClusterIP, NodePort, LoadBalancer)",
+                "fileName": "0006-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Service",
+                  "ClusterIP",
+                  "NodePort",
+                  "LoadBalancer"
+                ]
+              },
+              {
+                "id": "10-01-06",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.06] Volume (emptyDir, hostPath, PVC/PV)",
+                "fileName": "0007-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Volume",
+                  "emptyDir",
+                  "hostPath",
+                  "PVC/PV"
+                ]
+              },
+              {
+                "id": "10-01-07",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.07] ConfigMap, Secret (Env, Mount)",
+                "fileName": "0008-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "ConfigMap",
+                  "Secret",
+                  "Environment Variables",
+                  "Volume Mount"
+                ]
+              },
+              {
+                "id": "10-01-08",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.08] Namespace, ResourceQuota, LimitRange",
+                "fileName": "0009-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Namespace",
+                  "ResourceQuota",
+                  "LimitRange"
+                ]
+              },
+              {
+                "id": "10-01-09",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)",
+                "fileName": "0010-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Controller",
+                  "ReplicaSet"
+                ]
+              },
+              {
+                "id": "10-01-10",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.10] Deployment (Recreate, RollingUpdate)",
+                "fileName": "0011-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Deployment",
+                  "ReCreate",
+                  "RollingUpdate"
+                ]
+              },
+              {
+                "id": "10-01-11",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.11] DaemonSet, Job, CronJob",
+                "fileName": "0012-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "DaemonSet",
+                  "Job",
+                  "CronJob"
+                ]
+              },
+              {
+                "id": "10-01-12",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.12] Pod - Lifecycle",
+                "fileName": "0013-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Pod",
+                  "Lifecycle"
+                ]
+              },
+              {
+                "id": "10-01-13",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.13] Pod - ReadinessProbe, LivenessProb",
+                "fileName": "0014-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Pod",
+                  "ReadinessProbe",
+                  "LivenessProbe"
+                ]
+              },
+              {
+                "id": "10-01-14",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.14] Pod - QoS Classes",
+                "fileName": "0015-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Pod",
+                  "QoS Classes"
+                ]
+              },
+              {
+                "id": "10-01-15",
+                "regDate": "2025-03-03",
+                "lastModifiedDate": "2025-03-03",
+                "displayName": "[chap.15] Pod - NodeScheduling",
+                "fileName": "0016-kubernetes",
+                "tags": [
+                  "Kubernetes",
+                  "Pod",
+                  "Node Scheduling",
+                  "NodeSelector"
+                ]
+              }
             ]
           },
-          {"id": "10-02", "regDate" : "2025-07-02", "lastModifiedDate" : "2025-07-02", "displayName":"Kubernetes Static Pod 개념과 설정 방법", "fileName": "0056-kubernetes-static-pod", "tags": ["Kubernetes", "Pod", "static pod"]},
-          {"id": "10-03", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName":"Kubernetes Controller 개념과 설정 방법", "fileName": "0057-k8s-controller", "tags": ["Kubernetes", "Pod", "controller"]},
-          {"id": "10-04", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName":"Kubernetes apply vs. create 정리", "fileName": "0058-k8s-apply-create", "tags": ["Kubernetes", "cli", "apply", "create"]},
-          {"id": "10-05", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName":"Kubernetes Service 개념 정리", "fileName": "0058-k8s-service", "tags": ["Kubernetes", "Service", "network"]}
+          {
+            "id": "10-02",
+            "regDate": "2025-07-02",
+            "lastModifiedDate": "2025-07-02",
+            "displayName": "Kubernetes Static Pod 개념과 설정 방법",
+            "fileName": "0056-kubernetes-static-pod",
+            "tags": [
+              "Kubernetes",
+              "Pod",
+              "static pod"
+            ]
+          },
+          {
+            "id": "10-03",
+            "regDate": "2025-07-10",
+            "lastModifiedDate": "2025-07-10",
+            "displayName": "Kubernetes Controller 개념과 설정 방법",
+            "fileName": "0057-k8s-controller",
+            "tags": [
+              "Kubernetes",
+              "Pod",
+              "controller"
+            ]
+          },
+          {
+            "id": "10-04",
+            "regDate": "2025-07-10",
+            "lastModifiedDate": "2025-07-10",
+            "displayName": "Kubernetes apply vs. create 정리",
+            "fileName": "0058-k8s-apply-create",
+            "tags": [
+              "Kubernetes",
+              "cli",
+              "apply",
+              "create"
+            ]
+          },
+          {
+            "id": "10-05",
+            "regDate": "2025-07-10",
+            "lastModifiedDate": "2025-07-10",
+            "displayName": "Kubernetes Service 개념 정리",
+            "fileName": "0058-k8s-service",
+            "tags": [
+              "Kubernetes",
+              "Service",
+              "network"
+            ]
+          }
         ]
       },
       {
         "id": "20",
         "displayName": "Spring Security 내부 구조",
         "children": [
-          {"id": "20-01", "regDate" : "2025-03-08", "lastModifiedDate" : "2025-03-08", "displayName": "[chap.01] Spring Security 동작 원리 개요", "fileName": "0020-spring-security-inner-structure", "tags": ["Spring Security", "introduce"]},
-          {"id": "20-02", "regDate" : "2025-03-08", "lastModifiedDate" : "2025-03-08", "displayName": "[chap.02] SecurityFilterChain 등록", "fileName": "0021-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain"]},
-          {"id": "20-03", "regDate" : "2025-03-08", "lastModifiedDate" : "2025-03-08", "displayName": "[chap.03] SecurityFilterChain 구조", "fileName": "0022-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain"]},
-          {"id": "20-04", "regDate" : "2025-03-08", "lastModifiedDate" : "2025-03-08", "displayName": "[chap.04] SecurityContextHolder", "fileName": "0023-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolder"]},
-          {"id": "20-05", "regDate" : "2025-03-08", "lastModifiedDate" : "2025-03-08", "displayName": "[chap.05] 필터 상속과 요청 전파", "fileName": "0024-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "GenericFilterBean", "OncePerRequestFilter"]},
-          {"id": "20-06", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter", "fileName": "0025-spring-security-inner-structure", "tags": ["Spring Security", "SecurityFilterChain", "GenericFilterBean", "OncePerRequestFilter"]},
-          {"id": "20-07", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.07] DisableEncodeUrlFilter", "fileName": "0026-spring-security-inner-structure", "tags": ["Spring Security", "DisableEncodeUrlFilter"]},
-          {"id": "20-08", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.08] WebAsyncManagerIntegrationFilter", "fileName": "0027-spring-security-inner-structure", "tags": ["Spring Security", "WebAsyncManagerIntegrationFilter"]},
-          {"id": "20-09", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.09] SecurityContextHolderFilter", "fileName": "0028-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolderFilter"]},
-          {"id": "20-10", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.10] HeaderWriterFilter", "fileName": "0029-spring-security-inner-structure", "tags": ["Spring Security", "HeaderWriterFilter"]},
-          {"id": "20-11", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.11] CorsFilter", "fileName": "0030-spring-security-inner-structure", "tags": ["Spring Security", "CorsFilter"]},
-          {"id": "20-12", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.12] CsrfFilter", "fileName": "0031-spring-security-inner-structure", "tags": ["Spring Security", "CsrfFilter"]},
-          {"id": "20-13", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.13] LogoutFilter", "fileName": "0032-spring-security-inner-structure", "tags": ["Spring Security", "LogoutFilter"]},
-          {"id": "20-14", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.14] UsernamePasswordAuthenticationFilter", "fileName": "0033-spring-security-inner-structure", "tags": ["Spring Security", "UsernamePasswordAuthenticationFilter"]},
-          {"id": "20-15", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.15] DefaultLoginPageGeneratingFilter", "fileName": "0034-spring-security-inner-structure", "tags": ["Spring Security", "DefaultLoginPageGeneratingFilter"]},
-          {"id": "20-16", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.16] DefaultLogoutPageGeneratingFilter", "fileName": "0035-spring-security-inner-structure", "tags": ["Spring Security", "DefaultLogoutPageGeneratingFilter"]},
-          {"id": "20-17", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.17] BasicAuthenticationFilter", "fileName": "0036-spring-security-inner-structure", "tags": ["Spring Security", "BasicAuthenticationFilter"]},
-          {"id": "20-18", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.18] RequestCacheAwareFilter", "fileName": "0037-spring-security-inner-structure", "tags": ["Spring Security", "RequestCacheAwareFilter"]},
-          {"id": "20-19", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.19] SecurityContextHolderAwareRequestFilter", "fileName": "0038-spring-security-inner-structure", "tags": ["Spring Security", "SecurityContextHolderAwareRequestFilter"]},
-          {"id": "20-20", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.20] AnonymousAuthenticationFilter", "fileName": "0039-spring-security-inner-structure", "tags": ["Spring Security", "AnonymousAuthenticationFilter"]},
-          {"id": "20-21", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.21] ExceptionTranslationFilter", "fileName": "0040-spring-security-inner-structure", "tags": ["Spring Security", "ExceptionTranslationFilter"]},
-          {"id": "20-22", "regDate" : "2025-03-09", "lastModifiedDate" : "2025-03-09", "displayName": "[chap.22] AuthorizationFilter", "fileName": "0041-spring-security-inner-structure", "tags": ["Spring Security", "AuthorizationFilter"]}
+          {
+            "id": "20-01",
+            "regDate": "2025-03-08",
+            "lastModifiedDate": "2025-03-08",
+            "displayName": "[chap.01] Spring Security 동작 원리 개요",
+            "fileName": "0020-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "introduce"
+            ]
+          },
+          {
+            "id": "20-02",
+            "regDate": "2025-03-08",
+            "lastModifiedDate": "2025-03-08",
+            "displayName": "[chap.02] SecurityFilterChain 등록",
+            "fileName": "0021-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "SecurityFilterChain"
+            ]
+          },
+          {
+            "id": "20-03",
+            "regDate": "2025-03-08",
+            "lastModifiedDate": "2025-03-08",
+            "displayName": "[chap.03] SecurityFilterChain 구조",
+            "fileName": "0022-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "SecurityFilterChain"
+            ]
+          },
+          {
+            "id": "20-04",
+            "regDate": "2025-03-08",
+            "lastModifiedDate": "2025-03-08",
+            "displayName": "[chap.04] SecurityContextHolder",
+            "fileName": "0023-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "SecurityContextHolder"
+            ]
+          },
+          {
+            "id": "20-05",
+            "regDate": "2025-03-08",
+            "lastModifiedDate": "2025-03-08",
+            "displayName": "[chap.05] 필터 상속과 요청 전파",
+            "fileName": "0024-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "SecurityFilterChain",
+              "GenericFilterBean",
+              "OncePerRequestFilter"
+            ]
+          },
+          {
+            "id": "20-06",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter",
+            "fileName": "0025-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "SecurityFilterChain",
+              "GenericFilterBean",
+              "OncePerRequestFilter"
+            ]
+          },
+          {
+            "id": "20-07",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.07] DisableEncodeUrlFilter",
+            "fileName": "0026-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "DisableEncodeUrlFilter"
+            ]
+          },
+          {
+            "id": "20-08",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.08] WebAsyncManagerIntegrationFilter",
+            "fileName": "0027-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "WebAsyncManagerIntegrationFilter"
+            ]
+          },
+          {
+            "id": "20-09",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.09] SecurityContextHolderFilter",
+            "fileName": "0028-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "SecurityContextHolderFilter"
+            ]
+          },
+          {
+            "id": "20-10",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.10] HeaderWriterFilter",
+            "fileName": "0029-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "HeaderWriterFilter"
+            ]
+          },
+          {
+            "id": "20-11",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.11] CorsFilter",
+            "fileName": "0030-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "CorsFilter"
+            ]
+          },
+          {
+            "id": "20-12",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.12] CsrfFilter",
+            "fileName": "0031-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "CsrfFilter"
+            ]
+          },
+          {
+            "id": "20-13",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.13] LogoutFilter",
+            "fileName": "0032-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "LogoutFilter"
+            ]
+          },
+          {
+            "id": "20-14",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.14] UsernamePasswordAuthenticationFilter",
+            "fileName": "0033-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "UsernamePasswordAuthenticationFilter"
+            ]
+          },
+          {
+            "id": "20-15",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.15] DefaultLoginPageGeneratingFilter",
+            "fileName": "0034-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "DefaultLoginPageGeneratingFilter"
+            ]
+          },
+          {
+            "id": "20-16",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.16] DefaultLogoutPageGeneratingFilter",
+            "fileName": "0035-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "DefaultLogoutPageGeneratingFilter"
+            ]
+          },
+          {
+            "id": "20-17",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.17] BasicAuthenticationFilter",
+            "fileName": "0036-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "BasicAuthenticationFilter"
+            ]
+          },
+          {
+            "id": "20-18",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.18] RequestCacheAwareFilter",
+            "fileName": "0037-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "RequestCacheAwareFilter"
+            ]
+          },
+          {
+            "id": "20-19",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.19] SecurityContextHolderAwareRequestFilter",
+            "fileName": "0038-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "SecurityContextHolderAwareRequestFilter"
+            ]
+          },
+          {
+            "id": "20-20",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.20] AnonymousAuthenticationFilter",
+            "fileName": "0039-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "AnonymousAuthenticationFilter"
+            ]
+          },
+          {
+            "id": "20-21",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.21] ExceptionTranslationFilter",
+            "fileName": "0040-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "ExceptionTranslationFilter"
+            ]
+          },
+          {
+            "id": "20-22",
+            "regDate": "2025-03-09",
+            "lastModifiedDate": "2025-03-09",
+            "displayName": "[chap.22] AuthorizationFilter",
+            "fileName": "0041-spring-security-inner-structure",
+            "tags": [
+              "Spring Security",
+              "AuthorizationFilter"
+            ]
+          }
         ]
       },
       {
@@ -70,16 +514,136 @@
             "id": "30-01",
             "displayName": "단위테스트",
             "children": [
-              {"id": "30-01-01", "regDate" : "2025-06-30", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 (Unit Testing) 란", "fileName": "0045-what-is-unit-testing", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-02", "regDate" : "2025-07-01", "lastModifiedDate" : "2025-07-01", "displayName": "단위 테스트 구조", "fileName": "0046-unit-testing-structure", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-03", "regDate" : "2025-07-05", "lastModifiedDate" : "2025-07-05", "displayName": "좋은 단위 테스트의 4대 요소", "fileName": "0047-the-four-key-elements-of-a-good-unit-test", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-04", "regDate" : "2025-07-10", "lastModifiedDate" : "2025-07-10", "displayName": "목과 테스트 취약성", "fileName": "0048-mock-and-test-fragility", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-05", "regDate" : "2025-07-21", "lastModifiedDate" : "2025-07-22", "displayName": "단위 테스트 스타일", "fileName": "0049-unit-test-style", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-06", "regDate" : "2025-08-10", "lastModifiedDate" : "2025-08-10", "displayName": "가치 있는 단위 테스트를 위한 리팩터링", "fileName": "0050-refactoring-for-valuable-unit-tests", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-07", "regDate" : "2025-08-25", "lastModifiedDate" : "2025-08-25", "displayName": "통합 테스트를 하는 이유", "fileName": "0051-reasons-for-integration-testing", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-08", "regDate" : "2025-10-21", "lastModifiedDate" : "2025-10-21", "displayName": "목 처리에 대한 모범 사례", "fileName": "0052-best-practices-for-handling-mock", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-09", "regDate" : "2025-10-23", "lastModifiedDate" : "2025-10-23", "displayName": "데이터베이스 테스트", "fileName": "0053-database-test", "tags": ["테스트", "단위 테스트", "unit test", "test"]},
-              {"id": "30-01-10", "regDate" : "2025-10-26", "lastModifiedDate" : "2025-10-26", "displayName": "단위 테스트 안티 패턴", "fileName": "0054-unit-test-anti-pattern", "tags": ["테스트", "단위 테스트", "unit test", "test"]}
+              {
+                "id": "30-01-01",
+                "regDate": "2025-06-30",
+                "lastModifiedDate": "2025-07-01",
+                "displayName": "단위 테스트 (Unit Testing) 란",
+                "fileName": "0045-what-is-unit-testing",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-02",
+                "regDate": "2025-07-01",
+                "lastModifiedDate": "2025-07-01",
+                "displayName": "단위 테스트 구조",
+                "fileName": "0046-unit-testing-structure",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-03",
+                "regDate": "2025-07-05",
+                "lastModifiedDate": "2025-07-05",
+                "displayName": "좋은 단위 테스트의 4대 요소",
+                "fileName": "0047-the-four-key-elements-of-a-good-unit-test",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-04",
+                "regDate": "2025-07-10",
+                "lastModifiedDate": "2025-07-10",
+                "displayName": "목과 테스트 취약성",
+                "fileName": "0048-mock-and-test-fragility",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-05",
+                "regDate": "2025-07-21",
+                "lastModifiedDate": "2025-07-22",
+                "displayName": "단위 테스트 스타일",
+                "fileName": "0049-unit-test-style",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-06",
+                "regDate": "2025-08-10",
+                "lastModifiedDate": "2025-08-10",
+                "displayName": "가치 있는 단위 테스트를 위한 리팩터링",
+                "fileName": "0050-refactoring-for-valuable-unit-tests",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-07",
+                "regDate": "2025-08-25",
+                "lastModifiedDate": "2025-08-25",
+                "displayName": "통합 테스트를 하는 이유",
+                "fileName": "0051-reasons-for-integration-testing",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-08",
+                "regDate": "2025-10-21",
+                "lastModifiedDate": "2025-10-21",
+                "displayName": "목 처리에 대한 모범 사례",
+                "fileName": "0052-best-practices-for-handling-mock",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-09",
+                "regDate": "2025-10-23",
+                "lastModifiedDate": "2025-10-23",
+                "displayName": "데이터베이스 테스트",
+                "fileName": "0053-database-test",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              },
+              {
+                "id": "30-01-10",
+                "regDate": "2025-10-26",
+                "lastModifiedDate": "2025-10-26",
+                "displayName": "단위 테스트 안티 패턴",
+                "fileName": "0054-unit-test-anti-pattern",
+                "tags": [
+                  "테스트",
+                  "단위 테스트",
+                  "unit test",
+                  "test"
+                ]
+              }
             ]
           }
         ]
@@ -88,23 +652,1167 @@
         "id": "40",
         "displayName": "네트워크",
         "children": [
-          {"id": "40-01", "regDate" : "2025-06-10", "lastModifiedDate" : "2025-06-11", "displayName": "DNS와 레코드 타입 이해하기", "fileName": "0042-dns", "tags": ["network", "DNS", "레코드 타입"]},
-          {"id": "40-02", "regDate" : "2025-07-13", "lastModifiedDate" : "2025-07-16", "displayName": "네트워크 처리 흐름 정리", "fileName": "0059-network-traffic-flow", "tags": ["network", "traffic"]}
+          {
+            "id": "40-01",
+            "regDate": "2025-06-10",
+            "lastModifiedDate": "2025-06-11",
+            "displayName": "DNS와 레코드 타입 이해하기",
+            "fileName": "0042-dns",
+            "tags": [
+              "network",
+              "DNS",
+              "레코드 타입"
+            ]
+          },
+          {
+            "id": "40-02",
+            "regDate": "2025-07-13",
+            "lastModifiedDate": "2025-07-16",
+            "displayName": "네트워크 처리 흐름 정리",
+            "fileName": "0059-network-traffic-flow",
+            "tags": [
+              "network",
+              "traffic"
+            ]
+          }
         ]
       },
       {
         "id": "50",
         "displayName": "기반지식",
         "children": [
-          {"id": "50-01", "regDate" : "2025-06-12", "lastModifiedDate" : "2025-06-12", "displayName": "동기/비동기 + 블로킹/논블로킹 네 가지 조합 정리", "fileName": "0044-syncAsyncBlockNonBlock", "tags": ["theory", "sync", "async", "blocking", "non blocking"]},
-          {"id": "50-02", "regDate" : "2025-07-17", "lastModifiedDate" : "2025-07-17", "displayName": "육각형, 헥사고날, 포트와 어댑터 아키텍처", "fileName": "0060-hexagonal-architecture", "tags": ["theory", "architecture"]}
+          {
+            "id": "50-01",
+            "regDate": "2025-06-12",
+            "lastModifiedDate": "2025-06-12",
+            "displayName": "동기/비동기 + 블로킹/논블로킹 네 가지 조합 정리",
+            "fileName": "0044-syncAsyncBlockNonBlock",
+            "tags": [
+              "theory",
+              "sync",
+              "async",
+              "blocking",
+              "non blocking"
+            ]
+          },
+          {
+            "id": "50-02",
+            "regDate": "2025-07-17",
+            "lastModifiedDate": "2025-07-17",
+            "displayName": "육각형, 헥사고날, 포트와 어댑터 아키텍처",
+            "fileName": "0060-hexagonal-architecture",
+            "tags": [
+              "theory",
+              "architecture"
+            ]
+          }
         ]
       },
       {
         "id": "80",
         "displayName": "번역",
         "children": [
-          {"id": "80-01", "regDate" : "2025-06-11", "lastModifiedDate" : "2025-06-11", "displayName": "Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기", "fileName": "0043-aztfexport", "tags": ["infra", "terraform", "azure", "aztfexport"]}
+          {
+            "id": "80-01",
+            "regDate": "2025-06-11",
+            "lastModifiedDate": "2025-06-11",
+            "displayName": "Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기",
+            "fileName": "0043-aztfexport",
+            "tags": [
+              "infra",
+              "terraform",
+              "azure",
+              "aztfexport"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "94",
+        "displayName": "나 혼자 떠드는 자바",
+        "children": [
+          {
+            "id": "94-01",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 시작하며",
+            "fileName": "0085-185-talking-java-intro",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초"
+            ]
+          },
+          {
+            "id": "94-02",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 내용구성",
+            "fileName": "0086-186-talking-java-outline",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초"
+            ]
+          },
+          {
+            "id": "94-03",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 프로그래밍 언어란",
+            "fileName": "0087-187-talking-java-what-is-programming-language",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초"
+            ]
+          },
+          {
+            "id": "94-04",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 자바 언어가 가지는 특징 '배워본 언어가 없는데 어떻게 비교를 해'",
+            "fileName": "0088-188-talking-java-language-characteristics",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초"
+            ]
+          },
+          {
+            "id": "94-05",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 자료의 형태(data type) : 상수, 변수, 배열, (구조체), 클래스 그리고 사용자 정의 자료형",
+            "fileName": "0089-189-data-type",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초",
+              "Class",
+              "Array",
+              "Data Type"
+            ]
+          },
+          {
+            "id": "94-06",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (자바 설치 방법)",
+            "fileName": "0090-190-talking-java-runtime-installation",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초",
+              "Environment"
+            ]
+          },
+          {
+            "id": "94-07",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 1편)",
+            "fileName": "0091-191-talking-java-runtime-notepad-coding-part-1",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초"
+            ]
+          },
+          {
+            "id": "94-08",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 2편)",
+            "fileName": "0092-192-talking-java-runtime-notepad-coding-part-2",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초"
+            ]
+          },
+          {
+            "id": "94-09",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (조금 더 즐거운 통합 개발 환경)",
+            "fileName": "0093-193-talking-java-runtime-ide-setup",
+            "tags": [
+              "Java",
+              "학습노트",
+              "Java 기초",
+              "Environment"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "95",
+        "displayName": "Whiteship Java live study",
+        "children": [
+          {
+            "id": "95-01",
+            "regDate": "2021-04-23",
+            "lastModifiedDate": "2021-04-23",
+            "displayName": "Whiteship Java live study S01",
+            "fileName": "0084-133-whiteship-java-live-study-s01",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈"
+            ]
+          },
+          {
+            "id": "95-02",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "1주차 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가",
+            "fileName": "0094-194-java-live-study-week-1-jvm-and-execution",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "JVM"
+            ]
+          },
+          {
+            "id": "95-03",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "2주차 : 자바 데이터 타입, 변수 그리고 배열",
+            "fileName": "0095-195-java-live-study-week-2-data-types-variables-arrays",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Array",
+              "Data Type",
+              "Variable"
+            ]
+          },
+          {
+            "id": "95-04",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "3주차 : 연산자",
+            "fileName": "0096-196-java-live-study-week-3-operators",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Operator"
+            ]
+          },
+          {
+            "id": "95-05",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "4주차 : 제어문",
+            "fileName": "0097-197-java-live-study-week-4-control-flow",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Control Flow"
+            ]
+          },
+          {
+            "id": "95-06",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "5주차 : 클래스",
+            "fileName": "0098-198-java-live-study-week-5-class",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Class"
+            ]
+          },
+          {
+            "id": "95-07",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "6주차 : 상속",
+            "fileName": "0099-199-java-live-study-week-6-inheritance",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Inheritance"
+            ]
+          },
+          {
+            "id": "95-08",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "7주차 : 패키지",
+            "fileName": "0100-200-java-live-study-week-7-package",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Package"
+            ]
+          },
+          {
+            "id": "95-09",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "8주차 : 인터페이스",
+            "fileName": "0101-201-java-live-study-week-8-interface",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Interface"
+            ]
+          },
+          {
+            "id": "95-10",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "9주차 : 예외 처리",
+            "fileName": "0102-202-java-live-study-week-9-exception",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Exception"
+            ]
+          },
+          {
+            "id": "95-11",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "10주차 : 멀티쓰레드 프로그래밍",
+            "fileName": "0103-203-java-live-study-week-10-multithread-programming",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Thread"
+            ]
+          },
+          {
+            "id": "95-12",
+            "regDate": "2021-05-01",
+            "lastModifiedDate": "2021-05-01",
+            "displayName": "11주차 : Enum",
+            "fileName": "0104-204-java-live-study-week-11-enum",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈"
+            ]
+          },
+          {
+            "id": "95-13",
+            "regDate": "2021-05-02",
+            "lastModifiedDate": "2021-05-02",
+            "displayName": "12주차 : 애노테이션",
+            "fileName": "0105-205-java-live-study-week-12-annotation",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Annotation"
+            ]
+          },
+          {
+            "id": "95-14",
+            "regDate": "2021-05-02",
+            "lastModifiedDate": "2021-05-02",
+            "displayName": "14주차 : 제네릭",
+            "fileName": "0106-206-java-live-study-week-14-generic",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Generic"
+            ]
+          },
+          {
+            "id": "95-15",
+            "regDate": "2021-05-02",
+            "lastModifiedDate": "2021-05-02",
+            "displayName": "15주차 : 람다식",
+            "fileName": "0107-207-java-live-study-week-15-lambda",
+            "tags": [
+              "Java",
+              "live study",
+              "시리즈",
+              "Lambda"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "90",
+        "displayName": "java",
+        "children": [
+          {
+            "id": "90-01",
+            "displayName": "단편",
+            "children": [
+              {
+                "id": "90-01-01",
+                "regDate": "2017-05-24",
+                "lastModifiedDate": "2017-05-24",
+                "displayName": "자바에서 뿐만 아니라 API는 백과사전과도 같은 존재다. 볼줄은 알아야지.",
+                "fileName": "0061-27-java-api-reference-mindset",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "API"
+                ]
+              },
+              {
+                "id": "90-01-02",
+                "regDate": "2017-05-24",
+                "lastModifiedDate": "2017-05-24",
+                "displayName": "객체지향 개념, 객체지향에서 사용되는 용어 정리",
+                "fileName": "0062-28-oop-concepts-and-terms",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "OOP"
+                ]
+              },
+              {
+                "id": "90-01-03",
+                "regDate": "2017-05-24",
+                "lastModifiedDate": "2017-05-24",
+                "displayName": "java (스태틱) static 이란 도대체 무엇인가",
+                "fileName": "0063-29-java-static",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "static"
+                ]
+              },
+              {
+                "id": "90-01-04",
+                "regDate": "2017-05-24",
+                "lastModifiedDate": "2017-05-24",
+                "displayName": "java 환경변수 설정 방법과 이유 총정리",
+                "fileName": "0064-32-java-environment-variables-guide",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Environment",
+                  "Variable"
+                ]
+              },
+              {
+                "id": "90-01-05",
+                "regDate": "2017-05-24",
+                "lastModifiedDate": "2017-05-24",
+                "displayName": "자바 가상 머신(JVM)의 구조 요약",
+                "fileName": "0065-33-jvm-architecture-overview",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "JVM"
+                ]
+              },
+              {
+                "id": "90-01-06",
+                "regDate": "2017-05-25",
+                "lastModifiedDate": "2017-05-25",
+                "displayName": "java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭",
+                "fileName": "0066-34-java-generic-1",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Generic"
+                ]
+              },
+              {
+                "id": "90-01-07",
+                "regDate": "2017-05-25",
+                "lastModifiedDate": "2017-05-25",
+                "displayName": "java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 2편, 어떻게 제네릭",
+                "fileName": "0067-35-java-generic-2",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Generic"
+                ]
+              },
+              {
+                "id": "90-01-08",
+                "regDate": "2017-05-25",
+                "lastModifiedDate": "2017-05-25",
+                "displayName": "자바 상수, 변수, 배열, (구조체), 클래스 개념 총정리",
+                "fileName": "0068-37-java-core-concepts-summary",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Class",
+                  "Array",
+                  "Variable"
+                ]
+              },
+              {
+                "id": "90-01-09",
+                "regDate": "2017-05-25",
+                "lastModifiedDate": "2017-05-25",
+                "displayName": "정적 import (static import)의 사용, import에 static 예약어를 붙이면 어떻게 될까?",
+                "fileName": "0069-38-import-static-import-import-static",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "static",
+                  "import"
+                ]
+              },
+              {
+                "id": "90-01-10",
+                "regDate": "2017-05-25",
+                "lastModifiedDate": "2017-05-25",
+                "displayName": "java 접근 제한자와 가시성, private을 통한 encapsulation과 information hiding",
+                "fileName": "0070-39-java-private-encapsulation-information-hiding",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Encapsulation",
+                  "information hiding"
+                ]
+              },
+              {
+                "id": "90-01-11",
+                "regDate": "2017-05-30",
+                "lastModifiedDate": "2017-05-30",
+                "displayName": "자바 함수형 인터페이스와 람다식 1편 : 기본 개념과 사용법",
+                "fileName": "0072-48-java-functional-interface-lambda-part-1",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Lambda",
+                  "Functional Interface",
+                  "Interface",
+                  "Function"
+                ]
+              },
+              {
+                "id": "90-01-12",
+                "regDate": "2017-05-31",
+                "lastModifiedDate": "2017-05-31",
+                "displayName": "자바 함수형 인터페이스와 람다식 2편 : 생략 문법과 제약사항",
+                "fileName": "0073-49-java-functional-interface-lambda-part-2",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Lambda",
+                  "Functional Interface",
+                  "Interface",
+                  "Function"
+                ]
+              },
+              {
+                "id": "90-01-13",
+                "regDate": "2017-06-02",
+                "lastModifiedDate": "2017-06-02",
+                "displayName": "자바 @어노테이션 정리 1편",
+                "fileName": "0074-51-java-annotation-guide-part-1",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Annotation"
+                ]
+              },
+              {
+                "id": "90-01-14",
+                "regDate": "2017-06-03",
+                "lastModifiedDate": "2017-06-03",
+                "displayName": "자바 @어노테이션 정리 2편",
+                "fileName": "0075-52-java-annotation-guide-part-2",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Annotation"
+                ]
+              },
+              {
+                "id": "90-01-15",
+                "regDate": "2017-06-05",
+                "lastModifiedDate": "2017-06-05",
+                "displayName": "javaFX MDI(Multi Document Interface) 답답해서 정리",
+                "fileName": "0076-54-javafx-mdi-multi-document-interface",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "JavaFX"
+                ]
+              },
+              {
+                "id": "90-01-16",
+                "regDate": "2017-06-07",
+                "lastModifiedDate": "2017-06-07",
+                "displayName": "String vs. StringBuilder vs. StringBuffer 예제를 통한 비교",
+                "fileName": "0077-57-string-vs-stringbuilder-vs-stringbuffer",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "String"
+                ]
+              },
+              {
+                "id": "90-01-17",
+                "regDate": "2017-06-08",
+                "lastModifiedDate": "2017-06-08",
+                "displayName": "java 환경변수 설정 방법과 이유",
+                "fileName": "0078-61-java-environment-variables-setup",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Environment",
+                  "Variable"
+                ]
+              },
+              {
+                "id": "90-01-18",
+                "regDate": "2017-06-09",
+                "lastModifiedDate": "2017-06-09",
+                "displayName": "자바에서 클래스와 객체의 관계",
+                "fileName": "0079-64-java-class-object-relationship",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Class"
+                ]
+              },
+              {
+                "id": "90-01-19",
+                "regDate": "2017-07-07",
+                "lastModifiedDate": "2017-07-07",
+                "displayName": "자바 배열 객체에 대해서",
+                "fileName": "0080-75-java-array-object-basics",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Array"
+                ]
+              },
+              {
+                "id": "90-01-20",
+                "regDate": "2017-07-09",
+                "lastModifiedDate": "2017-07-09",
+                "displayName": "자바에서 인터페이스를 사용하는 이유",
+                "fileName": "0081-77-why-use-java-interface",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "Interface"
+                ]
+              },
+              {
+                "id": "90-01-21",
+                "regDate": "2021-05-09",
+                "lastModifiedDate": "2021-05-09",
+                "displayName": "Java 불필요한 AutoBoxing을 되도록 피해야 하는 이유",
+                "fileName": "0108-264-java-autoboxing",
+                "tags": [
+                  "Java",
+                  "단편",
+                  "AutoBoxing"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "91",
+        "displayName": "go",
+        "children": [
+          {
+            "id": "91-01",
+            "displayName": "기타",
+            "children": [
+              {
+                "id": "91-01-01",
+                "regDate": "2021-05-29",
+                "lastModifiedDate": "2021-05-29",
+                "displayName": "Go 'JOB SCRAPER' : extractJob part two",
+                "fileName": "0139-301-go-job-scraper-extractjob-part-two",
+                "tags": [
+                  "Go",
+                  "Job Scraper",
+                  "Web Scraping"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "91-02",
+            "displayName": "Go",
+            "children": [
+              {
+                "id": "91-02-01",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 개발 환경 설정과 Hello World (using 'VS Code')",
+                "fileName": "0109-270-go-hello-world-using-vs-code",
+                "tags": [
+                  "Go",
+                  "Environment"
+                ]
+              },
+              {
+                "id": "91-02-02",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 의 package 와 import",
+                "fileName": "0110-271-go-package-import",
+                "tags": [
+                  "Go",
+                  "Package",
+                  "import"
+                ]
+              },
+              {
+                "id": "91-02-03",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 의 상수와 변수",
+                "fileName": "0111-272-go-constants-and-variables",
+                "tags": [
+                  "Go",
+                  "Variable"
+                ]
+              },
+              {
+                "id": "91-02-04",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 의 함수 part 1 (기본 사용법)",
+                "fileName": "0112-273-go-function-basics-part-1",
+                "tags": [
+                  "Go",
+                  "Function"
+                ]
+              },
+              {
+                "id": "91-02-05",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 의 함수 part 2 (naked return, defer)",
+                "fileName": "0113-274-go-part-2-naked-return-defer",
+                "tags": [
+                  "Go",
+                  "Function"
+                ]
+              },
+              {
+                "id": "91-02-06",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 의 for, range, ...args",
+                "fileName": "0114-275-go-for-range-args",
+                "tags": [
+                  "Go",
+                  "for-range"
+                ]
+              },
+              {
+                "id": "91-02-07",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 의 if 사용 방법",
+                "fileName": "0115-276-go-if",
+                "tags": [
+                  "Go",
+                  "if"
+                ]
+              },
+              {
+                "id": "91-02-08",
+                "regDate": "2021-05-16",
+                "lastModifiedDate": "2021-05-16",
+                "displayName": "Go 의 switch 사용 방법",
+                "fileName": "0116-277-go-switch",
+                "tags": [
+                  "Go",
+                  "switch"
+                ]
+              },
+              {
+                "id": "91-02-09",
+                "regDate": "2021-05-17",
+                "lastModifiedDate": "2021-05-17",
+                "displayName": "Go 의 포인터",
+                "fileName": "0117-278-go-pointer-basics",
+                "tags": [
+                  "Go",
+                  "Pointer"
+                ]
+              },
+              {
+                "id": "91-02-10",
+                "regDate": "2021-05-17",
+                "lastModifiedDate": "2021-05-17",
+                "displayName": "Go 의 Array 와 Slice 선언과 기본 사용법",
+                "fileName": "0118-279-go-array-slice",
+                "tags": [
+                  "Go",
+                  "Array"
+                ]
+              },
+              {
+                "id": "91-02-11",
+                "regDate": "2021-05-17",
+                "lastModifiedDate": "2021-05-17",
+                "displayName": "Go 의 Map 기본 사용법",
+                "fileName": "0119-280-go-map",
+                "tags": [
+                  "Go",
+                  "Map"
+                ]
+              },
+              {
+                "id": "91-02-12",
+                "regDate": "2021-05-17",
+                "lastModifiedDate": "2021-05-17",
+                "displayName": "Go 의 Struct 기본 사용법",
+                "fileName": "0120-281-go-struct",
+                "tags": [
+                  "Go",
+                  "Struct"
+                ]
+              },
+              {
+                "id": "91-02-13",
+                "regDate": "2021-05-19",
+                "lastModifiedDate": "2021-05-19",
+                "displayName": "Go 'BANK & DICTIONARY PROJECTS' : Account + NewAccount",
+                "fileName": "0121-282-go-bank-dictionary-projects-account-newaccount",
+                "tags": [
+                  "Go",
+                  "Bank & Dictionary"
+                ]
+              },
+              {
+                "id": "91-02-14",
+                "regDate": "2021-05-19",
+                "lastModifiedDate": "2021-05-19",
+                "displayName": "Go 'BANK & DICTIONARY PROJECTS' : Methods part One",
+                "fileName": "0122-283-go-bank-dictionary-projects-methods-part-one",
+                "tags": [
+                  "Go",
+                  "Bank & Dictionary",
+                  "Method"
+                ]
+              },
+              {
+                "id": "91-02-15",
+                "regDate": "2021-05-21",
+                "lastModifiedDate": "2021-05-21",
+                "displayName": "Go 'BANK & DICTIONARY PROJECTS' : Methods part Two",
+                "fileName": "0123-284-go-bank-dictionary-projects-methods-part-two",
+                "tags": [
+                  "Go",
+                  "Bank & Dictionary",
+                  "Method"
+                ]
+              },
+              {
+                "id": "91-02-16",
+                "regDate": "2021-05-21",
+                "lastModifiedDate": "2021-05-21",
+                "displayName": "Go 'BANK & DICTIONARY PROJECTS' : Finishing Up",
+                "fileName": "0124-285-go-bank-dictionary-projects-finishing-up",
+                "tags": [
+                  "Go",
+                  "Bank & Dictionary"
+                ]
+              },
+              {
+                "id": "91-02-17",
+                "regDate": "2021-05-21",
+                "lastModifiedDate": "2021-05-21",
+                "displayName": "Go 'BANK & DICTIONARY PROJECTS' : Dictionary part One",
+                "fileName": "0125-286-go-bank-dictionary-projects-dictionary-part-one",
+                "tags": [
+                  "Go",
+                  "Bank & Dictionary"
+                ]
+              },
+              {
+                "id": "91-02-18",
+                "regDate": "2021-05-21",
+                "lastModifiedDate": "2021-05-21",
+                "displayName": "Go 'BANK & DICTIONARY PROJECTS' : Add Method (in map)",
+                "fileName": "0126-287-go-bank-dictionary-projects-add-method-in-map",
+                "tags": [
+                  "Go",
+                  "Bank & Dictionary",
+                  "Map",
+                  "Method"
+                ]
+              },
+              {
+                "id": "91-02-19",
+                "regDate": "2021-05-21",
+                "lastModifiedDate": "2021-05-21",
+                "displayName": "Go 'BANK & DICTIONARY PROJECTS' : Update Delete (in map)",
+                "fileName": "0127-288-go-bank-dictionary-projects-update-delete-in-map",
+                "tags": [
+                  "Go",
+                  "Bank & Dictionary",
+                  "Map"
+                ]
+              },
+              {
+                "id": "91-02-20",
+                "regDate": "2021-05-22",
+                "lastModifiedDate": "2021-05-22",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : hitURL, HTTP GET REQUEST",
+                "fileName": "0128-289-go-url-checker-go-routines-hiturl-http-get-request",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Goroutine",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-21",
+                "regDate": "2021-05-22",
+                "lastModifiedDate": "2021-05-22",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : Slow URLChecker, empty map 선언",
+                "fileName": "0129-290-go-url-checker-go-routines-slow-urlchecker-empty-map",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Map",
+                  "Goroutine",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-22",
+                "regDate": "2021-05-23",
+                "lastModifiedDate": "2021-05-23",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : Goroutines",
+                "fileName": "0130-291-go-url-checker-go-routines-goroutines",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Goroutine",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-23",
+                "regDate": "2021-05-23",
+                "lastModifiedDate": "2021-05-23",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : Channels",
+                "fileName": "0131-292-go-url-checker-go-routines-channels",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Goroutine",
+                  "Channel",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-24",
+                "regDate": "2021-05-23",
+                "lastModifiedDate": "2021-05-23",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : Channels Recap, channel response receive using loop (blocking)",
+                "fileName": "0132-293-go-url-checker-go-routines-channels-recap-channel-response-receive-using",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Goroutine",
+                  "Channel",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-25",
+                "regDate": "2021-05-23",
+                "lastModifiedDate": "2021-05-23",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : Channels One more Recap (요약 정리)",
+                "fileName": "0133-294-go-url-checker-go-routines-channels-one-more-recap",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Goroutine",
+                  "Channel",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-26",
+                "regDate": "2021-05-23",
+                "lastModifiedDate": "2021-05-23",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : URL Checker + Go Routines",
+                "fileName": "0134-295-go-url-checker-go-routines-url-checker-go-routines",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Goroutine",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-27",
+                "regDate": "2021-05-24",
+                "lastModifiedDate": "2021-05-24",
+                "displayName": "Go 'URL CHECKER & GO ROUTINES' : FAST URLChecker",
+                "fileName": "0135-296-go-url-checker-go-routines-fast-urlchecker",
+                "tags": [
+                  "Go",
+                  "URL Checker",
+                  "Goroutine",
+                  "HTTP"
+                ]
+              },
+              {
+                "id": "91-02-28",
+                "regDate": "2021-05-27",
+                "lastModifiedDate": "2021-05-27",
+                "displayName": "Go 'JOB SCRAPER' : getPages part one, goquery, go get 오류 해결",
+                "fileName": "0136-297-go-job-scraper-getpages-part-one-goquery-go-get",
+                "tags": [
+                  "Go",
+                  "Job Scraper",
+                  "Web Scraping",
+                  "goquery"
+                ]
+              },
+              {
+                "id": "91-02-29",
+                "regDate": "2021-05-29",
+                "lastModifiedDate": "2021-05-29",
+                "displayName": "Go 'JOB SCRAPER' : getPages part two",
+                "fileName": "0137-299-go-job-scraper-getpages-part-two",
+                "tags": [
+                  "Go",
+                  "Job Scraper",
+                  "Web Scraping"
+                ]
+              },
+              {
+                "id": "91-02-30",
+                "regDate": "2021-05-29",
+                "lastModifiedDate": "2021-05-29",
+                "displayName": "Go 'JOB SCRAPER' : extractJob part one",
+                "fileName": "0138-300-go-job-scraper-extractjob-part-one",
+                "tags": [
+                  "Go",
+                  "Job Scraper",
+                  "Web Scraping"
+                ]
+              },
+              {
+                "id": "91-02-31",
+                "regDate": "2021-05-29",
+                "lastModifiedDate": "2021-05-29",
+                "displayName": "Go 'JOB SCRAPER' : Writing Jobs, save extracted data to 'csv' file",
+                "fileName": "0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file",
+                "tags": [
+                  "Go",
+                  "Job Scraper",
+                  "Web Scraping",
+                  "CSV"
+                ]
+              },
+              {
+                "id": "91-02-32",
+                "regDate": "2021-05-30",
+                "lastModifiedDate": "2021-05-30",
+                "displayName": "Go 'JOB SCRAPER' : Channels Time & More Channels Baby (goroutine)",
+                "fileName": "0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine",
+                "tags": [
+                  "Go",
+                  "Job Scraper",
+                  "Goroutine",
+                  "Channel",
+                  "Web Scraping"
+                ]
+              },
+              {
+                "id": "91-02-33",
+                "regDate": "2021-05-30",
+                "lastModifiedDate": "2021-05-30",
+                "displayName": "Go 'WEB SERVER WITH ECHO' : Setup Part One, modify to callable scraper & download echo",
+                "fileName": "0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo",
+                "tags": [
+                  "Go",
+                  "Web Server",
+                  "Echo"
+                ]
+              },
+              {
+                "id": "91-02-34",
+                "regDate": "2021-05-30",
+                "lastModifiedDate": "2021-05-30",
+                "displayName": "Go 'WEB SERVER WITH ECHO' : Setup Part Two & File Download using ECHO",
+                "fileName": "0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo",
+                "tags": [
+                  "Go",
+                  "Web Server",
+                  "Echo"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "92",
+        "displayName": "javascript",
+        "children": [
+          {
+            "id": "92-01",
+            "displayName": "단편",
+            "children": [
+              {
+                "id": "92-01-01",
+                "regDate": "2017-12-19",
+                "lastModifiedDate": "2017-12-19",
+                "displayName": "javascript로 information hiding 해보기. (private 변수, scope에 대한 이해)",
+                "fileName": "0082-100-javascript-information-hiding-private-scope",
+                "tags": [
+                  "JavaScript",
+                  "단편",
+                  "Encapsulation",
+                  "Variable",
+                  "information hiding",
+                  "scope"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "93",
+        "displayName": "기타",
+        "children": [
+          {
+            "id": "93-01",
+            "displayName": "Archive",
+            "children": [
+              {
+                "id": "93-01-01",
+                "regDate": "2017-05-29",
+                "lastModifiedDate": "2017-05-29",
+                "displayName": "전반적인 WEB Application 에 대해서",
+                "fileName": "0071-47-web-application",
+                "tags": [
+                  "기록",
+                  "Archive",
+                  "Web Application"
+                ]
+              }
+            ]
+          }
         ]
       }
     ]

@@ -1,7 +1,8 @@
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import { isValidElement, type ReactNode } from 'react';
+import rehypeRaw from 'rehype-raw';
+import { isValidElement, type ComponentPropsWithoutRef, type ReactNode } from 'react';
 import 'highlight.js/styles/github-dark.css';
 import styles from './page.module.scss';
 import TOC from './TOC';
@@ -17,11 +18,31 @@ interface PostClientProps {
   idMap: Record<string, string>;
 }
 
+function normalizeHeadingText(value: string) {
+  return value
+    .replace(/\s+/g, ' ')
+    .replace(/^[`"'“”‘’]+|[`"'“”‘’]+$/g, '')
+    .trim();
+}
+
+function readReactNodeText(node: ReactNode): string {
+  if (node == null || typeof node === 'boolean') return '';
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(readReactNodeText).join('');
+  if (!isValidElement(node)) return '';
+  return readReactNodeText((node.props as { children?: ReactNode }).children);
+}
+
 export default function PostClient({ document, postContent, toc, idMap }: PostClientProps) {
+  const headingSeen: Record<string, number> = {};
+
   const HeadingRenderer = (level: 1 | 2 | 3 | 4 | 5 | 6) =>
     function Heading({children}: any) {
-      const text = String(children).replace(/<[^>]+>/g, '').trim();
-      const id = idMap[`${level}_${text}`] || '';
+      const text = normalizeHeadingText(readReactNodeText(children));
+      const baseKey = `${level}_${text}`;
+      const occurrence = (headingSeen[baseKey] || 0) + 1;
+      headingSeen[baseKey] = occurrence;
+      const id = idMap[`${baseKey}__${occurrence}`] || '';
       const Tag = `h${level}` as keyof JSX.IntrinsicElements;
       return <Tag id={id}>{children}</Tag>;
     };
@@ -34,6 +55,15 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
 
   const Code = ({className, children, ...props}: CodeProps) => {
     return <code className={className} {...props}>{children}</code>;
+  };
+
+  const Anchor = ({ href, children, ...props }: ComponentPropsWithoutRef<'a'>) => {
+    const resolvedHref = href || '#';
+    return (
+      <a {...props} href={resolvedHref} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
   };
 
   function extractCodeFromPre(children: ReactNode): { className?: string; children?: ReactNode } | null {
@@ -74,13 +104,25 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
     return extractCodeFromPre(props.children);
   }
 
-  const Pre = ({children}: {children?: ReactNode}) => {
+  type PreProps = ComponentPropsWithoutRef<'pre'> & { node?: unknown };
+
+  const Pre = ({
+    children,
+    className,
+    ...props
+  }: PreProps) => {
     const blockCode = extractCodeFromPre(children);
     if (!blockCode) {
-      return <pre>{children}</pre>;
+      return <pre className={className}>{children}</pre>;
     }
 
-    return <CodeBlock className={blockCode.className}>{blockCode.children}</CodeBlock>;
+    const dataLanguage =
+      typeof (props as Record<string, unknown>)['data-ke-language'] === 'string'
+        ? String((props as Record<string, unknown>)['data-ke-language'])
+        : '';
+    const fallbackClassName = className || (dataLanguage ? `language-${dataLanguage}` : '');
+    const resolvedClassName = blockCode.className || fallbackClassName;
+    return <CodeBlock className={resolvedClassName}>{blockCode.children}</CodeBlock>;
   };
 
   const markdownComponents: Components = {
@@ -92,6 +134,7 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
     h6: HeadingRenderer(6),
     pre: Pre,
     code: Code,
+    a: Anchor,
   };
 
   return (
@@ -116,7 +159,7 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
       <article className={styles.markdown}>
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeHighlight]}
+          rehypePlugins={[rehypeRaw, rehypeHighlight]}
           components={markdownComponents}
         >
           {postContent.content}

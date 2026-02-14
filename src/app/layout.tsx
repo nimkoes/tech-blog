@@ -1,4 +1,4 @@
-import type {Metadata} from 'next'
+import type {Metadata, Viewport} from 'next'
 import localFont from 'next/font/local'
 import ClientLayout from './ClientLayout'
 import Script from 'next/script'
@@ -117,6 +117,13 @@ export const metadata: Metadata = {
   },
   category: 'technology',
 }
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export default function RootLayout({
                                      children,

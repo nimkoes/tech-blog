@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <section className={styles.intro}>
+        <section id="home-intro-anchor" className={styles.intro}>
           <p className={styles.kicker}>Backend Engineer</p>
           <h1 className={styles.headline}>I work diligently to become lazy ☕</h1>
           <p className={styles.description}>

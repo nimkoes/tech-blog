@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Header.module.scss';
 import SearchSidebar from './SearchSidebar';
 import CategorySidebar from './CategorySidebar';
@@ -9,9 +10,11 @@ import { Compass, Search, Sun, Moon } from 'lucide-react';
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [showHeaderMission, setShowHeaderMission] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const searchButtonRef = useRef<HTMLButtonElement>(null);
   const categoryButtonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
 
   const handleSearchClick = () => {
     setIsCategoryOpen(false);
@@ -46,6 +49,33 @@ export default function Header() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
+  useEffect(() => {
+    const isHome = pathname === '/';
+    if (!isHome) {
+      setShowHeaderMission(false);
+      return;
+    }
+
+    const target = document.getElementById('home-intro-anchor');
+    if (!target) {
+      setShowHeaderMission(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowHeaderMission(!entry.isIntersecting);
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '-56px 0px 0px 0px',
+      }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [pathname]);
+
   return (
     <>
       <header className={styles.header}>
@@ -63,6 +93,12 @@ export default function Header() {
               github
             </a>
           </div>
+          <p
+            className={`${styles.missionInHeader} ${showHeaderMission ? styles.missionVisible : ''}`}
+            aria-hidden={!showHeaderMission}
+          >
+            <span className={styles.missionText}>I work diligently to become lazy ☕</span>
+          </p>
           <div className={styles.buttons}>
             <button
               type="button"

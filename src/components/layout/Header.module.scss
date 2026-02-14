@@ -15,8 +15,8 @@
   margin: 0 auto;
   height: 100%;
   padding: 0 1rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.9rem;
 }
@@ -26,6 +26,8 @@
   align-items: baseline;
   gap: 0.9rem;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
@@ -57,6 +59,45 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+  justify-self: end;
+}
+
+.missionInHeader {
+  min-width: 0;
+  width: 100%;
+  max-width: 560px;
+  justify-self: center;
+  text-align: center;
+  margin: 0;
+  padding: 0 0.5rem;
+  font-size: var(--ui-small);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(1.5px);
+  transform: translateY(-4px);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    filter 0.28s ease;
+}
+
+.missionText {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.missionVisible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }
 
 .exploreButton {
@@ -160,6 +201,10 @@
   .searchLabel {
     display: none;
   }
+
+  .missionInHeader {
+    font-size: var(--ui-xs);
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -206,6 +251,24 @@
   .shortcut {
     display: none;
   }
+
+  .missionInHeader {
+    max-width: none;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: clip;
+    mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  }
+
+  .missionText {
+    padding-right: 0.6rem;
+    animation: missionTicker 9s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .missionVisible .missionText {
+    animation-play-state: running;
+  }
 }
 
 @media screen and (max-width: 430px) {
@@ -218,5 +281,28 @@
 
   .exploreLabel {
     display: none;
+  }
+
+  .missionInHeader {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .missionInHeader {
+    transition: none;
+  }
+
+  .missionText {
+    animation: none !important;
+  }
+}
+
+@keyframes missionTicker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }

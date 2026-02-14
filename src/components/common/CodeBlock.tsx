@@ -81,6 +81,15 @@ const parseLanguageKey = (className?: string) => {
     return hljsMatch[1].toLowerCase();
   }
 
+  const firstToken = className
+    .split(/\s+/)
+    .map(token => token.trim())
+    .find(token => token && token.toLowerCase() !== 'hljs');
+
+  if (firstToken && /^[a-z0-9#+.-]+$/i.test(firstToken)) {
+    return firstToken.toLowerCase();
+  }
+
   return 'text';
 };
 
