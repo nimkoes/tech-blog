@@ -22,7 +22,7 @@
 - **타이포그래피**: JetBrains Mono (기본), Fira Code, Consolas, Menlo (대체)
 - **Markdown**: Remark, Rehype, Gray Matter, Highlight.js
 - **상태관리**: Zustand
-- **SEO/Sitemap**: next-sitemap, 메타 태그 자동화
+- **SEO/Sitemap**: Next.js Metadata Route 기반 자동화
 
 ---
 
@@ -110,7 +110,7 @@ date: YYYY-MM-DD
 
 ## SEO 및 Sitemap 관리
 
-- `next-sitemap`을 사용하여 자동으로 sitemap.xml, robots.txt를 생성합니다.
+- Next.js Metadata Route로 sitemap.xml, robots.txt를 자동 생성합니다.
 - 메타 태그, Open Graph, Twitter Card, 구조화 데이터(JSON-LD) 자동 지원
 
 ---
@@ -160,4 +160,3 @@ MIT 라이선스. 자세한 내용은 [LICENSE](LICENSE) 파일 참조.
 
 - 2025-01~: 폰트/타이포그래피/줄간격/문단너비 시스템 통합, 본문 max-width 850px로 최적화, 변수 기반 집중 관리 등 대규모 리팩토링
 - 2025-01-27: Next.js 14 기반 블로그 시스템 구축, 마크다운 문서 처리, 자동 sitemap, 반응형, SEO 등 초기 구축 
-

@@ -1,13 +1,15 @@
 import { MetadataRoute } from 'next'
+import { getBasePath, getSiteOrigin } from '~/utils/contentRepository';
 
-const DOMAIN = 'https://nimkoes.github.io'
-const REPO = 'tech-blog'
+const DOMAIN = getSiteOrigin();
+const BASE_PATH = getBasePath();
+const FIXED_SITEMAP_URL = 'https://nimkoes.github.io/tech-blog/sitemap.xml';
 
 // robots.txt 형식의 문자열 생성
 export function generateRobotsContent() {
+  const sitemap = FIXED_SITEMAP_URL;
   return `User-agent: *
-Allow: /
-Allow: /tech-blog/
+Allow: ${BASE_PATH}/
 Disallow: /private/
 Disallow: /admin/
 Disallow: /*?*
@@ -19,7 +21,7 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-Sitemap: ${DOMAIN}/sitemap.xml
+Sitemap: ${sitemap}
 Host: ${DOMAIN}
 `
 }
@@ -30,7 +32,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: ['/', '/tech-blog/'],
+        allow: [`${BASE_PATH}/`],
         disallow: [
           '/private/',
           '/admin/',
@@ -47,7 +49,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/'],
       },
     ],
-    sitemap: `${DOMAIN}/sitemap.xml`,
+    sitemap: FIXED_SITEMAP_URL,
     host: DOMAIN,
   }
-} 
+}

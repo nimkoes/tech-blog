@@ -1,7 +1,4 @@
 :root {
-  // 모노스페이스 폰트 스택 (프로그래밍 친화)
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Menlo', monospace;
-  
   // 여백
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -37,9 +34,9 @@
 html,
 body {
   min-height: 100%;
-  background-color: hsl(var(--background));
-  color: hsl(var(--zinc-700));
-  font-family: var(--font-mono);
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   font-weight: var(--font-weight-normal);
@@ -47,11 +44,7 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "liga" 0;  /* 리가처 비활성화 */
-}
-
-* {
-  font-family: var(--font-mono);  /* 모든 요소에 동일한 폰트 적용 */
+  font-feature-settings: "liga" 0;
 }
 
 body {

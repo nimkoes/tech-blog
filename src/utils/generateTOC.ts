@@ -1,16 +1,11 @@
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import { visit } from 'unist-util-visit';
+import type { TocItem } from '~/types/content';
 
-interface TOCItem {
-  level: number;
-  text: string;
-  id: string;
-}
-
-export function generateTOC(markdown: string): { toc: TOCItem[], idMap: Record<string, string> } {
+export function generateTOC(markdown: string): { toc: TocItem[]; idMap: Record<string, string> } {
   const tree = unified().use(remarkParse).parse(markdown);
-  const toc: TOCItem[] = [];
+  const toc: TocItem[] = [];
   const idMap: Record<string, string> = {};
   const counters = [0, 0, 0, 0, 0, 0];
 
@@ -27,7 +22,7 @@ export function generateTOC(markdown: string): { toc: TOCItem[], idMap: Record<s
   return { toc, idMap };
 }
 
-export function generateTOCMarkdown(toc: TOCItem[]): string {
+export function generateTOCMarkdown(toc: TocItem[]): string {
   if (toc.length === 0) return '';
   const tocMarkdown = toc.map(item => {
     const indent = '  '.repeat(item.level - 1);

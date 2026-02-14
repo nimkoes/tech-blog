@@ -1,28 +1,50 @@
-import {useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import SearchSidebar from './SearchSidebar';
 import CategorySidebar from './CategorySidebar';
-import {useTagContext} from '~/context/TagContext';
 import { useTheme } from '~/context/ThemeContext';
-import { Sun, Moon } from 'lucide-react';
+import { Compass, Search, Sun, Moon } from 'lucide-react';
 
-interface HeaderProps {
-  onSearchClick?: () => void
-}
-
-export default function Header({onSearchClick}: HeaderProps) {
+export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const tagContext = useTagContext();
   const { theme, toggleTheme } = useTheme();
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
+  const categoryButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleSearchClick = () => {
+    setIsCategoryOpen(false);
     setIsSearchOpen(true);
-    if (tagContext && tagContext.setIsSearchOpen) {
-      tagContext.setIsSearchOpen(true);
-    }
   };
+
+  const handleSearchClose = () => {
+    setIsSearchOpen(false);
+    searchButtonRef.current?.focus();
+  };
+
+  const handleCategoryOpen = () => {
+    setIsSearchOpen(false);
+    setIsCategoryOpen(true);
+  };
+
+  const handleCategoryClose = () => {
+    setIsCategoryOpen(false);
+    categoryButtonRef.current?.focus();
+  };
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      const isCommandK = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k';
+      if (!isCommandK) return;
+      event.preventDefault();
+      setIsCategoryOpen(false);
+      setIsSearchOpen(true);
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   return (
     <>
@@ -30,7 +52,7 @@ export default function Header({onSearchClick}: HeaderProps) {
         <div className={styles.container}>
           <div className={styles.left}>
             <Link href="/" className={styles.logo}>
-              nimkoes
+              nimkoes tech
             </Link>
             <a
               href="https://github.com/nimkoes"
@@ -38,24 +60,38 @@ export default function Header({onSearchClick}: HeaderProps) {
               rel="noopener noreferrer"
               className={styles.githubLink}
             >
-              GitHub
+              github
             </a>
           </div>
           <div className={styles.buttons}>
             <button
-              className={styles.button}
-              onClick={() => setIsCategoryOpen(true)}
+              type="button"
+              className={styles.exploreButton}
+              ref={categoryButtonRef}
+              onClick={handleCategoryOpen}
+              aria-label="탐색 패널 열기"
+              aria-expanded={isCategoryOpen}
+              aria-controls="category-sidebar"
             >
-              카테고리
+              <Compass size={16} />
+              <span className={styles.exploreLabel}>탐색</span>
             </button>
             <button
-              className={styles.button}
+              type="button"
+              className={styles.searchButton}
+              ref={searchButtonRef}
               onClick={handleSearchClick}
+              aria-label="검색 열기"
+              aria-expanded={isSearchOpen}
+              aria-controls="search-sidebar"
             >
-              검색
+              <Search size={16} />
+              <span className={styles.searchLabel}>검색, 태그, 문서 이동</span>
+              <span className={styles.shortcut}>⌘K / Ctrl+K</span>
             </button>
             {theme && (
               <button
+                type="button"
                 className={styles.themeToggle}
                 aria-label="다크모드 토글"
                 onClick={toggleTheme}
@@ -70,8 +106,8 @@ export default function Header({onSearchClick}: HeaderProps) {
           </div>
         </div>
       </header>
-      <SearchSidebar isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)}/>
-      <CategorySidebar isOpen={isCategoryOpen} onClose={() => setIsCategoryOpen(false)}/>
+      <SearchSidebar isOpen={isSearchOpen} onClose={handleSearchClose} />
+      <CategorySidebar isOpen={isCategoryOpen} onClose={handleCategoryClose} />
     </>
   );
 }

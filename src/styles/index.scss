@@ -11,6 +11,9 @@
   --border: #eaeaea;
   --hover: #f5f5f5;
   --code-background: #f6f8fa;
+  --inline-code-bg: #f3f4f6;
+  --inline-code-text: #be123c;
+  --inline-code-border: #e5e7eb;
   --blockquote-background: #f8f8f8;
   --blockquote-border: #e0e0e0;
 }
@@ -23,6 +26,9 @@
   --border: #333333;
   --hover: #2a2a2a;
   --code-background: #2a2a2a;
+  --inline-code-bg: rgba(51, 65, 85, 0.38);
+  --inline-code-text: #fda4af;
+  --inline-code-border: rgba(100, 116, 139, 0.48);
   --blockquote-background: #2a2a2a;
   --blockquote-border: #404040;
 }
@@ -31,14 +37,14 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-family-base);
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: var(--font-mono);
+  font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
   font-size: var(--font-size-base);
 }
@@ -62,7 +68,7 @@ pre {
 }
 
 pre > code, .markdown pre code, .custom-codeblock-root pre code {
-  font-family: var(--font-mono);
+  font-family: var(--font-family-code);
   font-size: var(--code-small);
   background: none;
   color: inherit;
@@ -76,16 +82,17 @@ pre > code, .markdown pre code, .custom-codeblock-root pre code {
 }
 
 code {
-  font-family: var(--font-mono);
+  font-family: var(--font-family-code);
   font-size: var(--code-small);
-  background: #f4f4f4;
-  color: #d6336c;
-  border-radius: 3px;
-  padding: 0.1em 0.2em;
+  background: var(--inline-code-bg);
+  color: var(--inline-code-text);
+  border: 1px solid var(--inline-code-border);
+  border-radius: 5px;
+  padding: 0.12em 0.32em;
   vertical-align: middle;
   line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-medium);
   box-shadow: none;
-  border: none;
   margin: 0;
 }
 

@@ -21,15 +21,17 @@ interface GiscusProps {
 const Giscus: React.FC<GiscusProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const { theme } = useTheme(); // ThemeContext에서 현재 테마를 가져옴
+  const giscusTheme = theme === 'dark' ? 'dark_dimmed' : 'light';
 
   useEffect(() => {
+    if (!ref.current || ref.current.hasChildNodes()) {
+      return;
+    }
+
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
     script.async = true;
     script.crossOrigin = 'anonymous';
-
-    // Giscus 테마를 현재 애플리케이션 테마에 맞게 동적으로 설정
-    const giscusTheme = theme === 'dark' ? 'dark_dimmed' : 'light';
 
     Object.entries({
       'data-repo': props.repo,
@@ -46,16 +48,16 @@ const Giscus: React.FC<GiscusProps> = (props) => {
       'data-loading': props.loading,
     }).forEach(([key, value]) => script.setAttribute(key, value));
 
-    ref.current?.appendChild(script);
+    ref.current.appendChild(script);
+  }, [giscusTheme, props]);
 
-    // Cleanup function
-    return () => {
-      const iframe = document.querySelector('iframe.giscus-frame');
-      if (iframe) {
-        iframe.remove();
-      }
-    };
-  }, [props, theme]); // props와 theme가 변경될 때마다 useEffect 재실행
+  useEffect(() => {
+    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+    iframe?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: giscusTheme } } },
+      'https://giscus.app'
+    );
+  }, [giscusTheme]);
 
   return <div ref={ref} className="giscus-container" />;
 };

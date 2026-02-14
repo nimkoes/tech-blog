@@ -2,51 +2,54 @@
 
 import "~/styles/index.scss";
 import styles from "./layout.module.scss";
-import {useState, ReactNode} from "react";
+import { useCallback, useMemo, useState, ReactNode } from "react";
 import Header from "~/components/layout/Header";
-import SearchSidebar from "~/components/layout/SearchSidebar";
 import Footer from "~/components/layout/Footer";
-import React from 'react';
 import Toast from "~/components/common/Toast";
-import {TagContext} from '~/context/TagContext';
-import NoticePopup from '~/components/NoticePopup';
+import { TagContext } from '~/context/TagContext';
 
 interface ClientLayoutProps {
   children: ReactNode;
 }
 
 export default function ClientLayout({children}: ClientLayoutProps) {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [toastMessage, setToastMessage] = useState('');
 
-  const handleTagSelect = (tag: string) => {
-    if (selectedTags.includes(tag)) {
-      setSelectedTags(selectedTags.filter(t => t !== tag));
-    } else {
-      if (selectedTags.length >= 5) {
-        setToastMessage('태그는 최대 5개까지 선택할 수 있습니다.');
-        return;
+  const handleTagSelect = useCallback((tag: string) => {
+    setSelectedTags(prevTags => {
+      if (prevTags.includes(tag)) {
+        return prevTags.filter(t => t !== tag);
       }
-      setSelectedTags([...selectedTags, tag]);
-    }
-  };
+
+      if (prevTags.length >= 5) {
+        setToastMessage('태그는 최대 5개까지 선택할 수 있습니다.');
+        return prevTags;
+      }
+
+      return [...prevTags, tag];
+    });
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({
+      selectedTags,
+      setSelectedTags,
+      handleTagSelect,
+      toastMessage,
+      setToastMessage,
+    }),
+    [handleTagSelect, selectedTags, toastMessage]
+  );
 
   return (
-    <TagContext.Provider value={{
-      selectedTags, setSelectedTags, handleTagSelect, toastMessage, setToastMessage,
-      isSearchOpen, setIsSearchOpen,
-      onTagSelect: handleTagSelect
-    }}>
+    <TagContext.Provider value={contextValue}>
       <div className={styles.layout}>
-        <Header onSearchClick={() => setIsSearchOpen(true)}/>
+        <Header />
         <main className={styles.main}>
           <div className={styles.content}>
             {children}
           </div>
-          <SearchSidebar isOpen={false} onClose={function (): void {
-            throw new Error("Function not implemented.");
-          }}/>
         </main>
         <Footer/>
         {toastMessage && (
@@ -55,7 +58,6 @@ export default function ClientLayout({children}: ClientLayoutProps) {
             onClose={() => setToastMessage('')}
           />
         )}
-        <NoticePopup/>
       </div>
     </TagContext.Provider>
   );

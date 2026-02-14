@@ -1,147 +1,135 @@
-/* Markdown 스타일 */
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2.4rem 1.4rem 4rem;
+  background: var(--background);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.postHeader {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.2rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.title {
+  margin: 0 0 0.65rem 0;
+  font-size: var(--heading-2);
+  line-height: var(--line-height-tight);
+  color: var(--text);
+}
+
+.postDate {
+  font-size: var(--body-small);
+  color: var(--text-secondary);
+  padding-bottom: 0.3rem;
+}
+
+.postTags {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tagPill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: var(--ui-xs);
+  background-color: #f2f4f8;
+  color: #6b7684;
+  border: 1px solid #e6e9ef;
+}
+
 .markdown {
   width: 100%;
   max-width: 100%;
-  padding: 13px 14px;
-  color: #d4d4d4;
-  font-size: var(--body-base);
+  font-size: var(--body-small);
   line-height: var(--line-height-relaxed);
-  font-family: var(--font-mono);
-  white-space: pre-wrap;
+  color: var(--text);
   word-break: break-word;
-
-  /* 링크 스타일 */
-  a {
-    text-decoration: underline;
-    text-decoration-color: #095fe9; /* 파란색 밑줄 */
-    text-underline-offset: 1px; /* 밑줄과 텍스트 사이 간격 */
-    color: inherit; /* 기본 텍스트 색상 유지 */
-    transition: color 0.2s ease; /* 부드러운 색상 전환 효과 */
-
-    &:hover {
-      color: #144ba5 !important; /* 마우스 오버시 파란색으로 변경 */
-    }
-  }
+  letter-spacing: 0.01em;
+  padding: 0 0.35rem;
 }
 
-/* 제목 스타일 */
-.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
-  margin-top: 1rem;
-  margin-bottom: 0;
-  font-weight: var(--font-weight-bold);
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.45rem;
   color: var(--text);
   line-height: var(--line-height-tight);
+  scroll-margin-top: 88px;
 }
 
 .markdown h1 {
   font-size: var(--heading-3);
   border-bottom: 2px solid var(--border);
   padding-bottom: 0.3rem;
-  background: none;
 }
 
 .markdown h2 {
   font-size: var(--heading-4);
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.2rem;
-  background: none;
 }
 
 .markdown h3 {
   font-size: var(--body-large);
-  background: none;
 }
 
-.markdown h4, .markdown h5, .markdown h6 {
+.markdown h4,
+.markdown h5,
+.markdown h6 {
   font-size: var(--body-base);
-  background: none;
 }
 
-/* 목록 스타일 */
-.markdown ul, .markdown ol {
-  margin: -0.1rem 0.3rem;
-  padding-left: 1rem;
-  line-height: var(--line-height-normal);
+.markdown p {
+  margin: 0 0 0.8rem 0;
 }
 
-.markdown ul {
-  list-style-type: disc;
-}
-
+.markdown ul,
 .markdown ol {
-  list-style-type: disc;
+  margin: 0.25rem 0 0.85rem 0;
+  padding-left: 1.25rem;
 }
 
 .markdown li {
-  margin: -0.3rem 0.5rem -0.5rem 0;
-  line-height: var(--line-height-normal);
+  margin: 0.2rem 0;
 }
 
-.markdown ul + pre {
-  margin-left: 2rem;
-}
-
-/* 코드 블록 스타일 */
-.markdown pre {
-  background: none;
+.markdown a {
+  text-decoration: underline;
+  text-decoration-color: #095fe9;
+  text-underline-offset: 1px;
   color: inherit;
-  border-radius: 0;
-  overflow-x: auto;
-  font-size: var(--code-small);
-  line-height: var(--line-height-normal);
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  border: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #144ba5 !important;
+  }
 }
 
-/* 블록 코드만 별도 스타일 */
-.markdown pre code {
-  display: block;
-  background: none;
-  color: inherit;
-  padding: 0;
-  font-size: var(--code-small);
-  line-height: var(--line-height-tight);
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-  margin: 0;
-}
-
-/* 인라인 코드만 별도 스타일 */
-.markdown code {
-  font-family: var(--font-mono);
-  font-size: var(--code-small);
-  background: #f4f4f4;
-  color: #d6336c;
-  border-radius: 3px;
-  padding: 0.1em 0.2em;
-  vertical-align: middle;
-  line-height: var(--line-height-tight);
-  box-shadow: none;
-  border: none;
-  margin: 0;
-}
-[data-theme='dark'] .markdown code {
-  background: #2d2f34;
-  color: #e06c75;
-}
-
-/* 블록 인용 스타일 */
 .markdown blockquote {
-  border-left: 3px solid rgba(42, 224, 217, 0.86);
-  margin: 0.7rem 0;
-  padding: 0.7rem 1rem;
+  margin: 0.8rem 0;
+  padding: 0.75rem 1rem;
   border-left: 4px solid var(--primary);
   background: #f8f9fa;
   color: #555;
-  font-style: italic;
   border-radius: 0 8px 8px 0;
 }
 
 .markdown img {
-  margin: 0.7rem auto;
+  margin: 0.8rem auto;
   max-width: 90%;
   height: auto;
   display: block;
@@ -149,31 +137,17 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-.markdown {
-  font-size: var(--body-small);
-  line-height: var(--line-height-normal);
-  color: var(--text);
-  word-break: break-word;
-  background: none;
-  padding: 0 0.5rem;
-  letter-spacing: 0.01em;
-}
-
-.markdown p {
-  margin: 0 0;
-  line-height: var(--line-height-normal);
-}
-
 .markdown table {
   width: 100%;
   border-collapse: collapse;
-  margin: 0.7rem 0;
+  margin: 0.85rem 0;
   font-size: var(--body-small);
 }
 
-.markdown th, .markdown td {
+.markdown th,
+.markdown td {
   border: 1px solid var(--border);
-  padding: 0.7rem 1rem;
+  padding: 0.6rem 0.9rem;
   text-align: left;
 }
 
@@ -182,93 +156,53 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.container {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem 1.5rem;
-  background: var(--background);
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+.markdown pre {
+  margin: 0;
 }
 
-.postHeader {
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1.5rem;
+.markdown code {
+  font-size: var(--code-small);
 }
 
-.postTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.postDate {
-  font-size: var(--body-small);
-  padding-bottom: 0.5rem;
-}
-
-.title {
-  font-size: var(--heading-2);
-  font-weight: var(--font-weight-bold);
-  color: var(--text);
-  margin-bottom: 0.5rem;
-  line-height: var(--line-height-tight);
-}
-
-.description {
-  font-size: var(--body-large);
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-}
-
-.meta {
-  display: flex;
-  gap: 1.2rem;
-  color: var(--text-secondary);
-  font-size: var(--body-base);
-  margin-bottom: 0.5rem;
-}
-
-.tagPill {
-  display: flex;
-  align-items: center;
-  gap: 0.1rem;
-  padding: 0.1rem 0.5rem;
-  background-color: #f2f4f8;
-  color: #6b7684;
-  border-radius: 1.2rem;
-  font-size: var(--ui-xs);
-  user-select: none;
-  border: none;
-  box-shadow: 0 1px 4px 0 rgba(60, 80, 120, 0.04);
-  transition: all 0.2s ease;
-  margin-bottom: 2px;
-}
-
-.tagPill:hover, .tagPill:focus {
-  background-color: #e3e8ef;
-  color: #425066;
-  outline: none;
-}
-
-.tagPill.active {
-  background: #d0d6dd;
-  color: #222e3a;
-  font-weight: var(--font-weight-semibold);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// mobile
-////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 768px) {
-  .markdown {
-    padding: 1px 1px;
-    font-size: var(--body-xs);
-    line-height: var(--line-height-relaxed);
+  .container {
+    max-width: 100%;
+    // fixed header(56px) 아래에서 제목이 충분히 떨어져 보이도록 여백 확장
+    padding: 4rem 0.75rem 2rem;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+  .title {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.2rem, 4.8vw, 1.5rem);
+    line-height: 1.25;
+  }
+
+  .postHeader {
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    gap: 0.1rem;
+  }
+
+  .postDate {
+    font-size: var(--ui-small);
+  }
+
+  .postTags {
+    margin-top: 0.5rem;
+    gap: 0.38rem;
+  }
+
+  .tagPill {
+    min-height: 28px;
+    padding: 0.2rem 0.62rem;
+  }
+
+  .markdown {
+    font-size: var(--body-base);
+    line-height: var(--line-height-relaxed);
+    padding: 0 0.1rem;
   }
 
   .markdown h1 {
@@ -283,110 +217,22 @@
     font-size: var(--body-base);
   }
 
-  .markdown h4, .markdown h5, .markdown h6 {
-    font-size: var(--body-small);
-  }
-
-  .markdown ul, .markdown ol {
-    margin: -0.1rem 0.3rem -0.1rem 0.2rem;
-    padding: 0 0 0 1rem;
-    line-height: var(--line-height-normal);
-  }
-
-  .markdown ul {
-    line-height: var(--line-height-normal);
-  }
-
-  .markdown ol {
-    line-height: var(--line-height-normal);
-  }
-
-  .markdown li {
-    margin: 0.5rem 0.1rem -0.5rem;
-    line-height: var(--line-height-normal);
-  }
-
-  .markdown ul + pre {
-    margin-left: 1.7rem;
-  }
-
-  .markdown pre {
-    font-size: var(--code-small);
-    padding: 0.7rem;
-    line-height: var(--line-height-tight);
-  }
-
-  .markdown pre code {
-    font-size: var(--code-xs);
-  }
-
-  .markdown code {
-  }
-
-  .markdown blockquote {
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    scroll-margin-top: 86px;
   }
 
   .markdown img {
     max-width: 100%;
-    margin: 1rem auto;
   }
 
-  .markdown {
-    font-size: var(--body-small);
-    padding: 0 0.1rem;
-    line-height: var(--line-height-tight);
-  }
-
-  .markdown p {
-    line-height: var(--line-height-normal);
-  }
-
-  .markdown table {
-    font-size: var(--body-xs);
-  }
-
-  .markdown th, .markdown td {
+  .markdown th,
+  .markdown td {
     padding: 0.4rem 0.5rem;
-  }
-
-  .markdown th {
-  }
-
-  .container {
-    max-width: 100%;
-    padding: 1.5rem 0.5rem 2rem 0.5rem;
-  }
-
-  .postHeader {
-    padding-bottom: 1rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .postTags {
-  }
-
-  .postDate {
-    font-size: var(--body-small);
-    padding-bottom: 0.5rem;
-  }
-
-  .title {
-    font-size: var(--heading-4);
-  }
-
-  .description {
-  }
-
-  .meta {
-  }
-
-  .tagPill {
-  }
-
-  .tagPill:hover, .tagPill:focus {
-  }
-
-  .tagPill.active {
   }
 }
 
@@ -395,13 +241,8 @@
   color: #bdbdbd;
   border: 1px solid #44474e;
 }
-[data-theme='dark'] .tagPill.active {
-  background: #44474e;
-  color: #fff;
-  font-weight: 600;
-  border: 1px solid #5a5f67;
-}
 
-[data-theme='dark'] .markdown pre code {
-  background: none !important;
+[data-theme='dark'] .markdown blockquote {
+  background: #2a2d32;
+  color: #d3d6db;
 }

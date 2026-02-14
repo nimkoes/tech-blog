@@ -1,33 +1,27 @@
 import categoryData from '~/resources/category.json';
+import type { CategoryNode, PostMeta } from '~/types/content';
 
-interface CategoryItem {
-  id: string;
-  displayName: string;
-  tags?: string[];
-  fileName?: string;
-  regDate?: string;
-  lastModifiedDate?: string;
-  children?: CategoryItem[];
+function isPostNode(node: CategoryNode): node is CategoryNode &
+  Required<Pick<CategoryNode, 'fileName' | 'tags' | 'regDate' | 'lastModifiedDate'>> {
+  return Boolean(
+    node.fileName &&
+      node.displayName &&
+      node.tags &&
+      node.regDate &&
+      node.lastModifiedDate
+  );
 }
 
-interface DocumentInfo {
-  title: string;
-  tags: string[];
-  fileName: string;
-  regDate: string;
-  lastModifiedDate: string;
-}
+function extractDocumentsFromCategory(category: CategoryNode): PostMeta[] {
+  let documents: PostMeta[] = [];
 
-function extractDocumentsFromCategory(category: CategoryItem): DocumentInfo[] {
-  let documents: DocumentInfo[] = [];
-
-  if (category.fileName && category.displayName && category.tags) {
-    documents.push(<DocumentInfo>{
+  if (isPostNode(category)) {
+    documents.push({
       title: category.displayName,
       tags: category.tags,
       fileName: category.fileName,
       regDate: category.regDate,
-      lastModifiedDate: category.lastModifiedDate
+      lastModifiedDate: category.lastModifiedDate,
     });
   }
 
@@ -40,19 +34,14 @@ function extractDocumentsFromCategory(category: CategoryItem): DocumentInfo[] {
   return documents;
 }
 
-function findDocumentByFileName(category: CategoryItem, fileName: string): DocumentInfo | null {
-  if (category.fileName === fileName
-    && category.displayName
-    && category.tags
-    && category.regDate
-    && category.lastModifiedDate
-  ) {
+function findDocumentByFileName(category: CategoryNode, fileName: string): PostMeta | null {
+  if (isPostNode(category) && category.fileName === fileName) {
     return {
       title: category.displayName,
       tags: category.tags,
       fileName: category.fileName,
       regDate: category.regDate,
-      lastModifiedDate: category.lastModifiedDate
+      lastModifiedDate: category.lastModifiedDate,
     };
   }
 
@@ -70,19 +59,18 @@ export function extractSerial(fileName: string) {
   return fileName.slice(0, 4);
 }
 
-export function getAllDocuments(): DocumentInfo[] {
+export function getAllDocuments(): PostMeta[] {
   try {
-    const documents: DocumentInfo[] = [];
+    const documents: PostMeta[] = [];
     categoryData.forEach(category => {
       documents.push(...extractDocumentsFromCategory(category));
     });
     // 최종수정일 내림차순, 일련번호 내림차순 정렬
     return documents.sort((a, b) => {
-      let dateA = a.lastModifiedDate;
-      let dateB = b.lastModifiedDate;
-
-      let serialA = extractSerial(a.fileName);
-      let serialB = extractSerial(b.fileName);
+      const dateA = a.lastModifiedDate;
+      const dateB = b.lastModifiedDate;
+      const serialA = extractSerial(a.fileName);
+      const serialB = extractSerial(b.fileName);
 
       if (dateA !== dateB) return dateB.localeCompare(dateA);
       return serialB.localeCompare(serialA);
@@ -92,7 +80,7 @@ export function getAllDocuments(): DocumentInfo[] {
   }
 }
 
-export function getDocumentByFileName(fileName: string): DocumentInfo | null {
+export function getDocumentByFileName(fileName: string): PostMeta | null {
   try {
     for (const category of categoryData) {
       const found = findDocumentByFileName(category, fileName);

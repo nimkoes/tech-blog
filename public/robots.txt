@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://nimkoes.github.io/tech-blog/
-
-# Sitemaps
-Sitemap: https://nimkoes.github.io/tech-blog/sitemap.xml
