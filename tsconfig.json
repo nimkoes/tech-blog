@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "types": [
-      "@types/prismjs"
-    ],
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,9 +23,6 @@
       ],
       "~/*": [
         "./src/*"
-      ],
-      "@resources/*": [
-        "./src/resources/*"
       ]
     },
     "plugins": [

@@ -2,8 +2,8 @@
 
 // React
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useMemo, useRef } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 // Components
 import DateTooltip from '~/components/common/DateTooltip';
@@ -36,7 +36,6 @@ function parseTagQuery(rawTags: string | null, allowedTags: Set<string>) {
 export default function PostList({ initialPosts }: PostListProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const isSyncingFromUrlRef = useRef(false);
   const {
     selectedTags, setSelectedTags, handleTagSelect
@@ -44,7 +43,18 @@ export default function PostList({ initialPosts }: PostListProps) {
 
   const posts = initialPosts;
   const allowedTags = useMemo(() => new Set(posts.flatMap(post => post.tags)), [posts]);
-  const tagParam = searchParams.get('tags');
+  // useSearchParams()는 정적 export에서 페이지 전체를 CSR로 강등시키므로,
+  // 목록이 프리렌더되도록 쿼리스트링은 mount 이후 window.location에서 읽는다.
+  const [tagParam, setTagParam] = useState<string | null>(null);
+
+  useEffect(() => {
+    const readTagsFromLocation = () => {
+      setTagParam(new URLSearchParams(window.location.search).get('tags'));
+    };
+    readTagsFromLocation();
+    window.addEventListener('popstate', readTagsFromLocation);
+    return () => window.removeEventListener('popstate', readTagsFromLocation);
+  }, []);
   const tagsFromUrl = useMemo(
     () => parseTagQuery(tagParam, allowedTags),
     [allowedTags, tagParam]
@@ -74,7 +84,7 @@ export default function PostList({ initialPosts }: PostListProps) {
 
     if (selectedTagsKey === tagsFromUrlKey) return;
 
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(window.location.search);
     if (selectedTags.length > 0) {
       params.set('tags', selectedTags.join(','));
     } else {
@@ -82,12 +92,13 @@ export default function PostList({ initialPosts }: PostListProps) {
     }
 
     const nextQuery = params.toString();
-    const currentQuery = searchParams.toString();
+    const currentQuery = window.location.search.replace(/^\?/, '');
     if (nextQuery !== currentQuery) {
       const nextUrl = nextQuery ? `${pathname}?${nextQuery}` : pathname;
       router.replace(nextUrl, { scroll: false });
+      setTagParam(selectedTags.length > 0 ? selectedTags.join(',') : null);
     }
-  }, [pathname, router, searchParams, selectedTags, selectedTagsKey, tagsFromUrlKey]);
+  }, [pathname, router, selectedTags, selectedTagsKey, tagsFromUrlKey]);
 
   const filteredPosts = useMemo(
     () => (

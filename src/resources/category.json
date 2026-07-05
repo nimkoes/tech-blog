@@ -224,7 +224,7 @@
             "tags": [
               "Kubernetes",
               "Pod",
-              "controller"
+              "Controller"
             ]
           },
           {
@@ -522,9 +522,7 @@
                 "fileName": "0045-what-is-unit-testing",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -535,9 +533,7 @@
                 "fileName": "0046-unit-testing-structure",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -548,9 +544,7 @@
                 "fileName": "0047-the-four-key-elements-of-a-good-unit-test",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -561,9 +555,7 @@
                 "fileName": "0048-mock-and-test-fragility",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -574,9 +566,7 @@
                 "fileName": "0049-unit-test-style",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -587,9 +577,7 @@
                 "fileName": "0050-refactoring-for-valuable-unit-tests",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -600,9 +588,7 @@
                 "fileName": "0051-reasons-for-integration-testing",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -613,9 +599,7 @@
                 "fileName": "0052-best-practices-for-handling-mock",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -626,9 +610,7 @@
                 "fileName": "0053-database-test",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               },
               {
@@ -639,9 +621,7 @@
                 "fileName": "0054-unit-test-anti-pattern",
                 "tags": [
                   "테스트",
-                  "단위 테스트",
-                  "unit test",
-                  "test"
+                  "단위 테스트"
                 ]
               }
             ]

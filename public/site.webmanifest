@@ -8,6 +8,13 @@
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/tech-blog/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
   "shortcuts": [
     {
       "name": "홈",

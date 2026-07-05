@@ -1,57 +1,61 @@
 import type {Metadata, Viewport} from 'next'
-import localFont from 'next/font/local'
 import ClientLayout from './ClientLayout'
 import Script from 'next/script'
 import { ThemeProvider } from '~/context/ThemeContext';
+import { getBasePath, getSiteOrigin } from '~/utils/contentRepository';
+import {
+  AUTHOR_NAME,
+  DEFAULT_KEYWORDS,
+  SITE_DESCRIPTION,
+  SITE_LANGUAGE,
+  SITE_LOCALE,
+  SITE_NAME,
+  SITE_TITLE,
+  getDefaultOgImageUrl,
+  getSiteUrl,
+  serializeJsonLd,
+} from '~/utils/seo';
 
-const pretendard = localFont({
-  src: [
-    { path: '../../public/fonts/Pretendard-Thin.woff2', weight: '100', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-ExtraLight.woff2', weight: '200', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-Light.woff2', weight: '300', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-Regular.woff2', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-Medium.woff2', weight: '500', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-SemiBold.woff2', weight: '600', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-Bold.woff2', weight: '700', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-ExtraBold.woff2', weight: '800', style: 'normal' },
-    { path: '../../public/fonts/Pretendard-Black.woff2', weight: '900', style: 'normal' },
-  ],
-  display: 'swap',
-  variable: '--font-pretendard',
-});
+const SITE_ORIGIN = getSiteOrigin();
+const BASE_PATH = getBasePath();
+const SITE_URL = getSiteUrl();
+const OG_IMAGE_URL = getDefaultOgImageUrl();
 
-const inter = localFont({
-  src: '../../public/fonts/InterVariable.woff2',
-  display: 'swap',
-  variable: '--font-inter',
-});
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const naverVerification = process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION;
 
-const BASE_PATH = '/tech-blog'
-const SITE_URL = process.env.NODE_ENV === 'production'
-  ? 'https://nimkoes.github.io'
-  : 'http://localhost:3000'
+const verification: Metadata['verification'] = {
+  other: {
+    'google-adsense-account': ['ca-pub-6151583773425822'],
+  },
+};
+
+if (googleVerification) {
+  verification.google = googleVerification;
+}
+
+if (naverVerification) {
+  verification.other = {
+    ...verification.other,
+    'naver-site-verification': [naverVerification],
+  };
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
-    template: '%s | Nimkoes Tech Blog',
-    default: 'Nimkoes Tech Blog - 개발자의 기술 이야기',
+    template: `%s | ${SITE_NAME}`,
+    default: SITE_TITLE,
   },
-  description: 'I work diligently to become lazy ☕',
-  applicationName: 'Nimkoes Tech Blog',
-  keywords: [
-    'tech-blog',
-    'backend',
-    'software architect',
-    'infrastructure',
-    'development'
-  ],
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: DEFAULT_KEYWORDS,
   authors: [{
-    name: 'Nimkoes',
-    url: `${SITE_URL}${BASE_PATH}`,
+    name: AUTHOR_NAME,
+    url: SITE_URL,
   }],
-  creator: 'Nimkoes',
-  publisher: 'Nimkoes',
+  creator: AUTHOR_NAME,
+  publisher: AUTHOR_NAME,
   formatDetection: {
     email: false,
     address: false,
@@ -59,25 +63,30 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'ko_KR',
-    siteName: 'Nimkoes Tech Blog',
-    url: `${SITE_URL}${BASE_PATH}`,
-    title: 'Nimkoes Tech Blog - 개발자의 기술 이야기',
-    description: 'I work diligently to become lazy ☕',
+    locale: SITE_LOCALE,
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
-        url: `${BASE_PATH}/og-image.png`,
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: 'Nimkoes Tech Blog',
+        alt: SITE_NAME,
         type: 'image/png',
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE_URL],
+  },
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
@@ -93,36 +102,21 @@ export const metadata: Metadata = {
     apple: [
       {url: `${BASE_PATH}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png'},
     ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: `${BASE_PATH}/safari-pinned-tab.svg`,
-        color: '#5bbad5'
-      },
-    ],
   },
   manifest: `${BASE_PATH}/site.webmanifest`,
   alternates: {
-    canonical: `${SITE_URL}${BASE_PATH}`,
+    canonical: SITE_URL,
     languages: {
-      'ko-KR': `${SITE_URL}${BASE_PATH}`,
+      [SITE_LANGUAGE]: SITE_URL,
     },
   },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? '',
-    other: {
-      'naver-site-verification': [process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION ?? ''],
-      'google-adsense-account': ['ca-pub-6151583773425822'],
-    },
-  },
+  verification,
   category: 'technology',
 }
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export default function RootLayout({
@@ -131,10 +125,33 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    inLanguage: SITE_LANGUAGE,
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: SITE_URL,
+    },
+  };
 
   return (
-    <html lang="ko" className={`${pretendard.variable} ${inter.variable}`}>
+    <html lang="ko" suppressHydrationWarning>
     <head>
+      <script
+        // 첫 페인트 전에 저장된 테마를 적용해 다크모드 깜빡임(FOUC)을 방지
+        dangerouslySetInnerHTML={{
+          __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteJsonLd) }}
+      />
       {gaId && (
         <>
           {/* Google Analytics */}

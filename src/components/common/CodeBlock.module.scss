@@ -1,6 +1,6 @@
 .custom-codeblock-root {
   border-radius: 8px;
-  background: #23272e;
+  background: var(--surface-inverse);
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   font-family: var(--font-mono);
@@ -12,11 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #23272e;
-  color: #bdbdbd;
+  background: var(--surface-inverse);
+  color: var(--text-inverse-muted);
   font-size: 0.86em;
   padding: 0.24rem 0.62rem;
-  border-bottom: 2px solid #2d313a;
+  border-bottom: 2px solid var(--surface-inverse-border);
 }
 
 .custom-codeblock-lang {
@@ -29,14 +29,14 @@
   em {
     font-style: normal;
     font-size: 0.85em;
-    color: #8f97a3;
+    color: var(--text-inverse-dim);
   }
 }
 
 .custom-codeblock-copy {
   background: none;
   border: none;
-  color: #bdbdbd;
+  color: var(--text-inverse-muted);
   font-size: 0.9em;
   cursor: pointer;
   padding: 0.05rem 0.45rem;
@@ -44,18 +44,18 @@
   transition: background 0.15s, color 0.15s;
 }
 .custom-codeblock-copy:hover {
-  background: #31343c;
+  background: var(--surface-inverse-hover);
   color: #fff;
 }
 
 .custom-codeblock-copy:active {
-  background: #444950;
+  background: var(--surface-inverse-active);
 }
 
 .custom-codeblock-root pre {
   background: none !important;
   border-radius: 0 !important;
-  color: #eaeaea;
+  color: var(--text-inverse);
   margin: 0;
   padding: 0.45rem 0.62rem;
   font-size: 0.94em;

@@ -12,13 +12,13 @@ const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
   }, [onClose]);
 
   return (
-    <div style={{
+    <div role="status" aria-live="polite" aria-atomic="true" style={{
       position: 'fixed',
       bottom: '2rem',
       left: '50%',
       transform: 'translateX(-50%)',
-      background: '#23272e',
-      color: '#fff',
+      background: 'var(--surface-inverse)',
+      color: 'var(--text-inverse)',
       padding: '0.7rem 1.5rem',
       borderRadius: '8px',
       boxShadow: '0 2px 8px rgba(0,0,0,0.15)',

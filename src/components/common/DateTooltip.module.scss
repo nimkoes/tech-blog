@@ -16,8 +16,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #f0f0f0;
-  color: #666;
+  background: var(--control-bg);
+  color: var(--control-text);
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -25,22 +25,12 @@
   flex-shrink: 0;
 
   &:hover {
-    background: #e0e0e0;
-    color: #333;
+    background: var(--control-bg-hover);
+    color: var(--control-text-strong);
   }
 
   &:active {
     transform: scale(0.95);
-  }
-}
-
-[data-theme='dark'] .infoButton {
-  background: #44474e;
-  color: #bdbdbd;
-
-  &:hover {
-    background: #5a5f67;
-    color: #fff;
   }
 }
 
@@ -49,20 +39,15 @@
   top: 100%;
   left: 0;
   z-index: 1000;
-  background: #fff;
-  border: 1px solid #e0e0e0;
+  background: var(--surface-overlay);
+  border: 1px solid var(--border-strong);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 0.7rem;
   min-width: 200px;
   margin-top: 0.5rem;
+  color: var(--text);
   animation: fadeIn 0.2s ease;
-}
-
-[data-theme='dark'] .tooltip {
-  background: #2d313a;
-  border: 1px solid #44474e;
-  color: #eaeaea;
 }
 
 @keyframes fadeIn {
@@ -82,7 +67,7 @@
   right: 0.4rem;
   background: none;
   border: none;
-  color: #999;
+  color: var(--control-text);
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 4px;
@@ -91,17 +76,8 @@
   z-index: 1001;
 
   &:hover {
-    background: #f0f0f0;
-    color: #666;
-  }
-}
-
-[data-theme='dark'] .closeButton {
-  color: #bdbdbd;
-
-  &:hover {
-    background: #44474e;
-    color: #fff;
+    background: var(--control-bg);
+    color: var(--control-text-strong);
   }
 }
 
@@ -121,23 +97,15 @@
 }
 
 .dateLabel {
-  font-weight: 500;
-  color: #666;
+  font-weight: var(--font-weight-medium);
+  color: var(--control-text);
   font-size: 0.75rem;
-}
-
-[data-theme='dark'] .dateLabel {
-  color: #bdbdbd;
 }
 
 .dateValue {
-  font-weight: 600;
-  color: #333;
+  font-weight: var(--font-weight-semibold);
+  color: var(--control-text-strong);
   font-size: 0.75rem;
-}
-
-[data-theme='dark'] .dateValue {
-  color: #eaeaea;
 }
 
 // 모바일에서만 닫기 버튼 표시
@@ -145,43 +113,22 @@
   .closeButton {
     display: block;
   }
-  
+
   .tooltip {
-    position: absolute;
     min-width: 165px;
-    padding: 0.7rem;
     z-index: 99999;
-    background: #fff !important;
-    border: 1px solid #e0e0e0 !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
-    color: #333 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
-  
-  [data-theme='dark'] .tooltip {
-    background: #2d313a !important;
-    border: 1px solid #44474e !important;
-    color: #eaeaea !important;
-  }
-  
+
   .tooltipContent {
     padding-right: 1.3rem;
   }
-  
+
   .dateLabel {
     font-size: 0.7rem;
-    color: #666 !important;
   }
-  
-  [data-theme='dark'] .dateLabel {
-    color: #bdbdbd !important;
-  }
-  
+
   .dateValue {
     font-size: 0.7rem;
-    color: #333 !important;
   }
-  
-  [data-theme='dark'] .dateValue {
-    color: #eaeaea !important;
-  }
-} 
+}

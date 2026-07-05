@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getBasePath, getCategoryPosts, getPostUrl, getSiteOrigin } from '~/utils/contentRepository';
+import { getAllTags, getBasePath, getCategoryPosts, getPostUrl, getSiteOrigin } from '~/utils/contentRepository';
 
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 
@@ -26,16 +26,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const siteOrigin = getSiteOrigin();
   const basePath = getBasePath();
   const posts = getCategoryPosts();
+  const latestPostDate = posts[0]?.lastModifiedDate;
 
   const staticRoutes: SitemapItem[] = [
-    createSitemapItem(`${siteOrigin}${basePath}`, 'daily', 1),
-    createSitemapItem(`${siteOrigin}${basePath}/feed.xml`, 'daily', 0.6),
-    createSitemapItem(`${siteOrigin}${basePath}/google-site-verification.html`, 'yearly', 0.2),
+    createSitemapItem(`${siteOrigin}${basePath}`, 'weekly', 1, latestPostDate),
+    createSitemapItem(`${siteOrigin}${basePath}/about`, 'monthly', 0.5, latestPostDate),
+    createSitemapItem(`${siteOrigin}${basePath}/tags`, 'weekly', 0.5, latestPostDate),
+    createSitemapItem(`${siteOrigin}${basePath}/feed.xml`, 'weekly', 0.6, latestPostDate),
   ];
 
   const postRoutes = posts.map(post =>
     createSitemapItem(getPostUrl(post.fileName), 'weekly', 0.8, post.lastModifiedDate)
   );
 
-  return [...staticRoutes, ...postRoutes];
+  const tagRoutes = getAllTags().map(({ slug }) =>
+    createSitemapItem(
+      `${siteOrigin}${basePath}/tags/${encodeURIComponent(slug)}`,
+      'weekly',
+      0.4,
+      latestPostDate
+    )
+  );
+
+  return [...staticRoutes, ...postRoutes, ...tagRoutes];
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getBasePath, getCategoryPosts, getPostContent, getPostUrl, getSiteOrigin } from '~/utils/contentRepository';
+import { getPostSeoDescription } from '~/utils/seo';
 
 export async function GET() {
   const siteOrigin = getSiteOrigin();
@@ -7,14 +8,10 @@ export async function GET() {
   const posts = getCategoryPosts()
     .map(post => {
       const content = getPostContent(post.fileName);
-      const excerpt = (content?.content || '')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .slice(0, 300);
 
       return {
         title: content?.title || post.title,
-        description: content?.description || excerpt,
+        description: getPostSeoDescription(content),
         date: content?.date || post.regDate,
         slug: post.fileName,
       };

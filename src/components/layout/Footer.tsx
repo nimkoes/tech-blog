@@ -1,4 +1,10 @@
+import Link from 'next/link';
 import styles from './Footer.module.scss';
+
+const internalLinks = [
+  { label: 'About', href: '/about' },
+  { label: '태그', href: '/tags' },
+];
 
 const externalLinks = [
   {
@@ -27,7 +33,12 @@ export default function Footer() {
           <p className={styles.copyright}>
             © {new Date().getFullYear()} Tech Blog. All rights reserved.
           </p>
-          <div className={styles.links} aria-label="외부 링크">
+          <div className={styles.links} aria-label="사이트 링크">
+            {internalLinks.map(link => (
+              <Link key={link.href} href={link.href} className={styles.link}>
+                {link.label}
+              </Link>
+            ))}
             {externalLinks.map(link => (
               <a
                 key={link.href}

@@ -5,6 +5,8 @@ const ROOT_DIR = process.cwd();
 const OUT_DIR = path.join(ROOT_DIR, 'out');
 const SITEMAP_PATH = path.join(OUT_DIR, 'sitemap.xml');
 const FEED_PATH = path.join(OUT_DIR, 'feed.xml');
+const OG_IMAGE_PATH = path.join(OUT_DIR, 'og-image.png');
+const APPLE_ICON_PATH = path.join(OUT_DIR, 'apple-touch-icon.png');
 const BASE_PATH = '/tech-blog';
 
 const errors = [];
@@ -25,6 +27,8 @@ function getXmlValues(xml, tagName) {
 
 const sitemapXml = readFileSafe(SITEMAP_PATH, 'sitemap.xml');
 const feedXml = readFileSafe(FEED_PATH, 'feed.xml');
+readFileSafe(OG_IMAGE_PATH, 'og-image.png');
+readFileSafe(APPLE_ICON_PATH, 'apple-touch-icon.png');
 
 if (errors.length > 0) {
   errors.forEach(error => console.error(`- ${error}`));

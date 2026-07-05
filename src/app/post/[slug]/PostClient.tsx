@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
@@ -9,13 +10,18 @@ import TOC from './TOC';
 import '~/styles/toc.scss';
 import CodeBlock from '~/components/common/CodeBlock';
 import PostEnhancements from './PostEnhancements';
+import { SeriesBox, PostFooterNav } from './PostNav';
 import type { PostContent, PostMeta, TocItem } from '~/types/content';
+import type { PostNavigation } from '~/utils/contentRepository';
+import { slugifyTag } from '~/utils/tags';
+import { deriveImageAlt } from '~/utils/seo';
 
 interface PostClientProps {
   document: PostMeta;
   postContent: PostContent;
   toc: TocItem[];
   idMap: Record<string, string>;
+  navigation: PostNavigation | null;
 }
 
 function normalizeHeadingText(value: string) {
@@ -33,18 +39,22 @@ function readReactNodeText(node: ReactNode): string {
   return readReactNodeText((node.props as { children?: ReactNode }).children);
 }
 
-export default function PostClient({ document, postContent, toc, idMap }: PostClientProps) {
+export default function PostClient({ document, postContent, toc, idMap, navigation }: PostClientProps) {
   const headingSeen: Record<string, number> = {};
 
-  const HeadingRenderer = (level: 1 | 2 | 3 | 4 | 5 | 6) =>
+  const HeadingRenderer = (
+    sourceLevel: 1 | 2 | 3 | 4 | 5 | 6,
+    renderedLevel: 1 | 2 | 3 | 4 | 5 | 6 = sourceLevel
+  ) =>
     function Heading({children}: any) {
       const text = normalizeHeadingText(readReactNodeText(children));
-      const baseKey = `${level}_${text}`;
+      const baseKey = `${sourceLevel}_${text}`;
       const occurrence = (headingSeen[baseKey] || 0) + 1;
       headingSeen[baseKey] = occurrence;
       const id = idMap[`${baseKey}__${occurrence}`] || '';
-      const Tag = `h${level}` as keyof JSX.IntrinsicElements;
-      return <Tag id={id}>{children}</Tag>;
+      const Tag = `h${renderedLevel}` as keyof JSX.IntrinsicElements;
+      const className = sourceLevel === 1 ? styles.markdownH1 : undefined;
+      return <Tag id={id} className={className}>{children}</Tag>;
     };
 
   type CodeProps = {
@@ -59,11 +69,29 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
 
   const Anchor = ({ href, children, ...props }: ComponentPropsWithoutRef<'a'>) => {
     const resolvedHref = href || '#';
+    const isExternalLink =
+      /^https?:\/\//i.test(resolvedHref) ||
+      resolvedHref.startsWith('//') ||
+      resolvedHref.startsWith('mailto:');
+
     return (
-      <a {...props} href={resolvedHref} target="_blank" rel="noopener noreferrer">
+      <a
+        {...props}
+        href={resolvedHref}
+        target={isExternalLink ? '_blank' : undefined}
+        rel={isExternalLink ? 'noopener noreferrer' : undefined}
+      >
         {children}
       </a>
     );
+  };
+
+  const Image = ({ src, alt, ...props }: ComponentPropsWithoutRef<'img'>) => {
+    const resolvedSrc = src || '';
+    const resolvedAlt = alt?.trim() || deriveImageAlt(resolvedSrc, `${document.title} 본문 이미지`);
+
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img {...props} src={resolvedSrc} alt={resolvedAlt} loading="lazy" decoding="async" />;
   };
 
   function extractCodeFromPre(children: ReactNode): { className?: string; children?: ReactNode } | null {
@@ -126,7 +154,7 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
   };
 
   const markdownComponents: Components = {
-    h1: HeadingRenderer(1),
+    h1: HeadingRenderer(1, 2),
     h2: HeadingRenderer(2),
     h3: HeadingRenderer(3),
     h4: HeadingRenderer(4),
@@ -135,26 +163,37 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
     pre: Pre,
     code: Code,
     a: Anchor,
+    img: Image,
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.postHeader}>
+      <header className={styles.postHeader}>
         <h1 className={styles.title}>{document.title}</h1>
-        <div className={styles.postDate}>
+        <time className={styles.postDate} dateTime={document.regDate}>
           등록일 : {document.regDate}
-        </div>
-        <div className={styles.postDate}>
+        </time>
+        <time className={styles.postDate} dateTime={document.lastModifiedDate}>
           최종수정일 : {document.lastModifiedDate}
-        </div>
+        </time>
         {document.tags && document.tags.length > 0 && (
           <div className={styles.postTags}>
             {document.tags.map((tag: string) => (
-              <span key={tag} className={styles.tagPill}>{tag}</span>
+              <Link
+                key={tag}
+                href={`/tags/${slugifyTag(tag)}`}
+                className={styles.tagPill}
+                aria-label={`${tag} 태그가 달린 글 목록`}
+              >
+                {tag}
+              </Link>
             ))}
           </div>
         )}
-      </div>
+      </header>
+      {navigation?.series && (
+        <SeriesBox series={navigation.series} currentSlug={document.fileName} />
+      )}
       {toc.length > 0 && <TOC toc={toc} />}
       <article className={styles.markdown}>
         <ReactMarkdown
@@ -165,6 +204,7 @@ export default function PostClient({ document, postContent, toc, idMap }: PostCl
           {postContent.content}
         </ReactMarkdown>
       </article>
+      {navigation && <PostFooterNav navigation={navigation} />}
       <PostEnhancements />
     </div>
   );
