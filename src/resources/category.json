@@ -704,6 +704,33 @@
         ]
       },
       {
+        "id": "60",
+        "displayName": "AI",
+        "kind": "category",
+        "children": [
+          {
+            "id": "60-01",
+            "displayName": "AI와 코딩 에이전트 이해하기",
+            "kind": "series",
+            "children": [
+              {
+                "id": "60-01-01",
+                "regDate": "2026-11-22",
+                "lastModifiedDate": "2026-11-22",
+                "displayName": "AI, 머신러닝, 생성형 AI, LLM은 어떻게 다른가",
+                "fileName": "0144-ai-machine-learning-generative-ai-llm",
+                "tags": [
+                  "AI",
+                  "머신러닝",
+                  "생성형 AI",
+                  "LLM"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "80",
         "displayName": "번역",
         "kind": "category",
