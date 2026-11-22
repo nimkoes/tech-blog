@@ -411,6 +411,14 @@
     max-width: 100%;
   }
 
+  .markdown table {
+    font-size: calc(var(--body-small) + var(--reader-font-adjust, 0px));
+  }
+
+  .markdown table code {
+    font-size: 0.95em;
+  }
+
   .markdown th,
   .markdown td {
     padding: 0.4rem 0.5rem;
