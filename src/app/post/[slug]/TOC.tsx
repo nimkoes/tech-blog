@@ -16,8 +16,8 @@ interface TocGroup {
 
 const ACTIVE_OFFSET = 112;
 const FONT_SIZE_STORAGE_KEY = 'post-font-size-step';
-const MIN_FONT_SIZE_STEP = -3;
-const MAX_FONT_SIZE_STEP = 3;
+const MIN_FONT_SIZE_STEP = -5;
+const MAX_FONT_SIZE_STEP = 5;
 
 function groupToc(toc: TocItem[]): TocGroup[] {
   const groups: TocGroup[] = [];
