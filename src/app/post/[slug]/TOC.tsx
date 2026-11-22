@@ -1,6 +1,14 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type PointerEvent as ReactPointerEvent,
+} from 'react';
 import { ArrowUp, ListTree, Minus, Plus, SlidersHorizontal, Type, X } from 'lucide-react';
 import type { TocItem } from '~/types/content';
 import useBodyScrollLock from '~/hooks/useBodyScrollLock';
@@ -18,6 +26,7 @@ const ACTIVE_OFFSET = 112;
 const FONT_SIZE_STORAGE_KEY = 'post-font-size-step';
 const MIN_FONT_SIZE_STEP = -5;
 const MAX_FONT_SIZE_STEP = 5;
+const PANEL_CLOSE_DRAG_DISTANCE = 72;
 
 function groupToc(toc: TocItem[]): TocGroup[] {
   const groups: TocGroup[] = [];
@@ -40,15 +49,27 @@ export default function TOC({ toc }: TOCProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [fontSizeStep, setFontSizeStep] = useState(0);
+  const [panelDragOffset, setPanelDragOffset] = useState(0);
+  const [isPanelDragging, setIsPanelDragging] = useState(false);
   const panelRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const toolsRef = useRef<HTMLDivElement>(null);
+  const panelDragStartRef = useRef(0);
+  const panelDragOffsetRef = useRef(0);
+  const suppressHandleClickRef = useRef(false);
   const groups = useMemo(() => groupToc(toc), [toc]);
   const activeItem = toc.find(item => item.id === activeId);
   const activeGroup = groups.find(group =>
     group.heading.id === activeId || group.children.some(item => item.id === activeId)
   );
   useBodyScrollLock(isOpen);
+
+  const closeDocumentMap = useCallback(() => {
+    panelDragOffsetRef.current = 0;
+    setPanelDragOffset(0);
+    setIsPanelDragging(false);
+    setIsOpen(false);
+  }, []);
 
   useEffect(() => {
     const stored = Number.parseInt(window.localStorage.getItem(FONT_SIZE_STORAGE_KEY) || '0', 10);
@@ -114,7 +135,7 @@ export default function TOC({ toc }: TOCProps) {
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsOpen(false);
+        closeDocumentMap();
         return;
       }
 
@@ -140,7 +161,7 @@ export default function TOC({ toc }: TOCProps) {
       window.removeEventListener('keydown', onKeyDown);
       trigger?.focus();
     };
-  }, [isOpen]);
+  }, [closeDocumentMap, isOpen]);
 
   useEffect(() => {
     if (!isToolsOpen) return;
@@ -162,7 +183,42 @@ export default function TOC({ toc }: TOCProps) {
     };
   }, [isToolsOpen]);
 
-  const closeAfterNavigation = () => setIsOpen(false);
+  const startPanelDrag = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+    panelDragStartRef.current = event.clientY;
+    panelDragOffsetRef.current = 0;
+    suppressHandleClickRef.current = false;
+    setPanelDragOffset(0);
+    setIsPanelDragging(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const movePanelDrag = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (!isPanelDragging) return;
+
+    const nextOffset = Math.max(0, event.clientY - panelDragStartRef.current);
+    panelDragOffsetRef.current = nextOffset;
+    if (nextOffset > 6) suppressHandleClickRef.current = true;
+    setPanelDragOffset(nextOffset);
+  };
+
+  const finishPanelDrag = (event: ReactPointerEvent<HTMLButtonElement>, cancelled = false) => {
+    if (!isPanelDragging) return;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    const shouldClose = !cancelled && panelDragOffsetRef.current >= PANEL_CLOSE_DRAG_DISTANCE;
+    setIsPanelDragging(false);
+    panelDragOffsetRef.current = 0;
+    setPanelDragOffset(0);
+
+    if (shouldClose) closeDocumentMap();
+  };
+
+  const closeAfterNavigation = closeDocumentMap;
   const progressLabel = `${Math.round(progress)}%`;
 
   return (
@@ -256,23 +312,39 @@ export default function TOC({ toc }: TOCProps) {
       </div>
 
       {isOpen && (
-        <div className="documentMapOverlay" onClick={() => setIsOpen(false)}>
+        <div className="documentMapOverlay" onClick={closeDocumentMap}>
           <nav
             ref={panelRef}
             id="document-map"
-            className="documentMap"
+            className={`documentMap${isPanelDragging ? ' documentMapDragging' : ''}`}
             role="dialog"
             aria-modal="true"
             aria-labelledby="document-map-title"
             onClick={event => event.stopPropagation()}
+            style={{ '--document-map-drag-y': `${panelDragOffset}px` } as CSSProperties}
           >
-            <div className="documentMapHandle" aria-hidden="true" />
+            <button
+              type="button"
+              className="documentMapHandle"
+              aria-label="글 탐색 닫기"
+              onClick={() => {
+                if (suppressHandleClickRef.current) {
+                  suppressHandleClickRef.current = false;
+                  return;
+                }
+                closeDocumentMap();
+              }}
+              onPointerDown={startPanelDrag}
+              onPointerMove={movePanelDrag}
+              onPointerUp={event => finishPanelDrag(event)}
+              onPointerCancel={event => finishPanelDrag(event, true)}
+            />
             <header className="documentMapHeader">
               <div>
                 <p>DOCUMENT MAP</p>
                 <h2 id="document-map-title">이 글에서 찾기</h2>
               </div>
-              <button type="button" onClick={() => setIsOpen(false)} aria-label="글 목차 닫기">
+              <button type="button" onClick={closeDocumentMap} aria-label="글 목차 닫기">
                 <X size={19} />
               </button>
             </header>

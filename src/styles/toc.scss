@@ -319,15 +319,46 @@ html {
     border-left: 0;
     border-radius: 20px 20px 0 0;
     animation-name: documentMapUp;
+    transform: translateY(var(--document-map-drag-y, 0px));
+    transition: transform 0.18s ease-out;
+  }
+
+  .documentMapDragging {
+    transition: none;
   }
 
   .documentMapHandle {
-    display: block;
-    width: 42px;
-    height: 5px;
-    margin: 0.55rem auto 0;
-    border-radius: 999px;
-    background: rgba(148, 163, 184, 0.48);
+    width: 64px;
+    height: 28px;
+    flex: 0 0 28px;
+    margin: 0 auto -0.15rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &::before {
+      content: '';
+      width: 42px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.56);
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: -2px;
+      border-radius: 999px;
+    }
   }
 
   .scrollTopBtn {

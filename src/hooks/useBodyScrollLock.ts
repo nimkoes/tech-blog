@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 let lockCount = 0;
 let lockedScrollY = 0;
 let previousHtmlOverflow = '';
+let previousHtmlScrollBehavior = '';
 let previousScrollLockMarker: string | undefined;
 let previousBodyStyles: Partial<CSSStyleDeclaration> = {};
 
@@ -17,6 +18,7 @@ function lockBodyScroll() {
   lockCount = 1;
   lockedScrollY = window.scrollY;
   previousHtmlOverflow = document.documentElement.style.overflow;
+  previousHtmlScrollBehavior = document.documentElement.style.scrollBehavior;
   previousScrollLockMarker = document.documentElement.dataset.scrollLocked;
   previousBodyStyles = {
     overflow: document.body.style.overflow,
@@ -46,13 +48,19 @@ function unlockBodyScroll() {
   if (lockCount > 0) return;
 
   document.documentElement.style.overflow = previousHtmlOverflow;
+  document.documentElement.style.scrollBehavior = 'auto';
   if (previousScrollLockMarker === undefined) {
     delete document.documentElement.dataset.scrollLocked;
   } else {
     document.documentElement.dataset.scrollLocked = previousScrollLockMarker;
   }
   Object.assign(document.body.style, previousBodyStyles);
-  window.scrollTo(0, lockedScrollY);
+  window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'auto' });
+
+  const scrollBehavior = previousHtmlScrollBehavior;
+  window.requestAnimationFrame(() => {
+    if (lockCount === 0) document.documentElement.style.scrollBehavior = scrollBehavior;
+  });
 }
 
 export default function useBodyScrollLock(isLocked: boolean) {
