@@ -407,9 +407,9 @@ LLM은 앞의 문맥을 바탕으로 다음 토큰을 예측하는 과정을 반
 
 # 참고 자료
 
-- [Anthropic Glossary](https://platform.claude.com/docs/en/about-claude/glossary)
-- [Anthropic Models overview](https://platform.claude.com/docs/en/models/overview)
-- [Claude Code Overview](https://code.claude.com/docs/en/overview)
-- [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works)
-- [Claude Code Glossary](https://code.claude.com/docs/en/glossary)
-- [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+- [Anthropic Glossary](https://platform.claude.com/docs/en/about-claude/glossary) — 공식 문서
+- [Anthropic Models overview](https://platform.claude.com/docs/en/models/overview) — 공식 문서
+- [Claude Code Overview](https://code.claude.com/docs/en/overview) — 공식 문서
+- [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) — 공식 문서
+- [Claude Code Glossary](https://code.claude.com/docs/en/glossary) — 공식 문서
+- [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — 원 논문
