@@ -1,3 +1,19 @@
+---
+title: 'Go ''WEB SERVER WITH ECHO'' : Setup Part Two & File Download using ECHO'
+description: >-
+  echo 를 시용해서 서버를 만드는 것을 super easy 하다. main.go 파일을 다음과 같이 수정하자. 그리고 실행하면 다음과 같이
+  실행 결과가 출력 되고, 1323 포트를 통해 접속할 수 있다. 정상적으로 실행 되는것을 확인하긴 했지만, myScraper 를 전혀
+  사용하고 있지 못하고 있다. 그래서 문자열을 출력하는 대신, 화면을 출력할 수 있도록 html 파일을 하나 만들어 보자.
+publishedAt: '2021-05-30'
+updatedAt: '2026-11-22'
+tags:
+  - Go
+  - Web Server
+  - Echo
+status: needs-review
+sources:
+  - 'https://echo.labstack.com/docs'
+---
 echo 를 시용해서 서버를 만드는 것을 super easy 하다.
 
 main.go 파일을 다음과 같이 수정하자.
@@ -157,6 +173,6 @@ handleScrap function 을 정의하고 16라인에서 "/myScrap" POST 요청을 �
 
 정상적으로 실행되는 것을 확인할 수 있다.
 
-[echo 에 대한 더욱 다양한 사용 방법에 대한 document 링크이다.](https://echo.labstack.com/cookbook/)
+[Echo의 다양한 사용 방법은 공식 문서에서 확인할 수 있다.](https://echo.labstack.com/docs)
 
 필요한 기능이 있으면 쉽게 찾아서 사용해볼 수 있을것 같다.

@@ -1,3 +1,16 @@
+---
+title: 'Go 의 함수 part 2 (naked return, defer)'
+description: >-
+  Go 의 함수에는 'naked return' 이라는 것이 있다. 이것의 의미는 return 키워드에 굳이 반환 할 변수를 명시하지 않아도
+  됨을 뜻한다. part 1 에서 길이와 영문 대문자 변환 결과를 반환하는 함수를 다시 작성해보자. part 1 의 'lenAndUpper'
+  함수와 다른 부분은 반환 타입을 작성할 때 변수 이름을 같이 넣은 부분이다.
+publishedAt: '2021-05-16'
+updatedAt: '2021-05-16'
+tags:
+  - Go
+  - Function
+status: needs-review
+---
 Go 의 함수에는 'naked return' 이라는 것이 있다.
 
 이것의 의미는 return 키워드에 굳이 반환 할 변수를 명시하지 않아도 됨을 뜻한다.

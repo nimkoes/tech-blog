@@ -204,6 +204,17 @@
   margin-top: 0.38rem;
 }
 
+.resultDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0.38rem 0 0;
+  color: var(--text-secondary);
+  font-size: var(--ui-xs);
+  line-height: var(--line-height-normal);
+}
+
 .metaTag {
   display: inline-flex;
   align-items: center;

@@ -1,3 +1,17 @@
+---
+title: '[chap.07] DisableEncodeUrlFilter'
+description: >-
+  DisableEncodeUrlFilter DisableEncodeUrlFilter 목적 이 필터는
+  DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 가장 첫 번째에 위치한다.
+  DisableEncodeUrlFilter 의 목적은 URL 파라미터에 세션 ID가 포함되어 로그로 유출되는 것을 방지하는 것이다. 커스텀
+  SecurityFilterChain 을 생성하더라도 기본적으로 등록된다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - DisableEncodeUrlFilter
+status: published
+---
 # DisableEncodeUrlFilter
 
 ## DisableEncodeUrlFilter 목적

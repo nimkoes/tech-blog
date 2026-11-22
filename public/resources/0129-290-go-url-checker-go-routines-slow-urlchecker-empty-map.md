@@ -1,3 +1,18 @@
+---
+title: 'Go ''URL CHECKER & GO ROUTINES'' : Slow URLChecker, empty map 선언'
+description: >-
+  이번에는 지난번에 작성했던 URL 접속 코드를 조금 개선했다. 개선된 것은 url 에 GET 요청을 보냈을 때 응답 결과를 확인할 수 있도록
+  map 을 사용하도록 한 부분이다. 정의한 results 이름의 map 은 key, value 타입을 모두 string 으로 사용한다.
+publishedAt: '2021-05-22'
+updatedAt: '2021-05-22'
+tags:
+  - Go
+  - URL Checker
+  - Map
+  - Goroutine
+  - HTTP
+status: needs-review
+---
 이번에는 지난번에 작성했던 URL 접속 코드를 조금 개선했다.
 
 개선된 것은 url 에 GET 요청을 보냈을 때 응답 결과를 확인할 수 있도록 map 을 사용하도록 한 부분이다.

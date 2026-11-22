@@ -67,7 +67,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
 
   &:hover {
     border-color: var(--primary);
@@ -99,7 +102,40 @@
 }
 
 .mobileTabs {
-  display: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.24rem;
+  margin: 0 1rem 0.7rem;
+  padding: 0.18rem;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: rgba(148, 163, 184, 0.06);
+}
+
+.mobileTab {
+  min-height: 38px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: var(--ui-small);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition:
+    border-color 0.16s ease,
+    color 0.16s ease,
+    background-color 0.16s ease;
+
+  &:hover {
+    color: var(--text);
+    background: var(--hover);
+  }
+}
+
+.mobileTabActive {
+  border-color: var(--primary);
+  color: var(--text);
+  background: var(--hover);
 }
 
 .panelBody {
@@ -170,7 +206,9 @@
   gap: 0.45rem;
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.16s ease, background-color 0.16s ease;
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease;
 
   &:hover {
     border-color: var(--primary);
@@ -236,6 +274,59 @@
   padding: 0.75rem 1rem 1rem;
 }
 
+.topicSection {
+  padding: 0.75rem 1rem 1rem;
+}
+
+.topicGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.topicLink {
+  min-height: 46px;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease;
+
+  span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--body-small);
+  }
+
+  small {
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    background: var(--hover);
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--ui-xs);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &:hover {
+    border-color: var(--primary);
+    background: var(--hover);
+  }
+}
+
 .sectionHeaderRow {
   display: flex;
   justify-content: space-between;
@@ -252,7 +343,10 @@
   font-size: var(--ui-xs);
   padding: 0.14rem 0.52rem;
   cursor: pointer;
-  transition: border-color 0.16s ease, color 0.16s ease, background-color 0.16s ease;
+  transition:
+    border-color 0.16s ease,
+    color 0.16s ease,
+    background-color 0.16s ease;
 
   &:hover {
     border-color: var(--primary);
@@ -279,6 +373,128 @@
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+}
+
+.categoryTree {
+  min-width: 0;
+}
+
+.treeList,
+.treeChildren {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.treeList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.treeNode {
+  min-width: 0;
+}
+
+.treeRoot {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.treeFolderButton {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0.58rem 0.68rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--hover);
+  }
+}
+
+.treeFolderLead {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.48rem;
+
+  > svg {
+    flex: 0 0 auto;
+    color: var(--text-secondary);
+  }
+}
+
+.treeFolderText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+
+  strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--body-small);
+    line-height: var(--line-height-tight);
+  }
+
+  small {
+    font-size: var(--ui-xs);
+    color: var(--text-secondary);
+  }
+}
+
+.treeFolderSummary {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+
+.treeCount {
+  min-width: 1.65rem;
+  height: 1.65rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  background: var(--hover);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--ui-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.treeChildren {
+  margin: 0 0.52rem 0.52rem 1.1rem;
+  padding: 0 0 0.2rem 0.64rem;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.treeChildren .treeFolderButton {
+  min-height: 44px;
+  border-radius: 9px;
+  padding: 0.48rem 0.52rem;
+}
+
+.treePost {
+  min-width: 0;
 }
 
 .groupList li,
@@ -371,7 +587,9 @@
   justify-content: space-between;
   gap: 0.5rem;
   border: 1px solid transparent;
-  transition: border-color 0.16s ease, background-color 0.16s ease;
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease;
 
   &:hover {
     border-color: var(--primary);
@@ -396,6 +614,15 @@
   }
 }
 
+.currentPost {
+  border-color: var(--primary);
+  background: var(--hover);
+
+  span {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
 .emptyState {
   border: 1px dashed var(--border);
   border-radius: 12px;
@@ -404,12 +631,12 @@
   font-size: var(--ui-small);
 }
 
-[data-theme='dark'] .sidebar {
+[data-theme="dark"] .sidebar {
   background: #121821;
 }
 
-[data-theme='dark'] .groupCard,
-[data-theme='dark'] .dateChip {
+[data-theme="dark"] .groupCard,
+[data-theme="dark"] .dateChip {
   background: rgba(15, 23, 42, 0.36);
 }
 
@@ -466,8 +693,7 @@
   }
 
   .mobileTabs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.24rem;
     margin: 0 0.75rem 0.38rem;
     padding: 0.16rem;
@@ -485,7 +711,10 @@
     font-size: var(--ui-xs);
     font-weight: var(--font-weight-medium);
     cursor: pointer;
-    transition: border-color 0.16s ease, color 0.16s ease, background-color 0.16s ease;
+    transition:
+      border-color 0.16s ease,
+      color 0.16s ease,
+      background-color 0.16s ease;
   }
 
   .mobileTabActive {
@@ -536,6 +765,23 @@
     flex: 0 0 auto;
     overflow: visible;
     padding: 0.2rem 0.75rem 0.85rem;
+  }
+
+  .topicSection {
+    padding: 0.2rem 0.75rem 0.85rem;
+  }
+
+  .topicGrid {
+    gap: 0.35rem;
+  }
+
+  .topicLink {
+    min-height: 42px;
+    padding: 0.45rem 0.52rem;
+
+    span {
+      font-size: var(--ui-small);
+    }
   }
 
   .sectionHeaderRow {

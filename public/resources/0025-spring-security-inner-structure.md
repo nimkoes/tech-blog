@@ -1,3 +1,15 @@
+---
+title: '[chap.06] GenericFilterBean 과 OncePerRequestFilter'
+description: '같은 요청에서 여러 번 필터를 통과하더라도, 한 번만 실행됨. SecurityConfig.java SampleController.java'
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - SecurityFilterChain
+  - GenericFilterBean
+  - OncePerRequestFilter
+status: published
+---
 # GenericFilterBean 과 OncePerRequestFilter
 
 ## GenericFilterBean vs OncePerRequestFilter

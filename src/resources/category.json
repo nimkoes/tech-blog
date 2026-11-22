@@ -2,14 +2,17 @@
   {
     "id": "0",
     "displayName": "nimkoes tech blog",
+    "kind": "root",
     "children": [
       {
         "id": "10",
-        "displayName": "kubernetes",
+        "displayName": "Kubernetes",
+        "kind": "category",
         "children": [
           {
             "id": "10-01",
             "displayName": "대세는 쿠버네티스",
+            "kind": "series",
             "children": [
               {
                 "id": "10-01-01",
@@ -256,252 +259,260 @@
       },
       {
         "id": "20",
-        "displayName": "Spring Security 내부 구조",
+        "displayName": "Spring",
+        "kind": "category",
         "children": [
           {
-            "id": "20-01",
-            "regDate": "2025-03-08",
-            "lastModifiedDate": "2025-03-08",
-            "displayName": "[chap.01] Spring Security 동작 원리 개요",
-            "fileName": "0020-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "introduce"
-            ]
-          },
-          {
-            "id": "20-02",
-            "regDate": "2025-03-08",
-            "lastModifiedDate": "2025-03-08",
-            "displayName": "[chap.02] SecurityFilterChain 등록",
-            "fileName": "0021-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "SecurityFilterChain"
-            ]
-          },
-          {
-            "id": "20-03",
-            "regDate": "2025-03-08",
-            "lastModifiedDate": "2025-03-08",
-            "displayName": "[chap.03] SecurityFilterChain 구조",
-            "fileName": "0022-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "SecurityFilterChain"
-            ]
-          },
-          {
-            "id": "20-04",
-            "regDate": "2025-03-08",
-            "lastModifiedDate": "2025-03-08",
-            "displayName": "[chap.04] SecurityContextHolder",
-            "fileName": "0023-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "SecurityContextHolder"
-            ]
-          },
-          {
-            "id": "20-05",
-            "regDate": "2025-03-08",
-            "lastModifiedDate": "2025-03-08",
-            "displayName": "[chap.05] 필터 상속과 요청 전파",
-            "fileName": "0024-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "SecurityFilterChain",
-              "GenericFilterBean",
-              "OncePerRequestFilter"
-            ]
-          },
-          {
-            "id": "20-06",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter",
-            "fileName": "0025-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "SecurityFilterChain",
-              "GenericFilterBean",
-              "OncePerRequestFilter"
-            ]
-          },
-          {
-            "id": "20-07",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.07] DisableEncodeUrlFilter",
-            "fileName": "0026-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "DisableEncodeUrlFilter"
-            ]
-          },
-          {
-            "id": "20-08",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.08] WebAsyncManagerIntegrationFilter",
-            "fileName": "0027-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "WebAsyncManagerIntegrationFilter"
-            ]
-          },
-          {
-            "id": "20-09",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.09] SecurityContextHolderFilter",
-            "fileName": "0028-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "SecurityContextHolderFilter"
-            ]
-          },
-          {
-            "id": "20-10",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.10] HeaderWriterFilter",
-            "fileName": "0029-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "HeaderWriterFilter"
-            ]
-          },
-          {
-            "id": "20-11",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.11] CorsFilter",
-            "fileName": "0030-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "CorsFilter"
-            ]
-          },
-          {
-            "id": "20-12",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.12] CsrfFilter",
-            "fileName": "0031-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "CsrfFilter"
-            ]
-          },
-          {
-            "id": "20-13",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.13] LogoutFilter",
-            "fileName": "0032-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "LogoutFilter"
-            ]
-          },
-          {
-            "id": "20-14",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.14] UsernamePasswordAuthenticationFilter",
-            "fileName": "0033-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "UsernamePasswordAuthenticationFilter"
-            ]
-          },
-          {
-            "id": "20-15",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.15] DefaultLoginPageGeneratingFilter",
-            "fileName": "0034-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "DefaultLoginPageGeneratingFilter"
-            ]
-          },
-          {
-            "id": "20-16",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.16] DefaultLogoutPageGeneratingFilter",
-            "fileName": "0035-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "DefaultLogoutPageGeneratingFilter"
-            ]
-          },
-          {
-            "id": "20-17",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.17] BasicAuthenticationFilter",
-            "fileName": "0036-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "BasicAuthenticationFilter"
-            ]
-          },
-          {
-            "id": "20-18",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.18] RequestCacheAwareFilter",
-            "fileName": "0037-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "RequestCacheAwareFilter"
-            ]
-          },
-          {
-            "id": "20-19",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.19] SecurityContextHolderAwareRequestFilter",
-            "fileName": "0038-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "SecurityContextHolderAwareRequestFilter"
-            ]
-          },
-          {
-            "id": "20-20",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.20] AnonymousAuthenticationFilter",
-            "fileName": "0039-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "AnonymousAuthenticationFilter"
-            ]
-          },
-          {
-            "id": "20-21",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.21] ExceptionTranslationFilter",
-            "fileName": "0040-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "ExceptionTranslationFilter"
-            ]
-          },
-          {
-            "id": "20-22",
-            "regDate": "2025-03-09",
-            "lastModifiedDate": "2025-03-09",
-            "displayName": "[chap.22] AuthorizationFilter",
-            "fileName": "0041-spring-security-inner-structure",
-            "tags": [
-              "Spring Security",
-              "AuthorizationFilter"
+            "id": "20-series",
+            "displayName": "Spring Security 내부 구조",
+            "kind": "series",
+            "children": [
+              {
+                "id": "20-01",
+                "regDate": "2025-03-08",
+                "lastModifiedDate": "2025-03-08",
+                "displayName": "[chap.01] Spring Security 동작 원리 개요",
+                "fileName": "0020-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "introduce"
+                ]
+              },
+              {
+                "id": "20-02",
+                "regDate": "2025-03-08",
+                "lastModifiedDate": "2025-03-08",
+                "displayName": "[chap.02] SecurityFilterChain 등록",
+                "fileName": "0021-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "SecurityFilterChain"
+                ]
+              },
+              {
+                "id": "20-03",
+                "regDate": "2025-03-08",
+                "lastModifiedDate": "2025-03-08",
+                "displayName": "[chap.03] SecurityFilterChain 구조",
+                "fileName": "0022-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "SecurityFilterChain"
+                ]
+              },
+              {
+                "id": "20-04",
+                "regDate": "2025-03-08",
+                "lastModifiedDate": "2025-03-08",
+                "displayName": "[chap.04] SecurityContextHolder",
+                "fileName": "0023-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "SecurityContextHolder"
+                ]
+              },
+              {
+                "id": "20-05",
+                "regDate": "2025-03-08",
+                "lastModifiedDate": "2025-03-08",
+                "displayName": "[chap.05] 필터 상속과 요청 전파",
+                "fileName": "0024-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "SecurityFilterChain",
+                  "GenericFilterBean",
+                  "OncePerRequestFilter"
+                ]
+              },
+              {
+                "id": "20-06",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.06] GenericFilterBean 과 OncePerRequestFilter",
+                "fileName": "0025-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "SecurityFilterChain",
+                  "GenericFilterBean",
+                  "OncePerRequestFilter"
+                ]
+              },
+              {
+                "id": "20-07",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.07] DisableEncodeUrlFilter",
+                "fileName": "0026-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "DisableEncodeUrlFilter"
+                ]
+              },
+              {
+                "id": "20-08",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.08] WebAsyncManagerIntegrationFilter",
+                "fileName": "0027-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "WebAsyncManagerIntegrationFilter"
+                ]
+              },
+              {
+                "id": "20-09",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.09] SecurityContextHolderFilter",
+                "fileName": "0028-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "SecurityContextHolderFilter"
+                ]
+              },
+              {
+                "id": "20-10",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.10] HeaderWriterFilter",
+                "fileName": "0029-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "HeaderWriterFilter"
+                ]
+              },
+              {
+                "id": "20-11",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.11] CorsFilter",
+                "fileName": "0030-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "CorsFilter"
+                ]
+              },
+              {
+                "id": "20-12",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.12] CsrfFilter",
+                "fileName": "0031-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "CsrfFilter"
+                ]
+              },
+              {
+                "id": "20-13",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.13] LogoutFilter",
+                "fileName": "0032-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "LogoutFilter"
+                ]
+              },
+              {
+                "id": "20-14",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.14] UsernamePasswordAuthenticationFilter",
+                "fileName": "0033-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "UsernamePasswordAuthenticationFilter"
+                ]
+              },
+              {
+                "id": "20-15",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.15] DefaultLoginPageGeneratingFilter",
+                "fileName": "0034-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "DefaultLoginPageGeneratingFilter"
+                ]
+              },
+              {
+                "id": "20-16",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.16] DefaultLogoutPageGeneratingFilter",
+                "fileName": "0035-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "DefaultLogoutPageGeneratingFilter"
+                ]
+              },
+              {
+                "id": "20-17",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.17] BasicAuthenticationFilter",
+                "fileName": "0036-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "BasicAuthenticationFilter"
+                ]
+              },
+              {
+                "id": "20-18",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.18] RequestCacheAwareFilter",
+                "fileName": "0037-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "RequestCacheAwareFilter"
+                ]
+              },
+              {
+                "id": "20-19",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.19] SecurityContextHolderAwareRequestFilter",
+                "fileName": "0038-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "SecurityContextHolderAwareRequestFilter"
+                ]
+              },
+              {
+                "id": "20-20",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.20] AnonymousAuthenticationFilter",
+                "fileName": "0039-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "AnonymousAuthenticationFilter"
+                ]
+              },
+              {
+                "id": "20-21",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.21] ExceptionTranslationFilter",
+                "fileName": "0040-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "ExceptionTranslationFilter"
+                ]
+              },
+              {
+                "id": "20-22",
+                "regDate": "2025-03-09",
+                "lastModifiedDate": "2025-03-09",
+                "displayName": "[chap.22] AuthorizationFilter",
+                "fileName": "0041-spring-security-inner-structure",
+                "tags": [
+                  "Spring Security",
+                  "AuthorizationFilter"
+                ]
+              }
             ]
           }
         ]
@@ -509,10 +520,12 @@
       {
         "id": "30",
         "displayName": "테스트",
+        "kind": "category",
         "children": [
           {
             "id": "30-01",
-            "displayName": "단위테스트",
+            "displayName": "단위 테스트",
+            "kind": "series",
             "children": [
               {
                 "id": "30-01-01",
@@ -631,6 +644,7 @@
       {
         "id": "40",
         "displayName": "네트워크",
+        "kind": "category",
         "children": [
           {
             "id": "40-01",
@@ -647,7 +661,7 @@
           {
             "id": "40-02",
             "regDate": "2025-07-13",
-            "lastModifiedDate": "2025-07-16",
+            "lastModifiedDate": "2026-11-22",
             "displayName": "네트워크 처리 흐름 정리",
             "fileName": "0059-network-traffic-flow",
             "tags": [
@@ -660,6 +674,7 @@
       {
         "id": "50",
         "displayName": "기반지식",
+        "kind": "category",
         "children": [
           {
             "id": "50-01",
@@ -691,6 +706,7 @@
       {
         "id": "80",
         "displayName": "번역",
+        "kind": "category",
         "children": [
           {
             "id": "80-01",
@@ -708,332 +724,336 @@
         ]
       },
       {
-        "id": "94",
-        "displayName": "나 혼자 떠드는 자바",
-        "children": [
-          {
-            "id": "94-01",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 시작하며",
-            "fileName": "0085-185-talking-java-intro",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초"
-            ]
-          },
-          {
-            "id": "94-02",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 내용구성",
-            "fileName": "0086-186-talking-java-outline",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초"
-            ]
-          },
-          {
-            "id": "94-03",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 프로그래밍 언어란",
-            "fileName": "0087-187-talking-java-what-is-programming-language",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초"
-            ]
-          },
-          {
-            "id": "94-04",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 자바 언어가 가지는 특징 '배워본 언어가 없는데 어떻게 비교를 해'",
-            "fileName": "0088-188-talking-java-language-characteristics",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초"
-            ]
-          },
-          {
-            "id": "94-05",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 자료의 형태(data type) : 상수, 변수, 배열, (구조체), 클래스 그리고 사용자 정의 자료형",
-            "fileName": "0089-189-data-type",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초",
-              "Class",
-              "Array",
-              "Data Type"
-            ]
-          },
-          {
-            "id": "94-06",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (자바 설치 방법)",
-            "fileName": "0090-190-talking-java-runtime-installation",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초",
-              "Environment"
-            ]
-          },
-          {
-            "id": "94-07",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 1편)",
-            "fileName": "0091-191-talking-java-runtime-notepad-coding-part-1",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초"
-            ]
-          },
-          {
-            "id": "94-08",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 2편)",
-            "fileName": "0092-192-talking-java-runtime-notepad-coding-part-2",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초"
-            ]
-          },
-          {
-            "id": "94-09",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (조금 더 즐거운 통합 개발 환경)",
-            "fileName": "0093-193-talking-java-runtime-ide-setup",
-            "tags": [
-              "Java",
-              "학습노트",
-              "Java 기초",
-              "Environment"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "95",
-        "displayName": "Whiteship Java live study",
-        "children": [
-          {
-            "id": "95-01",
-            "regDate": "2021-04-23",
-            "lastModifiedDate": "2021-04-23",
-            "displayName": "Whiteship Java live study S01",
-            "fileName": "0084-133-whiteship-java-live-study-s01",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈"
-            ]
-          },
-          {
-            "id": "95-02",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "1주차 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가",
-            "fileName": "0094-194-java-live-study-week-1-jvm-and-execution",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "JVM"
-            ]
-          },
-          {
-            "id": "95-03",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "2주차 : 자바 데이터 타입, 변수 그리고 배열",
-            "fileName": "0095-195-java-live-study-week-2-data-types-variables-arrays",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Array",
-              "Data Type",
-              "Variable"
-            ]
-          },
-          {
-            "id": "95-04",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "3주차 : 연산자",
-            "fileName": "0096-196-java-live-study-week-3-operators",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Operator"
-            ]
-          },
-          {
-            "id": "95-05",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "4주차 : 제어문",
-            "fileName": "0097-197-java-live-study-week-4-control-flow",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Control Flow"
-            ]
-          },
-          {
-            "id": "95-06",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "5주차 : 클래스",
-            "fileName": "0098-198-java-live-study-week-5-class",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Class"
-            ]
-          },
-          {
-            "id": "95-07",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "6주차 : 상속",
-            "fileName": "0099-199-java-live-study-week-6-inheritance",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Inheritance"
-            ]
-          },
-          {
-            "id": "95-08",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "7주차 : 패키지",
-            "fileName": "0100-200-java-live-study-week-7-package",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Package"
-            ]
-          },
-          {
-            "id": "95-09",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "8주차 : 인터페이스",
-            "fileName": "0101-201-java-live-study-week-8-interface",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Interface"
-            ]
-          },
-          {
-            "id": "95-10",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "9주차 : 예외 처리",
-            "fileName": "0102-202-java-live-study-week-9-exception",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Exception"
-            ]
-          },
-          {
-            "id": "95-11",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "10주차 : 멀티쓰레드 프로그래밍",
-            "fileName": "0103-203-java-live-study-week-10-multithread-programming",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Thread"
-            ]
-          },
-          {
-            "id": "95-12",
-            "regDate": "2021-05-01",
-            "lastModifiedDate": "2021-05-01",
-            "displayName": "11주차 : Enum",
-            "fileName": "0104-204-java-live-study-week-11-enum",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈"
-            ]
-          },
-          {
-            "id": "95-13",
-            "regDate": "2021-05-02",
-            "lastModifiedDate": "2021-05-02",
-            "displayName": "12주차 : 애노테이션",
-            "fileName": "0105-205-java-live-study-week-12-annotation",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Annotation"
-            ]
-          },
-          {
-            "id": "95-14",
-            "regDate": "2021-05-02",
-            "lastModifiedDate": "2021-05-02",
-            "displayName": "14주차 : 제네릭",
-            "fileName": "0106-206-java-live-study-week-14-generic",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Generic"
-            ]
-          },
-          {
-            "id": "95-15",
-            "regDate": "2021-05-02",
-            "lastModifiedDate": "2021-05-02",
-            "displayName": "15주차 : 람다식",
-            "fileName": "0107-207-java-live-study-week-15-lambda",
-            "tags": [
-              "Java",
-              "live study",
-              "시리즈",
-              "Lambda"
-            ]
-          }
-        ]
-      },
-      {
         "id": "90",
-        "displayName": "java",
+        "displayName": "Java",
+        "kind": "category",
         "children": [
+          {
+            "id": "94",
+            "displayName": "나 혼자 떠드는 자바",
+            "kind": "series",
+            "children": [
+              {
+                "id": "94-01",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2026-11-22",
+                "displayName": "나 혼자 떠드는 자바 : 시작하며",
+                "fileName": "0085-185-talking-java-intro",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초"
+                ]
+              },
+              {
+                "id": "94-02",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 내용구성",
+                "fileName": "0086-186-talking-java-outline",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초"
+                ]
+              },
+              {
+                "id": "94-03",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 프로그래밍 언어란",
+                "fileName": "0087-187-talking-java-what-is-programming-language",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초"
+                ]
+              },
+              {
+                "id": "94-04",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 자바 언어가 가지는 특징 '배워본 언어가 없는데 어떻게 비교를 해'",
+                "fileName": "0088-188-talking-java-language-characteristics",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초"
+                ]
+              },
+              {
+                "id": "94-05",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 자료의 형태(data type) : 상수, 변수, 배열, (구조체), 클래스 그리고 사용자 정의 자료형",
+                "fileName": "0089-189-data-type",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초",
+                  "Class",
+                  "Array",
+                  "Data Type"
+                ]
+              },
+              {
+                "id": "94-06",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (자바 설치 방법)",
+                "fileName": "0090-190-talking-java-runtime-installation",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초",
+                  "Environment"
+                ]
+              },
+              {
+                "id": "94-07",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 1편)",
+                "fileName": "0091-191-talking-java-runtime-notepad-coding-part-1",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초"
+                ]
+              },
+              {
+                "id": "94-08",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 2편)",
+                "fileName": "0092-192-talking-java-runtime-notepad-coding-part-2",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초"
+                ]
+              },
+              {
+                "id": "94-09",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "나 혼자 떠드는 자바 : 자바 실행 환경 (조금 더 즐거운 통합 개발 환경)",
+                "fileName": "0093-193-talking-java-runtime-ide-setup",
+                "tags": [
+                  "Java",
+                  "학습노트",
+                  "Java 기초",
+                  "Environment"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "95",
+            "displayName": "Whiteship Java live study",
+            "kind": "series",
+            "children": [
+              {
+                "id": "95-01",
+                "regDate": "2021-04-23",
+                "lastModifiedDate": "2021-04-23",
+                "displayName": "Whiteship Java live study S01",
+                "fileName": "0084-133-whiteship-java-live-study-s01",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈"
+                ]
+              },
+              {
+                "id": "95-02",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "1주차 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가",
+                "fileName": "0094-194-java-live-study-week-1-jvm-and-execution",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "JVM"
+                ]
+              },
+              {
+                "id": "95-03",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "2주차 : 자바 데이터 타입, 변수 그리고 배열",
+                "fileName": "0095-195-java-live-study-week-2-data-types-variables-arrays",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Array",
+                  "Data Type",
+                  "Variable"
+                ]
+              },
+              {
+                "id": "95-04",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "3주차 : 연산자",
+                "fileName": "0096-196-java-live-study-week-3-operators",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Operator"
+                ]
+              },
+              {
+                "id": "95-05",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "4주차 : 제어문",
+                "fileName": "0097-197-java-live-study-week-4-control-flow",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Control Flow"
+                ]
+              },
+              {
+                "id": "95-06",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "5주차 : 클래스",
+                "fileName": "0098-198-java-live-study-week-5-class",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Class"
+                ]
+              },
+              {
+                "id": "95-07",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "6주차 : 상속",
+                "fileName": "0099-199-java-live-study-week-6-inheritance",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Inheritance"
+                ]
+              },
+              {
+                "id": "95-08",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "7주차 : 패키지",
+                "fileName": "0100-200-java-live-study-week-7-package",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Package"
+                ]
+              },
+              {
+                "id": "95-09",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "8주차 : 인터페이스",
+                "fileName": "0101-201-java-live-study-week-8-interface",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Interface"
+                ]
+              },
+              {
+                "id": "95-10",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "9주차 : 예외 처리",
+                "fileName": "0102-202-java-live-study-week-9-exception",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Exception"
+                ]
+              },
+              {
+                "id": "95-11",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "10주차 : 멀티쓰레드 프로그래밍",
+                "fileName": "0103-203-java-live-study-week-10-multithread-programming",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Thread"
+                ]
+              },
+              {
+                "id": "95-12",
+                "regDate": "2021-05-01",
+                "lastModifiedDate": "2021-05-01",
+                "displayName": "11주차 : Enum",
+                "fileName": "0104-204-java-live-study-week-11-enum",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈"
+                ]
+              },
+              {
+                "id": "95-13",
+                "regDate": "2021-05-02",
+                "lastModifiedDate": "2021-05-02",
+                "displayName": "12주차 : 애노테이션",
+                "fileName": "0105-205-java-live-study-week-12-annotation",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Annotation"
+                ]
+              },
+              {
+                "id": "95-14",
+                "regDate": "2021-05-02",
+                "lastModifiedDate": "2021-05-02",
+                "displayName": "14주차 : 제네릭",
+                "fileName": "0106-206-java-live-study-week-14-generic",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Generic"
+                ]
+              },
+              {
+                "id": "95-15",
+                "regDate": "2021-05-02",
+                "lastModifiedDate": "2021-05-02",
+                "displayName": "15주차 : 람다식",
+                "fileName": "0107-207-java-live-study-week-15-lambda",
+                "tags": [
+                  "Java",
+                  "live study",
+                  "시리즈",
+                  "Lambda"
+                ]
+              }
+            ]
+          },
           {
             "id": "90-01",
             "displayName": "단편",
+            "kind": "folder",
             "children": [
               {
                 "id": "90-01-01",
@@ -1305,11 +1325,13 @@
       },
       {
         "id": "91",
-        "displayName": "go",
+        "displayName": "Go",
+        "kind": "category",
         "children": [
           {
             "id": "91-01",
             "displayName": "기타",
+            "kind": "folder",
             "children": [
               {
                 "id": "91-01-01",
@@ -1328,6 +1350,7 @@
           {
             "id": "91-02",
             "displayName": "Go",
+            "kind": "series",
             "children": [
               {
                 "id": "91-02-01",
@@ -1705,7 +1728,7 @@
               {
                 "id": "91-02-32",
                 "regDate": "2021-05-30",
-                "lastModifiedDate": "2021-05-30",
+                "lastModifiedDate": "2026-11-22",
                 "displayName": "Go 'JOB SCRAPER' : Channels Time & More Channels Baby (goroutine)",
                 "fileName": "0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine",
                 "tags": [
@@ -1746,11 +1769,13 @@
       },
       {
         "id": "92",
-        "displayName": "javascript",
+        "displayName": "JavaScript",
+        "kind": "category",
         "children": [
           {
             "id": "92-01",
             "displayName": "단편",
+            "kind": "folder",
             "children": [
               {
                 "id": "92-01-01",
@@ -1774,10 +1799,12 @@
       {
         "id": "93",
         "displayName": "기타",
+        "kind": "category",
         "children": [
           {
             "id": "93-01",
             "displayName": "Archive",
+            "kind": "folder",
             "children": [
               {
                 "id": "93-01-01",

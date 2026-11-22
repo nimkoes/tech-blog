@@ -28,6 +28,10 @@ export function getDefaultOgImageUrl() {
   return `${getSiteUrl()}/og-image.png`;
 }
 
+export function getPostOgImageUrl(slug: string) {
+  return `${getSiteUrl()}/og/${slug}.png`;
+}
+
 export function toAbsoluteUrl(url: string) {
   if (/^https?:\/\//i.test(url)) {
     return url;

@@ -1,3 +1,16 @@
+---
+title: '[chap.21] ExceptionTranslationFilter'
+description: >-
+  ExceptionTranslationFilter ExceptionTranslationFilter 목적 이 필터는
+  DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 열다섯 번째에 위치한다. 보안 관련 예외를 처리하는 핵심
+  필터이다. 이 필터 이후에 발생하는 인증, 인가 예외를 핸들링하기 위해 사용된다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - ExceptionTranslationFilter
+status: published
+---
 # ExceptionTranslationFilter
 
 ## ExceptionTranslationFilter 목적

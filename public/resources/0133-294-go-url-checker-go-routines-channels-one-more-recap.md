@@ -1,3 +1,16 @@
+---
+title: 'Go ''URL CHECKER & GO ROUTINES'' : Channels One more Recap (요약 정리)'
+description: 앞서 goroutine 과 관련하여 기억해야 할 것을 정리하면
+publishedAt: '2021-05-23'
+updatedAt: '2021-05-23'
+tags:
+  - Go
+  - URL Checker
+  - Goroutine
+  - Channel
+  - HTTP
+status: needs-review
+---
 앞서 goroutine 과 관련하여 기억해야 할 것을 정리하면
 
 1. '<-c' (예제에서 c 라고 하였기 때문에 c 라고 표기, c 는 사용자 정의 임의의 값) 는 blocking operation 이다.

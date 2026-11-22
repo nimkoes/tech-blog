@@ -1,3 +1,16 @@
+---
+title: '[chap.02] SecurityFilterChain 등록'
+description: >-
+  SecurityFilterChain 등록 Spring Boot 에서 spring-boot-starter-security 의존성을 추가하면
+  기본적으로 DefaultSecurityFilterChain 이 자동으로 생성된다. 기본 설정은 모든 요청을 인증해야 하며,
+  form-based 로그인 페이지를 제공하는 방식 이다.
+publishedAt: '2025-03-08'
+updatedAt: '2025-03-08'
+tags:
+  - Spring Security
+  - SecurityFilterChain
+status: published
+---
 ## SecurityFilterChain 등록
 
 - `Spring Boot` 에서 `spring-boot-starter-security` 의존성을 추가하면 기본적으로 `DefaultSecurityFilterChain` 이 자동으로 생성된다.

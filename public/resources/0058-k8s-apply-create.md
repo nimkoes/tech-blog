@@ -1,3 +1,18 @@
+---
+title: Kubernetes apply vs. create 정리
+description: >-
+  kubectl apply 는 선언적(Declarative) 방식으로 리소스를 생성하거나 업데이트한다. 사용자가 작성한 YAML/JSON
+  매니페스트 파일을 기반으로 클러스터 상태를 원하는 상태 (desired state)로 맞춘다. 이미 존재하는 리소스가 있으면 매니페스트와
+  비교하여 변경된 부분만 패치(patch)하고, 없으면 생성(create)한다.
+publishedAt: '2025-07-10'
+updatedAt: '2025-07-10'
+tags:
+  - Kubernetes
+  - cli
+  - apply
+  - create
+status: published
+---
 # kubectl apply
 
 `kubectl apply`는 선언적(Declarative) 방식으로 리소스를 생성하거나 업데이트한다.  

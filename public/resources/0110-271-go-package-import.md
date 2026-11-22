@@ -1,3 +1,17 @@
+---
+title: Go 의 package 와 import
+description: >-
+  앞서 Hello World 문자열을 출력하는 코드를 Go로 작성해 보았다. fmt 를 직접 import 한 적이 없는데, IDE 에서 알아서
+  자동으로 추가해 주었다. fmt 는 Go 가 가지고 있는 패키지 중 하나로 formatting 을 위한 package 이다. import
+  관련해서 javascript 의 경우 function 을 export 해주고 싶은 경우 모듈을 export 하겠다고 명시해 주어야 한다.
+publishedAt: '2021-05-16'
+updatedAt: '2021-05-16'
+tags:
+  - Go
+  - Package
+  - import
+status: needs-review
+---
 앞서 Hello World 문자열을 출력하는 코드를 Go로 작성해 보았다.
 
 ```go

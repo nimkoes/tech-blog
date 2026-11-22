@@ -1,3 +1,20 @@
+---
+title: 'javascript로 information hiding 해보기. (private 변수, scope에 대한 이해)'
+description: >-
+  javascript에 대해 막연하게 단순하고 쉬운 스크립트 언어 라고만 생각했다. 굉장히 후회하고 또 반성하고 있다. 늦게나마
+  javascript에 대해 알아보는데, 새로운걸 알아갈수록 기쁘다기보다 부끄러운 마음이 더 크다. 일반적으로 프로그래밍 언어를 시작할 때
+  배우는 java나 c를 가지고 예를 들어보자. (java를 기준으로 알아볼 예정이다.) 소스상에 위와 같은 부분이 있다고 하자.
+publishedAt: '2017-12-19'
+updatedAt: '2017-12-19'
+tags:
+  - JavaScript
+  - 단편
+  - Encapsulation
+  - Variable
+  - information hiding
+  - scope
+status: needs-review
+---
 javascript에 대해 막연하게 단순하고 쉬운 스크립트 언어 라고만 생각했다.
 
 굉장히 후회하고 또 반성하고 있다.

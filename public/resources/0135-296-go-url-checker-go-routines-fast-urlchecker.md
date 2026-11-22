@@ -1,3 +1,17 @@
+---
+title: 'Go ''URL CHECKER & GO ROUTINES'' : FAST URLChecker'
+description: >-
+  사실 이 전에 작성한 코드로 URL Checker 구현이 끝났지만 출력하는 부분이 없었다. 앞서 다른 예제에서 goroutine 으로 실행한
+  결과를 channel 을 통해 수신하도록 '<- c' (c 는 channel 변수 ) 를 적절하게 작성해 결과를 받아 처리하면 된다.
+publishedAt: '2021-05-24'
+updatedAt: '2021-05-24'
+tags:
+  - Go
+  - URL Checker
+  - Goroutine
+  - HTTP
+status: needs-review
+---
 사실 이 전에 작성한 코드로 URL Checker 구현이 끝났지만 출력하는 부분이 없었다.
 
 앞서 다른 예제에서 goroutine 으로 실행한 결과를 channel 을 통해 수신하도록 '<- c' (c 는 channel 변수

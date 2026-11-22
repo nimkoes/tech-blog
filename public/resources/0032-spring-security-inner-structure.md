@@ -1,3 +1,16 @@
+---
+title: '[chap.13] LogoutFilter'
+description: >-
+  LogoutFilter LogoutFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로
+  일곱 번째에 위치한다. 이 필터가 등록되는 목적은 인증 후 생성되는 사용자 식별 정보에 대해 로그아웃 핸들러를 돌며 로그아웃을 수행하는
+  필터이다. 기본적으로 세션 방식에 대한 로그아웃 설정이 되어 있기 때문에 JWT 방식이나 추가할 로직이 많을 경우 커스텀해야 한다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - LogoutFilter
+status: published
+---
 # LogoutFilter
 
 ## LogoutFilter 목적

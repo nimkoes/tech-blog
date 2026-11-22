@@ -1,3 +1,17 @@
+---
+title: 'Go ''BANK & DICTIONARY PROJECTS'' : Update Delete (in map)'
+description: >-
+  이번에는 map 에 저장된 값을 수정하고 삭제하는 실습을 한다. 먼저 'part2 myDict main.go' 파일을 먼저 작성하고,
+  'myDict.go' 파일을 작성하는 순서로 진행한다. 이건 마치 TDD 를 하는 느낌이다. 내용이 단순해서 코드의 주석만 보고도 어떤
+  동작을 할지 충분히 예상 가능하다. 다음은 'myDict.go' 에 추가한 Update 코드이다.
+publishedAt: '2021-05-21'
+updatedAt: '2021-05-21'
+tags:
+  - Go
+  - Bank & Dictionary
+  - Map
+status: needs-review
+---
 이번에는 map 에 저장된 값을 수정하고 삭제하는 실습을 한다.
 
 먼저 'part2_myDict_main.go' 파일을 먼저 작성하고, 'myDict.go' 파일을 작성하는 순서로 진행한다.

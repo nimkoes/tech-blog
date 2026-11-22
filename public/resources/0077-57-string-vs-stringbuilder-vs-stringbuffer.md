@@ -1,3 +1,17 @@
+---
+title: String vs. StringBuilder vs. StringBuffer 예제를 통한 비교
+description: >-
+  자바에는 문자열을 처리하기 위한 클래스로 String, StringBuilder, StringBuffer 클래스가 있다. 단순히 문자열을
+  처리하기 위함이라면 (예를 들면 System.out.println("문자열"); 이런 경우) 어떤 것을 사용해도 별다른 차이는 없다고 알고
+  있다. 하지만 문자열을 더하는 (+) 연산을 할 경우에 퍼포먼스상의 차이가 발생한다. 백번 듣느니 한 번 보는게 낫다.
+publishedAt: '2017-06-07'
+updatedAt: '2017-06-07'
+tags:
+  - Java
+  - 단편
+  - String
+status: needs-review
+---
 자바에는 문자열을 처리하기 위한 클래스로 String, StringBuilder, StringBuffer 클래스가 있다.
 
 단순히 문자열을 처리하기 위함이라면 *(예를 들면 System.out.println("문자열"); 이런 경우)* 어떤 것을 사용해도 별다른 차이는 없다고 알고 있다. 하지만 문자열을 더하는 (+) 연산을 할 경우에 퍼포먼스상의 차이가 발생한다.

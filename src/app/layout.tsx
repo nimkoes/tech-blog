@@ -140,7 +140,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang="ko" data-scroll-behavior="smooth" suppressHydrationWarning>
     <head>
       <script
         // 첫 페인트 전에 저장된 테마를 적용해 다크모드 깜빡임(FOUC)을 방지

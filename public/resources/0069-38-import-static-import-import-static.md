@@ -1,3 +1,18 @@
+---
+title: '정적 import (static import)의 사용, import에 static 예약어를 붙이면 어떻게 될까?'
+description: >-
+  java에서 import 예약어를 사용하는 경우가 있다. 어떤 경우냐면 java에서 선언하지 않아도 기본적으로 import해주는
+  java.lang 패키지가 아닌 다른 클래스 파일이나 라이브러리를 해당 소스에서 사용하고자 할 경우, 외부 클래스 파일이나 라이브러리를
+  추가하기 위한 경우이다.
+publishedAt: '2017-05-25'
+updatedAt: '2017-05-25'
+tags:
+  - Java
+  - 단편
+  - static
+  - import
+status: needs-review
+---
 java에서 import 예약어를 사용하는 경우가 있다.
 
 어떤 경우냐면 java에서 선언하지 않아도 기본적으로 import해주는 java.lang 패키지가 아닌 다른 클래스 파일이나 라이브러리를 해당 소스에서 사용하고자 할 경우, 외부 클래스 파일이나 라이브러리를 추가하기 위한 경우이다.

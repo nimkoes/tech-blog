@@ -1,3 +1,17 @@
+---
+title: '[chap.19] SecurityContextHolderAwareRequestFilter'
+description: >-
+  SecurityContextHolderAwareRequestFilter
+  SecurityContextHolderAwareRequestFilter 목적 이 필터는 DefaultSecurityFilterChain 에
+  기본적으로 등록되는 필터이며, 열세 번째에 위치한다. ServletRequest 에 Spring Security 관련 메소드들을 추가하는
+  역할을 한다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - SecurityContextHolderAwareRequestFilter
+status: published
+---
 # SecurityContextHolderAwareRequestFilter
 
 ## SecurityContextHolderAwareRequestFilter 목적

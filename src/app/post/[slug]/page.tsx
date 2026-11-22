@@ -7,7 +7,7 @@ import {
   AUTHOR_NAME,
   SITE_LANGUAGE,
   SITE_NAME,
-  getDefaultOgImageUrl,
+  getPostOgImageUrl,
   getPostKeywords,
   getPostSeoDescription,
   parseIsoDate,
@@ -15,16 +15,17 @@ import {
 } from '~/utils/seo';
 
 interface PostPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
   return getCategoryPosts().map(doc => ({ slug: doc.fileName }));
 }
 
-export function generateMetadata({ params }: PostPageProps): Metadata {
-  const document = getCategoryPostBySlug(params.slug);
-  const content = getPostContent(params.slug);
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const document = getCategoryPostBySlug(slug);
+  const content = getPostContent(slug);
 
   if (!document) {
     return {
@@ -38,8 +39,8 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
 
   const title = document.title;
   const description = getPostSeoDescription(content);
-  const canonical = getPostUrl(params.slug);
-  const ogImageUrl = getDefaultOgImageUrl();
+  const canonical = getPostUrl(slug);
+  const ogImageUrl = getPostOgImageUrl(slug);
   const publishedTime = parseIsoDate(content?.date || document.regDate);
   const modifiedTime = parseIsoDate(document.lastModifiedDate || content?.date);
   const keywords = getPostKeywords(document);
@@ -83,17 +84,18 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
   };
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const document = getCategoryPostBySlug(params.slug);
-  const postContent = getPostContent(params.slug);
+export default async function PostPage({ params }: PostPageProps) {
+  const { slug } = await params;
+  const document = getCategoryPostBySlug(slug);
+  const postContent = getPostContent(slug);
 
   if (!document || !postContent) {
     notFound();
   }
 
-  const { toc, idMap } = generateTOC(postContent.content);
-  const navigation = getPostNavigation(params.slug);
-  const canonical = getPostUrl(params.slug);
+  const { toc, idMap, definitionHeadingMap } = generateTOC(postContent.content);
+  const navigation = getPostNavigation(slug);
+  const canonical = getPostUrl(slug);
   const description = getPostSeoDescription(postContent);
   const datePublished = parseIsoDate(postContent.date || document.regDate);
   const dateModified = parseIsoDate(document.lastModifiedDate || postContent.date);
@@ -119,7 +121,7 @@ export default function PostPage({ params }: PostPageProps) {
       name: AUTHOR_NAME,
       url: `${getSiteOrigin()}${getBasePath()}`,
     },
-    image: [getDefaultOgImageUrl()],
+    image: [getPostOgImageUrl(slug)],
   };
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -155,6 +157,7 @@ export default function PostPage({ params }: PostPageProps) {
         postContent={postContent}
         toc={toc}
         idMap={idMap}
+        definitionHeadingMap={definitionHeadingMap}
         navigation={navigation}
       />
     </>

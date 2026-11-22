@@ -1,3 +1,16 @@
+---
+title: java (스태틱) static 이란 도대체 무엇인가
+description: >-
+  static... 스태틱.. 자바를 맨 처음 시작하면 보게되는 단어 중 하나인 static이라고 쓰고 스태틱 이라고 읽는 바로 저 스태틱
+  기계처럼 외워서 쓰게되는 그 문장 public static void main(String[] ar) { ...
+publishedAt: '2017-05-24'
+updatedAt: '2017-05-24'
+tags:
+  - Java
+  - 단편
+  - static
+status: needs-review
+---
 static... 스태틱..
 
 자바를 맨 처음 시작하면 보게되는 단어 중 하나인 static이라고 쓰고 스태틱 이라고 읽는 바로 저 스태틱

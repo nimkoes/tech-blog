@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { getBasePath, getSiteOrigin } from '~/utils/contentRepository';
 
+export const dynamic = 'force-static';
+
 const DOMAIN = getSiteOrigin();
 const BASE_PATH = getBasePath();
 const SITEMAP_URL = `${DOMAIN}${BASE_PATH}/sitemap.xml`;

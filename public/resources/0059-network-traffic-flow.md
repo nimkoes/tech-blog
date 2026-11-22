@@ -1,3 +1,19 @@
+---
+title: 네트워크 처리 흐름 정리
+description: >-
+  이 문서는 www.my-app.com 에서 GET /my-app/data 요청을 보낼 때, 로컬 PC부터 Azure Load
+  Balancer까지 이어지는 네트워크 트래픽의 처리 과정을 설명합니다. 브라우저는 URL을 파싱하여 프로토콜(https),
+  호스트명(www.my-app.com), 경로(/my-app/data)를 분석합니다. 마치 편지를 쓰기 전에 "어디로 보낼까?"를 결정하는
+  것과 같습니다.
+publishedAt: '2025-07-13'
+updatedAt: '2026-11-22'
+tags:
+  - network
+  - traffic
+status: published
+sources:
+  - 'https://learn.microsoft.com/azure/load-balancer/distribution-mode-concepts'
+---
 # 네트워크 트래픽 처리 흐름 정리
 
 ## 개요
@@ -167,7 +183,7 @@ ARP 요청 패킷:
 - **로컬 처리 시작**: 자신이 최종 목적지임을 인식하고 로컬 처리 모드로 전환
 - **공인 IP 주소로 들어온 요청 수신**: Load Balancer의 공인 IP 주소로 전송된 요청을 수신
 - **헬스 체크로 백엔드 서버 상태 확인**: 연결된 서버들의 상태를 모니터링
-- **로드 밸런싱 알고리즘으로 서버 선택**: 라운드 로빈, 최소 연결 수 등 알고리즘에 따라 적절한 서버 선택
+- **5-튜플 해시로 백엔드 선택**: Azure Load Balancer는 기본적으로 출발지 IP, 출발지 포트, 목적지 IP, 목적지 포트, 프로토콜을 조합한 5-튜플 해시를 사용해 정상 상태인 백엔드를 선택
 - **선택된 서버로 요청 전달**: 백엔드 서버 중 하나로 요청을 전달
 
 ## 네트워크 장비별 역할
@@ -217,6 +233,10 @@ IP 주소를 MAC 주소로 변환하는 프로토콜로, 네트워크 계층의 
 ### 브로드캐스트 (Broadcast)
 
 네트워크 세그먼트 내의 모든 기기에게 패킷을 전송하는 방식으로, MAC 주소 FF:FF:FF:FF:FF:FF를 사용하여 모든 기기가 패킷을 수신하도록 합니다. ARP 요청이나 DHCP 요청과 같이 특정 기기를 찾을 때 사용됩니다.
+
+## 참고 자료
+
+- [Azure Load Balancer 배포 모드](https://learn.microsoft.com/azure/load-balancer/distribution-mode-concepts)
 
 ### 라우터 (Router)
 

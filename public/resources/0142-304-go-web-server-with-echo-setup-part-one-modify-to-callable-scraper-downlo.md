@@ -1,3 +1,19 @@
+---
+title: >-
+  Go 'WEB SERVER WITH ECHO' : Setup Part One, modify to callable scraper &
+  download echo
+description: >-
+  이번에는 go echo 서버를 만들어 본다. 본격적으로 만들어보기에 앞서 필요한 사전 작업들을 해보자. 우선 main package 에 있던
+  main function 을 다른 package 로 만들고, 실행이 아닌 호출 가능한 형태로 변경하려 한다. 우선 myScrap 라는 이름의
+  폴더를 만들고 그 안에 main.go 파일을 옮긴다. 그리고 main.go 파일의 이름을 myScrap.go 로 이름을 변경한다.
+publishedAt: '2021-05-30'
+updatedAt: '2021-05-30'
+tags:
+  - Go
+  - Web Server
+  - Echo
+status: needs-review
+---
 이번에는 go echo 서버를 만들어 본다.
 
 본격적으로 만들어보기에 앞서 필요한 사전 작업들을 해보자.

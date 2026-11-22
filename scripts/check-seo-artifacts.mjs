@@ -7,6 +7,7 @@ const SITEMAP_PATH = path.join(OUT_DIR, 'sitemap.xml');
 const FEED_PATH = path.join(OUT_DIR, 'feed.xml');
 const OG_IMAGE_PATH = path.join(OUT_DIR, 'og-image.png');
 const APPLE_ICON_PATH = path.join(OUT_DIR, 'apple-touch-icon.png');
+const POST_INDEX_PATH = path.join(ROOT_DIR, 'src/resources/post-index.json');
 const BASE_PATH = '/tech-blog';
 
 const errors = [];
@@ -29,6 +30,7 @@ const sitemapXml = readFileSafe(SITEMAP_PATH, 'sitemap.xml');
 const feedXml = readFileSafe(FEED_PATH, 'feed.xml');
 readFileSafe(OG_IMAGE_PATH, 'og-image.png');
 readFileSafe(APPLE_ICON_PATH, 'apple-touch-icon.png');
+const postIndexJson = readFileSafe(POST_INDEX_PATH, 'post-index.json');
 
 if (errors.length > 0) {
   errors.forEach(error => console.error(`- ${error}`));
@@ -49,6 +51,15 @@ if (invalidBasePathLocs.length > 0) {
 }
 
 const postLocs = sitemapLocs.filter(loc => loc.includes(`${BASE_PATH}/post/`));
+const postIndex = JSON.parse(postIndexJson);
+
+postIndex.forEach(post => {
+  const ogImagePath = path.join(OUT_DIR, 'og', `${post.fileName}.png`);
+  if (!fs.existsSync(ogImagePath)) {
+    errors.push(`[missing post OG image] ${post.fileName}`);
+  }
+});
+
 postLocs.forEach(loc => {
   const slug = loc.split(`${BASE_PATH}/post/`)[1]?.replace(/\/$/, '');
   if (!slug) {

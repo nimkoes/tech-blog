@@ -1,3 +1,18 @@
+---
+title: '9주차 : 예외 처리'
+description: >-
+  자바에서 예외를 처리하는 방법은 다양하다. try catch 를 사용해서 예외를 직접 처리하는 방법. try catch finally 를
+  사용해서 예외를 직접 처리하고, 예외가 발생해도 꼭 해야하는 후속처리까지 하는 방법. throw를 사용해서 강제로 예외를 발생하는 방법.
+  에라 모르겠다. throws를 사용해서 나를 호출한 녀석에게 예외를 던지는 방법 등이 있다.
+publishedAt: '2021-05-01'
+updatedAt: '2021-05-01'
+tags:
+  - Java
+  - live study
+  - 시리즈
+  - Exception
+status: needs-review
+---
 ## 자바의 예외 처리에 대해 학습하세요.
 
 ---

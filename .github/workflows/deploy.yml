@@ -37,12 +37,13 @@ jobs:
 
     steps:
       - name: Checkout tech-blog
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -58,7 +59,7 @@ jobs:
 
       # nimkoes.github.io 레포지토리 클론
       - name: Checkout nimkoes.github.io
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: nimkoes/nimkoes.github.io
           path: nimkoes.github.io

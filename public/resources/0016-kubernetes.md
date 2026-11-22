@@ -1,3 +1,18 @@
+---
+title: '[chap.15] Pod - NodeScheduling'
+description: >-
+  Pod 는 기본적으로 Scheduler 에 의해 Node 에 할당 되지만 사용자의 의도에 의해 Node 를 지정할 수 있고, 운영자가 특정
+  노드를 사용하지 못하도록 관리 할 수도 있다. Pod 를 특정 Node 에 할당 되도록 선택하기 위한 용도로 사용 한다. Node1,
+  Node2, Node3 은 서버가 한국에 있고, Node4, Node5 는 미국에 있다고 가정 한다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Pod
+  - Node Scheduling
+  - NodeSelector
+status: published
+---
 Pod 는 기본적으로 Scheduler 에 의해 Node 에 할당 되지만 사용자의 의도에 의해 Node 를 지정할 수 있고, 운영자가 특정 노드를 사용하지 못하도록 관리 할 수도 있다.
 
 # Node 선택 (NodeName, NodeSelector, NodeAffinity)

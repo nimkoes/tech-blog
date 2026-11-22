@@ -1,3 +1,18 @@
+---
+title: 'Go ''BANK & DICTIONARY PROJECTS'' : Add Method (in map)'
+description: >-
+  이번에는 map 에 요소를 추가하는 실습을 한다. 앞서 작성한 myDict.go 파일에 다음 내용을 추가 한다. 아래 주석으로 작성한 부분은
+  switch 문법을 사용할 때의 예시이다. 지금 실행해 볼 예시는 if 구절이다. Dictionary 에서 같은 이름의 key 가 이미 등록
+  되어 있으면 error 를 반환하고 그렇지 않으면 값을 추가한다.
+publishedAt: '2021-05-21'
+updatedAt: '2021-05-21'
+tags:
+  - Go
+  - Bank & Dictionary
+  - Map
+  - Method
+status: needs-review
+---
 이번에는 map 에 요소를 추가하는 실습을 한다.
 
 앞서 작성한 myDict.go 파일에 다음 내용을 추가 한다.

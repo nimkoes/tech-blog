@@ -1,0 +1,1834 @@
+{
+  "/tech-blog/resources/images/hexigonal-architecture/0060-01.png": {
+    "width": 329,
+    "height": 417
+  },
+  "/tech-blog/resources/images/hexigonal-architecture/0060-02.png": {
+    "width": 464,
+    "height": 608
+  },
+  "/tech-blog/resources/images/kubernetes/0002-01.png": {
+    "width": 1188,
+    "height": 568
+  },
+  "/tech-blog/resources/images/kubernetes/0003-01.png": {
+    "width": 1187,
+    "height": 567
+  },
+  "/tech-blog/resources/images/kubernetes/0003-02.png": {
+    "width": 1232,
+    "height": 612
+  },
+  "/tech-blog/resources/images/kubernetes/0003-03.png": {
+    "width": 1187,
+    "height": 562
+  },
+  "/tech-blog/resources/images/kubernetes/0004-01.png": {
+    "width": 1130,
+    "height": 539
+  },
+  "/tech-blog/resources/images/kubernetes/0005-01.png": {
+    "width": 884,
+    "height": 230
+  },
+  "/tech-blog/resources/images/kubernetes/0005-02.png": {
+    "width": 385,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0005-03.png": {
+    "width": 386,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0005-04.png": {
+    "width": 386,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0006-01.png": {
+    "width": 884,
+    "height": 230
+  },
+  "/tech-blog/resources/images/kubernetes/0006-02.png": {
+    "width": 393,
+    "height": 275
+  },
+  "/tech-blog/resources/images/kubernetes/0006-03.png": {
+    "width": 385,
+    "height": 302
+  },
+  "/tech-blog/resources/images/kubernetes/0006-04.png": {
+    "width": 386,
+    "height": 326
+  },
+  "/tech-blog/resources/images/kubernetes/0007-01.png": {
+    "width": 884,
+    "height": 230
+  },
+  "/tech-blog/resources/images/kubernetes/0007-02.png": {
+    "width": 294,
+    "height": 190
+  },
+  "/tech-blog/resources/images/kubernetes/0007-03.png": {
+    "width": 358,
+    "height": 258
+  },
+  "/tech-blog/resources/images/kubernetes/0007-04.png": {
+    "width": 317,
+    "height": 222
+  },
+  "/tech-blog/resources/images/kubernetes/0007-05.png": {
+    "width": 541,
+    "height": 238
+  },
+  "/tech-blog/resources/images/kubernetes/0008-01.png": {
+    "width": 884,
+    "height": 230
+  },
+  "/tech-blog/resources/images/kubernetes/0008-02.png": {
+    "width": 1337,
+    "height": 647
+  },
+  "/tech-blog/resources/images/kubernetes/0008-03.png": {
+    "width": 385,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0008-04.png": {
+    "width": 385,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0008-05.png": {
+    "width": 385,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0009-01.png": {
+    "width": 1149,
+    "height": 477
+  },
+  "/tech-blog/resources/images/kubernetes/0009-02.png": {
+    "width": 367,
+    "height": 261
+  },
+  "/tech-blog/resources/images/kubernetes/0009-03.png": {
+    "width": 315,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0009-04.png": {
+    "width": 543,
+    "height": 289
+  },
+  "/tech-blog/resources/images/kubernetes/0010-01.png": {
+    "width": 885,
+    "height": 232
+  },
+  "/tech-blog/resources/images/kubernetes/0010-02.png": {
+    "width": 643,
+    "height": 294
+  },
+  "/tech-blog/resources/images/kubernetes/0010-03.png": {
+    "width": 376,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0010-04.png": {
+    "width": 480,
+    "height": 301
+  },
+  "/tech-blog/resources/images/kubernetes/0010-05.png": {
+    "width": 448,
+    "height": 228
+  },
+  "/tech-blog/resources/images/kubernetes/0010-06.png": {
+    "width": 225,
+    "height": 168
+  },
+  "/tech-blog/resources/images/kubernetes/0010-07.png": {
+    "width": 226,
+    "height": 167
+  },
+  "/tech-blog/resources/images/kubernetes/0010-08.png": {
+    "width": 226,
+    "height": 178
+  },
+  "/tech-blog/resources/images/kubernetes/0010-09.png": {
+    "width": 230,
+    "height": 178
+  },
+  "/tech-blog/resources/images/kubernetes/0011-01.png": {
+    "width": 885,
+    "height": 232
+  },
+  "/tech-blog/resources/images/kubernetes/0011-02.png": {
+    "width": 339,
+    "height": 600
+  },
+  "/tech-blog/resources/images/kubernetes/0011-03.png": {
+    "width": 337,
+    "height": 600
+  },
+  "/tech-blog/resources/images/kubernetes/0011-04.png": {
+    "width": 338,
+    "height": 601
+  },
+  "/tech-blog/resources/images/kubernetes/0011-05.png": {
+    "width": 338,
+    "height": 420
+  },
+  "/tech-blog/resources/images/kubernetes/0011-06.png": {
+    "width": 338,
+    "height": 557
+  },
+  "/tech-blog/resources/images/kubernetes/0011-07.png": {
+    "width": 338,
+    "height": 601
+  },
+  "/tech-blog/resources/images/kubernetes/0011-08.png": {
+    "width": 680,
+    "height": 299
+  },
+  "/tech-blog/resources/images/kubernetes/0011-09.png": {
+    "width": 681,
+    "height": 300
+  },
+  "/tech-blog/resources/images/kubernetes/0011-10.png": {
+    "width": 681,
+    "height": 300
+  },
+  "/tech-blog/resources/images/kubernetes/0011-11.png": {
+    "width": 679,
+    "height": 300
+  },
+  "/tech-blog/resources/images/kubernetes/0011-12.png": {
+    "width": 679,
+    "height": 300
+  },
+  "/tech-blog/resources/images/kubernetes/0012-01.png": {
+    "width": 591,
+    "height": 396
+  },
+  "/tech-blog/resources/images/kubernetes/0012-02.png": {
+    "width": 654,
+    "height": 309
+  },
+  "/tech-blog/resources/images/kubernetes/0012-03.png": {
+    "width": 646,
+    "height": 392
+  },
+  "/tech-blog/resources/images/kubernetes/0012-04.png": {
+    "width": 452,
+    "height": 265
+  },
+  "/tech-blog/resources/images/kubernetes/0012-05.png": {
+    "width": 454,
+    "height": 261
+  },
+  "/tech-blog/resources/images/kubernetes/0012-06.png": {
+    "width": 430,
+    "height": 255
+  },
+  "/tech-blog/resources/images/kubernetes/0012-07.png": {
+    "width": 286,
+    "height": 255
+  },
+  "/tech-blog/resources/images/kubernetes/0012-08.png": {
+    "width": 585,
+    "height": 272
+  },
+  "/tech-blog/resources/images/kubernetes/0013-01.png": {
+    "width": 446,
+    "height": 548
+  },
+  "/tech-blog/resources/images/kubernetes/0013-02.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-03.gif": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-04.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-05.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-06.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-07.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-08.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-09.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-10.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-11.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-12.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-13.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-14.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-15.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-16.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-17.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-18.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-19.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-20.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-21.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-22.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0013-23.png": {
+    "width": 1132,
+    "height": 636
+  },
+  "/tech-blog/resources/images/kubernetes/0014-01.png": {
+    "width": 1298,
+    "height": 524
+  },
+  "/tech-blog/resources/images/kubernetes/0014-02.png": {
+    "width": 1293,
+    "height": 526
+  },
+  "/tech-blog/resources/images/kubernetes/0014-03.png": {
+    "width": 1294,
+    "height": 516
+  },
+  "/tech-blog/resources/images/kubernetes/0014-04.png": {
+    "width": 1295,
+    "height": 582
+  },
+  "/tech-blog/resources/images/kubernetes/0014-05.png": {
+    "width": 1288,
+    "height": 575
+  },
+  "/tech-blog/resources/images/kubernetes/0014-06.png": {
+    "width": 1293,
+    "height": 564
+  },
+  "/tech-blog/resources/images/kubernetes/0014-07.png": {
+    "width": 1098,
+    "height": 535
+  },
+  "/tech-blog/resources/images/kubernetes/0014-08.png": {
+    "width": 498,
+    "height": 539
+  },
+  "/tech-blog/resources/images/kubernetes/0014-09.png": {
+    "width": 653,
+    "height": 538
+  },
+  "/tech-blog/resources/images/kubernetes/0014-10.png": {
+    "width": 653,
+    "height": 556
+  },
+  "/tech-blog/resources/images/kubernetes/0014-11.png": {
+    "width": 498,
+    "height": 501
+  },
+  "/tech-blog/resources/images/kubernetes/0014-12.png": {
+    "width": 653,
+    "height": 499
+  },
+  "/tech-blog/resources/images/kubernetes/0015-01.png": {
+    "width": 318,
+    "height": 733
+  },
+  "/tech-blog/resources/images/kubernetes/0015-02.png": {
+    "width": 318,
+    "height": 733
+  },
+  "/tech-blog/resources/images/kubernetes/0015-03.png": {
+    "width": 528,
+    "height": 733
+  },
+  "/tech-blog/resources/images/kubernetes/0015-04.png": {
+    "width": 526,
+    "height": 734
+  },
+  "/tech-blog/resources/images/kubernetes/0015-05.png": {
+    "width": 184,
+    "height": 234
+  },
+  "/tech-blog/resources/images/kubernetes/0015-06.png": {
+    "width": 824,
+    "height": 283
+  },
+  "/tech-blog/resources/images/kubernetes/0015-07.png": {
+    "width": 822,
+    "height": 283
+  },
+  "/tech-blog/resources/images/kubernetes/0015-08.png": {
+    "width": 841,
+    "height": 391
+  },
+  "/tech-blog/resources/images/kubernetes/0015-09.png": {
+    "width": 821,
+    "height": 159
+  },
+  "/tech-blog/resources/images/kubernetes/0016-01.png": {
+    "width": 1083,
+    "height": 532
+  },
+  "/tech-blog/resources/images/kubernetes/0016-02.png": {
+    "width": 1087,
+    "height": 532
+  },
+  "/tech-blog/resources/images/kubernetes/0016-03.png": {
+    "width": 285,
+    "height": 463
+  },
+  "/tech-blog/resources/images/kubernetes/0016-04.png": {
+    "width": 281,
+    "height": 145
+  },
+  "/tech-blog/resources/images/kubernetes/0016-05.png": {
+    "width": 272,
+    "height": 148
+  },
+  "/tech-blog/resources/images/kubernetes/0016-06.png": {
+    "width": 1096,
+    "height": 509
+  },
+  "/tech-blog/resources/images/kubernetes/0016-07.png": {
+    "width": 505,
+    "height": 548
+  },
+  "/tech-blog/resources/images/kubernetes/0016-08.png": {
+    "width": 308,
+    "height": 263
+  },
+  "/tech-blog/resources/images/kubernetes/0016-09.png": {
+    "width": 212,
+    "height": 198
+  },
+  "/tech-blog/resources/images/kubernetes/0016-10.png": {
+    "width": 226,
+    "height": 225
+  },
+  "/tech-blog/resources/images/kubernetes/0016-11.png": {
+    "width": 274,
+    "height": 382
+  },
+  "/tech-blog/resources/images/kubernetes/0016-12.png": {
+    "width": 277,
+    "height": 382
+  },
+  "/tech-blog/resources/images/kubernetes/0016-13.png": {
+    "width": 277,
+    "height": 381
+  },
+  "/tech-blog/resources/images/kubernetes/0016-14.png": {
+    "width": 267,
+    "height": 134
+  },
+  "/tech-blog/resources/images/kubernetes/0016-15.png": {
+    "width": 269,
+    "height": 287
+  },
+  "/tech-blog/resources/images/kubernetes/0016-16.png": {
+    "width": 266,
+    "height": 289
+  },
+  "/tech-blog/resources/images/kubernetes/0016-17.png": {
+    "width": 268,
+    "height": 284
+  },
+  "/tech-blog/resources/images/kubernetes/0016-18.png": {
+    "width": 266,
+    "height": 286
+  },
+  "/tech-blog/resources/images/kubernetes/0016-19.png": {
+    "width": 272,
+    "height": 285
+  },
+  "/tech-blog/resources/images/kubernetes/0016-20.png": {
+    "width": 274,
+    "height": 285
+  },
+  "/tech-blog/resources/images/kubernetes/0047-01.png": {
+    "width": 442,
+    "height": 537
+  },
+  "/tech-blog/resources/images/kubernetes/0047-02.png": {
+    "width": 343,
+    "height": 533
+  },
+  "/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-01.png": {
+    "width": 580,
+    "height": 303
+  },
+  "/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-02.png": {
+    "width": 359,
+    "height": 492
+  },
+  "/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-03.png": {
+    "width": 580,
+    "height": 1032
+  },
+  "/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-01.png": {
+    "width": 480,
+    "height": 470
+  },
+  "/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-02.png": {
+    "width": 453,
+    "height": 295
+  },
+  "/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-03.png": {
+    "width": 480,
+    "height": 481
+  },
+  "/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-04.png": {
+    "width": 565,
+    "height": 251
+  },
+  "/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-01.png": {
+    "width": 480,
+    "height": 527
+  },
+  "/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-02.png": {
+    "width": 546,
+    "height": 222
+  },
+  "/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-03.png": {
+    "width": 550,
+    "height": 337
+  },
+  "/tech-blog/resources/images/migration/0066-34-java-generic-1/img-01.png": {
+    "width": 400,
+    "height": 114
+  },
+  "/tech-blog/resources/images/migration/0066-34-java-generic-1/img-02.png": {
+    "width": 464,
+    "height": 105
+  },
+  "/tech-blog/resources/images/migration/0067-35-java-generic-2/img-01.png": {
+    "width": 429,
+    "height": 98
+  },
+  "/tech-blog/resources/images/migration/0067-35-java-generic-2/img-02.png": {
+    "width": 438,
+    "height": 100
+  },
+  "/tech-blog/resources/images/migration/0067-35-java-generic-2/img-03.png": {
+    "width": 543,
+    "height": 140
+  },
+  "/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-01.png": {
+    "width": 306,
+    "height": 104
+  },
+  "/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-02.png": {
+    "width": 287,
+    "height": 101
+  },
+  "/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-03.png": {
+    "width": 296,
+    "height": 147
+  },
+  "/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-04.png": {
+    "width": 287,
+    "height": 223
+  },
+  "/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-05.png": {
+    "width": 299,
+    "height": 367
+  },
+  "/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-01.png": {
+    "width": 287,
+    "height": 104
+  },
+  "/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-02.png": {
+    "width": 290,
+    "height": 205
+  },
+  "/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-03.png": {
+    "width": 297,
+    "height": 95
+  },
+  "/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-04.png": {
+    "width": 287,
+    "height": 91
+  },
+  "/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-05.png": {
+    "width": 288,
+    "height": 83
+  },
+  "/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-01.png": {
+    "width": 291,
+    "height": 95
+  },
+  "/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-02.png": {
+    "width": 288,
+    "height": 103
+  },
+  "/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-03.png": {
+    "width": 286,
+    "height": 102
+  },
+  "/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-04.png": {
+    "width": 288,
+    "height": 98
+  },
+  "/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-05.png": {
+    "width": 288,
+    "height": 98
+  },
+  "/tech-blog/resources/images/migration/0076-54-javafx-mdi-multi-document-interface/img-01.jpg": {
+    "width": 723,
+    "height": 412
+  },
+  "/tech-blog/resources/images/migration/0077-57-string-vs-stringbuilder-vs-stringbuffer/img-01.png": {
+    "width": 346,
+    "height": 151
+  },
+  "/tech-blog/resources/images/migration/0078-61-java-environment-variables-setup/img-01.png": {
+    "width": 480,
+    "height": 470
+  },
+  "/tech-blog/resources/images/migration/0078-61-java-environment-variables-setup/img-02.png": {
+    "width": 453,
+    "height": 295
+  },
+  "/tech-blog/resources/images/migration/0078-61-java-environment-variables-setup/img-03.png": {
+    "width": 480,
+    "height": 481
+  },
+  "/tech-blog/resources/images/migration/0078-61-java-environment-variables-setup/img-04.png": {
+    "width": 565,
+    "height": 251
+  },
+  "/tech-blog/resources/images/migration/0082-100-javascript-information-hiding-private-scope/img-01.jpg": {
+    "width": 286,
+    "height": 89
+  },
+  "/tech-blog/resources/images/migration/0082-100-javascript-information-hiding-private-scope/img-02.png": {
+    "width": 258,
+    "height": 225
+  },
+  "/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-01.png": {
+    "width": 405,
+    "height": 374
+  },
+  "/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-02.png": {
+    "width": 546,
+    "height": 222
+  },
+  "/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-03.png": {
+    "width": 515,
+    "height": 318
+  },
+  "/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-04.png": {
+    "width": 565,
+    "height": 439
+  },
+  "/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-05.gif": {
+    "width": 400,
+    "height": 345
+  },
+  "/tech-blog/resources/images/migration/0089-189-data-type/img-01.png": {
+    "width": 443,
+    "height": 94
+  },
+  "/tech-blog/resources/images/migration/0089-189-data-type/img-02.png": {
+    "width": 213,
+    "height": 50
+  },
+  "/tech-blog/resources/images/migration/0089-189-data-type/img-03.png": {
+    "width": 285,
+    "height": 50
+  },
+  "/tech-blog/resources/images/migration/0089-189-data-type/img-04.png": {
+    "width": 243,
+    "height": 84
+  },
+  "/tech-blog/resources/images/migration/0089-189-data-type/img-05.png": {
+    "width": 198,
+    "height": 229
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-01.png": {
+    "width": 740,
+    "height": 383
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-02.png": {
+    "width": 600,
+    "height": 466
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-03.png": {
+    "width": 600,
+    "height": 210
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-04.png": {
+    "width": 600,
+    "height": 552
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-05.png": {
+    "width": 595,
+    "height": 807
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-06.png": {
+    "width": 575,
+    "height": 490
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-07.png": {
+    "width": 544,
+    "height": 708
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-08.png": {
+    "width": 603,
+    "height": 707
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-09.png": {
+    "width": 626,
+    "height": 227
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-10.png": {
+    "width": 504,
+    "height": 382
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-11.png": {
+    "width": 504,
+    "height": 382
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-12.png": {
+    "width": 504,
+    "height": 382
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-13.png": {
+    "width": 706,
+    "height": 382
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-14.png": {
+    "width": 706,
+    "height": 382
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-15.png": {
+    "width": 504,
+    "height": 382
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-16.png": {
+    "width": 411,
+    "height": 484
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-17.png": {
+    "width": 454,
+    "height": 235
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-18.png": {
+    "width": 677,
+    "height": 442
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-19.png": {
+    "width": 677,
+    "height": 442
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-20.png": {
+    "width": 677,
+    "height": 442
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-21.png": {
+    "width": 692,
+    "height": 548
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-22.png": {
+    "width": 740,
+    "height": 352
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-23.png": {
+    "width": 413,
+    "height": 136
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-24.png": {
+    "width": 457,
+    "height": 406
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-25.png": {
+    "width": 413,
+    "height": 136
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-26.png": {
+    "width": 740,
+    "height": 663
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-27.png": {
+    "width": 672,
+    "height": 179
+  },
+  "/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-28.png": {
+    "width": 677,
+    "height": 826
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-01.png": {
+    "width": 636,
+    "height": 453
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-02.png": {
+    "width": 495,
+    "height": 193
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-03.png": {
+    "width": 149,
+    "height": 90
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-04.png": {
+    "width": 504,
+    "height": 382
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-05.png": {
+    "width": 740,
+    "height": 546
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-06.png": {
+    "width": 740,
+    "height": 773
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-07.gif": {
+    "width": 640,
+    "height": 360
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-08.gif": {
+    "width": 640,
+    "height": 360
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-09.png": {
+    "width": 559,
+    "height": 616
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-10.png": {
+    "width": 176,
+    "height": 169
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-11.png": {
+    "width": 740,
+    "height": 336
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-12.png": {
+    "width": 740,
+    "height": 585
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-13.png": {
+    "width": 740,
+    "height": 355
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-14.jpg": {
+    "width": 625,
+    "height": 480
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-15.png": {
+    "width": 603,
+    "height": 89
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-16.png": {
+    "width": 677,
+    "height": 442
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-17.png": {
+    "width": 616,
+    "height": 92
+  },
+  "/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-18.png": {
+    "width": 677,
+    "height": 442
+  },
+  "/tech-blog/resources/images/migration/0092-192-talking-java-runtime-notepad-coding-part-2/img-01.png": {
+    "width": 515,
+    "height": 318
+  },
+  "/tech-blog/resources/images/migration/0092-192-talking-java-runtime-notepad-coding-part-2/img-02.png": {
+    "width": 391,
+    "height": 161
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-01.png": {
+    "width": 480,
+    "height": 294
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-02.png": {
+    "width": 740,
+    "height": 490
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-03.png": {
+    "width": 740,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-04.png": {
+    "width": 740,
+    "height": 541
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-05.png": {
+    "width": 740,
+    "height": 564
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-06.png": {
+    "width": 245,
+    "height": 578
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-07.png": {
+    "width": 645,
+    "height": 596
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-08.png": {
+    "width": 740,
+    "height": 408
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-09.png": {
+    "width": 291,
+    "height": 152
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-10.png": {
+    "width": 265,
+    "height": 285
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-11.png": {
+    "width": 448,
+    "height": 303
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-12.png": {
+    "width": 740,
+    "height": 555
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-13.png": {
+    "width": 516,
+    "height": 568
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-14.jpg": {
+    "width": 670,
+    "height": 341
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-15.png": {
+    "width": 736,
+    "height": 528
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-16.png": {
+    "width": 333,
+    "height": 182
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-17.png": {
+    "width": 573,
+    "height": 156
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-18.png": {
+    "width": 436,
+    "height": 538
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-19.png": {
+    "width": 348,
+    "height": 454
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-20.png": {
+    "width": 340,
+    "height": 451
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-21.png": {
+    "width": 548,
+    "height": 521
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-22.png": {
+    "width": 548,
+    "height": 525
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-23.jpg": {
+    "width": 562,
+    "height": 733
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-24.png": {
+    "width": 559,
+    "height": 735
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-25.png": {
+    "width": 570,
+    "height": 271
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-26.jpg": {
+    "width": 731,
+    "height": 543
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-27.png": {
+    "width": 740,
+    "height": 442
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-28.png": {
+    "width": 569,
+    "height": 531
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-29.png": {
+    "width": 664,
+    "height": 586
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-30.png": {
+    "width": 580,
+    "height": 662
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-31.png": {
+    "width": 534,
+    "height": 315
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-32.jpg": {
+    "width": 566,
+    "height": 211
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-33.jpg": {
+    "width": 601,
+    "height": 229
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-34.png": {
+    "width": 685,
+    "height": 302
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-35.png": {
+    "width": 698,
+    "height": 300
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-36.png": {
+    "width": 411,
+    "height": 168
+  },
+  "/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-37.png": {
+    "width": 677,
+    "height": 618
+  },
+  "/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-01.png": {
+    "width": 550,
+    "height": 337
+  },
+  "/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-02.png": {
+    "width": 567,
+    "height": 695
+  },
+  "/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-03.jpg": {
+    "width": 631,
+    "height": 804
+  },
+  "/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-04.jpg": {
+    "width": 338,
+    "height": 143
+  },
+  "/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-05.jpg": {
+    "width": 538,
+    "height": 359
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-01.jpg": {
+    "width": 377,
+    "height": 187
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-02.jpg": {
+    "width": 485,
+    "height": 260
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-03.jpg": {
+    "width": 535,
+    "height": 215
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-04.png": {
+    "width": 544,
+    "height": 292
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-05.png": {
+    "width": 544,
+    "height": 457
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-06.png": {
+    "width": 606,
+    "height": 567
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-07.png": {
+    "width": 606,
+    "height": 567
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-08.jpg": {
+    "width": 411,
+    "height": 109
+  },
+  "/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-09.jpg": {
+    "width": 366,
+    "height": 103
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-01.png": {
+    "width": 457,
+    "height": 133
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-02.jpg": {
+    "width": 659,
+    "height": 88
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-03.jpg": {
+    "width": 740,
+    "height": 466
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-04.jpg": {
+    "width": 589,
+    "height": 183
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-05.jpg": {
+    "width": 550,
+    "height": 387
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-06.jpg": {
+    "width": 550,
+    "height": 351
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-07.jpg": {
+    "width": 550,
+    "height": 401
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-08.jpg": {
+    "width": 550,
+    "height": 369
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-09.jpg": {
+    "width": 550,
+    "height": 294
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-10.jpg": {
+    "width": 291,
+    "height": 419
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-11.jpg": {
+    "width": 550,
+    "height": 181
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-12.jpg": {
+    "width": 414,
+    "height": 313
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-13.png": {
+    "width": 660,
+    "height": 88
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-14.png": {
+    "width": 660,
+    "height": 180
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-15.png": {
+    "width": 660,
+    "height": 180
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-16.png": {
+    "width": 660,
+    "height": 180
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-17.png": {
+    "width": 419,
+    "height": 124
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-18.jpg": {
+    "width": 337,
+    "height": 219
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-19.jpg": {
+    "width": 683,
+    "height": 247
+  },
+  "/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-20.jpg": {
+    "width": 337,
+    "height": 203
+  },
+  "/tech-blog/resources/images/migration/0098-198-java-live-study-week-5-class/img-01.png": {
+    "width": 740,
+    "height": 488
+  },
+  "/tech-blog/resources/images/migration/0099-199-java-live-study-week-6-inheritance/img-01.png": {
+    "width": 463,
+    "height": 289
+  },
+  "/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-01.jpg": {
+    "width": 347,
+    "height": 306
+  },
+  "/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-02.jpg": {
+    "width": 325,
+    "height": 123
+  },
+  "/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-03.jpg": {
+    "width": 332,
+    "height": 363
+  },
+  "/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-04.jpg": {
+    "width": 342,
+    "height": 404
+  },
+  "/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-05.jpg": {
+    "width": 643,
+    "height": 675
+  },
+  "/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-06.jpg": {
+    "width": 679,
+    "height": 303
+  },
+  "/tech-blog/resources/images/migration/0102-202-java-live-study-week-9-exception/img-01.png": {
+    "width": 740,
+    "height": 557
+  },
+  "/tech-blog/resources/images/migration/0103-203-java-live-study-week-10-multithread-programming/img-01.jpg": {
+    "width": 555,
+    "height": 553
+  },
+  "/tech-blog/resources/images/migration/0103-203-java-live-study-week-10-multithread-programming/img-02.png": {
+    "width": 338,
+    "height": 132
+  },
+  "/tech-blog/resources/images/migration/0104-204-java-live-study-week-11-enum/img-01.jpg": {
+    "width": 652,
+    "height": 830
+  },
+  "/tech-blog/resources/images/migration/0104-204-java-live-study-week-11-enum/img-02.jpg": {
+    "width": 642,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-01.jpg": {
+    "width": 377,
+    "height": 336
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-02.png": {
+    "width": 323,
+    "height": 449
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-03.png": {
+    "width": 524,
+    "height": 540
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-04.jpg": {
+    "width": 595,
+    "height": 547
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-05.jpg": {
+    "width": 497,
+    "height": 922
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-06.jpg": {
+    "width": 389,
+    "height": 361
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-07.jpg": {
+    "width": 702,
+    "height": 279
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-08.png": {
+    "width": 472,
+    "height": 376
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-09.png": {
+    "width": 334,
+    "height": 267
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-10.jpg": {
+    "width": 594,
+    "height": 227
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-11.png": {
+    "width": 416,
+    "height": 364
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-12.jpg": {
+    "width": 740,
+    "height": 335
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-13.jpg": {
+    "width": 398,
+    "height": 410
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-14.jpg": {
+    "width": 382,
+    "height": 488
+  },
+  "/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-15.jpg": {
+    "width": 740,
+    "height": 472
+  },
+  "/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-01.jpg": {
+    "width": 701,
+    "height": 193
+  },
+  "/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-02.png": {
+    "width": 336,
+    "height": 258
+  },
+  "/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-03.jpg": {
+    "width": 740,
+    "height": 186
+  },
+  "/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-01.jpg": {
+    "width": 740,
+    "height": 275
+  },
+  "/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-02.jpg": {
+    "width": 740,
+    "height": 176
+  },
+  "/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-03.jpg": {
+    "width": 270,
+    "height": 555
+  },
+  "/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-04.png": {
+    "width": 400,
+    "height": 495
+  },
+  "/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-05.png": {
+    "width": 295,
+    "height": 287
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-01.jpg": {
+    "width": 904,
+    "height": 979
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-02.jpg": {
+    "width": 876,
+    "height": 620
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-03.jpg": {
+    "width": 885,
+    "height": 971
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-04.jpg": {
+    "width": 495,
+    "height": 387
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-05.jpg": {
+    "width": 495,
+    "height": 387
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-06.jpg": {
+    "width": 495,
+    "height": 387
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-07.jpg": {
+    "width": 495,
+    "height": 387
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-08.jpg": {
+    "width": 495,
+    "height": 387
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-09.jpg": {
+    "width": 495,
+    "height": 387
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-10.jpg": {
+    "width": 264,
+    "height": 419
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-11.jpg": {
+    "width": 620,
+    "height": 169
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-12.jpg": {
+    "width": 737,
+    "height": 400
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-13.jpg": {
+    "width": 1118,
+    "height": 670
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-14.jpg": {
+    "width": 938,
+    "height": 444
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-15.jpg": {
+    "width": 938,
+    "height": 475
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-16.jpg": {
+    "width": 938,
+    "height": 653
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-17.jpg": {
+    "width": 938,
+    "height": 653
+  },
+  "/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-18.jpg": {
+    "width": 943,
+    "height": 698
+  },
+  "/tech-blog/resources/images/migration/0110-271-go-package-import/img-01.jpg": {
+    "width": 303,
+    "height": 191
+  },
+  "/tech-blog/resources/images/migration/0110-271-go-package-import/img-02.jpg": {
+    "width": 618,
+    "height": 135
+  },
+  "/tech-blog/resources/images/migration/0110-271-go-package-import/img-03.jpg": {
+    "width": 613,
+    "height": 510
+  },
+  "/tech-blog/resources/images/migration/0110-271-go-package-import/img-04.jpg": {
+    "width": 603,
+    "height": 88
+  },
+  "/tech-blog/resources/images/migration/0111-272-go-constants-and-variables/img-01.jpg": {
+    "width": 487,
+    "height": 199
+  },
+  "/tech-blog/resources/images/migration/0111-272-go-constants-and-variables/img-02.jpg": {
+    "width": 482,
+    "height": 187
+  },
+  "/tech-blog/resources/images/migration/0111-272-go-constants-and-variables/img-03.jpg": {
+    "width": 603,
+    "height": 92
+  },
+  "/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-01.jpg": {
+    "width": 613,
+    "height": 179
+  },
+  "/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-02.jpg": {
+    "width": 601,
+    "height": 88
+  },
+  "/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-03.jpg": {
+    "width": 603,
+    "height": 121
+  },
+  "/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-01.jpg": {
+    "width": 604,
+    "height": 72
+  },
+  "/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-02.jpg": {
+    "width": 605,
+    "height": 107
+  },
+  "/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-03.jpg": {
+    "width": 600,
+    "height": 133
+  },
+  "/tech-blog/resources/images/migration/0114-275-go-for-range-args/img-01.jpg": {
+    "width": 610,
+    "height": 520
+  },
+  "/tech-blog/resources/images/migration/0115-276-go-if/img-01.jpg": {
+    "width": 596,
+    "height": 81
+  },
+  "/tech-blog/resources/images/migration/0116-277-go-switch/img-01.jpg": {
+    "width": 606,
+    "height": 85
+  },
+  "/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-01.jpg": {
+    "width": 597,
+    "height": 64
+  },
+  "/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-02.jpg": {
+    "width": 409,
+    "height": 253
+  },
+  "/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-03.jpg": {
+    "width": 605,
+    "height": 85
+  },
+  "/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-04.jpg": {
+    "width": 601,
+    "height": 123
+  },
+  "/tech-blog/resources/images/migration/0118-279-go-array-slice/img-01.jpg": {
+    "width": 598,
+    "height": 106
+  },
+  "/tech-blog/resources/images/migration/0119-280-go-map/img-01.jpg": {
+    "width": 599,
+    "height": 244
+  },
+  "/tech-blog/resources/images/migration/0120-281-go-struct/img-01.jpg": {
+    "width": 602,
+    "height": 114
+  },
+  "/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-01.jpg": {
+    "width": 227,
+    "height": 182
+  },
+  "/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-02.jpg": {
+    "width": 789,
+    "height": 74
+  },
+  "/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-03.jpg": {
+    "width": 538,
+    "height": 222
+  },
+  "/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-04.jpg": {
+    "width": 785,
+    "height": 69
+  },
+  "/tech-blog/resources/images/migration/0122-283-go-bank-dictionary-projects-methods-part-one/img-01.jpg": {
+    "width": 786,
+    "height": 72
+  },
+  "/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-01.jpg": {
+    "width": 788,
+    "height": 88
+  },
+  "/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-02.jpg": {
+    "width": 785,
+    "height": 86
+  },
+  "/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-03.jpg": {
+    "width": 511,
+    "height": 224
+  },
+  "/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-04.jpg": {
+    "width": 788,
+    "height": 108
+  },
+  "/tech-blog/resources/images/migration/0124-285-go-bank-dictionary-projects-finishing-up/img-01.jpg": {
+    "width": 784,
+    "height": 71
+  },
+  "/tech-blog/resources/images/migration/0124-285-go-bank-dictionary-projects-finishing-up/img-02.jpg": {
+    "width": 781,
+    "height": 86
+  },
+  "/tech-blog/resources/images/migration/0125-286-go-bank-dictionary-projects-dictionary-part-one/img-01.jpg": {
+    "width": 209,
+    "height": 335
+  },
+  "/tech-blog/resources/images/migration/0125-286-go-bank-dictionary-projects-dictionary-part-one/img-02.jpg": {
+    "width": 781,
+    "height": 81
+  },
+  "/tech-blog/resources/images/migration/0126-287-go-bank-dictionary-projects-add-method-in-map/img-01.jpg": {
+    "width": 787,
+    "height": 76
+  },
+  "/tech-blog/resources/images/migration/0127-288-go-bank-dictionary-projects-update-delete-in-map/img-01.jpg": {
+    "width": 788,
+    "height": 72
+  },
+  "/tech-blog/resources/images/migration/0127-288-go-bank-dictionary-projects-update-delete-in-map/img-02.jpg": {
+    "width": 781,
+    "height": 120
+  },
+  "/tech-blog/resources/images/migration/0128-289-go-url-checker-go-routines-hiturl-http-get-request/img-01.jpg": {
+    "width": 254,
+    "height": 249
+  },
+  "/tech-blog/resources/images/migration/0128-289-go-url-checker-go-routines-hiturl-http-get-request/img-02.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0128-289-go-url-checker-go-routines-hiturl-http-get-request/img-03.jpg": {
+    "width": 352,
+    "height": 142
+  },
+  "/tech-blog/resources/images/migration/0129-290-go-url-checker-go-routines-slow-urlchecker-empty-map/img-01.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0130-291-go-url-checker-go-routines-goroutines/img-01.jpg": {
+    "width": 263,
+    "height": 269
+  },
+  "/tech-blog/resources/images/migration/0130-291-go-url-checker-go-routines-goroutines/img-02.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0130-291-go-url-checker-go-routines-goroutines/img-03.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0130-291-go-url-checker-go-routines-goroutines/img-04.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0131-292-go-url-checker-go-routines-channels/img-01.jpg": {
+    "width": 825,
+    "height": 660
+  },
+  "/tech-blog/resources/images/migration/0131-292-go-url-checker-go-routines-channels/img-02.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0131-292-go-url-checker-go-routines-channels/img-03.jpg": {
+    "width": 872,
+    "height": 117
+  },
+  "/tech-blog/resources/images/migration/0132-293-go-url-checker-go-routines-channels-recap-channel-response-receive-using/img-01.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0134-295-go-url-checker-go-routines-url-checker-go-routines/img-01.jpg": {
+    "width": 873,
+    "height": 59
+  },
+  "/tech-blog/resources/images/migration/0135-296-go-url-checker-go-routines-fast-urlchecker/img-01.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-01.jpg": {
+    "width": 508,
+    "height": 158
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-02.jpg": {
+    "width": 882,
+    "height": 330
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-03.jpg": {
+    "width": 602,
+    "height": 158
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-04.jpg": {
+    "width": 759,
+    "height": 102
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-05.jpg": {
+    "width": 264,
+    "height": 271
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-06.jpg": {
+    "width": 757,
+    "height": 122
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-07.jpg": {
+    "width": 263,
+    "height": 82
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-08.jpg": {
+    "width": 605,
+    "height": 662
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-09.jpg": {
+    "width": 565,
+    "height": 119
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-10.jpg": {
+    "width": 924,
+    "height": 134
+  },
+  "/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-11.jpg": {
+    "width": 1163,
+    "height": 672
+  },
+  "/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-01.jpg": {
+    "width": 764,
+    "height": 227
+  },
+  "/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-02.jpg": {
+    "width": 1084,
+    "height": 418
+  },
+  "/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-03.jpg": {
+    "width": 654,
+    "height": 618
+  },
+  "/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-04.jpg": {
+    "width": 932,
+    "height": 82
+  },
+  "/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-05.jpg": {
+    "width": 508,
+    "height": 158
+  },
+  "/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-06.jpg": {
+    "width": 717,
+    "height": 608
+  },
+  "/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-07.jpg": {
+    "width": 927,
+    "height": 156
+  },
+  "/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-01.jpg": {
+    "width": 974,
+    "height": 609
+  },
+  "/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-02.jpg": {
+    "width": 929,
+    "height": 369
+  },
+  "/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-03.jpg": {
+    "width": 933,
+    "height": 553
+  },
+  "/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-01.jpg": {
+    "width": 933,
+    "height": 335
+  },
+  "/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-02.jpg": {
+    "width": 1707,
+    "height": 410
+  },
+  "/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-03.jpg": {
+    "width": 960,
+    "height": 762
+  },
+  "/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-01.jpg": {
+    "width": 338,
+    "height": 283
+  },
+  "/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-02.jpg": {
+    "width": 427,
+    "height": 159
+  },
+  "/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-03.jpg": {
+    "width": 2441,
+    "height": 1209
+  },
+  "/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-04.jpg": {
+    "width": 1223,
+    "height": 459
+  },
+  "/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-05.jpg": {
+    "width": 1216,
+    "height": 1276
+  },
+  "/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-06.jpg": {
+    "width": 559,
+    "height": 160
+  },
+  "/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-01.jpg": {
+    "width": 2871,
+    "height": 1766
+  },
+  "/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-02.jpg": {
+    "width": 2864,
+    "height": 2021
+  },
+  "/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-03.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-04.gif": {
+    "width": 684,
+    "height": 384
+  },
+  "/tech-blog/resources/images/migration/0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo/img-01.jpg": {
+    "width": 352,
+    "height": 302
+  },
+  "/tech-blog/resources/images/migration/0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo/img-02.jpg": {
+    "width": 740,
+    "height": 613
+  },
+  "/tech-blog/resources/images/migration/0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo/img-03.jpg": {
+    "width": 701,
+    "height": 484
+  },
+  "/tech-blog/resources/images/migration/0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo/img-04.jpg": {
+    "width": 396,
+    "height": 317
+  },
+  "/tech-blog/resources/images/migration/0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo/img-05.jpg": {
+    "width": 931,
+    "height": 162
+  },
+  "/tech-blog/resources/images/migration/0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo/img-06.jpg": {
+    "width": 939,
+    "height": 119
+  },
+  "/tech-blog/resources/images/migration/0142-304-go-web-server-with-echo-setup-part-one-modify-to-callable-scraper-downlo/img-07.jpg": {
+    "width": 167,
+    "height": 218
+  },
+  "/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-01.jpg": {
+    "width": 943,
+    "height": 288
+  },
+  "/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-02.jpg": {
+    "width": 298,
+    "height": 152
+  },
+  "/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-03.jpg": {
+    "width": 392,
+    "height": 340
+  },
+  "/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-04.jpg": {
+    "width": 297,
+    "height": 250
+  },
+  "/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-05.jpg": {
+    "width": 955,
+    "height": 392
+  },
+  "/tech-blog/resources/images/network/dns/0042-01.png": {
+    "width": 326,
+    "height": 45
+  },
+  "/tech-blog/resources/images/network/dns/0042-02.png": {
+    "width": 574,
+    "height": 47
+  },
+  "/tech-blog/resources/images/network/dns/0042-03.png": {
+    "width": 872,
+    "height": 48
+  },
+  "/tech-blog/resources/images/network/dns/0042-04.png": {
+    "width": 565,
+    "height": 47
+  },
+  "/tech-blog/resources/images/network/dns/0042-05.png": {
+    "width": 566,
+    "height": 47
+  },
+  "/tech-blog/resources/images/spring-security-inner-structure/0020-01.png": {
+    "width": 530,
+    "height": 398
+  },
+  "/tech-blog/resources/images/spring-security-inner-structure/0023-01.png": {
+    "width": 486,
+    "height": 179
+  },
+  "/tech-blog/resources/images/spring-security-inner-structure/0024-01.png": {
+    "width": 224,
+    "height": 482
+  },
+  "/tech-blog/resources/images/spring-security-inner-structure/0024-02.png": {
+    "width": 830,
+    "height": 483
+  },
+  "/tech-blog/resources/images/spring-security-inner-structure/0025-01.png": {
+    "width": 1246,
+    "height": 780
+  },
+  "/tech-blog/resources/images/spring-security-inner-structure/0025-02.png": {
+    "width": 1037,
+    "height": 776
+  },
+  "/tech-blog/resources/images/translate/aztfexport/0043-01.png": {
+    "width": 720,
+    "height": 201
+  },
+  "/tech-blog/resources/images/translate/aztfexport/0043-02.png": {
+    "width": 720,
+    "height": 610
+  },
+  "/tech-blog/resources/images/translate/aztfexport/0043-03.png": {
+    "width": 720,
+    "height": 655
+  }
+}

@@ -36,6 +36,29 @@ function ScrollTopButton() {
 }
 
 export default function PostEnhancements() {
+  useEffect(() => {
+    const onHeadingLinkClick = async (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const button = target.closest<HTMLButtonElement>('[data-heading-permalink]');
+      const id = button?.dataset.headingPermalink;
+      if (!button || !id) return;
+
+      const url = `${window.location.origin}${window.location.pathname}#${id}`;
+      try {
+        await navigator.clipboard.writeText(url);
+        button.title = '링크를 복사했습니다';
+        window.setTimeout(() => {
+          button.title = '이 제목의 링크 복사';
+        }, 1400);
+      } catch {
+        window.location.hash = id;
+      }
+    };
+
+    document.addEventListener('click', onHeadingLinkClick);
+    return () => document.removeEventListener('click', onHeadingLinkClick);
+  }, []);
+
   return (
     <>
       <ScrollProgressBar />

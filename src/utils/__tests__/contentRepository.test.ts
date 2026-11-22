@@ -63,6 +63,11 @@ describe('getPostNavigation', () => {
     });
   });
 
+  it('카테고리 바로 아래의 글은 시리즈로 취급하지 않는다', () => {
+    const navigation = getPostNavigation('0056-kubernetes-static-pod');
+    expect(navigation?.series).toBeNull();
+  });
+
   it('존재하지 않는 슬러그는 null을 반환한다', () => {
     expect(getPostNavigation('no-such-post')).toBeNull();
   });
@@ -84,6 +89,38 @@ describe('getAllTags / getPostsByTagSlug', () => {
     expect(result?.posts).toHaveLength(top.count);
     result?.posts.forEach(post => {
       expect(post.tags.some(tag => slugifyTag(tag) === top.slug)).toBe(true);
+    });
+  });
+
+  it('하나의 시리즈로만 구성된 태그는 연재 순서를 따른다', () => {
+    const result = getPostsByTagSlug('live-study');
+
+    expect(result?.sortMode).toBe('series');
+    expect(result?.posts.map(post => post.fileName)).toEqual([
+      '0084-133-whiteship-java-live-study-s01',
+      '0094-194-java-live-study-week-1-jvm-and-execution',
+      '0095-195-java-live-study-week-2-data-types-variables-arrays',
+      '0096-196-java-live-study-week-3-operators',
+      '0097-197-java-live-study-week-4-control-flow',
+      '0098-198-java-live-study-week-5-class',
+      '0099-199-java-live-study-week-6-inheritance',
+      '0100-200-java-live-study-week-7-package',
+      '0101-201-java-live-study-week-8-interface',
+      '0102-202-java-live-study-week-9-exception',
+      '0103-203-java-live-study-week-10-multithread-programming',
+      '0104-204-java-live-study-week-11-enum',
+      '0105-205-java-live-study-week-12-annotation',
+      '0106-206-java-live-study-week-14-generic',
+      '0107-207-java-live-study-week-15-lambda',
+    ]);
+  });
+
+  it('여러 묶음에 걸친 일반 태그는 최근 업데이트 순서를 유지한다', () => {
+    const result = getPostsByTagSlug('kubernetes');
+
+    expect(result?.sortMode).toBe('updated');
+    result?.posts.slice(1).forEach((post, index) => {
+      expect(result.posts[index].lastModifiedDate >= post.lastModifiedDate).toBe(true);
     });
   });
 

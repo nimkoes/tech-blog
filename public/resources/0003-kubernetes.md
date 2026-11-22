@@ -1,3 +1,16 @@
+---
+title: '[chap.02] VM 과 Container 비교'
+description: >-
+  VM 과 Container 모두 공통적으로 하나의 서버(Host Server)가 있고 그 서버에는 Host OS 가 올라간다. VM 의 경우
+  Host OS 위에 VM 을 가상화 하기 위한 여러 Hypervisor 가 있고 그 위에 Guest OS 를 올려 다수의 VM 을 만들 수
+  있다. 이 Guest OS 역시 Host OS 와 같이 독립적으로 사용해서 각각의 OS 에 애플리케이션을 설치하고 서비스를 만들어 제공할 수
+  있다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+status: published
+---
 ![0003-01](/tech-blog/resources/images/kubernetes/0003-01.png)
 
 VM 과 Container 모두 공통적으로 하나의 서버(Host Server)가 있고 그 서버에는 Host OS 가 올라간다.

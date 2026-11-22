@@ -1,3 +1,16 @@
+---
+title: 'Go ''BANK & DICTIONARY PROJECTS'' : Account + NewAccount'
+description: >-
+  Go 의 struct 를 공부할 겸 간단한 bank account 를 생성하는 예제를 만들어 본다. 우선 accounts 폴더를 만들고 그
+  아래 accounts.go 파일을 만든다. accounts.go 는 실행의 주체로 사용하지 않을 것이기 때문에 main function 을
+  만들지 않는다. 사용 할 struct 를 정의하는데, 이름과 잔액 정보를 가지고 있도록 다음과 같이 만든다.
+publishedAt: '2021-05-19'
+updatedAt: '2021-05-19'
+tags:
+  - Go
+  - Bank & Dictionary
+status: needs-review
+---
 Go 의 struct 를 공부할 겸 간단한 bank account 를 생성하는 예제를 만들어 본다.
 
 우선 accounts 폴더를 만들고 그 아래 accounts.go 파일을 만든다.

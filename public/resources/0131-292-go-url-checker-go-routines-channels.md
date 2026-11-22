@@ -1,3 +1,19 @@
+---
+title: 'Go ''URL CHECKER & GO ROUTINES'' : Channels'
+description: >-
+  Channel 은 goroutine 과 main function 사이 또는 goroutine 간 정보 전달을 하기 위한 방법 이다. 앞서
+  make 가 map 을 만들기 위한 function 이라고 정리 했었는데, make function 은 slice, map 그리고
+  channel 을 만들 수 있는 function 이 맞는것 같다. 아무튼, 이번에는 channel 이라는 것을 사용해보려 한다.
+publishedAt: '2021-05-23'
+updatedAt: '2021-05-23'
+tags:
+  - Go
+  - URL Checker
+  - Goroutine
+  - Channel
+  - HTTP
+status: needs-review
+---
 Channel 은 goroutine 과 main function 사이 또는 goroutine 간 정보 전달을 하기 위한 방법 이다.
 
 앞서 make 가 map 을 만들기 위한 function 이라고 정리 했었는데, make function 은 slice, map 그리고 channel 을 만들 수 있는 function 이 맞는것 같다.

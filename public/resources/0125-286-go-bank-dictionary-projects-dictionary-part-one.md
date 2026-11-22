@@ -1,3 +1,16 @@
+---
+title: 'Go ''BANK & DICTIONARY PROJECTS'' : Dictionary part One'
+description: >-
+  이번 실습에서는 struct 를 사용하지 않고 'type' 이라는 것을 사용 한다. 그 전에 먼저 myDict 디렉토리를 만들고 그 안에
+  myDict.go 파일을 생성한다. 그리고 이 파일을 사용 할 main 이 될 파일을 'part2 myDict main.go' 라는 이름으로
+  생성했다.
+publishedAt: '2021-05-21'
+updatedAt: '2021-05-21'
+tags:
+  - Go
+  - Bank & Dictionary
+status: needs-review
+---
 이번 실습에서는 struct 를 사용하지 않고 'type' 이라는 것을 사용 한다.
 
 그 전에 먼저 myDict 디렉토리를 만들고 그 안에 myDict.go 파일을 생성한다.

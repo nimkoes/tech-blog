@@ -1,3 +1,16 @@
+---
+title: '[chap.01] Spring Security 동작 원리 개요'
+description: >-
+  Spring Security 동작 원리 개요 클라이언트의 요청은 WAS (Web Application Server / ex> tomcat )
+  의 filter 를 통과한 다음 Spring Container 의 Controller 에 도달한다. WAS 의 filter 에 새로운
+  filter 를 추가하여 요청을 가로챈다. 가로챈 요청은 Spring Container 내부에 정의한 로직을 통과 한다.
+publishedAt: '2025-03-08'
+updatedAt: '2025-03-08'
+tags:
+  - Spring Security
+  - introduce
+status: published
+---
 # Spring Security 동작 원리 개요
 
 - 클라이언트의 요청은 `WAS`(Web Application Server / ex> `tomcat`) 의 `filter` 를 통과한 다음 `Spring Container`의 `Controller`에 도달한다.

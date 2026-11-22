@@ -1,3 +1,17 @@
+---
+title: 'Go ''JOB SCRAPER'' : extractJob part one'
+description: >-
+  이번에는 지난번에 출력한 URL 에 직접 접속하도록 해보자. 수정한 getPage function 을 보면 checkErr,
+  checkCode function 을 사용해서 오류를 확인하고 각 페이지에서 ".jobsearch-SerpJobCard" 클래스를 찾은
+  다음, 각각의 요소에 대해 "data-jk" attribute 값을 id 변수에 담아 출력하고 있다.
+publishedAt: '2021-05-29'
+updatedAt: '2021-05-29'
+tags:
+  - Go
+  - Job Scraper
+  - Web Scraping
+status: needs-review
+---
 이번에는 지난번에 출력한 URL 에 직접 접속하도록 해보자.
 
 ```go

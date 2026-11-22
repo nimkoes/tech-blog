@@ -1,3 +1,17 @@
+---
+title: '[chap.03] Kubernetes 훑어보기'
+description: >-
+  Kubernetes 는 한 대의 서버를 Master 로 사용하고 다른 서버는 Node 로 하나의 Master 에 다수의 Node 들이 연결
+  된다. 이렇게 연결 된 하나의 묶음이 Kubernetes Cluster 가 된다. Master 는 Kubernetes 의 전반적인 기능들을
+  컨트롤 하고, Node 들은 자원을 제공하는 역할을 한다. 만약 Cluster 전체 자원을 늘리고 싶으면 Node 를 계속 추가하면 된다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Pod
+  - Container
+status: published
+---
 ![0004-01](/tech-blog/resources/images/kubernetes/0004-01.png)
 
 Kubernetes 는 한 대의 서버를 Master 로 사용하고 다른 서버는 Node 로 하나의 Master 에 다수의 Node 들이 연결 된다. 이렇게 연결 된 하나의 묶음이 Kubernetes Cluster 가

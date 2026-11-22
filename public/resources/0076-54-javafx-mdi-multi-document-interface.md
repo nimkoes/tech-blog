@@ -1,3 +1,17 @@
+---
+title: javaFX MDI(Multi Document Interface) 답답해서 정리
+description: >-
+  답답하면 니들이 뛰라는 말이 있다. 그래서 정리해봤다. javaFX를 사용해서 MDI (Multi Document Interface)를
+  개발해야할 경우가 간혹 생길수 있다. 검색을 해보았지만 마땅히 내가 원하는 스타일이 없었다. 그렇다고 이제 와서 javaFX를 (나는
+  처음부터 한 번 쭉 훑어 봤지만) 처음부터 볼 수는 없는 노릇이다.
+publishedAt: '2017-06-05'
+updatedAt: '2017-06-05'
+tags:
+  - Java
+  - 단편
+  - JavaFX
+status: needs-review
+---
 답답하면 니들이 뛰라는 말이 있다.
 
 그래서 정리해봤다.

@@ -1,3 +1,18 @@
+---
+title: Kubernetes Static Pod 개념과 설정 방법
+description: >-
+  Static Pod는 Kubernetes에서 kubelet이 직접 관리하는 특수한 형태의 Pod이다. 일반적인 Pod는 사용자가
+  kubectl apply 명령으로 생성하고, API Server가 이를 etcd에 저장하여 관리하지만, Static Pod는 API
+  Server를 거치지 않고, kubelet이 지정된 디렉토리에서 YAML 파일을 직접 감지하여 실행한다. 보통 컨트롤 플레인 구성 요소를
+  직접 올릴 때 사용된다.
+publishedAt: '2025-07-02'
+updatedAt: '2025-07-02'
+tags:
+  - Kubernetes
+  - Pod
+  - static pod
+status: published
+---
 # Static Pod란 무엇인가?
 
 Static Pod는 Kubernetes에서 kubelet이 직접 관리하는 특수한 형태의 Pod이다.

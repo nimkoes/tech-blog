@@ -1,3 +1,17 @@
+---
+title: '[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)'
+description: >-
+  k8s 의 Controller 는 서비스를 관리하고 운영하는데 큰 도움을 준다. Node 위에 Pod 가 있는데 이 Pod 가 갑자기 다운
+  되거나 이 Pod 가 Scheduling 되어 있는 Node 가 다운 될 경우 Controller 는 장애를 바로 인지하고 Pod 를 다른
+  Node 에 새로 만들어 준다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Controller
+  - ReplicaSet
+status: published
+---
 ![0010-01](/tech-blog/resources/images/kubernetes/0010-01.png)
 
 k8s 의 Controller 는 서비스를 관리하고 운영하는데 큰 도움을 준다.

@@ -1,3 +1,14 @@
+---
+title: Whiteship Java live study S01
+description: 현재 네이버 블로그에 정리되어 있어 링크로 대체 합니다. pc 환경에 최적화 되어 있습니다.
+publishedAt: '2021-04-23'
+updatedAt: '2021-04-23'
+tags:
+  - Java
+  - live study
+  - 시리즈
+status: needs-review
+---
 ### Whiteship Java live study season 01
 
 현재 네이버 블로그에 정리되어 있어 링크로 대체 합니다.

@@ -1,3 +1,17 @@
+---
+title: '[chap.14] Pod - QoS Classes'
+description: >-
+  리소스를 균등하게 사용하고 있는 3개의 Pod 를 가진 Node 가 있다. 0015-02 각 Pod 가 Node 의 리소스를 균등하게
+  사용하고 있기 때문에 특정 Pod 에 추가 리소스를 할당 할 수 없는 상황에서 Pod1 이 추가 리소스를 필요로 하는 상황이 발생 했다.
+  그럼 Pod1 이 리소스 부족으로 에러가 발생하고 다운 되어야 할까?
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Pod
+  - QoS Classes
+status: published
+---
 ![0015-01](/tech-blog/resources/images/kubernetes/0015-01.png)
 
 리소스를 균등하게 사용하고 있는 3개의 Pod 를 가진 Node 가 있다.

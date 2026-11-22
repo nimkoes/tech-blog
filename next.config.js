@@ -7,11 +7,9 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
-  swcMinify: true,
   
   // GitHub Pages 배포를 위한 추가 설정
   trailingSlash: true,
-  distDir: 'out',
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig

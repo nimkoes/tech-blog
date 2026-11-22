@@ -1,3 +1,17 @@
+---
+title: 'Go ''BANK & DICTIONARY PROJECTS'' : Methods part Two'
+description: >-
+  지난번 Methods part One 에서 Deposit method 를 호출했을 때 account 값이 수정되지 않은 것을 확인했다. 그
+  이유는 Go 에서 function, method 를 사용할 때 object, struct 등에 대해 복사본을 사용하기 때문이다. 지금의 경우
+  Deposit 메소드의 receiver 에서 복사본이 사용 됐다.
+publishedAt: '2021-05-21'
+updatedAt: '2021-05-21'
+tags:
+  - Go
+  - Bank & Dictionary
+  - Method
+status: needs-review
+---
 지난번 Methods part One 에서 Deposit method 를 호출했을 때 account 값이 수정되지 않은 것을 확인했다.
 
 그 이유는 Go 에서 function, method 를 사용할 때 object, struct 등에 대해 복사본을 사용하기 때문이다.

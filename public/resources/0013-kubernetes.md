@@ -1,3 +1,18 @@
+---
+title: '[chap.12] Pod - Lifecycle'
+description: >-
+  Pod 에는 Lifecycle 이 존재하고 어떤 Pod 든 만들어지고 사라지는 과정을 거치게 된다. Lifecycle 은 각 단계 별로 하는
+  행동이 다르다는 특징을 갖는다. Pod 역시 단계별로 주요 행동들이 있고, 앞으로 알아 볼 ReadinessProbe,
+  LivenessProbe, Qos, Policy 등 다양한 기능들이 Pod 의 특정 단계와 관련이 있기 때문에 Lifecycle 에 대해 잘
+  알아야 한다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Pod
+  - Lifecycle
+status: published
+---
 Pod 에는 Lifecycle 이 존재하고 어떤 Pod 든 만들어지고 사라지는 과정을 거치게 된다. Lifecycle 은 각 단계 별로 하는 행동이 다르다는 특징을 갖는다. Pod 역시 단계별로 주요 행동들이 있고,
 앞으로 알아 볼 ReadinessProbe, LivenessProbe, Qos, Policy 등 다양한 기능들이 Pod 의 특정 단계와 관련이 있기 때문에 Lifecycle 에 대해 잘 알아야 한다.
 

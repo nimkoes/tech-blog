@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import categoryData from '~/resources/category.json';
+import postIndex from '~/resources/post-index.json';
 import { slugifyTag } from '~/utils/tags';
 import type { CategoryNode, PostContent, PostMeta } from '~/types/content';
 
@@ -12,6 +13,9 @@ export { slugifyTag };
 const POSTS_DIRECTORY = path.join(process.cwd(), 'public/resources');
 const DEFAULT_PRODUCTION_SITE_ORIGIN = 'https://nimkoes.github.io';
 const DEFAULT_DEVELOPMENT_SITE_ORIGIN = 'http://localhost:3000';
+const postIndexMap = new Map(
+  (postIndex as PostMeta[]).map(post => [post.fileName, post])
+);
 
 function normalizeBasePath(basePath?: string) {
   if (!basePath) return '/tech-blog';
@@ -35,12 +39,16 @@ function collectPosts(nodes: CategoryNode[]): PostMeta[] {
 
   const walk = (node: CategoryNode) => {
     if (isPostNode(node)) {
-      results.push({
+      results.push(postIndexMap.get(node.fileName) || {
         title: node.displayName,
+        description: '',
         tags: node.tags,
         fileName: node.fileName,
         regDate: node.regDate,
         lastModifiedDate: node.lastModifiedDate,
+        status: 'published',
+        reviewedAt: null,
+        readingTime: 1,
       });
     }
 
@@ -107,13 +115,19 @@ export function getPostContent(slug: string): PostContent | null {
 
   const title = String(markdown.data.title || post.title);
   const description = String(markdown.data.description || '');
-  const date = String(markdown.data.date || post.lastModifiedDate);
+  const date = String(markdown.data.publishedAt || markdown.data.date || post.regDate);
+  const updatedAt = String(markdown.data.updatedAt || post.lastModifiedDate);
+  const status = String(markdown.data.status || post.status) as PostMeta['status'];
 
   return {
     slug,
     title,
     description,
     date,
+    updatedAt,
+    status,
+    reviewedAt: markdown.data.reviewedAt ? String(markdown.data.reviewedAt) : undefined,
+    sources: Array.isArray(markdown.data.sources) ? markdown.data.sources.map(String) : [],
     content: markdown.content,
   };
 }
@@ -122,6 +136,7 @@ interface GroupedPost {
   meta: PostMeta;
   groupId: string;
   groupName: string;
+  groupKind: CategoryNode['kind'];
 }
 
 function collectPostsWithGroups(nodes: CategoryNode[]): GroupedPost[] {
@@ -130,15 +145,20 @@ function collectPostsWithGroups(nodes: CategoryNode[]): GroupedPost[] {
   const walk = (node: CategoryNode, parent: CategoryNode | null) => {
     if (isPostNode(node)) {
       results.push({
-        meta: {
+        meta: postIndexMap.get(node.fileName) || {
           title: node.displayName,
+          description: '',
           tags: node.tags,
           fileName: node.fileName,
           regDate: node.regDate,
           lastModifiedDate: node.lastModifiedDate,
+          status: 'published',
+          reviewedAt: null,
+          readingTime: 1,
         },
         groupId: parent?.id ?? '',
         groupName: parent?.displayName ?? '',
+        groupKind: parent?.kind,
       });
     }
 
@@ -176,7 +196,7 @@ export function getPostNavigation(slug: string, relatedLimit = 4): PostNavigatio
 
   const siblings = ordered.filter(post => post.groupId === current.groupId);
   const series: SeriesInfo | null =
-    siblings.length >= 2
+    current.groupKind === 'series' && siblings.length >= 2
       ? {
           name: current.groupName,
           index: siblings.findIndex(post => post.meta.fileName === slug) + 1,
@@ -186,8 +206,13 @@ export function getPostNavigation(slug: string, relatedLimit = 4): PostNavigatio
       : null;
 
   const currentTags = new Set(current.meta.tags.map(tag => tag.toLowerCase()));
+  const currentSeriesId = current.groupKind === 'series' ? current.groupId : '';
   const related = ordered
-    .filter(post => post.meta.fileName !== slug && post.groupId !== current.groupId)
+    .filter(
+      post =>
+        post.meta.fileName !== slug &&
+        (!currentSeriesId || post.groupId !== currentSeriesId)
+    )
     .map(post => ({
       meta: post.meta,
       score: post.meta.tags.reduce(
@@ -233,20 +258,33 @@ export function getAllTags(): TagSummary[] {
   );
 }
 
-export function getPostsByTagSlug(slug: string): { tag: string; posts: PostMeta[] } | null {
+export type TagPostSortMode = 'series' | 'updated';
+
+export function getPostsByTagSlug(
+  slug: string
+): { tag: string; posts: PostMeta[]; sortMode: TagPostSortMode } | null {
   const decoded = decodeURIComponent(slug);
   const summary = getAllTags().find(entry => entry.slug === decoded);
   if (!summary) {
     return null;
   }
 
-  const posts = sortPosts(
-    collectPosts(categoryData as CategoryNode[]).filter(post =>
-      post.tags.some(tag => slugifyTag(tag) === summary.slug)
-    )
+  const matches = collectPostsWithGroups(categoryData as CategoryNode[]).filter(post =>
+    post.meta.tags.some(tag => slugifyTag(tag) === summary.slug)
   );
+  const seriesGroupId = matches[0]?.groupId;
+  const followsSeriesOrder =
+    matches.length >= 2 &&
+    matches.every(post => post.groupKind === 'series' && post.groupId === seriesGroupId);
+  const posts = followsSeriesOrder
+    ? matches.map(post => post.meta)
+    : sortPosts(matches.map(post => post.meta));
 
-  return { tag: summary.tag, posts };
+  return {
+    tag: summary.tag,
+    posts,
+    sortMode: followsSeriesOrder ? 'series' : 'updated',
+  };
 }
 
 export function getAllMarkdownSlugs(): string[] {

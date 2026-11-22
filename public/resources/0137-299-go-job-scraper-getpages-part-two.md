@@ -1,3 +1,17 @@
+---
+title: 'Go ''JOB SCRAPER'' : getPages part two'
+description: >-
+  이번에는 'part one' 에서 goquery 를 사용해 가져온 Document 를 다뤄보려고 한다. 코드를 사용해서 DOM 의
+  '.pagination' 클래스 요소를 찾았는데, 참조 연산을 해보면 Each 라는 공개된 function 이 있다. Each
+  function 에 대한 설명을 보면, 매개값으로 function 을 전달 받는다.
+publishedAt: '2021-05-29'
+updatedAt: '2021-05-29'
+tags:
+  - Go
+  - Job Scraper
+  - Web Scraping
+status: needs-review
+---
 이번에는 'part one' 에서 goquery 를 사용해 가져온 Document 를 다뤄보려고 한다.
 
 ```go

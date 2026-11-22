@@ -1,3 +1,16 @@
+---
+title: '[chap.16] DefaultLogoutPageGeneratingFilter'
+description: >-
+  DefaultLogoutPageGeneratingFilter DefaultLogoutPageGeneratingFilter 목적 이 필터는
+  DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로 열 번째에 위치한다. 이 필터가 등록되는 목적은 GET
+  /logout 경로에 대해 기본 로그아웃 페이지를 응답하는 역할을 수행한다. 이 필터는 여러 로그인 설정에 의존한다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - DefaultLogoutPageGeneratingFilter
+status: published
+---
 # DefaultLogoutPageGeneratingFilter
 
 ## DefaultLogoutPageGeneratingFilter 목적

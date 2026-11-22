@@ -1,3 +1,15 @@
+---
+title: Go 의 switch 사용 방법
+description: >-
+  Go 에서의 switch 는 다른 언어와 비슷하다. else if 가 너무 많이 사용되는 등의 경우 사용하면 좋은 문법이다. switch
+  문에서도 if 와 마찬가지로 switch 안에서만 사용 할 변수를 선언해서 사용할 수 있다.
+publishedAt: '2021-05-16'
+updatedAt: '2021-05-16'
+tags:
+  - Go
+  - switch
+status: needs-review
+---
 Go 에서의 switch 는 다른 언어와 비슷하다.
 
 else if 가 너무 많이 사용되는 등의 경우 사용하면 좋은 문법이다.

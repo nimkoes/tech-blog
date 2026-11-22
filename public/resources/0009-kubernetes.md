@@ -1,3 +1,18 @@
+---
+title: '[chap.08] Namespace, ResourceQuota, LimitRange'
+description: >-
+  본격적인 사용 방법을 알아보기에 앞서 Namespace, ResourceQuota, LimitRange 를 왜 사용해야 하는지 먼저
+  정리한다. k8s Cluster 라고 해서 전체 사용할 수 있는 자원이 있다. 일반적으로 Memory, CPU 가 있고 Cluster 안에는
+  다수의 Namespace 를 Namespace 안에는 다수의 Pod 를 만들 수 있다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Namespace
+  - ResourceQuota
+  - LimitRange
+status: published
+---
 본격적인 사용 방법을 알아보기에 앞서 Namespace, ResourceQuota, LimitRange 를 왜 사용해야 하는지 먼저 정리한다.
 
 ![0009-01](/tech-blog/resources/images/kubernetes/0009-01.png)

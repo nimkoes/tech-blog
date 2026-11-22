@@ -60,6 +60,7 @@
   color: var(--text-secondary);
   font-size: var(--ui-xs);
   padding: 0.22rem 0.66rem;
+  min-height: 32px;
   text-decoration: none;
   transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
 
@@ -72,6 +73,45 @@
 
 .filterSection {
   margin-bottom: 0.95rem;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+
+  p {
+    margin: 0 0 0.18rem;
+    color: var(--text-secondary);
+    font-size: var(--ui-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: var(--heading-4);
+  }
+}
+
+.allTagsLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  color: var(--text-secondary);
+  font-size: var(--ui-small);
+
+  &:hover {
+    border-color: var(--primary);
+    color: var(--text);
+    background: var(--hover);
+  }
 }
 
 .filterSummary {
@@ -110,6 +150,7 @@
   cursor: pointer;
   font-size: var(--ui-xs);
   padding: 0.18rem 0.55rem;
+  min-height: 32px;
   transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
 
   &:hover {
@@ -153,6 +194,7 @@
 }
 
 .postCard {
+  position: relative;
   padding: 1rem 1.05rem;
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -177,7 +219,25 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+    }
   }
+}
+
+.postDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0.55rem 0 0;
+  color: var(--text-secondary);
+  font-size: var(--body-small);
+  line-height: var(--line-height-normal);
 }
 
 .newBadge {
@@ -194,6 +254,8 @@
 }
 
 .postMeta {
+  position: relative;
+  z-index: 1;
   margin-top: 0.65rem;
   display: flex;
   flex-wrap: wrap;
@@ -202,6 +264,11 @@
 }
 
 .postDate {
+  color: var(--text-secondary);
+  font-size: var(--ui-xs);
+}
+
+.readingTime {
   color: var(--text-secondary);
   font-size: var(--ui-xs);
 }
@@ -250,6 +317,36 @@
   }
 }
 
+.loadMoreArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.2rem;
+
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--ui-small);
+  }
+}
+
+.loadMoreButton {
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.55rem 1.1rem;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--ui-small);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--primary);
+    background: var(--hover);
+  }
+}
+
 [data-theme='dark'] .intro {
   background: linear-gradient(132deg, rgba(56, 189, 248, 0.14), rgba(30, 41, 59, 0.08) 64%, transparent);
 }
@@ -275,6 +372,10 @@
     margin-bottom: 1rem;
   }
 
+  .sectionHeading {
+    align-items: center;
+  }
+
   .headline {
     font-size: var(--heading-5);
   }
@@ -285,7 +386,7 @@
   }
 
   .postTitle {
-    font-size: var(--body-small);
+    font-size: var(--body-base);
   }
 
   .postMeta {

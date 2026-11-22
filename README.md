@@ -1,162 +1,94 @@
 # Nimkoes Tech Blog
 
-프로그래밍/개발 지식과 경험을 마크다운으로 기록하고, 웹에서 편리하게 열람할 수 있도록 만든 **Next.js 기반의 정적 기술 블로그**입니다.
+개발 지식과 문제 해결 과정을 마크다운으로 기록하는 정적 기술 블로그입니다.
 
----
+## 주요 기능
 
-## 주요 특징
+- 제목, 설명, 본문, 소제목을 대상으로 하는 전체 검색
+- 태그 탐색과 주요 토픽 분류
+- 글별 목차, 시리즈 이동, 이전·다음 글 이동
+- 읽기 시간, 작성일, 수정일, 콘텐츠 검수 상태 표시
+- 다크 모드와 반응형 화면
+- 글별 Open Graph 이미지, sitemap, RSS, JSON-LD 생성
+- 키보드 탐색, 본문 바로가기, 모달 포커스 제어
 
-- **JetBrains Mono 기반의 일관된 프로그래밍 친화 폰트 시스템**
-- **폰트 크기, 줄간격, 문단 너비 등 타이포그래피 변수 집중 관리**
-- **마크다운 기반 문서 관리 및 자동 렌더링**
-- **카테고리/태그 기반 분류 및 검색**
-- **반응형 디자인(PC/모바일 최적화)**
-- **SEO, sitemap, robots.txt 자동화**
-- **GitHub Actions 기반 자동 배포**
+## 기술 구성
 
----
+- Next.js 16 App Router, React 19, TypeScript
+- SCSS Modules
+- React Markdown, Remark GFM, Rehype
+- Highlight.js
+- Vitest
+- GitHub Pages 정적 배포
 
-## 기술 스택
+## 로컬 실행
 
-- **Frontend**: Next.js 14 (App Router), TypeScript, SCSS Modules
-- **타이포그래피**: JetBrains Mono (기본), Fira Code, Consolas, Menlo (대체)
-- **Markdown**: Remark, Rehype, Gray Matter, Highlight.js
-- **상태관리**: Zustand
-- **SEO/Sitemap**: Next.js Metadata Route 기반 자동화
-
----
-
-## 폰트/타이포그래피/문단 시스템
-
-### 폰트 시스템
-- JetBrains Mono를 기본 폰트로 사용하여 l/I/1/0/O 등 혼동되는 글자도 명확하게 구분됩니다.
-- `src/styles/variables/_typography.scss`에서 폰트 패밀리, 크기, 줄간격 등 모든 타이포그래피 변수를 집중 관리합니다.
-- 코드, 마크다운, 본문, UI 등 모든 텍스트가 동일한 폰트 시스템을 사용합니다.
-
-### 폰트 크기/줄간격 시스템
-- 폰트 크기(`--body-base`, `--heading-1` 등)와 줄간격(`--line-height-tight`, `--line-height-normal`, `--line-height-relaxed`)을 의미 있는 변수로 관리합니다.
-- 모바일/반응형에서도 변수 기반으로 자동 대응합니다.
-- 하드코딩된 값 없이, 변수만 수정하면 전체 UI에 반영됩니다.
-
-### 본문(문단) 너비 최적화
-- PC에서는 본문/마크다운/상세 영역의 최대 너비를 **850px**로 통일하여 가독성을 최적화했습니다.
-- 모바일에서는 max-width: 100%로 자동 해제되어 작은 화면에서도 최적의 가독성을 제공합니다.
-
-### 관련 문서
-- [FONT_SYSTEM_GUIDE.md](./FONT_SYSTEM_GUIDE.md): 폰트 시스템 사용 가이드
-- [LINE_HEIGHT_SYSTEM_GUIDE.md](./LINE_HEIGHT_SYSTEM_GUIDE.md): 줄간격 시스템 사용 가이드
-
----
-
-## 폴더 구조
-
-```
-tech-blog/
-├── public/
-│   └── resources/         # 마크다운 문서, 이미지, 다이어그램 등
-├── src/
-│   ├── app/               # Next.js App Router 구조
-│   ├── components/        # UI 컴포넌트
-│   ├── styles/            # SCSS, 타이포그래피 변수 등
-│   └── resources/         # 카테고리/태그 등 데이터
-├── FONT_SYSTEM_GUIDE.md   # 폰트 시스템 가이드
-├── LINE_HEIGHT_SYSTEM_GUIDE.md # 줄간격 시스템 가이드
-└── ...
-```
-
----
-
-## 시작하기
-
-### 사전 요구사항
-- Node.js 18.0.0 이상
-- npm, yarn, 또는 pnpm
-
-### 설치 및 실행
+Node.js 22 이상을 권장합니다.
 
 ```bash
-git clone https://github.com/nimkoes/tech-blog.git
-cd tech-blog
 npm install
 npm run dev
 ```
 
-### 빌드 및 배포
+운영 결과물을 확인하려면 다음 명령을 사용합니다.
 
 ```bash
 npm run build
 npm run start
 ```
 
+정적 결과물은 `out` 디렉터리에 생성됩니다.
+
+## 콘텐츠 관리
+
+- 원본 글과 이미지는 `public/resources`에 둡니다.
+- 분류 정보는 `src/resources/category.json`에서 관리합니다.
+- 검색 색인, 이미지 크기 정보, 글별 OG 이미지는 빌드 전에 자동 생성됩니다.
+- 자세한 작성·검수 기준은 [CONTENT_GUIDE.md](./CONTENT_GUIDE.md)를 참고합니다.
+
+글의 frontmatter 예시는 다음과 같습니다.
+
+```yaml
 ---
-
-## 마크다운 문서 작성
-
-1. `public/resources` 디렉토리에 `.md` 파일을 생성합니다.
-2. 파일 상단에 다음과 같은 frontmatter를 추가합니다:
-
-```markdown
----
-title: 문서 제목
-description: 문서 설명
-author: 작성자
-date: YYYY-MM-DD
+title: 글 제목
+description: 글의 핵심을 설명하는 문장
+publishedAt: 2026-11-22
+updatedAt: 2026-11-22
+tags:
+  - Kubernetes
+status: published
+reviewedAt: 2026-11-22
+sources:
+  - https://kubernetes.io/docs/example
 ---
 ```
 
-3. 카테고리/태그는 `src/resources/category.json`에서 관리합니다.
+## 품질 확인
 
----
+```bash
+npm run lint
+npm test
+npm run check:content
+npm run build
+npm run check:seo
+```
 
-## SEO 및 Sitemap 관리
+전체 검증은 `npm run check`로 실행할 수 있습니다.
 
-- Next.js Metadata Route로 sitemap.xml, robots.txt를 자동 생성합니다.
-- 메타 태그, Open Graph, Twitter Card, 구조화 데이터(JSON-LD) 자동 지원
+## 주요 디렉터리
 
----
-
-## 반응형 디자인
-
-- PC(1024px 이상): 본문 최대 850px, 넓은 레이아웃
-- 모바일(768px 미만): 본문 100% 폭, 터치 최적화
-
----
+```text
+public/resources/       마크다운 원본과 본문 이미지
+public/og/              자동 생성한 글별 공유 이미지
+scripts/                색인 생성과 품질 검증 스크립트
+src/app/                페이지와 화면 컴포넌트
+src/components/         공통 UI 컴포넌트
+src/resources/          카테고리와 생성된 콘텐츠 메타데이터
+src/styles/             전역 스타일과 디자인 변수
+```
 
 ## 배포
 
-- GitHub Actions를 통한 자동 배포
-- 빌드 시 sitemap, robots.txt 자동 생성
+`main` 브랜치에 반영되면 GitHub Actions가 빌드와 검증을 수행한 뒤 GitHub Pages에 배포합니다.
 
----
-
-## 환경 변수
-
-```env
-NEXT_PUBLIC_SITE_URL=https://nimkoes.github.io
-NEXT_PUBLIC_SITE_NAME=Nimkoes Tech Blog
-```
-
----
-
-## 라이선스
-
-MIT 라이선스. 자세한 내용은 [LICENSE](LICENSE) 파일 참조.
-
----
-
-## 기여하기
-
-- 버그 리포트, 기능 제안, 풀 리퀘스트 등 모든 기여를 환영합니다.
-- 기여 가이드:
-  1. 저장소를 포크합니다.
-  2. 새로운 브랜치를 생성합니다 (`git checkout -b feature/your-feature`).
-  3. 변경사항을 커밋합니다 (`git commit -m '설명'`).
-  4. 브랜치에 푸시합니다 (`git push origin feature/your-feature`).
-  5. Pull Request를 생성합니다.
-
----
-
-## 변경 이력
-
-- 2025-01~: 폰트/타이포그래피/줄간격/문단너비 시스템 통합, 본문 max-width 850px로 최적화, 변수 기반 집중 관리 등 대규모 리팩토링
-- 2025-01-27: Next.js 14 기반 블로그 시스템 구축, 마크다운 문서 처리, 자동 sitemap, 반응형, SEO 등 초기 구축 
+기본 공개 주소는 `https://nimkoes.github.io/tech-blog`입니다.

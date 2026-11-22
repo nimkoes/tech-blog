@@ -1,3 +1,17 @@
+---
+title: '[chap.09] SecurityContextHolderFilter'
+description: >-
+  SecurityContextHolderFilter SecurityContextHolderFilter 목적 이 필터는
+  DefaultSecurityFilterChain 에 기본적으로 등록되며, 세 번째에 위치한다. Security session 방식에서 주로
+  사용 된다. 이전 요청을 통해 인증된 사용자 정보를 현재 요청의 SecurityContextHolder 의 SecurityContext 에
+  할당한다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - SecurityContextHolderFilter
+status: published
+---
 # SecurityContextHolderFilter
 
 ## SecurityContextHolderFilter 목적

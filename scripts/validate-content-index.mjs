@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 
 const ROOT_DIR = process.cwd();
 const CATEGORY_PATH = path.join(ROOT_DIR, 'src/resources/category.json');
@@ -13,6 +14,7 @@ const markdownSlugs = fs
 
 const categoryPosts = [];
 const errors = [];
+const allowedStatuses = new Set(['published', 'needs-review', 'deprecated']);
 
 function walk(node, trail = []) {
   const currentTrail = [...trail, node.displayName || node.id || '(unknown)'];
@@ -79,6 +81,31 @@ if (missingMarkdown.length > 0) {
 
 if (missingCategory.length > 0) {
   errors.push(`[missing category entry] ${missingCategory.join(', ')}`);
+}
+
+for (const slug of markdownSlugs) {
+  const filePath = path.join(RESOURCES_DIR, `${slug}.md`);
+  const parsed = matter(fs.readFileSync(filePath, 'utf8'));
+  const data = parsed.data;
+
+  for (const key of ['title', 'description', 'publishedAt', 'updatedAt', 'tags', 'status']) {
+    if (!data[key] || (Array.isArray(data[key]) && data[key].length === 0)) {
+      errors.push(`[missing frontmatter ${key}] ${slug}`);
+    }
+  }
+
+  if (data.status && !allowedStatuses.has(String(data.status))) {
+    errors.push(`[invalid status] ${slug}: ${data.status}`);
+  }
+
+  for (const match of parsed.content.matchAll(/!\[[^\]]*]\(([^)\s]+)[^)]*\)/g)) {
+    const imageUrl = match[1];
+    if (!imageUrl.startsWith('/tech-blog/')) continue;
+    const publicPath = path.join(ROOT_DIR, 'public', imageUrl.replace(/^\/tech-blog\//, ''));
+    if (!fs.existsSync(publicPath)) {
+      errors.push(`[missing local image] ${slug}: ${imageUrl}`);
+    }
+  }
 }
 
 if (errors.length > 0) {

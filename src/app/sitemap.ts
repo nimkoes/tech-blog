@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { getAllTags, getBasePath, getCategoryPosts, getPostUrl, getSiteOrigin } from '~/utils/contentRepository';
 
+export const dynamic = 'force-static';
+
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 
 interface SitemapItem {
@@ -39,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     createSitemapItem(getPostUrl(post.fileName), 'weekly', 0.8, post.lastModifiedDate)
   );
 
-  const tagRoutes = getAllTags().map(({ slug }) =>
+  const tagRoutes = getAllTags().filter(({ count }) => count >= 2).map(({ slug }) =>
     createSitemapItem(
       `${siteOrigin}${basePath}/tags/${encodeURIComponent(slug)}`,
       'weekly',

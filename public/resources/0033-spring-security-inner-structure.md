@@ -1,3 +1,16 @@
+---
+title: '[chap.14] UsernamePasswordAuthenticationFilter'
+description: >-
+  UsernamePasswordAuthenticationFilter UsernamePasswordAuthenticationFilter 목적 이
+  필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로 여덟 번째에 위치한다. 이 필터는 username,
+  password 기반 로그인 기능의 뼈대가 되는 필터이다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - UsernamePasswordAuthenticationFilter
+status: published
+---
 # UsernamePasswordAuthenticationFilter
 
 ## UsernamePasswordAuthenticationFilter 목적

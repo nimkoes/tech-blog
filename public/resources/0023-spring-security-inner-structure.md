@@ -1,3 +1,13 @@
+---
+title: '[chap.04] SecurityContextHolder'
+description: SecurityContextHolder 에서 Authentication 객체 조회 예제
+publishedAt: '2025-03-08'
+updatedAt: '2025-03-08'
+tags:
+  - Spring Security
+  - SecurityContextHolder
+status: published
+---
 # SecurityContextHolder
 
 ## SecurityFilterChain 에서 작업 상태 저장 필요

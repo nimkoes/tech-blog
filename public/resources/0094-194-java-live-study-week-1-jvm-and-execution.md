@@ -1,3 +1,20 @@
+---
+title: '1주차 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가'
+description: >-
+  JVM -> Java Virtual Machine '자바 가상 머신' 을 뜻하는 말로 바이트코드를 실행하는 주체이다. 자바가 처음 세상에
+  나왔을 때 WORA (Write Once Run Anywhere) 를 내세워 홍보한 것으로 알고있다. 한번 작성해서 어디서든 실행할 수
+  있다는 말로, 자바 코드로 작성한 프로그램은 실행할 환경 (예를 들면 운영체제)에 독립적으로 실행할 수 있음을 뜻한다.
+publishedAt: '2021-05-01'
+updatedAt: '2026-11-22'
+tags:
+  - Java
+  - live study
+  - 시리즈
+  - JVM
+status: needs-review
+sources:
+  - 'https://docs.oracle.com/en/java/javase/11/migrate/'
+---
 ## 자바 소스 파일 (.java)을 JVM 으로 실행하는 과정 이해하기.
 
 ---
@@ -212,6 +229,10 @@ JRE :: Java Runtime Environment -> 자바 실행 환경
 
 자바 언어로 작성된 프로그램을 실행하기 위해서는 JRE를 설치해야 한다.
 
-JDK를 설치하면 JRE가 포함되어 같이 설치된다. 이것과 관련해서 최근에 뭔가 달라진점이 있던 기억인데..
+JDK 8까지는 일반적으로 JDK 설치 디렉터리 안에 JRE가 함께 제공되었다. 하지만 JDK 9부터 런타임 이미지 구조가 바뀌었고, Oracle은 JDK 11부터 별도의 JRE와 Server JRE 다운로드를 제공하지 않는다.
 
-검색해도 기억이 나지 않는다..
+현재는 개발과 실행 환경을 단순히 “JDK 안에 JRE가 포함된다”라고 설명하기보다, 사용하는 JDK 배포판과 버전을 먼저 확인해야 한다. 애플리케이션에 필요한 런타임 이미지는 `jlink`로 만들 수도 있다.
+
+#### 참고 자료
+
+- [Oracle JDK 11 Migration Guide](https://docs.oracle.com/en/java/javase/11/migrate/)

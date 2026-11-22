@@ -1,3 +1,18 @@
+---
+title: 전반적인 WEB Application 에 대해서
+description: >-
+  전반적인 WEB Application에 대해서 정리해 보았다. 정리 순서는 다음과 같다. 하나씩 자세히 살펴보자. 웹 애플리케이션이란
+  "복수의 사용자가 인터넷을 통해 데이터베이스에 접근하고 안전하게 정보를 읽고 쓸 수 있게 만들어진, 웹 브라우저와 RDB(관계형
+  데이터베이스)를 이용한 애플리케이션"을 말한다. 정적인 컨텐츠는 클라이언트 머신의 웹 브라우저가 네트워크에 있는 웹 서버로부터 요청한
+  HTML을 읽어와 표시한다.
+publishedAt: '2017-05-29'
+updatedAt: '2017-05-29'
+tags:
+  - 기록
+  - Archive
+  - Web Application
+status: needs-review
+---
 전반적인 WEB Application에 대해서 정리해 보았다.
 
 정리 순서는 다음과 같다.

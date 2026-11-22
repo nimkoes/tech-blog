@@ -1,3 +1,20 @@
+---
+title: 'Go ''JOB SCRAPER'' : Channels Time & More Channels Baby (goroutine)'
+description: >-
+  원하는 결과가 나왔지만 결과가 나오기까지 시간이 생각보다 오래 걸린다. 그래서 이것을 개선하기 위해 goroutine 을 적용할 계획을
+  세워보려 한다. 지금까지 작성한 코드의 실행 흐름은 다음과 같다. 생각해보면 각각의 모든 작업들은 서로 모두 독립된 작업이다. 그래서 만약
+  getPage 와 extractJob function 이 동시에 처리할 수 있다면 단순한 계산으로 250배 빨라질 수 있는 여지가 있는
+  셈이다.
+publishedAt: '2021-05-30'
+updatedAt: '2021-05-30'
+tags:
+  - Go
+  - Job Scraper
+  - Goroutine
+  - Channel
+  - Web Scraping
+status: needs-review
+---
 원하는 결과가 나왔지만 결과가 나오기까지 시간이 생각보다 오래 걸린다.
 
 그래서 이것을 개선하기 위해 goroutine 을 적용할 계획을 세워보려 한다.

@@ -3,11 +3,29 @@ import remarkParse from 'remark-parse';
 import { visit } from 'unist-util-visit';
 import type { TocItem } from '~/types/content';
 
-export function generateTOC(markdown: string): { toc: TocItem[]; idMap: Record<string, string> } {
+interface TocResult {
+  toc: TocItem[];
+  idMap: Record<string, string>;
+  definitionHeadingMap: Record<string, true>;
+}
+
+function isDefinitionSection(text: string) {
+  const compactText = text.replace(/\s+/g, '');
+  return (
+    compactText.includes('용어') ||
+    /별역할$/.test(compactText) ||
+    /개념(?:정리|요약)$/.test(compactText) ||
+    /^glossary$/i.test(text.trim())
+  );
+}
+
+export function generateTOC(markdown: string): TocResult {
   const tree = unified().use(remarkParse).parse(markdown);
   const toc: TocItem[] = [];
   const idMap: Record<string, string> = {};
+  const definitionHeadingMap: Record<string, true> = {};
   const seenByKey: Record<string, number> = {};
+  let definitionSectionLevel: number | null = null;
 
   const readText = (node: any): string => {
     if (!node) return '';
@@ -31,11 +49,6 @@ export function generateTOC(markdown: string): { toc: TocItem[]; idMap: Record<s
 
   visit(tree, 'heading', (node: any) => {
     const level = node.depth;
-    // Long-form technical posts are easier to scan with h2/h3-only TOC.
-    if (level < 2 || level > 3) {
-      return;
-    }
-
     const text = normalizeText(readText(node));
     if (!text) {
       return;
@@ -44,13 +57,31 @@ export function generateTOC(markdown: string): { toc: TocItem[]; idMap: Record<s
     const baseKey = `${level}_${text}`;
     const occurrence = (seenByKey[baseKey] || 0) + 1;
     seenByKey[baseKey] = occurrence;
+    const headingKey = `${baseKey}__${occurrence}`;
 
-    const id = `${level}_${toc.length + 1}`;
-    toc.push({ level, text, id });
-    idMap[`${baseKey}__${occurrence}`] = id;
+    if (definitionSectionLevel !== null && level <= definitionSectionLevel) {
+      definitionSectionLevel = null;
+    }
+
+    if (isDefinitionSection(text)) {
+      definitionSectionLevel = level;
+    } else if (definitionSectionLevel !== null && level > definitionSectionLevel) {
+      definitionHeadingMap[headingKey] = true;
+      return;
+    }
+
+    // Markdown h1/h2 become the document map's major section and its children.
+    if (level < 1 || level > 2) {
+      return;
+    }
+
+    const tocLevel = level + 1;
+    const id = `${tocLevel}_${toc.length + 1}`;
+    toc.push({ level: tocLevel, text, id });
+    idMap[headingKey] = id;
   });
 
-  return { toc, idMap };
+  return { toc, idMap, definitionHeadingMap };
 }
 
 export function generateTOCMarkdown(toc: TocItem[]): string {

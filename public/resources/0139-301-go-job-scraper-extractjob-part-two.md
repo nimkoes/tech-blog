@@ -1,3 +1,17 @@
+---
+title: 'Go ''JOB SCRAPER'' : extractJob part two'
+description: >-
+  지난번에 이쁘지않게(?) 출력된 결과를 보기 좋게 정리를 하면서 시작 하려 한다. Go 의 strings 에 대한 document 를 보면
+  사용할 수 있는 다양한 function 들이 있다. 그 중에 Trim, Fields, Join 을 사용해서 다음과 같은 function 을
+  만들었다.
+publishedAt: '2021-05-29'
+updatedAt: '2021-05-29'
+tags:
+  - Go
+  - Job Scraper
+  - Web Scraping
+status: needs-review
+---
 지난번에 이쁘지않게(?) 출력된 결과를 보기 좋게 정리를 하면서 시작 하려 한다.
 
 [Go 의 strings 에 대한 document](https://golang.org/pkg/strings/) 를 보면 사용할 수 있는 다양한 function 들이 있다.

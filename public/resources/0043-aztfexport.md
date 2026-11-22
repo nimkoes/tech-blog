@@ -1,3 +1,18 @@
+---
+title: 'Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기'
+description: >-
+  이 글에서는 기존 Azure 리소스를 Terraform 으로 관리할 수 있도록 해주는 도구인 Aztfexport 에 대해 살펴보겠습니다. 이
+  도구가 무엇인지, 무엇을 할 수 있는지, 그리고 일반적인 사용 흐름(workflow)은 어떤지를 설명한 후, 실제 사용 예제와 함께 단계별
+  설정 튜토리얼로 넘어가겠습니다. Aztfexport 는 Microsoft 에서 개발한 오픈소스 내보내기(export) 도구입니다.
+publishedAt: '2025-06-11'
+updatedAt: '2025-06-11'
+tags:
+  - infra
+  - terraform
+  - azure
+  - aztfexport
+status: published
+---
 # 개요
 
 이 글에서는 기존 Azure 리소스를 Terraform 으로 관리할 수 있도록 해주는 도구인 `Aztfexport` 에 대해 살펴보겠습니다.

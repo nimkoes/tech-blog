@@ -1,3 +1,17 @@
+---
+title: 'Go ''BANK & DICTIONARY PROJECTS'' : Methods part One'
+description: >-
+  Go 에는 function 이외에 method 개념이 있다. 지금까지 알아낸 내용을 기준으로 method 는 struct 와 연관이 있다.
+  마치 java 에서 멤버 필드의 값을 조작하기 위해 method 를 추가 하는 것처럼, struct 의 값을 조작하기 위해 function
+  을 정의 하는데, 이 때 사용하는 function 을 method 라고 하는것 같다. 형태는 function 과 매우 유사하다.
+publishedAt: '2021-05-19'
+updatedAt: '2021-05-19'
+tags:
+  - Go
+  - Bank & Dictionary
+  - Method
+status: needs-review
+---
 Go 에는 function 이외에 method 개념이 있다.
 
 지금까지 알아낸 내용을 기준으로 method 는 struct 와 연관이 있다.

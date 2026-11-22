@@ -1,3 +1,18 @@
+---
+title: '11주차 : Enum'
+description: >-
+  Enum을 '열거형' 또는 Enumeration 또는 상수집합 이라고도 부른다. 상수 목록이 필요해서 class 나 interface 를
+  활용 하는것을 본 적이 있다. 하지만 class 나 interface 는 그런 용도로 사용하라고 만들어진 것이 아니기 때문에 이런 사용을
+  지양해야 한다. 가장 단순한 형태의 enum 클래스는 다음과 같이 정의할 수 있다. class 대신 enum 키워드를 사용해서 만들어주면
+  된다.
+publishedAt: '2021-05-01'
+updatedAt: '2021-05-01'
+tags:
+  - Java
+  - live study
+  - 시리즈
+status: needs-review
+---
 ## 자바의 열거형에 대해 학습하세요.
 
 ---

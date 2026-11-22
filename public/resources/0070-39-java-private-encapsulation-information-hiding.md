@@ -1,3 +1,18 @@
+---
+title: 'java 접근 제한자와 가시성, private을 통한 encapsulation과 information hiding'
+description: >-
+  다른 언어에도 있지만, 이 '접근 제한자'라는 개념이 있다. 단어에서도 느껴지듯 내가 아닌 다른 곳(혹은 것)에서의 접근을 제한하겠다는
+  의미이다. 모두에게 공개하지 않겠다는 말. 보통 네가지 종류의 접근 제한자가 있다. > 접근을 제한하지 않는다. 모두의 접근을 허용한다.
+  그래서 보통 클래스의 멤버 메소드는 이 public을 사용해서 작성한다. 왜? 생각해보면 단순하다.
+publishedAt: '2017-05-25'
+updatedAt: '2017-05-25'
+tags:
+  - Java
+  - 단편
+  - Encapsulation
+  - information hiding
+status: needs-review
+---
 다른 언어에도 있지만, 이 '접근 제한자'라는 개념이 있다.
 
 단어에서도 느껴지듯 내가 아닌 다른 곳(혹은 것)에서의 접근을 제한하겠다는 의미이다.

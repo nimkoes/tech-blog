@@ -1,3 +1,18 @@
+---
+title: '[chap.05] 필터 상속과 요청 전파'
+description: >-
+  이처럼 공통 로직을 분리하고, 로그인 방식에 따라 다른 필터를 구현할 수 있다. Spring Security 의 필터는 Servlet
+  Filter 인터페이스를 기반으로 동작하며, 이를 확장한 두 가지 중요한 추상 클래스가 있다. GenericFilterBean 코드 구조
+  서블릿 기반의 필터 인터페이스를 확장하여 Spring 환경에서 사용 가능하도록 설계 되었다.
+publishedAt: '2025-03-08'
+updatedAt: '2025-03-08'
+tags:
+  - Spring Security
+  - SecurityFilterChain
+  - GenericFilterBean
+  - OncePerRequestFilter
+status: published
+---
 # 필터 상속과 요청 전파
 
 ## SecurityFilterChain 의 필터

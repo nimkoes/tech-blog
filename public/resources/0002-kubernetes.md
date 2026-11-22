@@ -1,3 +1,16 @@
+---
+title: '[chap.01] Kubernetes 사용 이유'
+description: >-
+  원활한 서비스 제공을 위해 필요한 자원을 미리 준비하는 것은 비용과 관리 측면에서 어려움이 있다. A, B, C 각 서비스는 시간대 별로
+  필요한 자원이 유동적으로 바뀌지만, 서버 자원을 동적으로 변경할 수 없어 최대 부하를 견딜 수 있는 자원을 미리 준비시켜야 한다. 각
+  서비스별 장애 상황에 대비해 최소 하나의 백업 서버가 필요하기 때문에 3대의 서버가 추가로 필요하다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - introduce
+status: published
+---
 원활한 서비스 제공을 위해 필요한 자원을 미리 준비하는 것은 비용과 관리 측면에서 어려움이 있다.
 
 ![0002-01](/tech-blog/resources/images/kubernetes/0002-01.png)

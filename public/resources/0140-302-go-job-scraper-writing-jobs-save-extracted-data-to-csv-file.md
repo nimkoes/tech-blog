@@ -1,3 +1,18 @@
+---
+title: 'Go ''JOB SCRAPER'' : Writing Jobs, save extracted data to ''csv'' file'
+description: >-
+  이번에는 추출한 정보를 csv 파일로 저장 해보자. Go 에는 csv 관련 패키지가 있다. csv 파일을 만드는 writeJobs
+  function 을 다음과 같이 만든다. 이 코드를 실행하면 'jobs.csv' 파일을 만들고, 생성된 파일을 열어보면 다음과 같이
+  header 에 정의한 내용이 작성되어 있는것을 볼 수 있다.
+publishedAt: '2021-05-29'
+updatedAt: '2021-05-29'
+tags:
+  - Go
+  - Job Scraper
+  - Web Scraping
+  - CSV
+status: needs-review
+---
 이번에는 추출한 정보를 csv 파일로 저장 해보자.
 
 [Go 에는 csv 관련 패키지가 있다.](https://golang.org/pkg/encoding/csv/#example_Writer)

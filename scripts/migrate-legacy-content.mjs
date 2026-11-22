@@ -892,6 +892,10 @@ function seriesOrder(seriesName) {
   return 0;
 }
 
+function seriesKind(seriesName) {
+  return ['단편', '미분류', 'Archive', '기타'].includes(seriesName) ? 'folder' : 'series';
+}
+
 function migrate() {
   if (!fs.existsSync(LEGACY_ROOT)) {
     throw new Error(`legacy root not found: ${LEGACY_ROOT}`);
@@ -1007,6 +1011,7 @@ function migrate() {
       return {
         id: seriesId,
         displayName: seriesName,
+        kind: seriesKind(seriesName),
         children: postNodes,
       };
     });
@@ -1014,6 +1019,7 @@ function migrate() {
     rootNode.children.push({
       id: categoryId,
       displayName: topicDisplayName(topicKey),
+      kind: 'category',
       children: seriesNodes,
     });
   });

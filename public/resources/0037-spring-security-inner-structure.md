@@ -1,3 +1,13 @@
+---
+title: '[chap.18] RequestCacheAwareFilter'
+description: '커스텀 SecurityFilterChain 에서는 기본적으로 활성화되어 있으며, 필요한 경우 다음과 같이 비활성화할 수 있다'
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - RequestCacheAwareFilter
+status: published
+---
 # RequestCacheAwareFilter
 
 ## RequestCacheAwareFilter 목적

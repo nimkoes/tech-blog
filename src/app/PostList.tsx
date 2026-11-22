@@ -20,6 +20,8 @@ interface PostListProps {
   initialPosts: PostMeta[];
 }
 
+const PAGE_SIZE = 18;
+
 function parseTagQuery(rawTags: string | null, allowedTags: Set<string>) {
   if (!rawTags) return [];
   return Array.from(
@@ -46,6 +48,7 @@ export default function PostList({ initialPosts }: PostListProps) {
   // useSearchParams()는 정적 export에서 페이지 전체를 CSR로 강등시키므로,
   // 목록이 프리렌더되도록 쿼리스트링은 mount 이후 window.location에서 읽는다.
   const [tagParam, setTagParam] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   useEffect(() => {
     const readTagsFromLocation = () => {
@@ -109,21 +112,37 @@ export default function PostList({ initialPosts }: PostListProps) {
     [posts, selectedTags]
   );
 
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedTagsKey]);
+
+  const visiblePosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = visiblePosts.length < filteredPosts.length;
+
   const getIsRecentlyUpdated = (lastModifiedDate: string) => {
     const modifiedAt = new Date(lastModifiedDate);
     const now = new Date();
     const diffTime = now.getTime() - modifiedAt.getTime();
     const diffDays = diffTime / (1000 * 60 * 60 * 24);
-    return diffDays <= 7;
+    return diffDays >= 0 && diffDays <= 7;
   };
 
   return (
     <>
+      <div className={styles.sectionHeading}>
+        <div>
+          <p>Archive</p>
+          <h2>최근 업데이트</h2>
+        </div>
+        <Link href="/tags" className={styles.allTagsLink}>주요 토픽 보기</Link>
+      </div>
       <div className={styles.filterSection}>
         <div className={styles.filterSummary}>
           <strong>{filteredPosts.length}</strong>개의 문서
           {selectedTags.length > 0 && (
-            <span className={styles.filterSummaryMeta}>선택 태그 {selectedTags.length}개 적용 중</span>
+            <span className={styles.filterSummaryMeta}>
+              선택 태그 {selectedTags.length}개 중 하나라도 포함
+            </span>
           )}
         </div>
         {selectedTags.length > 0 && (
@@ -163,22 +182,24 @@ export default function PostList({ initialPosts }: PostListProps) {
         </div>
       ) : (
         <div className={styles.postList}>
-          {filteredPosts.map(post => (
+          {visiblePosts.map(post => (
             <article key={post.fileName} className={styles.postCard}>
-              <h2 className={styles.postTitle}>
+              <h3 className={styles.postTitle}>
                 <Link href={`/post/${post.fileName}/`}>
                   {post.title}
                   {getIsRecentlyUpdated(post.lastModifiedDate) && (
                     <span className={styles.newBadge}>NEW</span>
                   )}
                 </Link>
-              </h2>
+              </h3>
+              <p className={styles.postDescription}>{post.description}</p>
               <div className={styles.postMeta}>
                 <DateTooltip regDate={post.regDate} lastModifiedDate={post.lastModifiedDate}>
                   <time className={styles.postDate}>
                     최종 수정 {post.lastModifiedDate}
                   </time>
                 </DateTooltip>
+                <span className={styles.readingTime}>약 {post.readingTime}분</span>
 
                 <div className={styles.postTags}>
                   {post.tags.map(tag => (
@@ -196,6 +217,18 @@ export default function PostList({ initialPosts }: PostListProps) {
               </div>
             </article>
           ))}
+        </div>
+      )}
+      {hasMore && (
+        <div className={styles.loadMoreArea}>
+          <p>{visiblePosts.length} / {filteredPosts.length}개 표시</p>
+          <button
+            type="button"
+            className={styles.loadMoreButton}
+            onClick={() => setVisibleCount(count => count + PAGE_SIZE)}
+          >
+            문서 더 보기
+          </button>
         </div>
       )}
     </>

@@ -1,60 +1,255 @@
-details summary {
-  cursor: pointer;
-  font-size: var(--body-small);
-}
-
-details ul {
-  font-size: var(--body-small);
-  padding: 0 0 0 1.5rem !important;
-}
-
-@media (max-width: 768px) {
-  details summary {
-    font-size: var(--body-xs);
-  }
-  
-  details ul {
-    font-size: var(--body-xs);
-  }
-}
-
-details ul li {
-  margin: 0.15em 0;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-.tocCard {
-  background: var(--surface-raised);
-  border-radius: 5px;
-  padding: 0.5rem 0.5rem 0 0.7rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid var(--border-strong);
+.readingNavigator {
+  position: fixed;
+  z-index: 105;
+  top: 50%;
+  right: max(1rem, calc((100vw - 1180px) / 2));
+  width: 190px;
+  min-height: 62px;
+  transform: translateY(-50%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--background) 92%, transparent);
   color: var(--text);
-}
-
-.tocCard details {
-  margin-bottom: 1rem;
-}
-
-.tocList {
-  list-style: disc;
-  padding-left: 1.2rem;
-}
-
-.tocCard a {
-  text-decoration: underline;
+  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.14);
+  backdrop-filter: blur(14px);
+  padding: 0.68rem 0.75rem 0.78rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.58rem;
+  text-align: left;
   cursor: pointer;
-  color: inherit;
+  overflow: hidden;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+
+  &:hover {
+    border-color: var(--primary);
+    transform: translateY(-50%) translateX(-2px);
+    box-shadow: 0 14px 40px rgba(2, 6, 23, 0.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
 }
 
-.tocCard a.tocLinkActive {
+.readingNavigatorIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--hover);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.readingNavigatorText {
+  min-width: 0;
+  display: grid;
+  gap: 0.12rem;
+}
+
+.readingNavigatorEyebrow {
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.readingNavigatorSection {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--ui-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.readingNavigatorTrack {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--border);
+
+  span {
+    display: block;
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.12s linear;
+  }
+}
+
+.documentMapOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(2, 6, 23, 0.42);
+  backdrop-filter: blur(4px);
+}
+
+.documentMap {
+  position: absolute;
+  top: 72px;
+  right: max(1rem, calc((100vw - 1180px) / 2));
+  bottom: 28px;
+  width: min(380px, calc(100vw - 2rem));
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.28);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: documentMapIn 0.2s ease-out;
+}
+
+.documentMapHandle {
+  display: none;
+}
+
+.documentMapHeader {
+  padding: 1rem 1rem 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+
+  p {
+    margin: 0 0 0.2rem;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: var(--body-large);
+  }
+
+  button {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--primary);
+      color: var(--text);
+      background: var(--hover);
+    }
+  }
+}
+
+.documentMapProgress {
+  height: 3px;
+  margin: 0 1rem 0.7rem;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--primary);
+    transition: width 0.12s linear;
+  }
+}
+
+.documentMapList,
+.documentMapChildren {
+  list-style: none;
+}
+
+.documentMapList {
+  margin: 0;
+  padding: 0.15rem 0.75rem 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.documentMapList > li {
+  margin: 0.16rem 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.documentMapList > li > a {
+  min-height: 44px;
+  padding: 0.6rem 0.65rem;
+  display: grid;
+  grid-template-columns: 1.8rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 11px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: var(--body-small);
+  line-height: var(--line-height-tight);
+
+  > span {
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &:hover {
+    background: var(--hover);
+  }
+}
+
+.documentMapGroupActive {
+  border-color: var(--border) !important;
+  background: var(--hover);
+
+  > a {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+.documentMapList a[aria-current='location'] {
   color: var(--primary);
   font-weight: var(--font-weight-semibold);
-  text-decoration-color: var(--primary);
+}
+
+.documentMapChildren {
+  margin: 0;
+  padding: 0 0.55rem 0.55rem 2.8rem;
+}
+
+.documentMapChildren li {
+  margin: 0;
+}
+
+.documentMapChildren a {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 0.5rem;
+  border-left: 2px solid var(--border);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--ui-small);
+  line-height: var(--line-height-tight);
+
+  &:hover {
+    color: var(--text);
+    border-left-color: var(--primary);
+  }
 }
 
 .scrollTopBtn {
@@ -70,14 +265,90 @@ html {
   transition: opacity 0.2s;
   box-shadow: none;
 }
+
 .scrollTopBtn:hover {
   opacity: 1;
   box-shadow: none;
 }
 
-@media (max-width: 768px) {
-  .scrollTopBtn {
+@keyframes documentMapIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1180px) {
+  .readingNavigator {
+    top: auto;
     right: 1rem;
     bottom: 1rem;
+    width: min(330px, calc(100vw - 2rem));
+    min-height: 56px;
+    transform: none;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .documentMapOverlay {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .documentMap {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: min(78vh, 760px);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 20px 20px 0 0;
+    animation-name: documentMapUp;
+  }
+
+  .documentMapHandle {
+    display: block;
+    width: 42px;
+    height: 5px;
+    margin: 0.55rem auto 0;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.48);
+  }
+
+  .scrollTopBtn {
+    right: 1rem;
+    bottom: 5.5rem;
+  }
+}
+
+@keyframes documentMapUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .readingNavigator,
+  .readingNavigatorTrack span,
+  .documentMap,
+  .documentMapProgress span {
+    animation: none;
+    transition: none;
   }
 }

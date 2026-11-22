@@ -1,3 +1,16 @@
+---
+title: '[chap.20] AnonymousAuthenticationFilter'
+description: >-
+  AnonymousAuthenticationFilter AnonymousAuthenticationFilter 목적 이 필터는
+  DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 열네 번째에 위치한다. SecurityContext 가
+  비어있는 경우 익명 사용자 인증 정보를 제공하는 역할을 한다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - AnonymousAuthenticationFilter
+status: published
+---
 # AnonymousAuthenticationFilter
 
 ## AnonymousAuthenticationFilter 목적

@@ -1,3 +1,16 @@
+---
+title: Go 의 Struct 기본 사용법
+description: >-
+  Struct 는 Object 와 유사 하면서 map 보다 조금 더 유연하다. C에서 봤던 구조체와 비슷한 느낌을 가지고 있는것 같다. 앞으로
+  학습 하면서 constructor 가 없는데, 직접 호출해야 한다는게 무슨 말인지 이해하는게 필요하다. 위 예제를 만들어 보면서 재밌었던건,
+  '사용 방법 2' 에서 값을 명시하지 않으면 그 타입의 기본 값을 자동으로 사용한다는 점이다.
+publishedAt: '2021-05-17'
+updatedAt: '2021-05-17'
+tags:
+  - Go
+  - Struct
+status: needs-review
+---
 Struct 는 Object 와 유사 하면서 map 보다 조금 더 유연하다.
 
 C에서 봤던 구조체와 비슷한 느낌을 가지고 있는것 같다.

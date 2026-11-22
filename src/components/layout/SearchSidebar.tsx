@@ -19,6 +19,16 @@ interface RankedPost {
   matchedTags: string[];
 }
 
+interface SearchDocument {
+  slug: string;
+  title: string;
+  description: string;
+  tags: string[];
+  headings: string[];
+  content: string;
+  updatedAt: string;
+}
+
 interface RankedTag {
   tag: string;
   count: number;
@@ -39,7 +49,11 @@ function normalize(text: string) {
   return text.trim().toLowerCase();
 }
 
-function buildPostScore(post: PostMeta, query: string): { score: number; matchedTags: string[] } {
+function buildPostScore(
+  post: PostMeta,
+  query: string,
+  searchDocument?: SearchDocument
+): { score: number; matchedTags: string[] } {
   if (!query) {
     return { score: 1, matchedTags: [] };
   }
@@ -69,16 +83,34 @@ function buildPostScore(post: PostMeta, query: string): { score: number; matched
     score += 24;
   }
 
+  if (searchDocument) {
+    const headings = searchDocument.headings.join(' ').toLowerCase();
+    const description = searchDocument.description.toLowerCase();
+    const content = searchDocument.content.toLowerCase();
+    const fullText = `${joined} ${headings} ${description} ${content}`;
+
+    if (headings.includes(query)) score += 50;
+    if (description.includes(query)) score += 35;
+    if (content.includes(query)) score += 16;
+    if (queryTokens.length > 1 && queryTokens.every(token => fullText.includes(token))) {
+      score += 30;
+    }
+  }
+
   return { score, matchedTags };
 }
 
 export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
   const { selectedTags, setSelectedTags, setToastMessage } = useTagContext();
 
   const [searchTerm, setSearchTerm] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
+  const [searchDocuments, setSearchDocuments] = useState<SearchDocument[]>([]);
+  const [isIndexLoading, setIsIndexLoading] = useState(false);
+  const [hasRequestedIndex, setHasRequestedIndex] = useState(false);
   const deferredTerm = useDeferredValue(normalize(searchTerm));
 
   const documents = useMemo(() => getAllDocuments(), []);
@@ -98,6 +130,11 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
     [tagCountMap]
   );
 
+  const searchDocumentMap = useMemo(
+    () => new Map(searchDocuments.map(document => [document.slug, document])),
+    [searchDocuments]
+  );
+
   const rankedPosts = useMemo<RankedPost[]>(() => {
     if (!deferredTerm) {
       return documents.slice(0, MAX_POST_RESULTS).map((item, index) => ({
@@ -109,13 +146,17 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
 
     return documents
       .map(item => {
-        const { score, matchedTags } = buildPostScore(item, deferredTerm);
+        const { score, matchedTags } = buildPostScore(
+          item,
+          deferredTerm,
+          searchDocumentMap.get(item.fileName)
+        );
         return { item, score, matchedTags };
       })
       .filter(entry => entry.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, MAX_POST_RESULTS);
-  }, [deferredTerm, documents]);
+  }, [deferredTerm, documents, searchDocumentMap]);
 
   const rankedTags = useMemo<RankedTag[]>(() => {
     if (!deferredTerm) {
@@ -233,6 +274,28 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
   }, [isOpen]);
 
   useEffect(() => {
+    if (!isOpen || hasRequestedIndex) return;
+
+    const controller = new AbortController();
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/tech-blog';
+    setHasRequestedIndex(true);
+    setIsIndexLoading(true);
+    fetch(`${basePath}/search-index.json`, { signal: controller.signal })
+      .then(response => {
+        if (!response.ok) throw new Error('검색 인덱스를 불러오지 못했습니다.');
+        return response.json() as Promise<SearchDocument[]>;
+      })
+      .then(setSearchDocuments)
+      .catch(error => {
+        if (error instanceof DOMException && error.name === 'AbortError') return;
+        setToastMessage('본문 검색 인덱스를 불러오지 못했습니다. 제목과 태그로 검색합니다.');
+      })
+      .finally(() => setIsIndexLoading(false));
+
+    return () => controller.abort();
+  }, [hasRequestedIndex, isOpen, setToastMessage]);
+
+  useEffect(() => {
     setActiveIndex(0);
   }, [deferredTerm, isOpen]);
 
@@ -243,6 +306,23 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
       if (event.key === 'Escape') {
         event.preventDefault();
         onClose();
+        return;
+      }
+
+      if (event.key === 'Tab') {
+        const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
         return;
       }
 
@@ -275,6 +355,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <section
+        ref={panelRef}
         id="search-sidebar"
         className={styles.panel}
         role="dialog"
@@ -285,7 +366,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
         <header className={styles.header}>
           <div>
             <h2 className={styles.title}>문서 검색</h2>
-            <p className={styles.subtitle}>제목, 태그, 문서 키워드로 빠르게 이동합니다.</p>
+            <p className={styles.subtitle}>제목, 태그, 목차와 본문을 검색합니다.</p>
           </div>
           <button type="button" className={styles.closeButton} onClick={onClose} aria-label="검색 닫기">
             <X size={20} />
@@ -302,6 +383,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
             value={searchTerm}
             onChange={event => setSearchTerm(event.target.value)}
             aria-activedescendant={activeItem?.id}
+            aria-label="문서 전체 검색"
           />
         </div>
 
@@ -350,6 +432,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                             <span key={`${id}:${tag}`} className={styles.metaTag}>{tag}</span>
                           ))}
                         </div>
+                        <p className={styles.resultDescription}>{entry.item.description}</p>
                       </button>
                     </li>
                   );
@@ -392,6 +475,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
         </div>
 
         <footer className={styles.footer}>
+          {isIndexLoading && <span>본문 검색 준비 중…</span>}
           <span><Command size={13} />⌘/Ctrl + K 검색 열기</span>
           <span>↑ ↓ 이동</span>
           <span><CornerDownLeft size={13} /> 실행</span>

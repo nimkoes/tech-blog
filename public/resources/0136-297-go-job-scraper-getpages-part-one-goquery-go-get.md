@@ -1,3 +1,18 @@
+---
+title: 'Go ''JOB SCRAPER'' : getPages part one, goquery, go get 오류 해결'
+description: >-
+  JOB SCRAPPER 프로젝트에서는 indeed 홈페이지를 활용한다. 아무 검색어를 넣고 검색을 해보자. 검색 결과 얼마나 많은 페이지가
+  있는지 알아내야 한다. 스크롤을 맨 아래로 내리면 페이징 처리 되어있는 것을 볼 수 있다. 그리고 주소창을 보면 'start' 라는
+  query parameter 가 있는 것을 확인할 수 있다.
+publishedAt: '2021-05-27'
+updatedAt: '2021-05-27'
+tags:
+  - Go
+  - Job Scraper
+  - Web Scraping
+  - goquery
+status: needs-review
+---
 JOB SCRAPPER 프로젝트에서는 [indeed 홈페이지](https://kr.indeed.com/?from=gnav-jobsearch--jasx)를 활용한다.
 
 아무 검색어를 넣고 검색을 해보자. 검색 결과 얼마나 많은 페이지가 있는지 알아내야 한다.

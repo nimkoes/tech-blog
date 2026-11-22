@@ -1,3 +1,16 @@
+---
+title: Go 개발 환경 설정과 Hello World (using 'VS Code')
+description: >-
+  Go 를 설치하기 위해 다운로드 사이트에 접속 한다. 'Download Go' 버튼을 클릭한다. OS 별로 설치 파일이 다른데 현재 윈도우
+  플랫폼을 사용하고 있기 때문에 'Microsoft Windows' 를 클릭 했다. 페이지가 이동 하면서 자동으로 다운로드가 시작 되었다.
+  다운받은 msi 프로그램을 실행해서 Go를 설치 했다.
+publishedAt: '2021-05-16'
+updatedAt: '2021-05-16'
+tags:
+  - Go
+  - Environment
+status: needs-review
+---
 [Go 를 설치하기 위해 다운로드 사이트에 접속 한다.](https://golang.org/)
 
 ![0109-270-go-hello-world-using-vs-code-img-01.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-01.jpg)

@@ -37,7 +37,6 @@ body {
   background-color: var(--background);
   color: var(--text);
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   font-weight: var(--font-weight-normal);
   margin: 0;
@@ -47,9 +46,14 @@ body {
   font-feature-settings: "liga" 0;
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   position: relative;
   overflow-y: auto;
+  font-size: var(--font-size-base);
 }
 
 main {

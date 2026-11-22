@@ -1,3 +1,16 @@
+---
+title: '[chap.08] WebAsyncManagerIntegrationFilter'
+description: >-
+  WebAsyncManagerIntegrationFilter WebAsyncManagerIntegrationFilter 목적 이 필터는
+  DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 두 번째에 위치한다. 비동기 요청이 발생할 경우, 기존의
+  SecurityContext 를 새로운 비동기 쓰레드에서도 동일하게 유지할 수 있도록 도와준다.
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - WebAsyncManagerIntegrationFilter
+status: published
+---
 # WebAsyncManagerIntegrationFilter
 
 ## WebAsyncManagerIntegrationFilter 목적

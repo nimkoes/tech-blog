@@ -1,3 +1,18 @@
+---
+title: 'Go ''URL CHECKER & GO ROUTINES'' : Goroutines'
+description: >-
+  Go 에는 멀티스레드를 생성해서 실행하는게 정말 간단한 것 같다. 예를 들어 Java 같은 경우 Runnable 인터페이스를 구현 한다던가
+  하는 작업이 필요하고, 그렇게 하려다보면 장황한 코드가 작성 되기도 한다. 물론 람다식을 쓰면 좀 나아지겠지만 말이다. 다른 실행 프로그램과
+  구분하기 위해 main goroutine.go 파일을 새롭게 작성 했다.
+publishedAt: '2021-05-23'
+updatedAt: '2021-05-23'
+tags:
+  - Go
+  - URL Checker
+  - Goroutine
+  - HTTP
+status: needs-review
+---
 Go 에는 멀티스레드를 생성해서 실행하는게 정말 간단한 것 같다.
 
 예를 들어 Java 같은 경우 Runnable 인터페이스를 구현 한다던가 하는 작업이 필요하고, 그렇게 하려다보면 장황한 코드가 작성 되기도 한다. 물론 람다식을 쓰면 좀 나아지겠지만 말이다.

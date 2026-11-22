@@ -1,3 +1,18 @@
+---
+title: '3주차 : 연산자'
+description: >-
+  각 주제에 대해 본격적으로 알아보기 전에 연산자 관련하여 공통적인 내용에 대해 한 번 정리하려 한다. 연산 (operations) :
+  프로그램에서 데이터를 처리하여 결과를 산출하는 것 연산자 (operator) : 연산에 사용되는 표시나 기호 피연산자 (operand) :
+  연산의 대상이 되는 데이터 연산식 (expressions) : 연산자와 피연산자로 연산의 과정을 기술한 것 ( 한빛 미디어, 이것이 자바다.
+publishedAt: '2021-05-01'
+updatedAt: '2021-05-01'
+tags:
+  - Java
+  - live study
+  - 시리즈
+  - Operator
+status: needs-review
+---
 ## 자바가 제공하는 다양한 연산자를 학습하세요.
 
 ---

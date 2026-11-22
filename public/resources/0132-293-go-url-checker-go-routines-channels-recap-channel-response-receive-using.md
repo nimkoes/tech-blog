@@ -1,3 +1,22 @@
+---
+title: >-
+  Go 'URL CHECKER & GO ROUTINES' : Channels Recap, channel response receive
+  using loop (blocking)
+description: >-
+  이번에는 Channel 로 주고 받는 데이터를 bool 타입이 아닌 string 타입을 사용해보자. 아래는 수정한 main
+  goroutine.go 파일이다. 이전 예제와 달라진 부분은 people 배열의 요소 수를 5로 늘렸고 channel 을 통해 주고 받을
+  데이터의 타입을 string 으로 바꾼 것과 channel 이 응답 받을 데이터를 기다리는 것을 확인하기 위해 (blocking 하는 것을
+  확인하기 위해) '<- c'…
+publishedAt: '2021-05-23'
+updatedAt: '2021-05-23'
+tags:
+  - Go
+  - URL Checker
+  - Goroutine
+  - Channel
+  - HTTP
+status: needs-review
+---
 이번에는 Channel 로 주고 받는 데이터를 bool 타입이 아닌 string 타입을 사용해보자.
 
 아래는 수정한 main_goroutine.go 파일이다.

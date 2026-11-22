@@ -1,3 +1,18 @@
+---
+title: 'Go ''URL CHECKER & GO ROUTINES'' : hitURL, HTTP GET REQUEST'
+description: >-
+  이번 시간부터 실행활에 적용할 수 있는 예제를 만들어 본다. 우선 임의의 URL 에 접속하는 예제를 만든다. part3 에 대한 폴더를
+  만들고 그 안에 main.go 를 다음과 같이 작성한다. 코드에 대한 설명은 주석에 작성하였기 때문에 이해하는데 별다른 어려움은 없을것
+  같다. 실행 결과는 다음과 같다. 생각보다 실행 결과가 빠르지 않았지만, 멀티쓰레드로 처리하면 지금보다 많이 빨라질 것 같다.
+publishedAt: '2021-05-22'
+updatedAt: '2021-05-22'
+tags:
+  - Go
+  - URL Checker
+  - Goroutine
+  - HTTP
+status: needs-review
+---
 이번 시간부터 실행활에 적용할 수 있는 예제를 만들어 본다.
 
 우선 임의의 URL 에 접속하는 예제를 만든다.

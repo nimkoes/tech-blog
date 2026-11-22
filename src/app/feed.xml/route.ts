@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { getBasePath, getCategoryPosts, getPostContent, getPostUrl, getSiteOrigin } from '~/utils/contentRepository';
 import { getPostSeoDescription } from '~/utils/seo';
 
+export const dynamic = 'force-static';
+
 export async function GET() {
   const siteOrigin = getSiteOrigin();
   const basePath = getBasePath();

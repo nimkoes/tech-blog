@@ -1,3 +1,13 @@
+---
+title: '[chap.17] BasicAuthenticationFilter'
+description: Form 인증 Basic 인증 기본 형식 예시
+publishedAt: '2025-03-09'
+updatedAt: '2025-03-09'
+tags:
+  - Spring Security
+  - BasicAuthenticationFilter
+status: published
+---
 # BasicAuthenticationFilter
 
 ## BasicAuthenticationFilter 목적

@@ -11,7 +11,7 @@ import { SITE_NAME } from '~/utils/seo';
 import styles from '../tags.module.scss';
 
 interface TagPageProps {
-  params: { tag: string };
+  params: Promise<{ tag: string }>;
 }
 
 export function generateStaticParams() {
@@ -25,8 +25,9 @@ export function generateStaticParams() {
   return Array.from(params.values());
 }
 
-export function generateMetadata({ params }: TagPageProps): Metadata {
-  const result = getPostsByTagSlug(params.tag);
+export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
+  const { tag } = await params;
+  const result = getPostsByTagSlug(tag);
 
   if (!result) {
     return {
@@ -39,19 +40,21 @@ export function generateMetadata({ params }: TagPageProps): Metadata {
     title: `${result.tag} 태그`,
     description: `${SITE_NAME}에서 '${result.tag}' 태그가 달린 글 ${result.posts.length}편을 모아 봅니다.`,
     alternates: {
-      canonical: `${getSiteOrigin()}${getBasePath()}/tags/${decodeURIComponent(params.tag)}`,
+      canonical: `${getSiteOrigin()}${getBasePath()}/tags/${decodeURIComponent(tag)}`,
     },
+    robots: result.posts.length < 2 ? { index: false, follow: true } : undefined,
   };
 }
 
-export default function TagPage({ params }: TagPageProps) {
-  const result = getPostsByTagSlug(params.tag);
+export default async function TagPage({ params }: TagPageProps) {
+  const { tag: tagSlug } = await params;
+  const result = getPostsByTagSlug(tagSlug);
 
   if (!result) {
     notFound();
   }
 
-  const { tag, posts } = result;
+  const { tag, posts, sortMode } = result;
 
   return (
     <main className={styles.container}>
@@ -61,7 +64,13 @@ export default function TagPage({ params }: TagPageProps) {
         <span aria-current="page">{tag}</span>
       </nav>
       <h1 className={styles.title}>#{tag}</h1>
-      <p className={styles.description}>{posts.length}편의 글이 있습니다.</p>
+      <p className={styles.description}>
+        {`${posts.length}편의 글이 있습니다. · ${
+          sortMode === 'series'
+            ? '시리즈 순서로 정렬했습니다.'
+            : '최근 업데이트 순으로 정렬했습니다.'
+        }`}
+      </p>
       <ul className={styles.postList}>
         {posts.map(post => (
           <li key={post.fileName}>

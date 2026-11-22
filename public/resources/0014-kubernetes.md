@@ -1,3 +1,19 @@
+---
+title: '[chap.13] Pod - ReadinessProbe, LivenessProb'
+description: >-
+  Pod 를 만들면 그 안에 Container 가 생기고 Pod 와 Container 의 상태가 Running 이 되면서 그 안에 있는
+  Application 도 정상적으로 구동이 되고 있을 것이다. 그리고 Service 에 연결 되는데 이 Service 의 IP 가 외부에
+  노출되어 다수의 사용자에 의해 서비스가 이용 된다. 현재 하나의 Service 에 두 개의 Pod 가 연결되어 있고 트래픽이 반으로 나뉜다고
+  하자.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Pod
+  - ReadinessProbe
+  - LivenessProbe
+status: published
+---
 ![0014-01](/tech-blog/resources/images/kubernetes/0014-01.png)
 
 Pod 를 만들면 그 안에 Container 가 생기고 Pod 와 Container 의 상태가 Running 이 되면서 그 안에 있는 Application 도 정상적으로 구동이 되고 있을 것이다. 그리고

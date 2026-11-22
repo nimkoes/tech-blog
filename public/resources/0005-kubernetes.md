@@ -1,3 +1,19 @@
+---
+title: '[chap.04] Pod (Container, Label, NodeSchedule)'
+description: >-
+  Pod 안에는 하나의 독립 된 서비스를 구동할 수 있는 Container 들이 있다. 그리고 각 Container 들은 서비스가 연결될 수
+  있도록 port 를 가지고 있다. 하나의 Container 는 하나 이상의 port 를 가질 수 있지만, 하나의 Pod 내에서 같은 port
+  를 가지는 Container 는 존재할 수 없다.
+publishedAt: '2025-03-03'
+updatedAt: '2025-03-03'
+tags:
+  - Kubernetes
+  - Pod
+  - Container
+  - Label
+  - NodeSchedule
+status: published
+---
 ![0005-01](/tech-blog/resources/images/kubernetes/0005-01.png)
 
 # Pod

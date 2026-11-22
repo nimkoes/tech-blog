@@ -40,6 +40,8 @@
   font-size: 0.9em;
   cursor: pointer;
   padding: 0.05rem 0.45rem;
+  min-width: 56px;
+  min-height: 32px;
   border-radius: 4px;
   transition: background 0.15s, color 0.15s;
 }
@@ -89,8 +91,8 @@
   }
 
   .custom-codeblock-copy {
-    font-size: var(--ui-xs);
-    padding: 0.02rem 0.32rem;
+    font-size: var(--ui-small);
+    padding: 0.2rem 0.5rem;
   }
 
   .custom-codeblock-root pre {

@@ -1,3 +1,16 @@
+---
+title: '육각형, 헥사고날, 포트와 어댑터 아키텍처'
+description: >-
+  육각형 아키텍처(Hexagonal Architecture)는 소프트웨어를 비즈니스 로직과 외부 입출력으로 분리 하여 유연하고 테스트하기 쉬운
+  구조를 만들기 위한 아키텍처 패턴이다. 이 아키텍처는 Ports and Adapters 아키텍처라고도 불리며, 외부 세계와의 연결(입출력)을
+  플러그처럼 어댑터로 연결하는 방식을 사용한다.
+publishedAt: '2025-07-17'
+updatedAt: '2025-07-17'
+tags:
+  - theory
+  - architecture
+status: published
+---
 # 육각형 아키텍처(Hexagonal Architecture)란?
 
 육각형 아키텍처(Hexagonal Architecture)는 소프트웨어를 **비즈니스 로직과 외부 입출력으로 분리**하여 유연하고 테스트하기 쉬운 구조를 만들기 위한 아키텍처 패턴이다.  
