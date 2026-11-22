@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import useBodyScrollLock from "~/hooks/useBodyScrollLock";
 import { BookOpen, ChevronDown, ChevronRight, Folder, FolderOpen, Hash, Search, X } from "lucide-react";
 import styles from "./CategorySidebar.module.scss";
 import categoryData from "@/resources/category.json";
@@ -103,6 +104,7 @@ function CategoryTreeNode({ node, depth, expanded, searchActive, currentSlug, on
 }
 
 export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProps) {
+  useBodyScrollLock(isOpen);
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [isMobile, setIsMobile] = useState(false);
@@ -164,8 +166,6 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
     setMobileView("recent");
     setExpanded(new Set(findCategoryAncestorIds(categoryTree, currentSlug)));
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     requestAnimationFrame(() => inputRef.current?.focus());
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -194,7 +194,6 @@ export default function CategorySidebar({ isOpen, onClose }: CategorySidebarProp
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [categoryTree, currentSlug, isOpen, onClose]);

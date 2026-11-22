@@ -3,6 +3,7 @@
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { Command, CornerDownLeft, FileText, Search, Tag, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import useBodyScrollLock from '~/hooks/useBodyScrollLock';
 import { useTagContext } from '~/context/TagContext';
 import { getAllDocuments } from '~/utils/getAllDocuments';
 import type { PostMeta } from '~/types/content';
@@ -101,6 +102,7 @@ function buildPostScore(
 }
 
 export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
+  useBodyScrollLock(isOpen);
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -263,14 +265,8 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
   useEffect(() => {
     if (!isOpen) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
     setSearchTerm('');
     inputRef.current?.focus();
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
   }, [isOpen]);
 
   useEffect(() => {

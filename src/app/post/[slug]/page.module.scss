@@ -361,26 +361,26 @@
   }
 
   .markdown {
-    font-size: var(--body-base);
+    font-size: calc(var(--body-base) + var(--reader-font-adjust, 0px));
     line-height: var(--line-height-relaxed);
     padding: 0 0.1rem;
   }
 
   .markdown h1 {
-    font-size: var(--heading-5);
+    font-size: calc(var(--heading-5) + var(--reader-font-adjust, 0px));
   }
 
   .markdownH1 {
-    font-size: var(--heading-5);
+    font-size: calc(var(--heading-5) + var(--reader-font-adjust, 0px));
     scroll-margin-top: 86px;
   }
 
   .markdown h2 {
-    font-size: var(--body-large);
+    font-size: calc(var(--body-large) + var(--reader-font-adjust, 0px));
   }
 
   .markdown h3 {
-    font-size: var(--body-base);
+    font-size: calc(var(--body-base) + var(--reader-font-adjust, 0px));
   }
 
   .markdown h1,

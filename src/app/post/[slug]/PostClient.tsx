@@ -211,6 +211,9 @@ export default function PostClient({
     a: Anchor,
     img: Image,
   };
+  const hasInlineReferenceSection = /^#{1,6}\s+(?:공식\s+)?참고\s*자료\s*$/m.test(
+    postContent.content
+  );
 
   return (
     <div className={styles.container}>
@@ -253,9 +256,9 @@ export default function PostClient({
           {postContent.content}
         </ReactMarkdown>
       </article>
-      {postContent.sources.length > 0 && (
-        <aside className={styles.sources} aria-labelledby="official-sources-title">
-          <h2 id="official-sources-title">공식 참고 자료</h2>
+      {postContent.sources.length > 0 && !hasInlineReferenceSection && (
+        <aside className={styles.sources} aria-labelledby="reference-sources-title">
+          <h2 id="reference-sources-title">참고 자료</h2>
           <ul>
             {postContent.sources.map(source => (
               <li key={source}>
