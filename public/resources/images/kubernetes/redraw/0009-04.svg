@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="720" height="420" rx="16" fill="#f8fafc"/>
+
+  <!-- namespace -->
+  <rect x="270" y="30" width="200" height="370" rx="14" fill="#fefce8" stroke="#facc15" stroke-dasharray="6 4"/>
+  <text x="286" y="54" font-size="14" font-weight="700" fill="#a16207">Namespace</text>
+
+  <!-- LimitRange -->
+  <rect x="510" y="30" width="190" height="250" rx="10" fill="#ffedd5" stroke="#f97316"/>
+  <text x="605" y="54" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">LimitRange</text>
+  <g font-size="12" fill="#334155" font-family="Menlo,'JetBrains Mono',monospace">
+    <g font-weight="700">
+      <text x="524" y="80">min:</text>
+      <text x="524" y="120">max:</text>
+      <text x="524" y="160">maxLimitRequestRatio:</text>
+      <text x="524" y="200">defaultRequest:</text>
+      <text x="524" y="240">default:</text>
+    </g>
+    <text x="540" y="98">memory: 0.1Gi</text>
+    <text x="540" y="138">memory: 0.4Gi</text>
+    <text x="540" y="178">memory: 3</text>
+    <text x="540" y="218">memory: 0.1Gi</text>
+    <text x="540" y="258">memory: 0.2Gi</text>
+  </g>
+  <path d="M510 70H472" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- incoming Pods -->
+  <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+    <rect x="20" y="40" width="190" height="90" rx="12" fill="#22c55e"/><text x="115" y="62">Pod</text>
+    <rect x="20" y="160" width="190" height="90" rx="12" fill="#22c55e"/><text x="115" y="182">Pod</text>
+    <rect x="20" y="290" width="190" height="50" rx="12" fill="#22c55e"/><text x="115" y="320">Pod</text>
+  </g>
+  <g font-size="12" fill="#fff" font-family="Menlo,'JetBrains Mono',monospace">
+    <text x="34" y="90">requests.memory: 0.1Gi</text>
+    <text x="34" y="112">limits.memory: 0.5Gi</text>
+    <text x="34" y="210">requests.memory: 0.2Gi</text>
+    <text x="34" y="232">limits.memory: 0.4Gi</text>
+  </g>
+
+  <!-- rejected -->
+  <path d="M210 85H270" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="240" cy="85" r="12" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  <path d="M234 79l12 12M246 79l-12 12" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- accepted -->
+  <path d="M210 205H318" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M210 315H278" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Pods inside namespace -->
+  <rect x="320" y="185" width="100" height="40" rx="12" fill="#22c55e"/>
+  <text x="370" y="210" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="280" y="280" width="180" height="96" rx="12" fill="#22c55e"/>
+  <text x="370" y="302" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <g font-size="12" fill="#fff" font-family="Menlo,'JetBrains Mono',monospace">
+    <text x="292" y="330">requests.memory: 0.1Gi</text>
+    <text x="292" y="354">limits.memory: 0.2Gi</text>
+  </g>
+
+  <!-- step tags -->
+  <g font-size="12" font-weight="700" fill="#64748b">
+    <text x="270" y="22">3-1</text>
+    <text x="510" y="22">3-2</text>
+    <text x="20" y="34">3-3</text>
+    <text x="20" y="154">3-3'</text>
+    <text x="20" y="284">3-3'</text>
+  </g>
+</svg>

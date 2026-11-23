@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="484" viewBox="0 0 1000 484" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1000" height="484" rx="16" fill="#f8fafc"/>
+
+  <!-- headers -->
+  <g font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">
+    <rect x="187" y="20" width="160" height="28" rx="14" fill="#e2e8f0"/><text x="267" y="39">Virtual Machine</text>
+    <rect x="690" y="20" width="140" height="28" rx="14" fill="#e2e8f0"/><text x="760" y="39">Container</text>
+  </g>
+  <path d="M535 60V352" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- VM A -->
+  <rect x="36" y="60" width="230" height="198" rx="12" fill="#fff" stroke="#cbd5e1"/>
+  <text x="151" y="84" font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">A Service</text>
+  <g font-size="13" font-weight="700" text-anchor="middle" fill="#15803d">
+    <rect x="111" y="96" width="80" height="30" rx="10" fill="#fff" stroke="#22c55e"/><text x="151" y="116">Java</text>
+    <rect x="44" y="150" width="78" height="30" rx="10" fill="#fff" stroke="#22c55e"/><text x="83" y="170">Tomcat</text>
+    <rect x="178" y="150" width="82" height="30" rx="10" fill="#fff" stroke="#22c55e"/><text x="219" y="170">mongoDB</text>
+  </g>
+  <path d="M124 165H176" stroke="#64748b" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <path d="M151 165V128" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="46" y="196" width="210" height="52" rx="8" fill="#e2e8f0"/>
+  <text x="151" y="213" font-size="12" font-weight="700" text-anchor="middle" fill="#334155">Guest OS</text>
+  <g font-size="12" text-anchor="middle" fill="#334155">
+    <rect x="69" y="220" width="44" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="91" y="234">Linux</text>
+    <rect x="117" y="220" width="50" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="142" y="234">macOS</text>
+    <rect x="171" y="220" width="62" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="202" y="234">Windows</text>
+  </g>
+
+  <!-- VM B -->
+  <rect x="284" y="60" width="230" height="198" rx="12" fill="#fff" stroke="#cbd5e1"/>
+  <text x="399" y="84" font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">B Service</text>
+  <g font-size="13" font-weight="700" text-anchor="middle" fill="#15803d">
+    <rect x="312" y="96" width="88" height="30" rx="10" fill="#fff" stroke="#22c55e"/><text x="356" y="116">Node.js</text>
+    <rect x="400" y="150" width="88" height="30" rx="10" fill="#fff" stroke="#22c55e"/><text x="444" y="170">MariaDB</text>
+  </g>
+  <path d="M402 111H444V148" fill="none" stroke="#64748b" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <rect x="294" y="196" width="210" height="52" rx="8" fill="#e2e8f0"/>
+  <text x="399" y="213" font-size="12" font-weight="700" text-anchor="middle" fill="#334155">Guest OS</text>
+  <g font-size="12" text-anchor="middle" fill="#334155">
+    <rect x="317" y="220" width="44" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="339" y="234">Linux</text>
+    <rect x="365" y="220" width="50" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="390" y="234">macOS</text>
+    <rect x="419" y="220" width="62" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="450" y="234">Windows</text>
+  </g>
+
+  <path d="M151 264V296" stroke="#64748b" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <path d="M399 264V296" stroke="#64748b" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+
+  <!-- Hypervisor -->
+  <rect x="36" y="300" width="478" height="50" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <text x="56" y="331" font-size="16" font-weight="700" fill="#0f172a">Hypervisor</text>
+  <g font-size="12" text-anchor="middle" fill="#334155">
+    <rect x="240" y="313" width="84" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="282" y="329.5">VirtualBox</text>
+    <rect x="328" y="313" width="46" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="351" y="329.5">Xen</text>
+    <rect x="378" y="313" width="50" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="403" y="329.5">KVM</text>
+    <rect x="432" y="313" width="70" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="467" y="329.5">VMware</text>
+  </g>
+
+  <!-- Container side -->
+  <rect x="660" y="80" width="200" height="160" rx="12" fill="#fff" stroke="#22c55e" stroke-width="2"/>
+  <text x="760" y="168" font-size="22" font-weight="700" text-anchor="middle" fill="#15803d">Container</text>
+  <rect x="556" y="300" width="424" height="50" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <g font-size="13" font-weight="700" text-anchor="middle" fill="#334155">
+    <rect x="662" y="312" width="80" height="26" rx="13" fill="#fff" stroke="#94a3b8"/><text x="702" y="330">docker</text>
+    <rect x="750" y="312" width="56" height="26" rx="13" fill="#fff" stroke="#94a3b8"/><text x="778" y="330">rkt</text>
+    <rect x="814" y="312" width="60" height="26" rx="13" fill="#fff" stroke="#94a3b8"/><text x="844" y="330">LXC</text>
+  </g>
+
+  <!-- Host OS / Host Server -->
+  <rect x="20" y="366" width="960" height="40" rx="10" fill="#e0f2fe"/>
+  <text x="500" y="391" font-size="14" font-weight="700" text-anchor="middle" fill="#0369a1">Host OS</text>
+  <g font-size="12" text-anchor="middle" fill="#334155">
+    <rect x="790" y="374" width="50" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="815" y="390.5">Linux</text>
+    <rect x="846" y="374" width="58" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="875" y="390.5">macOS</text>
+    <rect x="910" y="374" width="62" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="941" y="390.5">Windows</text>
+  </g>
+  <rect x="20" y="420" width="960" height="44" rx="10" fill="#334155"/>
+  <text x="500" y="448" font-size="16" font-weight="700" text-anchor="middle" fill="#fff">Host Server</text>
+  <g fill="none" stroke="#fff" stroke-width="1.5">
+    <rect x="928" y="428" width="34" height="8" rx="2"/><rect x="928" y="438" width="34" height="8" rx="2"/><rect x="928" y="448" width="34" height="8" rx="2"/>
+  </g>
+</svg>

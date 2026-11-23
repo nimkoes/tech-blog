@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <rect width="640" height="400" rx="16" fill="#f8fafc"/>
+
+  <!-- namespace -->
+  <rect x="330" y="34" width="290" height="346" rx="14" fill="#fefce8" stroke="#facc15" stroke-dasharray="6 4"/>
+  <text x="346" y="58" font-size="14" font-weight="700" fill="#a16207">Namespace</text>
+
+  <!-- ResourceQuota -->
+  <rect x="350" y="84" width="250" height="82" rx="10" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="475" y="106" font-size="14" font-weight="700" fill="#1d4ed8" text-anchor="middle">ResourceQuota</text>
+  <g font-size="12" fill="#334155" font-family="Menlo,'JetBrains Mono',monospace">
+    <text x="366" y="130">requests.memory: 1Gi</text>
+    <text x="366" y="150">limits.memory: 1Gi</text>
+  </g>
+
+  <!-- Pod created (pod-3) -->
+  <rect x="380" y="212" width="210" height="112" rx="12" fill="#22c55e"/>
+  <text x="485" y="238" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Pod <tspan font-weight="400" font-size="13" fill="#dcfce7" font-family="Menlo,'JetBrains Mono',monospace">(pod-3)</tspan></text>
+  <g font-size="12" fill="#fff" font-family="Menlo,'JetBrains Mono',monospace">
+    <text x="396" y="276">requests.memory: 0.5Gi</text>
+    <text x="396" y="304">limits.memory: 0.5Gi</text>
+  </g>
+
+  <!-- Pod without spec (pod-2) -->
+  <rect x="30" y="60" width="160" height="64" rx="12" fill="#22c55e"/>
+  <text x="110" y="86" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <text x="110" y="108" font-size="13" fill="#dcfce7" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">(pod-2)</text>
+  <path d="M190 92H330" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="262" cy="92" r="12" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  <path d="M256 86l12 12M268 86l-12 12" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- Pod exceeding quota -->
+  <rect x="30" y="200" width="220" height="100" rx="12" fill="#22c55e"/>
+  <text x="140" y="226" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <g font-size="12" fill="#fff" font-family="Menlo,'JetBrains Mono',monospace">
+    <text x="46" y="258">requests.memory: 2Gi</text>
+    <text x="46" y="282">limits.memory: 2Gi</text>
+  </g>
+  <path d="M250 250H330" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="290" cy="250" r="12" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  <path d="M284 244l12 12M296 244l-12 12" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- step tags -->
+  <g font-size="12" font-weight="700" fill="#64748b">
+    <text x="330" y="26">2-1</text>
+    <text x="350" y="78">2-2</text>
+    <text x="30" y="54">2-3</text>
+    <text x="380" y="206">2-4</text>
+    <text x="30" y="194">2-4'</text>
+  </g>
+</svg>

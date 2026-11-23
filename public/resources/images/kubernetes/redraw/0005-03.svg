@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="392" viewBox="0 0 680 392" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <rect width="680" height="392" rx="16" fill="#f8fafc"/>
+
+  <!-- selector lines (behind pods) -->
+  <g fill="none" stroke-width="2">
+    <path d="M80 97H40V316M80 217H40" stroke="#3b82f6"/>
+    <path d="M150 258V292H550M350 258V292M550 258V316" stroke="#f97316"/>
+  </g>
+
+  <text x="60" y="42" font-size="12" font-weight="700" fill="#64748b">2-1</text>
+
+  <g font-size="12" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">
+    <!-- row 1 -->
+    <rect x="60" y="50" width="180" height="100" rx="12" fill="#22c55e"/>
+    <text x="150" y="74" font-size="14" font-weight="700" fill="#fff" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">Pod1</text>
+    <rect x="80" y="86" width="140" height="22" rx="11" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="150" y="101.5" fill="#1d4ed8" font-weight="700">type:web</text>
+    <rect x="80" y="116" width="140" height="22" rx="11" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="150" y="131.5" fill="#15803d">lo:dev</text>
+
+    <rect x="260" y="50" width="180" height="100" rx="12" fill="#22c55e"/>
+    <text x="350" y="74" font-size="14" font-weight="700" fill="#fff" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">Pod2</text>
+    <rect x="280" y="86" width="140" height="22" rx="11" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="350" y="101.5" fill="#15803d">type:db</text>
+    <rect x="280" y="116" width="140" height="22" rx="11" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="350" y="131.5" fill="#15803d">lo:dev</text>
+
+    <rect x="460" y="50" width="180" height="100" rx="12" fill="#22c55e"/>
+    <text x="550" y="74" font-size="14" font-weight="700" fill="#fff" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">Pod3</text>
+    <rect x="480" y="86" width="140" height="22" rx="11" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="550" y="101.5" fill="#15803d">type:server</text>
+    <rect x="480" y="116" width="140" height="22" rx="11" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="550" y="131.5" fill="#15803d">lo:dev</text>
+
+    <!-- row 2 -->
+    <rect x="60" y="170" width="180" height="100" rx="12" fill="#22c55e"/>
+    <text x="150" y="194" font-size="14" font-weight="700" fill="#fff" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">Pod4</text>
+    <rect x="80" y="206" width="140" height="22" rx="11" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="150" y="221.5" fill="#1d4ed8" font-weight="700">type:web</text>
+    <rect x="80" y="236" width="140" height="22" rx="11" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+    <text x="150" y="251.5" fill="#c2410c" font-weight="700">lo:production</text>
+
+    <rect x="260" y="170" width="180" height="100" rx="12" fill="#22c55e"/>
+    <text x="350" y="194" font-size="14" font-weight="700" fill="#fff" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">Pod5</text>
+    <rect x="280" y="206" width="140" height="22" rx="11" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="350" y="221.5" fill="#15803d">type:db</text>
+    <rect x="280" y="236" width="140" height="22" rx="11" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+    <text x="350" y="251.5" fill="#c2410c" font-weight="700">lo:production</text>
+
+    <rect x="460" y="170" width="180" height="100" rx="12" fill="#22c55e"/>
+    <text x="550" y="194" font-size="14" font-weight="700" fill="#fff" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">Pod6</text>
+    <rect x="480" y="206" width="140" height="22" rx="11" fill="#fff" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="550" y="221.5" fill="#15803d">type:server</text>
+    <rect x="480" y="236" width="140" height="22" rx="11" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+    <text x="550" y="251.5" fill="#c2410c" font-weight="700">lo:production</text>
+  </g>
+
+  <!-- services -->
+  <text x="60" y="310" font-size="12" font-weight="700" fill="#64748b">2-2</text>
+  <rect x="24" y="316" width="180" height="56" rx="12" fill="#0ea5e9" stroke="#3b82f6" stroke-width="2.5"/>
+  <text x="114" y="339" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Service</text>
+  <text x="114" y="360" font-size="12" text-anchor="middle" fill="#e0f2fe" font-family="Menlo,'JetBrains Mono',monospace">type: web</text>
+
+  <rect x="460" y="316" width="180" height="56" rx="12" fill="#0ea5e9" stroke="#f97316" stroke-width="2.5"/>
+  <text x="550" y="339" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Service</text>
+  <text x="550" y="360" font-size="12" text-anchor="middle" fill="#e0f2fe" font-family="Menlo,'JetBrains Mono',monospace">lo: production</text>
+</svg>

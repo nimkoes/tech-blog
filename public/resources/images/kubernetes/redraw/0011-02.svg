@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="400" viewBox="0 0 520 400" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <g id="cyl" stroke-width="1.5"><path d="M0 5v30a13 5 0 0 0 26 0V5"/><ellipse cx="13" cy="5" rx="13" ry="5"/></g>
+  </defs>
+  <rect width="520" height="400" rx="16" fill="#f8fafc"/>
+
+  <!-- deployment -->
+  <rect x="180" y="24" width="160" height="44" rx="12" fill="#f97316"/>
+  <text x="260" y="51" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Deployment</text>
+
+  <!-- v1 -> v2 (recreate) -->
+  <path d="M110 136C110 84 410 84 410 132" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- pods -->
+  <g font-size="14" font-weight="700" text-anchor="middle">
+    <rect x="40" y="140" width="140" height="48" rx="12" fill="#22c55e"/>
+    <text x="110" y="169" fill="#fff">Pod</text>
+    <rect x="40" y="208" width="140" height="48" rx="12" fill="#22c55e"/>
+    <text x="110" y="237" fill="#fff">Pod</text>
+    <rect x="340" y="140" width="140" height="48" rx="12" fill="#22c55e"/>
+    <text x="410" y="169" fill="#fff">Pod</text>
+    <rect x="340" y="208" width="140" height="48" rx="12" fill="#22c55e"/>
+    <text x="410" y="237" fill="#fff">Pod</text>
+  </g>
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <rect x="148" y="130" width="40" height="20" rx="10" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="168" y="144.5" fill="#1d4ed8">v1</text>
+    <rect x="148" y="198" width="40" height="20" rx="10" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="168" y="212.5" fill="#1d4ed8">v1</text>
+    <rect x="448" y="130" width="40" height="20" rx="10" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="468" y="144.5" fill="#c2410c">v2</text>
+    <rect x="448" y="198" width="40" height="20" rx="10" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="468" y="212.5" fill="#c2410c">v2</text>
+  </g>
+  <!-- v1 deleted -->
+  <path d="M96 150l28 28M124 150l-28 28M96 218l28 28M124 218l-28 28" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- resource usage -->
+  <text x="260" y="304" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">Downtime</text>
+  <path d="M185 318V376M335 318V376" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g fill="#64748b" stroke="#fff">
+    <use href="#cyl" x="81" y="326"/><use href="#cyl" x="113" y="326"/>
+    <use href="#cyl" x="381" y="326"/><use href="#cyl" x="413" y="326"/>
+  </g>
+  <g fill="#fff" stroke="#94a3b8">
+    <use href="#cyl" x="231" y="326"/><use href="#cyl" x="263" y="326"/>
+  </g>
+</svg>

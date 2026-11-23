@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="560" viewBox="0 0 680 560" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="680" height="560" rx="16" fill="#f8fafc"/>
+
+  <!-- note -->
+  <rect x="20" y="18" width="200" height="52" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <g font-size="13" fill="#334155">
+    <text x="36" y="40" font-weight="700" fill="#0f172a">LoadBalancer 용도</text>
+    <text x="36" y="60">· 외부 시스템 노출용</text>
+  </g>
+
+  <!-- cluster -->
+  <rect x="40" y="86" width="600" height="250" rx="14" fill="#eef2ff" stroke="#a5b4fc" stroke-dasharray="6 4"/>
+  <text x="60" y="112" font-size="15" font-weight="700" fill="#4338ca">Cluster</text>
+
+  <!-- service -->
+  <rect x="250" y="112" width="180" height="48" rx="12" fill="#0ea5e9"/>
+  <text x="340" y="141" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Service</text>
+  <text x="250" y="106" font-size="12" font-weight="700" fill="#64748b">3-1</text>
+
+  <!-- node port -> service -->
+  <path d="M110 200V136H246" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M570 200V136H434" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <!-- service -> pods -->
+  <path d="M320 160V180H190V208" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M360 160V180H490V208" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- nodes -->
+  <g text-anchor="middle">
+    <rect x="80" y="200" width="220" height="100" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="150" y="212" width="80" height="30" rx="8" fill="#22c55e"/>
+    <text x="190" y="232" font-size="13" font-weight="700" fill="#fff">Pod</text>
+    <text x="190" y="264" font-size="14" font-weight="700" fill="#334155">Node1</text>
+    <text x="190" y="282" font-size="12" fill="#475569" font-family="Menlo,monospace">192.168.0.11</text>
+    <rect x="152" y="290" width="76" height="22" rx="11" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="190" y="305.5" font-size="12" fill="#334155" font-family="Menlo,monospace">:30000</text>
+
+    <rect x="380" y="200" width="220" height="100" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="450" y="212" width="80" height="30" rx="8" fill="#22c55e"/>
+    <text x="490" y="232" font-size="13" font-weight="700" fill="#fff">Pod</text>
+    <text x="490" y="264" font-size="14" font-weight="700" fill="#334155">Node2</text>
+    <text x="490" y="282" font-size="12" fill="#475569" font-family="Menlo,monospace">192.168.0.12</text>
+    <rect x="452" y="290" width="76" height="22" rx="11" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="490" y="305.5" font-size="12" fill="#334155" font-family="Menlo,monospace">:30000</text>
+  </g>
+  <g font-size="12" font-weight="700" fill="#64748b">
+    <text x="80" y="194">1-1</text>
+    <text x="380" y="194">1-1'</text>
+  </g>
+
+  <!-- load balancer -->
+  <rect x="250" y="380" width="180" height="64" rx="12" fill="#0369a1"/>
+  <text x="340" y="406" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Load Balancer</text>
+  <text x="340" y="430" font-size="14" fill="#e0f2fe" text-anchor="middle" font-family="Menlo,monospace">10.2.2.1</text>
+  <path d="M300 380V350H190V316" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M380 380V350H490V316" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- external -->
+  <rect x="40" y="476" width="100" height="34" rx="17" fill="#fff" stroke="#94a3b8"/>
+  <text x="90" y="498" font-size="13" fill="#334155" text-anchor="middle">External</text>
+  <path d="M140 486L246 440" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- plugin note -->
+  <path d="M430 430L470 462" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="440" y="462" width="220" height="80" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <g font-size="13" fill="#334155">
+    <text x="456" y="484" font-weight="700" fill="#0f172a">Load Balancer External IP</text>
+    <text x="456" y="502" font-weight="700" fill="#0f172a">지원 Plugin</text>
+    <text x="456" y="526">· GCP, AWS, Azure, OpenStack</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="470" viewBox="0 0 500 470" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="500" height="470" rx="16" fill="#f8fafc"/>
+
+  <!-- header -->
+  <rect x="170" y="14" width="160" height="28" rx="14" fill="#e2e8f0"/>
+  <text x="250" y="33" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">Node에 할당 제한</text>
+  <text x="250" y="66" font-size="14" font-weight="700" fill="#1d4ed8" text-anchor="middle">Toleration / Taint</text>
+
+  <!-- request pods -->
+  <g fill="#22c55e">
+    <rect x="40" y="84" width="100" height="52" rx="12"/>
+    <rect x="190" y="84" width="100" height="52" rx="12"/>
+    <rect x="310" y="84" width="120" height="52" rx="12"/>
+  </g>
+  <g font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+    <text x="90" y="115">Pod</text>
+    <text x="240" y="104">Pod</text>
+    <text x="370" y="104">Pod</text>
+  </g>
+  <text x="240" y="125" font-size="12" fill="#dcfce7" text-anchor="middle" font-family="Menlo,monospace">Node5</text>
+  <rect x="320" y="111" width="100" height="18" rx="6" fill="#ffedd5" stroke="#f97316"/>
+  <text x="370" y="124" font-size="11" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">Toleration</text>
+
+  <!-- scheduler -->
+  <path d="M90 136V166" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="24" y="170" width="270" height="50" rx="12" fill="#f97316"/>
+  <text x="104" y="191" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Scheduler</text>
+  <rect x="49" y="197" width="110" height="18" rx="6" fill="#ffedd5"/>
+  <text x="104" y="210" font-size="12" fill="#9a3412" text-anchor="middle">CPU / Memory</text>
+
+  <!-- blocked: plain pod via scheduler, pod naming Node5 directly -->
+  <g stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4">
+    <path d="M160 220V300"/>
+    <path d="M240 136V300"/>
+  </g>
+  <g fill="#fff" stroke="#ef4444" stroke-width="2">
+    <circle cx="160" cy="262" r="12"/>
+    <circle cx="240" cy="262" r="12"/>
+  </g>
+  <path d="M154 256l12 12M166 256l-12 12M234 256l12 12M246 256l-12 12" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- allowed: pod with toleration -->
+  <path d="M370 136V296" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Node5 -->
+  <rect x="100" y="300" width="360" height="150" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="116" y="326" font-size="14" font-weight="700" fill="#334155">Node5</text>
+  <rect x="384" y="310" width="62" height="22" rx="11" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="415" y="325.5" font-size="12" font-weight="700" fill="#6d28d9" text-anchor="middle">Taint</text>
+
+  <rect x="210" y="340" width="140" height="56" rx="12" fill="#22c55e"/>
+  <text x="280" y="360" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="230" y="368" width="100" height="18" rx="6" fill="#ffedd5" stroke="#f97316"/>
+  <text x="280" y="381" font-size="11" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">Toleration</text>
+
+  <rect x="116" y="412" width="328" height="24" rx="6" fill="#e0f2fe"/>
+  <text x="280" y="428.5" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">GPU</text>
+</svg>

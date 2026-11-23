@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="300" viewBox="0 0 560 300" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <symbol id="w" viewBox="0 0 24 22">
+      <path d="M12 1.5L23 20.5H1z" fill="#fee2e2" stroke="#ef4444" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M12 8V14" stroke="#b91c1c" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="12" cy="17.3" r="1.3" fill="#b91c1c"/>
+    </symbol>
+  </defs>
+  <rect width="560" height="300" rx="16" fill="#f8fafc"/>
+
+  <!-- Replication -->
+  <text x="40" y="34" font-size="12" font-weight="700" fill="#64748b">1-2</text>
+  <rect x="40" y="40" width="330" height="110" rx="12" fill="#f97316"/>
+  <text x="205" y="62" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Replication</text>
+  <g font-size="12" font-weight="700" fill="#ffedd5" text-anchor="middle">
+    <text x="110" y="88">selector</text>
+    <text x="290" y="88">template</text>
+  </g>
+  <rect x="60" y="98" width="100" height="26" rx="13" fill="#fff"/>
+  <text x="110" y="115.5" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">type:web</text>
+  <rect x="240" y="96" width="100" height="30" rx="8" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+  <text x="290" y="116" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod:v2</text>
+
+  <!-- template update -->
+  <rect x="430" y="48" width="100" height="32" rx="10" fill="#22c55e"/>
+  <text x="480" y="69" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod:v2</text>
+  <text x="480" y="100" font-size="12" fill="#c2410c" text-anchor="middle">Template Update</text>
+  <path d="M430 64H400V111H342" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Pods -->
+  <g fill="#22c55e">
+    <rect x="40" y="200" width="130" height="70" rx="12"/>
+    <rect x="210" y="200" width="130" height="70" rx="12"/>
+    <rect x="400" y="200" width="130" height="70" rx="12"/>
+  </g>
+  <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+    <text x="105" y="224">Pod</text>
+    <text x="275" y="224">Pod</text>
+    <text x="465" y="224">Pod:v2</text>
+  </g>
+  <g fill="#fff">
+    <rect x="60" y="236" width="90" height="22" rx="11"/>
+    <rect x="230" y="236" width="90" height="22" rx="11"/>
+    <rect x="420" y="236" width="90" height="22" rx="11"/>
+  </g>
+  <g font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">
+    <text x="105" y="251.5">type:web</text>
+    <text x="275" y="251.5">type:web</text>
+    <text x="465" y="251.5">type:web</text>
+  </g>
+  <text x="40" y="194" font-size="12" font-weight="700" fill="#64748b">1-1</text>
+  <use href="#w" x="150" y="187" width="24" height="22"/>
+  <path d="M321 191l18 18M339 191l-18 18" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- re-create from template -->
+  <path d="M290 150V198" fill="none" stroke="#64748b" stroke-width="2"/>
+  <path d="M290 172H465V198" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <text x="390" y="165" font-size="12" fill="#c2410c" text-anchor="middle">Re-create</text>
+</svg>

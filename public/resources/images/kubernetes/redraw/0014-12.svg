@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="500" viewBox="0 0 700 500" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#16a34a"/></marker><marker id="h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto"><path d="M0 1L9 5L0 9z" fill="#f87171"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#3b82f6"/></marker></defs>
+<rect width="700" height="500" rx="16" fill="#f8fafc"/>
+<g font-size="13" text-anchor="middle">
+<rect x="20" y="20" width="180" height="28" rx="10" fill="#0ea5e9"/><text x="110" y="39" font-weight="700" fill="#fff">Service</text>
+<rect x="20" y="52" width="88" height="28" rx="8" fill="#fff" stroke="#cbd5e1"/><text x="64" y="71" fill="#334155">Endpoint</text>
+<rect x="112" y="52" width="88" height="28" rx="8" fill="#fff" stroke="#cbd5e1"/><text x="156" y="71" fill="#334155">Endpoint</text>
+<path d="M64 80V116" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+<rect x="20" y="118" width="88" height="30" rx="10" fill="#22c55e"/><text x="64" y="138" font-weight="700" fill="#fff">Pod</text>
+</g>
+<path d="M200 66C236 66 240 40 276 40" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+<rect x="280" y="20" width="220" height="364" rx="12" fill="#22c55e"/>
+<text x="390" y="44" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+<rect x="330" y="54" width="120" height="22" rx="6" fill="#bbf7d0"/><text x="390" y="69.5" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">Running</text>
+<rect x="300" y="84" width="180" height="26" rx="8" fill="#fff"/><text x="390" y="102" font-size="13" fill="#334155" text-anchor="middle">ContainerReady : <tspan font-weight="700" fill="#16a34a">true</tspan></text>
+<rect x="330" y="116" width="120" height="26" rx="8" fill="#fff"/><text x="390" y="134" font-size="13" fill="#334155" text-anchor="middle">Ready : <tspan font-weight="700" fill="#16a34a">true</tspan></text>
+<rect x="296" y="152" width="188" height="220" rx="10" fill="#fff" stroke="#22c55e"/>
+<text x="390" y="176" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">Container</text>
+<rect x="340" y="186" width="100" height="20" rx="6" fill="#bbf7d0"/><text x="390" y="200.5" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">Running</text>
+<text x="390" y="236" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">App</text>
+<rect x="312" y="248" width="156" height="108" rx="10" fill="#fff" stroke="#cbd5e1"/>
+<rect x="324" y="262" width="132" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="390" y="278.5" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">/health</text>
+<rect x="324" y="300" width="132" height="34" rx="6" fill="#fee2e2" stroke="#ef4444"/><text x="390" y="322" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">Status: 500</text>
+<rect x="20" y="254" width="200" height="216" rx="10" fill="#fff" stroke="#1e40af" stroke-width="1.5"/>
+<rect x="20" y="214" width="200" height="42" rx="10" fill="#fff" stroke="#1e40af" stroke-width="2"/>
+<text x="120" y="241" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle">LivenessProbe</text>
+<path d="M220 235L304 172" stroke="#1e40af" stroke-width="2"/><circle cx="220" cy="235" r="4" fill="#1e40af"/><circle cx="304" cy="172" r="4" fill="#1e40af"/>
+<rect x="32" y="266" width="176" height="26" rx="6" fill="#f97316"/><text x="120" y="284" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">httpGet</text>
+<rect x="60" y="298" width="120" height="22" rx="6" fill="#dbeafe"/><text x="120" y="313.5" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">path</text>
+<text x="120" y="340" font-size="11.5" font-weight="700" fill="#2563eb" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">/health</text>
+<rect x="32" y="356" width="176" height="28" rx="6" fill="#ffedd5" stroke="#f97316"/><text x="120" y="375" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle">initialDelaySeconds : <tspan fill="#2563eb">5</tspan></text>
+<rect x="32" y="392" width="176" height="28" rx="6" fill="#ffedd5" stroke="#f97316"/><text x="120" y="411" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle">periodSeconds : <tspan fill="#2563eb">10</tspan></text>
+<rect x="32" y="428" width="176" height="28" rx="6" fill="#ffedd5" stroke="#f97316"/><text x="120" y="447" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle">failureThreshold : <tspan fill="#2563eb">3</tspan></text>
+<path d="M254 442H214" stroke="#f87171" stroke-width="6" marker-end="url(#h)"/>
+<text x="270" y="447" font-size="13" fill="#334155">3회 실패 시</text>
+<path d="M430 396L494 476H366z" fill="#fee2e2" stroke="#ef4444" stroke-width="2" stroke-linejoin="round"/><text x="430" y="464" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">Restart</text>
+<rect x="532" y="70" width="136" height="26" rx="8" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="600" y="88" font-size="13" font-weight="700" fill="#0f172a" text-anchor="middle">periodSeconds</text>
+<text x="600" y="116" font-size="13" fill="#334155" text-anchor="middle">10초 후에 재시도</text>
+<rect x="568" y="128" width="64" height="28" rx="14" fill="#fff" stroke="#94a3b8"/><text x="600" y="147" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">k8s</text>
+<rect x="556" y="166" width="88" height="28" rx="6" fill="#f97316"/><text x="600" y="185" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">httpGet</text>
+<rect x="524" y="292" width="152" height="28" rx="6" fill="#ffedd5" stroke="#f97316"/><text x="600" y="311" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle">initialDelaySeconds</text>
+<path d="M556 180C510 180 520 296 472 296" fill="none" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#b)"/>
+<path d="M600 194V288" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#b)"/>
+<text x="592" y="262" font-size="13" fill="#334155" text-anchor="end">5초 지연</text>
+<path d="M600 320C600 372 500 368 472 322" fill="none" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#b)"/>
+</svg>

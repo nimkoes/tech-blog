@@ -19,7 +19,7 @@ Pod 는 기본적으로 Scheduler 에 의해 Node 에 할당 되지만 사용자
 
 Pod 를 특정 Node 에 할당 되도록 선택하기 위한 용도로 사용 한다.
 
-![0016-01](/tech-blog/resources/images/kubernetes/0016-01.png)
+![Node 선택 방식별 흐름: NodeName은 Scheduler를 거치지 않고 Node1에 바로 할당되고, NodeSelector와 NodeAffinity는 Scheduler가 Label과 CPU 자원을 보고 Node를 고르는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-01.svg)
 
 Node1, Node2, Node3 은 서버가 한국에 있고, Node4, Node5 는 미국에 있다고 가정 한다. 이 상태에서 Pod 를 하나 만들면 k8s Scheduler 는 cpu 자원이 가장 많은 Node 에
 이 Pod 를 할당 한다.
@@ -44,7 +44,7 @@ Node 가 없더라도 Scheduler 가 판단해서 자원이 많은 Node 에 할�
 
 다수의 Pod 들을 하나의 Node 에 집중해서 할당 하거나 Pod 간 겹치는 Node 없이 분산해서 할당할 수 있다.
 
-![0016-02](/tech-blog/resources/images/kubernetes/0016-02.png)
+![Pod Affinity로 Web과 Server가 Hostpath PV가 있는 같은 Node3에 모이고, Anti-Affinity로 Slave가 Master와 다른 Node4에 배치되는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-02.svg)
 
 ## Pod Affinity
 
@@ -62,32 +62,32 @@ key, value 를 설정하면 Slave Pod 는 Master Pod 와 다른 Node 에 만들�
 
 특정 Node 에는 Pod 가 할당 되지 않도록 제한하기 위해 사용 한다.
 
-![0016-03](/tech-blog/resources/images/kubernetes/0016-03.png)
+![Taint가 설정된 GPU Node5에는 일반 Pod와 Node5를 직접 지정한 Pod는 할당되지 않고 Toleration을 가진 Pod만 할당되는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-03.svg)
 
 Node5 는 높은 사양의 그래픽을 요구하는 Application 을 운영하는 용도로 GPU 를 설정 했을 때, 운영자는 Taint 라는 것을 설정 해둔다. 그러면 일반적인 Pod 들은 Scheduler 가 이
 Node 로 할당하지 않기 때문에 Pod 가 직접 Node5 를 지정해서 할당하려 해도 불가능 하다. 이 Node 에 Pod 를 할당 하려면 Pod 는 Toleration 을 설정 해야 한다.
 
 ## Node Affinity
 
-![0016-04](/tech-blog/resources/images/kubernetes/0016-04.png)
+![ReplicaSet의 matchExpressions(key: ver1, operator: Exists)가 ver1 Label을 가진 Pod1, Pod2만 선택하는 예](/tech-blog/resources/images/kubernetes/redraw/0016-04.svg)
 
 Selector 와 Label 은 key 와 value 가 모두 같아야 매칭이 되지만 matchExpressions 는 다양한 조합으로 Pod 들을 선택할 수 있다.
 
-![0016-05](/tech-blog/resources/images/kubernetes/0016-05.png)
+![Pod의 matchExpressions(key: kr, operator: Exists)가 kr Label을 가진 Node1, Node2를 선택하는 예](/tech-blog/resources/images/kubernetes/redraw/0016-05.svg)
 
 Node Affinity 를 사용할 때 matchExpressions 속성을 통해 Pod 는 Node 를 선택할 수 있다. key 를 그룹핑 단위로 Pod 를 하위 식별자로 하는 Label 들이 Node 에 설정되어
 있고, Pod 를 key 가 kr 인 그룹 안에 할당할 때 matchExpressions 를 사용할 수 있다. 그러면 Scheduler 가 자원이 많은 Node 쪽으로 Pod 를 배치 한다.
 
-![0016-06](/tech-blog/resources/images/kubernetes/0016-06.png)
+![matchExpressions, required와 preferred 비교, preferred weight 점수 계산, Node Affinity operator 종류를 한 장에 모은 요약도](/tech-blog/resources/images/kubernetes/redraw/0016-06.svg)
 
-![0016-07](/tech-blog/resources/images/kubernetes/0016-07.png)
+![Node Affinity operator 6종(Exists, DoesNotExist, In, NotIn, Gt, Lt)이 각각 어떤 Label의 Node를 선택하는지 보여주는 예](/tech-blog/resources/images/kubernetes/redraw/0016-07.svg)
 
 Node Affinity 에서 matchExpressions 에 Operator 로 사용할 수 있는 종류는 위와 같다. 대부분 ReplicaSet 에서 보았던 내용과 동일하고, 아래쪽의 Gt 와 Lt 는 사용자가
 지정한 value 보다 값이 크거나 작은 Node 를 선택하는 옵션이 추가 되었다.
 
 Node Affinity 의 다음 속성으로 required 와 preferred 가 있다.
 
-![0016-08](/tech-blog/resources/images/kubernetes/0016-08.png)
+![key ch를 가진 Node가 없을 때 required Pod는 어느 Node에도 할당되지 않고 preferred Pod는 Node1이나 Node2에 할당되는 비교](/tech-blog/resources/images/kubernetes/redraw/0016-08.svg)
 
 위와 같이 두 개의 Node 가 있을 때, 만약 Node Affinity 로 required 속성을 가진 Pod 가 Node 에는 없는 key 를 가지고 있을 경우 이 Pod 는 Node 에 절대로
 Scheduling 되지 않는다. 하지만 만약 key 가 ch 인 Node 가 있으면 선호할 뿐이고 반드시 그 Node 에 할당 되어야 하는 Pod 가 아닌 경우에는 required 대신 preferred 옵션을
@@ -95,12 +95,12 @@ Scheduling 되지 않는다. 하지만 만약 key 가 ch 인 Node 가 있으면 
 
 preferred 에는 weight 라는 필수 값이 있다.
 
-![0016-09](/tech-blog/resources/images/kubernetes/0016-09.png)
+![preferred 조건으로 us, kr key를 모두 가진 Pod와 CPU 50인 Node1, CPU 30인 Node2](/tech-blog/resources/images/kubernetes/redraw/0016-09.svg)
 
 key 가 다른 Label 을 가진 두 개의 Node 가 있고, cpu 는 50과 30으로 Node1 이 더 많다고 하자. 그리고 preferred 속성을 가진 Pod 를 만드는데, 두 Node 의 key 가 모두
 있기 때문에 두 노드 중 cpu 자원이 많은 Node1 에 할당 된다.
 
-![0016-10](/tech-blog/resources/images/kubernetes/0016-10.png)
+![preferred weight로 Node1은 50+10=60점, Node2는 30+50=80점이 되어 Scheduler가 Pod를 Node2에 할당하는 계산](/tech-blog/resources/images/kubernetes/redraw/0016-10.svg)
 
 여기에 선호도에 대한 가중치를 주는 의미로 weight 값을 줄 수 있다. 이 Pod 는 key 가 us 이거나 kr 인 Node 에 할당 될 수 있지만, key 가 kr 인 Node 에 가중치를 조금 더 주겠다고
 설정 했다. 그러면 Scheduler 는 최초 cpu 자원만 보고 Node1 에 할당 하려 했지만, Pod 의 가중치가 합산 되어 다시 점수를 매긴다. 그 결과 최종 점수가 더 높은 Node 에 Pod 를 할당
@@ -110,18 +110,18 @@ key 가 다른 Label 을 가진 두 개의 Node 가 있고, cpu 는 50과 30으�
 
 # Pod Affinity, Pod Anti-Affinity
 
-![0016-11](/tech-blog/resources/images/kubernetes/0016-11.png)
+![Pod Affinity로 server Pod가 topologyKey a-team 범위에서 type: web Pod가 있는 Node1에 할당되는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-11.svg)
 
 type: web 이라는 Label 을 가진 web Pod 가 Scheduler 에 의해 Node1에 할당 되었다. 만약 이 web Pod 와 같은 Node 에 Pod 를 할당 하려면 Pod Affinity 라는
 속성으로 matchExpressions 를 사용할 수 있는데, 이 matchExpressions 는 Node 의 Label 이 아닌 Pod 의 Label 과 매칭 된다. 그래서 web Pod 와 같은 Node1 에
 할당될 수 있다. 추가로 topologyKey 는 Node 의 key 를 본다. 다시 말하면 matchExpressions 에 있는 조건에 맞는 Pod 를 찾지만 Node 의 key 가 a-team 인 범위에서만
 찾겠다는 의미이다.
 
-![0016-12](/tech-blog/resources/images/kubernetes/0016-12.png)
+![web Pod가 b-team 범위의 Node3에 있어 a-team 범위를 찾는 server Pod가 pending 상태로 남는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-12.svg)
 
 만약 web Pod 가 Node3 에 할당 되었었다면, server Pod 는 pending 상태가 되고 설정된 조건이 만족 할 때까지 Node 에 할당 되지 않는다.
 
-![0016-13](/tech-blog/resources/images/kubernetes/0016-13.png)
+![Pod Anti-Affinity로 slave Pod가 b-team 범위에서 master Pod가 있는 Node4를 피해 Node3에 할당되는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-13.svg)
 
 다음으로 Pod Anti-Affinity 는 type: master 라는 Label 을 가진 master Pod 가 Node4 에 Schduling 되었을 때, 이와 다른 Node 에 Pod 를 할당하기 위해
 slave Pod 에 Anti-Affinity 를 설정하고 matchExpressions 로 master Pod 의 Label 을 설정한다. 마찬가지로 topologyKey 를 설정하여 b-team 이라는 key 를
@@ -129,22 +129,22 @@ slave Pod 에 Anti-Affinity 를 설정하고 matchExpressions 로 master Pod 의
 
 # Taint, Toleration
 
-![0016-14](/tech-blog/resources/images/kubernetes/0016-14.png)
+![GPU가 있는 Node1에 key hw, value gpu, effect NoSchedule인 Taint가 설정된 상태](/tech-blog/resources/images/kubernetes/redraw/0016-14.svg)
 
 Node1 은 다른 Node 들과는 다르게 GPU 가 구성되어 있다. 그리고 일반적인 Pod 들이 Node1 에 할당되는 것을 막으려면 Taint 라는 것을 Node 에 설정한다. Taint 에는 식별자로 사용하는
 Label 인 key 와 value 가 있고, effect 라는 옵션에 값을 NoSchedule 로 주면 다른 Pod 들이 이 Node 에 할당되지 않는다.
 
-![0016-15](/tech-blog/resources/images/kubernetes/0016-15.png)
+![Toleration이 없는 일반 Pod는 Taint가 설정된 Node1에 할당되지 못하는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-15.svg)
 
 만약 Pod 가 GPU 자원을 사용해야 하는 경우 해당 Pod 에 Toleration 을 설정하여 Taint 가 설정 된 Node 에 Pod 를 할당할 수 있다. 내용으로는 key, operator, value,
 effect 가 있는데 Taint 의 Label 과 일치해야 한다. 하나라도 다른 값을 가질 경우 Toleration 을 설정 했다고 하더라도 Taint 가 설정 된 Node 에 할당될 수 없다.
 
-![0016-16](/tech-blog/resources/images/kubernetes/0016-16.png)
+![Toleration을 설정한 Pod도 Taint Node를 찾아가지 않고 Node2에 할당될 수 있고 일반 Pod는 Node1에 할당되지 못하는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-16.svg)
 
 추가로 Pod 의 Toleration 설정 값으로 매칭하는 Taint 가 있는 Node 를 찾는다고 생각할 수 있는데 그렇지 않다. Pod 가 Node1 에 Scheduling 되었을 때, Pod 에 Node1 의
 Taint 와 매칭하는 Toleration 이 있기 때문에 Node1 에 할당될 수 있는 것이다.
 
-![0016-17](/tech-blog/resources/images/kubernetes/0016-17.png)
+![Toleration과 nodeSelector(gpu: no1)를 함께 설정한 Pod만 Taint가 설정된 Node1에 할당되는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-17.svg)
 
 그렇기 때문에 Pod 에 별도의 Node Selector 를 설정하여 특정 Pod 가 Node1 에 할당될 수 있도록 해야 한다.
 
@@ -154,17 +154,17 @@ Taint 와 매칭하는 Toleration 이 있기 때문에 Node1 에 할당될 수 �
 effect 는 NoShcedule, PreferNoSchedule, NoExecute 값을 가진다. PreferNoSchedule 은 가급적 Scheduling 이 되지 않도록 하는 것으로 Pod 가 다른 Node
 에 할당될 수 없는 상황이라면 Taint 가 설정 된 Node 라도 Pod 가 할당될 수 있다.
 
-![0016-18](/tech-blog/resources/images/kubernetes/0016-18.png)
+![Pod1이 이미 실행 중인 Node2에 NoSchedule Taint를 설정해도 Pod1은 그대로 유지되는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-18.svg)
 
 NoExecute 는 Pod1 이 Node2 할당 되어 운영 중에 NoSchedule effect 를 가진 Taint 를 설정하면 어떻게 될까? Node Affinity, Pod Affinity 그리고
 NoSchedule 설정 값은 Pod 가 최초 Node 를 선택할 때에만 영향을 주는 것으로 이미 Pod 가 Node 에 할당 된 이후에는 Node Label 을 수정 하거나 Taint 를 설정 한다고 해서 Pod
 가 삭제되거나 하지 않는다.
 
-![0016-19](/tech-blog/resources/images/kubernetes/0016-19.png)
+![Pod2가 실행 중인 Node3에 NoExecute Taint를 설정하면 Pod2가 삭제 대상이 되는 구조](/tech-blog/resources/images/kubernetes/redraw/0016-19.svg)
 
 하지만 Pod 가 Node 에 이미 할당 되어 운영중일 때 NoExecute 값을 가진 Taint 를 설정하게 되면 Pod는 삭제 된다.
 
-![0016-20](/tech-blog/resources/images/kubernetes/0016-20.png)
+![effect NoExecute와 tolerationSeconds 60을 가진 Toleration을 설정한 Pod3를 추가한 구조](/tech-blog/resources/images/kubernetes/redraw/0016-20.svg)
 
 만약 Node3 의 Pod2 가 삭제 되지 않도록 하기 위해서는 Pod 를 만들 때 Taint 와 매칭하는 Toleration 을 설정하면 된다. tolerationSeconds 라는 속성이 있는데 이 값에 설정된
 시간이 경과한 후 Pod 가 삭제 된다. 만약 tolerationSeconds 속성을 사용하지 않으면 Pod 는 삭제 되지 않는다.

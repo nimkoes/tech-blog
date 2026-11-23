@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="652" height="522" viewBox="0 0 652 522" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="652" height="522" rx="16" fill="#f8fafc"/>
+  <rect x="24" y="16" width="190" height="206" rx="12" fill="#22c55e"/>
+  <text x="119" y="36" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="36" y="46" width="166" height="98" rx="8" fill="#ffedd5" stroke="#f97316"/>
+  <text x="119.0" y="65" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle">Toleration</text>
+  <text x="48" y="84" font-size="12" fill="#334155" font-family="Menlo,monospace"><tspan font-weight="700">key</tspan> : <tspan fill="#c2410c">hw</tspan></text>
+  <text x="48" y="101" font-size="12" fill="#334155" font-family="Menlo,monospace"><tspan font-weight="700">operator</tspan> : <tspan fill="#c2410c">Equal</tspan></text>
+  <text x="48" y="118" font-size="12" fill="#334155" font-family="Menlo,monospace"><tspan font-weight="700">value</tspan> : <tspan fill="#c2410c">gpu</tspan></text>
+  <text x="48" y="135" font-size="12" fill="#334155" font-family="Menlo,monospace"><tspan font-weight="700">effect</tspan> : <tspan fill="#c2410c">NoSchedule</tspan></text>
+  <text x="36" y="170" font-size="13" font-weight="700" fill="#fff">nodeSelector</text>
+  <rect x="36" y="178" width="96" height="20" rx="6" fill="#fff" stroke="#fff"/>
+  <text x="84.0" y="192" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace" font-weight="700">gpu : no1</text>
+  <rect x="250" y="150" width="80" height="40" rx="10" fill="#22c55e"/>
+  <text x="290.0" y="175" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <path d="M290 190V228H170V258" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="230" cy="228" r="12" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  <path d="M224 222l12 12M236 222l-12 12" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M119 222V256" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="24" y="260" width="180" height="240" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="114" y="284" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+  <rect x="236" y="260" width="180" height="240" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="326" y="284" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+  <rect x="448" y="260" width="180" height="240" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="538" y="284" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node3</text>
+  <text x="114" y="301" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">(GPU)</text>
+  <rect x="36" y="312" width="156" height="126" rx="10" fill="#ede9fe" stroke="#8b5cf6"/>
+  <text x="114.0" y="332" font-size="13" font-weight="700" fill="#6d28d9" text-anchor="middle">Taint</text>
+  <text x="48" y="354" font-size="12" fill="#334155">labels</text>
+  <rect x="48" y="360" width="132" height="20" rx="6" fill="#fff" stroke="#8b5cf6"/>
+  <text x="114.0" y="374" font-size="12" fill="#6d28d9" text-anchor="middle" font-family="Menlo,monospace" font-weight="700">hw : gpu</text>
+  <text x="48" y="400" font-size="12" fill="#334155">effect</text>
+  <rect x="48" y="406" width="132" height="20" rx="6" fill="#fff" stroke="#8b5cf6"/>
+  <text x="114.0" y="420" font-size="12" fill="#6d28d9" text-anchor="middle" font-family="Menlo,monospace" font-weight="700">NoSchedule</text>
+  <rect x="66" y="454" width="96" height="20" rx="6" fill="#fff" stroke="#94a3b8"/>
+  <text x="114.0" y="468" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace" font-weight="700">gpu : no1</text>
+</svg>

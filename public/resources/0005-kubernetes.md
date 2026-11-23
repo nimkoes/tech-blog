@@ -14,14 +14,14 @@ tags:
   - NodeSchedule
 status: published
 ---
-![0005-01](/tech-blog/resources/images/kubernetes/0005-01.png)
+![Pod 안 Container의 포트, Label로 Pod를 골라 Service에 연결하는 방식, Scheduler가 메모리를 보고 Node를 고르는 Node Schedule을 함께 보여주는 개요](/tech-blog/resources/images/kubernetes/redraw/0005-01.svg)
 
 # Pod
 
 Pod 안에는 하나의 독립 된 서비스를 구동할 수 있는 Container 들이 있다. 그리고 각 Container 들은 서비스가 연결될 수 있도록 port 를 가지고 있다. 하나의 Container 는 하나 이상의
 port 를 가질 수 있지만, 하나의 Pod 내에서 같은 port 를 가지는 Container 는 존재할 수 없다.
 
-![0005-02](/tech-blog/resources/images/kubernetes/0005-02.png)
+![한 Pod 안의 두 Container가 localhost:8080으로 통신하고 같은 포트 8000은 충돌하며, Pod IP는 클러스터 내부에서만 접근 가능한 구조](/tech-blog/resources/images/kubernetes/redraw/0005-02.svg)
 
 Container1 과 Container2 는 하나의 host 로 묶여 있다고 볼 수 있기 때문에, 만약 Container1 에서 Container2 로 접속을 할
 때 [localhost:8080](http://localhost:8080) 으로 접근할 수 있다.
@@ -51,7 +51,7 @@ spec:
 
 Label 은 Pod 뿐만 아니라 모든 오브젝트에 붙일 수 있는데, Pod 에 가장 많이 사용 한다.
 
-![0005-03](/tech-blog/resources/images/kubernetes/0005-03.png)
+![type:web Label을 가진 Pod1·Pod4와 lo:production Label을 가진 Pod4·Pod5·Pod6을 각각 다른 Service에 연결하는 구조](/tech-blog/resources/images/kubernetes/redraw/0005-03.svg)
 
 Label 을 사용하는 이유는 목적에 따라 오브젝트들을 분류하고, 분류 된 오브젝트들만 선별하여 연결하기 위함이다.
 
@@ -92,7 +92,7 @@ spec:
 
 Pod 는 결국 다수의 Node 중 하나의 Node 에 올라가야 한다. 이 때 사용자가 직접 Node 를 선택하는 방법과 k8s 가 자동으로 선택하는 방법이 있다.
 
-![0005-04](/tech-blog/resources/images/kubernetes/0005-04.png)
+![Pod가 hostname Label로 Node1을 직접 선택하는 경우와 Scheduler가 남은 메모리를 보고 3Gi Pod를 Node2에 배치하는 경우](/tech-blog/resources/images/kubernetes/redraw/0005-04.svg)
 
 직접 선택하는 경우 Pod 에 Lebel 을 붙인 것과 같이 Node 에 Label 을 붙이고 Pod 를 생성할 때 Node 를 지정할 수 있다.
 

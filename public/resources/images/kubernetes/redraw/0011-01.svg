@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="612" viewBox="0 0 760 612" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#f97316"/></marker>
+    <marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#0ea5e9"/></marker>
+  </defs>
+  <rect width="760" height="612" rx="16" fill="#f8fafc"/>
+  <rect x="20" y="20" width="350" height="256" rx="14" fill="#fff" stroke="#cbd5e1"/>
+  <text x="36" y="48" font-size="15" font-weight="700" fill="#3b82f6">ReCreate</text>
+  <rect x="135" y="64" width="120" height="34" rx="10" fill="#f97316"/>
+  <text x="195" y="85.68" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Deployment</text>
+  <path d="M95 166C95 120 295 120 295 162" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="40" y="170" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="95" y="192.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="126" y="161" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="141" y="174" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <path d="M84 177l22 22M106 177l-22 22" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="240" y="170" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="295" y="192.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="326" y="161" width="30" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="341" y="174" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">v2</text>
+  <rect x="40" y="222" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="95" y="244.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="126" y="213" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="141" y="226" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <path d="M84 229l22 22M106 229l-22 22" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="240" y="222" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="295" y="244.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="326" y="213" width="30" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="341" y="226" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">v2</text>
+  <rect x="390" y="20" width="350" height="256" rx="14" fill="#fff" stroke="#cbd5e1"/>
+  <text x="406" y="48" font-size="15" font-weight="700" fill="#f97316">Rolling Update</text>
+  <rect x="505" y="64" width="120" height="34" rx="10" fill="#f97316"/>
+  <text x="565" y="85.68" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Deployment</text>
+  <path d="M565 98V188H606" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M565 188V240H606" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="410" y="170" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="465" y="192.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="496" y="161" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="511" y="174" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <path d="M454 177l22 22M476 177l-22 22" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="610" y="170" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="665" y="192.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="696" y="161" width="30" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="711" y="174" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">v2</text>
+  <rect x="410" y="222" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="465" y="244.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="496" y="213" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="511" y="226" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <path d="M454 229l22 22M476 229l-22 22" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="610" y="222" width="110" height="36" rx="10" fill="#22c55e"/>
+  <text x="665" y="244.7" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="696" y="213" width="30" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="711" y="226" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">v2</text>
+  <rect x="20" y="292" width="350" height="300" rx="14" fill="#fff" stroke="#cbd5e1"/>
+  <text x="36" y="320" font-size="15" font-weight="700" fill="#8b5cf6">Blue/Green</text>
+  <rect x="40" y="336" width="110" height="32" rx="10" fill="#f97316"/>
+  <text x="95" y="356.68" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Controller</text>
+  <path d="M84 341l22 22M106 341l-22 22" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="240" y="336" width="110" height="32" rx="10" fill="#f97316"/>
+  <text x="295" y="356.68" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Controller</text>
+  <path d="M170 518L154 408M170 518L154 466" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="164" cy="496" r="10" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  <path d="M159 491l10 10M169 491l-10 10" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M220 518L236 410" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  <path d="M220 518L236 468" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  <rect x="40" y="384" width="110" height="48" rx="10" fill="#22c55e"/>
+  <text x="95" y="403" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="64" y="409" width="62" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="95.0" y="422" font-size="11" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">ver:v1</text>
+  <rect x="126" y="375" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="141" y="388" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <path d="M85 390l20 20M105 390l-20 20" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="240" y="384" width="110" height="48" rx="10" fill="#22c55e"/>
+  <text x="295" y="403" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="264" y="409" width="62" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="295.0" y="422" font-size="11" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">ver:v2</text>
+  <rect x="326" y="375" width="30" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="341" y="388" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">v2</text>
+  <rect x="40" y="442" width="110" height="48" rx="10" fill="#22c55e"/>
+  <text x="95" y="461" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="64" y="467" width="62" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="95.0" y="480" font-size="11" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">ver:v1</text>
+  <rect x="126" y="433" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="141" y="446" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <path d="M85 448l20 20M105 448l-20 20" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="240" y="442" width="110" height="48" rx="10" fill="#22c55e"/>
+  <text x="295" y="461" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="264" y="467" width="62" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="295.0" y="480" font-size="11" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">ver:v2</text>
+  <rect x="326" y="433" width="30" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="341" y="446" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">v2</text>
+  <rect x="120" y="518" width="150" height="58" rx="10" fill="#0ea5e9"/>
+  <text x="195" y="539" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Service</text>
+  <rect x="131" y="548" width="60" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="161" y="561" font-size="11" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">ver:v1</text>
+  <rect x="199" y="548" width="60" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="229" y="561" font-size="11" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">ver:v2</text>
+  <rect x="390" y="292" width="350" height="300" rx="14" fill="#fff" stroke="#cbd5e1"/>
+  <text x="406" y="320" font-size="15" font-weight="700" fill="#22c55e">Canary</text>
+  <rect x="410" y="336" width="110" height="32" rx="10" fill="#f97316"/>
+  <text x="465" y="356.68" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Controller</text>
+  <rect x="610" y="336" width="110" height="32" rx="10" fill="#f97316"/>
+  <text x="665" y="356.68" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Controller</text>
+  <path d="M590 506L526 418" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#as)"/>
+  <path d="M590 530L526 492" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#as)"/>
+  <path d="M665 488V452" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#as)"/>
+  <rect x="410" y="382" width="110" height="66" rx="10" fill="#22c55e"/>
+  <text x="465" y="400" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="434" y="407" width="62" height="18" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="465.0" y="420" font-size="11" fill="#0369a1" text-anchor="middle" font-family="Menlo,monospace">ty:app</text>
+  <rect x="434" y="427" width="62" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="465.0" y="440" font-size="11" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">ver:v1</text>
+  <rect x="496" y="373" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="511" y="386" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <rect x="410" y="458" width="110" height="66" rx="10" fill="#22c55e"/>
+  <text x="465" y="476" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="434" y="483" width="62" height="18" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="465.0" y="496" font-size="11" fill="#0369a1" text-anchor="middle" font-family="Menlo,monospace">ty:app</text>
+  <rect x="434" y="503" width="62" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="465.0" y="516" font-size="11" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">ver:v1</text>
+  <rect x="496" y="449" width="30" height="18" rx="9" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="511" y="462" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">v1</text>
+  <rect x="610" y="382" width="110" height="66" rx="10" fill="#22c55e"/>
+  <text x="665" y="400" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="634" y="407" width="62" height="18" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="665.0" y="420" font-size="11" fill="#0369a1" text-anchor="middle" font-family="Menlo,monospace">ty:app</text>
+  <rect x="634" y="427" width="62" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="665.0" y="440" font-size="11" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">ver:v2</text>
+  <rect x="696" y="373" width="30" height="18" rx="9" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="711" y="386" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">v2</text>
+  <rect x="590" y="488" width="130" height="58" rx="10" fill="#0ea5e9"/>
+  <text x="655" y="509" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Service</text>
+  <rect x="624" y="518" width="62" height="18" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="655" y="531" font-size="11" fill="#0369a1" text-anchor="middle" font-family="Menlo,monospace">ty:app</text>
+</svg>

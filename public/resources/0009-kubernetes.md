@@ -15,7 +15,7 @@ status: published
 ---
 본격적인 사용 방법을 알아보기에 앞서 Namespace, ResourceQuota, LimitRange 를 왜 사용해야 하는지 먼저 정리한다.
 
-![0009-01](/tech-blog/resources/images/kubernetes/0009-01.png)
+![Cluster의 Memory와 CPU 자원을 Namespace별 ResourceQuota로 제한하고 LimitRange로 큰 Pod의 진입을 막는 구조](/tech-blog/resources/images/kubernetes/redraw/0009-01.svg)
 
 k8s Cluster 라고 해서 전체 사용할 수 있는 자원이 있다. 일반적으로 Memory, CPU 가 있고 Cluster 안에는 다수의 Namespace 를 Namespace 안에는 다수의 Pod 를 만들 수
 있다. 각 Pod 는 필요한 자원을 Cluster 자원을 공유하여 사용하는데, 만약 한 Namespace 안에 있는 Pod 가 Cluster 에 남은 자원을 모두 사용해버리면 다른 Pod 입장에서는 더 이상 사용할
@@ -31,7 +31,7 @@ LimitRange 를 주어 Namespace 에 들어오는 Pod 의 크기를 제한할 수
 
 # Namespace
 
-![0009-02](/tech-blog/resources/images/kubernetes/0009-02.png)
+![같은 Namespace 안에서는 같은 이름의 Pod를 만들 수 없고 Service는 다른 Namespace의 같은 label Pod와 연결되지 않는 구조](/tech-blog/resources/images/kubernetes/redraw/0009-02.svg)
 
 한 Namespace 안에는 같은 타입의 오브젝트에 대해 같은 이름을 사용할 수 없다. 오브젝트마다 UUID 가 존재 하지만 한 Namespace 안에서는 같은 종류의 오브젝트라면 이름도 UUID 와 같이 유일한
 key 역할을 할 수 있다.
@@ -81,7 +81,7 @@ spec:
 
 # ResourceQuota
 
-![0009-03](/tech-blog/resources/images/kubernetes/0009-03.png)
+![ResourceQuota가 걸린 Namespace에 자원 스펙이 없거나 한도를 넘는 Pod는 들어가지 못하고 한도 안의 pod-3만 생성되는 구조](/tech-blog/resources/images/kubernetes/redraw/0009-03.svg)
 
 ResourceQuota 는 namespace 의 자원 한계를 설정하는 오브젝트 이다. namespace 에 제한하고 싶은 자원을 명시할 수 있는데, (2-2) 를 보면 namespace 에 속할 Pod 들의 전체
 request 자원과 memory 의 최대 값을 각각 1 기가로 하겠다는 설정 이다.
@@ -99,8 +99,8 @@ metadata:
   namespace: nm-1          # 할당 할 namespace 설정
 spec:
   hard: # hard 라는 속성에
-    requests.memory: 3Gi   # 제한 할 자원의 종류와 한계치를 설정
-    limits.memory: 6Gi
+    requests.memory: 1Gi   # 제한 할 자원의 종류와 한계치를 설정
+    limits.memory: 1Gi
 ```
 
 제한 가능한 자원 종류 : cpu, memory, storage
@@ -108,7 +108,7 @@ spec:
 
 # LimitRange
 
-![0009-04](/tech-blog/resources/images/kubernetes/0009-04.png)
+![LimitRange의 min, max, maxLimitRequestRatio 조건에 맞지 않는 Pod는 거부되고 스펙이 없는 Pod에는 기본값이 적용되어 Namespace에 들어가는 구조](/tech-blog/resources/images/kubernetes/redraw/0009-04.svg)
 
 LimitRange 의 기능은 각 Pod 마다 namespace 에 들어갈 수 있는지 자원 체크를 해준다.
 
@@ -122,6 +122,7 @@ LimitRange 의 기능은 각 Pod 마다 namespace 에 들어갈 수 있는지 �
   - request 값과 limit 값의 비율이 최대 3 배를 넘을 수 없다.
 
 (3-3) Pod 의 경우 설정 된 max memory 가 0.4 기가 인데 0.5 기가를 설정 하였으므로 namespace 에 속할 수 없다.
+또한 request 0.1 기가 대비 limit 0.5 기가로 비율이 5 배가 되어 maxLimitRequestRatio 인 3 배도 넘는다.
 
 추가로 defaultRequest 와 default 속성이 있는데, (3-3') 와 같이 Pod 에 아무 설정을 하지 않았을 경우 자동으로 request 값과 limit 값이 할당 된다.
 
@@ -134,13 +135,13 @@ spec:
   limits: # limit 속성에
     - type: Container        # type 을 Container 별로 제한
       min:
-        memory: 1Gi
+        memory: 0.1Gi
       max:
-        memory: 4Gi
+        memory: 0.4Gi
       maxLimitRequestRatio:
         memory: 3
       defaultRequest:
-        memory: 1Gi
+        memory: 0.1Gi
       default:
-        memory: 2Gi
+        memory: 0.2Gi
 ```

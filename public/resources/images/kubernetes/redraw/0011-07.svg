@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="636" viewBox="0 0 520 636" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#3b82f6"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#f97316"/></marker>
+    <marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#0ea5e9"/></marker>
+    <g id="cyl" stroke-width="1.5"><path d="M0 5v30a13 5 0 0 0 26 0V5"/><ellipse cx="13" cy="5" rx="13" ry="5"/></g>
+  </defs>
+  <rect width="520" height="636" rx="16" fill="#f8fafc"/>
+
+  <!-- controllers -->
+  <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+    <rect x="40" y="24" width="150" height="42" rx="12" fill="#f97316"/><text x="115" y="50">Controller</text>
+    <rect x="330" y="24" width="150" height="42" rx="12" fill="#f97316"/><text x="405" y="50">Controller</text>
+  </g>
+
+  <!-- pods -->
+  <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+    <rect x="40" y="92" width="150" height="96" rx="12" fill="#22c55e"/><text x="115" y="116">Pod</text>
+    <rect x="40" y="204" width="150" height="96" rx="12" fill="#22c55e"/><text x="115" y="228">Pod</text>
+    <rect x="330" y="92" width="150" height="96" rx="12" fill="#22c55e"/><text x="405" y="116">Pod</text>
+    <rect x="330" y="204" width="150" height="96" rx="12" fill="#22c55e"/><text x="405" y="228">Pod</text>
+  </g>
+  <g font-size="12" text-anchor="middle" font-family="Menlo,monospace">
+    <rect x="80" y="126" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/><text x="115" y="141.5" fill="#0369a1">ty:app</text>
+    <rect x="80" y="156" width="70" height="22" rx="11" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="115" y="171.5" fill="#1d4ed8">ver:v1</text>
+    <rect x="80" y="238" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/><text x="115" y="253.5" fill="#0369a1">ty:app</text>
+    <rect x="80" y="268" width="70" height="22" rx="11" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="115" y="283.5" fill="#1d4ed8">ver:v1</text>
+    <rect x="370" y="126" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/><text x="405" y="141.5" fill="#0369a1">ty:app</text>
+    <rect x="370" y="156" width="70" height="22" rx="11" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="405" y="171.5" fill="#c2410c">ver:v2</text>
+    <rect x="370" y="238" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/><text x="405" y="253.5" fill="#0369a1">ty:app</text>
+    <rect x="370" y="268" width="70" height="22" rx="11" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="405" y="283.5" fill="#c2410c">ver:v2</text>
+  </g>
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <rect x="158" y="82" width="40" height="20" rx="10" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="178" y="96.5" fill="#1d4ed8">v1</text>
+    <rect x="158" y="194" width="40" height="20" rx="10" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="178" y="208.5" fill="#1d4ed8">v1</text>
+    <rect x="448" y="82" width="40" height="20" rx="10" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="468" y="96.5" fill="#c2410c">v2</text>
+    <rect x="448" y="194" width="40" height="20" rx="10" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="468" y="208.5" fill="#c2410c">v2</text>
+  </g>
+
+  <!-- v1 controller and pods deleted -->
+  <path d="M101 31l28 28M129 31l-28 28M101 100l28 28M129 100l-28 28M101 212l28 28M129 212l-28 28" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- services -> pods -->
+  <path d="M115 324V304" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <path d="M170 324V314H214V140H194" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <path d="M405 324V304" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  <path d="M350 324V314H306V140H326" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+
+  <!-- services -->
+  <g text-anchor="middle">
+    <rect x="40" y="324" width="150" height="74" rx="12" fill="#0ea5e9"/>
+    <text x="115" y="352" font-size="14" font-weight="700" fill="#fff">Service</text>
+    <rect x="80" y="364" width="70" height="22" rx="11" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="115" y="379.5" font-size="12" fill="#1d4ed8" font-family="Menlo,monospace">ver:v1</text>
+    <rect x="330" y="324" width="150" height="74" rx="12" fill="#0ea5e9"/>
+    <text x="405" y="352" font-size="14" font-weight="700" fill="#fff">Service</text>
+    <rect x="370" y="364" width="70" height="22" rx="11" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+    <text x="405" y="379.5" font-size="12" fill="#c2410c" font-family="Menlo,monospace">ver:v2</text>
+  </g>
+
+  <!-- ingress routes by path -->
+  <path d="M235 472V444H115V402" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+  <circle cx="115" cy="423" r="12" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+  <path d="M109 417l12 12M121 417l-12 12" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M285 472V444H405V402" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  <g font-size="13" font-family="Menlo,monospace">
+    <text x="134" y="432" fill="#1d4ed8">/app</text>
+    <text x="286" y="432" fill="#c2410c">/v2/app</text>
+    <text x="346" y="432" fill="#c2410c">→ /app</text>
+  </g>
+  <path d="M285 427.5h55" stroke="#c2410c" stroke-width="1.5"/>
+  <rect x="180" y="472" width="160" height="48" rx="12" fill="#f97316"/>
+  <text x="260" y="501" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Ingress Controller</text>
+
+  <!-- resource usage -->
+  <text x="260" y="560" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">Zero Downtime</text>
+  <path d="M300 572V616" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g stroke="#fff">
+    <use href="#cyl" x="160" y="576" fill="#3b82f6"/><use href="#cyl" x="192" y="576" fill="#3b82f6"/><use href="#cyl" x="224" y="576" fill="#f97316"/><use href="#cyl" x="256" y="576" fill="#f97316"/>
+    <use href="#cyl" x="328" y="576" fill="#f97316"/><use href="#cyl" x="360" y="576" fill="#f97316"/>
+  </g>
+</svg>

@@ -166,7 +166,7 @@
       "Service",
       "network"
     ],
-    "fileName": "0058-k8s-service",
+    "fileName": "0145-k8s-service",
     "regDate": "2025-07-10",
     "lastModifiedDate": "2025-07-10",
     "status": "published",
@@ -649,7 +649,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 13
+    "readingTime": 16
   },
   {
     "title": "[chap.14] Pod - QoS Classes",
@@ -664,7 +664,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 4
+    "readingTime": 5
   },
   {
     "title": "[chap.13] Pod - ReadinessProbe, LivenessProb",
@@ -680,7 +680,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 7
+    "readingTime": 9
   },
   {
     "title": "[chap.12] Pod - Lifecycle",
@@ -695,7 +695,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 6
+    "readingTime": 8
   },
   {
     "title": "[chap.11] DaemonSet, Job, CronJob",
@@ -711,7 +711,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 7
+    "readingTime": 9
   },
   {
     "title": "[chap.10] Deployment (Recreate, RollingUpdate)",
@@ -727,7 +727,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 7
+    "readingTime": 9
   },
   {
     "title": "[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)",
@@ -742,7 +742,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 5
+    "readingTime": 7
   },
   {
     "title": "[chap.08] Namespace, ResourceQuota, LimitRange",
@@ -758,7 +758,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 5
+    "readingTime": 6
   },
   {
     "title": "[chap.07] ConfigMap, Secret (Env, Mount)",
@@ -792,7 +792,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 4
+    "readingTime": 5
   },
   {
     "title": "[chap.05] Service (ClusterIP, NodePort, LoadBalancer)",
@@ -809,7 +809,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 5
+    "readingTime": 6
   },
   {
     "title": "[chap.04] Pod (Container, Label, NodeSchedule)",
@@ -854,7 +854,7 @@
     "lastModifiedDate": "2025-03-03",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 4
+    "readingTime": 5
   },
   {
     "title": "[chap.01] Kubernetes 사용 이유",

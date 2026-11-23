@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="420" viewBox="0 0 520 420" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#0ea5e9"/></marker>
+    <g id="cyl" stroke-width="1.5"><path d="M0 5v30a13 5 0 0 0 26 0V5"/><ellipse cx="13" cy="5" rx="13" ry="5"/></g>
+  </defs>
+  <rect width="520" height="420" rx="16" fill="#f8fafc"/>
+
+  <!-- controllers -->
+  <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+    <rect x="40" y="24" width="150" height="42" rx="12" fill="#f97316"/><text x="115" y="50">Controller</text>
+    <rect x="330" y="24" width="150" height="42" rx="12" fill="#f97316"/><text x="405" y="50">Controller</text>
+  </g>
+
+  <!-- pods -->
+  <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+    <rect x="40" y="92" width="150" height="96" rx="12" fill="#22c55e"/><text x="115" y="116">Pod</text>
+    <rect x="40" y="204" width="150" height="96" rx="12" fill="#22c55e"/><text x="115" y="228">Pod</text>
+    <rect x="330" y="92" width="150" height="96" rx="12" fill="#22c55e"/><text x="405" y="116">Pod</text>
+  </g>
+  <g font-size="12" text-anchor="middle" font-family="Menlo,monospace">
+    <rect x="80" y="126" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/><text x="115" y="141.5" fill="#0369a1">ty:app</text>
+    <rect x="80" y="156" width="70" height="22" rx="11" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="115" y="171.5" fill="#1d4ed8">ver:v1</text>
+    <rect x="80" y="238" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/><text x="115" y="253.5" fill="#0369a1">ty:app</text>
+    <rect x="80" y="268" width="70" height="22" rx="11" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="115" y="283.5" fill="#1d4ed8">ver:v1</text>
+    <rect x="370" y="126" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/><text x="405" y="141.5" fill="#0369a1">ty:app</text>
+    <rect x="370" y="156" width="70" height="22" rx="11" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="405" y="171.5" fill="#c2410c">ver:v2</text>
+  </g>
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <rect x="158" y="82" width="40" height="20" rx="10" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="178" y="96.5" fill="#1d4ed8">v1</text>
+    <rect x="158" y="194" width="40" height="20" rx="10" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/><text x="178" y="208.5" fill="#1d4ed8">v1</text>
+    <rect x="448" y="82" width="40" height="20" rx="10" fill="#fff" stroke="#f97316" stroke-width="1.5"/><text x="468" y="96.5" fill="#c2410c">v2</text>
+  </g>
+
+  <!-- service selects ty:app -->
+  <path d="M300 268L194 142" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#as)"/>
+  <path d="M300 292L194 254" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#as)"/>
+  <path d="M405 250V192" fill="none" stroke="#0ea5e9" stroke-width="2" marker-end="url(#as)"/>
+
+  <rect x="300" y="250" width="180" height="74" rx="12" fill="#0ea5e9"/>
+  <text x="390" y="278" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Service</text>
+  <rect x="355" y="290" width="70" height="22" rx="11" fill="#fff" stroke="#0ea5e9" stroke-width="1.5"/>
+  <text x="390" y="305.5" font-size="12" fill="#0369a1" text-anchor="middle" font-family="Menlo,monospace">ty:app</text>
+
+  <!-- resource usage -->
+  <g stroke="#fff">
+    <use href="#cyl" x="40" y="352" fill="#3b82f6"/><use href="#cyl" x="72" y="352" fill="#3b82f6"/><use href="#cyl" x="104" y="352" fill="#f97316"/>
+  </g>
+</svg>

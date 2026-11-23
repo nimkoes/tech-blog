@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="186" viewBox="0 0 800 186" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+<rect width="800" height="186" rx="16" fill="#f8fafc"/>
+<rect x="20" y="38" width="760" height="128" rx="14" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+<rect x="20" y="20" width="170" height="36" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="2"/>
+<text x="105" y="44" font-size="18" font-weight="700" fill="#6d28d9" text-anchor="middle">BestEffort</text>
+<rect x="40" y="70" width="300" height="94" rx="12" fill="#22c55e"/>
+<text x="190" y="93" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+<rect x="52" y="104" width="132" height="46" rx="10" fill="#fff" stroke="#22c55e"/>
+<text x="118" y="132" font-size="14" fill="#15803d" text-anchor="middle">Container1</text>
+<rect x="196" y="104" width="132" height="46" rx="10" fill="#fff" stroke="#22c55e"/>
+<text x="262" y="132" font-size="14" fill="#15803d" text-anchor="middle">Container2</text>
+<rect x="364" y="70" width="260" height="60" rx="10" fill="#fff" stroke="#cbd5e1"/>
+<text x="380" y="96" font-size="13" fill="#334155">· 어떤 <tspan font-weight="700">Container</tspan> 내에도</text>
+<text x="391" y="115" font-size="13" fill="#334155"><tspan font-weight="700" fill="#1e40af">Request</tspan>와 <tspan font-weight="700" fill="#1e40af">Limit</tspan> 미설정</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="714" height="284" viewBox="0 0 714 284" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="714" height="284" rx="16" fill="#f8fafc"/>
+  <text x="357" y="48" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">concurrencyPolicy</text>
+  <rect x="24" y="70" width="666" height="190" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <path d="M25 108H689V140H25Z" fill="#f1f5f9"/>
+  <path d="M24 108H690M24 140H690" stroke="#cbd5e1"/>
+  <path d="M98 108V260" stroke="#cbd5e1" stroke-width="1"/>
+  <path d="M172 108V260" stroke="#cbd5e1" stroke-width="1"/>
+  <path d="M246 70V260" stroke="#cbd5e1" stroke-width="1.5"/>
+  <path d="M320 108V260" stroke="#cbd5e1" stroke-width="1"/>
+  <path d="M394 108V260" stroke="#cbd5e1" stroke-width="1"/>
+  <path d="M468 70V260" stroke="#cbd5e1" stroke-width="1.5"/>
+  <path d="M542 108V260" stroke="#cbd5e1" stroke-width="1"/>
+  <path d="M616 108V260" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="135" y="95" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle">Allow</text>
+  <text x="357" y="95" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle">Forbid</text>
+  <text x="579" y="95" font-size="15" font-weight="700" fill="#0f172a" text-anchor="middle">Replace</text>
+  <text x="61" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">1min</text>
+  <text x="135" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">2min</text>
+  <text x="209" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">3min</text>
+  <text x="283" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">1min</text>
+  <text x="357" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">2min</text>
+  <text x="431" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">3min</text>
+  <text x="505" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">1min</text>
+  <text x="579" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">2min</text>
+  <text x="653" y="129" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">3min</text>
+  <rect x="33" y="152" width="56" height="30" rx="8" fill="#f97316"/><text x="61" y="171.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <path d="M61 182V206" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="35" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="61" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="107" y="152" width="56" height="30" rx="8" fill="#f97316"/><text x="135" y="171.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <path d="M135 182V206" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="109" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="135" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="181" y="152" width="56" height="30" rx="8" fill="#f97316"/><text x="209" y="171.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <path d="M209 182V206" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="183" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="209" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="255" y="152" width="56" height="30" rx="8" fill="#f97316"/><text x="283" y="171.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <path d="M283 182V206" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="257" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="283" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <text x="357" y="172" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle">skip</text>
+  <path d="M309 225H327" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="331" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="357" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <path d="M377 192L388 211H366Z" fill="#fef9c3" stroke="#eab308" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M377 198v6" stroke="#a16207" stroke-width="2" stroke-linecap="round"/><circle cx="377" cy="207.5" r="1.2" fill="#a16207"/>
+  <rect x="403" y="152" width="56" height="30" rx="8" fill="#f97316"/><text x="431" y="171.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <path d="M431 182V206" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="405" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="431" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="477" y="152" width="56" height="30" rx="8" fill="#f97316"/><text x="505" y="171.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <path d="M505 182V206" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="479" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="505" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <path d="M521 182C521 200 539 198 559 207" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="553" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="579" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <path d="M599 192L610 211H588Z" fill="#fef9c3" stroke="#eab308" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M599 198v6" stroke="#a16207" stroke-width="2" stroke-linecap="round"/><circle cx="599" cy="207.5" r="1.2" fill="#a16207"/>
+  <rect x="625" y="152" width="56" height="30" rx="8" fill="#f97316"/><text x="653" y="171.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <path d="M653 182V206" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="627" y="210" width="52" height="30" rx="8" fill="#22c55e"/><text x="653" y="229.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+</svg>

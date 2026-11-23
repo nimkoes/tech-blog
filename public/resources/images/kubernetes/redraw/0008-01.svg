@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="340" viewBox="0 0 980 340" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="980" height="340" rx="16" fill="#f8fafc"/>
+  <path d="M330 20V320M650 20V320" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- panel 1: Env (Literal) -->
+  <g transform="translate(20 0)">
+    <rect x="60" y="14" width="180" height="32" rx="16" fill="#e2e8f0"/>
+    <text x="150" y="35" font-size="15" font-weight="700" text-anchor="middle" fill="#0f172a">Env <tspan font-weight="400" fill="#475569">(Literal)</tspan></text>
+
+    <rect x="0" y="90" width="120" height="64" rx="12" fill="#eab308"/>
+    <text x="60" y="111" font-size="14" font-weight="700" text-anchor="middle" fill="#422006">ConfigMap</text>
+    <rect x="12" y="120" width="96" height="24" rx="6" fill="#fff"/>
+    <text x="60" y="136.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key : Value</text>
+
+    <rect x="180" y="90" width="120" height="64" rx="12" fill="#eab308"/>
+    <text x="240" y="111" font-size="14" font-weight="700" text-anchor="middle" fill="#422006">Secret</text>
+    <rect x="192" y="120" width="96" height="24" rx="6" fill="#fff"/>
+    <text x="240" y="136.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key : Value</text>
+
+    <rect x="40" y="186" width="220" height="136" rx="12" fill="#22c55e"/>
+    <text x="150" y="207" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Pod</text>
+    <rect x="54" y="216" width="192" height="94" rx="10" fill="#fff" stroke="#22c55e"/>
+    <text x="150" y="234" font-size="13" text-anchor="middle" fill="#15803d">Container</text>
+    <text x="68" y="254" font-size="14" font-weight="700" fill="#15803d" font-family="Menlo,'JetBrains Mono',monospace">env</text>
+    <rect x="64" y="264" width="84" height="28" rx="6" fill="#fef9c3" stroke="#eab308"/>
+    <text x="106" y="282.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key:Value</text>
+    <rect x="152" y="264" width="84" height="28" rx="6" fill="#fef9c3" stroke="#eab308"/>
+    <text x="194" y="282.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key:Value</text>
+
+    <path d="M60 154V176H106V263" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M240 154V176H194V263" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <text x="248" y="172" font-size="12" fill="#c2410c">Decoding</text>
+  </g>
+
+  <!-- panel 2: Env (File) -->
+  <g transform="translate(340 0)">
+    <rect x="60" y="14" width="180" height="32" rx="16" fill="#e2e8f0"/>
+    <text x="150" y="35" font-size="15" font-weight="700" text-anchor="middle" fill="#0f172a">Env <tspan font-weight="400" fill="#475569">(File)</tspan></text>
+
+    <rect x="118" y="54" width="64" height="24" rx="6" fill="#fff" stroke="#cbd5e1"/>
+    <text x="150" y="70.5" font-size="12" text-anchor="middle" fill="#334155" font-family="Menlo,'JetBrains Mono',monospace">file.txt</text>
+    <path d="M118 66H60V89" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M182 66H240V89" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+    <rect x="0" y="90" width="120" height="64" rx="12" fill="#eab308"/>
+    <text x="60" y="111" font-size="14" font-weight="700" text-anchor="middle" fill="#422006">ConfigMap</text>
+    <rect x="12" y="120" width="96" height="24" rx="6" fill="#fff"/>
+    <text x="60" y="136.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key : Value</text>
+
+    <rect x="180" y="90" width="120" height="64" rx="12" fill="#eab308"/>
+    <text x="240" y="111" font-size="14" font-weight="700" text-anchor="middle" fill="#422006">Secret</text>
+    <rect x="192" y="120" width="96" height="24" rx="6" fill="#fff"/>
+    <text x="240" y="136.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key : Value</text>
+
+    <rect x="40" y="186" width="220" height="136" rx="12" fill="#22c55e"/>
+    <text x="150" y="207" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Pod</text>
+    <rect x="54" y="216" width="192" height="94" rx="10" fill="#fff" stroke="#22c55e"/>
+    <text x="150" y="234" font-size="13" text-anchor="middle" fill="#15803d">Container</text>
+    <text x="68" y="254" font-size="14" font-weight="700" fill="#15803d" font-family="Menlo,'JetBrains Mono',monospace">env</text>
+    <rect x="100" y="266" width="100" height="28" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="150" y="284.5" font-size="12" text-anchor="middle" fill="#334155" font-family="Menlo,'JetBrains Mono',monospace">Key:Value</text>
+
+    <path d="M30 154V280H99" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M270 154V280H201" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <text x="264" y="174" font-size="12" text-anchor="end" fill="#c2410c">Decoding</text>
+  </g>
+
+  <!-- panel 3: VolumeMount (File) -->
+  <g transform="translate(660 0)">
+    <rect x="40" y="14" width="220" height="32" rx="16" fill="#e2e8f0"/>
+    <text x="150" y="35" font-size="15" font-weight="700" text-anchor="middle" fill="#0f172a">VolumeMount <tspan font-weight="400" fill="#475569">(File)</tspan></text>
+
+    <rect x="118" y="54" width="64" height="24" rx="6" fill="#fff" stroke="#cbd5e1"/>
+    <text x="150" y="70.5" font-size="12" text-anchor="middle" fill="#334155" font-family="Menlo,'JetBrains Mono',monospace">file.txt</text>
+    <path d="M118 66H60V89" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M182 66H240V89" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+    <rect x="0" y="90" width="120" height="64" rx="12" fill="#eab308"/>
+    <text x="60" y="111" font-size="14" font-weight="700" text-anchor="middle" fill="#422006">ConfigMap</text>
+    <rect x="12" y="120" width="96" height="24" rx="6" fill="#fff"/>
+    <text x="60" y="136.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key : Value</text>
+
+    <rect x="180" y="90" width="120" height="64" rx="12" fill="#eab308"/>
+    <text x="240" y="111" font-size="14" font-weight="700" text-anchor="middle" fill="#422006">Secret</text>
+    <rect x="192" y="120" width="96" height="24" rx="6" fill="#fff"/>
+    <text x="240" y="136.5" font-size="12" text-anchor="middle" fill="#422006" font-family="Menlo,'JetBrains Mono',monospace">Key : Value</text>
+
+    <rect x="40" y="186" width="220" height="136" rx="12" fill="#22c55e"/>
+    <text x="150" y="207" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Pod</text>
+    <rect x="54" y="216" width="192" height="94" rx="10" fill="#fff" stroke="#22c55e"/>
+    <text x="150" y="234" font-size="13" text-anchor="middle" fill="#15803d">Container</text>
+    <text x="68" y="254" font-size="14" font-weight="700" fill="#15803d" font-family="Menlo,'JetBrains Mono',monospace">/mount</text>
+    <rect x="100" y="266" width="100" height="28" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="150" y="284.5" font-size="12" text-anchor="middle" fill="#334155" font-family="Menlo,'JetBrains Mono',monospace">file.txt</text>
+
+    <path d="M30 154V280H100M270 154V280H200" fill="none" stroke="#64748b" stroke-width="2"/>
+    <g fill="#64748b">
+      <circle cx="30" cy="154" r="3.5"/><circle cx="100" cy="280" r="3.5"/>
+      <circle cx="270" cy="154" r="3.5"/><circle cx="200" cy="280" r="3.5"/>
+    </g>
+    <text x="264" y="174" font-size="12" text-anchor="end" fill="#c2410c">Decoding</text>
+  </g>
+</svg>

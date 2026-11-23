@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="280" viewBox="0 0 1040 280" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1040" height="280" rx="16" fill="#f8fafc"/>
+
+  <!-- headers -->
+  <g font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">
+    <rect x="70" y="20" width="130" height="28" rx="14" fill="#e2e8f0"/><text x="135" y="39">emptyDir</text>
+    <rect x="325" y="20" width="130" height="28" rx="14" fill="#e2e8f0"/><text x="390" y="39">hostPath</text>
+    <rect x="723" y="20" width="130" height="28" rx="14" fill="#e2e8f0"/><text x="788" y="39">PVC / PV</text>
+  </g>
+
+  <!-- ===== emptyDir ===== -->
+  <rect x="20" y="80" width="230" height="140" rx="12" fill="#22c55e"/>
+  <text x="135" y="102" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Pod</text>
+  <rect x="30" y="126" width="72" height="44" rx="10" fill="#8b5cf6"/>
+  <text x="66" y="153" font-size="13" font-weight="700" text-anchor="middle" fill="#fff">Volume</text>
+  <g text-anchor="middle" fill="#15803d">
+    <rect x="126" y="114" width="114" height="42" rx="10" fill="#fff" stroke="#22c55e"/>
+    <text x="183" y="131" font-size="12" font-weight="700">Container1</text>
+    <text x="183" y="148" font-size="12" font-family="Menlo,'JetBrains Mono',monospace">/mount1</text>
+    <rect x="126" y="164" width="114" height="42" rx="10" fill="#fff" stroke="#22c55e"/>
+    <text x="183" y="181" font-size="12" font-weight="700">Container2</text>
+    <text x="183" y="198" font-size="12" font-family="Menlo,'JetBrains Mono',monospace">/mount2</text>
+  </g>
+  <path d="M126 135H104" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M126 185H114V160H104" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- ===== hostPath ===== -->
+  <rect x="270" y="64" width="240" height="116" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="282" y="84" font-size="13" font-weight="700" fill="#334155">Node1</text>
+  <rect x="282" y="96" width="92" height="56" rx="10" fill="#8b5cf6"/>
+  <text x="328" y="118" font-size="13" font-weight="700" text-anchor="middle" fill="#fff">Volume</text>
+  <text x="328" y="138" font-size="12" text-anchor="middle" fill="#ede9fe" font-family="Menlo,'JetBrains Mono',monospace">/node-v1</text>
+  <rect x="388" y="92" width="106" height="38" rx="10" fill="#22c55e"/>
+  <text x="441" y="108" font-size="13" font-weight="700" text-anchor="middle" fill="#fff">Pod1</text>
+  <text x="441" y="124" font-size="12" text-anchor="middle" fill="#dcfce7" font-family="Menlo,'JetBrains Mono',monospace">/data</text>
+  <rect x="388" y="136" width="106" height="38" rx="10" fill="#fff" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="441" y="152" font-size="13" font-weight="700" text-anchor="middle" fill="#15803d">Pod2</text>
+  <text x="441" y="168" font-size="12" text-anchor="middle" fill="#15803d" font-family="Menlo,'JetBrains Mono',monospace">/data</text>
+  <path d="M388 111H376" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/><path d="M388 146H376" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <text x="522" y="192" font-size="12" font-weight="700" text-anchor="end" fill="#c2410c">ReCreation</text>
+
+  <rect x="270" y="198" width="240" height="56" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="282" y="230" font-size="13" font-weight="700" fill="#334155">Node2</text>
+  <rect x="388" y="206" width="106" height="40" rx="10" fill="#22c55e"/>
+  <text x="441" y="223" font-size="13" font-weight="700" text-anchor="middle" fill="#fff">Pod2</text>
+  <text x="441" y="239" font-size="12" text-anchor="middle" fill="#dcfce7" font-family="Menlo,'JetBrains Mono',monospace">/data</text>
+  <path d="M494 155H528V225H496" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- ===== PVC / PV ===== -->
+  <rect x="560" y="112" width="60" height="64" rx="12" fill="#22c55e"/>
+  <text x="590" y="149" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Pod</text>
+  <path d="M620 144H642" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="644" y="96" width="100" height="96" rx="12" fill="#8b5cf6"/>
+  <g font-size="13" font-weight="700" text-anchor="middle" fill="#fff">
+    <text x="694" y="131">Persistent</text>
+    <text x="694" y="149">Volume</text>
+    <text x="694" y="167">Claim</text>
+  </g>
+  <path d="M744 144H756V108H766M756 144V180H766" fill="none" stroke="#64748b" stroke-width="2"/>
+  <path d="M758 108H766" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/><path d="M758 180H766" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="768" y="86" width="100" height="44" rx="10" fill="#8b5cf6"/>
+  <rect x="768" y="158" width="100" height="44" rx="10" fill="#8b5cf6"/>
+  <g font-size="12" font-weight="700" text-anchor="middle" fill="#fff">
+    <text x="818" y="104">Persistent</text>
+    <text x="818" y="120">Volume</text>
+    <text x="818" y="176">Persistent</text>
+    <text x="818" y="192">Volume</text>
+  </g>
+  <path d="M868 108H892" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/><path d="M868 180H892" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="892" y="64" width="128" height="172" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="956" y="84" font-size="13" font-weight="700" text-anchor="middle" fill="#6d28d9">Volume</text>
+  <rect x="902" y="94" width="108" height="28" rx="8" fill="#ede9fe"/>
+  <text x="956" y="113" font-size="12" font-weight="700" text-anchor="middle" fill="#6d28d9">Local</text>
+  <g font-size="12" text-anchor="middle" fill="#6d28d9">
+    <rect x="902" y="138" width="52" height="24" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/><text x="928" y="154.5">aws</text>
+    <rect x="958" y="138" width="52" height="24" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/><text x="984" y="154.5">git</text>
+    <rect x="902" y="168" width="52" height="24" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/><text x="928" y="184.5">NFS</text>
+    <rect x="958" y="168" width="52" height="24" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/><text x="984" y="184.5">iSCSI</text>
+    <rect x="902" y="198" width="108" height="24" rx="12" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/><text x="956" y="214.5">StorageOS</text>
+  </g>
+</svg>

@@ -14,13 +14,13 @@ tags:
   - LoadBalancer
 status: published
 ---
-![0006-01](/tech-blog/resources/images/kubernetes/0006-01.png)
+![Service 타입별 접근 주체: ClusterIP는 Admin, NodePort는 내부 사용자, LoadBalancer는 클라우드 제공자를 통해 Service와 Pod로 연결](/tech-blog/resources/images/kubernetes/redraw/0006-01.svg)
 
 # ClusterIP
 
 Service 는 기본적으로 아래 그림과 같이 자신의 ClusterIp 를 가지고 있다.
 
-![0006-02](/tech-blog/resources/images/kubernetes/0006-02.png)
+![ClusterIP Service가 클러스터 내부 요청만 받아 두 Pod로 전달하고 외부 요청은 차단하는 구조](/tech-blog/resources/images/kubernetes/redraw/0006-02.svg)
 
 그리고 이 Service 를 Pod 에 연결시켜두면 Service 의 IP 를 통해 Pod 에 접근할 수 있게 된다.
 
@@ -68,7 +68,7 @@ spec:
 
 NodePort 타입의 Service 에도 기본적으로 ClusterIP 가 할당 되고 ClusterIP 와 같은 기능을 포함하고 있다.
 
-![0006-03](/tech-blog/resources/images/kubernetes/0006-03.png)
+![NodePort Service가 모든 Node에 30000 포트를 열어 외부 요청을 Service를 거쳐 각 Node의 Pod로 전달하는 구조](/tech-blog/resources/images/kubernetes/redraw/0006-03.svg)
 
 NodePort 타입이 가지는 특징은 k8s Cluster 에 연결되어 있는 모든 Node 에 동일한 Port 가 할당 되어 외부로부터 어떤 Node 든 그 IP 에 port 로 접속하면 Service 에 연결이
 된다. 연결 된 Service 는 기본 기능인 자신과 연결된 Pod 에 트래픽을 전달 한다.
@@ -101,7 +101,7 @@ spec:
 
 Local Balancer 타입으로 Service 를 만들면 NodePort 의 성격을 그대로 가지게 된다.
 
-![0006-04](/tech-blog/resources/images/kubernetes/0006-04.png)
+![LoadBalancer가 외부 요청을 각 Node의 30000 포트로 분산하고 Service가 Pod로 전달하는 구조](/tech-blog/resources/images/kubernetes/redraw/0006-04.svg)
 
 추가로 Local Balancer 가 생성되어 각각의 Node 에 트래픽을 분산시켜주는 역할을 한다.
 

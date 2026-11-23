@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#f97316"/></marker>
+  </defs>
+  <rect width="640" height="320" rx="16" fill="#f8fafc"/>
+
+  <!-- Replication -->
+  <rect x="30" y="30" width="160" height="100" rx="12" fill="#f97316"/>
+  <text x="110" y="54" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Replication</text>
+  <rect x="60" y="80" width="100" height="26" rx="13" fill="#fff"/>
+  <text x="110" y="97.5" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">type:web</text>
+
+  <!-- ReplicaSet -->
+  <text x="230" y="24" font-size="12" font-weight="700" fill="#64748b">3-1</text>
+  <rect x="230" y="30" width="380" height="120" rx="12" fill="#f97316"/>
+  <text x="420" y="54" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">ReplicaSet</text>
+  <g font-size="12" font-weight="700" fill="#ffedd5" text-anchor="middle">
+    <text x="300" y="80">matchLabels</text>
+    <text x="485" y="80">matchExpressions</text>
+  </g>
+  <rect x="250" y="92" width="100" height="26" rx="13" fill="#fff"/>
+  <text x="300" y="109.5" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">type:web</text>
+  <rect x="380" y="88" width="210" height="50" rx="8" fill="#dbeafe"/>
+  <g font-size="12" fill="#1d4ed8" font-family="Menlo,'JetBrains Mono',monospace">
+    <text x="394" y="108">- key: <tspan font-weight="700">ver</tspan></text>
+    <text x="408" y="128">operator: <tspan font-weight="700" fill="#c2410c">Exists</tspan></text>
+  </g>
+
+  <!-- links -->
+  <path d="M420 150V170H140V208" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  <path d="M420 170H340V208" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  <path d="M110 130V186H100V208" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M110 186H300V208" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Pods -->
+  <g fill="#22c55e">
+    <rect x="40" y="210" width="160" height="90" rx="12"/>
+    <rect x="240" y="210" width="160" height="90" rx="12"/>
+    <rect x="440" y="210" width="160" height="90" rx="12"/>
+  </g>
+  <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+    <text x="120" y="232">Pod1</text>
+    <text x="320" y="232">Pod2</text>
+    <text x="520" y="232">Pod3</text>
+  </g>
+  <g fill="#fff">
+    <rect x="65" y="242" width="110" height="22" rx="11"/>
+    <rect x="265" y="242" width="110" height="22" rx="11"/>
+    <rect x="465" y="242" width="110" height="22" rx="11"/>
+  </g>
+  <g fill="#dbeafe">
+    <rect x="65" y="270" width="110" height="22" rx="11"/>
+    <rect x="265" y="270" width="110" height="22" rx="11"/>
+    <rect x="465" y="270" width="110" height="22" rx="11"/>
+  </g>
+  <g font-size="12" text-anchor="middle" font-family="Menlo,'JetBrains Mono',monospace">
+    <g fill="#15803d">
+      <text x="120" y="257.5">type:web</text>
+      <text x="320" y="257.5">type:web</text>
+    </g>
+    <text x="520" y="257.5" fill="#334155">type:db</text>
+    <g fill="#1d4ed8">
+      <text x="120" y="285.5">ver:v1</text>
+      <text x="320" y="285.5">ver:alpha</text>
+      <text x="520" y="285.5">ver:beta</text>
+    </g>
+  </g>
+</svg>

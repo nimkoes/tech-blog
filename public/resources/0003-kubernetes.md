@@ -11,7 +11,7 @@ tags:
   - Kubernetes
 status: published
 ---
-![0003-01](/tech-blog/resources/images/kubernetes/0003-01.png)
+![VM은 Host OS 위 Hypervisor에 Guest OS를 올려 서비스를 띄우고, Container는 Host OS 위 docker·rkt·LXC 같은 컨테이너 가상화 소프트웨어로 동작하는 구조 비교](/tech-blog/resources/images/kubernetes/redraw/0003-01.svg)
 
 VM 과 Container 모두 공통적으로 하나의 서버(Host Server)가 있고 그 서버에는 Host OS 가 올라간다.
 
@@ -20,7 +20,7 @@ VM 의 경우 Host OS 위에 VM 을 가상화 하기 위한 여러 Hypervisor �
 
 Container 의 경우 Host OS 위에 Container 가상화를 시켜주는 다양한 소프트웨어들이 있는데, 보편적으로 Docker 를 많이 사용 한다.
 
-![0003-02](/tech-blog/resources/images/kubernetes/0003-02.png)
+![Linux 6의 docker로 만든 A Service Container를 Linux 7의 docker에서 B·C Service와 함께 실행하고, docker 없이 옮기면 문제가 생기며 namespace와 cgroups로 자원을 격리하는 구조](/tech-blog/resources/images/kubernetes/redraw/0003-02.svg)
 
 Docker 를 사용해서 Container 를 만들 수 있다.
 
@@ -52,7 +52,7 @@ Host OS 와 다른 OS 의 Container 사용 불가능
 Guest OS 를 사용하지 않기 때문에 빠른 속도
 하나의 Container 가 보안에 뚫려 Host OS 에 접근하게 되면 다른 Container 들도 위험
 
-![0003-03](/tech-blog/resources/images/kubernetes/0003-03.png)
+![VM은 Module A·B·C를 하나의 Java 서비스로 묶어 띄우고, Container는 모듈별 Container를 Pod로 묶어 Kubernetes로 필요한 Pod만 확장하는 구조 비교](/tech-blog/resources/images/kubernetes/redraw/0003-03.svg)
 
 시스템 개발 관점에서 VM 과 Container 의 다른점이 있다.
 

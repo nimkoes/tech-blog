@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="484" viewBox="0 0 1000 484" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <g id="pod2">
+      <rect x="0" y="0" width="176" height="100" rx="12" fill="#22c55e" stroke="#f8fafc" stroke-width="2"/>
+      <text x="88" y="22" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Pod</text>
+      <rect x="10" y="32" width="156" height="56" rx="10" fill="#fff" stroke="#22c55e"/>
+      <text x="22" y="52" font-size="12" fill="#64748b">Container</text>
+      <text x="22" y="74" font-size="14" font-weight="700" fill="#15803d">Module C</text>
+      <rect x="106" y="49" width="50" height="22" rx="11" fill="#fff" stroke="#94a3b8"/>
+      <text x="131" y="64.5" font-size="12" text-anchor="middle" fill="#475569">Java</text>
+    </g>
+  </defs>
+  <rect width="1000" height="484" rx="16" fill="#f8fafc"/>
+
+  <!-- headers -->
+  <g font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">
+    <rect x="187" y="20" width="160" height="28" rx="14" fill="#e2e8f0"/><text x="267" y="39">Virtual Machine</text>
+    <rect x="690" y="20" width="140" height="28" rx="14" fill="#e2e8f0"/><text x="760" y="39">Container</text>
+  </g>
+  <path d="M535 60V352" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- VMs -->
+  <g>
+    <rect x="36" y="60" width="230" height="198" rx="12" fill="#fff" stroke="#cbd5e1"/>
+    <rect x="284" y="60" width="230" height="198" rx="12" fill="#fff" stroke="#cbd5e1"/>
+    <g font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">
+      <text x="151" y="84">Service</text><text x="399" y="84">Service</text>
+    </g>
+    <rect x="50" y="96" width="202" height="88" rx="8" fill="#f1f5f9"/>
+    <rect x="298" y="96" width="202" height="88" rx="8" fill="#f1f5f9"/>
+    <g font-size="13" font-weight="700" fill="#334155">
+      <text x="66" y="122">Module A</text><text x="66" y="145">Module B</text><text x="66" y="168">Module C</text>
+      <text x="314" y="122">Module A</text><text x="314" y="145">Module B</text><text x="314" y="168">Module C</text>
+    </g>
+    <g font-size="12" text-anchor="middle" fill="#475569">
+      <rect x="180" y="128" width="54" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="207" y="144.5">Java</text>
+      <rect x="428" y="128" width="54" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="455" y="144.5">Java</text>
+    </g>
+    <rect x="46" y="196" width="210" height="52" rx="8" fill="#e2e8f0"/>
+    <rect x="294" y="196" width="210" height="52" rx="8" fill="#e2e8f0"/>
+    <g font-size="12" font-weight="700" text-anchor="middle" fill="#334155">
+      <text x="151" y="213">Guest OS</text><text x="399" y="213">Guest OS</text>
+    </g>
+    <g font-size="12" text-anchor="middle" fill="#334155">
+      <rect x="69" y="220" width="44" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="91" y="234">Linux</text>
+      <rect x="117" y="220" width="50" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="142" y="234">macOS</text>
+      <rect x="171" y="220" width="62" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="202" y="234">Windows</text>
+      <rect x="317" y="220" width="44" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="339" y="234">Linux</text>
+      <rect x="365" y="220" width="50" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="390" y="234">macOS</text>
+      <rect x="419" y="220" width="62" height="20" rx="10" fill="#fff" stroke="#94a3b8"/><text x="450" y="234">Windows</text>
+    </g>
+  </g>
+  <path d="M151 264V296" stroke="#64748b" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <path d="M399 264V296" stroke="#64748b" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+
+  <rect x="36" y="300" width="478" height="50" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <text x="56" y="331" font-size="16" font-weight="700" fill="#0f172a">Hypervisor</text>
+  <g font-size="12" text-anchor="middle" fill="#334155">
+    <rect x="240" y="313" width="84" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="282" y="329.5">VirtualBox</text>
+    <rect x="328" y="313" width="46" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="351" y="329.5">Xen</text>
+    <rect x="378" y="313" width="50" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="403" y="329.5">KVM</text>
+    <rect x="432" y="313" width="70" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="467" y="329.5">VMware</text>
+  </g>
+
+  <!-- Container side -->
+  <text x="760" y="76" font-size="15" font-weight="700" text-anchor="middle" fill="#0f172a">Service</text>
+
+  <rect x="548" y="88" width="200" height="170" rx="12" fill="#22c55e"/>
+  <text x="648" y="110" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">Pod</text>
+  <rect x="558" y="120" width="180" height="56" rx="10" fill="#fff" stroke="#22c55e"/>
+  <text x="570" y="140" font-size="12" fill="#64748b">Container</text>
+  <text x="570" y="162" font-size="14" font-weight="700" fill="#15803d">Module A</text>
+  <rect x="664" y="137" width="62" height="22" rx="11" fill="#fff" stroke="#94a3b8"/>
+  <text x="695" y="152.5" font-size="12" text-anchor="middle" fill="#475569">Node.js</text>
+  <rect x="558" y="188" width="180" height="56" rx="10" fill="#fff" stroke="#22c55e"/>
+  <text x="570" y="208" font-size="12" fill="#64748b">Container</text>
+  <text x="570" y="230" font-size="14" font-weight="700" fill="#15803d">Module B</text>
+  <rect x="664" y="205" width="62" height="22" rx="11" fill="#fff" stroke="#94a3b8"/>
+  <text x="695" y="220.5" font-size="12" text-anchor="middle" fill="#475569">Go</text>
+
+  <use href="#pod2" x="796" y="124"/>
+  <use href="#pod2" x="782" y="106"/>
+  <use href="#pod2" x="768" y="88"/>
+
+  <rect x="548" y="300" width="200" height="50" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <g font-size="12" font-weight="700" text-anchor="middle" fill="#334155">
+    <rect x="563" y="313" width="62" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="594" y="329.5">docker</text>
+    <rect x="633" y="313" width="44" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="655" y="329.5">rkt</text>
+    <rect x="685" y="313" width="48" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="709" y="329.5">LXC</text>
+  </g>
+  <rect x="764" y="300" width="196" height="50" rx="10" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+  <text x="862" y="331" font-size="16" font-weight="700" text-anchor="middle" fill="#c2410c">Kubernetes</text>
+
+  <!-- Host OS / Host Server -->
+  <rect x="20" y="366" width="960" height="40" rx="10" fill="#e0f2fe"/>
+  <text x="500" y="391" font-size="14" font-weight="700" text-anchor="middle" fill="#0369a1">Host OS</text>
+  <g font-size="12" text-anchor="middle" fill="#334155">
+    <rect x="790" y="374" width="50" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="815" y="390.5">Linux</text>
+    <rect x="846" y="374" width="58" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="875" y="390.5">macOS</text>
+    <rect x="910" y="374" width="62" height="24" rx="12" fill="#fff" stroke="#94a3b8"/><text x="941" y="390.5">Windows</text>
+  </g>
+  <rect x="20" y="420" width="960" height="44" rx="10" fill="#334155"/>
+  <text x="500" y="448" font-size="16" font-weight="700" text-anchor="middle" fill="#fff">Host Server</text>
+  <g fill="none" stroke="#fff" stroke-width="1.5">
+    <rect x="928" y="428" width="34" height="8" rx="2"/><rect x="928" y="438" width="34" height="8" rx="2"/><rect x="928" y="448" width="34" height="8" rx="2"/>
+  </g>
+</svg>

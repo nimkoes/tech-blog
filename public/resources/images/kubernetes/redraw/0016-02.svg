@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1044" height="580" viewBox="0 0 1044 580" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#3b82f6"/></marker>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#ec4899"/></marker>
+  </defs>
+  <rect width="1044" height="580" rx="16" fill="#f8fafc"/>
+
+  <!-- header -->
+  <rect x="580" y="14" width="160" height="28" rx="14" fill="#e2e8f0"/>
+  <text x="660" y="33" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">Pod간 집중/분산</text>
+  <g font-size="14" font-weight="700" fill="#1d4ed8">
+    <text x="648" y="66" text-anchor="end">Pod Affinity</text>
+    <text x="672" y="66">Anti-Affinity</text>
+  </g>
+  <path d="M660 52V216" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- PV -->
+  <rect x="508" y="80" width="100" height="46" rx="12" fill="#8b5cf6"/>
+  <text x="558" y="99" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">PV</text>
+  <text x="558" y="117" font-size="12" fill="#ede9fe" text-anchor="middle" font-family="Menlo,monospace">Hostpath</text>
+  <path d="M512 160V143H548V130" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M604 160V143H568V130" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- request pods -->
+  <g fill="#22c55e">
+    <rect x="470" y="160" width="84" height="50" rx="12"/>
+    <rect x="562" y="160" width="84" height="50" rx="12"/>
+    <rect x="674" y="160" width="84" height="50" rx="12"/>
+    <rect x="766" y="160" width="84" height="50" rx="12"/>
+  </g>
+  <g font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+    <text x="512" y="180">Web</text>
+    <text x="604" y="180">Server</text>
+    <text x="716" y="180">Master</text>
+    <text x="808" y="180">Slave</text>
+  </g>
+  <g font-size="11" fill="#dcfce7" text-anchor="middle" font-family="Menlo,monospace">
+    <text x="512" y="200">Type:Web</text>
+    <text x="604" y="200">Type:Web</text>
+    <text x="716" y="200">Type:Master</text>
+    <text x="808" y="200">Type:Master</text>
+  </g>
+
+  <!-- pods -> scheduler -->
+  <path d="M512 210V246" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <path d="M716 210V246" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+
+  <!-- scheduler -->
+  <rect x="24" y="250" width="1000" height="50" rx="12" fill="#f97316"/>
+  <text x="250" y="271" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Scheduler</text>
+  <rect x="195" y="277" width="110" height="18" rx="6" fill="#ffedd5"/>
+  <text x="250" y="290" font-size="12" fill="#9a3412" text-anchor="middle">CPU / Memory</text>
+
+  <!-- scheduler -> Node3 -->
+  <path d="M512 300V336" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <path d="M716 300V314H620V336" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+
+  <!-- nodes -->
+  <g fill="#f1f5f9" stroke="#94a3b8">
+    <rect x="96" y="340" width="176" height="220" rx="12"/>
+    <rect x="284" y="340" width="176" height="220" rx="12"/>
+    <rect x="472" y="340" width="176" height="220" rx="12"/>
+    <rect x="660" y="340" width="176" height="220" rx="12"/>
+    <rect x="848" y="340" width="176" height="220" rx="12"/>
+  </g>
+  <g font-size="14" font-weight="700" fill="#334155">
+    <text x="110" y="364">Node1</text>
+    <text x="298" y="364">Node2</text>
+    <text x="486" y="364">Node3</text>
+    <text x="674" y="364">Node4</text>
+    <text x="862" y="364">Node5</text>
+  </g>
+
+  <!-- pods on nodes -->
+  <g fill="#22c55e">
+    <rect x="108" y="378" width="72" height="46" rx="10"/>
+    <rect x="188" y="378" width="72" height="46" rx="10"/>
+    <rect x="336" y="378" width="72" height="46" rx="10"/>
+    <rect x="480" y="378" width="78" height="46" rx="10"/>
+    <rect x="566" y="378" width="74" height="46" rx="10"/>
+    <rect x="480" y="432" width="78" height="46" rx="10"/>
+    <rect x="709" y="378" width="78" height="46" rx="10"/>
+  </g>
+  <g font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+    <text x="144" y="397">Pod</text>
+    <text x="224" y="397">Pod</text>
+    <text x="372" y="397">Pod</text>
+    <text x="519" y="397">Web</text>
+    <text x="603" y="406">Server</text>
+    <text x="519" y="451">Master</text>
+    <text x="748" y="406">Slave</text>
+  </g>
+  <g font-size="11" fill="#dcfce7" text-anchor="middle" font-family="Menlo,monospace">
+    <text x="144" y="415">30</text>
+    <text x="224" y="415">Node1</text>
+    <text x="372" y="415">az-1</text>
+    <text x="519" y="415">Type:Web</text>
+    <text x="519" y="469">Type:Master</text>
+  </g>
+  <rect x="566" y="440" width="74" height="30" rx="8" fill="#8b5cf6"/>
+  <text x="603" y="460" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">PV</text>
+
+  <!-- affinity-directed placement -->
+  <path d="M604 210V324H544V374" fill="none" stroke="#ec4899" stroke-width="2" marker-end="url(#ak)"/>
+  <path d="M808 210V330H772V374" fill="none" stroke="#ec4899" stroke-width="2" marker-end="url(#ak)"/>
+
+  <!-- resources -->
+  <text x="88" y="540" font-size="13" font-weight="700" fill="#c2410c" text-anchor="end">Resource</text>
+  <g fill="#ffedd5">
+    <rect x="124" y="525" width="120" height="22" rx="6"/>
+    <rect x="312" y="525" width="120" height="22" rx="6"/>
+    <rect x="500" y="525" width="120" height="22" rx="6"/>
+    <rect x="688" y="525" width="120" height="22" rx="6"/>
+  </g>
+  <g font-size="12" fill="#9a3412" text-anchor="middle" font-family="Menlo,monospace">
+    <text x="184" y="540.5">CPU : 70</text>
+    <text x="372" y="540.5">CPU : 50</text>
+    <text x="560" y="540.5">CPU : 30</text>
+    <text x="748" y="540.5">CPU : 40</text>
+  </g>
+</svg>

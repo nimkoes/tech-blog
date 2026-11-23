@@ -15,11 +15,11 @@ tags:
   - Volume Mount
 status: published
 ---
-![0008-01](/tech-blog/resources/images/kubernetes/0008-01.png)
+![Env(Literal), Env(File), VolumeMount(File) 세 방식으로 ConfigMap과 Secret의 값이 Pod 안 Container의 환경변수나 마운트 파일로 들어가는 구조 비교](/tech-blog/resources/images/kubernetes/redraw/0008-01.svg)
 
 본격적인 사용 방법을 알아보기에 앞서 ConfigMap 과 Secret 이 언제 사용되는지 먼저 정리한다.
 
-![0008-02](/tech-blog/resources/images/kubernetes/0008-02.png)
+![같은 A Service를 Dev와 Production 환경별 Image로 따로 만드는 대신 ConfigMap과 Secret이 Env로 값을 주입해 하나의 Container Image를 쓰는 구조](/tech-blog/resources/images/kubernetes/redraw/0008-02.svg)
 
 개발 환경과 운영 환경이 있다. A Service 는 환경에 따라 SSH 설정 및 User 와 key 값을 설정해야 한다. 하지만 이 값은 Container 안에 있는 Service 에 들어있는 값이기 때문에 이
 값을 바꾼다는 것은 환경에 따라 Container Image 를 따로 관리해야 한다는 것을 의미한다. 단순히 이 값을 관리하기 위해 용량이 큰 Image 를 별도로 관리하는 것은 부담되는 일이다.
@@ -36,7 +36,7 @@ Pod 를 생성할 때 ConfigMap 과 Secret 오브젝트를 연결할 수 있는�
 
 가장 기본적인 형태인 상수를 입력하는 방법이다.
 
-![0008-03](/tech-blog/resources/images/kubernetes/0008-03.png)
+![ConfigMap의 SSH, user 상수와 Secret의 Base64 PW가 Pod Container의 env로 들어가고 Secret 값은 디코딩되어 1234로 보이는 구조](/tech-blog/resources/images/kubernetes/redraw/0008-03.svg)
 
 ConfigMap 은 key 와 value 로 구성되어 있다. 그래서 필요한 상수들을 정의하면 Pod 를 만들 때 이 ConfigMap 을 가져와서 Container 안에 환경 변수로 설정할 수 있다. Secret
 도 동일한 기능을 하는데 비밀번호와 같은 보안과 관련 된 값들을 저장하는 용도로 사용 한다. ConfigMap 과 다른 Secret 의 특징은 값을 넣을 때 Base64 인코딩 한 값을 넣어야 한다는 것인데
@@ -85,7 +85,7 @@ spec:
 
 # Env (File)
 
-![0008-04](/tech-blog/resources/images/kubernetes/0008-04.png)
+![file.txt를 담은 ConfigMap과 Secret에서 file이라는 새 key로 Content를 Container 환경변수에 넣고 Secret은 디코딩되는 구조](/tech-blog/resources/images/kubernetes/redraw/0008-04.svg)
 
 파일을 ConfigMap 에 담을 경우 파일의 이름이 ConfigMap 의 이름이 key 가 되고 내용이 value 가 된다. 이것을 Pod 를 만들 때 환경변수로 넣을 때 그대로 넣게 될 경우 key 가 파일
 이름이 되어 자연스럽지 않다. 그래서 key 를 새로 정의해서 Content 를 넣는 방법을 사용 한다.
@@ -125,7 +125,7 @@ spec:
 
 Volume Mount (file)
 
-![0008-05](/tech-blog/resources/images/kubernetes/0008-05.png)
+![file.txt를 담은 ConfigMap과 Secret을 Container의 /mount 경로에 file.txt 파일로 마운트하고 Secret은 디코딩되는 구조](/tech-blog/resources/images/kubernetes/redraw/0008-05.svg)
 
 file 을 ConfigMap 에 담는 것 까지는 앞서 본 것과 동일하다.
 

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="316" viewBox="0 0 520 316" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="520" height="316" rx="16" fill="#f8fafc"/>
+
+  <!-- cronjob -->
+  <rect x="60" y="20" width="400" height="104" rx="12" fill="#f97316"/>
+  <text x="260" y="46" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">CronJob</text>
+  <text x="84" y="78" font-size="13" font-weight="700" fill="#ffedd5">schedule :</text>
+  <text x="84" y="102" font-size="15" font-weight="700" fill="#fff" font-family="Menlo,monospace">*/1 * * * *</text>
+  <text x="370" y="74" font-size="12" font-weight="700" fill="#ffedd5" text-anchor="middle">jobTemplate</text>
+  <rect x="330" y="82" width="80" height="28" rx="8" fill="#fff"/>
+  <text x="370" y="101" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle">Job</text>
+
+  <!-- a job every minute -->
+  <path d="M260 124V146H100V176" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M260 124V176" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M260 124V146H420V176" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <g font-size="13" fill="#334155" text-anchor="end">
+    <text x="92" y="168">1 Min</text>
+    <text x="252" y="168">2 Min</text>
+    <text x="412" y="168">3 Min</text>
+  </g>
+
+  <!-- jobs and pods -->
+  <g font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+    <rect x="50" y="180" width="100" height="40" rx="10" fill="#f97316"/><text x="100" y="204.5">Job</text>
+    <rect x="210" y="180" width="100" height="40" rx="10" fill="#f97316"/><text x="260" y="204.5">Job</text>
+    <rect x="370" y="180" width="100" height="40" rx="10" fill="#f97316"/><text x="420" y="204.5">Job</text>
+    <rect x="55" y="256" width="90" height="36" rx="8" fill="#22c55e"/><text x="100" y="278.5">Pod</text>
+    <rect x="215" y="256" width="90" height="36" rx="8" fill="#22c55e"/><text x="260" y="278.5">Pod</text>
+    <rect x="375" y="256" width="90" height="36" rx="8" fill="#22c55e"/><text x="420" y="278.5">Pod</text>
+  </g>
+  <path d="M100 220V252M260 220V252M420 220V252" fill="none" stroke="#64748b" stroke-width="2"/>
+  <path d="M100 244V252" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M260 244V252" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M420 244V252" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+</svg>

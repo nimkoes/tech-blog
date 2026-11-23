@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="420" viewBox="0 0 520 420" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#f97316"/></marker>
+  </defs>
+  <rect width="520" height="420" rx="16" fill="#f8fafc"/>
+  <text x="24" y="36" font-size="18" font-weight="700" fill="#1d4ed8">preferred weight</text>
+  <rect x="60" y="52" width="400" height="150" rx="12" fill="#22c55e"/>
+  <text x="260" y="72" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <text x="76" y="94" font-size="15" font-weight="700" fill="#fff">preferred</text>
+  <rect x="76" y="102" width="110" height="20" rx="6" fill="#fff"/>
+  <text x="86" y="116" font-size="12" fill="#334155" font-family="Menlo,monospace">weight : <tspan fill="#c2410c" font-weight="700">10</tspan></text>
+  <text x="76" y="144" font-size="12" fill="#dcfce7">matchExpressions</text>
+  <rect x="76" y="152" width="174" height="42" rx="8" fill="#fff"/>
+  <text x="88" y="169" font-size="12" fill="#334155" font-family="Menlo,monospace">key: <tspan font-weight="700">us</tspan></text>
+  <text x="88" y="186" font-size="12" fill="#334155" font-family="Menlo,monospace">operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+  <rect x="270" y="102" width="110" height="20" rx="6" fill="#fff"/>
+  <text x="280" y="116" font-size="12" fill="#334155" font-family="Menlo,monospace">weight : <tspan fill="#c2410c" font-weight="700">50</tspan></text>
+  <text x="270" y="144" font-size="12" fill="#dcfce7">matchExpressions</text>
+  <rect x="270" y="152" width="174" height="42" rx="8" fill="#fff"/>
+  <text x="282" y="169" font-size="12" fill="#334155" font-family="Menlo,monospace">key: <tspan font-weight="700">kr</tspan></text>
+  <text x="282" y="186" font-size="12" fill="#334155" font-family="Menlo,monospace">operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+  <path d="M335 202V258" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="120" y="262" width="130" height="84" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="185" y="283" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+  <rect x="140" y="291" width="90" height="20" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="185" y="305" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace"><tspan font-weight="700">us</tspan> : az-1</text>
+  <rect x="140" y="317" width="90" height="20" rx="6" fill="#ffedd5"/>
+  <text x="185" y="331" font-size="12" fill="#9a3412" text-anchor="middle" font-family="Menlo,monospace">CPU : <tspan font-weight="700">50</tspan></text>
+  <rect x="270" y="262" width="130" height="84" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="335" y="283" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+  <rect x="290" y="291" width="90" height="20" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="335" y="305" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace"><tspan font-weight="700">kr</tspan> : az-1</text>
+  <rect x="290" y="317" width="90" height="20" rx="6" fill="#ffedd5"/>
+  <text x="335" y="331" font-size="12" fill="#9a3412" text-anchor="middle" font-family="Menlo,monospace">CPU : <tspan font-weight="700">30</tspan></text>
+  <rect x="44" y="264" width="52" height="22" rx="6" fill="#dbeafe"/>
+  <text x="70" y="280" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">60</text>
+  <text x="70" y="309" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">+ 10</text>
+  <rect x="44" y="322" width="52" height="22" rx="6" fill="#dcfce7"/>
+  <text x="70" y="338" font-size="13" font-weight="700" fill="#166534" text-anchor="middle" font-family="Menlo,monospace">50</text>
+  <rect x="424" y="264" width="52" height="22" rx="6" fill="#dbeafe"/>
+  <text x="450" y="280" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">80</text>
+  <text x="450" y="309" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">+ 50</text>
+  <rect x="424" y="322" width="52" height="22" rx="6" fill="#dcfce7"/>
+  <text x="450" y="338" font-size="13" font-weight="700" fill="#166534" text-anchor="middle" font-family="Menlo,monospace">30</text>
+  <rect x="200" y="362" width="120" height="32" rx="10" fill="#f97316"/>
+  <text x="260" y="383" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Scheduler</text>
+  <path d="M200 378H70V348" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  <path d="M320 378H450V348" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+</svg>

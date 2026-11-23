@@ -12,7 +12,7 @@ tags:
   - ReplicaSet
 status: published
 ---
-![0010-01](/tech-blog/resources/images/kubernetes/0010-01.png)
+![Controller가 장애 Pod를 다른 Node에 다시 만드는 Auto Healing, Pod 버전을 v1에서 v2로 바꾸고 되돌리는 Software Update, 부하 Pod를 늘리는 Auto Scaling](/tech-blog/resources/images/kubernetes/redraw/0010-01.svg)
 
 k8s 의 Controller 는 서비스를 관리하고 운영하는데 큰 도움을 준다.
 
@@ -34,7 +34,7 @@ Pod 의 리소스가 최대치에 다다랐을 경우 Controller 는 이 상태�
 
 일시적인 작업을 해야하는 경우 Controller 가 필요한 순간 Pod 를 만들어서 해당 작업을 수행하고 삭제 한다.
 
-![0010-02](/tech-blog/resources/images/kubernetes/0010-02.png)
+![Job Controller가 필요할 때만 Pod를 만들어 자원을 쓰고 작업이 끝나면 Pod를 삭제해 자원을 반환하는 흐름](/tech-blog/resources/images/kubernetes/redraw/0010-02.svg)
 
 이렇게 하면 그 순간에만 자원을 사용 하고, 작업 후에 반환 하기 때문에 효율적인 자원 활용이 가능해 진다.
 
@@ -45,7 +45,7 @@ ReplicaSet 모두 가지고 있고 Selector 는 ReplicaSet 에만 존재 한다.
 
 # Template
 
-![0010-03](/tech-blog/resources/images/kubernetes/0010-03.png)
+![Replication의 selector가 type:web Pod와 연결되고 template을 Pod:v2로 바꾼 뒤 기존 Pod가 삭제되면 Pod:v2로 다시 만들어지는 흐름](/tech-blog/resources/images/kubernetes/redraw/0010-03.svg)
 
 Controller 와 Pod 는 Service 와 Pod 처럼 Label 과 Selector 로 연결 된다. 1-1 의 Pod 와 같이 type:web 이라는 Label 이 붙어 있고 1-2 와 같이 매핑되는
 Selector 를 만들면 연결이 된다. 그리고 Controller 를 만들 때 template 으로 Pod 의 내용을 넣게 되는데, Controller 는 Pod 가 다운되면 template 을 사용해서 Pod 를
@@ -87,7 +87,7 @@ spec:
 
 # Replicas
 
-![0010-04](/tech-blog/resources/images/kubernetes/0010-04.png)
+![replicas를 3으로 늘리면 Pod가 Scale Out 되고 Pod 없이 replicas 2와 template만 있으면 Controller가 Pod 2개를 만드는 구조](/tech-blog/resources/images/kubernetes/redraw/0010-04.svg)
 
 기능은 간단하다. replicas 에 적은 수 만큼 Pod 가 관리 된다. replicas 의 수를 늘리면 scale out, 줄이면 scale in 이 발생 한다.
 
@@ -96,7 +96,7 @@ Controller 만 만들 경우 Controller 는 replicas 가 2 인데 현재 연결 
 
 # Selector
 
-![0010-05](/tech-blog/resources/images/kubernetes/0010-05.png)
+![Replication은 type:web label이 같은 Pod1, Pod2만 연결하고, ReplicaSet도 matchLabels(type:web)와 matchExpressions(key ver, Exists)를 모두 만족하는 Pod1, Pod2만 선택하는 구조](/tech-blog/resources/images/kubernetes/redraw/0010-05.svg)
 
 ReplicationController 의 Selector 는 key 와 value 가 같은 label 을 연결 해준다. Pod3 과 같은 경우 Replication 의 label 과 value 가 다르기 때문에
 연결해 주지 않는다.
@@ -105,6 +105,8 @@ ReplicationController 의 Selector 는 key 와 value 가 같은 label 을 연결
 
 matchLabels 는 ReplicationController 와 같이 key 와 value 가 모두 같아야 연결을 해주고, matchExpressions 는 key 와 value 를 좀 더 정교하게 다룰 수
 있다. 예를 들어 그림과 같이 key: ver 을 넣고 operator: Exists 라고 넣으면 value 는 다르지만 label 의 key 가 ver 인 모든 Pod 를 선택 하게 된다.
+단, matchLabels 와 matchExpressions 를 함께 쓰면 두 조건을 모두 만족해야 하므로, 그림에서는 type: web 이면서 ver key 를 가진 Pod1, Pod2 만 선택 되고
+type: db 인 Pod3 은 선택 되지 않는다.
 
 ```yml
 apiVersion: apps/v1
@@ -128,22 +130,22 @@ operator 에 사용할 수 있는 값
 
 ## Exists
 
-![0010-06](/tech-blog/resources/images/kubernetes/0010-06.png)
+![Exists 연산자로 key A를 가진 Pod1, Pod2만 ReplicaSet에 연결되는 예](/tech-blog/resources/images/kubernetes/redraw/0010-06.svg)
 사용자가 key 를 정하고 이 key 값을 가지고 있는 Pod 들을 연결
 
 ## DoesNotExists
 
-![0010-07](/tech-blog/resources/images/kubernetes/0010-07.png)
+![DoesNotExist 연산자로 key A가 없는 Pod3만 ReplicaSet에 연결되는 예](/tech-blog/resources/images/kubernetes/redraw/0010-07.svg)
 key 에 똑같이 A 라고 설정하면 key 에 A 가 들어가지 않은 Pod 들을 연결
 
 ## In
 
-![0010-08](/tech-blog/resources/images/kubernetes/0010-08.png)
+![In 연산자로 key A의 값이 2 또는 3인 Pod2, Pod3이 ReplicaSet에 연결되는 예](/tech-blog/resources/images/kubernetes/redraw/0010-08.svg)
 key 와 values 를 지정할 수 있는데, key 와 values 의 값들 중 일치하는 Pod 들을 연결
 
 ## NotIn
 
-![0010-09](/tech-blog/resources/images/kubernetes/0010-09.png)
+![NotIn 연산자로 key A의 값이 2, 3이 아닌 Pod1만 ReplicaSet에 연결되는 예](/tech-blog/resources/images/kubernetes/redraw/0010-09.svg)
 key 와 values 를 지정할 수 있는데, key 와 values 의 값들 중 일치하지 않는 Pod 들을 연결
 
 

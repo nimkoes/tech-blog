@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="584" viewBox="0 0 500 584" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+<rect width="500" height="584" rx="16" fill="#f8fafc"/>
+<defs><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#3b82f6"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#f97316"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#8b5cf6"/></marker></defs>
+<rect x="20" y="20" width="260" height="544" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+<text x="40" y="58" font-size="22" font-weight="700" fill="#334155">Node</text>
+<path d="M140 38V66a17.0 6 0 0 0 34 0V38z" fill="#fff" stroke="#15803d" stroke-width="1.5"/><path d="M140 52.0V66a17.0 6 0 0 0 34 0V52.0a17.0 6 0 0 1 -34 0z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><ellipse cx="157.0" cy="38" rx="17.0" ry="6" fill="#fff" stroke="#15803d" stroke-width="1.5"/>
+<path d="M184 38V66a17.0 6 0 0 0 34 0V38z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><ellipse cx="201.0" cy="38" rx="17.0" ry="6" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+<path d="M228 38V66a17.0 6 0 0 0 34 0V38z" fill="#fff" stroke="#475569" stroke-width="1.5"/><ellipse cx="245.0" cy="38" rx="17.0" ry="6" fill="#fff" stroke="#475569" stroke-width="1.5"/>
+<rect x="50" y="96" width="200" height="136" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+<path d="M66 116V144a17.0 6 0 0 0 34 0V116z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><ellipse cx="83.0" cy="116" rx="17.0" ry="6" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+<path d="M110 130V144a17.0 6 0 0 0 34 0V130z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><ellipse cx="127.0" cy="130" rx="17.0" ry="6" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+<text x="150" y="178" font-size="15" font-weight="700" fill="#1d4ed8" text-anchor="middle">Pod1</text>
+<rect x="90" y="192" width="120" height="26" rx="13" fill="#fff" stroke="#3b82f6" stroke-width="1.5"/>
+<text x="150" y="210" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle">Guaranteed</text>
+<path d="M210 205C320 205 300 240 356 240" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#mb)"/>
+<rect x="50" y="252" width="200" height="136" rx="12" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+<path d="M66 272V300a17.0 6 0 0 0 34 0V272z" fill="#fff" stroke="#475569" stroke-width="1.5"/><ellipse cx="83.0" cy="272" rx="17.0" ry="6" fill="#fff" stroke="#475569" stroke-width="1.5"/>
+<path d="M110 272V300a17.0 6 0 0 0 34 0V272z" fill="#fff" stroke="#475569" stroke-width="1.5"/><ellipse cx="127.0" cy="272" rx="17.0" ry="6" fill="#fff" stroke="#475569" stroke-width="1.5"/>
+<text x="150" y="334" font-size="15" font-weight="700" fill="#c2410c" text-anchor="middle">Pod2</text>
+<rect x="90" y="348" width="120" height="26" rx="13" fill="#fff" stroke="#f97316" stroke-width="1.5"/>
+<text x="150" y="366" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle">Burstable</text>
+<path d="M210 361C320 361 300 260 356 260" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#mo)"/>
+<circle cx="200" cy="286" r="11" fill="#fff" stroke="#ef4444" stroke-width="2"/><text x="200" y="291" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">2</text>
+<path d="M228 274L241 297H215z" fill="#ef4444" stroke="#ef4444" stroke-width="2" stroke-linejoin="round"/><path d="M228 281v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="228" cy="293" r="1.5" fill="#fff"/>
+<rect x="50" y="408" width="200" height="136" rx="12" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+<path d="M66 428V456a17.0 6 0 0 0 34 0V428z" fill="#fff" stroke="#475569" stroke-width="1.5"/><ellipse cx="83.0" cy="428" rx="17.0" ry="6" fill="#fff" stroke="#475569" stroke-width="1.5"/>
+<text x="150" y="490" font-size="15" font-weight="700" fill="#6d28d9" text-anchor="middle">Pod3</text>
+<rect x="90" y="504" width="120" height="26" rx="13" fill="#fff" stroke="#8b5cf6" stroke-width="1.5"/>
+<text x="150" y="522" font-size="13" font-weight="700" fill="#6d28d9" text-anchor="middle">BestEffort</text>
+<path d="M210 517C320 517 300 280 356 280" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#mp)"/>
+<circle cx="200" cy="442" r="11" fill="#fff" stroke="#ef4444" stroke-width="2"/><text x="200" y="447" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">1</text>
+<path d="M228 430L241 453H215z" fill="#ef4444" stroke="#ef4444" stroke-width="2" stroke-linejoin="round"/><path d="M228 437v8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="228" cy="449" r="1.5" fill="#fff"/>
+<rect x="356" y="220" width="124" height="80" rx="14" fill="#e2e8f0" stroke="#94a3b8"/>
+<text x="418" y="255" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">QoS</text>
+<text x="418" y="281" font-size="15" font-weight="700" fill="#334155" text-anchor="middle">Classes</text>
+</svg>

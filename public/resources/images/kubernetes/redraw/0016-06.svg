@@ -1,0 +1,315 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1410" viewBox="0 0 1000 1410" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#f97316"/></marker>
+  </defs>
+  <rect width="1000" height="1410" rx="16" fill="#f8fafc"/>
+
+  <!-- left panel: matchExpressions / required vs preferred / preferred weight -->
+  <rect x="12" y="16" width="976" height="694" rx="14" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="36" y="48" font-size="18" font-weight="700" fill="#1d4ed8">matchExpressions</text>
+  <g transform="translate(0 56)">
+  <!-- ReplicaSet -->
+    <rect x="160" y="20" width="200" height="104" rx="12" fill="#f97316"/>
+    <text x="260" y="42" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">ReplicaSet</text>
+    <text x="260" y="60" font-size="12" fill="#ffedd5" text-anchor="middle">matchExpressions</text>
+    <rect x="176" y="68" width="168" height="44" rx="8" fill="#fff"/>
+    <g font-size="12" fill="#334155" font-family="Menlo,monospace" xml:space="preserve">
+      <text x="188" y="86">- key: <tspan font-weight="700">ver1</tspan></text>
+      <text x="188" y="104">  operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+    </g>
+  
+    <!-- selection -->
+    <path d="M260 124V166" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M260 145H100V166" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  
+    <!-- pods -->
+    <g fill="#22c55e">
+      <rect x="30" y="170" width="140" height="56" rx="12"/>
+      <rect x="190" y="170" width="140" height="56" rx="12"/>
+      <rect x="350" y="170" width="140" height="56" rx="12"/>
+    </g>
+    <g font-size="14" font-weight="700" fill="#fff" text-anchor="middle">
+      <text x="100" y="192">Pod1</text>
+      <text x="260" y="192">Pod2</text>
+      <text x="420" y="192">Pod3</text>
+    </g>
+    <g font-size="12" fill="#dcfce7" text-anchor="middle" font-family="Menlo,monospace">
+      <text x="100" y="213">ver1:alpha</text>
+      <text x="260" y="213">ver1:beta</text>
+      <text x="420" y="213">ver2:alpha</text>
+    </g>
+  </g>
+  <g transform="translate(480 56)">
+  <!-- Pod -->
+    <rect x="160" y="20" width="200" height="104" rx="12" fill="#22c55e"/>
+    <text x="260" y="42" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="260" y="60" font-size="12" fill="#dcfce7" text-anchor="middle">matchExpressions</text>
+    <rect x="176" y="68" width="168" height="44" rx="8" fill="#fff"/>
+    <g font-size="12" fill="#334155" font-family="Menlo,monospace" xml:space="preserve">
+      <text x="188" y="86">- key: <tspan font-weight="700">kr</tspan></text>
+      <text x="188" y="104">  operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+    </g>
+  
+    <!-- selection -->
+    <path d="M260 124V166" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M260 145H100V166" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  
+    <!-- nodes -->
+    <g fill="#f1f5f9" stroke="#94a3b8">
+      <rect x="30" y="170" width="140" height="60" rx="12"/>
+      <rect x="190" y="170" width="140" height="60" rx="12"/>
+      <rect x="350" y="170" width="140" height="60" rx="12"/>
+    </g>
+    <g font-size="14" font-weight="700" fill="#334155" text-anchor="middle">
+      <text x="100" y="191">Node1</text>
+      <text x="260" y="191">Node2</text>
+      <text x="420" y="191">Node3</text>
+    </g>
+    <g fill="#fff" stroke="#94a3b8" stroke-width="1.5">
+      <rect x="55" y="199" width="90" height="22" rx="11"/>
+      <rect x="215" y="199" width="90" height="22" rx="11"/>
+      <rect x="375" y="199" width="90" height="22" rx="11"/>
+    </g>
+    <g font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">
+      <text x="100" y="214.5"><tspan font-weight="700">kr</tspan> : az-1</text>
+      <text x="260" y="214.5"><tspan font-weight="700">kr</tspan> : az-2</text>
+      <text x="420" y="214.5"><tspan font-weight="700">us</tspan> : az-1</text>
+    </g>
+  </g>
+  <g transform="translate(0 300)">
+  <text x="24" y="36" font-size="18" font-weight="700" fill="#1d4ed8">required vs preferred</text>
+  
+    <!-- pods -->
+    <g fill="#22c55e">
+      <rect x="40" y="72" width="190" height="130" rx="12"/>
+      <rect x="270" y="72" width="190" height="130" rx="12"/>
+    </g>
+    <g text-anchor="middle" fill="#fff" font-weight="700">
+      <text x="135" y="93" font-size="13">Pod</text>
+      <text x="365" y="93" font-size="13">Pod</text>
+      <text x="135" y="116" font-size="15">required</text>
+      <text x="365" y="116" font-size="15">preferred</text>
+    </g>
+    <g font-size="12" fill="#dcfce7" text-anchor="middle">
+      <text x="135" y="136">matchExpressions</text>
+      <text x="365" y="136">matchExpressions</text>
+    </g>
+    <g fill="#fff">
+      <rect x="54" y="144" width="162" height="46" rx="8"/>
+      <rect x="284" y="144" width="162" height="46" rx="8"/>
+    </g>
+    <g font-size="12" fill="#334155" font-family="Menlo,monospace">
+      <text x="66" y="162">key: ch</text>
+      <text x="66" y="180">operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+      <text x="296" y="162">key: ch</text>
+      <text x="296" y="180">operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+    </g>
+  
+    <!-- required: no node with key ch -> never scheduled -->
+    <path d="M135 202V262" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+    <circle cx="135" cy="232" r="12" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+    <path d="M129 226l12 12M141 226l-12 12" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>
+  
+    <!-- preferred: can go to either node -->
+    <path d="M365 202V258" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <path d="M365 232H180V258" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  
+    <!-- nodes -->
+    <g fill="#f1f5f9" stroke="#94a3b8">
+      <rect x="60" y="262" width="150" height="60" rx="12"/>
+      <rect x="290" y="262" width="150" height="60" rx="12"/>
+    </g>
+    <g font-size="14" font-weight="700" fill="#334155" text-anchor="middle">
+      <text x="135" y="283">Node1</text>
+      <text x="365" y="283">Node2</text>
+    </g>
+    <g fill="#fff" stroke="#94a3b8" stroke-width="1.5">
+      <rect x="90" y="291" width="90" height="22" rx="11"/>
+      <rect x="320" y="291" width="90" height="22" rx="11"/>
+    </g>
+    <g font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">
+      <text x="135" y="306.5"><tspan font-weight="700">kr</tspan> : az-1</text>
+      <text x="365" y="306.5"><tspan font-weight="700">us</tspan> : az-1</text>
+    </g>
+  </g>
+  <g transform="translate(480 300)">
+  <text x="24" y="36" font-size="18" font-weight="700" fill="#1d4ed8">preferred weight</text>
+    <rect x="60" y="52" width="400" height="150" rx="12" fill="#22c55e"/>
+    <text x="260" y="72" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="76" y="94" font-size="15" font-weight="700" fill="#fff">preferred</text>
+    <rect x="76" y="102" width="110" height="20" rx="6" fill="#fff"/>
+    <text x="86" y="116" font-size="12" fill="#334155" font-family="Menlo,monospace">weight : <tspan fill="#c2410c" font-weight="700">10</tspan></text>
+    <text x="76" y="144" font-size="12" fill="#dcfce7">matchExpressions</text>
+    <rect x="76" y="152" width="174" height="42" rx="8" fill="#fff"/>
+    <text x="88" y="169" font-size="12" fill="#334155" font-family="Menlo,monospace">key: <tspan font-weight="700">us</tspan></text>
+    <text x="88" y="186" font-size="12" fill="#334155" font-family="Menlo,monospace">operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+    <rect x="270" y="102" width="110" height="20" rx="6" fill="#fff"/>
+    <text x="280" y="116" font-size="12" fill="#334155" font-family="Menlo,monospace">weight : <tspan fill="#c2410c" font-weight="700">50</tspan></text>
+    <text x="270" y="144" font-size="12" fill="#dcfce7">matchExpressions</text>
+    <rect x="270" y="152" width="174" height="42" rx="8" fill="#fff"/>
+    <text x="282" y="169" font-size="12" fill="#334155" font-family="Menlo,monospace">key: <tspan font-weight="700">kr</tspan></text>
+    <text x="282" y="186" font-size="12" fill="#334155" font-family="Menlo,monospace">operator: <tspan fill="#c2410c" font-weight="700">Exists</tspan></text>
+    <path d="M335 202V258" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="120" y="262" width="130" height="84" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="185" y="283" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+    <rect x="140" y="291" width="90" height="20" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="185" y="305" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace"><tspan font-weight="700">us</tspan> : az-1</text>
+    <rect x="140" y="317" width="90" height="20" rx="6" fill="#ffedd5"/>
+    <text x="185" y="331" font-size="12" fill="#9a3412" text-anchor="middle" font-family="Menlo,monospace">CPU : <tspan font-weight="700">50</tspan></text>
+    <rect x="270" y="262" width="130" height="84" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="335" y="283" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+    <rect x="290" y="291" width="90" height="20" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="335" y="305" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace"><tspan font-weight="700">kr</tspan> : az-1</text>
+    <rect x="290" y="317" width="90" height="20" rx="6" fill="#ffedd5"/>
+    <text x="335" y="331" font-size="12" fill="#9a3412" text-anchor="middle" font-family="Menlo,monospace">CPU : <tspan font-weight="700">30</tspan></text>
+    <rect x="44" y="264" width="52" height="22" rx="6" fill="#dbeafe"/>
+    <text x="70" y="280" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">60</text>
+    <text x="70" y="309" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">+ 10</text>
+    <rect x="44" y="322" width="52" height="22" rx="6" fill="#dcfce7"/>
+    <text x="70" y="338" font-size="13" font-weight="700" fill="#166534" text-anchor="middle" font-family="Menlo,monospace">50</text>
+    <rect x="424" y="264" width="52" height="22" rx="6" fill="#dbeafe"/>
+    <text x="450" y="280" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle" font-family="Menlo,monospace">80</text>
+    <text x="450" y="309" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle" font-family="Menlo,monospace">+ 50</text>
+    <rect x="424" y="322" width="52" height="22" rx="6" fill="#dcfce7"/>
+    <text x="450" y="338" font-size="13" font-weight="700" fill="#166534" text-anchor="middle" font-family="Menlo,monospace">30</text>
+    <rect x="200" y="362" width="120" height="32" rx="10" fill="#f97316"/>
+    <text x="260" y="383" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Scheduler</text>
+    <path d="M200 378H70V348" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <path d="M320 378H450V348" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+  </g>
+
+  <!-- right panel: operator -->
+  <g transform="translate(140 720)">
+  <text x="20" y="34" font-size="18" font-weight="700" fill="#c2410c">operator</text>
+    <rect x="20" y="46" width="680" height="620" rx="14" fill="#fff" stroke="#f97316" stroke-width="2"/>
+    <text x="194" y="78" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">Exists</text>
+    <rect x="124" y="88" width="140" height="52" rx="12" fill="#22c55e"/>
+    <text x="194" y="106" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="138" y="127" font-size="12" font-weight="700" fill="#fff">Key</text>
+    <rect x="192" y="114" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="222" y="127" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">A</text>
+    <path d="M194 140V176H94V188" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <path d="M194 140V188" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <rect x="48" y="192" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="94" y="210" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+    <rect x="64" y="217" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="94" y="230" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:1</text>
+    <rect x="148" y="192" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="194" y="210" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+    <rect x="164" y="217" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="194" y="230" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:2</text>
+    <rect x="248" y="192" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="294" y="210" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node3</text>
+    <rect x="264" y="217" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="294" y="230" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">B:2</text>
+    <text x="538" y="78" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">DoesNotExist</text>
+    <rect x="468" y="88" width="140" height="52" rx="12" fill="#22c55e"/>
+    <text x="538" y="106" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="482" y="127" font-size="12" font-weight="700" fill="#fff">Key</text>
+    <rect x="536" y="114" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="566" y="127" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">A</text>
+    <path d="M538 140V176H638V188" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <rect x="392" y="192" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="438" y="210" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+    <rect x="408" y="217" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="438" y="230" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:1</text>
+    <rect x="492" y="192" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="538" y="210" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+    <rect x="508" y="217" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="538" y="230" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:2</text>
+    <rect x="592" y="192" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="638" y="210" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node3</text>
+    <rect x="608" y="217" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="638" y="230" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">B:2</text>
+    <text x="194" y="278" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">In</text>
+    <rect x="124" y="288" width="140" height="74" rx="12" fill="#22c55e"/>
+    <text x="194" y="306" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="138" y="327" font-size="12" font-weight="700" fill="#fff">Key</text>
+    <rect x="192" y="314" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="222" y="327" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">A</text>
+    <text x="138" y="349" font-size="12" font-weight="700" fill="#fff">Values</text>
+    <rect x="192" y="336" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="222" y="349" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">2,3</text>
+    <path d="M194 362V388" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <path d="M194 362V376H294V388" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <rect x="48" y="392" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="94" y="410" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+    <rect x="64" y="417" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="94" y="430" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:1</text>
+    <rect x="148" y="392" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="194" y="410" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+    <rect x="164" y="417" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="194" y="430" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:2</text>
+    <rect x="248" y="392" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="294" y="410" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node3</text>
+    <rect x="264" y="417" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="294" y="430" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:3</text>
+    <text x="538" y="278" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">NotIn</text>
+    <rect x="468" y="288" width="140" height="74" rx="12" fill="#22c55e"/>
+    <text x="538" y="306" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="482" y="327" font-size="12" font-weight="700" fill="#fff">Key</text>
+    <rect x="536" y="314" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="566" y="327" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">A</text>
+    <text x="482" y="349" font-size="12" font-weight="700" fill="#fff">Values</text>
+    <rect x="536" y="336" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="566" y="349" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">2,3</text>
+    <path d="M538 362V376H438V388" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <rect x="392" y="392" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="438" y="410" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+    <rect x="408" y="417" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="438" y="430" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:1</text>
+    <rect x="492" y="392" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="538" y="410" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+    <rect x="508" y="417" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="538" y="430" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:2</text>
+    <rect x="592" y="392" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="638" y="410" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node3</text>
+    <rect x="608" y="417" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="638" y="430" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:3</text>
+    <text x="194" y="478" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">Gt</text>
+    <rect x="124" y="488" width="140" height="74" rx="12" fill="#22c55e"/>
+    <text x="194" y="506" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="138" y="527" font-size="12" font-weight="700" fill="#fff">Key</text>
+    <rect x="192" y="514" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="222" y="527" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">A</text>
+    <text x="138" y="549" font-size="12" font-weight="700" fill="#fff">Values</text>
+    <rect x="192" y="536" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="222" y="549" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">2</text>
+    <path d="M194 562V576H294V588" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <rect x="48" y="592" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="94" y="610" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+    <rect x="64" y="617" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="94" y="630" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:1</text>
+    <rect x="148" y="592" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="194" y="610" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+    <rect x="164" y="617" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="194" y="630" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:2</text>
+    <rect x="248" y="592" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="294" y="610" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node3</text>
+    <rect x="264" y="617" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="294" y="630" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:3</text>
+    <text x="538" y="478" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">Lt</text>
+    <rect x="468" y="488" width="140" height="74" rx="12" fill="#22c55e"/>
+    <text x="538" y="506" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+    <text x="482" y="527" font-size="12" font-weight="700" fill="#fff">Key</text>
+    <rect x="536" y="514" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="566" y="527" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">A</text>
+    <text x="482" y="549" font-size="12" font-weight="700" fill="#fff">Values</text>
+    <rect x="536" y="536" width="60" height="18" rx="6" fill="#fff"/>
+    <text x="566" y="549" font-size="12" fill="#15803d" text-anchor="middle" font-family="Menlo,monospace">2</text>
+    <path d="M538 562V576H438V588" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#ao)"/>
+    <rect x="392" y="592" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="438" y="610" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node1</text>
+    <rect x="408" y="617" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="438" y="630" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:1</text>
+    <rect x="492" y="592" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="538" y="610" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+    <rect x="508" y="617" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="538" y="630" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:2</text>
+    <rect x="592" y="592" width="92" height="50" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="638" y="610" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Node3</text>
+    <rect x="608" y="617" width="60" height="18" rx="9" fill="#fff" stroke="#94a3b8"/>
+    <text x="638" y="630" font-size="12" fill="#334155" text-anchor="middle" font-family="Menlo,monospace">A:3</text>
+  </g>
+</svg>

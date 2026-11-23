@@ -12,7 +12,7 @@ tags:
   - Container
 status: published
 ---
-![0004-01](/tech-blog/resources/images/kubernetes/0004-01.png)
+![Kubernetes Cluster 안의 Namespace·Service·Pod·Volume·Controller 등 Object와 ReplicaSet·Deployment·DaemonSet·CronJob 등 Controller 종류를 정리한 구조](/tech-blog/resources/images/kubernetes/redraw/0004-01.svg)
 
 Kubernetes 는 한 대의 서버를 Master 로 사용하고 다른 서버는 Node 로 하나의 Master 에 다수의 Node 들이 연결 된다. 이렇게 연결 된 하나의 묶음이 Kubernetes Cluster 가
 된다.

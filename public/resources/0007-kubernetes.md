@@ -14,13 +14,13 @@ tags:
   - PVC/PV
 status: published
 ---
-![0007-01](/tech-blog/resources/images/kubernetes/0007-01.png)
+![emptyDir, hostPath, PVC/PV 세 가지 Volume 방식을 비교한 개요](/tech-blog/resources/images/kubernetes/redraw/0007-01.svg)
 
 # emptyDir
 
 Container 간 데이터 공유를 위해 Volume 을 사용하는 것을 말한다. 최초 Volume 이 생성될 때는 항상 내용이 비어있기 때문에 emptyDir 이란 이름을 가지게 되었다.
 
-![0007-02](/tech-blog/resources/images/kubernetes/0007-02.png)
+![emptyDir Volume을 한 Pod의 Container1(/mount1)과 Container2(/mount2)가 함께 마운트하고 Pod 삭제 시 사라지는 구조](/tech-blog/resources/images/kubernetes/redraw/0007-02.svg)
 
 만약 Container 1 이 web 역할을 하는 서버이고 Container 2 는 백엔드를 처리해주는 서버라고 하자. 이 때 web 서버로부터 받은 파일을 mount 된 Volume 에 저장해두고 백엔드의
 Container 역시 같은 Volume 을 mount 해두면 이 두 서버가 Volume 을 자신의 로컬에 있는 파일 처럼 사용할 수 있다. 즉 두 서버 간 파일 전송 없이 같은 파일을 사용할 수 있다.
@@ -58,12 +58,12 @@ spec:
 
 이름에서 알 수 있듯 하나의 host 즉, Pod 들이 올라가 있는 Node 에 path 를 Volume 으로 사용한다.
 
-![0007-03](/tech-blog/resources/images/kubernetes/0007-03.png)
+![hostPath로 Node1의 /node-v1 경로를 Pod1·Pod2가 공유하고, Pod2가 Node2에 재생성되는 상황](/tech-blog/resources/images/kubernetes/redraw/0007-03.svg)
 
 emptyDir 과 다른 점은 Path 를 각 Pod 들이 mount 해서 공유하기 때문에 Pod 가 삭제 되어도 Node 에 있는 데이터는 사라지지 않는다. 데이터가 사라지지 않아 좋아 보이지만 Pod 입장에서
 문제가 있다.
 
-![0007-04](/tech-blog/resources/images/kubernetes/0007-04.png)
+![hostPath Volume을 쓰던 Pod1이 Node2에 재생성되면 Node1의 Volume을 사용할 수 없게 되는 문제](/tech-blog/resources/images/kubernetes/redraw/0007-04.svg)
 
 만약 다양한 이유로 Pod 가 다시 생성될 때 다른 Node 에 만들어지는 경우 Pod 가 사용하던 Volume 은 hostPath 에 mount 되어있었기 때문에 Volume 을 사용할 수 없게 된다. 왜냐하면
 Pod 는 자신이 올라간 Node 에 있는 Volume 만 사용할 수 있기 때문이다.
@@ -90,10 +90,10 @@ spec:
   volumes:
     - name: host-path          # host-path 라는 이름의 Volume
       hostPath: # hostPath 라는 속성을 사용한다.
-        path: /node-v           # Path 는 node-v 이고 
+        path: /node-v1          # Path 는 node-v1 이고 
         type: Directory         # type 은 Directory 이다.
 
-# 추가로 hostPaht 의 path: /node-v 는 이 Pod 가 만들어지기 전에 만들어져 있어야 한다.
+# 추가로 hostPath 의 path: /node-v1 은 이 Pod 가 만들어지기 전에 만들어져 있어야 한다.
 ```
 
 hostPath 는 Pod 의 데이터를 저장하기 위한 용도가 아니고 Node 에 있는 데이터를 Pod 에서 사용하기 위한 용도이다.
@@ -102,7 +102,7 @@ hostPath 는 Pod 의 데이터를 저장하기 위한 용도가 아니고 Node �
 
 PVC/PV 는 Pod 에 영속성 있는 Volume 을 제공하기 위한 기능이다.
 
-![0007-05](/tech-blog/resources/images/kubernetes/0007-05.png)
+![Admin이 PV를 정의하고 User가 PVC를 만들어 PV와 연결한 뒤 Pod 생성 시 PVC를 마운트하는 흐름](/tech-blog/resources/images/kubernetes/redraw/0007-05.svg)
 
 실제 Volume 의 형태는 다양하다. Local Volume 도 있지만 외부에 원격으로 사용되는 형태의 aws, git 등과 같은 Volume 들도 있다.
 

@@ -13,7 +13,7 @@ status: published
 ---
 원활한 서비스 제공을 위해 필요한 자원을 미리 준비하는 것은 비용과 관리 측면에서 어려움이 있다.
 
-![0002-01](/tech-blog/resources/images/kubernetes/0002-01.png)
+![As-Is는 시간대별 최대 부하에 맞춰 A·B·C 서비스 서버와 백업 서버를 고정으로 두고 Blue Green·Canary로 배포하며, To-Be는 Auto Scaling·Auto Healing·Deployment로 서버 자원을 자동 조절하는 구조](/tech-blog/resources/images/kubernetes/redraw/0002-01.svg)
 
 ## As-Is
 

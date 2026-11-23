@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="730" height="420" viewBox="0 0 730 420" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1L9 5L0 9z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="730" height="420" rx="16" fill="#f8fafc"/>
+
+  <!-- who created the pod -->
+  <rect x="20" y="40" width="130" height="44" rx="12" fill="#f97316"/><text x="85" y="67" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="20" y="112" width="130" height="44" rx="12" fill="#f97316"/><text x="85" y="139" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">ReplicaSet</text>
+  <rect x="20" y="188" width="130" height="44" rx="12" fill="#f97316"/><text x="85" y="215" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <rect x="20" y="258" width="130" height="44" rx="12" fill="#f97316"/><text x="85" y="285" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+  <rect x="20" y="330" width="130" height="44" rx="12" fill="#f97316"/><text x="85" y="357" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Job</text>
+
+  <!-- nodes -->
+  <rect x="190" y="20" width="110" height="290" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="216" y="296" font-size="14" font-weight="700" fill="#334155">Node1</text>
+  <path d="M282 278L294 298H270Z" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round"/><path d="M278.5 287l7 7M285.5 287l-7 7" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+  <rect x="380" y="20" width="330" height="290" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="545" y="296" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">Node2</text>
+
+  <!-- node1 pods all fail -->
+  <rect x="205" y="44" width="80" height="36" rx="8" fill="#22c55e"/><text x="245" y="67" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text><path d="M281 34L293 54H269Z" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round"/><path d="M277.5 43l7 7M284.5 43l-7 7" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+  <rect x="205" y="116" width="80" height="36" rx="8" fill="#22c55e"/><text x="245" y="139" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text><path d="M281 106L293 126H269Z" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round"/><path d="M277.5 115l7 7M284.5 115l-7 7" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+  <rect x="205" y="192" width="80" height="36" rx="8" fill="#22c55e"/><text x="245" y="215" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text><path d="M281 182L293 202H269Z" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round"/><path d="M277.5 191l7 7M284.5 191l-7 7" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+  <text x="312" y="42" font-size="13" font-weight="700" fill="#b91c1c">Service</text>
+  <text x="312" y="60" font-size="13" font-weight="700" fill="#b91c1c">Down</text>
+
+  <!-- controllers recreate on node2 -->
+  <path d="M285 134H396" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M285 210H396" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <g font-size="13" fill="#334155" text-anchor="middle"><text x="340" y="154">Recreate</text><text x="340" y="230">Recreate</text></g>
+  <rect x="400" y="116" width="80" height="36" rx="8" fill="#22c55e"/><text x="440" y="139" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text><path d="M476 106L488 126H464Z" fill="#fef9c3" stroke="#eab308" stroke-width="1.5" stroke-linejoin="round"/><path d="M476 113v6" stroke="#a16207" stroke-width="2" stroke-linecap="round"/><circle cx="476" cy="122.5" r="1.3" fill="#a16207"/>
+  <rect x="400" y="192" width="80" height="36" rx="8" fill="#22c55e"/><text x="440" y="215" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text><path d="M476 182L488 202H464Z" fill="#fef9c3" stroke="#eab308" stroke-width="1.5" stroke-linejoin="round"/><path d="M476 189v6" stroke="#a16207" stroke-width="2" stroke-linecap="round"/><circle cx="476" cy="198.5" r="1.3" fill="#a16207"/>
+  <path d="M480 134H586" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M480 210H586" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <g font-size="13" font-weight="700" text-anchor="middle"><text x="533" y="126" fill="#15803d">Restart</text><text x="533" y="202" fill="#475569">Finish</text></g>
+  <rect x="590" y="116" width="100" height="36" rx="8" fill="#22c55e"/><text x="640" y="139" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Pod</text>
+  <rect x="590" y="192" width="100" height="36" rx="8" fill="#e2e8f0"/><text x="640" y="215" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">Pod</text>
+
+  <!-- cronjob creates jobs on schedule -->
+  <path d="M300 354H170V210H154" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M300 354H170V280H154" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M300 354H154" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="300" y="332" width="150" height="44" rx="12" fill="#f97316"/>
+  <circle cx="324" cy="355" r="10" fill="none" stroke="#fff" stroke-width="2"/>
+  <path d="M324 349v6l4 3M321 341h6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <text x="388" y="359" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">CronJob</text>
+</svg>

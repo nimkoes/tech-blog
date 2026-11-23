@@ -20,7 +20,7 @@ DaemonSet, Job, CronJob Controller 가 무엇이고 언제 사용 하는지 정�
 각 Node 에 자원이 다르게 남아있는 상태에서 ReplicaSet 의 경우 Pod 를 Scheduler 에 의존해서 Node 에 배치할 때, 만약 Node1 에 자원이 많이 남아있는 경우 Pod 를 많이 배치할
 것이다. 그리고 Node3 과 같이 자원이 별로 없으면 Pod 를 배치하지 않을 수도 있다.
 
-![0012-01](/tech-blog/resources/images/kubernetes/0012-01.png)
+![ReplicaSet은 Node 자원 상황에 따라 Pod를 몰아서 배치하고 DaemonSet은 Node1~3에 Pod를 하나씩 배치하는 차이](/tech-blog/resources/images/kubernetes/redraw/0012-01.svg)
 
 반면 DaemonSet 은 Node 의 자원 상태와 상관 없이 각 Node 에 Pod 가 하나씩 만들어진다는 특징이 있다. 만약 Node 가 10개면 각 노드에 하나씩 총 10개의 Pod 가 생긴다. 이렇게 각
 Node 에 설치해서 사용해야 하는 서비스 들이 있다.
@@ -35,7 +35,7 @@ Node 에 설치해서 사용해야 하는 서비스 들이 있다.
 
 Pod 는 크게 직접 , ReplicaSet 을 통해 그리고 Job 을 통해 만들어지는 세 가지 경우가 있다. 모두 같은 Pod 지만 누구에 의해 만들어졌냐에 따라 조금씩 다른 부분이 존재 한다.
 
-![0012-02](/tech-blog/resources/images/kubernetes/0012-02.png)
+![Node1 장애 시 직접 만든 Pod는 Service Down, ReplicaSet과 Job의 Pod는 Node2에 Recreate되고 이후 각각 Restart와 Finish로 다르게 동작하는 구조](/tech-blog/resources/images/kubernetes/redraw/0012-02.svg)
 
 Pod 들이 Node1 에서 구동중인 상태에서 Node 가 다운이 된 상황을 가정하자. 그러면 직접 만든 Pod 도 장애가 발생한 것이고 해당 서비스는 더 이상 유지할 수 없다. 하지만 Controller 에 의해
 만들어진 Pod 들은 장애가 감지 되면 다른 Node 에 다시 만들어지기 때문에 서비스는 유지 된다. 그리고 ReplicaSet 에 의해 만들어진 Pod 는 일을 하지 않으면 Pod 를 Restart 시켜주기 때문에
@@ -45,7 +45,7 @@ Pod 들이 Node1 에서 구동중인 상태에서 Node 가 다운이 된 상황�
 Job 으로 만들어진 Pod 는 프로세서가 일을 하지 않으면 Pod 는 종료 된다. 이 때 종료의 의미는 Pod 가 삭제되는 것은 아니고 자원을 사용하지 않는 상태로 멈춰있기 때문에 Pod 에 들어가서 로그 등을
 확인할 수 있다. 이후 불필요한 경우 직접 삭제할 수 있다.
 
-![0012-03](/tech-blog/resources/images/kubernetes/0012-03.png)
+![Node1 장애 시 Pod, ReplicaSet, Job별 Pod 처리 차이에 CronJob이 주기마다 Job을 만들어 내는 관계를 더한 구조](/tech-blog/resources/images/kubernetes/redraw/0012-03.svg)
 
 그리고 CronJob 은 이러한 Job 들을 주기에 맞춰 생성하는 역할을 하는데 일반적으로 이 Job 을 하나의 단위로 사용하지 않고 CronJob 을 만들어서 특정 시간에 반복적으로 실행 되도록 할 때 사용 한다.
 
@@ -59,12 +59,12 @@ Job 으로 만들어진 Pod 는 프로세서가 일을 하지 않으면 Pod 는 
 
 selector 와 template 이 있어서 모든 Node 에 template 으로 Pod 를 만들고 selector 와 Label 로 DaemonSet 과 연결 된다.
 
-![0012-04](/tech-blog/resources/images/kubernetes/0012-04.png)
+![DaemonSet의 template에 nodeSelector os:centos를 지정해 os:centos Label이 있는 Node1·Node2에만 Pod를 만들고 os:ubuntu인 Node3에는 만들지 않는 구조](/tech-blog/resources/images/kubernetes/redraw/0012-04.svg)
 
 만약 Node 들의 OS 종류가 달라 그림과 같이 Label 이 설정 되어있고, 특정 os (ubuntu) 에는 Pod 를 설치하고 싶지 않은 경우 Pod 의 nodeSelector 를 설정 하여 이 Label 이
 없는 Node 에는 Pod 를 생성하지 않도록 할 수 있다.
 
-![0012-05](/tech-blog/resources/images/kubernetes/0012-05.png)
+![nodeSelector에 더해 hostPort를 지정해 각 Node의 18080 포트가 그 Node의 DaemonSet Pod로 바로 연결되는 구조](/tech-blog/resources/images/kubernetes/redraw/0012-05.svg)
 
 DaemonSet 은 하나의 Node 에 하나를 추가해서 Pod 를 만들 수는 없지만 Node 에 Pod 를 만들지 않을 수는 있다. 그리고 특정 Node 로 접근했을 때 그 Node 에 들어있는 Pod 에 접근이
 되도록 많이 사용 한다. 그렇기 때문에 한 가지 더 생각해볼 수 있다. 만약 Node 타입의 Service 를 만들고 'externalTrafficPolicy: Local' 옵션을 추가하면 특정 Node 의
@@ -102,7 +102,7 @@ spec:
 Job 도 마찬가지로 template 과 selector 가 있는데 이 template 에는 특정 작업만 하고 종료가 되는 Pod 들을 담게 되고 selector 는 직접 만들지 않아도 Job 이 알아서 만들어
 준다.
 
-![0012-06](/tech-blog/resources/images/kubernetes/0012-06.png)
+![Job의 completions 6, parallelism 2로 Pod를 두 개씩 순서대로 실행하고 activeDeadlineSeconds 30이 지나면 Job이 정지되는 구조](/tech-blog/resources/images/kubernetes/redraw/0012-06.svg)
 
 template 을 가지고 일반적으로 하나의 Pod 를 생성하고 Pod 가 일을 다 하면 Job 도 종료 되지만 completions 라는 값을 6을 주면 6개의 Pod 를 하나씩 순차적으로 실행 시켜 모두 작업이
 끝나야 Job 도 종료 된다. 또한 parallelism 이라고 2 라는 값을 주면 2개 씩 Pod 가 생성 되고 activeDeadlineSeconds 라고 해서 30 이라는 값을 주면 이 Job 은 30초 후
@@ -129,12 +129,12 @@ spec:
 
 job Template 이 있고 이 내용을 바탕으로 Job 을 만들고 schedule 에 설정한 값을 주기로 Job 을 만들어 준다.
 
-![0012-07](/tech-blog/resources/images/kubernetes/0012-07.png)
+![schedule */1 * * * * 인 CronJob이 jobTemplate으로 1분마다 Job을 만들고 각 Job이 Pod를 만드는 구조](/tech-blog/resources/images/kubernetes/redraw/0012-07.svg)
 
 schedule 을 그림과 같이 설정 할 경우 Job 이 1분 간격으로 만들어 지고 Job 은 또 자신의 역할인 Pod 를 만들게 된다. 추가로 ConcurrencyPolicy 기능이 있는데 Allow,
 Forbid, Replace 세가지 옵션 값을 가진다. 일반적으로 이 Policy 를 설정하지 않으면 Allow 가 default 값이다.
 
-![0012-08](/tech-blog/resources/images/kubernetes/0012-08.png)
+![CronJob concurrencyPolicy의 Allow, Forbid, Replace가 이전 Pod가 실행 중일 때 1~3분 차 Job과 Pod를 각각 어떻게 처리하는지 비교한 표](/tech-blog/resources/images/kubernetes/redraw/0012-08.svg)
 
 Allow 는 1분 간격으로 schedule 한다고 설정 했을 때 앞서 만들어진 Pod 가 구동 및 종료 상태와 무관하게 자신의 schedule 에 맞춰 새로운 Job 을 만들고 Pod 가 생성 된다.
 
