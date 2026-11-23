@@ -187,8 +187,21 @@
   padding-left: 1.25rem;
 }
 
+/* _normalize.scss 가 모든 목록 마커를 없애므로 본문에서만 되살린다. */
+.markdown ul {
+  list-style-type: '⎷  ';
+}
+
+.markdown ol {
+  list-style-type: decimal;
+}
+
 .markdown li {
   margin: 0.2rem 0;
+}
+
+.markdown li::marker {
+  color: var(--text-secondary);
 }
 
 .markdown a {
