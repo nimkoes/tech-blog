@@ -7,7 +7,7 @@ import {
   getPostsByTagSlug,
   getSiteOrigin,
 } from '~/utils/contentRepository';
-import { SITE_NAME } from '~/utils/seo';
+import { SITE_NAME, getPageOpenGraph } from '~/utils/seo';
 import styles from '../tags.module.scss';
 
 interface TagPageProps {
@@ -15,12 +15,16 @@ interface TagPageProps {
 }
 
 export function generateStaticParams() {
-  // 정적 export 산출물은 유니코드 디렉토리(raw slug)로 만들어져 GitHub Pages에서 서빙되고,
-  // next dev는 percent-encoding 된 세그먼트로 매칭하므로 두 형태를 모두 등록한다.
+  // 정적 export 산출물은 유니코드 디렉토리(raw slug)로 만들어져 GitHub Pages에서 서빙된다.
+  // next dev 는 percent-encoding 된 세그먼트로 매칭하므로 개발 모드에서만 인코딩 형태를 함께 등록한다.
+  // 운영 빌드에 인코딩 형태를 넣으면 out/tags/%EA%B8... 디렉토리가 생겨 /tags/%25EA%25B8.../ 같은 중복 URL 이 된다.
+  const includeEncoded = process.env.NODE_ENV === 'development';
   const params = new Map<string, { tag: string }>();
   getAllTags().forEach(({ slug }) => {
     params.set(slug, { tag: slug });
-    params.set(encodeURIComponent(slug), { tag: encodeURIComponent(slug) });
+    if (includeEncoded) {
+      params.set(encodeURIComponent(slug), { tag: encodeURIComponent(slug) });
+    }
   });
   return Array.from(params.values());
 }
@@ -36,12 +40,17 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
     };
   }
 
+  const title = `${result.tag} 태그`;
+  const description = `${SITE_NAME}에서 '${result.tag}' 태그가 달린 글 ${result.posts.length}편을 모아 봅니다.`;
+  const canonical = `${getSiteOrigin()}${getBasePath()}/tags/${encodeURIComponent(decodeURIComponent(tag))}/`;
+
   return {
-    title: `${result.tag} 태그`,
-    description: `${SITE_NAME}에서 '${result.tag}' 태그가 달린 글 ${result.posts.length}편을 모아 봅니다.`,
+    title,
+    description,
     alternates: {
-      canonical: `${getSiteOrigin()}${getBasePath()}/tags/${decodeURIComponent(tag)}`,
+      canonical,
     },
+    openGraph: getPageOpenGraph({ title, description, url: canonical }),
     robots: result.posts.length < 2 ? { index: false, follow: true } : undefined,
   };
 }

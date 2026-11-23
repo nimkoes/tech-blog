@@ -1,15 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllTags, getBasePath, getSiteOrigin } from '~/utils/contentRepository';
-import { SITE_NAME } from '~/utils/seo';
+import { SITE_NAME, getPageOpenGraph } from '~/utils/seo';
 import styles from './tags.module.scss';
+
+const TAGS_DESCRIPTION = `${SITE_NAME}의 전체 태그 목록입니다. 태그별로 글을 모아 볼 수 있습니다.`;
+const TAGS_URL = `${getSiteOrigin()}${getBasePath()}/tags/`;
 
 export const metadata: Metadata = {
   title: '태그',
-  description: `${SITE_NAME}의 전체 태그 목록입니다. 태그별로 글을 모아 볼 수 있습니다.`,
+  description: TAGS_DESCRIPTION,
   alternates: {
-    canonical: `${getSiteOrigin()}${getBasePath()}/tags`,
+    canonical: TAGS_URL,
   },
+  openGraph: getPageOpenGraph({ title: '태그', description: TAGS_DESCRIPTION, url: TAGS_URL }),
 };
 
 export default function TagsPage() {

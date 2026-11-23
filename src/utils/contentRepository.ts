@@ -234,26 +234,39 @@ export function getPostNavigation(slug: string, relatedLimit = 4): PostNavigatio
 export interface TagSummary {
   tag: string;
   slug: string;
+  // 이 태그가 달린 글 수. 한 글에 같은 슬러그 태그가 여러 번 있어도 한 번만 센다.
   count: number;
+  // 이 태그가 달린 글 중 가장 최근 수정일. 태그 페이지 사이트맵 lastmod 로 쓴다.
+  lastModified: string;
 }
 
 export function getAllTags(): TagSummary[] {
   const posts = collectPosts(categoryData as CategoryNode[]);
-  const bySlug = new Map<string, TagSummary>();
+  const bySlug = new Map<string, TagSummary & { postNames: Set<string> }>();
 
   posts.forEach(post => {
     post.tags.forEach(tag => {
       const slug = slugifyTag(tag);
       const existing = bySlug.get(slug);
       if (existing) {
-        existing.count += 1;
+        existing.postNames.add(post.fileName);
+        existing.count = existing.postNames.size;
+        if (post.lastModifiedDate > existing.lastModified) {
+          existing.lastModified = post.lastModifiedDate;
+        }
       } else {
-        bySlug.set(slug, { tag, slug, count: 1 });
+        bySlug.set(slug, {
+          tag,
+          slug,
+          count: 1,
+          lastModified: post.lastModifiedDate,
+          postNames: new Set([post.fileName]),
+        });
       }
     });
   });
 
-  return Array.from(bySlug.values()).sort(
+  return Array.from(bySlug.values(), ({ postNames: _postNames, ...summary }) => summary).sort(
     (a, b) => b.count - a.count || a.tag.localeCompare(b.tag)
   );
 }
