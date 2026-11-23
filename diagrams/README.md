@@ -11,6 +11,19 @@
 
 `0013-04` ~ `0013-23` 은 완성도 한 장이 단계별로 쌓이는 그림이라 좌표를 스크립트에 한 번만 정의한다. 이 파일들은 SVG 를 직접 고치지 말고 스크립트를 고친 뒤 다시 생성한다.
 
+## 폰트 넣기 (그림을 만들거나 고친 뒤 마지막에 반드시 실행)
+
+`<img>` 로 넣은 SVG 는 페이지의 웹폰트를 쓸 수 없다. 사이트와 같은 폰트(Pretendard, JetBrains Mono)로 보이도록
+그림에 쓰인 글자만 잘라 SVG 안에 넣는다. 다시 실행해도 결과가 같으므로 그림을 고칠 때마다 돌리면 된다.
+
+```sh
+pip install fonttools brotli          # 최초 1회
+npm ci                                # node_modules 의 폰트를 쓴다
+python3 diagrams/embed_fonts.py       # 전체. 파일이나 폴더를 인자로 주면 그것만
+```
+
+SVG 를 직접 고칠 때는 `<style id="embedded-fonts">` 블록은 건드리지 말고 그림 부분만 고친 뒤 위 명령을 다시 실행한다.
+
 ## 확인 방법
 
 ```sh
@@ -19,6 +32,7 @@ rsvg-convert -w 1000 <file>.svg -o /tmp/check.png   # 원본과 나란히 보고
 ```
 
 원본 정보(객체, 관계, 라벨, 숫자, 화살표 방향)가 하나도 빠지지 않았는지, 글자 넘침·겹침·잘림이 없는지, 화살촉이 상자에 가려지지 않았는지 본다.
+`rsvg-convert` 는 SVG 안에 넣은 폰트를 쓰지 않으므로, 글자 폭은 브라우저에서 SVG 를 직접 열어 최종 확인한다.
 
 ## 스타일 규칙
 
@@ -28,8 +42,8 @@ rsvg-convert -w 1000 <file>.svg -o /tmp/check.png   # 원본과 나란히 보고
 - `<svg xmlns width=W height=H viewBox="0 0 W H">`, W 는 보통 640~760, 여러 패널이면 1000 안팎
 - 첫 요소: `<rect width=W height=H rx="16" fill="#f8fafc"/>` (다크 모드에서도 밝은 카드로 보이게)
 - 여백 20px 이상
-- 루트 font-family: `'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif`
-- IP·포트·명령어·YAML 값: `font-family="Menlo,'JetBrains Mono',monospace"`
+- 루트 font-family: `'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif` (embed_fonts.py 가 넣는 Pretendard 가 쓰인다)
+- IP·포트·명령어·YAML 값: `font-family="'JetBrains Mono',Menlo,monospace"`
 - 외부 폰트/이미지/스크립트 참조 금지, 단일 파일 자급
 
 ### 글자
