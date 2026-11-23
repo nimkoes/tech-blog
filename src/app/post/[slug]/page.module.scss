@@ -207,9 +207,13 @@
   padding-left: 1.25rem;
 }
 
-/* _normalize.scss 가 모든 목록 마커를 없애므로 본문에서만 되살린다. */
+/*
+ * _normalize.scss 가 모든 목록 마커를 없애므로 본문에서만 되살린다.
+ * 문자열 list-style-type 은 브라우저별 표시 차이가 있어 가상 요소로 표시한다.
+ */
 .markdown ul {
-  list-style-type: '⎷  ';
+  list-style: none;
+  padding-left: 1.45rem;
 }
 
 .markdown ol {
@@ -220,7 +224,20 @@
   margin: 0.2rem 0;
 }
 
-.markdown li::marker {
+.markdown ul > li {
+  position: relative;
+}
+
+.markdown ul > li:not(:global(.task-list-item))::before {
+  content: '✓';
+  position: absolute;
+  top: 0;
+  left: -1.25rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.markdown ol > li::marker {
   color: var(--text-secondary);
 }
 
