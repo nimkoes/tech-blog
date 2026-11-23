@@ -1,9 +1,7 @@
 ---
 title: '9주차 : 예외 처리'
 description: >-
-  자바에서 예외를 처리하는 방법은 다양하다. try catch 를 사용해서 예외를 직접 처리하는 방법. try catch finally 를
-  사용해서 예외를 직접 처리하고, 예외가 발생해도 꼭 해야하는 후속처리까지 하는 방법. throw를 사용해서 강제로 예외를 발생하는 방법.
-  에라 모르겠다. throws를 사용해서 나를 호출한 녀석에게 예외를 던지는 방법 등이 있다.
+  자바 예외 처리 try, catch, finally, throw, throws와 try-with-resources, 커스텀 예외를 예제로 정리하고 Checked와 Unchecked 예외의 차이를 설명했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -369,7 +367,7 @@ Exception 은 또 크게 두가지로 구분해서 생각할 수 있는데, Chec
 
 검색해보니 잘 정리된 좋은 그림이 있어서 가져와보았다.
 
-![0102-202-java-live-study-week-9-exception-img-01.png](/tech-blog/resources/images/migration/0102-202-java-live-study-week-9-exception/img-01.png)
+![Throwable 아래 Exception과 Error로 나뉘고 RuntimeException 계열만 Unchecked로 구분한 자바 예외 계층도](/tech-blog/resources/images/migration/0102-202-java-live-study-week-9-exception/img-01.png)
 
  출처 : [https://madplay.github.io/post/java-checked-unchecked-exceptions](https://madplay.github.io/post/java-checked-unchecked-exceptions)
 

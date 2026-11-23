@@ -1,9 +1,7 @@
 ---
 title: 자바에서 뿐만 아니라 API는 백과사전과도 같은 존재다. 볼줄은 알아야지.
 description: >-
-  많은 사람들을 만나본게 아니라 확실히는 모르겠지만, 처음 언어를 시작하는 사람들의 대부분이 API에 대해 생각하지 않는 것 같다. 이번엔
-  JAVA API에 대해 알아보려 한다. 개인적으로 무언가 새로운 것을 알아갈 때 그 사전적 정의 부터 찾아본다. 첫 번째 줄에 주목해 보자
-  "응용 프로그램에서 사용할 수 있도록, 운영체제나 프로그래밍 언어가 제공하는 기능" 즉, 기본적으로 제공해주고 있다 라는 말이다.
+  Java API 문서를 백과사전처럼 읽는 법을 Java SE 7 API 문서의 패키지 목록, java.lang 패키지, System 클래스의 필드와 메서드 설명을 따라가며 정리했다.
 publishedAt: '2017-05-24'
 updatedAt: '2017-05-24'
 tags:
@@ -38,7 +36,7 @@ status: needs-review
 
 JAVA API라고 검색하면 아주 쉽게 접근할 수 있다.
 
-![0061-27-java-api-reference-mindset-img-01.png](/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-01.png)
+![Java SE 7 API 문서 첫 화면으로 왼쪽에 패키지와 클래스 목록, 오른쪽에 패키지 요약이 있는 구성](/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-01.png)
 
 들어가보면 대략 이런 구성이다.
 
@@ -74,7 +72,7 @@ Java Platform, Standard Edition 7 API Specification
 
 ***세 번째, java 코드 작성시 내가 import하지 않아도 default 값으로 import 되어 있는 java.lang 패키지를 열어보자.***
 
-![0061-27-java-api-reference-mindset-img-02.png](/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-02.png)
+![Java API 문서 왼쪽 패키지 목록에서 java.lang을 선택해 그 안의 인터페이스와 클래스 목록이 나온 화면](/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-02.png)
 
 packages에서 java.lang을 찾아 누르면 좌측 하단에 해당 package가 명시되고
 
@@ -116,7 +114,7 @@ Class 이름은 영문 대문자로 시작하고, method 이름은 소문자로 
 
 그렇기 때문에 이제는 System을 보는 우리는 'System 클래스구나'라고 알아야 한다.
 
-![0061-27-java-api-reference-mindset-img-03.png](/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-03.png)
+![Java API 문서의 System 클래스 페이지에서 상속 관계와 필드, 메서드 요약 및 상세 영역을 표시한 화면](/tech-blog/resources/images/migration/0061-27-java-api-reference-mindset/img-03.png)
 
 좀 크고 길지만, 그래도 일부를 가져와 보았다
 

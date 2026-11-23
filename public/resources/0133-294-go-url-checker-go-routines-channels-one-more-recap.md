@@ -1,6 +1,7 @@
 ---
 title: 'Go ''URL CHECKER & GO ROUTINES'' : Channels One more Recap (요약 정리)'
-description: 앞서 goroutine 과 관련하여 기억해야 할 것을 정리하면
+description: >-
+  Go goroutine과 channel을 쓸 때 기억할 점 다섯 가지를 요약했다. <-c 수신의 blocking, main 종료 시 goroutine 종료, channel 타입 명시와 화살표 연산자, 수신 횟수 규칙을 다룬다.
 publishedAt: '2021-05-23'
 updatedAt: '2021-05-23'
 tags:

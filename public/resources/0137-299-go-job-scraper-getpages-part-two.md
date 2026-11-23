@@ -1,9 +1,7 @@
 ---
 title: 'Go ''JOB SCRAPER'' : getPages part two'
 description: >-
-  이번에는 'part one' 에서 goquery 를 사용해 가져온 Document 를 다뤄보려고 한다. 코드를 사용해서 DOM 의
-  '.pagination' 클래스 요소를 찾았는데, 참조 연산을 해보면 Each 라는 공개된 function 이 있다. Each
-  function 에 대한 설명을 보면, 매개값으로 function 을 전달 받는다.
+  Go goquery의 Find와 Each로 Indeed 검색 결과의 pagination 링크 수를 세고, URL의 start 파라미터 규칙을 이용해 페이지별 요청 URL을 만드는 getPages 코드를 정리했다.
 publishedAt: '2021-05-29'
 updatedAt: '2021-05-29'
 tags:
@@ -20,7 +18,7 @@ doc.Find(".pagination")
 
 코드를 사용해서 DOM 의 '.pagination' 클래스 요소를 찾았는데, 참조 연산을 해보면 Each 라는 공개된 function 이 있다.
 
-![0137-299-go-job-scraper-getpages-part-two-img-01.jpg](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-01.jpg)
+![VS Code에서 goquery Selection의 Each 함수가 인덱스와 Selection을 받는 함수를 인자로 받는다는 설명 팝업](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-01.jpg)
 
 Each function 에 대한 설명을 보면, 매개값으로 function 을 전달 받는다.
 
@@ -38,11 +36,11 @@ s 는 실제로 선택한 요소를 뜻한다.
 
 이 코드를 실행하면 선택한 요소의 Html 을 출력하라고 했으니, 다음과 같은 결과를 볼 수 있다.
 
-![0137-299-go-job-scraper-getpages-part-two-img-02.jpg](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-02.jpg)
+![Each로 .pagination 요소의 Html을 출력해 pagination-list ul 태그가 한 줄로 길게 찍힌 터미널](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-02.jpg)
 
 에디터를 사용해서 줄 정리를 조금 하면 다음과 같다.
 
-![0137-299-go-job-scraper-getpages-part-two-img-03.jpg](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-03.jpg)
+![출력된 pagination HTML을 줄 정리해 li 안에 start 값이 다른 a 링크 5개가 보이는 에디터 화면](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-03.jpg)
 
 doc.Find 를 조금 수정해서 이 요소 내에 링크가 (a 태그가) 몇 개 있는지 출력해보자.
 
@@ -52,17 +50,17 @@ doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
 })
 ```
 
-![0137-299-go-job-scraper-getpages-part-two-img-04.jpg](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-04.jpg)
+![pagination 안의 a 태그 개수를 세는 코드를 실행해 5가 출력된 터미널](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-04.jpg)
 
 위에 html 코드를 출력한 결과를 보면 그 안에 'a' 태그가 5개 있는 것을 볼 수 있고
 
-![0137-299-go-job-scraper-getpages-part-two-img-05.jpg](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-05.jpg)
+![Indeed 검색 결과 하단 페이지 번호에서 2, 3, 4, 5, 다음 링크 5개를 표시한 화면](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-05.jpg)
 
 실제 사이트에서 보면 2, 3, 4, 5, > 의 5개의 링크가 있는 것을 볼 수 있다.
 
 다음으로 baseURL 을 보면 규칙이 하나 있는 것을 볼 수 있다.
 
-![0137-299-go-job-scraper-getpages-part-two-img-06.jpg](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-06.jpg)
+![Indeed 검색 결과 페이지마다 URL의 start 값이 0, 50, 100, 150, 200으로 늘어나는 규칙을 표시한 브라우저 화면](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-06.jpg)
 
 검색 결과 페이지와 URL 의 query paramter 의 start 값이 관련이 있다.
 
@@ -136,7 +134,7 @@ func checkCode(res *http.Response) {
 }
 ```
 
-![0137-299-go-job-scraper-getpages-part-two-img-07.jpg](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-07.jpg)
+![getPages로 구한 5페이지만큼 start 값을 바꾼 Indeed 요청 URL 5개를 출력한 터미널](/tech-blog/resources/images/migration/0137-299-go-job-scraper-getpages-part-two/img-07.jpg)
 
 getPages function 으로 현재 보고있는 페이지에 페이징 처리 되어있는 링크의 개수를 출력하고
 

@@ -1,10 +1,7 @@
 ---
 title: '12주차 : 애노테이션'
 description: >-
-  애노테이션(annotation)을 사전에 찾아보면 '주석'이라고 나온다. 위 이미지는 구글 검색 결과인데, 말뭉치 주석 이라는 말이 재밌어서
-  첨부했다. 자바에서 주석이라고 하면 크게 세 가지 형태를 떠올릴 수 있다. 이 주석들은 보통 작성된 코드를 보는 사람에게 정보를 제공해주기
-  위해 사용한다. 코드를 언제 누가 작성 했는지, 어떤 메소드가 있으며 어떻게 사용하는지 등 보통 자국어 문자를 사용해서 설명을 작성해 놓은
-  것이다.
+  Java 애노테이션 정의 방법과 엘리먼트, @Retention 유지 정책, @Target 적용 대상, @Documented와 javadoc 생성, Lombok으로 살펴본 애노테이션 프로세서 등록 구조를 예제로 정리했다.
 publishedAt: '2021-05-02'
 updatedAt: '2021-05-02'
 tags:
@@ -30,7 +27,7 @@ status: needs-review
 
 애노테이션(annotation)을 사전에 찾아보면 '주석'이라고 나온다.
 
-![0105-205-java-live-study-week-12-annotation-img-01.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-01.jpg)
+![구글 검색에서 annotation을 찾으면 말뭉치 주석으로 풀이되어 나오는 검색 결과](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-01.jpg)
 
 위 이미지는 구글 검색 결과인데, 말뭉치 주석 이라는 말이 재밌어서 첨부했다.
 
@@ -85,7 +82,7 @@ public @interface Exam_001 {
 }
 ```
 
-![0105-205-java-live-study-week-12-annotation-img-02.png](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-02.png)
+![IntelliJ 프로젝트 out 폴더의 week12 아래에 애노테이션 Exam_001이 class 파일로 만들어진 모습](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-02.png)
 
 애노테이션도 인터페이스나 enum과 같이 class 파일을 만든다.
 
@@ -516,11 +513,11 @@ javadoc 자체는 주제를 벗어나는 것 같아서 관련된 태그만 나�
 
 intelliJ 에서 javadoc 을 만드는 방법은 간단하다.
 
-![0105-205-java-live-study-week-12-annotation-img-03.png](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-03.png)
+![IntelliJ Tools 메뉴에서 Generate JavaDoc 항목을 선택하는 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-03.png)
 
 Tools 메뉴 하위 Generate JavaDoc 을 선택하면 다음과 같은 팝업을 볼 수 있다.
 
-![0105-205-java-live-study-week-12-annotation-img-04.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-04.jpg)
+![IntelliJ Generate JavaDoc 창에서 Locale을 ko_KR로, 인코딩 옵션을 UTF-8로 지정한 설정](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-04.jpg)
 
 Locale : ko_KR
 
@@ -569,11 +566,11 @@ public class Exam_011 {
 }
 ```
 
-![0105-205-java-live-study-week-12-annotation-img-05.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-05.jpg)
+![생성된 javadoc의 week12 패키지 요약에서 Exam_011 클래스 설명이 표시된 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-05.jpg)
 
-![0105-205-java-live-study-week-12-annotation-img-06.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-06.jpg)
+![생성된 javadoc의 Exam_011 클래스 페이지에 클래스 설명과 Author nimkoes가 표시된 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-06.jpg)
 
-![0105-205-java-live-study-week-12-annotation-img-07.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-07.jpg)
+![javadoc Method Detail에서 @Documented를 붙인 MyAnnotation_08만 print_documented 메서드에 표시된 결과](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-07.jpg)
 
 javadoc 을 만든 다음 확인해보면 @Document 를 추가한 부분에 대해 내가 작성한 내용이 추가 된 것을 볼 수 있었다.
 
@@ -591,15 +588,15 @@ javadoc 을 만든 다음 확인해보면 @Document 를 추가한 부분에 대�
 
 프로젝트에 롬복 라이브러리를 추가 해보자.
 
-![0105-205-java-live-study-week-12-annotation-img-08.png](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-08.png)
+![IntelliJ File 메뉴에서 Project Structure를 선택하는 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-08.png)
 
 인텔리제이 메뉴의 File > Project Structure 에 들어간다.
 
-![0105-205-java-live-study-week-12-annotation-img-09.png](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-09.png)
+![IntelliJ Project Structure의 Libraries에서 + 버튼을 눌러 From Maven을 고르는 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-09.png)
 
 왼쪽 Libraries 메뉴에 들어가서 + 버튼을 누른 다음 From Maven 을 클릭 한다.
 
-![0105-205-java-live-study-week-12-annotation-img-10.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-10.jpg)
+![Download Library from Maven Repository 창에 org.projectlombok:lombok:1.18.12를 입력한 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-10.jpg)
 
 org.projectlombok:lombok:1.18.12 버전을 많이 사용하는것 같아서 이 버전을 선택 했다.
 
@@ -644,11 +641,11 @@ public class Exam_012 {
 
  만약 똑같이 했는데 바이트코드가 생기지 않았다면 인텔리제이에서 다음 설정을 활성화 해야 한다.
 
-![0105-205-java-live-study-week-12-annotation-img-11.png](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-11.png)
+![IntelliJ File 메뉴에서 Settings를 선택하는 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-11.png)
 
 File > Settings 를 클릭한다.
 
-![0105-205-java-live-study-week-12-annotation-img-12.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-12.jpg)
+![IntelliJ Settings의 Annotation Processors에서 Enable annotation processing을 체크한 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-12.jpg)
 
 annotation processor 를 검색해서 나온 메뉴에 들어가서 오른쪽에 Enable annotation processing 이 활성화 되어 있는지 확인해보자.
 
@@ -658,7 +655,7 @@ annotation processor 를 검색해서 나온 메뉴에 들어가서 오른쪽에
 
 lombok 라이브러리를 조금 더 자세히 들여다보자.
 
-![0105-205-java-live-study-week-12-annotation-img-13.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-13.jpg)
+![lombok jar의 META-INF/services 폴더 안에 javax.annotation.processing.Processor 파일이 있는 모습](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-13.jpg)
 
 라이브러리를 열고 들어가보면 META-INF 하위에 services 라는 폴더가 있는데
 
@@ -676,9 +673,9 @@ lombok 라이브러리를 조금 더 자세히 들여다보자.
 
 이번엔 lombok.launch.AnnotationProcessorHider 클래스에 중첩클래스인 AnnotationProcessor 를 열어보자.
 
-![0105-205-java-live-study-week-12-annotation-img-14.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-14.jpg)
+![lombok jar의 lombok.launch 패키지에서 AnnotationProcessorHider 클래스를 찾은 화면](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-14.jpg)
 
-![0105-205-java-live-study-week-12-annotation-img-15.jpg](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-15.jpg)
+![AnnotationProcessorHider 안의 AnnotationProcessor 클래스가 AbstractProcessor를 상속하는 소스 코드](/tech-blog/resources/images/migration/0105-205-java-live-study-week-12-annotation/img-15.jpg)
 
 파일에 작성되어있던 AnnotationProcessorHider 클래스에 중첩 된 두 개의 클래스를 볼 수 있는데,
 공통점이 눈에 띈다.

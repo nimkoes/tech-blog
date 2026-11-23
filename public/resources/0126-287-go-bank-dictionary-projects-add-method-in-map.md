@@ -1,9 +1,7 @@
 ---
 title: 'Go ''BANK & DICTIONARY PROJECTS'' : Add Method (in map)'
 description: >-
-  이번에는 map 에 요소를 추가하는 실습을 한다. 앞서 작성한 myDict.go 파일에 다음 내용을 추가 한다. 아래 주석으로 작성한 부분은
-  switch 문법을 사용할 때의 예시이다. 지금 실행해 볼 예시는 if 구절이다. Dictionary 에서 같은 이름의 key 가 이미 등록
-  되어 있으면 error 를 반환하고 그렇지 않으면 값을 추가한다.
+  Go map 기반 Dictionary에 단어를 추가하는 Add 메서드를 if와 switch 두 방식으로 구현하고 중복 키에 에러를 돌려준다. map 타입 receiver에 포인터를 쓰면 indexing 오류가 나는 이유도 정리했다.
 publishedAt: '2021-05-21'
 updatedAt: '2021-05-21'
 tags:
@@ -93,7 +91,7 @@ func main() {
 }
 ```
 
-![0126-287-go-bank-dictionary-projects-add-method-in-map-img-01.jpg](/tech-blog/resources/images/migration/0126-287-go-bank-dictionary-projects-add-method-in-map/img-01.jpg)
+![go run 결과로 hello 정의 Greeting을 찾은 뒤 같은 단어를 다시 넣어 That word already exists가 출력된 터미널](/tech-blog/resources/images/migration/0126-287-go-bank-dictionary-projects-add-method-in-map/img-01.jpg)
 
 예상한 결과가 나온 것을 확인할 수 있다.
 

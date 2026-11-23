@@ -1,9 +1,7 @@
 ---
 title: 'java 접근 제한자와 가시성, private을 통한 encapsulation과 information hiding'
 description: >-
-  다른 언어에도 있지만, 이 '접근 제한자'라는 개념이 있다. 단어에서도 느껴지듯 내가 아닌 다른 곳(혹은 것)에서의 접근을 제한하겠다는
-  의미이다. 모두에게 공개하지 않겠다는 말. 보통 네가지 종류의 접근 제한자가 있다. > 접근을 제한하지 않는다. 모두의 접근을 허용한다.
-  그래서 보통 클래스의 멤버 메소드는 이 public을 사용해서 작성한다. 왜? 생각해보면 단순하다.
+  Java 접근 제한자 public, protected, package, private의 범위와 필드를 private으로 두고 getter·setter로 접근시키는 이유를 원의 넓이 예제로 정리하고, 정보 은닉과 캡슐화를 구분했다.
 publishedAt: '2017-05-25'
 updatedAt: '2017-05-25'
 tags:
@@ -79,7 +77,7 @@ class Calc {
 
 [소스1 실행결과]
 
-![0070-39-java-private-encapsulation-information-hiding-img-01.png](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-01.png)
+![소스1 실행 결과로 반지름 2인 원의 넓이 12.56이 출력된 콘솔](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-01.png)
 
 ​***보통 저런 pi와 같은 값은 final키워드를 사용해서 정의하는게 더 편리하긴 하다.***
 
@@ -121,7 +119,7 @@ class Calc {
 
 [소스2 실행결과]
 
-![0070-39-java-private-encapsulation-information-hiding-img-02.png](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-02.png)
+![public 필드 pi를 31.4로 바꿔 원의 넓이가 12.56에서 125.6으로 달라진 소스2 실행 결과](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-02.png)
 
 Calc 클래스의 멤버필드 pi가 static으로 선언되어있지 않기 때문에 객체를 통해 접근을 시도했다.
 
@@ -182,7 +180,7 @@ class Calc {
 
 [소스3 실행결과]
 
-![0070-39-java-private-encapsulation-information-hiding-img-03.png](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-03.png)
+![private 필드와 setter로 pi 변경을 막아 원의 넓이가 12.56으로 유지된 소스3 실행 결과](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-03.png)
 
 11라인은 현재 Calc클래스의 멤버 필드인 pi가 private 접근 제한자를 사용하고 있기 때문에 컴파일 되지 않아 주석으로 막아놓았다.
 
@@ -240,7 +238,7 @@ class Calc {
 }
 ```
 
-![0070-39-java-private-encapsulation-information-hiding-img-04.png](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-04.png)
+![객체로 private 필드 pi에 접근해 6번째 줄에서 pi has private access in Calc 오류가 난 결과](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-04.png)
 
 2. private static 으로 선언된 멤버필드에 클래스 이름으로 접근해서 값을 변경하려고 하는 경우
 
@@ -258,7 +256,7 @@ class Calc {
 }
 ```
 
-![0070-39-java-private-encapsulation-information-hiding-img-05.png](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-05.png)
+![클래스 이름으로 private static 필드 pi에 접근해 4번째 줄에서 private access 컴파일 오류가 난 결과](/tech-blog/resources/images/migration/0070-39-java-private-encapsulation-information-hiding/img-05.png)
 
 그럼 자연 스럽게 Encapsulation과 Information Hiding에 대해 알아보자.
 

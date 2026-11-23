@@ -1,9 +1,7 @@
 ---
 title: '2주차 : 자바 데이터 타입, 변수 그리고 배열'
 description: >-
-  프리미티브 타입. 영어로 primitive type. 또는 원시 타입 또는 기본형 타입 이라고 하기도 한다. 우선 타입이란 데이터 타입을
-  줄인 말로 자료형 이라고 하기도 한다. 그럼 데이터 타입 이란 무엇일까. 컴퓨터 관점에서 타입은 데이터가 메모리에 어떻게 저장될 것이고 또
-  어떻게 다뤄져야 하는지에 대해 알려주는 것이다.
+  Java 프리미티브 타입과 레퍼런스 타입, 리터럴, 변수의 스코프와 라이프타임, 타입 캐스팅과 프로모션, 1차와 2차 배열의 메모리 구조, var 타입 추론의 제약을 예제와 그림으로 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -617,7 +615,7 @@ long 데이터 타입은 실수를 표현할 수 없기 때문에 원본 데이�
 
 말보단 코드를 보는 것이 좋을 것 같다. 위 상황을 구현해보았다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-01.jpg](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-01.jpg)
+![Eclipse에서 float 값을 long 변수에 대입한 줄에 컴파일 오류 표시가 뜬 코드](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-01.jpg)
 
 똑똑한 IDE는 위와 같이 타입 캐스팅이 발생할 경우 컴파일 타임에 오류를 발생한다.
 
@@ -633,7 +631,7 @@ long 데이터 타입은 실수를 표현할 수 없기 때문에 원본 데이�
 
 그리고 어떻게 수정해야할지 추천도 해준다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-02.jpg](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-02.jpg)
+![Type mismatch 오류에 Eclipse가 Add cast to long 등 세 가지 빠른 수정을 제안하는 화면](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-02.jpg)
 
 Add cast to 'long' 을 선택하면 코드가 다음과 같이 자동으로 바뀌는 것을 볼 수 있다.
 
@@ -846,7 +844,7 @@ public class Exam_015 {
 
 즉, 다음과 같은 것은 컴파일 오류가 발생한다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-03.jpg](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-03.jpg)
+![선언 이후 중괄호로 배열을 대입해 Array constants can only be used in initializers 오류가 난 코드](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-03.jpg)
 
 선언한 배열 변수는 JVM의 런타임 스택 영역에 생성 된다.
 
@@ -866,7 +864,7 @@ public class Exam_016 {
 }
 ```
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-04.png](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-04.png)
+![스택의 배열 변수 type_1이 힙에 생성된 길이 5 배열의 주소를 가리키는 메모리 그림](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-04.png)
 
 100번지는 예시로 쓴 주소 값으로 실제와는 많이 다르다.
 
@@ -878,7 +876,7 @@ public class Exam_016 {
 
 길이 5인 배열을 생성하면 다음과 같다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-05.png](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-05.png)
+![길이 5인 int 배열의 각 원소가 4바이트 크기로 0으로 초기화된 모습을 펼친 메모리 그림](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-05.png)
 
 그리고 가비지 컬렉션 힙 영영에 생성되는 데이터는 각 타입의 기본값으로 초기화 된다.
 
@@ -929,11 +927,11 @@ public class Exam_018 {
 
 예제 코드의 5라인 new int[2][3] 배열을 기준으로, 2차원 배열은 메모리상에 다음과 같이 생성 된다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-06.png](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-06.png)
+![2행 3열로 만든 2차원 배열이 길이 2 배열과 길이 3 배열 두 개로 힙에 생성되는 메모리 그림](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-06.png)
 
 예제코드 6라인과 7라인의 경우 위 그림과는 조금 다르다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-07.png](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-07.png)
+![중괄호로 초기화한 2차원 배열이 길이 2와 길이 3의 서로 다른 행 배열을 가리키는 메모리 그림](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-07.png)
 
 이것을 행렬로 표현한다면 다음과 같다.
 
@@ -1000,11 +998,11 @@ var를 사용할 경우 제약 사항이 몇가지 존재한다.
 
 2. 선언과 동시에 값이 할당 되어야 한다는 것이다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-08.jpg](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-08.jpg)
+![클래스 필드에 var를 써서 Cannot resolve symbol var 오류가 난 IntelliJ 화면](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-08.jpg)
 
 로컬 변수로 선언하지 않아서 발생한 오류이다.
 
-![0095-195-java-live-study-week-2-data-types-variables-arrays-img-09.jpg](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-09.jpg)
+![초기값 없이 var를 선언해 Cannot infer type 오류가 난 IntelliJ 화면](/tech-blog/resources/images/migration/0095-195-java-live-study-week-2-data-types-variables-arrays/img-09.jpg)
 
 선언과 동시에 값을 할당하지 않아서 발생한 오류이다.
 

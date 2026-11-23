@@ -1,6 +1,7 @@
 ---
 title: '[chap.04] SecurityContextHolder'
-description: SecurityContextHolder 에서 Authentication 객체 조회 예제
+description: >-
+  Spring Security의 SecurityContextHolder가 SecurityContext와 Authentication을 ThreadLocal 전략으로 요청마다 관리하는 구조와 static으로 제공되는 이유를 정리했다.
 publishedAt: '2025-03-08'
 updatedAt: '2025-03-08'
 tags:
@@ -18,7 +19,7 @@ status: published
 
 ## SecurityContext 와 Authentication 객체
 
-![0023-01](/tech-blog/resources/images/spring-security-inner-structure/0023-01.png)
+![SecurityContextHolder 안에 SecurityContext와 Authentication이 겹겹이 담긴 구조](/tech-blog/resources/images/spring-security-inner-structure/0023-01.png)
 
 - `SecurityContextHolder` 는 현재 요청의 보안 컨텍스트(`SecurityContext`)를 관리하는 클래스이다.
 - `SecurityContext` 내부에는 인증(Authentication) 객체 가 포함되며, 사용자의 인증 정보와 권한(ROLE) 정보를 저장한다.

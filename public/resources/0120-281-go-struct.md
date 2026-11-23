@@ -1,9 +1,7 @@
 ---
 title: Go 의 Struct 기본 사용법
 description: >-
-  Struct 는 Object 와 유사 하면서 map 보다 조금 더 유연하다. C에서 봤던 구조체와 비슷한 느낌을 가지고 있는것 같다. 앞으로
-  학습 하면서 constructor 가 없는데, 직접 호출해야 한다는게 무슨 말인지 이해하는게 필요하다. 위 예제를 만들어 보면서 재밌었던건,
-  '사용 방법 2' 에서 값을 명시하지 않으면 그 타입의 기본 값을 자동으로 사용한다는 점이다.
+  Go struct를 정의하고 값을 순서대로 넣는 방법과 key를 명시하는 방법으로 생성하는 예제를 정리했다. 두 방식을 섞을 수 없다는 점과 생략한 필드에 기본값이 들어가는 점도 확인했다.
 publishedAt: '2021-05-17'
 updatedAt: '2021-05-17'
 tags:
@@ -49,7 +47,7 @@ func main() {
 }
 ```
 
-![0120-281-go-struct-img-01.jpg](/tech-blog/resources/images/migration/0120-281-go-struct/img-01.jpg)
+![person struct 예제 실행 결과로 age를 생략한 값이 기본값 0으로 출력된 터미널](/tech-blog/resources/images/migration/0120-281-go-struct/img-01.jpg)
 
 앞으로 학습 하면서 constructor 가 없는데, 직접 호출해야 한다는게 무슨 말인지 이해하는게 필요하다.
 

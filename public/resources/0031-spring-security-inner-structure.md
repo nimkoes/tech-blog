@@ -1,9 +1,7 @@
 ---
 title: '[chap.12] CsrfFilter'
 description: >-
-  CsrfFilter CSRF 공격 CSRF (Cross-Site Request Forgery)는 사용자의 의지와 무관하게 해커가 사용자의
-  브라우저를 통해 서버로 특정 요청을 보내도록 하는 공격 방식이다. 예를 들어 사용자가 로그인된 상태에서 악성 웹사이트에 방문하면, 해당
-  사이트가 사용자의 세션을 이용하여 특정 요청을 실행할 수 있다. 주로 서버가 session 방식으로 운영 중일 때 사용 된다.
+  Spring Security CsrfFilter가 CSRF 공격을 막는 과정을 doFilterInternal 코드로 따라가며 정리했다. CsrfTokenRepository 구현체와 _csrf 토큰, Referer 검증 방식도 다룬다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:

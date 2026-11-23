@@ -1,9 +1,7 @@
 ---
 title: 'Go ''BANK & DICTIONARY PROJECTS'' : Dictionary part One'
 description: >-
-  이번 실습에서는 struct 를 사용하지 않고 'type' 이라는 것을 사용 한다. 그 전에 먼저 myDict 디렉토리를 만들고 그 안에
-  myDict.go 파일을 생성한다. 그리고 이 파일을 사용 할 main 이 될 파일을 'part2 myDict main.go' 라는 이름으로
-  생성했다.
+  Go에서 struct 대신 type으로 map[string]string 기반 Dictionary 타입을 정의하고, 키가 있는지 확인해 값이나 errors.New로 만든 Not Found 에러를 돌려주는 Search 메서드를 구현했다.
 publishedAt: '2021-05-21'
 updatedAt: '2021-05-21'
 tags:
@@ -17,7 +15,7 @@ status: needs-review
 
 그리고 이 파일을 사용 할 main 이 될 파일을 'part2_myDict_main.go' 라는 이름으로 생성했다.
 
-![0125-286-go-bank-dictionary-projects-dictionary-part-one-img-01.jpg](/tech-blog/resources/images/migration/0125-286-go-bank-dictionary-projects-dictionary-part-one/img-01.jpg)
+![VS Code 탐색기에서 part2_bank_and_dic_prj 아래 myDict 폴더와 myDict.go, main 파일을 만든 구조](/tech-blog/resources/images/migration/0125-286-go-bank-dictionary-projects-dictionary-part-one/img-01.jpg)
 
 (앞서 예제에서 사용했던 'main.go' 파일도 'part2_account_main.go' 로 이름을 수정했다.)
 
@@ -74,7 +72,7 @@ func main() {
 }
 ```
 
-![0125-286-go-bank-dictionary-projects-dictionary-part-one-img-02.jpg](/tech-blog/resources/images/migration/0125-286-go-bank-dictionary-projects-dictionary-part-one/img-02.jpg)
+![없는 키 second를 Search해 go run 결과로 Not Found가 출력된 터미널](/tech-blog/resources/images/migration/0125-286-go-bank-dictionary-projects-dictionary-part-one/img-02.jpg)
 
 dictionary 는 "first" 를 키값으로 "First Word" 값을 가지는 map 이다.
 

@@ -1,9 +1,7 @@
 ---
 title: 'Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기'
 description: >-
-  이 글에서는 기존 Azure 리소스를 Terraform 으로 관리할 수 있도록 해주는 도구인 Aztfexport 에 대해 살펴보겠습니다. 이
-  도구가 무엇인지, 무엇을 할 수 있는지, 그리고 일반적인 사용 흐름(workflow)은 어떤지를 설명한 후, 실제 사용 예제와 함께 단계별
-  설정 튜토리얼로 넘어가겠습니다. Aztfexport 는 Microsoft 에서 개발한 오픈소스 내보내기(export) 도구입니다.
+  Aztfexport로 기존 Azure 리소스를 Terraform 상태와 HCL 코드로 내보내는 방법을 정리했다. 설치, resource-group과 query 옵션 사용 예시, 내부 동작과 한계점까지 다룬다.
 publishedAt: '2025-06-11'
 updatedAt: '2025-06-11'
 tags:
@@ -106,7 +104,7 @@ Windows 에서 Azure Export (aztfexport)를 설치하려면, 다음 명령어를
 winget install aztfexport
 ```
 
-![0043-01](/tech-blog/resources/images/translate/aztfexport/0043-01.png)
+![Windows 터미널에서 winget install aztfexport로 Azure Export for Terraform 0.14.0 설치를 마친 화면](/tech-blog/resources/images/translate/aztfexport/0043-01.png)
 
 미리 컴파일된 바이너리 파일과 Windows 용 MSI 설치 프로그램은 GitHub [릴리스][4] 페이지에서도 제공됩니다.
 
@@ -181,7 +179,7 @@ go install github.com/Azure/aztfexport@latest
 - 가상 네트워크 이름: my-vnet-test01
 - 지역(Region): (Europe) UK South
 
-![0043-02](/tech-blog/resources/images/translate/aztfexport/0043-02.png)
+![Azure Portal 가상 네트워크 만들기의 Basics 탭에서 my-rg-test01, my-vnet-test01, UK South를 입력한 화면](/tech-blog/resources/images/translate/aztfexport/0043-02.png)
 
 다음을 클릭한 후, “IP 주소” 탭에서 다음과 같이 설정하세요.
 
@@ -189,7 +187,7 @@ go install github.com/Azure/aztfexport@latest
 - 서브넷 1: 이름 – default, 주소 범위 – 10.0.1.0/24
 - 서브넷 2: 이름 – my-subnet-test01, 주소 범위 – 10.0.2.0/24
 
-![0043-03](/tech-blog/resources/images/translate/aztfexport/0043-03.png)
+![가상 네트워크 만들기의 IP addresses 탭에서 10.0.0.0/16에 default, my-subnet-test01 서브넷을 추가한 화면](/tech-blog/resources/images/translate/aztfexport/0043-03.png)
 
 \[검토 + 만들기]를 누른 후, 마지막으로 \[만들기] 버튼을 클릭하세요.
 

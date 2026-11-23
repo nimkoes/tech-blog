@@ -1,9 +1,7 @@
 ---
 title: '[chap.11] DaemonSet, Job, CronJob'
 description: >-
-  DaemonSet, Job, CronJob Controller 가 무엇이고 언제 사용 하는지 정리 한다. 각 Node 에 자원이 다르게
-  남아있는 상태에서 ReplicaSet 의 경우 Pod 를 Scheduler 에 의존해서 Node 에 배치할 때, 만약 Node1 에 자원이
-  많이 남아있는 경우 Pod 를 많이 배치할 것이다. 그리고 Node3 과 같이 자원이 별로 없으면 Pod 를 배치하지 않을 수도 있다.
+  Kubernetes DaemonSet, Job, CronJob의 동작 차이와 쓰임새를 정리했다. nodeSelector, hostPort, completions, parallelism, concurrencyPolicy 설정도 다룬다.
 publishedAt: '2025-03-03'
 updatedAt: '2025-03-03'
 tags:

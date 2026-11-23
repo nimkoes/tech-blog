@@ -1,9 +1,7 @@
 ---
 title: java 환경변수 설정 방법과 이유 총정리
 description: >-
-  java 개발을 하려면 환경변수를 설정해야한다. 아니 더 정확히는 명령 프롬프트에서 컴파일하고 실행하려면 환경변수를 설정해야 한다. 명령
-  프롬프트는 cmd창으로 알고 있는 보통 검정색 있어보이는 화면을 말한다. 우선 환경변수라는것이 무엇인지부터 알아보자. 위 본문은 네이버
-  검색을 통해 가져온 내용이다.
+  Windows 7에서 Java 개발을 위해 JAVA_HOME과 PATH 환경변수를 설정하는 방법과 이유를 정리했다. PATH와 CLASSPATH의 차이, javac로 확인하는 법, Hello World 실행까지 다룬다.
 publishedAt: '2017-05-24'
 updatedAt: '2017-05-24'
 tags:
@@ -39,17 +37,17 @@ java 개발을 하려면 환경변수를 설정해야한다.
 
 환경변수를 설정하기 위해서는 설정하는 곳으로 가야한다.
 
-![0064-32-java-environment-variables-guide-img-01.png](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-01.png)
+![Windows 7 시작 메뉴에서 컴퓨터를 우클릭해 속성 메뉴를 고르는 단계](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-01.png)
 
 [내 컴퓨터]를 마우스 우클릭을 해서 속성을 클릭한다.
 
 혹은 키보드의 윈도우키와 오른쪽 위에 pause/break 키를 동시에 눌러주면 바로 아래 이미지와 같은 화면이 뜬다.
 
-![0064-32-java-environment-variables-guide-img-02.png](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-02.png)
+![Windows 7 제어판 시스템 화면 왼쪽의 고급 시스템 설정 메뉴 위치](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-02.png)
 
 새로 뜬 화면의 좌측에 있는 '고금 시스템 설정' 을 클릭한다.
 
-![0064-32-java-environment-variables-guide-img-03.png](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-03.png)
+![시스템 속성 고급 탭에서 환경 변수 버튼을 눌러 사용자 변수와 시스템 변수 창을 여는 단계](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-03.png)
 
 그리고 뜬 화면의 아래쪽에 '환경 변수' 를 클릭하면 바로 위 이미지의 앞쪽에 뜬 팝업이 하나 더 뜬다.
 
@@ -127,7 +125,7 @@ PATH에는 이렇게 작성하면 된다.
 
 어딘가가 잘못된 것아다.
 
-![0064-32-java-environment-variables-guide-img-04.png](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-04.png)
+![환경변수가 설정되지 않아 cmd에서 javac를 실행할 수 없다는 메시지가 나온 화면](/tech-blog/resources/images/migration/0064-32-java-environment-variables-guide/img-04.png)
 
 (제대로 설정되지 않은 예)
 

@@ -1,9 +1,7 @@
 ---
 title: '[chap.10] HeaderWriterFilter'
 description: >-
-  HeaderWriterFilter HeaderWriterFilter 목적 이 필터는 DefaultSecurityFilterChain 에
-  기본적으로 등록되며, 네 번째에 위치한다. HTTP 응답 헤더에 보안 관련 헤더를 추가하여 클라이언트를 보호한다. 기본적으로 다양한 보안
-  헤더가 자동으로 추가되며, 이를 통해 XSS, MIME 스니핑, Clickjacking 등의 공격을 방지할 수 있다.
+  Spring Security HeaderWriterFilter가 응답에 추가하는 X-Frame-Options, HSTS 같은 기본 보안 헤더와 동작 방식, 특정 헤더 수정과 사용자 정의 헤더 추가 설정을 정리했다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:

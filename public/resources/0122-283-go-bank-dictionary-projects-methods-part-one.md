@@ -1,9 +1,7 @@
 ---
 title: 'Go ''BANK & DICTIONARY PROJECTS'' : Methods part One'
 description: >-
-  Go 에는 function 이외에 method 개념이 있다. 지금까지 알아낸 내용을 기준으로 method 는 struct 와 연관이 있다.
-  마치 java 에서 멤버 필드의 값을 조작하기 위해 method 를 추가 하는 것처럼, struct 의 값을 조작하기 위해 function
-  을 정의 하는데, 이 때 사용하는 function 을 method 라고 하는것 같다. 형태는 function 과 매우 유사하다.
+  Go에서 struct에 receiver를 붙여 method를 정의하는 방법을 은행 계좌 예제의 Deposit, Balance로 실습하고, 값 receiver라 입금 후에도 잔액이 0으로 나오는 문제를 확인했다.
 publishedAt: '2021-05-19'
 updatedAt: '2021-05-19'
 tags:
@@ -76,7 +74,7 @@ func main() {
 
 아무런 문제가 없어 보이는데 막상 실행해보면 다음과 같은 결과가 나온다.
 
-![0122-283-go-bank-dictionary-projects-methods-part-one-img-01.jpg](/tech-blog/resources/images/migration/0122-283-go-bank-dictionary-projects-methods-part-one/img-01.jpg)
+![Deposit으로 10을 입금했는데 go run 실행 결과 잔액이 0으로 출력된 터미널](/tech-blog/resources/images/migration/0122-283-go-bank-dictionary-projects-methods-part-one/img-01.jpg)
 
 분명히 Deposit method 에 정수 10을 넘겨주고 balance 값을 += 연산자로 증가 했는데, 출력해보면 0이 나온다.
 

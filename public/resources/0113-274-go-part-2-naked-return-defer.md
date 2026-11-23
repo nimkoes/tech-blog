@@ -1,9 +1,7 @@
 ---
 title: 'Go 의 함수 part 2 (naked return, defer)'
 description: >-
-  Go 의 함수에는 'naked return' 이라는 것이 있다. 이것의 의미는 return 키워드에 굳이 반환 할 변수를 명시하지 않아도
-  됨을 뜻한다. part 1 에서 길이와 영문 대문자 변환 결과를 반환하는 함수를 다시 작성해보자. part 1 의 'lenAndUpper'
-  함수와 다른 부분은 반환 타입을 작성할 때 변수 이름을 같이 넣은 부분이다.
+  Go 함수의 naked return으로 이름 붙인 반환값을 return만으로 돌려주는 방법과, 함수 종료 뒤 실행되는 defer가 여러 개일 때 역순(stack)으로 실행되는 동작을 예제로 확인했다.
 publishedAt: '2021-05-16'
 updatedAt: '2021-05-16'
 tags:
@@ -37,7 +35,7 @@ func main() {
 }
 ```
 
-![0113-274-go-part-2-naked-return-defer-img-01.jpg](/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-01.jpg)
+![naked return 예제를 go run으로 실행해 7 NIMKOES가 출력된 터미널](/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-01.jpg)
 
 part 1 의 'lenAndUpper' 함수와 다른 부분은 반환 타입을 작성할 때 변수 이름을 같이 넣은 부분이다.
 
@@ -80,7 +78,7 @@ func main() {
 }
 ```
 
-![0113-274-go-part-2-naked-return-defer-img-02.jpg](/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-02.jpg)
+![defer 예제 실행 결과로 start 다음 I'm done, 마지막에 7 NIMKOES가 출력된 터미널](/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-02.jpg)
 
 main 함수에서 lenAndUpper 실행을 종료한 다음 defer 를 실행 한 것을 확인할 수 있다.
 
@@ -121,4 +119,4 @@ func main() {
 
 위 코드에서 보면, lenAndUpper 에서 3개의 defer 를 사용하고 있는데 실행 결과를 보면 defer 가 작성된 역순으로 실행 된다.
 
-![0113-274-go-part-2-naked-return-defer-img-03.jpg](/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-03.jpg)
+![defer 세 개가 작성된 역순으로 third, second message, I'm done 순서로 출력된 터미널](/tech-blog/resources/images/migration/0113-274-go-part-2-naked-return-defer/img-03.jpg)

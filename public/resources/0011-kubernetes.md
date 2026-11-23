@@ -1,10 +1,7 @@
 ---
 title: '[chap.10] Deployment (Recreate, RollingUpdate)'
 description: >-
-  Deployment 는 하나의 운영 중인 서비스를 업데이트 하여 다시 배포해야 할 때 도움을 주는 Controller 이다.
-  Deployment 에 대해 알아보기에 앞서 k8s 에서 사용하는 몇 가지 업그레이드 방법에 대해 알아 본다. 업그레이드 방법에는 크게
-  ReCreate, Rolling Update, Bule/Green, Canary 등이 있다. Deployment 를 만들면 v1 의 Pod
-  들이 만들어 진다.
+  Kubernetes 업그레이드 방식 ReCreate, Rolling Update, Blue/Green, Canary의 Downtime과 자원 사용을 비교하고 Deployment의 배포 과정을 YAML로 정리했다.
 publishedAt: '2025-03-03'
 updatedAt: '2025-03-03'
 tags:

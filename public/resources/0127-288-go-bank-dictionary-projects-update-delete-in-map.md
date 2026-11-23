@@ -1,9 +1,7 @@
 ---
 title: 'Go ''BANK & DICTIONARY PROJECTS'' : Update Delete (in map)'
 description: >-
-  이번에는 map 에 저장된 값을 수정하고 삭제하는 실습을 한다. 먼저 'part2 myDict main.go' 파일을 먼저 작성하고,
-  'myDict.go' 파일을 작성하는 순서로 진행한다. 이건 마치 TDD 를 하는 느낌이다. 내용이 단순해서 코드의 주석만 보고도 어떤
-  동작을 할지 충분히 예상 가능하다. 다음은 'myDict.go' 에 추가한 Update 코드이다.
+  Go map으로 만든 Dictionary 타입에 Update와 Delete 메소드를 추가하는 실습이다. Search로 존재 여부를 확인해 수정하고, delete 내장 함수로 값을 지우는 과정을 실행 결과와 함께 정리했다.
 publishedAt: '2021-05-21'
 updatedAt: '2021-05-21'
 tags:
@@ -72,7 +70,7 @@ func (d Dictionary) Update(word, definition string) error {
 
 다음은 이미 작성한 'part2_myDict_main.go' 의 실행 결과이다.
 
-![0127-288-go-bank-dictionary-projects-update-delete-in-map-img-01.jpg](/tech-blog/resources/images/migration/0127-288-go-bank-dictionary-projects-update-delete-in-map/img-01.jpg)
+![Update 실행 결과로 First가 Second로 수정되어 출력된 터미널](/tech-blog/resources/images/migration/0127-288-go-bank-dictionary-projects-update-delete-in-map/img-01.jpg)
 
 기대한 대로 'First' 가 'Second' 로 수정되어 출력된 것을 확인할 수 있다.
 
@@ -132,7 +130,7 @@ func main() {
 
 삭제 테스트 코드를 추가하고 실행하면 다음과 같은 결과가 나온다.
 
-![0127-288-go-bank-dictionary-projects-update-delete-in-map-img-02.jpg](/tech-blog/resources/images/migration/0127-288-go-bank-dictionary-projects-update-delete-in-map/img-02.jpg)
+![Delete 후 같은 단어를 다시 조회해 Not Found가 출력된 터미널](/tech-blog/resources/images/migration/0127-288-go-bank-dictionary-projects-update-delete-in-map/img-02.jpg)
 
 여기까지 아주 간단한 Bank Account 와 Dictionary Map 예제를 만들어 보면서 Go 에 익숙해져 보았다.
 

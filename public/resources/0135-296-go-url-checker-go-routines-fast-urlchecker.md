@@ -1,8 +1,7 @@
 ---
 title: 'Go ''URL CHECKER & GO ROUTINES'' : FAST URLChecker'
 description: >-
-  사실 이 전에 작성한 코드로 URL Checker 구현이 끝났지만 출력하는 부분이 없었다. 앞서 다른 예제에서 goroutine 으로 실행한
-  결과를 channel 을 통해 수신하도록 '<- c' (c 는 channel 변수 ) 를 적절하게 작성해 결과를 받아 처리하면 된다.
+  Go goroutine과 channel로 여러 URL에 동시에 요청을 보내고 결과를 map에 모아 출력하는 URL Checker 완성 코드를 정리했다. 순차 처리보다 빨라지는 이유도 설명한다.
 publishedAt: '2021-05-24'
 updatedAt: '2021-05-24'
 tags:
@@ -101,7 +100,7 @@ URL Checker 의 완성된 코드이다.
 
 실행해보면 정말 빠르다는것을 확인할 수 있다.
 
-![0135-296-go-url-checker-go-routines-fast-urlchecker-img-01.gif](/tech-blog/resources/images/migration/0135-296-go-url-checker-go-routines-fast-urlchecker/img-01.gif)
+![go run main.go 실행 직후 URL별 Ok, FAILED 결과가 한꺼번에 출력되는 goroutine URL Checker 실행 화면](/tech-blog/resources/images/migration/0135-296-go-url-checker-go-routines-fast-urlchecker/img-01.gif)
 
 goroutine 을 사용하기 전에는 url 하나씩 순차적으로 확인했던것과 비교했을 때와 비교해보면 엄청나게 빨라진걸 알 수 있다.
 

@@ -1,9 +1,7 @@
 ---
 title: 'java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 2편, 어떻게 제네릭'
 description: >-
-  이전에 왜 제네릭이 나왔는지 알았다면, (java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭) 이번에는
-  기본적인 제네릭 사용 방법에 대해 정리를 해보려 한다. 우선 <> 이 다이아몬드 괄호라고 불리는걸 보면 일단 '제네릭이다' 라고 생각하면
-  된다. 제네릭은 크게 ​ 클래스​ 에 적용할 수 있고 또 ​ 메서드​ 에도 적용해서 사용할 수 있다.
+  Java 제네릭을 클래스와 메서드에 적용하는 기본 문법, 타입을 외부에서 정해 코드를 재사용하는 방법, extends로 타입을 제한해 잘못된 입력을 컴파일 시점에 막는 이유를 예제로 정리했다.
 publishedAt: '2017-05-25'
 updatedAt: '2017-05-25'
 tags:
@@ -96,7 +94,7 @@ class Generic_sub<T> {
 
 아래는 실행 결과이다.
 
-![0067-35-java-generic-2-img-01.png](/tech-blog/resources/images/migration/0067-35-java-generic-2/img-01.png)
+![Eclipse 콘솔에 첫 번째 매개변수 10, 두 번째 매개변수 20이 출력된 실행 결과](/tech-blog/resources/images/migration/0067-35-java-generic-2/img-01.png)
 
 그럼 다음으로, 제네릭의 장점이 무었이었을까?
 
@@ -159,7 +157,7 @@ class Generic_sub<T> {
 
 아래는 실행 결과이다.
 
-![0067-35-java-generic-2-img-02.png](/tech-blog/resources/images/migration/0067-35-java-generic-2/img-02.png)
+![Integer 객체와 String 객체가 같은 제네릭 클래스로 각각 숫자와 고구마, 감자를 출력한 Eclipse 콘솔](/tech-blog/resources/images/migration/0067-35-java-generic-2/img-02.png)
 
 그러면 왜 제네릭을 사용하는지 이전 1편에서보다 더 정확히 느껴질거라고 생각된다.
 
@@ -297,7 +295,7 @@ class Generic_sub<T> {
 
 아래는 위 소스의 실행 결과이다.
 
-![0067-35-java-generic-2-img-03.png](/tech-blog/resources/images/migration/0067-35-java-generic-2/img-03.png)
+![타입 제한 없이 문자열을 넘겨 addParam에서 NumberFormatException이 발생한 Eclipse 콘솔](/tech-blog/resources/images/migration/0067-35-java-generic-2/img-03.png)
 
 이러한 경우를 방지하기 위해서 데이터 타입을 제한하는 것이 필요하다.
 

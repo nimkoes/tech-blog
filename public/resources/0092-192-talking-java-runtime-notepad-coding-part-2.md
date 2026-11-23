@@ -1,9 +1,7 @@
 ---
 title: '나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 2편)'
 description: >-
-  메모장 코딩 1편에서는 'Hello, World' 문자열을 콘솔에 출력하는 예제를 살펴보았다. 2편에서는 앞서 얼렁뚱땅 넘어갔던 컴파일과
-  관련된 내용을 살펴보려 한다. 프로그래밍 언어에도 등급이 있다. 고급, 저급. 조금의 노력으로 드라마틱한 결과를 만들어낼 수 있어서
-  고급언어. 엄청난 노력과 시간을 쏟아 Hello World 한 줄 출력해내기 어려워서 저급언어. 라고 하진 않는다.
+  고급언어와 기계어의 차이, 자바 소스를 컴파일하면 실행 파일이 아닌 .class 바이트 코드가 만들어지고 플랫폼별 JVM이 이를 읽어 실행하는 자바 실행 환경을 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -82,13 +80,13 @@ status: needs-review
 
 앞서 JVM에 대해 언급할 때 소개한 그림을 다시 살펴보며 이해해보자.
 
-![0092-192-talking-java-runtime-notepad-coding-part-2-img-01.png](/tech-blog/resources/images/migration/0092-192-talking-java-runtime-notepad-coding-part-2/img-01.png)
+![모양이 다른 플랫폼 1, 2, 3 위에 각각 맞는 JVM을 얹고 같은 java program을 실행하는 그림](/tech-blog/resources/images/migration/0092-192-talking-java-runtime-notepad-coding-part-2/img-01.png)
 
 자바는 플랫폼의 제약에서 벗어나기 위해 JVM이라는 자바 가상 머신을 사용하고 있다.
 
 그렇기 때문에 자바 소스를 컴파일 하면 실행의 주체인 JVM이 이해할 수 있는 '바이트 코드'라는 파일이 만들어 진다.
 
-![0092-192-talking-java-runtime-notepad-coding-part-2-img-02.png](/tech-blog/resources/images/migration/0092-192-talking-java-runtime-notepad-coding-part-2/img-02.png)
+![.java 소스 파일이 compile 과정을 거쳐 .class 바이트 코드 파일이 되는 흐름 그림](/tech-blog/resources/images/migration/0092-192-talking-java-runtime-notepad-coding-part-2/img-02.png)
 
 이 바이트 코드 파일의 확장자는 .class 를 갖는다.
 

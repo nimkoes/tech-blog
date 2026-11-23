@@ -1,9 +1,7 @@
 ---
 title: '[chap.11] CorsFilter'
 description: >-
-  CorsFilter 들어가며 API 서버를 구축할 때 프론트엔드와 백엔드의 오리진이 다르면 CORS 문제가 발생한다. 실무에서도 CORS
-  문제를 해결하기 위해 SecurityFilterChain 에 CorsConfigurationSource 값을 설정하는 것이 중요하다.
-  CorsFilter 자체는 복잡한 로직을 수행하지 않으며, CORS 설정이 더 중요한 개념이다.
+  Spring Security CorsFilter가 GenericFilter를 상속하는 이유와 동작 순서, CorsConfigurationSource로 허용 오리진, 메서드, 헤더, preflight 캐시를 설정하는 방법을 정리했다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:

@@ -1,8 +1,7 @@
 ---
 title: java (스태틱) static 이란 도대체 무엇인가
 description: >-
-  static... 스태틱.. 자바를 맨 처음 시작하면 보게되는 단어 중 하나인 static이라고 쓰고 스태틱 이라고 읽는 바로 저 스태틱
-  기계처럼 외워서 쓰게되는 그 문장 public static void main(String[] ar) { ...
+  Java static 변수가 같은 클래스의 모든 객체가 공유하는 하나의 값이라는 점을 은행 이율 예제로 설명하고, 객체 없이 접근하는 방식과 static에 this가 없는 이유를 정리했다.
 publishedAt: '2017-05-24'
 updatedAt: '2017-05-24'
 tags:

@@ -1,9 +1,7 @@
 ---
 title: 'Go ''WEB SERVER WITH ECHO'' : Setup Part Two & File Download using ECHO'
 description: >-
-  echo 를 시용해서 서버를 만드는 것을 super easy 하다. main.go 파일을 다음과 같이 수정하자. 그리고 실행하면 다음과 같이
-  실행 결과가 출력 되고, 1323 포트를 통해 접속할 수 있다. 정상적으로 실행 되는것을 확인하긴 했지만, myScraper 를 전혀
-  사용하고 있지 못하고 있다. 그래서 문자열을 출력하는 대신, 화면을 출력할 수 있도록 html 파일을 하나 만들어 보자.
+  Go Echo 프레임워크로 1323 포트 웹 서버를 띄워 HTML 파일을 응답하고, form POST로 받은 검색어로 스크래퍼를 실행해 결과 CSV를 c.Attachment로 내려받게 하는 과정을 정리했다.
 publishedAt: '2021-05-30'
 updatedAt: '2026-11-22'
 tags:
@@ -40,15 +38,15 @@ func handleHome(c echo.Context) error {
 
 그리고 실행하면 다음과 같이 실행 결과가 출력 되고, 1323 포트를 통해 접속할 수 있다.
 
-![0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo-img-01.jpg](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-01.jpg)
+![go run main.go로 Echo 서버가 1323 포트에서 시작된 터미널 로그](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-01.jpg)
 
-![0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo-img-02.jpg](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-02.jpg)
+![브라우저에서 localhost:1323에 접속해 Hello, World! 응답을 확인한 화면](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-02.jpg)
 
 정상적으로 실행 되는것을 확인하긴 했지만, myScraper 를 전혀 사용하고 있지 못하고 있다.
 
 그래서 문자열을 출력하는 대신, 화면을 출력할 수 있도록 html 파일을 하나 만들어 보자.
 
-![0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo-img-03.jpg](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-03.jpg)
+![VS Code 탐색기에서 main.go 옆에 home.html 파일을 새로 추가한 프로젝트 구조](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-03.jpg)
 
 ```html
 <!DOCTYPE html>
@@ -93,7 +91,7 @@ func handleHome(c echo.Context) error {
 
 적용되는 것을 확인해보기 위해 서버를 재시작 하고 다시 접속해보자.
 
-![0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo-img-04.jpg](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-04.jpg)
+![Echo 서버가 home.html을 응답해 Go Jobs 검색 폼이 표시된 브라우저 화면](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-04.jpg)
 
 그럼 마지막으로 form 의 method 와 action 을 정의하고, main.go 파일에서 echo 의 핸들러를 등록한 다음에 myScrap 패키지의 MyScrap 을 input 으로 받은 값을 넘겨주고 실행하도록 해보자.
 
@@ -169,7 +167,7 @@ handleScrap function 을 정의하고 16라인에서 "/myScrap" POST 요청을 �
 
 여기까지 수정 했으면 서버를 재시작하고 브라우저에서 실행해보자.
 
-![0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo-img-05.jpg](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-05.jpg)
+![검색 폼에 python을 입력해 스크래핑 로그가 찍히고 jobs.csv가 다운로드된 화면](/tech-blog/resources/images/migration/0143-305-go-web-server-with-echo-setup-part-two-file-download-using-echo/img-05.jpg)
 
 정상적으로 실행되는 것을 확인할 수 있다.
 

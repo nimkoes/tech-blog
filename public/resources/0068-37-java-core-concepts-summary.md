@@ -1,9 +1,7 @@
 ---
 title: '자바 상수, 변수, 배열, (구조체), 클래스 개념 총정리'
 description: >-
-  자바 애플리케이션이 동작하는 관점에서의 원자단위라고 생각되는 클래스라는 것의 개념에 대해 정리해보려 한다. 지난번 제네릭에 대해 알아볼 때
-  살짝 언급되었던 적이 있었다. (java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭) 사실 클래스라는 것에
-  도달하기 위해서 거쳐가야할 개념들이 좀 있다.
+  자바 상수, 변수, 배열, 구조체, 클래스로 이어지는 개념 흐름을 성적 총점 계산 예제로 따라가며, 클래스가 자료와 메서드를 묶은 추상화라는 점과 객체 생성 과정을 정리했다.
 publishedAt: '2017-05-25'
 updatedAt: '2017-05-25'
 tags:
@@ -52,7 +50,7 @@ public class Example {
 }
 ```
 
-![0068-37-java-core-concepts-summary-img-01.png](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-01.png)
+![final 변수 NUMBER에 값을 다시 넣어 cannot assign a value to final variable 컴파일 에러가 난 콘솔](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-01.png)
 
 final 변수 NUMBER에 값을 assign (할당) 할 수 없다는 에러를 보여준다.
 
@@ -137,7 +135,7 @@ public class Example {
 }
 ```
 
-![0068-37-java-core-concepts-summary-img-02.png](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-02.png)
+![변수 세 개로 세 과목 점수를 입력받아 총점 261을 출력한 콘솔 실행 결과](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-02.png)
 
 자신이 직접 무언가를 만들어냈다는 뿌듯함에 심취해있던 감자바씨의 기분에 갑자기 좀해조씨가 찬물을 끼얹었다.
 
@@ -177,7 +175,7 @@ public class Example {
 }
 ```
 
-![0068-37-java-core-concepts-summary-img-03.png](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-03.png)
+![변수를 다섯 개로 늘려 다섯 과목 점수를 입력받고 총점 424를 출력한 콘솔 실행 결과](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-03.png)
 
 감자바씨가 좀해조씨에게 전해준 소스는 완벽(?)하게 좀해조씨의 요구를 만족했다.
 
@@ -214,7 +212,7 @@ public class Example {
 }
 ```
 
-![0068-37-java-core-concepts-summary-img-04.png](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-04.png)
+![배열로 12과목 점수를 반복 입력받아 총점 820을 출력한 콘솔 실행 결과](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-04.png)
 
 *(52개는 너무 많아서 12개로 줄여서 예제를 작성해보았다.)*
 
@@ -529,6 +527,6 @@ format을 적용해서 소숫점 정리라도 할껄 그랬나..
 
 머암튼 아래는 실행 결과다.
 
-![0068-37-java-core-concepts-summary-img-05.png](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-05.png)
+![Student 클래스로 학생 2명, 과목 3개 점수를 입력받아 학생별 총점과 평균을 출력한 콘솔](/tech-blog/resources/images/migration/0068-37-java-core-concepts-summary/img-05.png)
 
 만드는 방법은 다양할거니까 .. ?!

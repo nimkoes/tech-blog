@@ -1,9 +1,7 @@
 ---
 title: '5주차 : 클래스'
 description: >-
-  클래스를 정의하는 방법은 다음과 같이 자바에 class 라는 키워드를 사용하는 것이다. 위 예제는 Exam 001 이라는 이름의 클래스를
-  정의한 것을 보여준다. 클래스를 정의하는 것 자체는 별로 어렵지 않다고 생각한다. 문제는 잘 만드는 것이다. 자바 공부를 중간에 포기한
-  사람도 자바는 객체지향 언어라는 것은 들어봤을 것이다. 여기서 말하는 이 객체를 자바에서는 클래스를 통해 만들어 진다.
+  자바 클래스 정의, new 키워드로 객체를 만드는 과정, 메소드의 접근제한자와 반환형, 매개변수, 생성자 정의와 this 키워드를 예제 코드로 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -291,7 +289,7 @@ public class MyFirstJava {
 
 lang 이라는 패키지 안에 정의 되어 있다고 나온다.
 
-![0098-198-java-live-study-week-5-class-img-01.png](/tech-blog/resources/images/migration/0098-198-java-live-study-week-5-class/img-01.png)
+![Java SE 7 API 문서에서 System 클래스가 java.lang 패키지에 정의된 것을 표시한 화면](/tech-blog/resources/images/migration/0098-198-java-live-study-week-5-class/img-01.png)
 
 즉, 다시 말해서 우리는 lang 이라는 패키지(폴더)안에 있는 System 이라는 클래스를 가져다 사용한 것이다.
 

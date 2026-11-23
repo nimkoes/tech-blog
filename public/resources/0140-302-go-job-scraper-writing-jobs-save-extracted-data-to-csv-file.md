@@ -1,9 +1,7 @@
 ---
 title: 'Go ''JOB SCRAPER'' : Writing Jobs, save extracted data to ''csv'' file'
 description: >-
-  이번에는 추출한 정보를 csv 파일로 저장 해보자. Go 에는 csv 관련 패키지가 있다. csv 파일을 만드는 writeJobs
-  function 을 다음과 같이 만든다. 이 코드를 실행하면 'jobs.csv' 파일을 만들고, 생성된 파일을 열어보면 다음과 같이
-  header 에 정의한 내용이 작성되어 있는것을 볼 수 있다.
+  Go encoding/csv 패키지의 Writer로 Indeed에서 추출한 채용 정보를 jobs.csv 파일에 헤더와 함께 저장하고, ID를 상세 페이지 URL로 바꿔 쓰는 방법과 전체 Job Scraper 코드를 정리했다.
 publishedAt: '2021-05-29'
 updatedAt: '2021-05-29'
 tags:
@@ -37,9 +35,9 @@ func writeJobs(jobs []extractedJob) {
 
 이 코드를 실행하면 'jobs.csv' 파일을 만들고, 생성된 파일을 열어보면 다음과 같이 header 에 정의한 내용이 작성되어 있는것을 볼 수 있다.
 
-![0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file-img-01.jpg](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-01.jpg)
+![VS Code 탐색기에서 writeJobs 실행 후 main.go 옆에 jobs.csv 파일이 생성된 모습](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-01.jpg)
 
-![0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file-img-02.jpg](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-02.jpg)
+![jobs.csv 첫 줄에 ID, Title, Location, Salary, Summary 헤더만 쓰인 상태](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-02.jpg)
 
 참고로 csv 는 comma separated variables 의 줄임말로 데이터를 콤마로 구분해서 저장하는 방식이다.
 
@@ -69,17 +67,17 @@ func writeJobs(jobs []extractedJob) {
 }
 ```
 
-![0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file-img-03.jpg](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-03.jpg)
+![jobs.csv 맨 위 헤더 아래에 추출한 채용 정보가 콤마로 구분되어 여러 줄 저장된 화면](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-03.jpg)
 
 너무 작아서 잘 안보이겠지만, 맨 위에 빨강 네모에 header 가 출력되고, 그 아래 추출한 데이터들이 잘 써진것을 볼 수 있다.
 
 excel 에서 열어도 되지만, 간단하게 확인해보기 위해 [csv 파일을 정리해서 보여주는 홈페이지에서 확인해보자.](http://convertcsv.com/csv-viewer-editor.htm)
 
-![0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file-img-04.jpg](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-04.jpg)
+![convertcsv.com CSV 뷰어의 빈 입력 표에서 1A 칸에 CSV 내용을 붙여넣을 준비를 하는 단계](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-04.jpg)
 
 1A 영역을 한 번 클릭하고, csv 파일의 내용을 전체 복사한 다음에 붙여넣는다.
 
-![0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file-img-05.jpg](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-05.jpg)
+![CSV 뷰어에 jobs.csv를 붙여넣어 ID, Title, Location, Salary, Summary 열로 정리된 표](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-05.jpg)
 
 깔끔하게 정리되어 보기 좋게 출려되는 것을 확인할 수 있다.
 
@@ -97,7 +95,7 @@ for _, job := range jobs {
 
 for 문에서 job.id 대신 "https://kr.indeed.com/viewjob?jk=" + job.id 로 저장될 수 있도록 수정한다.
 
-![0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file-img-06.jpg](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-06.jpg)
+![jobs.csv의 ID 열이 kr.indeed.com/viewjob?jk= 상세 페이지 URL로 저장된 화면](/tech-blog/resources/images/migration/0140-302-go-job-scraper-writing-jobs-save-extracted-data-to-csv-file/img-06.jpg)
 
 그러면 이제 위와 같이 url 이 저장 되고 링크를 열어보면 job 의 상세 정보를 볼 수 있는 페이지로 바로 이동할 수 있다.
 

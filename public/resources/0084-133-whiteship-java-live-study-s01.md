@@ -1,6 +1,7 @@
 ---
 title: Whiteship Java live study S01
-description: 현재 네이버 블로그에 정리되어 있어 링크로 대체 합니다. pc 환경에 최적화 되어 있습니다.
+description: >-
+  Whiteship Java 라이브 스터디 시즌 1의 15주 커리큘럼을 JVM, 데이터 타입, 연산자, 클래스, 상속, 예외, 멀티쓰레드, 제네릭, 람다식 등 주차별 학습 항목과 정리 글 링크로 모았다.
 publishedAt: '2021-04-23'
 updatedAt: '2021-04-23'
 tags:

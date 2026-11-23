@@ -1,9 +1,7 @@
 ---
 title: '[chap.03] SecurityFilterChain 구조'
 description: >-
-  SecurityFilterChain 구조 @EnableWebSecurity 에 debug 모드를 true 로 설정하면, 요청이 통과하는
-  SecurityFilterChain 의 filter 목록이 출력 된다. Spring Security 디버깅을 활성화하는 옵션으로, 개발
-  환경에서만 사용해야 한다. debug 모드의 기본값은 false 이다.
+  Spring Security의 debug 모드로 SecurityFilterChain이 거치는 filter 목록을 출력하고, 기본 filter별 역할과 addFilterBefore·After로 사용자 정의 필터를 넣는 법을 정리했다.
 publishedAt: '2025-03-08'
 updatedAt: '2025-03-08'
 tags:

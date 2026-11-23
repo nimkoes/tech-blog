@@ -1,9 +1,7 @@
 ---
 title: '14주차 : 제네릭'
 description: >-
-  제네릭을 사용하는 방법에 대해 정리해보기 전에 왜 필요한지에 대해 알면 언제 사용할지 도움이 될 수 있다. 예전에 관련해서 정리했던 링크를
-  첨부한다. java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭 링크를 추가 했지만, 그래도 간략하게 제네릭이
-  왜 필요한지 간단하게 정리해보려 한다.
+  자바 제네릭이 필요한 이유와 사용법, 제네릭 클래스와 메소드 작성법을 예제로 정리하고 바운디드 타입, 와일드카드, 하위 호환을 위한 타입 소거(Erasure)까지 설명했다.
 publishedAt: '2021-05-02'
 updatedAt: '2021-05-02'
 tags:
@@ -130,7 +128,7 @@ public class Exam_002 {
 
 만약 타입 파라미터와 맞지 않는 타입의 값을 사용하려 한다면 다음과 같은 메시지를 보여준다.
 
-![0106-206-java-live-study-week-14-generic-img-01.jpg](/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-01.jpg)
+![List<String>에 정수 123을 add 하자 IntelliJ가 Required String, Provided int 컴파일 오류를 표시한 화면](/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-01.jpg)
 
 기억해야 하는 것은 '컴파일 타임'에 타입 체크를 한다는 것이다.
 
@@ -573,7 +571,7 @@ public class Exam_010 {
 
 이해를 돕기 위해 다음과 같은 상속 구조를 갖는 클래스들을 정의 했다고 가정하자.
 
-![0106-206-java-live-study-week-14-generic-img-02.png](/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-02.png)
+![Root 아래 Sub_01, Sub_02가 있고 Sub_02 아래 Sub_02_Sub가 있는 와일드카드 예제용 클래스 상속도](/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-02.png)
 
 ```java
 package me.xxxelppa.study.week14;
@@ -628,7 +626,7 @@ class Sub_02_Sub extends Sub_02 {}
 
 만약 타입 제한에 **위배 되는 경우** 다음과 같은 오류 메시지를 보여준다.
 
-![0106-206-java-live-study-week-14-generic-img-03.jpg](/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-03.jpg)
+![List<? extends Sub_02>에 Exam_011 객체를 넣어 IntelliJ가 타입 불일치 오류를 표시한 화면](/tech-blog/resources/images/migration/0106-206-java-live-study-week-14-generic/img-03.jpg)
 
 #### Erasure
 

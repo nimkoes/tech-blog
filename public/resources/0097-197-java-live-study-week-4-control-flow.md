@@ -1,9 +1,7 @@
 ---
 title: '4주차 : 제어문'
 description: >-
-  실행 코드를 제어하는 방법 중 선택문에 대해 정리해보려 한다. 또 다른 말로 조건문 이라고 알고 있는 이 선택문은 크게 if 와 switch
-  가 있다. 지난주에 switch에 대해 알아보았으니, 이번엔 if에 대해 정리해보려 한다. 구분하기 나름이겠지만 if 문은 크게 세가지
-  형태가 있다. 말로 보면 혼란스러우니 코드를 보자. 실행 블록 내의 코드가 한 줄인 경우 중괄호를 생략할 수 있다.
+  자바 제어문 if, switch, for, 향상된 for, while, do while과 break, continue를 예제로 정리하고 GitHub API 대시보드, LinkedList, Stack, Queue 구현 과제를 풀었다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -257,7 +255,7 @@ public class Exam_005 {
 </tbody>
 </table>
 
-![0097-197-java-live-study-week-4-control-flow-img-01.png](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-01.png)
+![for 문이 초기화식, 조건부, 증감부를 세미콜론으로 구분하는 기본 문법 구조](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-01.png)
 
 for문은 다음과 같은 특징을 갖는다.
 
@@ -433,7 +431,7 @@ public class Exam_021 {
 }
 ```
 
-![0097-197-java-live-study-week-4-control-flow-img-02.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-02.jpg)
+![for 문 한 줄로 작성한 피보나치 수열 예제가 30번째 항 832040까지 출력한 콘솔 결과](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-02.jpg)
 
 더 다양하고 비범하게 사용할 수 있겠지만 과도한 응용은 정신 건강에 해로울 수 있으니 적절하게..
 
@@ -483,7 +481,7 @@ public class Exam_013 {
 
 이 부분에 대해 호기심이 생겨 바이트 코드를 열어보기로 했다.
 
-![0097-197-java-live-study-week-4-control-flow-img-03.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-03.jpg)
+![일반 for 문과 향상된 for 문의 바이트 코드를 나란히 놓고 다른 부분을 노랗게 칠한 비교](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-03.jpg)
 
 너무 작아서 잘 안보이겠지만
 
@@ -623,7 +621,7 @@ public class Exam_016 {
 
 15라인에 실행이 도달할 수 없음을 알려주는 오류가 발생할 수 있다.)
 
-![0097-197-java-live-study-week-4-control-flow-img-04.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-04.jpg)
+![IntelliJ가 무한 반복 while 문 뒤의 코드에 Unreachable statement 오류를 표시한 화면](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-04.jpg)
 
 for 문에 비해 while 문을 사용할 때 유난히 무한루프 (무한반복) 상태에 빠지도록 작성 할 가능성이 높다.
 
@@ -825,29 +823,29 @@ while 문의 조건부를 확인하는 것처럼 똑같이 동작 하지만, 차
 
 남겨주신 링크를 통해 라이브러리를 사용 해봤다.
 
-![0097-197-java-live-study-week-4-control-flow-img-05.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-05.jpg)
+![GitHub API for Java 라이브러리 공식 사이트에서 Download 메뉴를 표시한 화면](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-05.jpg)
 
 링크를 클릭하니 위와 같은 사이트가 열렸다.
 
-![0097-197-java-live-study-week-4-control-flow-img-06.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-06.jpg)
+![MVN Repository의 github-api 버전 목록에서 사용자가 많은 1.116 버전을 표시한 화면](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-06.jpg)
 
 최근 버전 중에 사용자가 많은 버전을 사용해보기로 했다.
 
-![0097-197-java-live-study-week-4-control-flow-img-07.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-07.jpg)
+![MVN Repository github-api 1.116 페이지에서 Maven dependency 정보를 표시한 화면](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-07.jpg)
 
 예제 코드를 작성하는 프로젝트가 maven을 사용하고 있지 않기 때문에, 정보만 참고 했다.
 
-![0097-197-java-live-study-week-4-control-flow-img-08.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-08.jpg)
+![IntelliJ Download Library from Maven Repository 창에 github-api:1.116을 입력한 단계](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-08.jpg)
 
 IDE 설정에 보니 maven 저장소에서 jar를 바로 내려받을 수 있는 기능이 있었다.
 
-![0097-197-java-live-study-week-4-control-flow-img-09.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-09.jpg)
+![IntelliJ가 github-api 라이브러리의 Maven 의존성을 내려받는 Resolving Maven dependencies 진행 창](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-09.jpg)
 
-![0097-197-java-live-study-week-4-control-flow-img-10.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-10.jpg)
+![IntelliJ 프로젝트 External Libraries에 org.kohsuke:github-api:1.116이 추가된 모습](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-10.jpg)
 
 작업이 끝나면 위와 같이 외부 라이브러리에 추가된 것을 확인할 수 있다.
 
-![0097-197-java-live-study-week-4-control-flow-img-11.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-11.jpg)
+![GitHub API 익명 호출이 막혀 personal access token을 만들라는 오류 로그가 찍힌 실행 콘솔](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-11.jpg)
 
 그리고 나서 샘플 코드를 작성 해보았더니 오류가 발생했다.
 
@@ -906,7 +904,7 @@ public class Homework_001 {
 
 이 방법이 맞는지 모르겠지만.. 실행 결과 일부를 첨부하면 다음과 같다.
 
-![0097-197-java-live-study-week-4-control-flow-img-12.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-12.jpg)
+![live-study 대시보드 과제 실행 결과로 사용자별 참여율이 퍼센트로 출력된 IntelliJ 콘솔](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-12.jpg)
 
 되도록 텍스트로 가져오려 했지만, 공백 때문인지 여백이 들쭉날쭉해져서 위쪽 몇 개만 캡처 했다.
 
@@ -944,7 +942,7 @@ List 계열 자료구조의 특징은 순서를 가진다는 것이다.
 
 예를 들면 다음과 같이 생겼다고 상상할 수 있다.
 
-![0097-197-java-live-study-week-4-control-flow-img-13.png](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-13.png)
+![data와 다음 노드 링크를 가진 노드들이 화살표로 이어진 LinkedList 구조 그림](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-13.png)
 
 리스트를 구성할 때 크게 배열을 사용하는 방법과 링크를 사용하는 방법이 있다.
 
@@ -960,17 +958,17 @@ List 계열 자료구조의 특징은 순서를 가진다는 것이다.
 
 임의의 위치에 데이터의 삽입은 다음과 같은 과정을 거쳐야 한다
 
-![0097-197-java-live-study-week-4-control-flow-img-14.png](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-14.png)
+![LinkedList 삽입 첫 단계로 새 노드가 삽입 위치의 다음 노드를 가리키도록 링크를 복사하는 그림](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-14.png)
 
 삽입하고자 하는 위치를 가리키는 값을 복사 한다.
 
-![0097-197-java-live-study-week-4-control-flow-img-15.png](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-15.png)
+![LinkedList 삽입 마지막 단계로 앞 노드의 링크를 새 노드로 바꿔 연결하는 그림](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-15.png)
 
 새로 삽입한 데이터를 포함할 수 있도록 다음 노드 값을 바꿔준다.
 
 삭제는 조금 더 간단하다.
 
-![0097-197-java-live-study-week-4-control-flow-img-16.png](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-16.png)
+![LinkedList 삭제 시 앞 노드가 삭제 대상의 다음 노드를 바로 가리키도록 링크를 바꾸는 그림](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-16.png)
 
 삭제 대상이 가리키고 있는 다음 노드에 대한 정보를
 
@@ -984,7 +982,7 @@ head 역할을 하는 ListNode 가 있고 여기에 값과 다음 노드를 가�
 
 그러니까 다음과 같이 되어야 하는 것 아닌지 생각이 들었다.
 
-![0097-197-java-live-study-week-4-control-flow-img-17.png](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-17.png)
+![ListNode 타입 head가 data와 node를 가진 Node들의 연결을 가리키는 구조 그림](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-17.png)
 
 그런데 문제의 add 와 remove 메소드 시그니처를 보면 추가하고 삭제하는데 ListNode 를 사용한다.
 
@@ -1220,7 +1218,7 @@ class ListNodeTest {
 }
 ```
 
-![0097-197-java-live-study-week-4-control-flow-img-18.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-18.jpg)
+![ListNodeTest의 containsTest, addTest, removeTest가 모두 통과한 IntelliJ 테스트 결과](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-18.jpg)
 
 #### 과제3 : Stack을 구현하세요.
 
@@ -1324,7 +1322,7 @@ class MyStackTest {
 }
 ```
 
-![0097-197-java-live-study-week-4-control-flow-img-19.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-19.jpg)
+![배열로 구현한 MyStackTest의 popTest, pushTest 2개가 모두 통과한 IntelliJ 테스트 결과](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-19.jpg)
 
 #### 과제4 : 앞서 만든 ListNode를 사용해서 Stack을 구현하세요.
 
@@ -1409,7 +1407,7 @@ class ListNodeStackTest {
 }
 ```
 
-![0097-197-java-live-study-week-4-control-flow-img-20.jpg](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-20.jpg)
+![ListNode로 구현한 ListNodeStackTest의 popTest, pushTest가 모두 통과한 IntelliJ 테스트 결과](/tech-blog/resources/images/migration/0097-197-java-live-study-week-4-control-flow/img-20.jpg)
 
 #### 과제5 : Queue를 구현하세요.
 

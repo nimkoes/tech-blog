@@ -1,7 +1,7 @@
 [
   {
     "title": "AI, 머신러닝, 생성형 AI, LLM은 어떻게 다른가",
-    "description": "AI, 머신러닝, 딥러닝, 생성형 AI, LLM의 관계를 구분하고, 규칙 기반 프로그램과 학습 기반 모델이 실제 문제를 어떻게 다르게 해결하는지 정리한다. LLM이 다음 토큰을 예측해 글을 만드는 방식과 모델·채팅 서비스·코딩 에이전트의 차이도 함께 설명한다.",
+    "description": "AI, 머신러닝, 딥러닝, 생성형 AI, LLM의 포함 관계를 구분하고, 규칙 기반 프로그램과 학습 모델의 차이, LLM이 다음 토큰을 예측해 글을 만드는 방식, 모델과 코딩 에이전트의 차이를 정리했다.",
     "tags": [
       "AI",
       "머신러닝",
@@ -17,7 +17,7 @@
   },
   {
     "title": "Go 'WEB SERVER WITH ECHO' : Setup Part Two & File Download using ECHO",
-    "description": "echo 를 시용해서 서버를 만드는 것을 super easy 하다. main.go 파일을 다음과 같이 수정하자. 그리고 실행하면 다음과 같이 실행 결과가 출력 되고, 1323 포트를 통해 접속할 수 있다. 정상적으로 실행 되는것을 확인하긴 했지만, myScraper 를 전혀 사용하고 있지 못하고 있다. 그래서 문자열을 출력하는 대신, 화면을 출력할 수 있도록 html 파일을 하나 만들어 보자.",
+    "description": "Go Echo 프레임워크로 1323 포트 웹 서버를 띄워 HTML 파일을 응답하고, form POST로 받은 검색어로 스크래퍼를 실행해 결과 CSV를 c.Attachment로 내려받게 하는 과정을 정리했다.",
     "tags": [
       "Go",
       "Web Server",
@@ -32,7 +32,7 @@
   },
   {
     "title": "1주차 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가",
-    "description": "JVM -> Java Virtual Machine '자바 가상 머신' 을 뜻하는 말로 바이트코드를 실행하는 주체이다. 자바가 처음 세상에 나왔을 때 WORA (Write Once Run Anywhere) 를 내세워 홍보한 것으로 알고있다. 한번 작성해서 어디서든 실행할 수 있다는 말로, 자바 코드로 작성한 프로그램은 실행할 환경 (예를 들면 운영체제)에 독립적으로 실행할 수 있음을 뜻한다.",
+    "description": "JVM이 바이트코드를 실행하는 구조와 javac 컴파일, java 실행 방법, JIT 컴파일러 동작, JVM 구성 요소, JDK와 JRE의 차이를 Java 라이브 스터디 1주차 과제로 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -48,7 +48,7 @@
   },
   {
     "title": "네트워크 처리 흐름 정리",
-    "description": "이 문서는 www.my-app.com 에서 GET /my-app/data 요청을 보낼 때, 로컬 PC부터 Azure Load Balancer까지 이어지는 네트워크 트래픽의 처리 과정을 설명합니다. 브라우저는 URL을 파싱하여 프로토콜(https), 호스트명(www.my-app.com), 경로(/my-app/data)를 분석합니다. 마치 편지를 쓰기 전에 \"어디로 보낼까?\"를 결정하는 것과 같습니다.",
+    "description": "브라우저의 HTTPS 요청이 DNS 질의, TCP·TLS 패킷 생성, NAT와 라우팅, ARP 처리를 거쳐 Azure Load Balancer의 5-튜플 해시로 백엔드 서버에 닿기까지의 흐름을 단계별로 정리했다.",
     "tags": [
       "network",
       "traffic"
@@ -62,7 +62,7 @@
   },
   {
     "title": "단위 테스트 안티 패턴",
-    "description": "단위 테스트를 작성할 때 흔히 저지르는 실수들이 있다. 이런 실수들은 테스트의 품질을 떨어뜨리고 유지보수를 어렵게 만든다. 비공개 메서드를 직접 테스트하려는 시도는 여러 문제를 일으키는데, 우선 테스트가 구현 세부사항에 결합된다. 비공개 메서드는 클래스의 내부 구현이므로, 리팩터링 시 테스트도 함께 변경되어야 한다. 그리고 캡슐화 원칙을 위반한다.",
+    "description": "단위 테스트 안티 패턴인 비공개 메서드 테스트, 비공개 상태 노출, 도메인 지식 유출, 코드 오염, 구체 클래스 목 처리, 앰비언트 시간 처리의 문제와 대안을 Java 예제로 정리했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -76,7 +76,7 @@
   },
   {
     "title": "데이터베이스 테스트",
-    "description": "데이터베이스 테스트는 버그로부터 훌륭히 보호할 수 있는 효과적인 도구다. 관리 의존성에 직접 작동하는 통합 테스트는 대규모 리팩터링에서 발생하는 버그로부터 보호하기에 가장 효율적인 방법이다. 데이터베이스 스키마를 소스 코드와 같이 형상 관리 시스템에 저장해야 한다. 테이블, 뷰, 인덱스, 저장 프로시저와 데이터베이스 구성 방식에 대한 청사진이 되는 기타 모든 항목 등이 데이터베이스 스키마에 해당한다.",
+    "description": "데이터베이스 통합 테스트의 전제 조건인 스키마 형상 관리와 마이그레이션 기반 배포, 트랜잭션 관리, 테스트 데이터 정리, 테스트 구절별 코드 재사용 방법을 정리했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -90,7 +90,7 @@
   },
   {
     "title": "목 처리에 대한 모범 사례",
-    "description": "목(Mock)은 테스트에서 외부 의존성을 대체하고 상호작용을 검증하는 강력한 도구이지만, 잘못 사용하면 테스트의 취약성을 증가시키고 유지보수를 어렵게 만든다. 올바른 목 사용은 회귀 방지와 리팩터링 내성의 균형을 맞춰 테스트의 품질을 크게 향상시킬 수 있다. 목의 가치를 극대화하려면 시스템 경계(application boundary)에서만 상호작용을 검증해야 한다.",
+    "description": "목(Mock)을 시스템 경계의 비관리 의존성에만 쓰는 이유와 스파이 활용, 호출 수 검증, 보유 타입만 목으로 처리하는 어댑터 패턴, 동어 반복 테스트를 피하는 법을 Java 예제로 정리했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -104,7 +104,7 @@
   },
   {
     "title": "통합 테스트를 하는 이유",
-    "description": "단위 테스트만으로는 시스템이 전체적으로 잘 동작하는지 확신할 수 없다. 비즈니스 로직을 외부와 단절된 상태로 확인하는 것만으로는 충분하지 않다. 실제로는 데이터베이스, 외부 API, 파일 시스템 등과 연결되어 동작하기 때문이다. 이 글은 통합 테스트의 필요성과 올바른 사용법을 정리했다. 통합 테스트는 단위 테스트가 아닌 모든 테스트를 의미한다.",
+    "description": "통합 테스트가 필요한 이유와 장단점을 단위 테스트와 비교해 정리했다. 관리·비관리 의존성 구분, 빠른 실패 원칙, 인터페이스 사용 기준, 로깅 테스트 방법을 Spring Boot 예제로 설명한다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -118,7 +118,7 @@
   },
   {
     "title": "가치 있는 단위 테스트를 위한 리팩터링",
-    "description": "단위 테스트의 가치를 극대화하려면 어떤 코드를 테스트할지, 그리고 어떻게 리팩터링할지를 명확히 알아야 한다. 모든 제품 코드는 두 가지 차원으로 분류할 수 있으며, 이 분류를 통해 테스트 가치가 높은 코드를 식별하고 리팩터링 전략을 수립할 수 있다. 모든 제품 코드는 다음 두 차원으로 분류할 수 있다. 코드 복잡도 는 코드 내 의사결정(분기) 지점의 수로 정의된다. 이 숫자가 클수록 복잡도는 더 높아진다.",
+    "description": "단위 테스트 가치를 높이는 리팩터링으로 코드를 복잡도와 협력자 수로 네 유형으로 나누고, 험블 객체 패턴, CanExecute/Execute 패턴, 도메인 이벤트 적용법을 예제로 정리했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -132,7 +132,7 @@
   },
   {
     "title": "단위 테스트 스타일",
-    "description": "출력 기반 테스트는 입력값에 대한 반환값만을 검증하는 테스트 방식이다. 이 방식은 순수 함수처럼 전역 상태나 내부 상태를 변경하지 않는 코드에만 적용할 수 있으며, 가장 직관적이고 리팩터링에 강한 테스트 스타일이다. 함수형 프로그래밍 원칙을 적용해 코드 구조를 바꿔야 제대로 활용할 수 있고, 테스트가 실패할 경우 원인을 빠르게 파악할 수 있다.",
+    "description": "단위 테스트의 출력 기반, 상태 기반, 통신 기반 스타일을 Java 예시로 설명하고 회귀 방지, 리팩터링 내성, 유지 보수성 기준으로 비교했다. 불변 코어와 가변 셸을 나누는 함수형 아키텍처도 다룬다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -146,7 +146,7 @@
   },
   {
     "title": "육각형, 헥사고날, 포트와 어댑터 아키텍처",
-    "description": "육각형 아키텍처(Hexagonal Architecture)는 소프트웨어를 비즈니스 로직과 외부 입출력으로 분리 하여 유연하고 테스트하기 쉬운 구조를 만들기 위한 아키텍처 패턴이다. 이 아키텍처는 Ports and Adapters 아키텍처라고도 불리며, 외부 세계와의 연결(입출력)을 플러그처럼 어댑터로 연결하는 방식을 사용한다.",
+    "description": "육각형 아키텍처(포트와 어댑터)의 도메인, 애플리케이션 서비스, 포트, 어댑터 개념을 주문 포인트 적립 Spring 예제로 구현하고, 입력 포트를 따로 정의할 시점을 정리했다.",
     "tags": [
       "theory",
       "architecture"
@@ -160,7 +160,7 @@
   },
   {
     "title": "Kubernetes Service 개념 정리",
-    "description": "쿠버네티스(Kubernetes)에서 Service 는 '네트워크에서 Pod를 안정적으로 접근할 수 있도록 해주는 객체'이다. 쿠버네티스에서는 Pod가 생성될 때마다 이름이 바뀌고, IP 주소도 매번 달라진다. 예를 들어, my-app 이라는 애플리케이션을 여러 개의 Pod로 실행한다면 이 Pod들은 시간이 지남에 따라 죽었다가 다시 만들어지며 IP 주소가 바뀐다.",
+    "description": "Kubernetes Service가 바뀌는 Pod IP 대신 고정 IP와 DNS 이름으로 로드 밸런싱하는 원리와 ClusterIP, NodePort, LoadBalancer, ExternalName 타입을 YAML 예시로 정리했다.",
     "tags": [
       "Kubernetes",
       "Service",
@@ -175,7 +175,7 @@
   },
   {
     "title": "Kubernetes apply vs. create 정리",
-    "description": "kubectl apply 는 선언적(Declarative) 방식으로 리소스를 생성하거나 업데이트한다. 사용자가 작성한 YAML/JSON 매니페스트 파일을 기반으로 클러스터 상태를 원하는 상태 (desired state)로 맞춘다. 이미 존재하는 리소스가 있으면 매니페스트와 비교하여 변경된 부분만 패치(patch)하고, 없으면 생성(create)한다.",
+    "description": "kubectl apply와 kubectl create의 차이를 선언적 방식과 명령적 방식 관점에서 비교하고, 리소스 생성과 업데이트 동작, -f 옵션 사용 예를 실행 결과와 함께 정리했다.",
     "tags": [
       "Kubernetes",
       "cli",
@@ -191,7 +191,7 @@
   },
   {
     "title": "Kubernetes Controller 개념과 설정 방법",
-    "description": "위 설정은 tier 레이블이 frontend 인 Pod만 관리한다. ReplicaSet 자체에는 롤링 업데이트 전략이 없다. 직접 Pod 템플릿을 변경하려면 새로운 ReplicaSet 정의를 생성하고, 새 ReplicaSet이 Ready 상태가 된 후 기존 ReplicaSet을 삭제해야 한다.",
+    "description": "Kubernetes Controller인 ReplicaSet, Deployment, DaemonSet, StatefulSet, Job, CronJob, HPA의 등장 배경과 YAML 설정 방법을 예시와 함께 정리했다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -206,7 +206,7 @@
   },
   {
     "title": "목과 테스트 취약성",
-    "description": "Mock 객체는 단위 테스트에서 중요한 도구이지만, 그 사용 방식에 따라 테스트의 리팩터링 내성 을 저하시킬 수 있다. 이 글에서는 목의 정의와 역할, 스텁과의 차이, 잘못된 사용이 초래하는 테스트 취약성, 그리고 올바른 사용 원칙을 정리한다. 또한 런던파와 고전파 테스트 철학을 비교하고, 육각형 아키텍처와 테스트 설계 간의 관계도 함께 설명한다.",
+    "description": "단위 테스트에서 목(Mock)과 스텁의 차이, 다섯 가지 테스트 대역, 구현 세부 사항을 검증할 때 생기는 테스트 취약성을 런던파와 고전파, CQS, 육각형 아키텍처 관점에서 정리했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -220,7 +220,7 @@
   },
   {
     "title": "좋은 단위 테스트의 4대 요소",
-    "description": "좋은 테스트 스위트는 단순히 많은 테스트를 보유한 것이 아니라, 실제로 가치 있는 테스트를 담고 있어야 한다. 좋은 테스트는 개발 주기에 통합되어야 하며, 코드베이스의 중요한 부분을 다루고, 유지비가 낮고, 최대한의 가치를 끌어낼 수 있어야 한다. 좋은 테스트는 다음 조건을 충족해야 한다. 이 네 가지 요소는 함께 곱해져 테스트의 전체적인 가치를 구성하므로, 하나라도 놓치면 테스트의 효용은 급격히 떨어진다.",
+    "description": "좋은 단위 테스트의 4대 요소인 회귀 방지, 리팩터링 내성, 빠른 피드백, 유지 보수성의 의미와 서로의 상충 관계, 테스트 피라미드별 우선순위를 정리했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -234,7 +234,7 @@
   },
   {
     "title": "Kubernetes Static Pod 개념과 설정 방법",
-    "description": "Static Pod는 Kubernetes에서 kubelet이 직접 관리하는 특수한 형태의 Pod이다. 일반적인 Pod는 사용자가 kubectl apply 명령으로 생성하고, API Server가 이를 etcd에 저장하여 관리하지만, Static Pod는 API Server를 거치지 않고, kubelet이 지정된 디렉토리에서 YAML 파일을 직접 감지하여 실행한다. 보통 컨트롤 플레인 구성 요소를 직접 올릴 때 사용된다.",
+    "description": "Kubernetes Static Pod가 API Server 없이 kubelet이 직접 띄우는 Pod인 이유와 일반 Pod와의 차이, --pod-manifest-path 경로 조회와 변경 방법을 정리했다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -245,11 +245,11 @@
     "lastModifiedDate": "2025-07-02",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 4
+    "readingTime": 5
   },
   {
     "title": "단위 테스트 구조",
-    "description": "단위 테스트는 SUT(System Under Test) 의 특정 동작을 검증하는 데 목적이 있다. 이 글에서는 테스트 구조의 대표적인 패턴인 AAA 패턴 과 그 변형, 테스트 작성 시 유의할 점과 안티패턴, 테스트 픽스처 관리와 명명법까지 설명한다. 기술자 외 독자에게 더 직관적이기 때문에, 테스트를 문서화하거나 비즈니스 이해관계자와 공유할 때 유리하다. 구성상의 실질적인 차이는 없다.",
+    "description": "단위 테스트 구조의 기본인 AAA 패턴과 Given-When-Then, 테스트 안티패턴, Object Mother와 Test Data Builder, 픽스처 관리와 테스트 명명법을 예제 코드와 함께 정리했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -263,7 +263,7 @@
   },
   {
     "title": "단위 테스트 (Unit Testing) 란",
-    "description": "단위 테스트를 정확히 이해하고 잘 설계하기 위해서는 테스트 대상 객체(SUT)와 그 객체가 의존하는 협력자(Collaborator) , 그리고 값(Value) 간의 구분이 매우 중요하다. 이 글은 『단위 테스트: 생산성과 품질을 위한 단위테스트 원칙과 패턴』 책을 기반으로, 궁금해할 만한 것들을 중심으로 정리 했다. 협력자는 테스트 대상이 사용하는 의존성 중, 외부 시스템과 연결되어 있거나 내부 상태가 바뀌는 객체다.",
+    "description": "단위 테스트에서 SUT, 협력자, 값을 구분하는 기준과 비공개·공유·불변 의존성의 차이를 정리하고, 런던파와 고전파가 협력자와 테스트 대역을 다루는 방식을 표로 비교했다.",
     "tags": [
       "테스트",
       "단위 테스트"
@@ -277,7 +277,7 @@
   },
   {
     "title": "동기/비동기 + 블로킹/논블로킹 네 가지 조합 정리",
-    "description": "현대 프로그래밍에서 I/O나 병렬 처리 구조를 이해하려면 \"동기/비동기\", \"블로킹/논블로킹\"의 차이를 정확히 파악해야 한다. 이 둘은 각각의 의미가 다르며, 조합에 따라 네 가지 상황이 생긴다. 이 글에서는 각 조합을 직관적인 비유와 실제 기술 사례로 정리한다. 동기는 어떤 작업을 요청한 뒤, 그 작업이 끝날 때까지 계속 기다리는 방식이다.",
+    "description": "동기/비동기와 블로킹/논블로킹의 차이, 그리고 두 개념을 조합한 네 가지 방식을 생활 속 비유와 Java 예제, Future.get(), WebFlux 같은 실제 기술 사례로 정리했다.",
     "tags": [
       "theory",
       "sync",
@@ -294,7 +294,7 @@
   },
   {
     "title": "Azure Terraform Export: Aztfexport를 이용한 리소스 가져오기",
-    "description": "이 글에서는 기존 Azure 리소스를 Terraform 으로 관리할 수 있도록 해주는 도구인 Aztfexport 에 대해 살펴보겠습니다. 이 도구가 무엇인지, 무엇을 할 수 있는지, 그리고 일반적인 사용 흐름(workflow)은 어떤지를 설명한 후, 실제 사용 예제와 함께 단계별 설정 튜토리얼로 넘어가겠습니다. Aztfexport 는 Microsoft 에서 개발한 오픈소스 내보내기(export) 도구입니다.",
+    "description": "Aztfexport로 기존 Azure 리소스를 Terraform 상태와 HCL 코드로 내보내는 방법을 정리했다. 설치, resource-group과 query 옵션 사용 예시, 내부 동작과 한계점까지 다룬다.",
     "tags": [
       "infra",
       "terraform",
@@ -310,7 +310,7 @@
   },
   {
     "title": "DNS와 레코드 타입 이해하기",
-    "description": "DNS(Domain Name System)는 도메인 이름을 IP 주소로 변환하는 시스템이다. 사람이 이해하기 쉬운 도메인 이름을 컴퓨터가 이해하는 IP 주소로 변환해주는 역할을 한다. A 레코드는 도메인 이름을 IPv4 주소로 매핑하는 레코드이다. 가장 기본적이고 많이 사용되는 레코드 타입이다. CNAME(Canonical Name) 레코드는 도메인 이름의 별칭을 만드는 레코드이다.",
+    "description": "DNS의 A 레코드와 CNAME 레코드 차이, 루트 도메인과 서브도메인의 설정 상속, CNAME 체이닝 제약과 주의사항을 CDN 연결과 서버 마이그레이션 사례로 정리했다.",
     "tags": [
       "network",
       "DNS",
@@ -321,11 +321,11 @@
     "lastModifiedDate": "2025-06-11",
     "status": "published",
     "reviewedAt": null,
-    "readingTime": 6
+    "readingTime": 7
   },
   {
     "title": "[chap.22] AuthorizationFilter",
-    "description": "AuthorizationFilter AuthorizationFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 마지막에 위치한다. SecurityFilterChain 의 authorizeHttpRequests() 설정에 따른 최종 인가 처리를 한다. 요청에 대한 접근 권한 검증을 한다. 인가 결정에 따른 접근 제어 실행 한다.",
+    "description": "Spring Security의 마지막 필터 AuthorizationFilter가 AuthorizationManager로 인가를 결정하는 doFilter 흐름을 단계별로 정리하고 인가 규칙 설정 예시를 담았다.",
     "tags": [
       "Spring Security",
       "AuthorizationFilter"
@@ -339,7 +339,7 @@
   },
   {
     "title": "[chap.21] ExceptionTranslationFilter",
-    "description": "ExceptionTranslationFilter ExceptionTranslationFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 열다섯 번째에 위치한다. 보안 관련 예외를 처리하는 핵심 필터이다. 이 필터 이후에 발생하는 인증, 인가 예외를 핸들링하기 위해 사용된다.",
+    "description": "Spring Security의 ExceptionTranslationFilter가 인증 예외와 인가 예외를 나눠 처리하는 방식과, 필터 순서에 따라 처리할 수 있는 예외 범위가 달라지는 점을 정리했다.",
     "tags": [
       "Spring Security",
       "ExceptionTranslationFilter"
@@ -353,7 +353,7 @@
   },
   {
     "title": "[chap.20] AnonymousAuthenticationFilter",
-    "description": "AnonymousAuthenticationFilter AnonymousAuthenticationFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 열네 번째에 위치한다. SecurityContext 가 비어있는 경우 익명 사용자 인증 정보를 제공하는 역할을 한다.",
+    "description": "Spring Security AnonymousAuthenticationFilter가 빈 SecurityContext에 익명 인증 토큰을 넣는 동작과 익명 사용자 확인, 활용 예시 코드를 정리했다.",
     "tags": [
       "Spring Security",
       "AnonymousAuthenticationFilter"
@@ -367,7 +367,7 @@
   },
   {
     "title": "[chap.19] SecurityContextHolderAwareRequestFilter",
-    "description": "SecurityContextHolderAwareRequestFilter SecurityContextHolderAwareRequestFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 열세 번째에 위치한다. ServletRequest 에 Spring Security 관련 메소드들을 추가하는 역할을 한다.",
+    "description": "Spring Security SecurityContextHolderAwareRequestFilter가 ServletRequest에 authenticate, login, logout 같은 보안 메소드를 더하는 역할과 활용법을 정리했다.",
     "tags": [
       "Spring Security",
       "SecurityContextHolderAwareRequestFilter"
@@ -381,7 +381,7 @@
   },
   {
     "title": "[chap.18] RequestCacheAwareFilter",
-    "description": "커스텀 SecurityFilterChain 에서는 기본적으로 활성화되어 있으며, 필요한 경우 다음과 같이 비활성화할 수 있다",
+    "description": "Spring Security RequestCacheAwareFilter가 미인증 요청을 HttpSessionRequestCache에 저장했다가 로그인 성공 후 원래 요청으로 복원하는 과정을 코드로 정리했다.",
     "tags": [
       "Spring Security",
       "RequestCacheAwareFilter"
@@ -395,7 +395,7 @@
   },
   {
     "title": "[chap.17] BasicAuthenticationFilter",
-    "description": "Form 인증 Basic 인증 기본 형식 예시",
+    "description": "Spring Security BasicAuthenticationFilter가 Authorization 헤더로 인증해 SecurityContext에 저장하는 흐름을 doFilterInternal 코드와 보안 고려사항으로 정리했다.",
     "tags": [
       "Spring Security",
       "BasicAuthenticationFilter"
@@ -409,7 +409,7 @@
   },
   {
     "title": "[chap.16] DefaultLogoutPageGeneratingFilter",
-    "description": "DefaultLogoutPageGeneratingFilter DefaultLogoutPageGeneratingFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로 열 번째에 위치한다. 이 필터가 등록되는 목적은 GET /logout 경로에 대해 기본 로그아웃 페이지를 응답하는 역할을 수행한다. 이 필터는 여러 로그인 설정에 의존한다.",
+    "description": "Spring Security DefaultLogoutPageGeneratingFilter가 GET /logout 요청에 기본 로그아웃 페이지를 응답하는 흐름을 doFilterInternal 코드와 페이지 구성 특징으로 정리했다.",
     "tags": [
       "Spring Security",
       "DefaultLogoutPageGeneratingFilter"
@@ -423,7 +423,7 @@
   },
   {
     "title": "[chap.15] DefaultLoginPageGeneratingFilter",
-    "description": "DefaultLoginPageGeneratingFilter DefaultLoginPageGeneratingFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로 아홉 번째에 위치한다. 이 필터가 등록되는 목적은 GET /login 경로에 기본 로그인 페이지를 응답하는 역할을 수행한다. 이 필터는 여러 로그인 설정에 의존한다.",
+    "description": "Spring Security의 DefaultLoginPageGeneratingFilter가 GET /login 요청에 기본 로그인 페이지를 만들어 응답하는 로직과, 컨트롤러가 아닌 필터에서 페이지를 응답하는 이유를 정리했다.",
     "tags": [
       "Spring Security",
       "DefaultLoginPageGeneratingFilter"
@@ -437,7 +437,7 @@
   },
   {
     "title": "[chap.14] UsernamePasswordAuthenticationFilter",
-    "description": "UsernamePasswordAuthenticationFilter UsernamePasswordAuthenticationFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로 여덟 번째에 위치한다. 이 필터는 username, password 기반 로그인 기능의 뼈대가 되는 필터이다.",
+    "description": "Spring Security UsernamePasswordAuthenticationFilter의 폼 로그인 처리 흐름을 부모 AbstractAuthenticationProcessingFilter의 doFilter 코드로 정리했다.",
     "tags": [
       "Spring Security",
       "UsernamePasswordAuthenticationFilter"
@@ -451,7 +451,7 @@
   },
   {
     "title": "[chap.13] LogoutFilter",
-    "description": "LogoutFilter LogoutFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로 일곱 번째에 위치한다. 이 필터가 등록되는 목적은 인증 후 생성되는 사용자 식별 정보에 대해 로그아웃 핸들러를 돌며 로그아웃을 수행하는 필터이다. 기본적으로 세션 방식에 대한 로그아웃 설정이 되어 있기 때문에 JWT 방식이나 추가할 로직이 많을 경우 커스텀해야 한다.",
+    "description": "Spring Security LogoutFilter가 CompositeLogoutHandler와 LogoutSuccessHandler로 로그아웃을 처리하는 흐름과 기본 제공 핸들러, 커스텀 핸들러 등록 방법을 정리했다.",
     "tags": [
       "Spring Security",
       "LogoutFilter"
@@ -465,7 +465,7 @@
   },
   {
     "title": "[chap.12] CsrfFilter",
-    "description": "CsrfFilter CSRF 공격 CSRF (Cross-Site Request Forgery)는 사용자의 의지와 무관하게 해커가 사용자의 브라우저를 통해 서버로 특정 요청을 보내도록 하는 공격 방식이다. 예를 들어 사용자가 로그인된 상태에서 악성 웹사이트에 방문하면, 해당 사이트가 사용자의 세션을 이용하여 특정 요청을 실행할 수 있다. 주로 서버가 session 방식으로 운영 중일 때 사용 된다.",
+    "description": "Spring Security CsrfFilter가 CSRF 공격을 막는 과정을 doFilterInternal 코드로 따라가며 정리했다. CsrfTokenRepository 구현체와 _csrf 토큰, Referer 검증 방식도 다룬다.",
     "tags": [
       "Spring Security",
       "CsrfFilter"
@@ -479,7 +479,7 @@
   },
   {
     "title": "[chap.11] CorsFilter",
-    "description": "CorsFilter 들어가며 API 서버를 구축할 때 프론트엔드와 백엔드의 오리진이 다르면 CORS 문제가 발생한다. 실무에서도 CORS 문제를 해결하기 위해 SecurityFilterChain 에 CorsConfigurationSource 값을 설정하는 것이 중요하다. CorsFilter 자체는 복잡한 로직을 수행하지 않으며, CORS 설정이 더 중요한 개념이다.",
+    "description": "Spring Security CorsFilter가 GenericFilter를 상속하는 이유와 동작 순서, CorsConfigurationSource로 허용 오리진, 메서드, 헤더, preflight 캐시를 설정하는 방법을 정리했다.",
     "tags": [
       "Spring Security",
       "CorsFilter"
@@ -493,7 +493,7 @@
   },
   {
     "title": "[chap.10] HeaderWriterFilter",
-    "description": "HeaderWriterFilter HeaderWriterFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되며, 네 번째에 위치한다. HTTP 응답 헤더에 보안 관련 헤더를 추가하여 클라이언트를 보호한다. 기본적으로 다양한 보안 헤더가 자동으로 추가되며, 이를 통해 XSS, MIME 스니핑, Clickjacking 등의 공격을 방지할 수 있다.",
+    "description": "Spring Security HeaderWriterFilter가 응답에 추가하는 X-Frame-Options, HSTS 같은 기본 보안 헤더와 동작 방식, 특정 헤더 수정과 사용자 정의 헤더 추가 설정을 정리했다.",
     "tags": [
       "Spring Security",
       "HeaderWriterFilter"
@@ -507,7 +507,7 @@
   },
   {
     "title": "[chap.09] SecurityContextHolderFilter",
-    "description": "SecurityContextHolderFilter SecurityContextHolderFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되며, 세 번째에 위치한다. Security session 방식에서 주로 사용 된다. 이전 요청을 통해 인증된 사용자 정보를 현재 요청의 SecurityContextHolder 의 SecurityContext 에 할당한다.",
+    "description": "Spring Security의 SecurityContextHolderFilter가 저장소에서 인증 정보를 불러와 요청마다 SecurityContext에 넣고 비우는 과정과 이전 필터와의 차이를 정리했다.",
     "tags": [
       "Spring Security",
       "SecurityContextHolderFilter"
@@ -521,7 +521,7 @@
   },
   {
     "title": "[chap.08] WebAsyncManagerIntegrationFilter",
-    "description": "WebAsyncManagerIntegrationFilter WebAsyncManagerIntegrationFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 두 번째에 위치한다. 비동기 요청이 발생할 경우, 기존의 SecurityContext 를 새로운 비동기 쓰레드에서도 동일하게 유지할 수 있도록 도와준다.",
+    "description": "Spring Security WebAsyncManagerIntegrationFilter가 Callable 비동기 요청에서 SecurityContext를 새 쓰레드로 전달하는 방식과 @Async 사용 시 주의점을 정리했다.",
     "tags": [
       "Spring Security",
       "WebAsyncManagerIntegrationFilter"
@@ -535,7 +535,7 @@
   },
   {
     "title": "[chap.07] DisableEncodeUrlFilter",
-    "description": "DisableEncodeUrlFilter DisableEncodeUrlFilter 목적 이 필터는 DefaultSecurityFilterChain 에 기본적으로 등록되는 필터이며, 가장 첫 번째에 위치한다. DisableEncodeUrlFilter 의 목적은 URL 파라미터에 세션 ID가 포함되어 로그로 유출되는 것을 방지하는 것이다. 커스텀 SecurityFilterChain 을 생성하더라도 기본적으로 등록된다.",
+    "description": "Spring Security DisableEncodeUrlFilter가 encodeURL과 encodeRedirectURL을 무력화해 세션 ID가 URL로 노출되지 않게 막는 원리를 Tomcat 코드와 비교해 정리했다.",
     "tags": [
       "Spring Security",
       "DisableEncodeUrlFilter"
@@ -549,7 +549,7 @@
   },
   {
     "title": "[chap.06] GenericFilterBean 과 OncePerRequestFilter",
-    "description": "같은 요청에서 여러 번 필터를 통과하더라도, 한 번만 실행됨. SecurityConfig.java SampleController.java",
+    "description": "Spring Security의 GenericFilterBean과 OncePerRequestFilter 차이를 커스텀 필터로 확인하고, Forward와 달리 302 Redirect에서는 필터가 다시 실행되는 이유를 정리했다.",
     "tags": [
       "Spring Security",
       "SecurityFilterChain",
@@ -565,7 +565,7 @@
   },
   {
     "title": "[chap.05] 필터 상속과 요청 전파",
-    "description": "이처럼 공통 로직을 분리하고, 로그인 방식에 따라 다른 필터를 구현할 수 있다. Spring Security 의 필터는 Servlet Filter 인터페이스를 기반으로 동작하며, 이를 확장한 두 가지 중요한 추상 클래스가 있다. GenericFilterBean 코드 구조 서블릿 기반의 필터 인터페이스를 확장하여 Spring 환경에서 사용 가능하도록 설계 되었다.",
+    "description": "Spring Security 필터가 GenericFilterBean과 OncePerRequestFilter를 상속하는 계층 구조를 정리하고, chain.doFilter로 다음 필터에 요청이 전파되는 방식을 코드로 설명했다.",
     "tags": [
       "Spring Security",
       "SecurityFilterChain",
@@ -581,7 +581,7 @@
   },
   {
     "title": "[chap.04] SecurityContextHolder",
-    "description": "SecurityContextHolder 에서 Authentication 객체 조회 예제",
+    "description": "Spring Security의 SecurityContextHolder가 SecurityContext와 Authentication을 ThreadLocal 전략으로 요청마다 관리하는 구조와 static으로 제공되는 이유를 정리했다.",
     "tags": [
       "Spring Security",
       "SecurityContextHolder"
@@ -595,7 +595,7 @@
   },
   {
     "title": "[chap.03] SecurityFilterChain 구조",
-    "description": "SecurityFilterChain 구조 @EnableWebSecurity 에 debug 모드를 true 로 설정하면, 요청이 통과하는 SecurityFilterChain 의 filter 목록이 출력 된다. Spring Security 디버깅을 활성화하는 옵션으로, 개발 환경에서만 사용해야 한다. debug 모드의 기본값은 false 이다.",
+    "description": "Spring Security의 debug 모드로 SecurityFilterChain이 거치는 filter 목록을 출력하고, 기본 filter별 역할과 addFilterBefore·After로 사용자 정의 필터를 넣는 법을 정리했다.",
     "tags": [
       "Spring Security",
       "SecurityFilterChain"
@@ -609,7 +609,7 @@
   },
   {
     "title": "[chap.02] SecurityFilterChain 등록",
-    "description": "SecurityFilterChain 등록 Spring Boot 에서 spring-boot-starter-security 의존성을 추가하면 기본적으로 DefaultSecurityFilterChain 이 자동으로 생성된다. 기본 설정은 모든 요청을 인증해야 하며, form-based 로그인 페이지를 제공하는 방식 이다.",
+    "description": "Spring Security SecurityFilterChain을 @Bean으로 등록하는 방법과, 여러 체인이 모두 any request에 매칭될 때 나는 오류를 securityMatcher로 해결하는 방법을 정리했다.",
     "tags": [
       "Spring Security",
       "SecurityFilterChain"
@@ -623,7 +623,7 @@
   },
   {
     "title": "[chap.01] Spring Security 동작 원리 개요",
-    "description": "Spring Security 동작 원리 개요 클라이언트의 요청은 WAS (Web Application Server / ex> tomcat ) 의 filter 를 통과한 다음 Spring Container 의 Controller 에 도달한다. WAS 의 filter 에 새로운 filter 를 추가하여 요청을 가로챈다. 가로챈 요청은 Spring Container 내부에 정의한 로직을 통과 한다.",
+    "description": "Spring Security가 WAS 필터에서 요청을 가로채는 원리를 DelegatingFilterProxy, FilterChainProxy, SecurityFilterChain의 역할과 구조로 정리했다.",
     "tags": [
       "Spring Security",
       "introduce"
@@ -637,7 +637,7 @@
   },
   {
     "title": "[chap.15] Pod - NodeScheduling",
-    "description": "Pod 는 기본적으로 Scheduler 에 의해 Node 에 할당 되지만 사용자의 의도에 의해 Node 를 지정할 수 있고, 운영자가 특정 노드를 사용하지 못하도록 관리 할 수도 있다. Pod 를 특정 Node 에 할당 되도록 선택하기 위한 용도로 사용 한다. Node1, Node2, Node3 은 서버가 한국에 있고, Node4, Node5 는 미국에 있다고 가정 한다.",
+    "description": "Kubernetes Pod를 원하는 Node에 배치하는 NodeSelector, Node Affinity, Pod Affinity와 Anti-Affinity, Taint와 Toleration의 동작 차이를 그림으로 정리했다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -653,7 +653,7 @@
   },
   {
     "title": "[chap.14] Pod - QoS Classes",
-    "description": "리소스를 균등하게 사용하고 있는 3개의 Pod 를 가진 Node 가 있다. 0015-02 각 Pod 가 Node 의 리소스를 균등하게 사용하고 있기 때문에 특정 Pod 에 추가 리소스를 할당 할 수 없는 상황에서 Pod1 이 추가 리소스를 필요로 하는 상황이 발생 했다. 그럼 Pod1 이 리소스 부족으로 에러가 발생하고 다운 되어야 할까?",
+    "description": "Kubernetes Pod의 QoS Class인 Guaranteed, Burstable, BestEffort가 requests와 limits 설정으로 어떻게 정해지고, 자원이 부족할 때 어떤 순서로 Pod가 정리되는지 정리했다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -668,7 +668,7 @@
   },
   {
     "title": "[chap.13] Pod - ReadinessProbe, LivenessProb",
-    "description": "Pod 를 만들면 그 안에 Container 가 생기고 Pod 와 Container 의 상태가 Running 이 되면서 그 안에 있는 Application 도 정상적으로 구동이 되고 있을 것이다. 그리고 Service 에 연결 되는데 이 Service 의 IP 가 외부에 노출되어 다수의 사용자에 의해 서비스가 이용 된다. 현재 하나의 Service 에 두 개의 Pod 가 연결되어 있고 트래픽이 반으로 나뉜다고 하자.",
+    "description": "Kubernetes Pod의 ReadinessProbe와 LivenessProbe가 앱 구동 중, 장애 중 트래픽 실패를 각각 어떻게 막는지 httpGet, Exec, tcpSocket 설정과 옵션으로 정리했다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -684,7 +684,7 @@
   },
   {
     "title": "[chap.12] Pod - Lifecycle",
-    "description": "Pod 에는 Lifecycle 이 존재하고 어떤 Pod 든 만들어지고 사라지는 과정을 거치게 된다. Lifecycle 은 각 단계 별로 하는 행동이 다르다는 특징을 갖는다. Pod 역시 단계별로 주요 행동들이 있고, 앞으로 알아 볼 ReadinessProbe, LivenessProbe, Qos, Policy 등 다양한 기능들이 Pod 의 특정 단계와 관련이 있기 때문에 Lifecycle 에 대해 잘 알아야 한다.",
+    "description": "Kubernetes Pod Lifecycle에서 Phase가 Pending, Running, Succeeded, Failed, Unknown으로 바뀌는 과정과 Conditions, Container State를 그림으로 정리했다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -699,7 +699,7 @@
   },
   {
     "title": "[chap.11] DaemonSet, Job, CronJob",
-    "description": "DaemonSet, Job, CronJob Controller 가 무엇이고 언제 사용 하는지 정리 한다. 각 Node 에 자원이 다르게 남아있는 상태에서 ReplicaSet 의 경우 Pod 를 Scheduler 에 의존해서 Node 에 배치할 때, 만약 Node1 에 자원이 많이 남아있는 경우 Pod 를 많이 배치할 것이다. 그리고 Node3 과 같이 자원이 별로 없으면 Pod 를 배치하지 않을 수도 있다.",
+    "description": "Kubernetes DaemonSet, Job, CronJob의 동작 차이와 쓰임새를 정리했다. nodeSelector, hostPort, completions, parallelism, concurrencyPolicy 설정도 다룬다.",
     "tags": [
       "Kubernetes",
       "DaemonSet",
@@ -715,7 +715,7 @@
   },
   {
     "title": "[chap.10] Deployment (Recreate, RollingUpdate)",
-    "description": "Deployment 는 하나의 운영 중인 서비스를 업데이트 하여 다시 배포해야 할 때 도움을 주는 Controller 이다. Deployment 에 대해 알아보기에 앞서 k8s 에서 사용하는 몇 가지 업그레이드 방법에 대해 알아 본다. 업그레이드 방법에는 크게 ReCreate, Rolling Update, Bule/Green, Canary 등이 있다. Deployment 를 만들면 v1 의 Pod 들이 만들어 진다.",
+    "description": "Kubernetes 업그레이드 방식 ReCreate, Rolling Update, Blue/Green, Canary의 Downtime과 자원 사용을 비교하고 Deployment의 배포 과정을 YAML로 정리했다.",
     "tags": [
       "Kubernetes",
       "Deployment",
@@ -731,7 +731,7 @@
   },
   {
     "title": "[chap.09] Replication Controller, ReplicaSet (Template, Replicas, Selector)",
-    "description": "k8s 의 Controller 는 서비스를 관리하고 운영하는데 큰 도움을 준다. Node 위에 Pod 가 있는데 이 Pod 가 갑자기 다운 되거나 이 Pod 가 Scheduling 되어 있는 Node 가 다운 될 경우 Controller 는 장애를 바로 인지하고 Pod 를 다른 Node 에 새로 만들어 준다.",
+    "description": "Kubernetes ReplicationController와 ReplicaSet의 template, replicas, selector 동작을 YAML로 정리하고 matchExpressions 연산자별 Pod 선택 차이를 비교했다.",
     "tags": [
       "Kubernetes",
       "Controller",
@@ -746,7 +746,7 @@
   },
   {
     "title": "[chap.08] Namespace, ResourceQuota, LimitRange",
-    "description": "본격적인 사용 방법을 알아보기에 앞서 Namespace, ResourceQuota, LimitRange 를 왜 사용해야 하는지 먼저 정리한다. k8s Cluster 라고 해서 전체 사용할 수 있는 자원이 있다. 일반적으로 Memory, CPU 가 있고 Cluster 안에는 다수의 Namespace 를 Namespace 안에는 다수의 Pod 를 만들 수 있다.",
+    "description": "Kubernetes의 Namespace, ResourceQuota, LimitRange가 Cluster 자원을 나눠 쓰는 Pod를 어떻게 격리하고 제한하는지 그림과 YAML 예시로 정리했다.",
     "tags": [
       "Kubernetes",
       "Namespace",
@@ -762,7 +762,7 @@
   },
   {
     "title": "[chap.07] ConfigMap, Secret (Env, Mount)",
-    "description": "본격적인 사용 방법을 알아보기에 앞서 ConfigMap 과 Secret 이 언제 사용되는지 먼저 정리한다. 개발 환경과 운영 환경이 있다. A Service 는 환경에 따라 SSH 설정 및 User 와 key 값을 설정해야 한다. 하지만 이 값은 Container 안에 있는 Service 에 들어있는 값이기 때문에 이 값을 바꾼다는 것은 환경에 따라 Container Image 를 따로 관리해야 한다는 것을 의미한다.",
+    "description": "Kubernetes ConfigMap과 Secret으로 환경별 설정값을 Image 밖에서 주입하는 Env(Literal), Env(File), Volume Mount 세 방식을 YAML 예시와 갱신 차이로 정리했다.",
     "tags": [
       "Kubernetes",
       "ConfigMap",
@@ -779,7 +779,7 @@
   },
   {
     "title": "[chap.06] Volume (emptyDir, hostPath, PVC/PV)",
-    "description": "Container 간 데이터 공유를 위해 Volume 을 사용하는 것을 말한다. 최초 Volume 이 생성될 때는 항상 내용이 비어있기 때문에 emptyDir 이란 이름을 가지게 되었다. 만약 Container 1 이 web 역할을 하는 서버이고 Container 2 는 백엔드를 처리해주는 서버라고 하자.",
+    "description": "Kubernetes Volume의 세 가지 방식 emptyDir, hostPath, PVC/PV가 각각 데이터를 어디에 두고 언제 잃는지, Admin과 User 역할을 나눈 PV 연결 흐름까지 YAML 예시로 정리했다.",
     "tags": [
       "Kubernetes",
       "Volume",
@@ -796,7 +796,7 @@
   },
   {
     "title": "[chap.05] Service (ClusterIP, NodePort, LoadBalancer)",
-    "description": "Service 는 기본적으로 아래 그림과 같이 자신의 ClusterIp 를 가지고 있다. 그리고 이 Service 를 Pod 에 연결시켜두면 Service 의 IP 를 통해 Pod 에 접근할 수 있게 된다. 앞서 Pod 에도 동일하게 Cluster 내에서 접근할 수 있는 IP 가 존재함에도 불구하고 굳이 Service 를 붙여서 접근하는지 의문이 생긴다.",
+    "description": "Kubernetes Service의 세 가지 타입 ClusterIP, NodePort, LoadBalancer가 각각 어디서 접근을 허용하는지 그림과 YAML 예시로 정리하고 타입별 쓰임새를 설명했다.",
     "tags": [
       "Kubernetes",
       "Service",
@@ -813,7 +813,7 @@
   },
   {
     "title": "[chap.04] Pod (Container, Label, NodeSchedule)",
-    "description": "Pod 안에는 하나의 독립 된 서비스를 구동할 수 있는 Container 들이 있다. 그리고 각 Container 들은 서비스가 연결될 수 있도록 port 를 가지고 있다. 하나의 Container 는 하나 이상의 port 를 가질 수 있지만, 하나의 Pod 내에서 같은 port 를 가지는 Container 는 존재할 수 없다.",
+    "description": "Kubernetes Pod 안 Container의 포트 규칙, Label로 Pod를 골라 Service에 연결하는 방법, 직접 지정과 Scheduler 자동 배치로 나뉘는 Node Schedule을 그림과 YAML 예시로 정리했다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -830,7 +830,7 @@
   },
   {
     "title": "[chap.03] Kubernetes 훑어보기",
-    "description": "Kubernetes 는 한 대의 서버를 Master 로 사용하고 다른 서버는 Node 로 하나의 Master 에 다수의 Node 들이 연결 된다. 이렇게 연결 된 하나의 묶음이 Kubernetes Cluster 가 된다. Master 는 Kubernetes 의 전반적인 기능들을 컨트롤 하고, Node 들은 자원을 제공하는 역할을 한다. 만약 Cluster 전체 자원을 늘리고 싶으면 Node 를 계속 추가하면 된다.",
+    "description": "Kubernetes Cluster의 Master와 Node, Namespace·Pod·Service·Volume 같은 Object, Deployment·DaemonSet·CronJob 등 Controller의 역할을 훑어본다.",
     "tags": [
       "Kubernetes",
       "Pod",
@@ -845,7 +845,7 @@
   },
   {
     "title": "[chap.02] VM 과 Container 비교",
-    "description": "VM 과 Container 모두 공통적으로 하나의 서버(Host Server)가 있고 그 서버에는 Host OS 가 올라간다. VM 의 경우 Host OS 위에 VM 을 가상화 하기 위한 여러 Hypervisor 가 있고 그 위에 Guest OS 를 올려 다수의 VM 을 만들 수 있다. 이 Guest OS 역시 Host OS 와 같이 독립적으로 사용해서 각각의 OS 에 애플리케이션을 설치하고 서비스를 만들어 제공할 수 있다.",
+    "description": "VM과 Container의 구조 차이를 Hypervisor·Guest OS와 Docker의 namespace·cgroups 자원 격리로 비교하고, 속도·보안 장단점과 Kubernetes Pod 단위 확장이 왜 유리한지 정리했다.",
     "tags": [
       "Kubernetes"
     ],
@@ -858,7 +858,7 @@
   },
   {
     "title": "[chap.01] Kubernetes 사용 이유",
-    "description": "원활한 서비스 제공을 위해 필요한 자원을 미리 준비하는 것은 비용과 관리 측면에서 어려움이 있다. A, B, C 각 서비스는 시간대 별로 필요한 자원이 유동적으로 바뀌지만, 서버 자원을 동적으로 변경할 수 없어 최대 부하를 견딜 수 있는 자원을 미리 준비시켜야 한다. 각 서비스별 장애 상황에 대비해 최소 하나의 백업 서버가 필요하기 때문에 3대의 서버가 추가로 필요하다.",
+    "description": "Kubernetes를 쓰는 이유를, 서버 자원을 최대 부하에 맞춰 고정해 두던 As-Is 구조와 Auto Scaling, Auto Healing, Deployment로 자원과 배포를 자동화하는 To-Be 구조를 비교해 정리했다.",
     "tags": [
       "Kubernetes",
       "introduce"
@@ -872,7 +872,7 @@
   },
   {
     "title": "Go 'WEB SERVER WITH ECHO' : Setup Part One, modify to callable scraper & download echo",
-    "description": "이번에는 go echo 서버를 만들어 본다. 본격적으로 만들어보기에 앞서 필요한 사전 작업들을 해보자. 우선 main package 에 있던 main function 을 다른 package 로 만들고, 실행이 아닌 호출 가능한 형태로 변경하려 한다. 우선 myScrap 라는 이름의 폴더를 만들고 그 안에 main.go 파일을 옮긴다. 그리고 main.go 파일의 이름을 myScrap.go 로 이름을 변경한다.",
+    "description": "Go echo 웹 서버를 만들기 위해 job scrapper의 main 함수를 검색어를 받는 MyScrap 패키지 함수로 바꿔 main.go에서 호출하고, go get으로 echo 패키지를 설치했다.",
     "tags": [
       "Go",
       "Web Server",
@@ -887,7 +887,7 @@
   },
   {
     "title": "Go 'JOB SCRAPER' : Channels Time & More Channels Baby (goroutine)",
-    "description": "원하는 결과가 나왔지만 결과가 나오기까지 시간이 생각보다 오래 걸린다. 그래서 이것을 개선하기 위해 goroutine 을 적용할 계획을 세워보려 한다. 지금까지 작성한 코드의 실행 흐름은 다음과 같다. 생각해보면 각각의 모든 작업들은 서로 모두 독립된 작업이다. 그래서 만약 getPage 와 extractJob function 이 동시에 처리할 수 있다면 단순한 계산으로 250배 빨라질 수 있는 여지가 있는 셈이다.",
+    "description": "Go Job Scraper에 goroutine과 channel을 적용해 getPage, extractJob, 파일 쓰기를 동시에 처리하도록 바꾸고, 적용 전후 실행 흐름과 속도 차이를 비교했다.",
     "tags": [
       "Go",
       "Job Scraper",
@@ -900,11 +900,11 @@
     "lastModifiedDate": "2021-05-30",
     "status": "needs-review",
     "reviewedAt": null,
-    "readingTime": 3
+    "readingTime": 2
   },
   {
     "title": "Go 'JOB SCRAPER' : Writing Jobs, save extracted data to 'csv' file",
-    "description": "이번에는 추출한 정보를 csv 파일로 저장 해보자. Go 에는 csv 관련 패키지가 있다. csv 파일을 만드는 writeJobs function 을 다음과 같이 만든다. 이 코드를 실행하면 'jobs.csv' 파일을 만들고, 생성된 파일을 열어보면 다음과 같이 header 에 정의한 내용이 작성되어 있는것을 볼 수 있다.",
+    "description": "Go encoding/csv 패키지의 Writer로 Indeed에서 추출한 채용 정보를 jobs.csv 파일에 헤더와 함께 저장하고, ID를 상세 페이지 URL로 바꿔 쓰는 방법과 전체 Job Scraper 코드를 정리했다.",
     "tags": [
       "Go",
       "Job Scraper",
@@ -920,7 +920,7 @@
   },
   {
     "title": "Go 'JOB SCRAPER' : extractJob part two",
-    "description": "지난번에 이쁘지않게(?) 출력된 결과를 보기 좋게 정리를 하면서 시작 하려 한다. Go 의 strings 에 대한 document 를 보면 사용할 수 있는 다양한 function 들이 있다. 그 중에 Trim, Fields, Join 을 사용해서 다음과 같은 function 을 만들었다.",
+    "description": "Go Job Scraper에서 strings.TrimSpace, Fields, Join으로 스크랩한 문자열을 정리하고, extractJob 함수와 struct로 전체 페이지의 채용 정보를 slice에 모으는 과정을 정리했다.",
     "tags": [
       "Go",
       "Job Scraper",
@@ -935,7 +935,7 @@
   },
   {
     "title": "Go 'JOB SCRAPER' : extractJob part one",
-    "description": "이번에는 지난번에 출력한 URL 에 직접 접속하도록 해보자. 수정한 getPage function 을 보면 checkErr, checkCode function 을 사용해서 오류를 확인하고 각 페이지에서 \".jobsearch-SerpJobCard\" 클래스를 찾은 다음, 각각의 요소에 대해 \"data-jk\" attribute 값을 id 변수에 담아 출력하고 있다.",
+    "description": "Go goquery로 Indeed 검색 결과 페이지에 접속해 jobsearch-SerpJobCard 요소의 data-jk, 제목, 지역을 추출하고, 수집한 데이터를 담을 extractedJob struct를 정의했다.",
     "tags": [
       "Go",
       "Job Scraper",
@@ -950,7 +950,7 @@
   },
   {
     "title": "Go 'JOB SCRAPER' : getPages part two",
-    "description": "이번에는 'part one' 에서 goquery 를 사용해 가져온 Document 를 다뤄보려고 한다. 코드를 사용해서 DOM 의 '.pagination' 클래스 요소를 찾았는데, 참조 연산을 해보면 Each 라는 공개된 function 이 있다. Each function 에 대한 설명을 보면, 매개값으로 function 을 전달 받는다.",
+    "description": "Go goquery의 Find와 Each로 Indeed 검색 결과의 pagination 링크 수를 세고, URL의 start 파라미터 규칙을 이용해 페이지별 요청 URL을 만드는 getPages 코드를 정리했다.",
     "tags": [
       "Go",
       "Job Scraper",
@@ -965,7 +965,7 @@
   },
   {
     "title": "Go 'JOB SCRAPER' : getPages part one, goquery, go get 오류 해결",
-    "description": "JOB SCRAPPER 프로젝트에서는 indeed 홈페이지를 활용한다. 아무 검색어를 넣고 검색을 해보자. 검색 결과 얼마나 많은 페이지가 있는지 알아내야 한다. 스크롤을 맨 아래로 내리면 페이징 처리 되어있는 것을 볼 수 있다. 그리고 주소창을 보면 'start' 라는 query parameter 가 있는 것을 확인할 수 있다.",
+    "description": "Go로 indeed 채용 검색 결과를 수집하는 Job Scraper의 첫 단계로 goquery 설치, http.Get 오류 처리, GO111MODULE 때문에 생긴 go get 오류 해결, pagination 요소 찾기를 정리했다.",
     "tags": [
       "Go",
       "Job Scraper",
@@ -981,7 +981,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : FAST URLChecker",
-    "description": "사실 이 전에 작성한 코드로 URL Checker 구현이 끝났지만 출력하는 부분이 없었다. 앞서 다른 예제에서 goroutine 으로 실행한 결과를 channel 을 통해 수신하도록 '<- c' (c 는 channel 변수 ) 를 적절하게 작성해 결과를 받아 처리하면 된다.",
+    "description": "Go goroutine과 channel로 여러 URL에 동시에 요청을 보내고 결과를 map에 모아 출력하는 URL Checker 완성 코드를 정리했다. 순차 처리보다 빨라지는 이유도 설명한다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -997,7 +997,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : URL Checker + Go Routines",
-    "description": "지금까지 goroutine 에 대해 알아보았으니 'main.go' 파일에 작성했던 URL Checker 를 goroutine 을 사용해서 개선해보자. 기존 'main.go' 와 다른 부분은 다음과 같다. 이 프로그램을 실행하면 다음과 같이 아무 결과를 출력하지 않는다. 만약 지금까지 내용을 이해했다면 이렇게 출력되는게 당연하다.",
+    "description": "Go URL Checker를 goroutine과 channel로 바꾸면서 chan<- 로 channel 방향을 제한하는 방법과, main이 channel을 기다리지 않으면 결과 없이 바로 종료되는 이유를 정리했다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -1013,7 +1013,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : Channels One more Recap (요약 정리)",
-    "description": "앞서 goroutine 과 관련하여 기억해야 할 것을 정리하면",
+    "description": "Go goroutine과 channel을 쓸 때 기억할 점 다섯 가지를 요약했다. <-c 수신의 blocking, main 종료 시 goroutine 종료, channel 타입 명시와 화살표 연산자, 수신 횟수 규칙을 다룬다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -1030,7 +1030,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : Channels Recap, channel response receive using loop (blocking)",
-    "description": "이번에는 Channel 로 주고 받는 데이터를 bool 타입이 아닌 string 타입을 사용해보자. 아래는 수정한 main goroutine.go 파일이다. 이전 예제와 달라진 부분은 people 배열의 요소 수를 5로 늘렸고 channel 을 통해 주고 받을 데이터의 타입을 string 으로 바꾼 것과 channel 이 응답 받을 데이터를 기다리는 것을 확인하기 위해 (blocking 하는 것을 확인하기 위해) '<- c'…",
+    "description": "Go goroutine이 channel로 string 값을 보내고 main 함수가 <-c로 받을 때까지 blocking되는 동작을 확인하고, 반복 수신 코드를 for 문으로 정리한 과정을 담았다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -1047,7 +1047,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : Channels",
-    "description": "Channel 은 goroutine 과 main function 사이 또는 goroutine 간 정보 전달을 하기 위한 방법 이다. 앞서 make 가 map 을 만들기 위한 function 이라고 정리 했었는데, make function 은 slice, map 그리고 channel 을 만들 수 있는 function 이 맞는것 같다. 아무튼, 이번에는 channel 이라는 것을 사용해보려 한다.",
+    "description": "Go channel을 make로 만들어 goroutine과 main function 사이에 값을 주고받는 방법과, main이 channel 수신을 기다리는 동안 종료되지 않는 동작을 예제로 정리했다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -1064,7 +1064,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : Goroutines",
-    "description": "Go 에는 멀티스레드를 생성해서 실행하는게 정말 간단한 것 같다. 예를 들어 Java 같은 경우 Runnable 인터페이스를 구현 한다던가 하는 작업이 필요하고, 그렇게 하려다보면 장황한 코드가 작성 되기도 한다. 물론 람다식을 쓰면 좀 나아지겠지만 말이다. 다른 실행 프로그램과 구분하기 위해 main goroutine.go 파일을 새롭게 작성 했다.",
+    "description": "Go에서 함수 호출 앞에 go를 붙여 goroutine으로 동시에 실행하는 방법을 정리했다. 10초 걸리던 작업이 5초로 줄어드는 모습과, 모든 호출에 go를 붙이면 main이 먼저 끝나는 이유를 설명한다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -1080,7 +1080,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : Slow URLChecker, empty map 선언",
-    "description": "이번에는 지난번에 작성했던 URL 접속 코드를 조금 개선했다. 개선된 것은 url 에 GET 요청을 보냈을 때 응답 결과를 확인할 수 있도록 map 을 사용하도록 한 부분이다. 정의한 results 이름의 map 은 key, value 타입을 모두 string 으로 사용한다.",
+    "description": "Go로 여러 URL에 GET 요청을 보내 결과를 map에 담는 URL Checker를 만들고, nil map에 값을 넣으면 panic이 나는 이유와 빈 map 초기화 방법, 순차 처리가 느린 이유를 정리했다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -1097,7 +1097,7 @@
   },
   {
     "title": "Go 'URL CHECKER & GO ROUTINES' : hitURL, HTTP GET REQUEST",
-    "description": "이번 시간부터 실행활에 적용할 수 있는 예제를 만들어 본다. 우선 임의의 URL 에 접속하는 예제를 만든다. part3 에 대한 폴더를 만들고 그 안에 main.go 를 다음과 같이 작성한다. 코드에 대한 설명은 주석에 작성하였기 때문에 이해하는데 별다른 어려움은 없을것 같다. 실행 결과는 다음과 같다. 생각보다 실행 결과가 빠르지 않았지만, 멀티쓰레드로 처리하면 지금보다 많이 빨라질 것 같다.",
+    "description": "Go net/http의 http.Get으로 여러 URL에 차례로 요청을 보내 상태 코드 400 이상이면 사용자 정의 error를 반환하는 URL 체커 hitURL 함수를 만들고 실행 결과를 정리했다.",
     "tags": [
       "Go",
       "URL Checker",
@@ -1113,7 +1113,7 @@
   },
   {
     "title": "Go 'BANK & DICTIONARY PROJECTS' : Update Delete (in map)",
-    "description": "이번에는 map 에 저장된 값을 수정하고 삭제하는 실습을 한다. 먼저 'part2 myDict main.go' 파일을 먼저 작성하고, 'myDict.go' 파일을 작성하는 순서로 진행한다. 이건 마치 TDD 를 하는 느낌이다. 내용이 단순해서 코드의 주석만 보고도 어떤 동작을 할지 충분히 예상 가능하다. 다음은 'myDict.go' 에 추가한 Update 코드이다.",
+    "description": "Go map으로 만든 Dictionary 타입에 Update와 Delete 메소드를 추가하는 실습이다. Search로 존재 여부를 확인해 수정하고, delete 내장 함수로 값을 지우는 과정을 실행 결과와 함께 정리했다.",
     "tags": [
       "Go",
       "Bank & Dictionary",
@@ -1128,7 +1128,7 @@
   },
   {
     "title": "Go 'BANK & DICTIONARY PROJECTS' : Add Method (in map)",
-    "description": "이번에는 map 에 요소를 추가하는 실습을 한다. 앞서 작성한 myDict.go 파일에 다음 내용을 추가 한다. 아래 주석으로 작성한 부분은 switch 문법을 사용할 때의 예시이다. 지금 실행해 볼 예시는 if 구절이다. Dictionary 에서 같은 이름의 key 가 이미 등록 되어 있으면 error 를 반환하고 그렇지 않으면 값을 추가한다.",
+    "description": "Go map 기반 Dictionary에 단어를 추가하는 Add 메서드를 if와 switch 두 방식으로 구현하고 중복 키에 에러를 돌려준다. map 타입 receiver에 포인터를 쓰면 indexing 오류가 나는 이유도 정리했다.",
     "tags": [
       "Go",
       "Bank & Dictionary",
@@ -1144,7 +1144,7 @@
   },
   {
     "title": "Go 'BANK & DICTIONARY PROJECTS' : Dictionary part One",
-    "description": "이번 실습에서는 struct 를 사용하지 않고 'type' 이라는 것을 사용 한다. 그 전에 먼저 myDict 디렉토리를 만들고 그 안에 myDict.go 파일을 생성한다. 그리고 이 파일을 사용 할 main 이 될 파일을 'part2 myDict main.go' 라는 이름으로 생성했다.",
+    "description": "Go에서 struct 대신 type으로 map[string]string 기반 Dictionary 타입을 정의하고, 키가 있는지 확인해 값이나 errors.New로 만든 Not Found 에러를 돌려주는 Search 메서드를 구현했다.",
     "tags": [
       "Go",
       "Bank & Dictionary"
@@ -1158,7 +1158,7 @@
   },
   {
     "title": "Go 'BANK & DICTIONARY PROJECTS' : Finishing Up",
-    "description": "Go 에는 다른 언어와 유사하게 사용자가 실행하지 않아도 자동으로 실행해주는 메소드가 있다. 예를 들면 Python 에서 class 를 출력하면 class 의 str 을 호출 한다거나 Java 에서 객체를 출력하면 toString() 을 호출 하는 것과 같다. 본격적으로 알아보기에 앞서 account struct 의 owner 값을 수정하고 가져올 수 있는 메소드를 만들었다.",
+    "description": "Go struct를 출력할 때 자동으로 호출되는 String 메서드를 정의해 은행 계좌 출력 형식을 바꾸는 방법과 owner를 바꾸고 읽는 ChangeOwner, Owner 메서드를 정리했다.",
     "tags": [
       "Go",
       "Bank & Dictionary"
@@ -1172,7 +1172,7 @@
   },
   {
     "title": "Go 'BANK & DICTIONARY PROJECTS' : Methods part Two",
-    "description": "지난번 Methods part One 에서 Deposit method 를 호출했을 때 account 값이 수정되지 않은 것을 확인했다. 그 이유는 Go 에서 function, method 를 사용할 때 object, struct 등에 대해 복사본을 사용하기 때문이다. 지금의 경우 Deposit 메소드의 receiver 에서 복사본이 사용 됐다.",
+    "description": "Go에서 pointer receiver로 struct 원본을 수정하는 이유와, exception 없이 error 타입을 반환하고 log.Fatalln으로 처리하는 방법을 은행 계좌 Deposit, Withdraw 예제로 정리했다.",
     "tags": [
       "Go",
       "Bank & Dictionary",
@@ -1187,7 +1187,7 @@
   },
   {
     "title": "Go 'BANK & DICTIONARY PROJECTS' : Methods part One",
-    "description": "Go 에는 function 이외에 method 개념이 있다. 지금까지 알아낸 내용을 기준으로 method 는 struct 와 연관이 있다. 마치 java 에서 멤버 필드의 값을 조작하기 위해 method 를 추가 하는 것처럼, struct 의 값을 조작하기 위해 function 을 정의 하는데, 이 때 사용하는 function 을 method 라고 하는것 같다. 형태는 function 과 매우 유사하다.",
+    "description": "Go에서 struct에 receiver를 붙여 method를 정의하는 방법을 은행 계좌 예제의 Deposit, Balance로 실습하고, 값 receiver라 입금 후에도 잔액이 0으로 나오는 문제를 확인했다.",
     "tags": [
       "Go",
       "Bank & Dictionary",
@@ -1202,7 +1202,7 @@
   },
   {
     "title": "Go 'BANK & DICTIONARY PROJECTS' : Account + NewAccount",
-    "description": "Go 의 struct 를 공부할 겸 간단한 bank account 를 생성하는 예제를 만들어 본다. 우선 accounts 폴더를 만들고 그 아래 accounts.go 파일을 만든다. accounts.go 는 실행의 주체로 사용하지 않을 것이기 때문에 main function 을 만들지 않는다. 사용 할 struct 를 정의하는데, 이름과 잔액 정보를 가지고 있도록 다음과 같이 만든다.",
+    "description": "Go struct로 bank account 예제를 만들며 대문자 export 규칙, 소문자 struct를 감싸는 NewAccount 팩토리 함수, 포인터를 반환해 사본 생성을 피하는 이유를 정리했다.",
     "tags": [
       "Go",
       "Bank & Dictionary"
@@ -1216,7 +1216,7 @@
   },
   {
     "title": "Go 의 Struct 기본 사용법",
-    "description": "Struct 는 Object 와 유사 하면서 map 보다 조금 더 유연하다. C에서 봤던 구조체와 비슷한 느낌을 가지고 있는것 같다. 앞으로 학습 하면서 constructor 가 없는데, 직접 호출해야 한다는게 무슨 말인지 이해하는게 필요하다. 위 예제를 만들어 보면서 재밌었던건, '사용 방법 2' 에서 값을 명시하지 않으면 그 타입의 기본 값을 자동으로 사용한다는 점이다.",
+    "description": "Go struct를 정의하고 값을 순서대로 넣는 방법과 key를 명시하는 방법으로 생성하는 예제를 정리했다. 두 방식을 섞을 수 없다는 점과 생략한 필드에 기본값이 들어가는 점도 확인했다.",
     "tags": [
       "Go",
       "Struct"
@@ -1230,7 +1230,7 @@
   },
   {
     "title": "Go 의 Map 기본 사용법",
-    "description": "기본적으로 map 은 key 와 value 로 이루어져 있다. 다음은 map 을 사용하는 단순한 예제이다. map 은 map 키워드를 사용해서 정의 하는데, map 다음의 대괄호 안에 key 의 데이터 타입을 지정하고, 그 다음에 괄호 없이 value 의 데이터 타입을 지정한다. 값을 추가하고 수정하는 방법은, key 가 없으면 추가하고 있으면 수정하는게, 다른 언어에서와 비슷했다.",
+    "description": "Go map을 선언하고 값을 추가, 수정하는 방법과 range로 key와 value를 함께 또는 따로 순회하는 방법, delete로 key를 삭제하는 방법을 예제 코드와 실행 결과로 정리했다.",
     "tags": [
       "Go",
       "Map"
@@ -1244,7 +1244,7 @@
   },
   {
     "title": "Go 의 Array 와 Slice 선언과 기본 사용법",
-    "description": "Go 에는 일반적으로 생각하는 배열을 표현하는 두 가지 방법이 있다. 하나는 다른 언어에서 보던 것과 같은 배열이고, 다른 하나는 슬라이스(slice) 라고 하는게 있다. 기본적인 선언 방법은 다음과 같다. 'array 사용 방법 1' 을 보면, 내가 만들 배열의 길이를 고정하는 방법이다. 그래서 출력 결과를 보면, 공백 두 개가 같이 출력 된 것으로 보인다.",
+    "description": "Go의 고정 길이 배열 선언 두 가지와 append로 길이를 늘리는 슬라이스(slice)의 차이를 예제 코드와 go run 출력 결과로 정리했다.",
     "tags": [
       "Go",
       "Array"
@@ -1258,7 +1258,7 @@
   },
   {
     "title": "Go 의 포인터",
-    "description": "아주 오래전이지만 C 언어를 공부한 적이 있었다. Go 언어를 배워보기로 하기를 잘한것 같다. 처음 프로그래밍 언어를 배울 때 이런 얘기를 들었다. Java 는 Class 에서 (상속 등과 관련된), C 는 포인터에서 많이 포기를 한다고,, 그래서 포인터에 겁을 먹은적이 있었는데, 깊고 복잡한 내용이 아니면 포기할 정도는 아니라고 생각 했다. 아무튼, 포인터 관련된 연산자는 크게 두가지가 있다.",
+    "description": "Go 포인터에서 & 연산자로 변수의 메모리 주소를 얻고 * 연산자로 주소가 가리키는 값을 읽고 바꾸는 방법을 예제 코드, 메모리 그림, 실행 결과로 정리했다.",
     "tags": [
       "Go",
       "Pointer"
@@ -1272,7 +1272,7 @@
   },
   {
     "title": "Go 의 switch 사용 방법",
-    "description": "Go 에서의 switch 는 다른 언어와 비슷하다. else if 가 너무 많이 사용되는 등의 경우 사용하면 좋은 문법이다. switch 문에서도 if 와 마찬가지로 switch 안에서만 사용 할 변수를 선언해서 사용할 수 있다.",
+    "description": "Go의 switch 문을 조건식만 쓰는 case 방식과 switch 안에서만 쓰는 변수를 선언하는 방식으로 나눠, else if를 대신하는 사용법을 짧은 예제로 정리했다.",
     "tags": [
       "Go",
       "switch"
@@ -1286,7 +1286,7 @@
   },
   {
     "title": "Go 의 if 사용 방법",
-    "description": "Go 에서 if 문은 다음과 같이 작성할 수 있다. 소괄호 없이 그냥 조건을 쓴다는 부분을 빼고는 다른 언어들과 별로 다를게 없어 보인다. 하지만 Go 의 if 는 재밌는 문법이 하나 더 있다. if 블럭 안에 변수를 선언해서 사용할 수 있다. 이렇게 쓰면 뭐가 좋을까? 사실 if 블록 안에서 사용한 'koreanAge' 변수를 밖으로 빼서 사용해도 문제 없다.",
+    "description": "Go의 if 문은 조건에 소괄호를 쓰지 않고, if 블록 안에서 변수를 선언해 바로 조건에 쓸 수 있다. 이 문법이 변수의 사용 범위를 드러내 읽기 쉽게 만드는 이유를 예제로 정리했다.",
     "tags": [
       "Go",
       "if"
@@ -1300,7 +1300,7 @@
   },
   {
     "title": "Go 의 for, range, ...args",
-    "description": "Go 에서 반복문은 오직 for 를 사용해서만 가능하다. 어떻게 보면 다양한 형태의 for 문을 사용 했었는데 하나로 통일 된게 더 좋을수도 있겠다. 개수가 정해지지 않은 여러개의 정수를 전달받아 합을 반환하는 함수를 만들어 보자. 'range' 키워드는 오직 반복문에서 사용하기 위한 것으로, 배열 형태를 사용할 때 같이 사용 한다.",
+    "description": "Go의 유일한 반복문 for와 range 키워드로 index와 값을 꺼내는 방법, 밑줄로 index를 무시하는 방법, ...args 가변 인자 함수를 실행 결과와 함께 정리했다.",
     "tags": [
       "Go",
       "for-range"
@@ -1314,7 +1314,7 @@
   },
   {
     "title": "Go 의 함수 part 2 (naked return, defer)",
-    "description": "Go 의 함수에는 'naked return' 이라는 것이 있다. 이것의 의미는 return 키워드에 굳이 반환 할 변수를 명시하지 않아도 됨을 뜻한다. part 1 에서 길이와 영문 대문자 변환 결과를 반환하는 함수를 다시 작성해보자. part 1 의 'lenAndUpper' 함수와 다른 부분은 반환 타입을 작성할 때 변수 이름을 같이 넣은 부분이다.",
+    "description": "Go 함수의 naked return으로 이름 붙인 반환값을 return만으로 돌려주는 방법과, 함수 종료 뒤 실행되는 defer가 여러 개일 때 역순(stack)으로 실행되는 동작을 예제로 확인했다.",
     "tags": [
       "Go",
       "Function"
@@ -1328,7 +1328,7 @@
   },
   {
     "title": "Go 의 함수 part 1 (기본 사용법)",
-    "description": "Go 에서 함수는 아주 쉽다. 'func' 키워드를 사용해서 선언한다. 두 수를 전달 받아 곱한 결과를 반환하는 'multiply' 를 작성해보자. 그런데 위와 같이 작성하고 실행하면 많은 오류를 만나게 된다. 그 이유는 Go 도 Java 와 마찬가지로 함수를 선언할 때 전달받을 타입과 반환 타입을 정해줘야 한다. 그래서 다음과 같이 고쳐서 작성해야 한다.",
+    "description": "Go 함수를 func 키워드로 선언할 때 매개변수와 반환 타입을 쓰는 위치를 정리했다. 같은 타입 매개변수 축약, 여러 값 반환과 _로 값 무시하기, ...을 쓴 가변 인자까지 예제로 설명한다.",
     "tags": [
       "Go",
       "Function"
@@ -1342,7 +1342,7 @@
   },
   {
     "title": "Go 의 상수와 변수",
-    "description": "Go 에서 상수는 'const' 키워드를 사용해서 선언할 수 있다. 특이한게 있다면, 타입을 명시하지 않으면 'untyped' 라는게 붙고, 값을 토대로 추론한 타입도 같이 명시 되었다. 그리고 타입을 명시하면 'untyped' 가 사라진다. 또 다른게 있다면, 타입을 변수의 뒤에 명시한다. 지금까지는 보통 타입을 먼저 쓰고, 그 타입의 값을 담을 변수의 이름을 작성했는데 Go 에서는 그 순서가 반대다.",
+    "description": "Go에서 const로 상수를, var로 변수를 선언하는 방법과 타입을 이름 뒤에 쓰는 문법, untyped 상수, 사용하지 않은 변수 오류, := 축약 선언의 제약을 정리했다.",
     "tags": [
       "Go",
       "Variable"
@@ -1356,7 +1356,7 @@
   },
   {
     "title": "Go 의 package 와 import",
-    "description": "앞서 Hello World 문자열을 출력하는 코드를 Go로 작성해 보았다. fmt 를 직접 import 한 적이 없는데, IDE 에서 알아서 자동으로 추가해 주었다. fmt 는 Go 가 가지고 있는 패키지 중 하나로 formatting 을 위한 package 이다. import 관련해서 javascript 의 경우 function 을 export 해주고 싶은 경우 모듈을 export 하겠다고 명시해 주어야 한다.",
+    "description": "Go에서 package를 만들어 import하는 방법과, 함수 이름을 대문자로 시작해야 다른 패키지로 export된다는 규칙을 something 패키지 예제와 오류 메시지로 확인했다.",
     "tags": [
       "Go",
       "Package",
@@ -1371,7 +1371,7 @@
   },
   {
     "title": "Go 개발 환경 설정과 Hello World (using 'VS Code')",
-    "description": "Go 를 설치하기 위해 다운로드 사이트에 접속 한다. 'Download Go' 버튼을 클릭한다. OS 별로 설치 파일이 다른데 현재 윈도우 플랫폼을 사용하고 있기 때문에 'Microsoft Windows' 를 클릭 했다. 페이지가 이동 하면서 자동으로 다운로드가 시작 되었다. 다운받은 msi 프로그램을 실행해서 Go를 설치 했다.",
+    "description": "Windows에 Go 1.16.4를 설치하고 VS Code에 Go 확장을 더해 main.go로 Hello World를 출력하기까지의 과정을 정리했다. main 패키지와 main 함수가 왜 필요한지도 설명한다.",
     "tags": [
       "Go",
       "Environment"
@@ -1385,7 +1385,7 @@
   },
   {
     "title": "Java 불필요한 AutoBoxing을 되도록 피해야 하는 이유",
-    "description": "자바에는 8대 자료형이라 불리는 기본 자료형이 있다. 이 기본 자료형을 특별하게 분류하는 이유는 클래스가 아니기 때문이다. 클래스가 아니라는 것은 다른 말로 참조타입(reference type)이 아니라는 뜻이다. 당장 적당한 예시가 떠오르지 않지만, 이 기본 타입들에 대해 객체로 표현해야 하는 경우가 있는데 문제는 참조타입이 아니기 때문에 객체를 생성하지 못하는 문제가 있다.",
+    "description": "Java AutoBoxing이 기본 타입과 Wrapper 클래스를 자동 변환하는 원리와, Long으로 누적 합을 구할 때 불필요한 객체 생성으로 실행 시간이 6644ms 대 609ms로 벌어지는 결과를 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1400,7 +1400,7 @@
   },
   {
     "title": "15주차 : 람다식",
-    "description": "람다식을 사용하기에 앞서 익명 구현 객체 라는 것에 대해 알면 좋다. 익명 구현 객체는 인터페이스나 클래스의 객체를 생성해서 사용할 때, 재사용하지 않는 경우 보통 사용한다. 예를 들어 보자. 특정 인터페이스를 사용하기 위해 이 인터페이스를 상속 받은 클래스를 구현하는 방법이 있다.",
+    "description": "자바 람다식을 익명 구현 객체와 비교해 사용법, 함수형 인터페이스, Variable Capture, 메소드와 생성자 레퍼런스를 정리하고 바이트 코드와 1급 객체 개념까지 살펴봤다.",
     "tags": [
       "Java",
       "live study",
@@ -1416,7 +1416,7 @@
   },
   {
     "title": "14주차 : 제네릭",
-    "description": "제네릭을 사용하는 방법에 대해 정리해보기 전에 왜 필요한지에 대해 알면 언제 사용할지 도움이 될 수 있다. 예전에 관련해서 정리했던 링크를 첨부한다. java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭 링크를 추가 했지만, 그래도 간략하게 제네릭이 왜 필요한지 간단하게 정리해보려 한다.",
+    "description": "자바 제네릭이 필요한 이유와 사용법, 제네릭 클래스와 메소드 작성법을 예제로 정리하고 바운디드 타입, 와일드카드, 하위 호환을 위한 타입 소거(Erasure)까지 설명했다.",
     "tags": [
       "Java",
       "live study",
@@ -1432,7 +1432,7 @@
   },
   {
     "title": "12주차 : 애노테이션",
-    "description": "애노테이션(annotation)을 사전에 찾아보면 '주석'이라고 나온다. 위 이미지는 구글 검색 결과인데, 말뭉치 주석 이라는 말이 재밌어서 첨부했다. 자바에서 주석이라고 하면 크게 세 가지 형태를 떠올릴 수 있다. 이 주석들은 보통 작성된 코드를 보는 사람에게 정보를 제공해주기 위해 사용한다. 코드를 언제 누가 작성 했는지, 어떤 메소드가 있으며 어떻게 사용하는지 등 보통 자국어 문자를 사용해서 설명을 작성해 놓은 것이다.",
+    "description": "Java 애노테이션 정의 방법과 엘리먼트, @Retention 유지 정책, @Target 적용 대상, @Documented와 javadoc 생성, Lombok으로 살펴본 애노테이션 프로세서 등록 구조를 예제로 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1448,7 +1448,7 @@
   },
   {
     "title": "11주차 : Enum",
-    "description": "Enum을 '열거형' 또는 Enumeration 또는 상수집합 이라고도 부른다. 상수 목록이 필요해서 class 나 interface 를 활용 하는것을 본 적이 있다. 하지만 class 나 interface 는 그런 용도로 사용하라고 만들어진 것이 아니기 때문에 이런 사용을 지양해야 한다. 가장 단순한 형태의 enum 클래스는 다음과 같이 정의할 수 있다. class 대신 enum 키워드를 사용해서 만들어주면 된다.",
+    "description": "자바 enum을 정의하고 생성자와 필드로 상수에 값을 붙이는 방법, values와 valueOf, java.lang.Enum의 ordinal과 compareTo 같은 메소드, EnumSet과 EnumMap 사용 예제를 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1463,7 +1463,7 @@
   },
   {
     "title": "10주차 : 멀티쓰레드 프로그래밍",
-    "description": "멀티쓰레드에 대해 알아보기 전에 미리 알아야 할 것들이 조금 있다. OS(운영체제)에서 실행중인 하나의 프로그램을 프로세스라고 한다. 작업 관리자를 열어보면, 현재 운영체제에서 실행중인 프로세스들을 볼 수 있다. 이것들은 OS 로부터 메모리를 할당 받아 동작한다. 그리고 멀티 태스킹이라는 것도 있다. 딘어에서 느껴지는 것 그대로 동시에 여러가지 일을 처리하는 것을 말한다.",
+    "description": "Java 멀티쓰레드 프로그래밍을 프로세스와 쓰레드 개념부터 Thread와 Runnable 구현, 쓰레드 상태와 우선순위, Main 쓰레드, synchronized 동기화, 데드락 예제까지 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1479,7 +1479,7 @@
   },
   {
     "title": "9주차 : 예외 처리",
-    "description": "자바에서 예외를 처리하는 방법은 다양하다. try catch 를 사용해서 예외를 직접 처리하는 방법. try catch finally 를 사용해서 예외를 직접 처리하고, 예외가 발생해도 꼭 해야하는 후속처리까지 하는 방법. throw를 사용해서 강제로 예외를 발생하는 방법. 에라 모르겠다. throws를 사용해서 나를 호출한 녀석에게 예외를 던지는 방법 등이 있다.",
+    "description": "자바 예외 처리 try, catch, finally, throw, throws와 try-with-resources, 커스텀 예외를 예제로 정리하고 Checked와 Unchecked 예외의 차이를 설명했다.",
     "tags": [
       "Java",
       "live study",
@@ -1495,7 +1495,7 @@
   },
   {
     "title": "8주차 : 인터페이스",
-    "description": "본격적으로 인터페이스에 대해 정리하기에 앞서 인터페이스가 무엇인지 정리해보려 한다. 극단적으로 얘기하면 인터페이스는 구현을 강제하도록 하기 위한 것이다. 그러면 불편한게 아닐까 싶은 생각도 있겠지만, 오히려 그 반대라고 생각하면 된다. 생활 속에서 인터페이스의 예를 찾아보면 콘센트가 인터페이스라고 할 수 있다.",
+    "description": "자바 인터페이스의 정의와 구현, 인터페이스 레퍼런스로 구현체를 쓰는 방법, 다중 상속을 예제로 정리하고 자바 8의 default, static 메소드와 자바 9의 private 메소드가 생긴 이유를 설명했다.",
     "tags": [
       "Java",
       "live study",
@@ -1511,7 +1511,7 @@
   },
   {
     "title": "7주차 : 패키지",
-    "description": "package 키워드에 앞서 패키지 자체에 대해 생각해보려 한다. 아주 쉽게 생각하면 컴퓨터에 폴더를 생각하면 된다. 실제로 자바에서 패키지 개념도 폴더와 같다. 조금 더 그럴싸하게? 얘기하면 클래스를 묶은 단위로 사용할 수 있다 할 수 있다. 그러면 왜 클래스를 굳이 패키지라는 폴더와 같은 개념을 사용해서 묶도록 했을까. 크게 두가지 이유가 있다.",
+    "description": "Java 패키지 이름 규칙과 default 패키지, import와 static import, 클래스패스와 -classpath 옵션, 접근지시자를 자바 라이브 스터디 7주차 과제로 예제와 함께 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1527,7 +1527,7 @@
   },
   {
     "title": "6주차 : 상속",
-    "description": "상속은 상속을 해주는 클래스와 상속을 받는 클래스 두 클래스 사이에서 일어날 수 있는 일이다. 용어에서도 알 수 있듯, 상속을 해주는 클래스가 가진 멤버 필드(클래스 레벨의 변수)와 멤버 메소드를 상속을 받는 클래스에서 마치 자신의 것처럼 사용할 수 있는 것을 뜻한다. 그럼 왜 상속이라는 개념을 도입 했을까?",
+    "description": "Java 상속의 특징과 다중 상속이 안 되는 이유, super 키워드, 메소드 오버라이딩, 다이나믹 메소드 디스패치, 추상 클래스, final 키워드, Object 클래스를 예제로 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1543,7 +1543,7 @@
   },
   {
     "title": "5주차 : 클래스",
-    "description": "클래스를 정의하는 방법은 다음과 같이 자바에 class 라는 키워드를 사용하는 것이다. 위 예제는 Exam 001 이라는 이름의 클래스를 정의한 것을 보여준다. 클래스를 정의하는 것 자체는 별로 어렵지 않다고 생각한다. 문제는 잘 만드는 것이다. 자바 공부를 중간에 포기한 사람도 자바는 객체지향 언어라는 것은 들어봤을 것이다. 여기서 말하는 이 객체를 자바에서는 클래스를 통해 만들어 진다.",
+    "description": "자바 클래스 정의, new 키워드로 객체를 만드는 과정, 메소드의 접근제한자와 반환형, 매개변수, 생성자 정의와 this 키워드를 예제 코드로 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1559,7 +1559,7 @@
   },
   {
     "title": "4주차 : 제어문",
-    "description": "실행 코드를 제어하는 방법 중 선택문에 대해 정리해보려 한다. 또 다른 말로 조건문 이라고 알고 있는 이 선택문은 크게 if 와 switch 가 있다. 지난주에 switch에 대해 알아보았으니, 이번엔 if에 대해 정리해보려 한다. 구분하기 나름이겠지만 if 문은 크게 세가지 형태가 있다. 말로 보면 혼란스러우니 코드를 보자. 실행 블록 내의 코드가 한 줄인 경우 중괄호를 생략할 수 있다.",
+    "description": "자바 제어문 if, switch, for, 향상된 for, while, do while과 break, continue를 예제로 정리하고 GitHub API 대시보드, LinkedList, Stack, Queue 구현 과제를 풀었다.",
     "tags": [
       "Java",
       "live study",
@@ -1575,7 +1575,7 @@
   },
   {
     "title": "3주차 : 연산자",
-    "description": "각 주제에 대해 본격적으로 알아보기 전에 연산자 관련하여 공통적인 내용에 대해 한 번 정리하려 한다. 연산 (operations) : 프로그램에서 데이터를 처리하여 결과를 산출하는 것 연산자 (operator) : 연산에 사용되는 표시나 기호 피연산자 (operand) : 연산의 대상이 되는 데이터 연산식 (expressions) : 연산자와 피연산자로 연산의 과정을 기술한 것 ( 한빛 미디어, 이것이 자바다.",
+    "description": "Java의 산술, 비트, 관계, 논리 연산자와 instanceof, 대입, 화살표, 3항 연산자의 동작을 예제로 살펴보고, 연산자 우선순위와 Java 13 switch 연산자까지 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1591,7 +1591,7 @@
   },
   {
     "title": "2주차 : 자바 데이터 타입, 변수 그리고 배열",
-    "description": "프리미티브 타입. 영어로 primitive type. 또는 원시 타입 또는 기본형 타입 이라고 하기도 한다. 우선 타입이란 데이터 타입을 줄인 말로 자료형 이라고 하기도 한다. 그럼 데이터 타입 이란 무엇일까. 컴퓨터 관점에서 타입은 데이터가 메모리에 어떻게 저장될 것이고 또 어떻게 다뤄져야 하는지에 대해 알려주는 것이다.",
+    "description": "Java 프리미티브 타입과 레퍼런스 타입, 리터럴, 변수의 스코프와 라이프타임, 타입 캐스팅과 프로모션, 1차와 2차 배열의 메모리 구조, var 타입 추론의 제약을 예제와 그림으로 정리했다.",
     "tags": [
       "Java",
       "live study",
@@ -1609,7 +1609,7 @@
   },
   {
     "title": "나 혼자 떠드는 자바 : 자바 실행 환경 (조금 더 즐거운 통합 개발 환경)",
-    "description": "지금까지 알아본 내용을 토대로 프로그램 개발 과정을 생각해보자. 생략된 과정들 (예를들면 컴파일 하기 위해 자바를 설치하고, 명령 프롬프트에서 컴파일 및 실행 시키기 위해 환경변수를 등록하는 일)도 있지만 대충 생각해도 꽤 많은 작업을 해야 비로소 프로그램을 실행시킬 수 있다.",
+    "description": "메모장과 명령 프롬프트로 반복하던 Java 컴파일·실행 과정을 Eclipse IDE로 줄이는 방법을 정리했다. 버전 고르기, workspace 설정, 프로젝트 생성, Run As로 Hello World 실행까지 따라간다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1621,11 +1621,11 @@
     "lastModifiedDate": "2021-05-01",
     "status": "needs-review",
     "reviewedAt": null,
-    "readingTime": 14
+    "readingTime": 15
   },
   {
     "title": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 2편)",
-    "description": "메모장 코딩 1편에서는 'Hello, World' 문자열을 콘솔에 출력하는 예제를 살펴보았다. 2편에서는 앞서 얼렁뚱땅 넘어갔던 컴파일과 관련된 내용을 살펴보려 한다. 프로그래밍 언어에도 등급이 있다. 고급, 저급. 조금의 노력으로 드라마틱한 결과를 만들어낼 수 있어서 고급언어. 엄청난 노력과 시간을 쏟아 Hello World 한 줄 출력해내기 어려워서 저급언어. 라고 하진 않는다.",
+    "description": "고급언어와 기계어의 차이, 자바 소스를 컴파일하면 실행 파일이 아닌 .class 바이트 코드가 만들어지고 플랫폼별 JVM이 이를 읽어 실행하는 자바 실행 환경을 정리했다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1640,7 +1640,7 @@
   },
   {
     "title": "나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 1편)",
-    "description": "충격적인 소식이 하나 있다. 사실 환경변수까지 등록하지 않아도 자바 프로그램을 만들 수 있다. 하지만 알고 있기 바라는 생각과 메모장 코딩을 하기 위해 넣은 내용이다. 메모장은 윈도우 + r 키를 눌러 나오는 '실행'창에 notepad 라고 입력해도 나오고 \"마우스 우클릭 -> 새로 만들기 -> 텍스트 문서\" 를 선택해도 나오고 실행시키는 방법은 다양하다. 어쨌든 메모장(notepad)을 하나 실행시켜보자.",
+    "description": "메모장으로 Java Hello World를 작성해 javac로 컴파일하고 java로 실행하는 과정을 따라가며, import, 접근 제한자, static, void, main의 의미를 한 줄씩 정리했다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1655,7 +1655,7 @@
   },
   {
     "title": "나 혼자 떠드는 자바 : 자바 실행 환경 (자바 설치 방법)",
-    "description": "글을 작성하는 현재 시점으로 자바의 가장 최신 버전은 Java 11 이지만 Java 8 을 설치해서 사용할 계획이다. 그리고 윈도우 플랫폼을 기준으로 한다. 프로그래밍 언어가 뭔지도 알았겠다. 그 중 자바가 뭔지도 좀 알았겠다. 이제 본격적으로 설치를 해보자. 설치 파일 다운로드 링크 링크에 들어가서 다음 과정을 따라서 설치해보자.",
+    "description": "Windows에서 Java 8 JDK를 내려받아 설치하고, JAVA_HOME과 PATH 환경변수를 등록해 javac 명령을 쓰기까지의 과정을 화면 순서대로 정리했다. 32비트와 64비트 차이도 설명한다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1667,11 +1667,11 @@
     "lastModifiedDate": "2021-05-01",
     "status": "needs-review",
     "reviewedAt": null,
-    "readingTime": 15
+    "readingTime": 14
   },
   {
     "title": "나 혼자 떠드는 자바 : 자료의 형태(data type) : 상수, 변수, 배열, (구조체), 클래스 그리고 사용자 정의 자료형",
-    "description": "개념적인 부분을 중심으로 설명을 할 것이기 때문에 특정 언어에 종속된 소스 코드 작성을 지양하려 한다. 그렇지만 필요할 경우 pseudocode 라고 하는 의사어 코드를 사용하려 한다. 의사어 코드는 일반적으로 알고리즘을 어떻게 구현할지 등을 전달 할 목적으로 일반적인 언어를 사용해 모델링 하는데 쓰인다. 여기서는 알고리즘이 아닌 내용 전달을 위한 용도로 사용할 예정이다.",
+    "description": "자바 자료형을 상수, 변수, 배열, 구조체, 클래스 순서로 개념 중심으로 정리했다. 기본 자료형 크기, 정수에 int를 쓰는 이유, 클래스도 사용자 정의 자료형이라는 점을 설명한다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1689,7 +1689,7 @@
   },
   {
     "title": "나 혼자 떠드는 자바 : 자바 언어가 가지는 특징 '배워본 언어가 없는데 어떻게 비교를 해'",
-    "description": "지금까지 내가 접한 입문서의 전반부에 자주 등장하는 내용이다. 프로그래밍 언어가 무엇인지를 시작으로 언어의 발전 과정을 시간의 흐름으로 살펴본다. 그리고 뒤이어 다루는 주제는 그 언어의 특징이다. 처음 자바의 특징을 볼 때 당황했다. 비교 대상이 있어야 특징을 이해할 것 아닌가. '나중에 다시 보면 이해할 수 있습니다. 지금은 그냥 한 번 쭉 읽어보고 넘어가세요'라고 말하기 시작하는 부분이다.",
+    "description": "자바 언어의 특징인 JVM 기반의 높은 이식성(WORA), 느린 속도, 객체 지향, GC를 통한 메모리 자동 관리, 풍부한 오픈소스 라이브러리를 일상 비유로 풀어 설명했다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1704,7 +1704,7 @@
   },
   {
     "title": "나 혼자 떠드는 자바 : 프로그래밍 언어란",
-    "description": "이제 시작인데 졸음이 몰려오는 기분이다. 언어가 언제부터 왜 생겨났는지 그 배경을 시작으로 어떻게 발전해 왔는지에 대해 아는것은 중요하다. 하지만 이런 내용들에 대해선 지금은 다 각설하고 하나는 기억하고 넘어가자. 자바는 1995년 썬 마이크로 시스템즈에서 개발한 프로그래밍 언어이고, 창시자는 제임스 고슬링(James Arthur Gosling)이다.",
+    "description": "프로그래밍 언어를 컴퓨터와 소통하기 위해 약속된 규칙 체계로 설명하고, 사람의 언어와 달리 컴퓨터에게는 문법을 정확히 지켜 말해야 한다는 점을 자바 입문 관점에서 정리했다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1719,7 +1719,7 @@
   },
   {
     "title": "나 혼자 떠드는 자바 : 내용구성",
-    "description": "정리는 다음 순서로 진행할 예정이다. 비교라는건 둘 이상의 서로 다른 무엇인가의 공통점과 차이점을 통해 서로의 장단을 샅피는 일이다. 문제는 처음 배우는데 비교 대상이 없다. 그래서 일상의 예를 통해 자바의 특징에 대해 살펴 본다. 이 세상 모든것은 아무리 사소해 보이는 것도 존재의 이유가 있다. 이런 것들을 만들 수 밖에 없었던 선배 개발자 분들의 생각을 추측해 본다.",
+    "description": "나 혼자 떠드는 자바 시리즈의 목차로, 프로그래밍 언어란 무엇인지, 자바 언어의 특징, 자료형, 자바 설치와 개발 환경 구성까지 어떤 순서로 다룰지 정리했다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1734,7 +1734,7 @@
   },
   {
     "title": "나 혼자 떠드는 자바 : 시작하며",
-    "description": "'자바는 객체 지향 언어래' '객체가 뭔데 지향을 한대? 지양도 아니고' '객체가 뭔진 나도 몰라. 근데 엄청 좋은거래' '그래? 그럼 어디에 좋은건데?' '몰라. 자바는 객체 지향 언어인데 이게 좋다는것만 알아. 중요하다고 하니까 일단 외워. 나중에 알게 된대.' 프로그래밍 언어를 처음 배우던 때를 기억한다. '이런게 있습니다. 보고 넘어가세요.",
+    "description": "Java 객체 지향을 '일단 외우라'고만 배웠던 답답함에서 출발해, 문법보다 개념이 왜 생겼고 왜 필요한지를 이해하는 데 중점을 둔 '나 혼자 떠드는 자바' 연재의 시작 글이다.",
     "tags": [
       "Java",
       "학습노트",
@@ -1749,7 +1749,7 @@
   },
   {
     "title": "Whiteship Java live study S01",
-    "description": "현재 네이버 블로그에 정리되어 있어 링크로 대체 합니다. pc 환경에 최적화 되어 있습니다.",
+    "description": "Whiteship Java 라이브 스터디 시즌 1의 15주 커리큘럼을 JVM, 데이터 타입, 연산자, 클래스, 상속, 예외, 멀티쓰레드, 제네릭, 람다식 등 주차별 학습 항목과 정리 글 링크로 모았다.",
     "tags": [
       "Java",
       "live study",
@@ -1764,7 +1764,7 @@
   },
   {
     "title": "javascript로 information hiding 해보기. (private 변수, scope에 대한 이해)",
-    "description": "javascript에 대해 막연하게 단순하고 쉬운 스크립트 언어 라고만 생각했다. 굉장히 후회하고 또 반성하고 있다. 늦게나마 javascript에 대해 알아보는데, 새로운걸 알아갈수록 기쁘다기보다 부끄러운 마음이 더 크다. 일반적으로 프로그래밍 언어를 시작할 때 배우는 java나 c를 가지고 예를 들어보자. (java를 기준으로 알아볼 예정이다.) 소스상에 위와 같은 부분이 있다고 하자.",
+    "description": "JavaScript에서 if 블록은 scope를 만들지 않고 function이 scope를 만든다는 점을 Java와 비교하고, 클로저로 getter와 setter만 노출해 private 변수처럼 정보 은닉하는 방법을 정리했다.",
     "tags": [
       "JavaScript",
       "단편",
@@ -1782,7 +1782,7 @@
   },
   {
     "title": "자바에서 인터페이스를 사용하는 이유",
-    "description": "자바에서 인터페이스를 사용하는 이유가 무엇일까? 아마 인터페이스를 처음 접해보는 분들이 많이 궁금해 하는 부분일거라고 생각한다. 그냥 그 기능을 클래스로 구현해도 될 것 같은데 번거롭게(?) 인터페이스까지 사용해서 또 인터페이스에 대한 학습도 해야하기 때문이다. 이세상 모든건 그게 왜 필요한지를 알면 이해하는데 도움이 많이 된다.",
+    "description": "자바 인터페이스를 쓰는 이유를 연필과 볼펜 클래스의 메서드 이름이 제각각인 공동 작업 예시로 설명하고, 공통 인터페이스를 구현해 같은 방식으로 호출하도록 바꾸는 과정을 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1797,7 +1797,7 @@
   },
   {
     "title": "자바 배열 객체에 대해서",
-    "description": "Q > 예를 들어 int[] a = new int[5]가 있으면 이 배열도 객체라는데 무슨말인지 잘 모르겠습니다. int라는 이름의 클래스가 있다는 말과 동일하나요? Integer Wrapper 클래스와 연관성은 없는 것 인가요? 알기 쉽게 설명해주세요. A > 배열을 객체라고 부른다. 그 이유가 무엇일까? 보통 객체를 생성한다라고하면 클래스의 객체를 많이 떠올린다. 그렇다고 클래스부터 설명을 할 수는 없는 노릇이다.",
+    "description": "Java에서 int 배열이 왜 객체인지를 선언과 new로 실체화하는 과정, heap 메모리 주소 참조 관점에서 설명하고, Integer 같은 Wrapper 클래스와는 어떻게 다른지 Q&A 형식으로 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1812,7 +1812,7 @@
   },
   {
     "title": "자바에서 클래스와 객체의 관계",
-    "description": "나는 개인적으로 클래스와 객체를 설명할 때 붕어빵 틀을 비유하는걸 싫어한다. 마음에 들지 않는다. 내가 배울 당시 이렇게 배우지 않았을 뿐만 아니라 개인적으로 잘 와닿지도 않았다. 그래서 내가 배운 방법으로 클래스란 무엇이며 이 클래스와 객체와의 관계를 어떻게 이해하면 좋은지 정리해보려 한다. 클래스는 우리가 일상 생활속에서 볼 수 있는 모든 것들을 표현할 수 있는 도구라고 생각하는 것도 좋은 발상이다.",
+    "description": "자바 클래스와 객체의 관계를 스마트폰, 마우스 같은 일상 사물과 설계도 비유로 설명하고, 멤버 필드와 메서드로 Person 클래스를 만들어 객체를 생성하는 코드를 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1827,7 +1827,7 @@
   },
   {
     "title": "java 환경변수 설정 방법과 이유",
-    "description": "java 개발을 하려면 환경변수를 설정해야한다. 아니 더 정확히는 명령 프롬프트에서 컴파일하고 실행하려면 환경변수를 설정해야 한다. 명령 프롬프트는 cmd창으로 알고 있는 보통 검정색 있어보이는 화면을 말한다. 우선 환경변수라는것이 무엇인지부터 알아보자. 위 본문은 네이버 검색을 통해 가져온 내용이다.",
+    "description": "Windows에서 Java 환경변수 PATH, CLASSPATH, JAVA_HOME을 왜 설정하는지와 등록 방법을 정리했다. 시스템 속성 화면에서 등록하고 javac로 확인한 뒤 Hello World를 컴파일해 실행한다.",
     "tags": [
       "Java",
       "단편",
@@ -1843,7 +1843,7 @@
   },
   {
     "title": "String vs. StringBuilder vs. StringBuffer 예제를 통한 비교",
-    "description": "자바에는 문자열을 처리하기 위한 클래스로 String, StringBuilder, StringBuffer 클래스가 있다. 단순히 문자열을 처리하기 위함이라면 (예를 들면 System.out.println(\"문자열\"); 이런 경우) 어떤 것을 사용해도 별다른 차이는 없다고 알고 있다. 하지만 문자열을 더하는 (+) 연산을 할 경우에 퍼포먼스상의 차이가 발생한다. 백번 듣느니 한 번 보는게 낫다.",
+    "description": "Java String, StringBuilder, StringBuffer로 문자열을 1만 번 더하는 실행 시간을 비교하고, String의 불변성 때문에 생기는 성능 차이와 StringBuffer의 동기화 차이를 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1858,7 +1858,7 @@
   },
   {
     "title": "javaFX MDI(Multi Document Interface) 답답해서 정리",
-    "description": "답답하면 니들이 뛰라는 말이 있다. 그래서 정리해봤다. javaFX를 사용해서 MDI (Multi Document Interface)를 개발해야할 경우가 간혹 생길수 있다. 검색을 해보았지만 마땅히 내가 원하는 스타일이 없었다. 그렇다고 이제 와서 javaFX를 (나는 처음부터 한 번 쭉 훑어 봤지만) 처음부터 볼 수는 없는 노릇이다.",
+    "description": "JavaFX로 메인 창 안에 여러 화면을 띄우는 MDI를 만들기 위해 javaFXMDI 예제를 jar로 묶고, fxml 화면 분리와 메뉴 생성, 클릭 이벤트 바인딩 방법을 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1873,7 +1873,7 @@
   },
   {
     "title": "자바 @어노테이션 정리 2편",
-    "description": "예를 들어 다음과 같은 코드가 있다. TestAnno 클래스에는 field1, field2 필드가 선언되어 있고 각 필드는 Annotation이 적용되어 있다. 이럴 경우 위 표에 작성한 Field[]를 사용하여 각 필드를 배열로 저장하고, 이 배열에 저장된 내용을 가지고 각 필드에 어떤 어노테이션이 적용되었는지 알아올 수 있다. (생성자와 메서드도 동일하다.) 아래 예제를 통해 어떻게 사용하는지 직접적으로 알아보자.",
+    "description": "Java 리플렉션으로 런타임에 어노테이션 정보를 읽는 방법을 정리했다. isAnnotationPresent와 getAnnotation으로 커스텀 어노테이션 값을 꺼내 메서드를 실행하는 예제를 다룬다.",
     "tags": [
       "Java",
       "단편",
@@ -1888,7 +1888,7 @@
   },
   {
     "title": "자바 @어노테이션 정리 1편",
-    "description": "프로그램을 작성하다보면 종종 @이라는 문자를 본다. 어노테이션이라고 부르는건 알겠는데 정확한 사용 방법과 어떻게 수정하는지 등에 대해서 명확하게 알지 못했다. 우리가 코드를 작성하고 나서 이 코드가 제대로 잘 작성이 되었는지, 잘못 작성이 되었는지 컴파일러에게 검사할 수 있도록 정보를 제공해주는 역할이다. 대표적인 예로 @Override 이다.",
+    "description": "Java 어노테이션의 용도와 @interface로 직접 만드는 방법을 정리했다. 엘리먼트와 기본 엘리먼트 value, @Target 적용 대상, @Retention의 SOURCE·CLASS·RUNTIME 유지 정책을 설명한다.",
     "tags": [
       "Java",
       "단편",
@@ -1903,7 +1903,7 @@
   },
   {
     "title": "자바 함수형 인터페이스와 람다식 2편 : 생략 문법과 제약사항",
-    "description": "1편에서 람다식에서 생략 가능한 부분이 있고, 함수형 인터페이스를 사용하기 때문에 발생하는 람다식 안에서 사용하는 변수의 제한적인 부분이 있다고 했었다. 추상메서드의 매개변수에 따라 생략 가능한 부분이 조금 다르기 때문에, parameter가 있는 경우와 없는 경우로 나누어 살펴보자. 즉, final 변수로 취급된다. 위의 경우 람다식 안에서 아직 tmp 변수를 사용하고 있지 않기 때문에 아무런 문제가 없다.",
+    "description": "Java 람다식에서 매개변수 유무에 따라 괄호와 중괄호를 생략하는 문법과, 람다식 안에서 쓰는 지역 변수가 final 또는 effectively final이어야 하는 제약을 예제 코드로 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1921,7 +1921,7 @@
   },
   {
     "title": "자바 함수형 인터페이스와 람다식 1편 : 기본 개념과 사용법",
-    "description": "Java 8 에서 새롭게 선보인 람다식. 이 람다식에 대해 알아보기 전에 꼭 알아야 할 개념이 있다. 이 함수형 인터페이스란 이름에 겁먹지 말자. 함수형 인터페이스란 추상메소드를 단 하나만 가지는 인터페이스 를 지칭하는 말이다. 당장 생각나는 인터페이스중에는 Runnable 인터페이스가 있지만, 임의로 함수형 인터페이스를 하나 생성해서 예시로 들어보겠다. 위에서 처럼 FInterface라는 이름의 인터페이스를 하나 생성했다.",
+    "description": "Java 8 람다식을 쓰기 위해 먼저 알아야 할 함수형 인터페이스와 @FunctionalInterface의 의미를 설명하고, 익명 클래스와 람다식 코드를 비교하며 매개변수를 받는 기본 사용법을 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1939,7 +1939,7 @@
   },
   {
     "title": "전반적인 WEB Application 에 대해서",
-    "description": "전반적인 WEB Application에 대해서 정리해 보았다. 정리 순서는 다음과 같다. 하나씩 자세히 살펴보자. 웹 애플리케이션이란 \"복수의 사용자가 인터넷을 통해 데이터베이스에 접근하고 안전하게 정보를 읽고 쓸 수 있게 만들어진, 웹 브라우저와 RDB(관계형 데이터베이스)를 이용한 애플리케이션\"을 말한다. 정적인 컨텐츠는 클라이언트 머신의 웹 브라우저가 네트워크에 있는 웹 서버로부터 요청한 HTML을 읽어와 표시한다.",
+    "description": "웹 애플리케이션의 정의와 티어, 레이어 구조, 프레젠테이션, 비즈니스 로직, 데이터 액세스 계층의 역할을 정리하고, 객체 생명주기와 부품화, 기술 은폐 문제를 스프링이 어떻게 푸는지 짚었다.",
     "tags": [
       "기록",
       "Archive",
@@ -1954,7 +1954,7 @@
   },
   {
     "title": "java 접근 제한자와 가시성, private을 통한 encapsulation과 information hiding",
-    "description": "다른 언어에도 있지만, 이 '접근 제한자'라는 개념이 있다. 단어에서도 느껴지듯 내가 아닌 다른 곳(혹은 것)에서의 접근을 제한하겠다는 의미이다. 모두에게 공개하지 않겠다는 말. 보통 네가지 종류의 접근 제한자가 있다. > 접근을 제한하지 않는다. 모두의 접근을 허용한다. 그래서 보통 클래스의 멤버 메소드는 이 public을 사용해서 작성한다. 왜? 생각해보면 단순하다.",
+    "description": "Java 접근 제한자 public, protected, package, private의 범위와 필드를 private으로 두고 getter·setter로 접근시키는 이유를 원의 넓이 예제로 정리하고, 정보 은닉과 캡슐화를 구분했다.",
     "tags": [
       "Java",
       "단편",
@@ -1970,7 +1970,7 @@
   },
   {
     "title": "정적 import (static import)의 사용, import에 static 예약어를 붙이면 어떻게 될까?",
-    "description": "java에서 import 예약어를 사용하는 경우가 있다. 어떤 경우냐면 java에서 선언하지 않아도 기본적으로 import해주는 java.lang 패키지가 아닌 다른 클래스 파일이나 라이브러리를 해당 소스에서 사용하고자 할 경우, 외부 클래스 파일이나 라이브러리를 추가하기 위한 경우이다.",
+    "description": "Java의 import가 필요한 이유와 전체 경로로 클래스를 쓰는 방법을 비교하고, import static을 쓰면 정적 멤버를 클래스 이름 없이 바로 호출할 수 있다는 점을 예제로 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -1986,7 +1986,7 @@
   },
   {
     "title": "자바 상수, 변수, 배열, (구조체), 클래스 개념 총정리",
-    "description": "자바 애플리케이션이 동작하는 관점에서의 원자단위라고 생각되는 클래스라는 것의 개념에 대해 정리해보려 한다. 지난번 제네릭에 대해 알아볼 때 살짝 언급되었던 적이 있었다. (java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭) 사실 클래스라는 것에 도달하기 위해서 거쳐가야할 개념들이 좀 있다.",
+    "description": "자바 상수, 변수, 배열, 구조체, 클래스로 이어지는 개념 흐름을 성적 총점 계산 예제로 따라가며, 클래스가 자료와 메서드를 묶은 추상화라는 점과 객체 생성 과정을 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -2003,7 +2003,7 @@
   },
   {
     "title": "java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 2편, 어떻게 제네릭",
-    "description": "이전에 왜 제네릭이 나왔는지 알았다면, (java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭) 이번에는 기본적인 제네릭 사용 방법에 대해 정리를 해보려 한다. 우선 <> 이 다이아몬드 괄호라고 불리는걸 보면 일단 '제네릭이다' 라고 생각하면 된다. 제네릭은 크게 ​ 클래스​ 에 적용할 수 있고 또 ​ 메서드​ 에도 적용해서 사용할 수 있다.",
+    "description": "Java 제네릭을 클래스와 메서드에 적용하는 기본 문법, 타입을 외부에서 정해 코드를 재사용하는 방법, extends로 타입을 제한해 잘못된 입력을 컴파일 시점에 막는 이유를 예제로 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -2018,7 +2018,7 @@
   },
   {
     "title": "java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭",
-    "description": "오늘의 주인공 java의 Generic 우선 가볍게? 정의 부터 찾아보자. 뭐든지 그 정의가 가장 중요하다. 출처] 네이버 어학사전 그렇다면 프로그래밍에서의 Generic은 어떻게 정의되어 있는지 찾아보았는데 '제네릭은 뭐다.\" 이렇게 깔끔하게 딱 떨어지는 정의는 마땅히 찾지 못하고, 가장 잘 설명한 문장을 찾았다. 제네릭은 '클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법' 이다.",
+    "description": "Java 제네릭이 왜 필요한지 정수만 받던 클래스가 실수 입력에서 컴파일 오류를 내는 예제로 보여주고, 변수·배열·클래스에 이어 타입만 다른 중복 코드를 줄이려고 제네릭이 나온 배경을 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -2029,11 +2029,11 @@
     "lastModifiedDate": "2017-05-25",
     "status": "needs-review",
     "reviewedAt": null,
-    "readingTime": 5
+    "readingTime": 6
   },
   {
     "title": "자바 가상 머신(JVM)의 구조 요약",
-    "description": "자바 가상 머신은 물리적인 실제의 기계 장치가 아니라 추상적인 장치 이며, 클래스 파일을 실행할 수 있는 기계어 파일로 번역해준다 . 자바 가상 머신은 클래스 영역, 자바 스택 영역, 힙 영역, 네이티브 메소드 스택 영역으로 구성되어 있다. : 실행에 필요한 클래스들을 로드하여 저장하는 공간이다. 로드된 클래스의 멤버 메소드들은 메소드 영역에 저장되고, 상수들은 상수 영역에 저장된다.",
+    "description": "자바 가상 머신(JVM)을 이루는 클래스 영역, 자바 스택, 힙, 네이티브 메소드 스택 영역의 역할과 플랫폼별 JVM으로 Write Once Run Anywhere가 가능한 이유를 그림으로 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -2048,7 +2048,7 @@
   },
   {
     "title": "java 환경변수 설정 방법과 이유 총정리",
-    "description": "java 개발을 하려면 환경변수를 설정해야한다. 아니 더 정확히는 명령 프롬프트에서 컴파일하고 실행하려면 환경변수를 설정해야 한다. 명령 프롬프트는 cmd창으로 알고 있는 보통 검정색 있어보이는 화면을 말한다. 우선 환경변수라는것이 무엇인지부터 알아보자. 위 본문은 네이버 검색을 통해 가져온 내용이다.",
+    "description": "Windows 7에서 Java 개발을 위해 JAVA_HOME과 PATH 환경변수를 설정하는 방법과 이유를 정리했다. PATH와 CLASSPATH의 차이, javac로 확인하는 법, Hello World 실행까지 다룬다.",
     "tags": [
       "Java",
       "단편",
@@ -2064,7 +2064,7 @@
   },
   {
     "title": "java (스태틱) static 이란 도대체 무엇인가",
-    "description": "static... 스태틱.. 자바를 맨 처음 시작하면 보게되는 단어 중 하나인 static이라고 쓰고 스태틱 이라고 읽는 바로 저 스태틱 기계처럼 외워서 쓰게되는 그 문장 public static void main(String[] ar) { ...",
+    "description": "Java static 변수가 같은 클래스의 모든 객체가 공유하는 하나의 값이라는 점을 은행 이율 예제로 설명하고, 객체 없이 접근하는 방식과 static에 this가 없는 이유를 정리했다.",
     "tags": [
       "Java",
       "단편",
@@ -2079,7 +2079,7 @@
   },
   {
     "title": "객체지향 개념, 객체지향에서 사용되는 용어 정리",
-    "description": "출처 ] 알기 쉬운 디자인 패턴 알란 섈로웨이, 제임스 트로트 공저 김유지, 정지훈, 이형로 공역 책의 내용에서 공감되고 이해되며 시야가 조금 더 넓어진 기분이 들었던 것은 사실이다. 그래서 좋은 기분이 들었지만, 사실 개인적으로 이해할 수 없는 내용들이 있었다. 번역의 한계였을까? 아니면 일부러 어려워 보이게 쓰고 싶은 이유에서 였을까?",
+    "description": "객체지향 개념과 추상 클래스, 캡슐화, 상속, 다형성 같은 용어를 알기 쉬운 디자인 패턴 책 기준으로 표로 정리하고, 캡슐화와 정보 은닉을 구분해야 하는 이유를 덧붙였다.",
     "tags": [
       "Java",
       "단편",
@@ -2094,7 +2094,7 @@
   },
   {
     "title": "자바에서 뿐만 아니라 API는 백과사전과도 같은 존재다. 볼줄은 알아야지.",
-    "description": "많은 사람들을 만나본게 아니라 확실히는 모르겠지만, 처음 언어를 시작하는 사람들의 대부분이 API에 대해 생각하지 않는 것 같다. 이번엔 JAVA API에 대해 알아보려 한다. 개인적으로 무언가 새로운 것을 알아갈 때 그 사전적 정의 부터 찾아본다. 첫 번째 줄에 주목해 보자 \"응용 프로그램에서 사용할 수 있도록, 운영체제나 프로그래밍 언어가 제공하는 기능\" 즉, 기본적으로 제공해주고 있다 라는 말이다.",
+    "description": "Java API 문서를 백과사전처럼 읽는 법을 Java SE 7 API 문서의 패키지 목록, java.lang 패키지, System 클래스의 필드와 메서드 설명을 따라가며 정리했다.",
     "tags": [
       "Java",
       "단편",

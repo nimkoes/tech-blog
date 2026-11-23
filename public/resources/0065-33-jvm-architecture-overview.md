@@ -1,9 +1,7 @@
 ---
 title: 자바 가상 머신(JVM)의 구조 요약
 description: >-
-  자바 가상 머신은 물리적인 실제의 기계 장치가 아니라 추상적인 장치 이며, 클래스 파일을 실행할 수 있는 기계어 파일로 번역해준다 . 자바
-  가상 머신은 클래스 영역, 자바 스택 영역, 힙 영역, 네이티브 메소드 스택 영역으로 구성되어 있다. : 실행에 필요한 클래스들을 로드하여
-  저장하는 공간이다. 로드된 클래스의 멤버 메소드들은 메소드 영역에 저장되고, 상수들은 상수 영역에 저장된다.
+  자바 가상 머신(JVM)을 이루는 클래스 영역, 자바 스택, 힙, 네이티브 메소드 스택 영역의 역할과 플랫폼별 JVM으로 Write Once Run Anywhere가 가능한 이유를 그림으로 정리했다.
 publishedAt: '2017-05-24'
 updatedAt: '2017-05-24'
 tags:
@@ -16,7 +14,7 @@ status: needs-review
 
 자바 가상 머신은 물리적인 실제의 기계 장치가 아니라 **추상적인 장치**이며, 클래스 파일을 실행할 수 있는 **기계어 파일로 번역해준다**.
 
-![0065-33-jvm-architecture-overview-img-01.png](/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-01.png)
+![JVM이 메소드, 상수 영역을 담은 클래스 영역과 자바 스택, 힙, 네이티브 메소드 스택 영역으로 나뉜 구조도](/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-01.png)
 
 자바 가상 머신은 클래스 영역, 자바 스택 영역, 힙 영역, 네이티브 메소드 스택 영역으로 구성되어 있다.
 
@@ -52,7 +50,7 @@ status: needs-review
 
 이렇게 생기진 않았겠지만, 굳이 설명을 위해 다음과 같은 이미지를 그림판으로 준비했다.
 
-![0065-33-jvm-architecture-overview-img-02.png](/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-02.png)
+![모양이 서로 다른 플랫폼 1, 2, 3을 그려 플랫폼마다 환경이 다름을 나타낸 그림](/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-02.png)
 
 세상엔 다양한 종류의 플랫폼이 있다.
 
@@ -74,7 +72,7 @@ status: needs-review
 
 다음 그림판으로 작성한 그림을 보면 이해가 될 것이다.
 
-![0065-33-jvm-architecture-overview-img-03.png](/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-03.png)
+![플랫폼마다 모양에 맞는 JVM을 얹어 같은 .class 파일을 그대로 실행하는 모습을 나타낸 그림](/tech-blog/resources/images/migration/0065-33-jvm-architecture-overview/img-03.png)
 
 바로 이런식이다.
 

@@ -1,9 +1,7 @@
 ---
 title: '[chap.05] Service (ClusterIP, NodePort, LoadBalancer)'
 description: >-
-  Service 는 기본적으로 아래 그림과 같이 자신의 ClusterIp 를 가지고 있다. 그리고 이 Service 를 Pod 에 연결시켜두면
-  Service 의 IP 를 통해 Pod 에 접근할 수 있게 된다. 앞서 Pod 에도 동일하게 Cluster 내에서 접근할 수 있는 IP 가
-  존재함에도 불구하고 굳이 Service 를 붙여서 접근하는지 의문이 생긴다.
+  Kubernetes Service의 세 가지 타입 ClusterIP, NodePort, LoadBalancer가 각각 어디서 접근을 허용하는지 그림과 YAML 예시로 정리하고 타입별 쓰임새를 설명했다.
 publishedAt: '2025-03-03'
 updatedAt: '2025-03-03'
 tags:

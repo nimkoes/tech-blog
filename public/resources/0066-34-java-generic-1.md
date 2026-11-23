@@ -1,9 +1,7 @@
 ---
 title: 'java 제네릭 (Generic), 내가 알아보기 쉽게 정리 - 1편, 왜 제네릭'
 description: >-
-  오늘의 주인공 java의 Generic 우선 가볍게? 정의 부터 찾아보자. 뭐든지 그 정의가 가장 중요하다. 출처] 네이버 어학사전 그렇다면
-  프로그래밍에서의 Generic은 어떻게 정의되어 있는지 찾아보았는데 '제네릭은 뭐다." 이렇게 깔끔하게 딱 떨어지는 정의는 마땅히 찾지
-  못하고, 가장 잘 설명한 문장을 찾았다. 제네릭은 '클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법' 이다.
+  Java 제네릭이 왜 필요한지 정수만 받던 클래스가 실수 입력에서 컴파일 오류를 내는 예제로 보여주고, 변수·배열·클래스에 이어 타입만 다른 중복 코드를 줄이려고 제네릭이 나온 배경을 정리했다.
 publishedAt: '2017-05-25'
 updatedAt: '2017-05-25'
 tags:
@@ -16,7 +14,7 @@ status: needs-review
 
 우선 가볍게? 정의 부터 찾아보자. 뭐든지 그 정의가 가장 중요하다.
 
-![0066-34-java-generic-1-img-01.png](/tech-blog/resources/images/migration/0066-34-java-generic-1/img-01.png)
+![영어사전에서 generic의 뜻을 포괄적인, 총칭의로 풀이한 검색 결과](/tech-blog/resources/images/migration/0066-34-java-generic-1/img-01.png)
 
 출처] 네이버 어학사전
 
@@ -88,7 +86,7 @@ class calc {
 }
 ```
 
-![0066-34-java-generic-1-img-02.png](/tech-blog/resources/images/migration/0066-34-java-generic-1/img-02.png)
+![실수를 넘기자 Eclipse 콘솔에 double 두 개를 받는 calc 생성자가 없다는 컴파일 오류가 출력된 화면](/tech-blog/resources/images/migration/0066-34-java-generic-1/img-02.png)
 
 좀해조씨 얘기를 들어보니
 

@@ -1,9 +1,7 @@
 ---
 title: '정적 import (static import)의 사용, import에 static 예약어를 붙이면 어떻게 될까?'
 description: >-
-  java에서 import 예약어를 사용하는 경우가 있다. 어떤 경우냐면 java에서 선언하지 않아도 기본적으로 import해주는
-  java.lang 패키지가 아닌 다른 클래스 파일이나 라이브러리를 해당 소스에서 사용하고자 할 경우, 외부 클래스 파일이나 라이브러리를
-  추가하기 위한 경우이다.
+  Java의 import가 필요한 이유와 전체 경로로 클래스를 쓰는 방법을 비교하고, import static을 쓰면 정적 멤버를 클래스 이름 없이 바로 호출할 수 있다는 점을 예제로 정리했다.
 publishedAt: '2017-05-25'
 updatedAt: '2017-05-25'
 tags:
@@ -40,7 +38,7 @@ public class Example {
 
 [소스1 실행결과]
 
-![0069-38-import-static-import-import-static-img-01.png](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-01.png)
+![Scanner를 import한 소스1 실행 결과로 입력한 17이 그대로 출력된 콘솔](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-01.png)
 
 만약 Scanner 클래스를 import 하지 않고 [소스2]처럼 사용하려 한다면
 
@@ -63,7 +61,7 @@ public class Example {
 
 [소스2 실행결과]
 
-![0069-38-import-static-import-import-static-img-02.png](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-02.png)
+![Scanner를 import하지 않아 cannot find symbol 컴파일 에러가 난 소스2 실행 결과](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-02.png)
 
 만약 import를 쓰기 싫다면 [소스3] 과 같이 전체 경로를 명시해줘서 사용 할수는 있지만
 
@@ -86,7 +84,7 @@ public class Example {
 
 [소스3 실행결과]
 
-![0069-38-import-static-import-import-static-img-03.png](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-03.png)
+![java.util.Scanner 전체 경로를 쓴 소스3이 입력한 27을 정상 출력한 콘솔](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-03.png)
 
 그런 의미에서 사실 System.out.println() 도 [소스4]와 같이 작성해야 하는 것이 맞다.
 
@@ -107,7 +105,7 @@ public class Example {
 
 [소스4 실행결과]
 
-![0069-38-import-static-import-import-static-img-04.png](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-04.png)
+![java.lang.System까지 전체 경로로 쓴 소스4가 입력한 3737을 정상 출력한 콘솔](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-04.png)
 
 import 예약어에 대해 간단히 살펴보며 다루려던 주제와 조금 다른 길로 갔지만,
 
@@ -135,7 +133,7 @@ public class Example {
 
 [소스5 실행결과]
 
-![0069-38-import-static-import-import-static-img-05.png](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-05.png)
+![import static으로 System을 생략하고 out.println만으로 Hello, xxxelppa World!를 출력한 콘솔](/tech-blog/resources/images/migration/0069-38-import-static-import-import-static/img-05.png)
 
 1라인에서 java.lang 패키지의 System 클래스 안에 정의된 ***정적 멤버에 대해 클래스명 없이 접근***​할 수 있도록 선언한 부분이다.
 

@@ -1,9 +1,7 @@
 ---
 title: '6주차 : 상속'
 description: >-
-  상속은 상속을 해주는 클래스와 상속을 받는 클래스 두 클래스 사이에서 일어날 수 있는 일이다. 용어에서도 알 수 있듯, 상속을 해주는
-  클래스가 가진 멤버 필드(클래스 레벨의 변수)와 멤버 메소드를 상속을 받는 클래스에서 마치 자신의 것처럼 사용할 수 있는 것을 뜻한다. 그럼
-  왜 상속이라는 개념을 도입 했을까?
+  Java 상속의 특징과 다중 상속이 안 되는 이유, super 키워드, 메소드 오버라이딩, 다이나믹 메소드 디스패치, 추상 클래스, final 키워드, Object 클래스를 예제로 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -73,7 +71,7 @@ status: needs-review
 
 그 이유는 다음 그림을 보자.
 
-![0099-199-java-live-study-week-6-inheritance-img-01.png](/tech-blog/resources/images/migration/0099-199-java-live-study-week-6-inheritance/img-01.png)
+![부모 클래스 두 개가 서로 다른 걸어간다 메소드를 가져 자식 클래스가 어느 쪽을 호출할지 모호해지는 다중 상속 그림](/tech-blog/resources/images/migration/0099-199-java-live-study-week-6-inheritance/img-01.png)
 
 우선 위와 같은 모양으로 코드 작성을 시도하면 "Class cannot extend multiple classes" 컴파일 오류가 발생한다.
 

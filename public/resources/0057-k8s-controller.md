@@ -1,9 +1,7 @@
 ---
 title: Kubernetes Controller 개념과 설정 방법
 description: >-
-  위 설정은 tier 레이블이 frontend 인 Pod만 관리한다. ReplicaSet 자체에는 롤링 업데이트 전략이 없다. 직접 Pod
-  템플릿을 변경하려면 새로운 ReplicaSet 정의를 생성하고, 새 ReplicaSet이 Ready 상태가 된 후 기존 ReplicaSet을
-  삭제해야 한다.
+  Kubernetes Controller인 ReplicaSet, Deployment, DaemonSet, StatefulSet, Job, CronJob, HPA의 등장 배경과 YAML 설정 방법을 예시와 함께 정리했다.
 publishedAt: '2025-07-10'
 updatedAt: '2025-07-10'
 tags:

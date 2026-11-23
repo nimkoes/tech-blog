@@ -1,9 +1,7 @@
 ---
 title: '10주차 : 멀티쓰레드 프로그래밍'
 description: >-
-  멀티쓰레드에 대해 알아보기 전에 미리 알아야 할 것들이 조금 있다. OS(운영체제)에서 실행중인 하나의 프로그램을 프로세스라고 한다. 작업
-  관리자를 열어보면, 현재 운영체제에서 실행중인 프로세스들을 볼 수 있다. 이것들은 OS 로부터 메모리를 할당 받아 동작한다. 그리고 멀티
-  태스킹이라는 것도 있다. 딘어에서 느껴지는 것 그대로 동시에 여러가지 일을 처리하는 것을 말한다.
+  Java 멀티쓰레드 프로그래밍을 프로세스와 쓰레드 개념부터 Thread와 Runnable 구현, 쓰레드 상태와 우선순위, Main 쓰레드, synchronized 동기화, 데드락 예제까지 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -32,7 +30,7 @@ status: needs-review
 
 OS(운영체제)에서 실행중인 하나의 프로그램을 프로세스라고 한다. 작업 관리자를 열어보면, 현재 운영체제에서 실행중인 프로세스들을 볼 수 있다.
 
-![0103-203-java-live-study-week-10-multithread-programming-img-01.jpg](/tech-blog/resources/images/migration/0103-203-java-live-study-week-10-multithread-programming/img-01.jpg)
+![Windows 작업 관리자 프로세스 탭에 실행 중인 앱과 백그라운드 프로세스가 나열된 화면](/tech-blog/resources/images/migration/0103-203-java-live-study-week-10-multithread-programming/img-01.jpg)
 
 이것들은 OS 로부터 메모리를 할당 받아 동작한다.
 
@@ -985,7 +983,7 @@ public class Exam_006 {
 }
 ```
 
-![0103-203-java-live-study-week-10-multithread-programming-img-02.png](/tech-blog/resources/images/migration/0103-203-java-live-study-week-10-multithread-programming/img-02.png)
+![두 쓰레드가 서로 상대가 잡은 락을 기다리며 멈춘 데드락 예제의 IntelliJ 실행 결과](/tech-blog/resources/images/migration/0103-203-java-live-study-week-10-multithread-programming/img-02.png)
 
 코드 내용은 단순하다.
 

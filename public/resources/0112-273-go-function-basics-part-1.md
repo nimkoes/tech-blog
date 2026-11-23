@@ -1,9 +1,7 @@
 ---
 title: Go 의 함수 part 1 (기본 사용법)
 description: >-
-  Go 에서 함수는 아주 쉽다. 'func' 키워드를 사용해서 선언한다. 두 수를 전달 받아 곱한 결과를 반환하는 'multiply' 를
-  작성해보자. 그런데 위와 같이 작성하고 실행하면 많은 오류를 만나게 된다. 그 이유는 Go 도 Java 와 마찬가지로 함수를 선언할 때
-  전달받을 타입과 반환 타입을 정해줘야 한다. 그래서 다음과 같이 고쳐서 작성해야 한다.
+  Go 함수를 func 키워드로 선언할 때 매개변수와 반환 타입을 쓰는 위치를 정리했다. 같은 타입 매개변수 축약, 여러 값 반환과 _로 값 무시하기, ...을 쓴 가변 인자까지 예제로 설명한다.
 publishedAt: '2021-05-16'
 updatedAt: '2021-05-16'
 tags:
@@ -33,7 +31,7 @@ func main() {
 
 그런데 위와 같이 작성하고 실행하면 많은 오류를 만나게 된다.
 
-![0112-273-go-function-basics-part-1-img-01.jpg](/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-01.jpg)
+![매개변수 타입 없이 함수를 선언해 go run에서 undefined: a 등 컴파일 오류가 출력된 터미널](/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-01.jpg)
 
 그 이유는 Go 도 Java 와 마찬가지로 함수를 선언할 때 전달받을 타입과 반환 타입을 정해줘야 한다.
 
@@ -111,7 +109,7 @@ func main() {
 
 위 코드를 실행한 결과는 다음과 같다.
 
-![0112-273-go-function-basics-part-1-img-02.jpg](/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-02.jpg)
+![go run 실행 결과로 multiply의 4와 lenAndUpper의 7 NIMKOES가 출력된 터미널](/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-02.jpg)
 
 함수를 실행하는 코드를 자세히 보면 어디서 본 것 같은데, javascript 의 구조 분해 할당 같은 느낌이다.
 
@@ -175,4 +173,4 @@ func main() {
 }
 ```
 
-![0112-273-go-function-basics-part-1-img-03.jpg](/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-03.jpg)
+![go run 실행 결과로 4, 7 NIMKOES, 8과 repeatMe의 문자열 슬라이스가 출력된 터미널](/tech-blog/resources/images/migration/0112-273-go-function-basics-part-1/img-03.jpg)

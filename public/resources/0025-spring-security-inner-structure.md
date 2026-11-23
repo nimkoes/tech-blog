@@ -1,6 +1,7 @@
 ---
 title: '[chap.06] GenericFilterBean 과 OncePerRequestFilter'
-description: '같은 요청에서 여러 번 필터를 통과하더라도, 한 번만 실행됨. SecurityConfig.java SampleController.java'
+description: >-
+  Spring Security의 GenericFilterBean과 OncePerRequestFilter 차이를 커스텀 필터로 확인하고, Forward와 달리 302 Redirect에서는 필터가 다시 실행되는 이유를 정리했다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:
@@ -162,7 +163,7 @@ public class SampleController {
 - Forward 는 서버 내부에서 다른 URL로 요청을 넘기는 방식이다.
 - 클라이언트의 요청은 여전히 한 번이므로, `OncePerRequestFilter` 도 한 번만 실행된다.
 
-![0025-01](/tech-blog/resources/images/spring-security-inner-structure/0025-01.png)
+![Forward 요청에서 CustomOnceFilter는 한 번만, CustomGenericFilter는 두 번 실행되는 시퀀스 다이어그램](/tech-blog/resources/images/spring-security-inner-structure/0025-01.png)
 
 ```http request
 ### forward
@@ -188,7 +189,7 @@ CustomGenericFilter
 - Redirect(302 응답)는 서버가 클라이언트에게 새로운 요청을 보내도록 지시하는 방식이다.
 - 클라이언트가 다시 요청을 보내므로, `OncePerRequestFilter` 가 다시 실행된다.
 
-![0025-02](/tech-blog/resources/images/spring-security-inner-structure/0025-02.png)
+![302 Redirect 뒤 새 요청에서 CustomGenericFilter와 CustomOnceFilter가 모두 다시 실행되는 시퀀스 다이어그램](/tech-blog/resources/images/spring-security-inner-structure/0025-02.png)
 
 ```http request
 ### forward

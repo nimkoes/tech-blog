@@ -1,9 +1,7 @@
 ---
 title: 'Go 의 for, range, ...args'
 description: >-
-  Go 에서 반복문은 오직 for 를 사용해서만 가능하다. 어떻게 보면 다양한 형태의 for 문을 사용 했었는데 하나로 통일 된게 더 좋을수도
-  있겠다. 개수가 정해지지 않은 여러개의 정수를 전달받아 합을 반환하는 함수를 만들어 보자. 'range' 키워드는 오직 반복문에서 사용하기
-  위한 것으로, 배열 형태를 사용할 때 같이 사용 한다.
+  Go의 유일한 반복문 for와 range 키워드로 index와 값을 꺼내는 방법, 밑줄로 index를 무시하는 방법, ...args 가변 인자 함수를 실행 결과와 함께 정리했다.
 publishedAt: '2021-05-16'
 updatedAt: '2021-05-16'
 tags:
@@ -57,7 +55,7 @@ func main() {
 }
 ```
 
-![0114-275-go-for-range-args-img-01.jpg](/tech-blog/resources/images/migration/0114-275-go-for-range-args/img-01.jpg)
+![go run 실행 결과로 range의 index만 출력한 경우와 index와 값을 함께 출력한 경우를 비교한 터미널](/tech-blog/resources/images/migration/0114-275-go-for-range-args/img-01.jpg)
 
 'range' 키워드는 오직 반복문에서 사용하기 위한 것으로, 배열 형태를 사용할 때 같이 사용 한다.
 

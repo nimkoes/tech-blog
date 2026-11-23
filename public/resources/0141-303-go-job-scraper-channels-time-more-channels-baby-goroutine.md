@@ -1,10 +1,7 @@
 ---
 title: 'Go ''JOB SCRAPER'' : Channels Time & More Channels Baby (goroutine)'
 description: >-
-  원하는 결과가 나왔지만 결과가 나오기까지 시간이 생각보다 오래 걸린다. 그래서 이것을 개선하기 위해 goroutine 을 적용할 계획을
-  세워보려 한다. 지금까지 작성한 코드의 실행 흐름은 다음과 같다. 생각해보면 각각의 모든 작업들은 서로 모두 독립된 작업이다. 그래서 만약
-  getPage 와 extractJob function 이 동시에 처리할 수 있다면 단순한 계산으로 250배 빨라질 수 있는 여지가 있는
-  셈이다.
+  Go Job Scraper에 goroutine과 channel을 적용해 getPage, extractJob, 파일 쓰기를 동시에 처리하도록 바꾸고, 적용 전후 실행 흐름과 속도 차이를 비교했다.
 publishedAt: '2021-05-30'
 updatedAt: '2021-05-30'
 tags:
@@ -21,7 +18,7 @@ status: needs-review
 
 지금까지 작성한 코드의 실행 흐름은 다음과 같다.
 
-![0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine-img-01.jpg](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-01.jpg)
+![main에서 getPages, getPage, extractJob이 페이지와 카드 순서대로 하나씩 실행되는 기존 흐름도](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-01.jpg)
 
 생각해보면 각각의 모든 작업들은 서로 모두 독립된 작업이다.
 
@@ -29,7 +26,7 @@ status: needs-review
 
 즉, 위와 같은 실행 흐름을 다음과 같이 바꿔보려는 것이다.
 
-![0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine-img-02.jpg](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-02.jpg)
+![goroutine으로 다섯 페이지의 getPage와 각 extractJob을 동시에 실행하도록 바꾼 흐름도](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-02.jpg)
 
 대충 봐도 성능이 대폭 향상될 수 있을것 같아 보인다.
 
@@ -380,11 +377,11 @@ func checkCode(res *http.Response) {
 }
 ```
 
-![0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine-img-03.gif](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-03.gif)
+![goroutine 적용 전 start=0부터 200까지 페이지를 순서대로 요청하는 실행 과정](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-03.gif)
 
 goroutine 을 적용하기 전에는 page 순서대로 실행하는 것을 볼 수 있다.
 
-![0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine-img-04.gif](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-04.gif)
+![goroutine 적용 후 페이지 요청이 순서 없이 빠르게 끝나 250건을 추출하는 실행 과정](/tech-blog/resources/images/migration/0141-303-go-job-scraper-channels-time-more-channels-baby-goroutine/img-04.gif)
 
 goroutine 을 사용한 실행 결과이다.
 

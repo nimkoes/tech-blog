@@ -1,8 +1,7 @@
 ---
 title: Go 의 switch 사용 방법
 description: >-
-  Go 에서의 switch 는 다른 언어와 비슷하다. else if 가 너무 많이 사용되는 등의 경우 사용하면 좋은 문법이다. switch
-  문에서도 if 와 마찬가지로 switch 안에서만 사용 할 변수를 선언해서 사용할 수 있다.
+  Go의 switch 문을 조건식만 쓰는 case 방식과 switch 안에서만 쓰는 변수를 선언하는 방식으로 나눠, else if를 대신하는 사용법을 짧은 예제로 정리했다.
 publishedAt: '2021-05-16'
 updatedAt: '2021-05-16'
 tags:
@@ -47,6 +46,6 @@ func main() {
 }
 ```
 
-![0116-277-go-switch-img-01.jpg](/tech-blog/resources/images/migration/0116-277-go-switch/img-01.jpg)
+![switch 예제를 go run으로 실행해 true와 false가 출력된 터미널](/tech-blog/resources/images/migration/0116-277-go-switch/img-01.jpg)
 
 switch 문에서도 if 와 마찬가지로 switch 안에서만 사용 할 변수를 선언해서 사용할 수 있다.

@@ -1,9 +1,7 @@
 ---
 title: '7주차 : 패키지'
 description: >-
-  package 키워드에 앞서 패키지 자체에 대해 생각해보려 한다. 아주 쉽게 생각하면 컴퓨터에 폴더를 생각하면 된다. 실제로 자바에서 패키지
-  개념도 폴더와 같다. 조금 더 그럴싸하게? 얘기하면 클래스를 묶은 단위로 사용할 수 있다 할 수 있다. 그러면 왜 클래스를 굳이 패키지라는
-  폴더와 같은 개념을 사용해서 묶도록 했을까. 크게 두가지 이유가 있다.
+  Java 패키지 이름 규칙과 default 패키지, import와 static import, 클래스패스와 -classpath 옵션, 접근지시자를 자바 라이브 스터디 7주차 과제로 예제와 함께 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -74,9 +72,9 @@ package 키워드에 앞서 패키지 자체에 대해 생각해보려 한다.
 
 이런 경우 클래스가 default 패키지에 생성 되었다고 한다.
 
-![0100-200-java-live-study-week-7-package-img-01.jpg](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-01.jpg)
+![IntelliJ 프로젝트 트리에서 src 바로 아래 default 패키지에 놓인 Exam_001_Default_Package 클래스](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-01.jpg)
 
-![0100-200-java-live-study-week-7-package-img-02.jpg](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-02.jpg)
+![패키지를 접은 상태에서 src 바로 아래 default 패키지 클래스를 보여주는 프로젝트 트리](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-02.jpg)
 
 ```java
 public class Exam_001_Default_Package {
@@ -94,7 +92,7 @@ public class Exam_001_Default_Package {
 
 다음은 import 키워드를 사용한 예이다.
 
-![0100-200-java-live-study-week-7-package-img-03.jpg](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-03.jpg)
+![week07 아래 sub_01, sub_02 패키지에 import 예제 클래스를 나눠 둔 프로젝트 트리](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-03.jpg)
 
 ```java
 package me.xxxelppa.study.week07.sub_01;
@@ -135,7 +133,7 @@ static 키워드를 사용하여 멤버 필드 (클래스 레벨의 변수) 또�
 
 즉, 다음과 같은 것이 가능하다.
 
-![0100-200-java-live-study-week-7-package-img-04.jpg](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-04.jpg)
+![static import 예제용 Exam_002 클래스를 sub_01과 sub_02 패키지에 추가한 프로젝트 트리](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-04.jpg)
 
 ```java
 package me.xxxelppa.study.week07.sub_01;
@@ -201,7 +199,7 @@ ide와 같은 통합 개발 환경을 제공하는 도구에 classpath 를 설�
 
 이 옵션에 대해서는 윈도우 기준 명령 프롬프트에 java -help 명령을 입력하면 설명이 나와있다.
 
-![0100-200-java-live-study-week-7-package-img-05.jpg](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-05.jpg)
+![java -help 출력에서 -classpath와 --class-path 옵션 설명을 강조한 명령 프롬프트](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-05.jpg)
 
 -classpath
 
@@ -215,7 +213,7 @@ A ; separated list of directories, JAR archives, and ZIP archives to search for 
 
 실행이 아니라 컴파일을 할 경우에는 다음과 같이 사용할 수 있다.
 
-![0100-200-java-live-study-week-7-package-img-06.jpg](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-06.jpg)
+![javac -help 출력에서 컴파일 시 쓰는 --class-path, -classpath, -cp 옵션을 강조한 화면](/tech-blog/resources/images/migration/0100-200-java-live-study-week-7-package/img-06.jpg)
 
 #### 접근지시자
 

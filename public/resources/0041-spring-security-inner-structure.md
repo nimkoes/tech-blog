@@ -1,9 +1,7 @@
 ---
 title: '[chap.22] AuthorizationFilter'
 description: >-
-  AuthorizationFilter AuthorizationFilter 목적 이 필터는 DefaultSecurityFilterChain 에
-  기본적으로 등록되는 필터이며, 마지막에 위치한다. SecurityFilterChain 의 authorizeHttpRequests() 설정에
-  따른 최종 인가 처리를 한다. 요청에 대한 접근 권한 검증을 한다. 인가 결정에 따른 접근 제어 실행 한다.
+  Spring Security의 마지막 필터 AuthorizationFilter가 AuthorizationManager로 인가를 결정하는 doFilter 흐름을 단계별로 정리하고 인가 규칙 설정 예시를 담았다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:

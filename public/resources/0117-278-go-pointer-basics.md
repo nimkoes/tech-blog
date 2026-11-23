@@ -1,9 +1,7 @@
 ---
 title: Go 의 포인터
 description: >-
-  아주 오래전이지만 C 언어를 공부한 적이 있었다. Go 언어를 배워보기로 하기를 잘한것 같다. 처음 프로그래밍 언어를 배울 때 이런 얘기를
-  들었다. Java 는 Class 에서 (상속 등과 관련된), C 는 포인터에서 많이 포기를 한다고,, 그래서 포인터에 겁을 먹은적이
-  있었는데, 깊고 복잡한 내용이 아니면 포기할 정도는 아니라고 생각 했다. 아무튼, 포인터 관련된 연산자는 크게 두가지가 있다.
+  Go 포인터에서 & 연산자로 변수의 메모리 주소를 얻고 * 연산자로 주소가 가리키는 값을 읽고 바꾸는 방법을 예제 코드, 메모리 그림, 실행 결과로 정리했다.
 publishedAt: '2021-05-17'
 updatedAt: '2021-05-17'
 tags:
@@ -46,7 +44,7 @@ func main() {
 }
 ```
 
-![0117-278-go-pointer-basics-img-01.jpg](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-01.jpg)
+![go run 실행 결과로 a의 값 2와 b에 담긴 a의 주소 0xc0000ac058이 출력된 터미널](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-01.jpg)
 
 실행 결과를 보면, a 는 2 가 출력 되었는데, b 는 0xc000ac058 이라는 값이 출력 되었다.
 
@@ -56,7 +54,7 @@ func main() {
 
 위에 작성한 예시를 그림으로 나타내면 다음과 같다.
 
-![0117-278-go-pointer-basics-img-02.jpg](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-02.jpg)
+![변수 a에는 값 2가, 변수 b에는 a의 주소 c000ac058이 담긴 메모리 그림](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-02.jpg)
 
 a 의 메모리상의 위치 (주소) 는 c000ac058 이다.
 
@@ -84,7 +82,7 @@ func main() {
 }
 ```
 
-![0117-278-go-pointer-basics-img-03.jpg](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-03.jpg)
+![go run 실행 결과로 *b가 a의 값 2를 출력한 터미널](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-03.jpg)
 
 그래서 위 예시를 실행해보면 *b 의 실행 결과 2 가 출력된 것을 확인할 수 있다.
 
@@ -117,6 +115,6 @@ func main() {
 
 그리 복잡한 예시가 아니므로 '// 실행 결과 예상' 주석 아래에 작성한 코드의 실행 결과가 무엇으로 나올지 알 수 있어야 한다.
 
-![0117-278-go-pointer-basics-img-04.jpg](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-04.jpg)
+![포인터로 값을 바꾼 예제 실행 결과로 17 17과 true true가 출력된 터미널](/tech-blog/resources/images/migration/0117-278-go-pointer-basics/img-04.jpg)
 
 처음엔 가벼운 마음으로 시작 했는데, 갈 수록 관심이 가는 언어이다.

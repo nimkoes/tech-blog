@@ -1,9 +1,7 @@
 ---
 title: 'Go ''BANK & DICTIONARY PROJECTS'' : Account + NewAccount'
 description: >-
-  Go 의 struct 를 공부할 겸 간단한 bank account 를 생성하는 예제를 만들어 본다. 우선 accounts 폴더를 만들고 그
-  아래 accounts.go 파일을 만든다. accounts.go 는 실행의 주체로 사용하지 않을 것이기 때문에 main function 을
-  만들지 않는다. 사용 할 struct 를 정의하는데, 이름과 잔액 정보를 가지고 있도록 다음과 같이 만든다.
+  Go struct로 bank account 예제를 만들며 대문자 export 규칙, 소문자 struct를 감싸는 NewAccount 팩토리 함수, 포인터를 반환해 사본 생성을 피하는 이유를 정리했다.
 publishedAt: '2021-05-19'
 updatedAt: '2021-05-19'
 tags:
@@ -15,7 +13,7 @@ Go 의 struct 를 공부할 겸 간단한 bank account 를 생성하는 예제�
 
 우선 accounts 폴더를 만들고 그 아래 accounts.go 파일을 만든다.
 
-![0121-282-go-bank-dictionary-projects-account-newaccount-img-01.jpg](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-01.jpg)
+![VS Code 탐색기에서 part2_bank_and_dic_prj 아래 accounts 폴더와 accounts.go, main.go를 만든 구조](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-01.jpg)
 
 accounts.go 는 실행의 주체로 사용하지 않을 것이기 때문에 main function 을 만들지 않는다.
 
@@ -50,7 +48,7 @@ func main() {
 }
 ```
 
-![0121-282-go-bank-dictionary-projects-account-newaccount-img-02.jpg](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-02.jpg)
+![go run main.go 실행 결과로 export된 Account struct 값 {nimkoes 2147483627}이 출력된 터미널](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-02.jpg)
 
 편하진 하지만 이렇게 마음대로 접근하는 것을 원하지 않을수 있다.
 
@@ -87,7 +85,7 @@ func NewAccount(pOwner string) *account {
 }
 ```
 
-![0121-282-go-bank-dictionary-projects-account-newaccount-img-03.jpg](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-03.jpg)
+![NewAccount 안에서 만든 returnAccount 값이 메모리 주소 0xk000nk027에 저장된 모습을 그린 그림](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-03.jpg)
 
 NewAccount function 을 통해서만 struct 에 접근이 가능하도록 하고, 이 function 은 account struct 에 대한 constructor 역할을 한다.
 
@@ -107,7 +105,7 @@ func main() {
 }
 ```
 
-![0121-282-go-bank-dictionary-projects-account-newaccount-img-04.jpg](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-04.jpg)
+![NewAccount 호출 결과로 struct 주소를 뜻하는 &{Nimkoes 0}이 출력된 터미널](/tech-blog/resources/images/migration/0121-282-go-bank-dictionary-projects-account-newaccount/img-04.jpg)
 
 실행 결과를 보면 &{Nimkoes 0} 즉, 주소값이 반환 되었다.
 

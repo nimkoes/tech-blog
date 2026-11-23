@@ -1,9 +1,7 @@
 ---
 title: 'Go ''JOB SCRAPER'' : extractJob part two'
 description: >-
-  지난번에 이쁘지않게(?) 출력된 결과를 보기 좋게 정리를 하면서 시작 하려 한다. Go 의 strings 에 대한 document 를 보면
-  사용할 수 있는 다양한 function 들이 있다. 그 중에 Trim, Fields, Join 을 사용해서 다음과 같은 function 을
-  만들었다.
+  Go Job Scraper에서 strings.TrimSpace, Fields, Join으로 스크랩한 문자열을 정리하고, extractJob 함수와 struct로 전체 페이지의 채용 정보를 slice에 모으는 과정을 정리했다.
 publishedAt: '2021-05-29'
 updatedAt: '2021-05-29'
 tags:
@@ -63,7 +61,7 @@ func getPage(page int) {
 
 실행 결과를 보면 이전에 출력했을 때 보다 훨씬 정리되어 보기 편해졌다.
 
-![0139-301-go-job-scraper-extractjob-part-two-img-01.jpg](/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-01.jpg)
+![cleanString을 적용한 뒤 채용 공고 id, 제목, 지역이 한 줄씩 정리되어 출력된 go run 실행 결과](/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-01.jpg)
 
 getPage function 의 searchCard.Each 내용이 복잡해지고 있기 때문에, 별도의 function 을 만들어서 다음과 같이 분리 한다.
 
@@ -114,7 +112,7 @@ func extractJob(card *goquery.Selection) {
 }
 ```
 
-![0139-301-go-job-scraper-extractjob-part-two-img-02.jpg](/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-02.jpg)
+![extractJob이 id, 제목, 지역에 연봉과 요약까지 함께 출력한 go run 실행 결과](/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-02.jpg)
 
 이 코드를 struct 를 사용하는 코드로 개선해보자.
 
@@ -198,7 +196,7 @@ func main() {
 
 그리고 마지막에 fmt.Println 으로 결과를 출력하면 다음과 같은 결과를 볼 수 있다.
 
-![0139-301-go-job-scraper-extractjob-part-two-img-03.jpg](/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-03.jpg)
+![모든 페이지를 요청한 뒤 extractedJob struct가 slice 요소로 모여 출력된 결과에서 각 struct 경계를 표시한 터미널](/tech-blog/resources/images/migration/0139-301-go-job-scraper-extractjob-part-two/img-03.jpg)
 
 길어서 일부만 출력 했지만 붉은색 네모 표시한 부분을 보면, 추출한 데이터가 struct 형태로 잘 만들어 졌으며, 전체 데이터가 배열의 요소로 추가되어 만들어진 것을 확인할 수 있다.
 

@@ -1,9 +1,7 @@
 ---
 title: '나 혼자 떠드는 자바 : 자바 실행 환경 (조금 더 즐거운 통합 개발 환경)'
 description: >-
-  지금까지 알아본 내용을 토대로 프로그램 개발 과정을 생각해보자. 생략된 과정들 (예를들면 컴파일 하기 위해 자바를 설치하고, 명령
-  프롬프트에서 컴파일 및 실행 시키기 위해 환경변수를 등록하는 일)도 있지만 대충 생각해도 꽤 많은 작업을 해야 비로소 프로그램을 실행시킬 수
-  있다.
+  메모장과 명령 프롬프트로 반복하던 Java 컴파일·실행 과정을 Eclipse IDE로 줄이는 방법을 정리했다. 버전 고르기, workspace 설정, 프로젝트 생성, Run As로 Hello World 실행까지 따라간다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -51,23 +49,23 @@ status: needs-review
 
 [프로그램을 다운받기 위해 사이트로 이동한다.](https://www.eclipse.org/)
 
-![0093-193-talking-java-runtime-ide-setup-img-01.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-01.png)
+![Eclipse Foundation 홈페이지 첫 화면에 Eclipse IDE 2019-06 다운로드 버튼이 보이는 모습](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-01.png)
 
 그러면 현재 기준 위와 같은 화면을 볼 수 있다.
 
 여기서 바로 다운로드 버튼을 누르지 말고 스크롤을 아래로 내려보자.
 
-![0093-193-talking-java-runtime-ide-setup-img-02.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-02.png)
+![Eclipse 홈페이지 하단 Other 영역의 IDE and Tools 링크 위치](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-02.png)
 
 그러면 아래쪽에 Other에 IDE and Tools 링크가 존재한다.
 
 이 링크를 눌러 이동하자.
 
-![0093-193-talking-java-runtime-ide-setup-img-03.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-03.png)
+![Eclipse Desktop IDEs 페이지에서 Download 버튼을 누르는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-03.png)
 
 위와 같은 화면이 나왔으면 Download 버튼을 클릭하자.
 
-![0093-193-talking-java-runtime-ide-setup-img-04.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-04.png)
+![Eclipse IDE 2019-06 패키지 목록과 이전 버전을 고르는 MORE DOWNLOADS 영역](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-04.png)
 
 그러면 위와 같은 화면이 나타난다.
 
@@ -83,7 +81,7 @@ status: needs-review
 
 추가적으로 이 화면의 위쪽을 보면 다음과 같은 Release 라는 링크가 있다.
 
-![0093-193-talking-java-runtime-ide-setup-img-05.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-05.png)
+![Eclipse 다운로드 경로의 Release 링크와 Mars, Luna 등 지금까지의 배포 버전 목록](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-05.png)
 
 링크를 클릭해보면 위와 같이 지금까지 배포한 버전들에 대한 링크가 존재한다.
 
@@ -91,13 +89,13 @@ status: needs-review
 
 위키백과에서 검색한 결과중 일부를 가져온 것이다.
 
-![0093-193-talking-java-runtime-ide-setup-img-06.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-06.png)
+![Eclipse 버전명 Austin부터 Photon까지의 플랫폼 버전과 출시 연도를 정리한 표](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-06.png)
 
 안드로이드 버전에서도 볼 수 있는데, 버전명의 첫 문자가 알파벳 순서로 증가하는걸 볼 수 있다.
 
 그냥.. TMI다.
 
-![0093-193-talking-java-runtime-ide-setup-img-07.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-07.png)
+![Eclipse Mars 페이지에 R, RC, M, SR 등 빌드 종류별 패키지 링크가 나열된 목록](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-07.png)
 
 아무튼 그래서 Mars 링크를 클릭하면 위와 같이 더 다양한 종류의 패키지들을 볼 수 있다.
 
@@ -138,23 +136,23 @@ RC같은 경우 정식 배포 하기 위한 후보군들에 붙인다.
 
 [** eclipse build type 참고](http://download.eclipse.org/eclipse/downloads/build_types.html)
 
-![0093-193-talking-java-runtime-ide-setup-img-08.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-08.png)
+![Eclipse Mars R 패키지 중 Java EE Developers용 Windows 64-bit를 고르는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-08.png)
 
 얘기가 조금 다른 길로 샜는데 다시 돌아와서 Java EE Developer 의 윈도우 64비트 버전을 다운 받았다.
 
-![0093-193-talking-java-runtime-ide-setup-img-09.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-09.png)
+![브라우저 하단에서 eclipse-jee-mars zip 파일이 내려받아지는 중인 모습](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-09.png)
 
 그러면 위와 같이 브라우저에 설정되어있는 경로에 이클립스가 다운 받아진다.
 
-![0093-193-talking-java-runtime-ide-setup-img-10.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-10.png)
+![Eclipse 압축을 푼 폴더에 configuration, plugins 폴더와 eclipse 실행 파일이 있는 목록](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-10.png)
 
 다운받은 파일의 압축을 풀면 위와 같은 파일들이 포함되어 있는걸 볼 수 있다.
 
 누가 봐도 실행파일로 보이는 eclipse.exe 파일을 실행 시켜보자.
 
-![0093-193-talking-java-runtime-ide-setup-img-11.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-11.png)
+![eclipse.exe를 실행하자 나타난 Eclipse Mars 로딩 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-11.png)
 
-![0093-193-talking-java-runtime-ide-setup-img-12.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-12.png)
+![Eclipse Java EE IDE 첫 실행 시 나타난 Welcome 페이지](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-12.png)
 
 처음 실행 시키면 workspace 경로를 설정하라는 안내가 나온다.
 
@@ -162,9 +160,9 @@ RC같은 경우 정식 배포 하기 위한 후보군들에 붙인다.
 
 혹시 workspace 위치를 변경 하려면 다음과 같이 하면 된다.
 
-![0093-193-talking-java-runtime-ide-setup-img-13.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-13.png)
+![Eclipse File 메뉴에서 Switch Workspace의 Other를 선택해 workspace를 바꾸는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-13.png)
 
-![0093-193-talking-java-runtime-ide-setup-img-14.jpg](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-14.jpg)
+![Workspace Launcher 창에서 프로젝트를 저장할 workspace 폴더 경로를 지정하는 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-14.jpg)
 
 workspace는 단어의 뜻 그대로 작업공간을 의미한다.
 
@@ -172,7 +170,7 @@ workspace는 단어의 뜻 그대로 작업공간을 의미한다.
 
 여기서 지정한 곳을 기준으로 작업한 내용이 저장된다.
 
-![0093-193-talking-java-runtime-ide-setup-img-15.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-15.png)
+![Eclipse Project Explorer에서 우클릭 후 New의 Project를 선택하는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-15.png)
 
 앞서 메모장에서와 동일한 작업을 하는 프로그램을 만들기 위해 프로젝트를 생성해보자.
 
@@ -180,9 +178,9 @@ Project Explorer 영역에서 마우스 우클릭을 하고 New 의 Project를 �
 
 만약 Project Explorer가 보이지 않는다면 이클립스 상단의 Quick Access를 활용하면 된다.
 
-![0093-193-talking-java-runtime-ide-setup-img-16.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-16.png)
+![Eclipse 오른쪽 위 툴바에 있는 Quick Access 검색창 위치](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-16.png)
 
-![0093-193-talking-java-runtime-ide-setup-img-17.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-17.png)
+![Quick Access에 package Expl을 입력해 Package Explorer 뷰를 찾는 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-17.png)
 
 이렇게 바로 검색을 통해 찾아내는 방법이 있다.
 
@@ -190,29 +188,29 @@ Project Explorer 영역에서 마우스 우클릭을 하고 New 의 Project를 �
 
 메뉴에서 Package Explorer를 찾아내 보여주는 방법이다.
 
-![0093-193-talking-java-runtime-ide-setup-img-18.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-18.png)
+![Eclipse Window 메뉴의 Show View에서 Package Explorer나 Other를 고르는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-18.png)
 
 상단의 Window > Show View > Package Explorer 를 바로 선택 하거나.
 
 필요한 view가 목록에 없을 경우 맨 아래 Other... 를 선택한다.
 
-![0093-193-talking-java-runtime-ide-setup-img-19.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-19.png)
+![Show View 창에 보여줄 수 있는 View가 폴더별로 나열된 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-19.png)
 
 Other... 를 선택하면 보여줄 수 있는 모든 View 목록이 나오는데, 위치를 안다면 찾아가도 된다.
 
 만약 이름만 기억이 난다면 다음과 같이 검색을 통해 한번에 찾아내는 방법도 있다.
 
-![0093-193-talking-java-runtime-ide-setup-img-20.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-20.png)
+![Show View 창에서 packa를 검색해 Java 아래 Package Explorer를 찾은 결과](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-20.png)
 
-![0093-193-talking-java-runtime-ide-setup-img-21.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-21.png)
+![New Project 창에서 만들 프로젝트 종류를 고르는 Select a wizard 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-21.png)
 
 얘기가 조금 돌아갔지만, Package Explorer 영역에서 New > Project 를 선택하면 위와 같은 창이 뜬다.
 
-![0093-193-talking-java-runtime-ide-setup-img-22.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-22.png)
+![New Project 마법사에서 java를 검색해 Java Project를 고르는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-22.png)
 
 어디에 있는지 알면 바로 선택해도 되고, 그게 아니면 검색을 통해 Java Project를 찾아 선택한다.
 
-![0093-193-talking-java-runtime-ide-setup-img-23.jpg](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-23.jpg)
+![New Java Project 창에서 Project name을 입력하기 전 기본 workspace 경로가 잡힌 모습](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-23.jpg)
 
 Java Project를 선택하면 프로젝트 생성 마법사 창이 뜬다.
 
@@ -220,7 +218,7 @@ Java Project를 선택하면 프로젝트 생성 마법사 창이 뜬다.
 
 체크박스를 해제하면 다른 위치에 만들 수 있겠지만 추천하지는 않는다.
 
-![0093-193-talking-java-runtime-ide-setup-img-24.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-24.png)
+![New Java Project 창에 TestPrj를 입력하고 JRE와 Project layout을 확인한 뒤 Finish를 누르는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-24.png)
 
 Project name을 기입하면 아래 생성되는 위치가 실시간으로 바뀌고 있는것을 볼 수 있다.
 
@@ -232,7 +230,7 @@ Project layout 항목을 보면 생성한 프로젝트 최상위 위치에 소�
 
 설정이 완료 되었으면 Finish 버튼을 선택한다.
 
-![0093-193-talking-java-runtime-ide-setup-img-25.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-25.png)
+![Java 프로젝트 생성 후 Java perspective로 바꿀지 묻는 Open Associated Perspective 알림창](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-25.png)
 
 그러면 알림창이 하나 뜨면서 perspective 를 변환할 것인지 물어본다.
 
@@ -240,13 +238,13 @@ perspective는 사전적으로 어떠한 관점을 뜻하는 단어다.
 
 그런 의미에서 본다면 앞으로 할 작업을 어떤 관점에서 하겠냐고 이해하면 좋겠다.
 
-![0093-193-talking-java-runtime-ide-setup-img-26.jpg](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-26.jpg)
+![perspective 전환 알림창 뒤로 Eclipse 오른쪽 위에 현재 Java EE perspective가 표시된 모습](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-26.jpg)
 
 eclipse IDE의 perspective는 보통 우측 상단에 표시된다.
 
 현재 Java EE 로 설정 되어 있으므로 단순 Java 프로젝트를 위한 Java perspective로 전환할 것인가를 물어보는 것이다.
 
-![0093-193-talking-java-runtime-ide-setup-img-27.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-27.png)
+![Java perspective로 바뀐 Eclipse 화면의 Package Explorer에 TestPrj 프로젝트가 생긴 모습](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-27.png)
 
 그렇게 하겠다고 Yes 버튼을 클릭하면 우측 상단의 Java perspective가 생기며 활성화 되는 것을 볼 수 있다.
 
@@ -254,17 +252,17 @@ eclipse IDE의 perspective는 보통 우측 상단에 표시된다.
 
 얼마든지 언제든지 작업 환경에 따라 바꿔줄 수 있으므로 부담 가지지 말자.
 
-![0093-193-talking-java-runtime-ide-setup-img-28.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-28.png)
+![Package Explorer에서 TestPrj를 펼쳐 src 폴더와 JRE System Library jar 목록을 확인하는 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-28.png)
 
 이제 좌측에 보면 TestPrj 이름을 갖는 Java 프로젝트가 생성된 것을 볼 수 있다.
 
-![0093-193-talking-java-runtime-ide-setup-img-29.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-29.png)
+![TestPrj의 src 폴더를 우클릭해 New의 Class를 선택하는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-29.png)
 
 그럼 이번엔 앞서 메모장에서 만들었던 것과 동일한 작업을 하는 소스 파일을 생성해보자.
 
 src를 마우스 우클릭을 하고 New > Class 를 선택한다.
 
-![0093-193-talking-java-runtime-ide-setup-img-30.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-30.png)
+![New Java Class 창에서 Name에 TestClass를 입력하고 method stub 옵션을 본 뒤 Finish를 누르는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-30.png)
 
 파일이 생성될 Source folder 경로가 나오며 해당 위치에 생성할 소스 파일의 이름을 지정해주도록 되어 있다.
 
@@ -274,15 +272,15 @@ src를 마우스 우클릭을 하고 New > Class 를 선택한다.
 
 선택을 해도 좋고 안해도 상관 없다.
 
-![0093-193-talking-java-runtime-ide-setup-img-31.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-31.png)
+![TestPrj의 src 아래 default package에 TestClass.java가 생성되어 편집기에 열린 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-31.png)
 
 Finish를 클릭하면 TestPrj 프로젝트 하위에 TestClass.java 파일이 생성되는 것을 볼 수 있다.
 
-![0093-193-talking-java-runtime-ide-setup-img-32.jpg](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-32.jpg)
+![Windows 탐색기로 workspace의 TestPrj src 폴더에 TestClass.java가 생긴 것을 확인하는 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-32.jpg)
 
 eclipse 실행시 설정했던 workspace 경로를 따라가서 생성한 프로젝트 하위의 src 폴더를 열어보면 파일이 생성되어 있는것을 볼 수 있다.
 
-![0093-193-talking-java-runtime-ide-setup-img-33.jpg](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-33.jpg)
+![별도 컴파일 없이 TestPrj bin 폴더에 TestClass.class가 자동 생성된 탐색기 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-33.jpg)
 
 앞서 메모장에서 테스트한 내용을 기억할지 모르겠다.
 
@@ -290,11 +288,11 @@ eclipse 실행시 설정했던 workspace 경로를 따라가서 생성한 프로
 
 하지만 이클립스 IDE를 사용하면 (설정에서 안하게 할 수도 있지만, 기본 설정을 수정하지 않으면) 위와같이 bin이라는 경로에 .class 파일이 자동으로 생긴 것을 확인할 수 있다.
 
-![0093-193-talking-java-runtime-ide-setup-img-34.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-34.png)
+![Eclipse 편집기에서 TestClass에 Hello, World!를 출력하는 main 메서드를 작성한 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-34.png)
 
 앞에서 다루었던 Hello, World! 문자열을 출력한 예제를 작성해보자.
 
-![0093-193-talking-java-runtime-ide-setup-img-35.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-35.png)
+![Eclipse Run 메뉴의 Run As에서 Java Application을 선택해 실행하는 단계](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-35.png)
 
 이것 역시 메모장에서는
 
@@ -310,7 +308,7 @@ eclipse 실행시 설정했던 workspace 경로를 따라가서 생성한 프로
 
 하지만 이클립스 IDE에서는 실행과 관련된 Run 메뉴 하위의 Run As > Java Application 을 선택하면 된다.
 
-![0093-193-talking-java-runtime-ide-setup-img-36.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-36.png)
+![Eclipse Console 뷰에 TestClass 실행 결과 Hello, World!가 출력된 화면](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-36.png)
 
 그러면 이클립스 자체에 Console 이라는 view 가 생기면서 그곳에 실행 결과가 출력된다.
 
@@ -322,7 +320,7 @@ eclipse 실행시 설정했던 workspace 경로를 따라가서 생성한 프로
 
 그럼에도 처음에는 메모장에서 프로그램을 작성하는 연습을 하기를 추천하다.
 
-![0093-193-talking-java-runtime-ide-setup-img-37.png](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-37.png)
+![cmd에서 TestPrj bin 폴더로 이동해 java TestClass로 Hello, World!를 출력한 결과](/tech-blog/resources/images/migration/0093-193-talking-java-runtime-ide-setup/img-37.png)
 
 이번에는 마지막으로 괜히 명령프롬프트를 활용해서 .class 파일을 찾아가 실행시킨 화면이다.
 

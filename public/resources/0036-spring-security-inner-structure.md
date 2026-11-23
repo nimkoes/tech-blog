@@ -1,6 +1,7 @@
 ---
 title: '[chap.17] BasicAuthenticationFilter'
-description: Form 인증 Basic 인증 기본 형식 예시
+description: >-
+  Spring Security BasicAuthenticationFilter가 Authorization 헤더로 인증해 SecurityContext에 저장하는 흐름을 doFilterInternal 코드와 보안 고려사항으로 정리했다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:

@@ -1,6 +1,7 @@
 ---
 title: '[chap.18] RequestCacheAwareFilter'
-description: '커스텀 SecurityFilterChain 에서는 기본적으로 활성화되어 있으며, 필요한 경우 다음과 같이 비활성화할 수 있다'
+description: >-
+  Spring Security RequestCacheAwareFilter가 미인증 요청을 HttpSessionRequestCache에 저장했다가 로그인 성공 후 원래 요청으로 복원하는 과정을 코드로 정리했다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:

@@ -1,9 +1,7 @@
 ---
 title: '1주차 : JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가'
 description: >-
-  JVM -> Java Virtual Machine '자바 가상 머신' 을 뜻하는 말로 바이트코드를 실행하는 주체이다. 자바가 처음 세상에
-  나왔을 때 WORA (Write Once Run Anywhere) 를 내세워 홍보한 것으로 알고있다. 한번 작성해서 어디서든 실행할 수
-  있다는 말로, 자바 코드로 작성한 프로그램은 실행할 환경 (예를 들면 운영체제)에 독립적으로 실행할 수 있음을 뜻한다.
+  JVM이 바이트코드를 실행하는 구조와 javac 컴파일, java 실행 방법, JIT 컴파일러 동작, JVM 구성 요소, JDK와 JRE의 차이를 Java 라이브 스터디 1주차 과제로 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2026-11-22'
 tags:
@@ -45,7 +43,7 @@ JVM -> Java Virtual Machine '자바 가상 머신' 을 뜻하는 말로 바이�
 
 예전에 설명하기 위해 사용했던 그림이다.
 
-![0094-194-java-live-study-week-1-jvm-and-execution-img-01.png](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-01.png)
+![서로 다른 플랫폼마다 맞는 JVM을 올리면 같은 .class 파일이 그대로 실행되는 구조 그림](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-01.png)
 
 JVM과 같은 중간언어를 해석해주는 추상화된 장치가 없는 언어들은, 운영체제가 바뀔 때마다 그에 맞는 실행 가능한 프로그램을 만들어야 했다. 이런 불편함을 해소하기 위해 바이트 코드를 기계어로 번역해주는 과정을 한 번 더 하며 성능을 포기하고 편리함을 선택했다.
 
@@ -63,7 +61,7 @@ JDK (Java Development Kit) 자바 개발 도구를 설치하면 bin 폴더 안�
 
 이 명령을 사용해서 .class 파일을 만든다.
 
-![0094-194-java-live-study-week-1-jvm-and-execution-img-02.png](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-02.png)
+![명령 프롬프트에서 javac WS_live_study.java를 실행해 WS_live_study.class가 생성된 결과](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-02.png)
 
 명령프롬프트를 사용해서 컴파일 하기 위해서는 현재 위치를 소스파일이 있는 곳으로 이동해야 한다.
 
@@ -81,7 +79,7 @@ JDK (Java Development Kit) 자바 개발 도구를 설치하면 bin 폴더 안�
 
 환경변수는 운영체제가 실행할 수 있는 실행파일들이 위치한 디렉토리를 지정해두어 이를 운영체제가 참조해서 사용할 수 있도록 한 것이다.
 
-![0094-194-java-live-study-week-1-jvm-and-execution-img-03.jpg](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-03.jpg)
+![패키지를 선언한 소스를 javac -d 옵션으로 컴파일해 패키지 폴더에 class 파일이 생긴 명령 프롬프트](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-03.jpg)
 
 두 번째 방법은 default 패키지를 사용하지 않았을 때 방법이다.
 
@@ -93,9 +91,9 @@ IDE를 사용하면서 자꾸 까먹는 방법인것 같다.
 
 실행할때는 java 명령어를 사용한다.
 
-![0094-194-java-live-study-week-1-jvm-and-execution-img-04.jpg](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-04.jpg)
+![명령 프롬프트에서 java WS_live_study를 실행해 Hello, world!가 출력된 결과](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-04.jpg)
 
-![0094-194-java-live-study-week-1-jvm-and-execution-img-05.jpg](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-05.jpg)
+![패키지가 있는 클래스를 java me.xxxelppa.study.WS_live_study로 실행해 Hello, world!가 출력된 결과](/tech-blog/resources/images/migration/0094-194-java-live-study-week-1-jvm-and-execution/img-05.jpg)
 
 두 번째 방법은 default 패키지를 사용하지 않았을 때 방법이다.
 

@@ -1,9 +1,7 @@
 ---
 title: '나 혼자 떠드는 자바 : 자바 실행 환경 (자바 설치 방법)'
 description: >-
-  글을 작성하는 현재 시점으로 자바의 가장 최신 버전은 Java 11 이지만 Java 8 을 설치해서 사용할 계획이다. 그리고 윈도우 플랫폼을
-  기준으로 한다. 프로그래밍 언어가 뭔지도 알았겠다. 그 중 자바가 뭔지도 좀 알았겠다. 이제 본격적으로 설치를 해보자. 설치 파일 다운로드
-  링크 링크에 들어가서 다음 과정을 따라서 설치해보자.
+  Windows에서 Java 8 JDK를 내려받아 설치하고, JAVA_HOME과 PATH 환경변수를 등록해 javac 명령을 쓰기까지의 과정을 화면 순서대로 정리했다. 32비트와 64비트 차이도 설명한다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -28,19 +26,19 @@ status: needs-review
 사이트에 접속후 스크롤을 맨 아래로 내리면 다음과 같이 "Java for Developer" 라는 링크가 있다.
 이걸 선택해서 들어가자.
 
-![0090-190-talking-java-runtime-installation-img-01.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-01.png)
+![Oracle 홈페이지 하단 Downloads and Trials 메뉴의 Java for Developers 링크](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-01.png)
 
 그럼 다음과 같은 화면이 나타난다.
 
-![0090-190-talking-java-runtime-installation-img-02.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-02.png)
+![Oracle Java SE Downloads 페이지에서 최신 Java SE 11 JDK 다운로드가 보이는 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-02.png)
 
 여기서도 스크롤을 맨 아래로 내려보면 다음과 같은 링크가 보일것이다.
 
-![0090-190-talking-java-runtime-installation-img-03.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-03.png)
+![Java SE Downloads 페이지 아래쪽 Java Archive 항목의 DOWNLOAD 버튼](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-03.png)
 
 Java Archive의 오른쪽 DOWNLOAD 버튼을 클릭하면, 원하는 버전의 자바를 선택해서 다운받을 수 있는 화면으로 이동한다.
 
-![0090-190-talking-java-runtime-installation-img-04.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-04.png)
+![Java Archive 목록에서 설치할 Java SE 8을 선택하는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-04.png)
 
 그럼 여기서 Java SE 8을 선택하자.
 
@@ -57,7 +55,7 @@ Java Micro Edition 으로 가전제품 들 모바일 기기에 사용할 프로�
 
 우리는 여기서 SE를 설치할 것이다.
 
-![0090-190-talking-java-runtime-installation-img-05.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-05.png)
+![Java SE 8u181 페이지에서 JDK와 JRE의 Windows x86, x64 설치 파일을 표시한 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-05.png)
 
 클릭해서 들어가보면 크게 두가지 분류를 확인해볼 수 있다.
 1. JDK (Java SE Development Kit, 자바 개발 도구)
@@ -149,39 +147,39 @@ JRE는 JDK내에 포함되어 같이 설치 되기 때문에 개발하는 입장
 키보드의 윈도우키 + pause/break 를 같이 누르면 다음과 같은 화면에서 확인할 수 있다.
 참고로 pause/break 키는 보통 키보드의 우측 상단에 위치해 있다.
 
-![0090-190-talking-java-runtime-installation-img-06.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-06.png)
+![시스템 정보 창의 시스템 종류 항목에서 64비트 운영 체제임을 확인하는 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-06.png)
 
 만약 이 버튼을 찾지 못하겠다면 다음 이미지와 같이 '내 컴퓨터' 에서 마우스 우클릭 후 '속성'을 선택하면 동일한 화면에 진입할 수 있다.
 
-![0090-190-talking-java-runtime-installation-img-07.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-07.png)
+![Windows 10 탐색기에서 내 PC를 우클릭해 속성을 선택하는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-07.png)
 
 다시 다운로드 화면에서, 사용 약관에 동의하고 다운 받을 파일을 선택하면 오라클 계정 로그인 화면이 나온다.
 
-![0090-190-talking-java-runtime-installation-img-08.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-08.png)
+![JDK 설치 파일을 내려받기 전에 나오는 Oracle 계정 로그인 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-08.png)
 
 로그인에 성공하면 설치 파일을 다운받을 수 있다. (계정이 없다면 만들어야 한다.)
 자, 다운 받았다고 생각하고 이제 이 설치 받은 파일을 실행시켜보자.
 
-![0090-190-talking-java-runtime-installation-img-09.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-09.png)
+![탐색기에서 내려받은 jdk-8u181-windows-x64 설치 파일을 찾은 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-09.png)
 
 설치는 계속 Next를 눌러주면 된다.
 
-![0090-190-talking-java-runtime-installation-img-10.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-10.png)
+![JDK 8 Update 181 설치 마법사의 시작 화면과 Next 버튼](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-10.png)
 
-![0090-190-talking-java-runtime-installation-img-11.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-11.png)
+![JDK 설치 Custom Setup 단계에서 설치 구성 요소와 기본 설치 경로를 확인하는 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-11.png)
 
 위의 과정에서 설치 경로를 바꿀 수 있는데, 가능하면 바꾸지 말고 설치하자.
 
-![0090-190-talking-java-runtime-installation-img-12.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-12.png)
+![JDK 설치가 진행 중인 Progress 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-12.png)
 
-![0090-190-talking-java-runtime-installation-img-13.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-13.png)
+![JDK에 이어 JRE를 설치할 대상 폴더 경로를 묻는 Java 설치 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-13.png)
 
 자세히 보면 차이를 알겠지만, 이번엔 JRE를 설치할 경로를 물어보고 있다.
 이것 역시 되도록이면 수정하지 말고 설치를 하도록 하자.
 
-![0090-190-talking-java-runtime-installation-img-14.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-14.png)
+![JRE 설치 진행률이 표시되는 Java 설치 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-14.png)
 
-![0090-190-talking-java-runtime-installation-img-15.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-15.png)
+![JDK 8 Update 181 설치가 완료되어 Next Steps 버튼이 보이는 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-15.png)
 
 설치가 완료되면 위와 같은 화면이 나오는데, Next Step 버튼을 클릭하면
 설명에서 나와있는 것처럼 튜토리얼과 API 문서를 열어볼 수 있다고 한다.
@@ -195,29 +193,29 @@ JRE는 JDK내에 포함되어 같이 설치 되기 때문에 개발하는 입장
 명령 프롬프트를 하나 열어보자.
 명령 프롬프트는 윈도우 키를 누르고 cmd (command) 를 입력하면 나오는 프로그램이다.
 
-![0090-190-talking-java-runtime-installation-img-16.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-16.png)
+![Windows 7 시작 메뉴 검색창에 cmd를 입력해 명령 프롬프트를 찾는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-16.png)
 
 이렇게 열거나 혹은 윈도우키 + r 을 누르면 '실행' 이라는 창이 하나 뜬다.
 거기에 cmd 라고 기입해도 좋다.
 
-![0090-190-talking-java-runtime-installation-img-17.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-17.png)
+![윈도우키와 R로 연 실행 창에 cmd를 입력하는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-17.png)
 
 그러면 다음과 같은 검정 화면이 하나 뜬다.
 
-![0090-190-talking-java-runtime-installation-img-18.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-18.png)
+![처음 실행한 명령 프롬프트 cmd.exe 창](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-18.png)
 
 이 화면에서
 java -version
 이라고 입력해보자.
 
-![0090-190-talking-java-runtime-installation-img-19.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-19.png)
+![명령 프롬프트에서 java -version 실행 결과로 1.8.0_181 버전이 출력된 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-19.png)
 
 위와 같이 설치한 자바 버전이 나오면 설치는 잘 된 것이다.
 그렇다면 다음 명령어도 입력해보자.
 javac
 어떤 결과가 나오는가?
 
-![0090-190-talking-java-runtime-installation-img-20.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-20.png)
+![java -version은 동작하지만 javac는 명령을 찾을 수 없다는 오류가 나온 명령 프롬프트](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-20.png)
 
 javac 라는게 생소할거다.
 javac에서 c는 compile 을 의미한다.
@@ -234,7 +232,7 @@ javac가 어디 있는지부터 확인해보자.
 javac는 처음 자바를 설치할 때 경로를 따로 수정하지 않았다면, 보통 다음과 같은 곳에 존재한다.
 (혹시 해당 위치에 없다면 javac를 탐색기에서 검색 하거나, 설치할 때 경로를 기억해뒀다면 쉽게 찾을 수 있다.)
 
-![0090-190-talking-java-runtime-installation-img-21.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-21.png)
+![JDK 설치 폴더의 bin 디렉터리에 있는 javac.exe를 표시한 탐색기 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-21.png)
 
 c:\Program Files\Java 경로에 가면 내가 받은 jdk와 jre가 설치되어 있는것을 볼 수 있다.
 그리고 설치한 jdk의 버전 폴더에 들어간 다음 bin 이라는 폴더에 들어가보면
@@ -245,7 +243,7 @@ java를 설치하면 사용할 수 있는 명령들이 나열되어 있다.
 환경변수를 등록하는 곳은 몇비트의 운영체제가 설치 되었는지 확인했던 화면에 있다.
 우선 윈도우7에서의 등록하는 화면을 보고나서 윈도우10에서의 화면이 어떻게 생겼는지 살펴보겠다.
 
-![0090-190-talking-java-runtime-installation-img-22.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-22.png)
+![Windows 7 고급 시스템 설정에서 환경 변수 창을 열고 시스템 변수 새로 만들기를 누르는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-22.png)
 
 좌측에 '고급 시스템 설정' 을 클릭하면 '시스템 속성' 창이 하나 뜬다.
 여기서 '환경변수' 버틀을 클릭하면 환경변수를 등록할 수 있는 화면이 나타난다.
@@ -257,7 +255,7 @@ java를 설치하면 사용할 수 있는 명령들이 나열되어 있다.
 그렇지 않다면 (혹은 그렇다 하더라도) 시스템 변수 쪽에 추가를 해주도록 하다.
 '새로 만들기'를 선택하자.
 
-![0090-190-talking-java-runtime-installation-img-23.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-23.png)
+![새 시스템 변수 창에서 JAVA_HOME 값으로 JDK 설치 경로를 입력하는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-23.png)
 
 우선 JAVA_HOME 을 등록해주자.
 이 경로는 jdk 버전이 써진 폴더 경로 까지만 넣어주자.
@@ -265,12 +263,12 @@ JAVA_HOME 을 따로 등록하는 이유는 java를 사용하는 다른 프로�
 그냥 바로 PATH에 등록해도 상관 없지만, 음.. 관행이라 생각하고 JAVA_HOME을 넣어주자.
 (백슬러시 \ 를 주의해서 넣어주자)
 
-![0090-190-talking-java-runtime-installation-img-24.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-24.png)
+![환경 변수 창의 시스템 변수 목록에서 Path를 선택하고 편집을 누르는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-24.png)
 
 등록하고나면 시스템 변수 쪽에 PATH 라는 이미 등록되어있는 항목이 있다.
 이 내용을 수정해줘야 한다.
 
-![0090-190-talking-java-runtime-installation-img-25.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-25.png)
+![시스템 변수 편집 창에서 Path 값 끝에 %JAVA_HOME%\bin을 추가하는 단계](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-25.png)
 
 PATH 를 편집하면 위와같은 화면이 나온다.
 이때 정말 주의애햐 할 것은, 철자 하나라도 오탈자가 생기면 안된다.
@@ -285,7 +283,7 @@ C:\Program Files\Java\jdk1.8.0_181\bin
 
 윈도우10의 경우 다음과 같이 생겼다.
 
-![0090-190-talking-java-runtime-installation-img-26.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-26.png)
+![Windows 10 환경 변수 편집 창에서 새로 만들기로 %JAVA_HOME%\bin을 추가하는 과정](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-26.png)
 
 새로만들기를 통해 기입한 내용은 다음과 같다.
 %JAVA_HOME%\bin
@@ -294,14 +292,14 @@ C:\Program Files\Java\jdk1.8.0_181\bin
 
 다음은 '텍스트 편집' 버튼을 눌렀을 때 뜨는 창의 모습이다.
 
-![0090-190-talking-java-runtime-installation-img-27.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-27.png)
+![Windows 10 텍스트 편집 모드의 시스템 변수 편집 창에서 Path 값에 %JAVA_HOME%\bin을 넣은 화면](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-27.png)
 
 윈도우7에서와 동일한 규칙으로 값을 입력하면 된다.
 
 여기까지 성공했으면 아까 알 수 없다고 했던 javac 를 명령 프롬프트에 다시 기입해보자.
  환경변수를 수정했으면 명령프롬프트를 끄고 다시 실행해야 적용 된다.
 
-![0090-190-talking-java-runtime-installation-img-28.png](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-28.png)
+![환경변수 설정 후 javac 실행 결과로 Usage와 옵션 목록이 출력된 명령 프롬프트](/tech-blog/resources/images/migration/0090-190-talking-java-runtime-installation/img-28.png)
 
 여기까지 잘 적용 했다면, 아까와는 다르게 뭔가 주루룩 나왔다.
 잘 보면 javac 라는 명령어를 어떻게 사용하는지에 대한 설명 (usage) 이 나온 것이다.

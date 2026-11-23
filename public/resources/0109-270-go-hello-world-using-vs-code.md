@@ -1,9 +1,7 @@
 ---
 title: Go 개발 환경 설정과 Hello World (using 'VS Code')
 description: >-
-  Go 를 설치하기 위해 다운로드 사이트에 접속 한다. 'Download Go' 버튼을 클릭한다. OS 별로 설치 파일이 다른데 현재 윈도우
-  플랫폼을 사용하고 있기 때문에 'Microsoft Windows' 를 클릭 했다. 페이지가 이동 하면서 자동으로 다운로드가 시작 되었다.
-  다운받은 msi 프로그램을 실행해서 Go를 설치 했다.
+  Windows에 Go 1.16.4를 설치하고 VS Code에 Go 확장을 더해 main.go로 Hello World를 출력하기까지의 과정을 정리했다. main 패키지와 main 함수가 왜 필요한지도 설명한다.
 publishedAt: '2021-05-16'
 updatedAt: '2021-05-16'
 tags:
@@ -13,41 +11,41 @@ status: needs-review
 ---
 [Go 를 설치하기 위해 다운로드 사이트에 접속 한다.](https://golang.org/)
 
-![0109-270-go-hello-world-using-vs-code-img-01.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-01.jpg)
+![golang.org 메인 페이지에서 Download Go 버튼을 확인하는 Go 설치 첫 단계](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-01.jpg)
 
 'Download Go' 버튼을 클릭한다.
 
-![0109-270-go-hello-world-using-vs-code-img-02.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-02.jpg)
+![Go Downloads 페이지에서 OS별 설치 파일 중 Microsoft Windows용 go1.16.4 msi를 고르는 단계](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-02.jpg)
 
 OS 별로 설치 파일이 다른데 현재 윈도우 플랫폼을 사용하고 있기 때문에 'Microsoft Windows' 를 클릭 했다.
 
-![0109-270-go-hello-world-using-vs-code-img-03.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-03.jpg)
+![Download and install 페이지로 이동하며 go1.16.4 windows msi 다운로드가 자동으로 시작된 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-03.jpg)
 
 페이지가 이동 하면서 자동으로 다운로드가 시작 되었다.
 
-![0109-270-go-hello-world-using-vs-code-img-04.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-04.jpg)
+![Go 1.16.4 설치 마법사의 시작 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-04.jpg)
 
 다운받은 msi 프로그램을 실행해서 Go를 설치 했다.
 
-![0109-270-go-hello-world-using-vs-code-img-05.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-05.jpg)
+![Go 1.16.4 설치 마법사에서 라이선스 동의에 체크하는 단계](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-05.jpg)
 
-![0109-270-go-hello-world-using-vs-code-img-06.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-06.jpg)
+![Go 설치 마법사의 Destination Folder 단계에서 기본 경로 C:\Program Files\Go를 그대로 두는 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-06.jpg)
 
 강의 에서는 C 루트 디렉토리 하위에 바로 'go' 라는 패키지(폴더)를 만들었는데
 
 설치 프로그램의 기본 경로가 'Program Files' 여서 그냥 냅두기로 했다.
 
-![0109-270-go-hello-world-using-vs-code-img-07.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-07.jpg)
+![Go 설치 마법사의 Ready to install 단계에서 Install 버튼을 누르기 직전 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-07.jpg)
 
-![0109-270-go-hello-world-using-vs-code-img-08.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-08.jpg)
+![Go 설치 마법사가 파일을 복사하며 설치를 진행 중인 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-08.jpg)
 
-![0109-270-go-hello-world-using-vs-code-img-09.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-09.jpg)
+![Go 1.16.4 설치 마법사의 설치 완료 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-09.jpg)
 
 설치가 끝나면 아래와 같이 C:\Program Files\Go 경로 하위에 아래와 같은 것들이 새로 생긴것을 확인할 수 있다.
 
-![0109-270-go-hello-world-using-vs-code-img-10.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-10.jpg)
+![설치 후 C:\Program Files\Go 아래에 생긴 bin, pkg, src 등 폴더 목록](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-10.jpg)
 
-![0109-270-go-hello-world-using-vs-code-img-11.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-11.jpg)
+![Go 설치 경로의 src\github.com\nimkoes\learngo 폴더에 빈 main.go 파일을 만든 탐색기 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-11.jpg)
 
 그리고 강의의 실습을 하기 위해 만들라고 한 폴더들을 만들었다.
 
@@ -55,7 +53,7 @@ OS 별로 설치 파일이 다른데 현재 윈도우 플랫폼을 사용하고 
 
 설치했을 때 기본 경로에 있는 src 폴더 하위에 만들었다.
 
-![0109-270-go-hello-world-using-vs-code-img-12.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-12.jpg)
+![VS Code에서 빈 main.go를 열자 Go 확장 설치를 권하는 알림이 뜬 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-12.jpg)
 
 메모장으로 main.go 파일을 만들고, 이 파일을 VS Code 에서 열었다.
 
@@ -63,7 +61,7 @@ eclipse 를 많이 사용해왔고, 요즘엔 intelliJ 를 사용하고 있는�
 
 이것 저것 설치하라고 나오면 전부 설치하라고 해서 설치했는데, 그리 오래 걸리지는 않았다.
 
-![0109-270-go-hello-world-using-vs-code-img-13.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-13.jpg)
+![VS Code에 Go 확장 v0.23.0을 설치하고 gopls, dlv 등 Go 도구 설치가 끝난 출력 창](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-13.jpg)
 
 여기서 만든 main.go 라는 파일에 대해 'main 이라는 패키지' 라고 언급 했다.
 
@@ -83,7 +81,7 @@ main 이라는 이름으로 만든것의 의미는 프로젝트를 컴파일 해
 
 Java 의 경우도 생각해보면, main 메소드를 포함하는 클래스는 Java 애플리케이션을 구동하기 위해서 만드는 것 처럼 굳이 애플리케이션을 구동할 필요가 없으면 main 메소드 없이 라이브러리로 사용할 수 있도록 .java 파일을 생성하는 것과 같은것 같다.
 
-![0109-270-go-hello-world-using-vs-code-img-14.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-14.jpg)
+![VS Code의 main.go에 package main 한 줄만 작성한 상태](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-14.jpg)
 
 Go 에서는 내가 어떤 패키지를 사용할지 명시해 줘야 한다.
 
@@ -91,13 +89,13 @@ Go 에서는 내가 어떤 패키지를 사용할지 명시해 줘야 한다.
 
 만약 이 상태로 프로그램을 실행 한다면 다음과 같은 오류가 발생 한다.
 
-![0109-270-go-hello-world-using-vs-code-img-15.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-15.jpg)
+![VS Code 터미널에서 go run main.go가 파일을 찾지 못해 The system cannot find the file specified 오류를 낸 화면](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-15.jpg)
 
 'The system cannot find the file specified' 라고 하는것으로 보아 main.go 라는 파일을 찾지 못한 것 같다.
 
 TERMINAL 의 경로를 보니 아무래도 이상한 곳에 들어와 있는것 같아서 main.go 가 있는 위치로 이동한 다음 명령어를 실행해 보았다.
 
-![0109-270-go-hello-world-using-vs-code-img-16.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-16.jpg)
+![learngo 폴더로 이동해 go run main.go를 실행하자 저장 안 된 빈 파일 때문에 expected package, found EOF 오류가 난 터미널](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-16.jpg)
 
 강의에서 원하는 오류는 'function main is undeclared in the main package' 인데
 
@@ -115,7 +113,7 @@ intelliJ 를 쓰면 기본적으로 수정한 내용이 자동 저장되다보�
 
 -1 로 판단 하기도 한다.
 
-![0109-270-go-hello-world-using-vs-code-img-17.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-17.jpg)
+![파일을 저장한 뒤 go run main.go가 function main is undeclared in the main package 오류를 출력한 터미널](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-17.jpg)
 
 파일을 저장하고 실행 했더니 기대했던 오류가 발생했다.
 
@@ -153,7 +151,7 @@ func main() {
 }
 ```
 
-![0109-270-go-hello-world-using-vs-code-img-18.jpg](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-18.jpg)
+![fmt.Println으로 작성한 main.go를 go run으로 실행해 Hello World!가 출력된 VS Code 터미널](/tech-blog/resources/images/migration/0109-270-go-hello-world-using-vs-code/img-18.jpg)
 
 fmt 가 뭔지 모르겠지만, fmt 를 사용하자 VS Code 가 자동으로 fmt 를 import 해줬다.
 

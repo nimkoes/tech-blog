@@ -1,9 +1,7 @@
 ---
 title: 'Go ''JOB SCRAPER'' : getPages part one, goquery, go get 오류 해결'
 description: >-
-  JOB SCRAPPER 프로젝트에서는 indeed 홈페이지를 활용한다. 아무 검색어를 넣고 검색을 해보자. 검색 결과 얼마나 많은 페이지가
-  있는지 알아내야 한다. 스크롤을 맨 아래로 내리면 페이징 처리 되어있는 것을 볼 수 있다. 그리고 주소창을 보면 'start' 라는
-  query parameter 가 있는 것을 확인할 수 있다.
+  Go로 indeed 채용 검색 결과를 수집하는 Job Scraper의 첫 단계로 goquery 설치, http.Get 오류 처리, GO111MODULE 때문에 생긴 go get 오류 해결, pagination 요소 찾기를 정리했다.
 publishedAt: '2021-05-27'
 updatedAt: '2021-05-27'
 tags:
@@ -17,11 +15,11 @@ JOB SCRAPPER 프로젝트에서는 [indeed 홈페이지](https://kr.indeed.com/?
 
 아무 검색어를 넣고 검색을 해보자. 검색 결과 얼마나 많은 페이지가 있는지 알아내야 한다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-01.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-01.jpg)
+![indeed 검색 결과 하단에 1부터 5까지 페이지 번호가 나열된 페이징 영역](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-01.jpg)
 
 스크롤을 맨 아래로 내리면 페이징 처리 되어있는 것을 볼 수 있다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-02.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-02.jpg)
+![indeed 검색 결과 주소창에서 페이지 위치를 나타내는 start=10 query parameter를 표시한 화면](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-02.jpg)
 
 그리고 주소창을 보면 'start' 라는 query parameter 가 있는 것을 확인할 수 있다.
 
@@ -33,15 +31,15 @@ HTML 을 navigate 하고 필요한 HTML 요소를 찾아내기 위해 'goquery' 
 
 설치하는 방법은 간단하다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-03.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-03.jpg)
+![goquery 문서의 Installation 항목에 안내된 go get github.com/PuerkitoBio/goquery 명령](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-03.jpg)
 
 VS Code 의 TERMINAL 에 입력해준다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-04.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-04.jpg)
+![VS Code 터미널에서 go get으로 goquery v1.6.1과 의존 모듈을 내려받는 결과](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-04.jpg)
 
 설치가 되었으니 실습을 하기 위해 'part4_job_scrapper' 패키지를 만들고 그 안에 'main.go' 파일을 생성한다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-05.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-05.jpg)
+![VS Code 탐색기에서 learngo 아래 part4_job_scrapper 폴더와 main.go 파일을 만든 모습](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-05.jpg)
 
 'main.go' 파일도 생성 했으니, 앞으로 할 일을 정리해보자.
 
@@ -66,7 +64,7 @@ func getPages() int {
 }
 ```
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-06.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-06.jpg)
+![go run 실행 결과로 pages, res, err가 선언만 되고 사용되지 않았다는 오류가 출력된 터미널](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-06.jpg)
 
 이 상태로 실행 해보면, 정의 했지만 사용하지 않은 변수에 대해서만 언급하고 별다른 오류는 없어 보인다.
 
@@ -150,7 +148,7 @@ func checkCode(res *http.Response) {
 
 func checkCode 에서 res 의 타입이 *httpResponse 인 이유는
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-07.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-07.jpg)
+![VS Code 툴팁에서 http.Get이 반환한 res의 타입이 *http.Response로 표시된 모습](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-07.jpg)
 
 res 값의 타입이 *http.Response 이기 때문이다.
 
@@ -195,7 +193,7 @@ import (
 
 go 의 환경변수 정보는 'go env' 명령으로 확인할 수 있다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-08.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-08.jpg)
+![go env 명령으로 GO111MODULE을 비롯한 Go 환경변수 목록을 출력한 터미널](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-08.jpg)
 
 대략 위와 같이 출력이 되는데, 이 중 'GO111MODULE' 라는 값이 있다.
 
@@ -203,7 +201,7 @@ go 의 환경변수 정보는 'go env' 명령으로 확인할 수 있다.
 
 그래서 다음 명령어로 이 값을 'off' 로 바꿔주어야 한다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-09.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-09.jpg)
+![export GO111MODULE=off를 실행한 뒤 go env에서 GO111MODULE=off로 바뀐 것을 확인한 터미널](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-09.jpg)
 
 강의 초반 환경변수나 모듈에 대한 설명을 하지 않아 원인을 찾는데 애먹었다.
 
@@ -271,7 +269,7 @@ func checkCode(res *http.Response) {
 }
 ```
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-10.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-10.jpg)
+![goquery로 만든 document를 fmt.Println으로 출력한 go run 실행 결과](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-10.jpg)
 
 goquery document 를 보면 사용할 수 있는 다양한 function 들이 있는데, 그 중에서 find 를 사용해 볼 것이다.
 
@@ -279,7 +277,7 @@ find function 을 사용하면 dom 요소에 접근할 수 있는것 같다.
 
 페이징 관련된 요소에 접근하기 위해, baseURL 로 접속해서 개발자 도구의 선택자로 요소 정보를 확인한다.
 
-![0136-297-go-job-scraper-getpages-part-one-goquery-go-get-img-11.jpg](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-11.jpg)
+![Chrome 개발자 도구에서 indeed 페이지 번호 영역이 class가 pagination인 div임을 확인한 화면](/tech-blog/resources/images/migration/0136-297-go-job-scraper-getpages-part-one-goquery-go-get/img-11.jpg)
 
 해당 요소의 class 값이 'pagination' 인 것을 확인할 수 있다.
 

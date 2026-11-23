@@ -1,9 +1,7 @@
 ---
 title: Kubernetes Service 개념 정리
 description: >-
-  쿠버네티스(Kubernetes)에서 Service 는 '네트워크에서 Pod를 안정적으로 접근할 수 있도록 해주는 객체'이다. 쿠버네티스에서는
-  Pod가 생성될 때마다 이름이 바뀌고, IP 주소도 매번 달라진다. 예를 들어, my-app 이라는 애플리케이션을 여러 개의 Pod로
-  실행한다면 이 Pod들은 시간이 지남에 따라 죽었다가 다시 만들어지며 IP 주소가 바뀐다.
+  Kubernetes Service가 바뀌는 Pod IP 대신 고정 IP와 DNS 이름으로 로드 밸런싱하는 원리와 ClusterIP, NodePort, LoadBalancer, ExternalName 타입을 YAML 예시로 정리했다.
 publishedAt: '2025-07-10'
 updatedAt: '2025-07-10'
 tags:

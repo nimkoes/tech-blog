@@ -1,9 +1,7 @@
 ---
 title: '15주차 : 람다식'
 description: >-
-  람다식을 사용하기에 앞서 익명 구현 객체 라는 것에 대해 알면 좋다. 익명 구현 객체는 인터페이스나 클래스의 객체를 생성해서 사용할 때,
-  재사용하지 않는 경우 보통 사용한다. 예를 들어 보자. 특정 인터페이스를 사용하기 위해 이 인터페이스를 상속 받은 클래스를 구현하는 방법이
-  있다.
+  자바 람다식을 익명 구현 객체와 비교해 사용법, 함수형 인터페이스, Variable Capture, 메소드와 생성자 레퍼런스를 정리하고 바이트 코드와 1급 객체 개념까지 살펴봤다.
 publishedAt: '2021-05-02'
 updatedAt: '2021-05-02'
 tags:
@@ -703,9 +701,9 @@ public class Exam_005 {
 
 호기심이 생겨서 16, 17 라인을 사용 할 때와 안 할 때 생성되는 바이트 코드를 비교해 보았다.
 
-![0107-207-java-live-study-week-15-lambda-img-01.jpg](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-01.jpg)
+![Variable Capture 변수를 쓸 때와 안 쓸 때 디컴파일한 Exam_005 클래스 코드를 비교한 화면](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-01.jpg)
 
-![0107-207-java-live-study-week-15-lambda-img-02.jpg](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-02.jpg)
+![로컬 클래스 생성자가 캡처한 변수를 val$ 필드로 복사하는지 디컴파일 코드로 비교한 화면](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-02.jpg)
 
 당장 눈에 띄는 것은 중첩 클래스 때문에 '외부_클래스'${숫자}'내부_클래스'.class 클래스 파일이 추가로 생성 되었다.
 
@@ -788,7 +786,7 @@ interface MyFunctionalInterface {
 </tbody>
 </table>
 
-![0107-207-java-live-study-week-15-lambda-img-03.jpg](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-03.jpg)
+![컴파일 결과 폴더에서 익명 구현 객체용 Exam_011$1.class 파일이 따로 생성된 것을 표시한 목록](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-03.jpg)
 
 intelliJ 가 너무 좋은(?)건지 익명 구현 객체에 대한 클래스 파일이 보이지 않아 직접 폴더를 찾아 들어갔다.
 
@@ -1045,7 +1043,7 @@ function myFunc() {
 })(myFunc);
 ```
 
-![0107-207-java-live-study-week-15-lambda-img-04.png](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-04.png)
+![자바스크립트 함수를 매개변수, 변수, 반환값으로 쓴 코드와 브라우저 콘솔 실행 결과](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-04.png)
 
 갑자기 javascript 코드가 나와서 좀 그렇지만
 
@@ -1137,7 +1135,7 @@ function myFunction (param) {
 })();
 ```
 
-![0107-207-java-live-study-week-15-lambda-img-05.png](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-05.png)
+![외부 변수에 의존하지 않는 순수 함수와 의존하는 함수의 자바스크립트 코드와 같은 실행 결과](/tech-blog/resources/images/migration/0107-207-java-live-study-week-15-lambda/img-05.png)
 
 실행 결과는 같지만, myPureFunction 과 myFunction 의 차이점은 실행 결과가 외부 변수에 의해 실행 결과에 영향을 주는가 이다.
 

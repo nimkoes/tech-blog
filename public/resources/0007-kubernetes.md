@@ -1,9 +1,7 @@
 ---
 title: '[chap.06] Volume (emptyDir, hostPath, PVC/PV)'
 description: >-
-  Container 간 데이터 공유를 위해 Volume 을 사용하는 것을 말한다. 최초 Volume 이 생성될 때는 항상 내용이 비어있기
-  때문에 emptyDir 이란 이름을 가지게 되었다. 만약 Container 1 이 web 역할을 하는 서버이고 Container 2 는
-  백엔드를 처리해주는 서버라고 하자.
+  Kubernetes Volume의 세 가지 방식 emptyDir, hostPath, PVC/PV가 각각 데이터를 어디에 두고 언제 잃는지, Admin과 User 역할을 나눈 PV 연결 흐름까지 YAML 예시로 정리했다.
 publishedAt: '2025-03-03'
 updatedAt: '2025-03-03'
 tags:

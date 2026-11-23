@@ -1,9 +1,7 @@
 ---
 title: 'javascript로 information hiding 해보기. (private 변수, scope에 대한 이해)'
 description: >-
-  javascript에 대해 막연하게 단순하고 쉬운 스크립트 언어 라고만 생각했다. 굉장히 후회하고 또 반성하고 있다. 늦게나마
-  javascript에 대해 알아보는데, 새로운걸 알아갈수록 기쁘다기보다 부끄러운 마음이 더 크다. 일반적으로 프로그래밍 언어를 시작할 때
-  배우는 java나 c를 가지고 예를 들어보자. (java를 기준으로 알아볼 예정이다.) 소스상에 위와 같은 부분이 있다고 하자.
+  JavaScript에서 if 블록은 scope를 만들지 않고 function이 scope를 만든다는 점을 Java와 비교하고, 클로저로 getter와 setter만 노출해 private 변수처럼 정보 은닉하는 방법을 정리했다.
 publishedAt: '2017-12-19'
 updatedAt: '2017-12-19'
 tags:
@@ -160,13 +158,13 @@ setInnerVar 라는 키값에도 function을 하나 value로 가지는
 
 그런 이유로 14라인에서 test에 담긴 내용을 보면 다음과 같다.
 
-![0082-100-javascript-information-hiding-private-scope-img-01.jpg](/tech-blog/resources/images/migration/0082-100-javascript-information-hiding-private-scope/img-01.jpg)
+![개발자 도구 콘솔에서 test 객체에 getInnerVar와 setInnerVar 함수만 담긴 것을 확인한 결과](/tech-blog/resources/images/migration/0082-100-javascript-information-hiding-private-scope/img-01.jpg)
 
 개발자 도구로 test라는 변수에 담긴 내용을 출력해본 결과이다.
 
 그럼 이제 test에 담긴 두개의 함수를 사용해보자.
 
-![0082-100-javascript-information-hiding-private-scope-img-02.png](/tech-blog/resources/images/migration/0082-100-javascript-information-hiding-private-scope/img-02.png)
+![콘솔에서 setInnerVar로 바꾼 값을 getInnerVar로 읽지만 test.innerVar는 undefined인 결과](/tech-blog/resources/images/migration/0082-100-javascript-information-hiding-private-scope/img-02.png)
 
 이 결과를 가지고 무엇을 알 수 있을까?
 

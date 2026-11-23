@@ -1,9 +1,7 @@
 ---
 title: String vs. StringBuilder vs. StringBuffer 예제를 통한 비교
 description: >-
-  자바에는 문자열을 처리하기 위한 클래스로 String, StringBuilder, StringBuffer 클래스가 있다. 단순히 문자열을
-  처리하기 위함이라면 (예를 들면 System.out.println("문자열"); 이런 경우) 어떤 것을 사용해도 별다른 차이는 없다고 알고
-  있다. 하지만 문자열을 더하는 (+) 연산을 할 경우에 퍼포먼스상의 차이가 발생한다. 백번 듣느니 한 번 보는게 낫다.
+  Java String, StringBuilder, StringBuffer로 문자열을 1만 번 더하는 실행 시간을 비교하고, String의 불변성 때문에 생기는 성능 차이와 StringBuffer의 동기화 차이를 정리했다.
 publishedAt: '2017-06-07'
 updatedAt: '2017-06-07'
 tags:
@@ -101,7 +99,7 @@ addr100 = addr100 + addr101;
 
 이 소스가 실행되면 메모리상에서 어떤 일이 생길까?
 
-![0077-57-string-vs-stringbuilder-vs-stringbuffer-img-01.png](/tech-blog/resources/images/migration/0077-57-string-vs-stringbuilder-vs-stringbuffer/img-01.png)
+![문자열A와 문자열B를 더하면 기존 값은 그대로 두고 102번지에 새 문자열이 만들어지는 메모리 그림](/tech-blog/resources/images/migration/0077-57-string-vs-stringbuilder-vs-stringbuffer/img-01.png)
 
 위에 첨부한 이미지를 함께 보자.
 

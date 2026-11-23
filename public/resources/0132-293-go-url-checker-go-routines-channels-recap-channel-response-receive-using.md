@@ -3,10 +3,7 @@ title: >-
   Go 'URL CHECKER & GO ROUTINES' : Channels Recap, channel response receive
   using loop (blocking)
 description: >-
-  이번에는 Channel 로 주고 받는 데이터를 bool 타입이 아닌 string 타입을 사용해보자. 아래는 수정한 main
-  goroutine.go 파일이다. 이전 예제와 달라진 부분은 people 배열의 요소 수를 5로 늘렸고 channel 을 통해 주고 받을
-  데이터의 타입을 string 으로 바꾼 것과 channel 이 응답 받을 데이터를 기다리는 것을 확인하기 위해 (blocking 하는 것을
-  확인하기 위해) '<- c'…
+  Go goroutine이 channel로 string 값을 보내고 main 함수가 <-c로 받을 때까지 blocking되는 동작을 확인하고, 반복 수신 코드를 for 문으로 정리한 과정을 담았다.
 publishedAt: '2021-05-23'
 updatedAt: '2021-05-23'
 tags:
@@ -75,7 +72,7 @@ channel 이 응답 받을 데이터를 기다리는 것을 확인하기 위해 (
 
 실행하면 다음과 같다.
 
-![0132-293-go-url-checker-go-routines-channels-recap-channel-response-receive-using-img-01.gif](/tech-blog/resources/images/migration/0132-293-go-url-checker-go-routines-channels-recap-channel-response-receive-using/img-01.gif)
+![waiting... 출력 뒤 3초 기다려 goroutine 5개의 is sexy 메시지와 DONE !이 출력되는 터미널](/tech-blog/resources/images/migration/0132-293-go-url-checker-go-routines-channels-recap-channel-response-receive-using/img-01.gif)
 
 프로그램을 실행하면 'waiting...' 문자열이 출력 되고, 설정한 3초 동안 다른 스레드에서 channel 을 통해 전달하는 결과를 '<- c' 에서 기다린다.
 

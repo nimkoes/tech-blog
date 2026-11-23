@@ -1,10 +1,7 @@
 ---
 title: '[chap.07] ConfigMap, Secret (Env, Mount)'
 description: >-
-  본격적인 사용 방법을 알아보기에 앞서 ConfigMap 과 Secret 이 언제 사용되는지 먼저 정리한다. 개발 환경과 운영 환경이 있다.
-  A Service 는 환경에 따라 SSH 설정 및 User 와 key 값을 설정해야 한다. 하지만 이 값은 Container 안에 있는
-  Service 에 들어있는 값이기 때문에 이 값을 바꾼다는 것은 환경에 따라 Container Image 를 따로 관리해야 한다는 것을
-  의미한다.
+  Kubernetes ConfigMap과 Secret으로 환경별 설정값을 Image 밖에서 주입하는 Env(Literal), Env(File), Volume Mount 세 방식을 YAML 예시와 갱신 차이로 정리했다.
 publishedAt: '2025-03-03'
 updatedAt: '2025-03-03'
 tags:

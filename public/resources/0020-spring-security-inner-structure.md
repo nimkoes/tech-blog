@@ -1,9 +1,7 @@
 ---
 title: '[chap.01] Spring Security 동작 원리 개요'
 description: >-
-  Spring Security 동작 원리 개요 클라이언트의 요청은 WAS (Web Application Server / ex> tomcat )
-  의 filter 를 통과한 다음 Spring Container 의 Controller 에 도달한다. WAS 의 filter 에 새로운
-  filter 를 추가하여 요청을 가로챈다. 가로챈 요청은 Spring Container 내부에 정의한 로직을 통과 한다.
+  Spring Security가 WAS 필터에서 요청을 가로채는 원리를 DelegatingFilterProxy, FilterChainProxy, SecurityFilterChain의 역할과 구조로 정리했다.
 publishedAt: '2025-03-08'
 updatedAt: '2025-03-08'
 tags:
@@ -18,7 +16,7 @@ status: published
 - 가로챈 요청은 `Spring Container` 내부에 정의한 로직을 통과 한다.
 - `Spring Security` 의 로직을 처리한 다음 다시 `WAS` 의 다음 `filter` 로 복귀하여 요청을 처리 한다.
 
-![0020-01](/tech-blog/resources/images/spring-security-inner-structure/0020-01.png)
+![DelegatingFilterProxy 안 FilterChainProxy가 URL 패턴별 SecurityFilterChain을 골라 위임하는 구조도](/tech-blog/resources/images/spring-security-inner-structure/0020-01.png)
 
 - `DelegatingFilterProxy`
   - `Spring Security` 의 필터 체인을 `WAS` 의 `Servlet Filter` 로 등록하기 위한 `Spring` 제공 클래스 이다.

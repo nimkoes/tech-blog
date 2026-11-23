@@ -1,8 +1,7 @@
 ---
 title: 'Go ''URL CHECKER & GO ROUTINES'' : Slow URLChecker, empty map 선언'
 description: >-
-  이번에는 지난번에 작성했던 URL 접속 코드를 조금 개선했다. 개선된 것은 url 에 GET 요청을 보냈을 때 응답 결과를 확인할 수 있도록
-  map 을 사용하도록 한 부분이다. 정의한 results 이름의 map 은 key, value 타입을 모두 string 으로 사용한다.
+  Go로 여러 URL에 GET 요청을 보내 결과를 map에 담는 URL Checker를 만들고, nil map에 값을 넣으면 panic이 나는 이유와 빈 map 초기화 방법, 순차 처리가 느린 이유를 정리했다.
 publishedAt: '2021-05-22'
 updatedAt: '2021-05-22'
 tags:
@@ -124,7 +123,7 @@ func hitURL(url string) error {
 }
 ```
 
-![0129-290-go-url-checker-go-routines-slow-urlchecker-empty-map-img-01.gif](/tech-blog/resources/images/migration/0129-290-go-url-checker-go-routines-slow-urlchecker-empty-map/img-01.gif)
+![URL을 하나씩 순서대로 검사한 뒤 각 URL의 OK, FAILED 결과를 출력하는 실행 과정](/tech-blog/resources/images/migration/0129-290-go-url-checker-go-routines-slow-urlchecker-empty-map/img-01.gif)
 
 제목이 Slow URL Checker 인 이유는 각 url 에 대해 동시에 처리가 되지 않고 순차 처리가 되기 때문이다.
 

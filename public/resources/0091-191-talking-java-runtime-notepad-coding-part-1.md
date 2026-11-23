@@ -1,9 +1,7 @@
 ---
 title: '나 혼자 떠드는 자바 : 자바 실행 환경 (즐거운 메모장 코딩 1편)'
 description: >-
-  충격적인 소식이 하나 있다. 사실 환경변수까지 등록하지 않아도 자바 프로그램을 만들 수 있다. 하지만 알고 있기 바라는 생각과 메모장 코딩을
-  하기 위해 넣은 내용이다. 메모장은 윈도우 + r 키를 눌러 나오는 '실행'창에 notepad 라고 입력해도 나오고 "마우스 우클릭 ->
-  새로 만들기 -> 텍스트 문서" 를 선택해도 나오고 실행시키는 방법은 다양하다. 어쨌든 메모장(notepad)을 하나 실행시켜보자.
+  메모장으로 Java Hello World를 작성해 javac로 컴파일하고 java로 실행하는 과정을 따라가며, import, 접근 제한자, static, void, main의 의미를 한 줄씩 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -27,13 +25,13 @@ status: needs-review
 어쨌든 메모장(notepad)을 하나 실행시켜보자.
 본격적으로 자바 프로그래밍 언어를 사용한 컴퓨터 프로그램을 만들어보자.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-01.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-01.png)
+![Java 코드를 작성하기 위해 띄운 비어 있는 Windows 메모장 창](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-01.png)
 
 자, 그럼 다른 많은 교재에서 프로그래밍 공부의 시작을 알리는 프로그램.
 티키신을 화나게 해서는 안된다는 그 프로그램.
 Hello World 프로그램을 작성해보자.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-02.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-02.png)
+![메모장에 import java.lang.*와 Exam_01 클래스로 작성한 Hello World 소스](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-02.png)
 
 나같은 경우 처음 자바를 배울때 이 내용을 통째로 외우라고 했다.
 지금은 이해하기 어려우니 일단 외우고 넘어가면 나중에 다 이해하게 된다라고.
@@ -58,7 +56,7 @@ Hello World 프로그램을 작성해보자.
 참조 연산자라는게 어떤건지 확 감이 올거라 생각한다.
 다음과 같은 폴더 구조를 가지고 있을 경우 참조 연산자를 사용해서 표현할 수 있다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-03.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-03.png)
+![test, xxxelppa, package, subPackage 순으로 중첩된 폴더 구조](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-03.png)
 
 test.xxxelppa.package.subPackage
 
@@ -111,7 +109,7 @@ test.xxxelppa.package.subPackage.*
 
 설치 프로그램을 실행시켜 설치가 완료된 마지막 화면은 다음과 같았다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-04.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-04.png)
+![JDK 8 설치가 끝난 뒤 Next Steps 버튼이 보이는 설치 완료 화면](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-04.png)
 
 여기서 Next Steps 를 클릭하면 브라우저가 하나 뜨면서 API 문서를 연결 해줬었다.
 
@@ -119,7 +117,7 @@ test.xxxelppa.package.subPackage.*
 
 [java SE 8 Documentation 링크](https://docs.oracle.com/javase/8/docs/)
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-05.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-05.png)
+![Java SE 8 문서의 구성도에서 Java SE API 링크를 표시한 화면](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-05.png)
 
 사이트에서 오른쪽에 보이는 Java SE API 링크를 눌러보자.
 
@@ -127,7 +125,7 @@ test.xxxelppa.package.subPackage.*
 
 쉽게 말해 백과사전이라 생각하면 좋다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-06.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-06.png)
+![Java SE 8 API 문서의 Packages 목록에서 java.lang 패키지 설명을 표시한 화면](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-06.png)
 
 링크를 타고 들어가서 보면 Packages 라는 영역이 있고, 이곳을 찾아보면 java.lang 이라는 방금 보고온 단어가 있다.
 
@@ -191,13 +189,13 @@ API에서 제공하는 것은 언어 자체에서 기본적으로 제공하는 �
 
 그렇기 때문에 혹시 괄호를 열었다면 바로바로 닫아주고 그 안에 내용을 작성하는 습관을 가지자.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-07.gif](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-07.gif)
+![메모장에서 괄호를 위에서부터 순서대로 입력하며 Hello World 코드를 작성하는 과정](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-07.gif)
 
 위와 같은 방식으로 작성하다보면 언젠가는 괄호 쌍이 맞지 않아 오류가 발생하는 안타까운 실수를 하기 쉽다.
 
 그러니 아래와 같이 괄호를 열었으면 들여쓰기 레벨에 맞춰 바로바로 닫아주는 습관을 가지기를 권유한다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-08.gif](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-08.gif)
+![메모장에서 괄호를 열자마자 닫고 들여쓰기에 맞춰 안쪽을 채워 가는 작성 과정](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-08.gif)
 
 우선 public에 대해 알아보자.
 
@@ -327,7 +325,7 @@ static은 이렇게 클래스가 객체화 되었을 때 힘을 발휘한다.
 
 그림으로 보면 다음과 같다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-09.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-09.png)
+![class A로 만든 객체 1, 2, 3이 각자 다른 영역을 갖고 static B 하나는 함께 공유하는 그림](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-09.png)
 
 이것으로 알 수 있는 사실은 public static void main(String[] ar) 이라고 한 부분의 블럭 { } 은
 
@@ -361,7 +359,7 @@ Exam_01 클래스의 객체를 아무리 많이 생성해도 딱 한개만 존�
 
 수학 시간에 함수에 대해 배울때 꼭 보는 유명한 그림이 있다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-10.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-10.png)
+![입력 x를 받은 함수 f가 결과 y를 출력하는 함수 개념도](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-10.png)
 
 수학시간엔 이 그림을 다음과 같이 설명한다.
 
@@ -471,7 +469,7 @@ public static void main(String[] ar) { } 은
 
 API 문서에서 java.lang 패키지를 선택해서 이동한 페이지에 다음과 같은 부분이 있다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-11.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-11.png)
+![java.lang 패키지 API 문서의 클래스 목록에서 System 클래스 설명을 표시한 화면](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-11.png)
 
 System 클래스는 몇가지 유용한 클래스 필드들과 메서드들을 포함하고 있습니다.
 
@@ -483,7 +481,7 @@ System 클래스는 몇가지 유용한 클래스 필드들과 메서드들을 �
 
 링크가 걸려있는 System 을 선택해서 더욱 깊이 들어가보자.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-12.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-12.png)
+![System 클래스 API 문서의 Field Summary에서 표준 출력 스트림 out을 표시한 화면](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-12.png)
 
 이미지의 최상단에 보면 java.lang의 System 클래스에 대한 설명임을 알 수 있다.
 
@@ -495,7 +493,7 @@ The "standard" output stream. 표준 출력 스트림.
 
 out을 눌러 보다 자세한 설명을 보러 가자.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-13.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-13.png)
+![System.out 필드 상세 설명과 System.out.println 사용 예시가 나온 API 문서](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-13.png)
 
 "표준"출력 스트림. 이 스트림은 이미 열려있고 출력 데이터를 받아 들일 준비가되어 있다. 일반적으로 이 스트림은 호스트 환경 또는 사용자가 지정한 표시 출력 또는 다른 출력 대상에 해당합니다.
 
@@ -511,11 +509,11 @@ System.out.println("Hello, World!"); 문장은 "Hello, World!" 라는 data를 �
 
 ---
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-14.jpg](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-14.jpg)
+![메모장 다른 이름으로 저장 창에서 java_test 폴더에 Exam_01.java로 저장하는 단계](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-14.jpg)
 
 위와 같은 경로에 class 이름과 대소문자까지 모두 정확하게 일치하는 .java 확장자를 가지는 소스파일을 저장하자.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-15.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-15.png)
+![java_test 폴더에 저장된 Exam_01.java 소스 파일](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-15.png)
 
 이 .java 파일은 사람이 이해할 수 있는 언어로 작성된 소스 파일이기 때문에
 
@@ -534,13 +532,13 @@ Exam_01.java 라는 파일을 컴파일 해서 컴퓨터가 (프로그램 실행
 
 명령을 내리는 경로가 소스파일이 저장된 경로와 동일해야 한다는 것이다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-16.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-16.png)
+![명령 프롬프트에서 javac Exam_01.java를 실행해 메시지 없이 컴파일이 끝난 화면](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-16.png)
 
 정상적으로 컴파일(번역)이 완료되면 위와 같이 별다른 메시지 없이 종료된다.
 
 그러면 소스파일을 저장했던 곳에 어떤 변화가 있는지 확인해보자.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-17.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-17.png)
+![컴파일 후 Exam_01.java 옆에 Exam_01.class 파일이 새로 생긴 폴더](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-17.png)
 
 .class 라는 내가 만든 .java 와 동일한 이름의 파일이 새로 생성 되었다.
 
@@ -554,7 +552,7 @@ Exam_01.java 라는 파일을 컴파일 해서 컴퓨터가 (프로그램 실행
 
 실행 할때는 확장자를 제외하고 java 라는 명령어를 사용하면 된다.
 
-![0091-191-talking-java-runtime-notepad-coding-part-1-img-18.png](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-18.png)
+![명령 프롬프트에서 java Exam_01을 실행해 Hello, World!가 출력된 화면](/tech-blog/resources/images/migration/0091-191-talking-java-runtime-notepad-coding-part-1/img-18.png)
 
 명령 프롬프트에 Hello, World! 이 문장을 출력하기 위해 기나긴 시간 고생 많으셨다.
 

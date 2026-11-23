@@ -1,9 +1,7 @@
 ---
 title: '[chap.15] DefaultLoginPageGeneratingFilter'
 description: >-
-  DefaultLoginPageGeneratingFilter DefaultLoginPageGeneratingFilter 목적 이 필터는
-  DefaultSecurityFilterChain 에 기본적으로 등록되는 필터로 아홉 번째에 위치한다. 이 필터가 등록되는 목적은 GET
-  /login 경로에 기본 로그인 페이지를 응답하는 역할을 수행한다. 이 필터는 여러 로그인 설정에 의존한다.
+  Spring Security의 DefaultLoginPageGeneratingFilter가 GET /login 요청에 기본 로그인 페이지를 만들어 응답하는 로직과, 컨트롤러가 아닌 필터에서 페이지를 응답하는 이유를 정리했다.
 publishedAt: '2025-03-09'
 updatedAt: '2025-03-09'
 tags:

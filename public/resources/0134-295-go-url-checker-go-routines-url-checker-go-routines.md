@@ -1,9 +1,7 @@
 ---
 title: 'Go ''URL CHECKER & GO ROUTINES'' : URL Checker + Go Routines'
 description: >-
-  지금까지 goroutine 에 대해 알아보았으니 'main.go' 파일에 작성했던 URL Checker 를 goroutine 을 사용해서
-  개선해보자. 기존 'main.go' 와 다른 부분은 다음과 같다. 이 프로그램을 실행하면 다음과 같이 아무 결과를 출력하지 않는다. 만약
-  지금까지 내용을 이해했다면 이렇게 출력되는게 당연하다.
+  Go URL Checker를 goroutine과 channel로 바꾸면서 chan<- 로 channel 방향을 제한하는 방법과, main이 channel을 기다리지 않으면 결과 없이 바로 종료되는 이유를 정리했다.
 publishedAt: '2021-05-23'
 updatedAt: '2021-05-23'
 tags:
@@ -94,7 +92,7 @@ func hitURL(url string, c chan<- result) {
 
 이 프로그램을 실행하면 다음과 같이 아무 결과를 출력하지 않는다.
 
-![0134-295-go-url-checker-go-routines-url-checker-go-routines-img-01.jpg](/tech-blog/resources/images/migration/0134-295-go-url-checker-go-routines-url-checker-go-routines/img-01.jpg)
+![main이 channel을 기다리지 않아 go run main.go 실행 후 아무것도 출력되지 않은 터미널](/tech-blog/resources/images/migration/0134-295-go-url-checker-go-routines-url-checker-go-routines/img-01.jpg)
 
 만약 지금까지 내용을 이해했다면 이렇게 출력되는게 당연하다.
 

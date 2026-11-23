@@ -1,9 +1,7 @@
 ---
 title: 'Go ''BANK & DICTIONARY PROJECTS'' : Methods part Two'
 description: >-
-  지난번 Methods part One 에서 Deposit method 를 호출했을 때 account 값이 수정되지 않은 것을 확인했다. 그
-  이유는 Go 에서 function, method 를 사용할 때 object, struct 등에 대해 복사본을 사용하기 때문이다. 지금의 경우
-  Deposit 메소드의 receiver 에서 복사본이 사용 됐다.
+  Go에서 pointer receiver로 struct 원본을 수정하는 이유와, exception 없이 error 타입을 반환하고 log.Fatalln으로 처리하는 방법을 은행 계좌 Deposit, Withdraw 예제로 정리했다.
 publishedAt: '2021-05-21'
 updatedAt: '2021-05-21'
 tags:
@@ -66,7 +64,7 @@ func main() {
 }
 ```
 
-![0123-284-go-bank-dictionary-projects-methods-part-two-img-01.jpg](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-01.jpg)
+![10을 입금한 뒤 20을 출금해 잔액 -10이 출력된 go run 실행 결과](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-01.jpg)
 
 계산은 잘 되었지만, 계좌에 잔액이 음수가 되는걸 바라지 않을 수 있다.
 
@@ -94,7 +92,7 @@ func (a *account) Withdraw(amount int) error {
 
 다시 main.go 를 실행해보면 다음과 같이 값이 변하지 않은 것을 볼 수 있다.
 
-![0123-284-go-bank-dictionary-projects-methods-part-two-img-02.jpg](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-02.jpg)
+![Withdraw가 error를 반환해 잔액이 10 그대로 출력된 go run 실행 결과](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-02.jpg)
 
 다른 언어와 비교했을 때 이런 결과가 나온게 좀 어색하다.
 
@@ -126,13 +124,13 @@ func main() {
 }
 ```
 
-![0123-284-go-bank-dictionary-projects-methods-part-two-img-03.jpg](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-03.jpg)
+![VS Code에서 log.Fatalln이 Println 후 os.Exit 1을 호출한다는 설명 툴팁을 띄운 화면](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-03.jpg)
 
 반환 받은 err 이 nil 이 아니라면 실행하는 코드이다.
 
 이렇게 수정하고 실행하면 다음과 같은 결과가 나온다.
 
-![0123-284-go-bank-dictionary-projects-methods-part-two-img-04.jpg](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-04.jpg)
+![log.Fatalln이 Can not withdraw 오류를 출력하고 exit status 1로 종료된 터미널](/tech-blog/resources/images/migration/0123-284-go-bank-dictionary-projects-methods-part-two/img-04.jpg)
 
 log.Fatalln 다음의 fmt.Println 을 실행하지 않고 프로그램을 종료한 것을 확인할 수 있다.
 

@@ -1,9 +1,7 @@
 ---
 title: 'Go ''JOB SCRAPER'' : extractJob part one'
 description: >-
-  이번에는 지난번에 출력한 URL 에 직접 접속하도록 해보자. 수정한 getPage function 을 보면 checkErr,
-  checkCode function 을 사용해서 오류를 확인하고 각 페이지에서 ".jobsearch-SerpJobCard" 클래스를 찾은
-  다음, 각각의 요소에 대해 "data-jk" attribute 값을 id 변수에 담아 출력하고 있다.
+  Go goquery로 Indeed 검색 결과 페이지에 접속해 jobsearch-SerpJobCard 요소의 data-jk, 제목, 지역을 추출하고, 수집한 데이터를 담을 extractedJob struct를 정의했다.
 publishedAt: '2021-05-29'
 updatedAt: '2021-05-29'
 tags:
@@ -44,11 +42,11 @@ func getPage(page int) {
 
 ".jobsearch-SerpJobCard" 와 "data-jk" 라는 값은 현재 이 페이지에 적용되어 있는 값이다.
 
-![0138-300-go-job-scraper-extractjob-part-one-img-01.jpg](/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-01.jpg)
+![Chrome 개발자 도구로 Indeed 채용 카드의 jobsearch-SerpJobCard 클래스와 data-jk 속성을 확인하는 화면](/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-01.jpg)
 
 실행해보면 다음과 같이 각각의 card 에 대해 data-jk 값이 수집되어 출력된 것을 볼 수 있다.
 
-![0138-300-go-job-scraper-extractjob-part-one-img-02.jpg](/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-02.jpg)
+![go run main.go 실행 결과로 채용 카드마다 수집한 data-jk 값이 줄지어 출력된 터미널](/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-02.jpg)
 
 이렇게 추출해올 데이터를 관리하기 편하게 struct 를 만들어보자.
 
@@ -166,7 +164,7 @@ func checkCode(res *http.Response) {
 
 수집하려는 DOM 요소의 태그 속성에 대해서는 개발자 도구를 사용해서 하나씩 확인해볼 수 밖에 없다.
 
-![0138-300-go-job-scraper-extractjob-part-one-img-03.jpg](/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-03.jpg)
+![카드별 id, title, location이 빈 줄과 함께 출력된 채용 정보 추출 실행 결과](/tech-blog/resources/images/migration/0138-300-go-job-scraper-extractjob-part-one/img-03.jpg)
 
 마지막으로, 실행 결과를 보면 빈 줄이 너무 많은데, 애초에 데이터가 그렇게 생겼기 때문이다.
 

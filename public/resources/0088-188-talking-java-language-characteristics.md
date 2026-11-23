@@ -1,9 +1,7 @@
 ---
 title: '나 혼자 떠드는 자바 : 자바 언어가 가지는 특징 ''배워본 언어가 없는데 어떻게 비교를 해'''
 description: >-
-  지금까지 내가 접한 입문서의 전반부에 자주 등장하는 내용이다. 프로그래밍 언어가 무엇인지를 시작으로 언어의 발전 과정을 시간의 흐름으로
-  살펴본다. 그리고 뒤이어 다루는 주제는 그 언어의 특징이다. 처음 자바의 특징을 볼 때 당황했다. 비교 대상이 있어야 특징을 이해할 것
-  아닌가. '나중에 다시 보면 이해할 수 있습니다. 지금은 그냥 한 번 쭉 읽어보고 넘어가세요'라고 말하기 시작하는 부분이다.
+  자바 언어의 특징인 JVM 기반의 높은 이식성(WORA), 느린 속도, 객체 지향, GC를 통한 메모리 자동 관리, 풍부한 오픈소스 라이브러리를 일상 비유로 풀어 설명했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -43,7 +41,7 @@ status: needs-review
 이식성이 좋다라는건 어디서든 사용 가능하다는 것을 말한다.
 예를 들어 다음 이미지는 카카오톡 pc버전을 다운받는 화면의 일부이다.
 
-![0088-188-talking-java-language-characteristics-img-01.png](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-01.png)
+![카카오톡 PC 버전 다운로드 메뉴에서 Windows, Mac OS X 등 플랫폼별 설치 파일을 고르는 화면](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-01.png)
 
 pc 버전을 다운 받는데 "Windows, WindowsXP 전용, Mac OS X 10.8 이상" 다양한 선택지가 있다.
 위에 나열한 "Windows, WindowsXP 전용, Mac OS X 10.8" 이런 것들을 플랫폼 이라고 한다.
@@ -67,16 +65,16 @@ JVM은 자바로 작성 된 프로그램을 실행하는 주체이다.
 
 실제로 그렇지는 않지만 이해를 돕기 위해 만든 이미지를 보자.
 
-![0088-188-talking-java-language-characteristics-img-02.png](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-02.png)
+![플랫폼마다 모양이 달라 프로그램을 따로 맞춰야 함을 비유한 플랫폼 1, 2, 3 그림](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-02.png)
 
-![0088-188-talking-java-language-characteristics-img-03.png](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-03.png)
+![모양이 다른 각 플랫폼 위에 JVM을 얹고 그 위에서 같은 java program이 실행되는 구조 그림](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-03.png)
 
 보통 프로그램은 플랫폼(운영체제)에 의해 바로 실행되는데,
 자바 프로그램은 플랫폼이 아닌 JVM에 의해 실행된다는 특징을 가지고 있다.
 
 자바를 설치하게되면 JVM을 설치하게 되는데, 이 JVM이 플랫폼에 맞춰 만들어져 사용자에게 제공 된다.
 
-![0088-188-talking-java-language-characteristics-img-04.png](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-04.png)
+![Oracle JDK 7u80 다운로드 표에서 Linux, Mac OS X, Solaris, Windows용 설치 파일이 나뉜 목록](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-04.png)
 
 위 이미지는 실제로 자바를 다운받는 사이트에서 플랫폼 별로 설치 파일을 제공하는 것을 보여준다.
 즉, 어떤 플랫폼에서든 JVM이 설치되어 있기만 하면, 자바로 작성된 프로그램은 어디서든 실행할 수 있다는 것을 의미한다.
@@ -118,7 +116,7 @@ JVM은 자바로 작성 된 프로그램을 실행하는 주체이다.
 자바에는 클래스라는 개념이 있다.
 클래스라는 것은 개념적으로 설계도라고 생각하자.
 
-![0088-188-talking-java-language-characteristics-img-05.gif](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-05.gif)
+![클래스를 설계도에 비유하기 위해 예로 든 트럭 설계 도면](/tech-blog/resources/images/migration/0088-188-talking-java-language-characteristics/img-05.gif)
 
 (구글에서 자동차 설계도를 검색한 결과중 하나이다.)
 

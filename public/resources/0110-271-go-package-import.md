@@ -1,9 +1,7 @@
 ---
 title: Go 의 package 와 import
 description: >-
-  앞서 Hello World 문자열을 출력하는 코드를 Go로 작성해 보았다. fmt 를 직접 import 한 적이 없는데, IDE 에서 알아서
-  자동으로 추가해 주었다. fmt 는 Go 가 가지고 있는 패키지 중 하나로 formatting 을 위한 package 이다. import
-  관련해서 javascript 의 경우 function 을 export 해주고 싶은 경우 모듈을 export 하겠다고 명시해 주어야 한다.
+  Go에서 package를 만들어 import하는 방법과, 함수 이름을 대문자로 시작해야 다른 패키지로 export된다는 규칙을 something 패키지 예제와 오류 메시지로 확인했다.
 publishedAt: '2021-05-16'
 updatedAt: '2021-05-16'
 tags:
@@ -34,7 +32,7 @@ Go 에서는 function 을 export 해주고 싶다면 function 을 영문자 대�
 
 정말 그런지 확인해보기 위해 현재 프로젝트의 최상위에 'something' 폴더를 만들고 그 안에 'something.go' 파일을 만들었다.
 
-![0110-271-go-package-import-img-01.jpg](/tech-blog/resources/images/migration/0110-271-go-package-import/img-01.jpg)
+![VS Code 탐색기에서 Go-Study 프로젝트 최상위에 something 폴더와 something.go를 만든 구조](/tech-blog/resources/images/migration/0110-271-go-package-import/img-01.jpg)
 
 'something.go' 의 파일 내용은 다음과 같다.
 
@@ -79,13 +77,13 @@ func main() {
 
 import 해서 쓸 수 있는건 아무래도 이 경로에 있어야 하는것 같아서 그 위치로 새로 만든 'someting'을 옮겨 보았다.
 
-![0110-271-go-package-import-img-02.jpg](/tech-blog/resources/images/migration/0110-271-go-package-import/img-02.jpg)
+![something 폴더를 Go 설치 경로의 C:\Program Files\Go\src 아래로 옮긴 탐색기 화면](/tech-blog/resources/images/migration/0110-271-go-package-import/img-02.jpg)
 
 그랬더니 'something' 을 전혀 찾지 못해 발생하던 오류는 사라졌다.
 
 그리고 실행해보니 'sayBye' 에서 다음과 같이 오류가 발생했다.
 
-![0110-271-go-package-import-img-03.jpg](/tech-blog/resources/images/migration/0110-271-go-package-import/img-03.jpg)
+![소문자로 시작한 something.sayBye를 호출해 cannot refer to unexported name 오류가 난 VS Code 터미널](/tech-blog/resources/images/migration/0110-271-go-package-import/img-03.jpg)
 
 'cannot refer to unexpected name something.sayBye'
 
@@ -108,6 +106,6 @@ func main() {
 }
 ```
 
-![0110-271-go-package-import-img-04.jpg](/tech-blog/resources/images/migration/0110-271-go-package-import/img-04.jpg)
+![sayBye 호출을 주석 처리한 뒤 go run main.go로 Hello World!와 Hello가 출력된 터미널](/tech-blog/resources/images/migration/0110-271-go-package-import/img-04.jpg)
 
 마지막으로 지나가듯 언급한 내용인데, 이렇게 function 을 정의할 때 export 하지 않는 것에 대해 영문자 소문자를 사용하는것이 마치 private 접근 제한자를 사용하는 것과 같다.

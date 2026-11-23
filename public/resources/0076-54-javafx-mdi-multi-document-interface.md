@@ -1,9 +1,7 @@
 ---
 title: javaFX MDI(Multi Document Interface) 답답해서 정리
 description: >-
-  답답하면 니들이 뛰라는 말이 있다. 그래서 정리해봤다. javaFX를 사용해서 MDI (Multi Document Interface)를
-  개발해야할 경우가 간혹 생길수 있다. 검색을 해보았지만 마땅히 내가 원하는 스타일이 없었다. 그렇다고 이제 와서 javaFX를 (나는
-  처음부터 한 번 쭉 훑어 봤지만) 처음부터 볼 수는 없는 노릇이다.
+  JavaFX로 메인 창 안에 여러 화면을 띄우는 MDI를 만들기 위해 javaFXMDI 예제를 jar로 묶고, fxml 화면 분리와 메뉴 생성, 클릭 이벤트 바인딩 방법을 정리했다.
 publishedAt: '2017-06-05'
 updatedAt: '2017-06-05'
 tags:
@@ -492,7 +490,7 @@ public class MainAppController extends Application {
 
 최소화 했을 경우 좌측 하단에 보이는 것과 같이 나타나진다.
 
-![0076-54-javafx-mdi-multi-document-interface-img-01.jpg](/tech-blog/resources/images/migration/0076-54-javafx-mdi-multi-document-interface/img-01.jpg)
+![메인 창 안에 TestPage 창들이 열리고 menu_new 메뉴가 추가되며 최소화된 창이 좌측 하단에 놓인 JavaFX MDI 실행 결과](/tech-blog/resources/images/migration/0076-54-javafx-mdi-multi-document-interface/img-01.jpg)
 
  중간에 예제 프로젝트 소스를 첨부 했으니 원하는 대로 만들어 사용하면 될 것 같다.
 

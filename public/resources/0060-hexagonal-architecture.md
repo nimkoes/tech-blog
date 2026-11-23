@@ -1,9 +1,7 @@
 ---
 title: '육각형, 헥사고날, 포트와 어댑터 아키텍처'
 description: >-
-  육각형 아키텍처(Hexagonal Architecture)는 소프트웨어를 비즈니스 로직과 외부 입출력으로 분리 하여 유연하고 테스트하기 쉬운
-  구조를 만들기 위한 아키텍처 패턴이다. 이 아키텍처는 Ports and Adapters 아키텍처라고도 불리며, 외부 세계와의 연결(입출력)을
-  플러그처럼 어댑터로 연결하는 방식을 사용한다.
+  육각형 아키텍처(포트와 어댑터)의 도메인, 애플리케이션 서비스, 포트, 어댑터 개념을 주문 포인트 적립 Spring 예제로 구현하고, 입력 포트를 따로 정의할 시점을 정리했다.
 publishedAt: '2025-07-17'
 updatedAt: '2025-07-17'
 tags:
@@ -18,7 +16,7 @@ status: published
 
 ## 핵심 개념 요약
 
-![0060-01](/tech-blog/resources/images/hexigonal-architecture/0060-01.png)
+![웹, API, CLI 요청이 입력 어댑터와 애플리케이션 서비스를 거쳐 도메인 객체와 출력 포트, 출력 어댑터로 이어지는 구조도](/tech-blog/resources/images/hexigonal-architecture/0060-01.png)
 
 - **도메인(Domain)**: 핵심 비즈니스 로직. 외부 기술에 의존하지 않음.
 - **애플리케이션 서비스**: 도메인 객체를 조립하고 외부와 연결.
@@ -35,7 +33,7 @@ status: published
 
 아래는 스프링 기반 육각형 아키텍처 예제를 구성한 전체 폴더와 클래스 구조이다.
 
-![0060-02](/tech-blog/resources/images/hexigonal-architecture/0060-02.png)
+![OrderController에서 OrderApplicationService를 거쳐 RewardRepository로 이어지는 예제 클래스 구조도](/tech-blog/resources/images/hexigonal-architecture/0060-02.png)
 
 ```
 hexagonal-order-reward/

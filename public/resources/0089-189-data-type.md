@@ -1,9 +1,7 @@
 ---
 title: '나 혼자 떠드는 자바 : 자료의 형태(data type) : 상수, 변수, 배열, (구조체), 클래스 그리고 사용자 정의 자료형'
 description: >-
-  개념적인 부분을 중심으로 설명을 할 것이기 때문에 특정 언어에 종속된 소스 코드 작성을 지양하려 한다. 그렇지만 필요할 경우
-  pseudocode 라고 하는 의사어 코드를 사용하려 한다. 의사어 코드는 일반적으로 알고리즘을 어떻게 구현할지 등을 전달 할 목적으로
-  일반적인 언어를 사용해 모델링 하는데 쓰인다. 여기서는 알고리즘이 아닌 내용 전달을 위한 용도로 사용할 예정이다.
+  자바 자료형을 상수, 변수, 배열, 구조체, 클래스 순서로 개념 중심으로 정리했다. 기본 자료형 크기, 정수에 int를 쓰는 이유, 클래스도 사용자 정의 자료형이라는 점을 설명한다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -49,7 +47,7 @@ status: needs-review
 
 예를 들어 수학 문제를 보면 다음과 같은것을 쉽게 볼 수 있다.
 
-![0089-189-data-type-img-01.png](/tech-blog/resources/images/migration/0089-189-data-type/img-01.png)
+![부등식 |x-3| ≤ 2를 만족하는 정수 x의 합을 묻는 수학 문제로 변수 x를 설명하는 예](/tech-blog/resources/images/migration/0089-189-data-type/img-01.png)
 
 여기서 우리는 이 x를 변수라고 부른다.
 위 문제에서 부등식의 참 거짓 여부를 떠나 우리는 x에 정수인 어떤 값이든 넣어볼 수 있다.
@@ -202,7 +200,7 @@ byte나 short와 같은 1byte, 2byte 사이즈의 자료형 변수들도 메모�
 
 컴퓨터에서 배열이 이렇게 생기진 않았지만, 길이 n의 배열을 가시화 할 때 다음과 같이 표현 한다.
 
-![0089-189-data-type-img-02.png](/tech-blog/resources/images/migration/0089-189-data-type/img-02.png)
+![인덱스 0부터 n-1까지 칸이 한 줄로 이어진 길이 n 배열의 개념도](/tech-blog/resources/images/migration/0089-189-data-type/img-02.png)
 
 위의 숫자는 배열의 순서를 나타내는 숫자로 보통 '인덱스'라고 하며 0부터 (제로 베이스) 센다.
 
@@ -218,7 +216,7 @@ byte나 short와 같은 1byte, 2byte 사이즈의 자료형 변수들도 메모�
 
 위와 같이 선언했을 때 다음과 같은 이미지를 떠올리면 된다.
 
-![0089-189-data-type-img-03.png](/tech-blog/resources/images/migration/0089-189-data-type/img-03.png)
+![arrVariable 이름에 인덱스 0부터 9까지 10칸이 있는 int 배열 그림](/tech-blog/resources/images/migration/0089-189-data-type/img-03.png)
 
 100개가 필요하면 길이 10이 아닌 100인 int 배열을 선언하면 된다.
 지금은 이렇게 묶음으로 관리하는게 얼마나 좋은지 와닿지 않을 수 있다.
@@ -251,7 +249,7 @@ score 라는 이름의 배열을 사용해서 훌륭하게 점수를 관리할 �
 언어를 만든 사람들을 포함해서 프로그램을 만드는 사람들은 보통 의미없이 중복해서 반복하는걸 싫어한다.
 그래서 다음과 같이 묶으면 어떨까? 생각했다.
 
-![0089-189-data-type-img-04.png](/tech-blog/resources/images/migration/0089-189-data-type/img-04.png)
+![이름 칸과 점수 score 배열을 하나로 묶은 학생 구조체 그림](/tech-blog/resources/images/migration/0089-189-data-type/img-04.png)
 
 '학생' 이라는 구조체를 그림으로 나타내본 것이다.
 학생들이 갖는 공통된 속성을 구조체라는 덩어리로 묶어 가지고 있다가
@@ -295,7 +293,7 @@ score 라는 이름의 배열을 사용해서 훌륭하게 점수를 관리할 �
 
 지금까지 말한 내용을 바탕으로 학생 클래스를 만들면 다음과 같이 그려볼 수 있다.
 
-![0089-189-data-type-img-05.png](/tech-blog/resources/images/migration/0089-189-data-type/img-05.png)
+![이름, 나이 등 멤버 필드와 등교하다, 하교하다 등 멤버 메소드를 묶은 학생 클래스 그림](/tech-blog/resources/images/migration/0089-189-data-type/img-05.png)
 
 자바에서 속성에 해당하는 내용을 보통 멤버 필드 라고 하고, 행위를 멤버 메소드 라고 한다.
 혹시 기억할지 모르겠지만, 클래스는 개념적으로 설계도라고 할 수 있다고 했다.

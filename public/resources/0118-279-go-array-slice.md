@@ -1,9 +1,7 @@
 ---
 title: Go 의 Array 와 Slice 선언과 기본 사용법
 description: >-
-  Go 에는 일반적으로 생각하는 배열을 표현하는 두 가지 방법이 있다. 하나는 다른 언어에서 보던 것과 같은 배열이고, 다른 하나는
-  슬라이스(slice) 라고 하는게 있다. 기본적인 선언 방법은 다음과 같다. 'array 사용 방법 1' 을 보면, 내가 만들 배열의 길이를
-  고정하는 방법이다. 그래서 출력 결과를 보면, 공백 두 개가 같이 출력 된 것으로 보인다.
+  Go의 고정 길이 배열 선언 두 가지와 append로 길이를 늘리는 슬라이스(slice)의 차이를 예제 코드와 go run 출력 결과로 정리했다.
 publishedAt: '2021-05-17'
 updatedAt: '2021-05-17'
 tags:
@@ -39,7 +37,7 @@ func main() {
 }
 ```
 
-![0118-279-go-array-slice-img-01.jpg](/tech-blog/resources/images/migration/0118-279-go-array-slice/img-01.jpg)
+![go run 실행 결과로 길이 5 배열의 빈칸, 배열 4개 요소, new_elem이 추가된 슬라이스가 출력된 터미널](/tech-blog/resources/images/migration/0118-279-go-array-slice/img-01.jpg)
 
 'array 사용 방법 1' 을 보면, 내가 만들 배열의 길이를 고정하는 방법이다.
 

@@ -1,10 +1,7 @@
 ---
 title: '11주차 : Enum'
 description: >-
-  Enum을 '열거형' 또는 Enumeration 또는 상수집합 이라고도 부른다. 상수 목록이 필요해서 class 나 interface 를
-  활용 하는것을 본 적이 있다. 하지만 class 나 interface 는 그런 용도로 사용하라고 만들어진 것이 아니기 때문에 이런 사용을
-  지양해야 한다. 가장 단순한 형태의 enum 클래스는 다음과 같이 정의할 수 있다. class 대신 enum 키워드를 사용해서 만들어주면
-  된다.
+  자바 enum을 정의하고 생성자와 필드로 상수에 값을 붙이는 방법, values와 valueOf, java.lang.Enum의 ordinal과 compareTo 같은 메소드, EnumSet과 EnumMap 사용 예제를 정리했다.
 publishedAt: '2021-05-01'
 updatedAt: '2021-05-01'
 tags:
@@ -280,11 +277,11 @@ enum 에는 몇가지 기본적으로 제공되는 메소드가 있다.
 
 그 중에 values 는 특이하게..? api 문서에 나와있지 않다.
 
-![0104-204-java-live-study-week-11-enum-img-01.jpg](/tech-blog/resources/images/migration/0104-204-java-live-study-week-11-enum/img-01.jpg)
+![java.lang.Enum API 문서의 생성자와 메소드 요약 표로 values 메소드가 목록에 없음을 보여주는 화면](/tech-blog/resources/images/migration/0104-204-java-live-study-week-11-enum/img-01.jpg)
 
 이 values 메소드는 enum 안에 선언된 모든 상수들을 배열로 반환한다.
 
-![0104-204-java-live-study-week-11-enum-img-02.jpg](/tech-blog/resources/images/migration/0104-204-java-live-study-week-11-enum/img-02.jpg)
+![IntelliJ에서 WhiteshipLectureList.values의 문서 팝업으로 enum 상수를 선언 순서대로 배열로 반환한다는 설명](/tech-blog/resources/images/migration/0104-204-java-live-study-week-11-enum/img-02.jpg)
 
 ```java
 package me.xxxelppa.study.week011;

@@ -1,10 +1,7 @@
 ---
 title: 네트워크 처리 흐름 정리
 description: >-
-  이 문서는 www.my-app.com 에서 GET /my-app/data 요청을 보낼 때, 로컬 PC부터 Azure Load
-  Balancer까지 이어지는 네트워크 트래픽의 처리 과정을 설명합니다. 브라우저는 URL을 파싱하여 프로토콜(https),
-  호스트명(www.my-app.com), 경로(/my-app/data)를 분석합니다. 마치 편지를 쓰기 전에 "어디로 보낼까?"를 결정하는
-  것과 같습니다.
+  브라우저의 HTTPS 요청이 DNS 질의, TCP·TLS 패킷 생성, NAT와 라우팅, ARP 처리를 거쳐 Azure Load Balancer의 5-튜플 해시로 백엔드 서버에 닿기까지의 흐름을 단계별로 정리했다.
 publishedAt: '2025-07-13'
 updatedAt: '2026-11-22'
 tags:
