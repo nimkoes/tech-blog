@@ -19,6 +19,7 @@ import { deriveImageAlt } from '~/utils/seo';
 import imageMetadata from '~/resources/image-metadata.json';
 import HeadingPermalink from './HeadingPermalink';
 import RelativeUpdateAge from './RelativeUpdateAge';
+import ShareButton from './ShareButton';
 
 interface PostClientProps {
   document: PostMeta;
@@ -222,6 +223,7 @@ export default function PostClient({
         <p className={styles.postLead}>{postContent.description}</p>
         <div className={styles.postMetaSummary}>
           <span className={styles.readingTime}>약 {document.readingTime}분</span>
+          <ShareButton title={document.title} />
         </div>
         {document.tags && document.tags.length > 0 && (
           <div className={styles.postTags}>

@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 // Components
 import DateTooltip from '~/components/common/DateTooltip';
 import { X } from 'lucide-react';
+import ShareButton from './post/[slug]/ShareButton';
 
 // Utils & Context
 import { useTagContext } from '~/context/TagContext';
@@ -200,6 +201,7 @@ export default function PostList({ initialPosts }: PostListProps) {
                   </time>
                 </DateTooltip>
                 <span className={styles.readingTime}>약 {post.readingTime}분</span>
+                <ShareButton title={post.title} path={`/post/${post.fileName}/`} />
 
                 <div className={styles.postTags}>
                   {post.tags.map(tag => (
