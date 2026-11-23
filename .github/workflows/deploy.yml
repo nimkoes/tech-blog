@@ -14,7 +14,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -57,29 +57,6 @@ jobs:
         with:
           path: ./out  # Next.js 정적 빌드 폴더
 
-      # nimkoes.github.io 레포지토리 클론
-      - name: Checkout nimkoes.github.io
-        uses: actions/checkout@v4
-        with:
-          repository: nimkoes/nimkoes.github.io
-          path: nimkoes.github.io
-          token: ${{ secrets.GH_PAT }}
-
-      # sitemap.xml과 robots.txt를 nimkoes.github.io 레포지토리로 복사하고 커밋
-      - name: Update search engine files in nimkoes.github.io
-        run: |
-          # 파일 복사
-          cp out/sitemap.xml nimkoes.github.io/sitemap.xml
-          cp out/robots.txt nimkoes.github.io/robots.txt
-          
-          # nimkoes.github.io 레포지토리에 커밋 및 푸시
-          cd nimkoes.github.io
-          git config --global user.name 'nimkoes'
-          git config --global user.email 'xxxeppa@gmail.com'
-          git add sitemap.xml robots.txt
-          git commit -m "Update sitemap.xml and robots.txt from tech-blog" || echo "No changes to commit"
-          git push || echo "No changes to push"
-          cd ..
 
   # Deployment job
   deploy:
