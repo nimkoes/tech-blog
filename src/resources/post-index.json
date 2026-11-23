@@ -1,5 +1,23 @@
 [
   {
+    "title": "모델은 무엇이고, 학습과 추론은 어떻게 다른가",
+    "description": "모델을 구조와 파라미터로 나누어 살펴보고, 학습이 파라미터를 바꾸는 과정인 반면 추론은 학습된 값을 읽어 출력을 계산하는 과정이라는 차이를 Java와 Kotlin 예제로 확인한다. LLM의 사전 학습, 미세 조정, RLHF와 무상태 대화가 동작하는 방식도 함께 정리한다.",
+    "tags": [
+      "AI",
+      "머신러닝",
+      "LLM",
+      "모델",
+      "학습",
+      "추론"
+    ],
+    "fileName": "0146-model-training-parameters-inference",
+    "regDate": "2026-11-23",
+    "lastModifiedDate": "2026-11-23",
+    "status": "published",
+    "reviewedAt": "2026-11-23",
+    "readingTime": 25
+  },
+  {
     "title": "AI, 머신러닝, 생성형 AI, LLM은 어떻게 다른가",
     "description": "AI, 머신러닝, 딥러닝, 생성형 AI, LLM의 포함 관계를 구분하고, 규칙 기반 프로그램과 학습 모델의 차이, LLM이 다음 토큰을 예측해 글을 만드는 방식, 모델과 코딩 에이전트의 차이를 정리했다.",
     "tags": [

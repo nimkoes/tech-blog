@@ -725,6 +725,21 @@
                   "생성형 AI",
                   "LLM"
                 ]
+              },
+              {
+                "id": "60-01-02",
+                "regDate": "2026-11-23",
+                "lastModifiedDate": "2026-11-23",
+                "displayName": "모델은 무엇이고, 학습과 추론은 어떻게 다른가",
+                "fileName": "0146-model-training-parameters-inference",
+                "tags": [
+                  "AI",
+                  "머신러닝",
+                  "LLM",
+                  "모델",
+                  "학습",
+                  "추론"
+                ]
               }
             ]
           }
