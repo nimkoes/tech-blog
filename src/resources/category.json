@@ -514,6 +514,27 @@
                 ]
               }
             ]
+          },
+          {
+            "id": "20-ecosystem",
+            "displayName": "Spring 생태계 실무 학습",
+            "kind": "series",
+            "children": [
+              {
+                "id": "20-ecosystem-01",
+                "regDate": "2026-11-23",
+                "lastModifiedDate": "2026-11-23",
+                "displayName": "Spring 생태계와 HTTP 요청은 어떻게 처리되는가",
+                "fileName": "0147-spring-ecosystem-http-request-flow",
+                "tags": [
+                  "Spring",
+                  "Spring Boot",
+                  "Spring Framework",
+                  "Spring MVC",
+                  "WebFlux"
+                ]
+              }
+            ]
           }
         ]
       },

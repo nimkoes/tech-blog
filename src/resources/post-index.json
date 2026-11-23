@@ -1,5 +1,22 @@
 [
   {
+    "title": "Spring 생태계와 HTTP 요청은 어떻게 처리되는가",
+    "description": "Spring Framework와 Spring Boot의 관계, 주요 Spring 프로젝트의 역할을 정리한다. HTTP 요청이 내장 Tomcat, 필터, DispatcherServlet, 컨트롤러와 서비스를 거쳐 응답으로 돌아오는 흐름을 Java와 Kotlin 예제로 확인한다.",
+    "tags": [
+      "Spring",
+      "Spring Boot",
+      "Spring Framework",
+      "Spring MVC",
+      "WebFlux"
+    ],
+    "fileName": "0147-spring-ecosystem-http-request-flow",
+    "regDate": "2026-11-23",
+    "lastModifiedDate": "2026-11-23",
+    "status": "needs-review",
+    "reviewedAt": null,
+    "readingTime": 22
+  },
+  {
     "title": "모델은 무엇이고, 학습과 추론은 어떻게 다른가",
     "description": "모델을 구조와 파라미터로 나누어 살펴보고, 학습이 파라미터를 바꾸는 과정인 반면 추론은 학습된 값을 읽어 출력을 계산하는 과정이라는 차이를 Java와 Kotlin 예제로 확인한다. LLM의 사전 학습, 미세 조정, RLHF와 무상태 대화가 동작하는 방식도 함께 정리한다.",
     "tags": [
