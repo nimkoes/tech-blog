@@ -24,7 +24,7 @@ export async function GET() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nimkoes Tech Blog</title>
-    <link>${siteOrigin}${basePath}</link>
+    <link>${siteOrigin}${basePath}/</link>
     <description>개발과 소프트웨어 아키텍처, 개발 문화에 대한 이야기를 공유합니다.</description>
     <language>ko-KR</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>

@@ -5,21 +5,18 @@ import { ThemeProvider } from '~/context/ThemeContext';
 import { getBasePath, getSiteOrigin } from '~/utils/contentRepository';
 import {
   AUTHOR_NAME,
-  DEFAULT_KEYWORDS,
   SITE_DESCRIPTION,
   SITE_LANGUAGE,
-  SITE_LOCALE,
   SITE_NAME,
   SITE_TITLE,
-  getDefaultOgImageUrl,
-  getSiteUrl,
+  getAuthorUrl,
+  getDefaultOpenGraph,
+  getHomeUrl,
   serializeJsonLd,
 } from '~/utils/seo';
 
 const SITE_ORIGIN = getSiteOrigin();
 const BASE_PATH = getBasePath();
-const SITE_URL = getSiteUrl();
-const OG_IMAGE_URL = getDefaultOgImageUrl();
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 const naverVerification = process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION;
@@ -49,10 +46,9 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  keywords: DEFAULT_KEYWORDS,
   authors: [{
     name: AUTHOR_NAME,
-    url: SITE_URL,
+    url: getAuthorUrl(),
   }],
   creator: AUTHOR_NAME,
   publisher: AUTHOR_NAME,
@@ -61,28 +57,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  openGraph: {
-    type: 'website',
-    locale: SITE_LOCALE,
-    siteName: SITE_NAME,
-    url: SITE_URL,
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: OG_IMAGE_URL,
-        width: 1200,
-        height: 630,
-        alt: SITE_NAME,
-        type: 'image/png',
-      },
-    ],
-  },
+  // 사이트 기본값만 둔다. canonical 과 og:url 은 각 페이지(홈은 page.tsx)가 정한다.
+  openGraph: getDefaultOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: [OG_IMAGE_URL],
   },
   robots: {
     index: true,
@@ -104,12 +82,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: `${BASE_PATH}/site.webmanifest`,
-  alternates: {
-    canonical: SITE_URL,
-    languages: {
-      [SITE_LANGUAGE]: SITE_URL,
-    },
-  },
   verification,
   category: 'technology',
 }
@@ -129,13 +101,13 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
-    url: SITE_URL,
+    url: getHomeUrl(),
     description: SITE_DESCRIPTION,
     inLanguage: SITE_LANGUAGE,
     author: {
       '@type': 'Person',
       name: AUTHOR_NAME,
-      url: SITE_URL,
+      url: getAuthorUrl(),
     },
   };
 

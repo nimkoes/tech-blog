@@ -36,6 +36,14 @@
   color: var(--text);
 }
 
+// 기존 슬로건은 H1 아래 보조 문구로 둔다.
+.slogan {
+  margin: 0.4rem 0 0;
+  color: var(--text);
+  font-size: var(--body-small);
+  font-weight: var(--font-weight-medium);
+}
+
 .description {
   margin: 0.58rem 0 0;
   color: var(--text-secondary);

@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getAllTags, getBasePath, getCategoryPosts, getSiteOrigin } from '~/utils/contentRepository';
-import { AUTHOR_NAME, SITE_NAME, serializeJsonLd } from '~/utils/seo';
+import { getAllTags, getCategoryPosts } from '~/utils/contentRepository';
+import { AUTHOR_NAME, SITE_NAME, getAuthorUrl, getPageOpenGraph, serializeJsonLd } from '~/utils/seo';
 import styles from './about.module.scss';
+
+const ABOUT_DESCRIPTION = `${SITE_NAME}을 운영하는 백엔드 엔지니어 nimkoes를 소개합니다.`;
 
 export const metadata: Metadata = {
   title: 'About',
-  description: `${SITE_NAME}을 운영하는 백엔드 엔지니어 nimkoes를 소개합니다.`,
+  description: ABOUT_DESCRIPTION,
   alternates: {
-    canonical: `${getSiteOrigin()}${getBasePath()}/about`,
+    canonical: getAuthorUrl(),
   },
+  openGraph: getPageOpenGraph({ title: 'About', description: ABOUT_DESCRIPTION, url: getAuthorUrl() }),
 };
 
 const externalLinks = [
@@ -22,12 +25,11 @@ const externalLinks = [
 export default function AboutPage() {
   const posts = getCategoryPosts();
   const topTags = getAllTags().slice(0, 8);
-  const siteUrl = `${getSiteOrigin()}${getBasePath()}`;
   const personJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: AUTHOR_NAME,
-    url: `${siteUrl}/about`,
+    url: getAuthorUrl(),
     jobTitle: 'Backend Engineer',
     sameAs: externalLinks.map(link => link.href),
   };

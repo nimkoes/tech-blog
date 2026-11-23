@@ -2,15 +2,18 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PostClient from './PostClient';
 import { generateTOC } from '~/utils/generateTOC';
-import { getBasePath, getCategoryPosts, getCategoryPostBySlug, getPostContent, getPostNavigation, getPostUrl, getSiteOrigin } from '~/utils/contentRepository';
+import { getCategoryPosts, getCategoryPostBySlug, getPostContent, getPostNavigation, getPostUrl } from '~/utils/contentRepository';
 import {
   AUTHOR_NAME,
   SITE_LANGUAGE,
+  SITE_LOCALE,
   SITE_NAME,
+  getAuthorUrl,
+  getHomeUrl,
+  getPostDates,
   getPostOgImageUrl,
   getPostKeywords,
   getPostSeoDescription,
-  parseIsoDate,
   serializeJsonLd,
 } from '~/utils/seo';
 
@@ -27,7 +30,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   const document = getCategoryPostBySlug(slug);
   const content = getPostContent(slug);
 
-  if (!document) {
+  if (!document || !content) {
     return {
       title: '존재하지 않는 게시물',
       robots: {
@@ -41,15 +44,12 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   const description = getPostSeoDescription(content);
   const canonical = getPostUrl(slug);
   const ogImageUrl = getPostOgImageUrl(slug);
-  const publishedTime = parseIsoDate(content?.date || document.regDate);
-  const modifiedTime = parseIsoDate(document.lastModifiedDate || content?.date);
-  const keywords = getPostKeywords(document);
+  const { publishedIso: publishedTime, modifiedIso: modifiedTime } = getPostDates(content);
 
   return {
     title,
     description,
-    keywords,
-    authors: [{ name: AUTHOR_NAME, url: `${getSiteOrigin()}${getBasePath()}` }],
+    authors: [{ name: AUTHOR_NAME, url: getAuthorUrl() }],
     creator: AUTHOR_NAME,
     publisher: AUTHOR_NAME,
     alternates: {
@@ -60,6 +60,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       description,
       url: canonical,
       type: 'article',
+      locale: SITE_LOCALE,
+      siteName: SITE_NAME,
       publishedTime,
       modifiedTime,
       authors: [AUTHOR_NAME],
@@ -97,8 +99,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const navigation = getPostNavigation(slug);
   const canonical = getPostUrl(slug);
   const description = getPostSeoDescription(postContent);
-  const datePublished = parseIsoDate(postContent.date || document.regDate);
-  const dateModified = parseIsoDate(document.lastModifiedDate || postContent.date);
+  const { publishedIso: datePublished, modifiedIso: dateModified } = getPostDates(postContent);
   const blogPostingJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -114,12 +115,12 @@ export default async function PostPage({ params }: PostPageProps) {
     author: {
       '@type': 'Person',
       name: AUTHOR_NAME,
-      url: `${getSiteOrigin()}${getBasePath()}`,
+      url: getAuthorUrl(),
     },
     publisher: {
       '@type': 'Person',
       name: AUTHOR_NAME,
-      url: `${getSiteOrigin()}${getBasePath()}`,
+      url: getAuthorUrl(),
     },
     image: [getPostOgImageUrl(slug)],
   };
@@ -131,7 +132,7 @@ export default async function PostPage({ params }: PostPageProps) {
         '@type': 'ListItem',
         position: 1,
         name: SITE_NAME,
-        item: `${getSiteOrigin()}${getBasePath()}`,
+        item: getHomeUrl(),
       },
       {
         '@type': 'ListItem',

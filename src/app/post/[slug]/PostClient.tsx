@@ -15,7 +15,7 @@ import { SeriesBox, PostFooterNav } from './PostNav';
 import type { PostContent, PostMeta, TocItem } from '~/types/content';
 import type { PostNavigation } from '~/utils/contentRepository';
 import { slugifyTag } from '~/utils/tags';
-import { deriveImageAlt } from '~/utils/seo';
+import { deriveImageAlt, getPostDates } from '~/utils/seo';
 import imageMetadata from '~/resources/image-metadata.json';
 import HeadingPermalink from './HeadingPermalink';
 import RelativeUpdateAge from './RelativeUpdateAge';
@@ -56,6 +56,7 @@ export default function PostClient({
   navigation,
 }: PostClientProps) {
   const headingSeen: Record<string, number> = {};
+  const postDates = getPostDates(postContent);
 
   const HeadingRenderer = (
     sourceLevel: 1 | 2 | 3 | 4 | 5 | 6,
@@ -240,9 +241,12 @@ export default function PostClient({
           </div>
         )}
         <p className={styles.latestUpdate}>
+          <span>발행</span>
+          <time dateTime={postDates.published}>{postDates.published}</time>
+          <span aria-hidden>·</span>
           <span>최근 업데이트</span>
-          <time dateTime={document.lastModifiedDate}>{document.lastModifiedDate}</time>
-          <RelativeUpdateAge date={document.lastModifiedDate} />
+          <time dateTime={postDates.modified}>{postDates.modified}</time>
+          <RelativeUpdateAge date={postDates.modified} />
         </p>
       </header>
       {navigation?.series && (
