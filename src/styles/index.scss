@@ -84,6 +84,12 @@
   font-family: var(--font-family-base);
 }
 
+// 위 `*` 규칙이 구문 강조 span 에까지 본문 폰트를 입히지 않도록 코드 안에서는 코드 폰트를 물려받는다.
+code *,
+pre * {
+  font-family: inherit;
+}
+
 html,
 body {
   max-width: 100vw;

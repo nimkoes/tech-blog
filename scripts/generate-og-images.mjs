@@ -1,8 +1,20 @@
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
-import sharp from 'sharp';
 
 const rootDir = process.cwd();
+
+// 빌드하는 기기(로컬 macOS, 배포 ubuntu)의 시스템 폰트와 상관없이 같은 결과가 나오도록
+// sharp(librsvg) 가 저장소에 설치된 Pretendard 만 보게 한다. sharp 를 불러오기 전에 설정해야 한다.
+const fontDir = path.join(rootDir, 'node_modules/pretendard/dist/public/static');
+const fontConfigDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-fontconfig-'));
+const fontConfigFile = path.join(fontConfigDir, 'fonts.conf');
+fs.writeFileSync(
+  fontConfigFile,
+  `<?xml version="1.0"?><!DOCTYPE fontconfig SYSTEM "fonts.dtd"><fontconfig><dir>${fontDir}</dir><cachedir>${fontConfigDir}</cachedir></fontconfig>`
+);
+process.env.FONTCONFIG_FILE = fontConfigFile;
+const { default: sharp } = await import('sharp');
 const postIndex = JSON.parse(
   fs.readFileSync(path.join(rootDir, 'src/resources/post-index.json'), 'utf8')
 );
@@ -59,7 +71,7 @@ for (const post of postIndex) {
       <circle cx="1080" cy="80" r="220" fill="#0ea5e9" opacity="0.12"/>
       <circle cx="1050" cy="580" r="280" fill="#6366f1" opacity="0.1"/>
       <style>
-        text { font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', 'Segoe UI', sans-serif; }
+        text { font-family: 'Pretendard', sans-serif; }
         .brand { fill: #7dd3fc; font-size: 28px; font-weight: 700; letter-spacing: 3px; }
         .title { fill: #f8fafc; font-size: 62px; font-weight: 750; }
         .meta { fill: #cbd5e1; font-size: 25px; }

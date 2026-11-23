@@ -79,10 +79,11 @@
   --font-weight-bold: 700;
 
   // 폰트 패밀리
-  --font-family-dev: "D2Coding", "D2Coding ligature", "JetBrains Mono", "Fira Code", "Cascadia Code",
-    "IBM Plex Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-family-base: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  // 코드: 영문은 JetBrains Mono, JetBrains Mono 에 없는 한글은 D2Coding 이 이어받는다.
+  --font-family-dev: "JetBrains Mono Variable", "JetBrains Mono", "D2Coding", "SFMono-Regular", Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-base: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans KR", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-code: var(--font-family-dev);
   --font-mono: var(--font-family-code);
 }

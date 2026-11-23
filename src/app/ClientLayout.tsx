@@ -1,5 +1,9 @@
 "use client";
 
+// 웹폰트: 본문 Pretendard(필요한 글자만 받는 dynamic subset), 코드 JetBrains Mono, 코드 속 한글 D2Coding
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
+import "@fontsource-variable/jetbrains-mono";
+import "d2coding/d2coding-subset.css";
 import "~/styles/index.scss";
 import styles from "./layout.module.scss";
 import { useCallback, useMemo, useState, ReactNode } from "react";
