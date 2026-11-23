@@ -300,5 +300,6 @@ export function getAllMarkdownSlugs(): string[] {
 }
 
 export function getPostUrl(slug: string) {
-  return `${getSiteOrigin()}${getBasePath()}/post/${slug}`;
+  // next.config 의 trailingSlash: true 와 같은 정식 주소(리다이렉트 없음)
+  return `${getSiteOrigin()}${getBasePath()}/post/${slug}/`;
 }

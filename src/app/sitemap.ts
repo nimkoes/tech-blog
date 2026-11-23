@@ -31,10 +31,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const latestPostDate = posts[0]?.lastModifiedDate;
 
   const staticRoutes: SitemapItem[] = [
-    createSitemapItem(`${siteOrigin}${basePath}`, 'weekly', 1, latestPostDate),
-    createSitemapItem(`${siteOrigin}${basePath}/about`, 'monthly', 0.5, latestPostDate),
-    createSitemapItem(`${siteOrigin}${basePath}/tags`, 'weekly', 0.5, latestPostDate),
-    createSitemapItem(`${siteOrigin}${basePath}/feed.xml`, 'weekly', 0.6, latestPostDate),
+    // trailingSlash: true 이므로 모든 페이지 주소는 / 로 끝나는 것이 정식 주소다.
+    createSitemapItem(`${siteOrigin}${basePath}/`, 'weekly', 1, latestPostDate),
+    createSitemapItem(`${siteOrigin}${basePath}/about/`, 'monthly', 0.5, latestPostDate),
+    createSitemapItem(`${siteOrigin}${basePath}/tags/`, 'weekly', 0.5, latestPostDate),
   ];
 
   const postRoutes = posts.map(post =>
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const tagRoutes = getAllTags().filter(({ count }) => count >= 2).map(({ slug }) =>
     createSitemapItem(
-      `${siteOrigin}${basePath}/tags/${encodeURIComponent(slug)}`,
+      `${siteOrigin}${basePath}/tags/${encodeURIComponent(slug)}/`,
       'weekly',
       0.4,
       latestPostDate
