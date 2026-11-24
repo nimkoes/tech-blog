@@ -761,6 +761,20 @@
                   "학습",
                   "추론"
                 ]
+              },
+              {
+                "id": "60-01-03",
+                "regDate": "2026-11-25",
+                "lastModifiedDate": "2026-11-25",
+                "displayName": "Transformer와 Attention은 문맥을 어떻게 계산하는가",
+                "fileName": "0148-transformer-attention-context",
+                "tags": [
+                  "AI",
+                  "LLM",
+                  "Transformer",
+                  "Attention",
+                  "Context Window"
+                ]
               }
             ]
           }

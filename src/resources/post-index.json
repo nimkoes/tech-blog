@@ -1,5 +1,22 @@
 [
   {
+    "title": "Transformer와 Attention은 문맥을 어떻게 계산하는가",
+    "description": "Transformer가 토큰을 임베딩으로 바꾸고 Self-Attention으로 문맥을 섞는 과정을 Query, Key, Value와 softmax 계산으로 살펴본다. 멀티헤드 어텐션, 위치 인코딩, 인과 마스크, 긴 컨텍스트의 계산량과 context rot을 Java와 Kotlin 예제로 확인한다.",
+    "tags": [
+      "AI",
+      "LLM",
+      "Transformer",
+      "Attention",
+      "Context Window"
+    ],
+    "fileName": "0148-transformer-attention-context",
+    "regDate": "2026-11-25",
+    "lastModifiedDate": "2026-11-25",
+    "status": "published",
+    "reviewedAt": "2026-11-25",
+    "readingTime": 20
+  },
+  {
     "title": "Spring 생태계와 HTTP 요청은 어떻게 처리되는가",
     "description": "Spring Framework와 Spring Boot의 관계, 주요 Spring 프로젝트의 역할을 정리한다. HTTP 요청이 내장 Tomcat, 필터, DispatcherServlet, 컨트롤러와 서비스를 거쳐 응답으로 돌아오는 흐름을 Java와 Kotlin 예제로 확인한다.",
     "tags": [
