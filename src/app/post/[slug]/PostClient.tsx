@@ -20,6 +20,8 @@ import imageMetadata from '~/resources/image-metadata.json';
 import HeadingPermalink from './HeadingPermalink';
 import RelativeUpdateAge from './RelativeUpdateAge';
 import ShareButton from './ShareButton';
+import GlossaryTerm from './GlossaryTerm';
+import { rehypeGlossaryTerms, type GlossaryEntry } from '~/utils/glossary';
 
 interface PostClientProps {
   document: PostMeta;
@@ -27,6 +29,7 @@ interface PostClientProps {
   toc: TocItem[];
   idMap: Record<string, string>;
   definitionHeadingMap: Record<string, true>;
+  glossary: GlossaryEntry[];
   navigation: PostNavigation | null;
 }
 
@@ -53,6 +56,7 @@ export default function PostClient({
   toc,
   idMap,
   definitionHeadingMap,
+  glossary,
   navigation,
 }: PostClientProps) {
   const headingSeen: Record<string, number> = {};
@@ -97,6 +101,26 @@ export default function PostClient({
 
   const Code = ({className, children, ...props}: CodeProps) => {
     return <code className={className} {...props}>{children}</code>;
+  };
+
+  type DefinitionProps = ComponentPropsWithoutRef<'dfn'> & {
+    'data-definition'?: string;
+    'data-term'?: string;
+    dataDefinition?: string;
+    dataTerm?: string;
+  };
+
+  const Definition = ({ children, ...props }: DefinitionProps) => {
+    const definition = props['data-definition'] || props.dataDefinition || '';
+    const term = props['data-term'] || props.dataTerm || readReactNodeText(children);
+
+    if (!definition) return <dfn>{children}</dfn>;
+
+    return (
+      <GlossaryTerm term={term} definition={definition}>
+        {children}
+      </GlossaryTerm>
+    );
   };
 
   const Anchor = ({ href, children, ...props }: ComponentPropsWithoutRef<'a'>) => {
@@ -210,6 +234,7 @@ export default function PostClient({
     h6: HeadingRenderer(6),
     pre: Pre,
     code: Code,
+    dfn: Definition,
     a: Anchor,
     img: Image,
   };
@@ -256,7 +281,12 @@ export default function PostClient({
       <article className={styles.markdown}>
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}
+          rehypePlugins={[
+            rehypeRaw,
+            rehypeSanitize,
+            [rehypeGlossaryTerms, { entries: glossary }],
+            rehypeHighlight,
+          ]}
           components={markdownComponents}
         >
           {postContent.content}

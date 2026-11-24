@@ -367,7 +367,7 @@
 }
 
 .markdown code {
-  font-size: var(--code-small);
+  font-size: calc(var(--code-small) + var(--reader-font-adjust, 0px));
 }
 
 @media screen and (max-width: 768px) {

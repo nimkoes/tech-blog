@@ -9,7 +9,7 @@ interface TocResult {
   definitionHeadingMap: Record<string, true>;
 }
 
-function isDefinitionSection(text: string) {
+export function isDefinitionSection(text: string) {
   const compactText = text.replace(/\s+/g, '');
   return (
     compactText.includes('용어') ||

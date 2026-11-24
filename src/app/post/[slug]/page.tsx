@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import PostClient from './PostClient';
 import { generateTOC } from '~/utils/generateTOC';
+import { extractGlossary } from '~/utils/glossary';
 import { getCategoryPosts, getCategoryPostBySlug, getPostContent, getPostNavigation, getPostUrl } from '~/utils/contentRepository';
 import {
   AUTHOR_NAME,
@@ -96,6 +97,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   const { toc, idMap, definitionHeadingMap } = generateTOC(postContent.content);
+  const glossary = extractGlossary(postContent.content);
   const navigation = getPostNavigation(slug);
   const canonical = getPostUrl(slug);
   const description = getPostSeoDescription(postContent);
@@ -159,6 +161,7 @@ export default async function PostPage({ params }: PostPageProps) {
         toc={toc}
         idMap={idMap}
         definitionHeadingMap={definitionHeadingMap}
+        glossary={glossary}
         navigation={navigation}
       />
     </>
