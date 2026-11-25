@@ -84,6 +84,7 @@
 }
 
 .sectionHeading {
+  scroll-margin-top: 76px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -122,9 +123,60 @@
   }
 }
 
+.sectionActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.bookmarkFilterButton {
+  min-height: 36px;
+  padding: 0.3rem 0.55rem 0.3rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: inherit;
+  font-size: var(--ui-small);
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+
+  strong {
+    min-width: 20px;
+    height: 20px;
+    padding: 0 0.32rem;
+    border-radius: 999px;
+    background: var(--hover);
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &:hover,
+  &:focus-visible,
+  &.bookmarkFilterActive {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 8%, var(--background));
+    color: var(--primary);
+  }
+}
+
+.bookmarkFilterActive strong {
+  background: var(--primary);
+  color: #fff;
+}
+
 .filterSummary {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.42rem;
   font-size: var(--ui-small);
   color: var(--text-secondary);
@@ -213,6 +265,41 @@
     transform: translateY(-2px);
     border-color: var(--primary);
     background: var(--hover);
+  }
+}
+
+.bookmarkedPostCard {
+  padding-right: 4.2rem;
+}
+
+.postBookmarkIndicator {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  right: 0.8rem;
+  min-width: 34px;
+  height: 27px;
+  padding: 0 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 34%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary) 8%, var(--background));
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: var(--ui-xs);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 14%, var(--background));
+    transform: translateY(-1px);
   }
 }
 
@@ -384,6 +471,11 @@
     align-items: center;
   }
 
+  .sectionActions {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
   .headline {
     font-size: var(--heading-5);
   }
@@ -391,6 +483,15 @@
   .postCard {
     padding: 0.8rem 0.84rem;
     border-radius: 12px;
+  }
+
+  .bookmarkedPostCard {
+    padding-right: 3.8rem;
+  }
+
+  .postBookmarkIndicator {
+    top: 0.65rem;
+    right: 0.68rem;
   }
 
   .postTitle {

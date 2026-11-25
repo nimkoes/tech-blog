@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { getAllTags, getBasePath, getSiteOrigin } from '~/utils/contentRepository';
 import { SITE_NAME, getPageOpenGraph } from '~/utils/seo';
 import styles from './tags.module.scss';
@@ -23,6 +24,10 @@ export default function TagsPage() {
 
   return (
     <main className={styles.container}>
+      <Link href="/#archive" className={styles.backLink}>
+        <ArrowLeft size={16} aria-hidden="true" />
+        Archive로 돌아가기
+      </Link>
       <h1 className={styles.title}>태그</h1>
       <p className={styles.description}>
         총 {tags.length}개의 태그가 있습니다. 태그를 선택하면 관련 글을 모아 볼 수 있어요.

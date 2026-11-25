@@ -3,7 +3,6 @@
   margin: 0 auto;
   padding: calc(56px + 2rem) 1.4rem 4rem;
 }
-
 .breadcrumb {
   margin-bottom: 1rem;
   font-size: var(--ui-small);
@@ -143,5 +142,27 @@
 @media (max-width: 768px) {
   .postDate {
     display: none;
+  }
+}
+.backLink {
+  width: fit-content;
+  min-height: 36px;
+  margin: 0 0 0.85rem auto;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--ui-small);
+  text-decoration: none;
+  transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--primary);
+    background: var(--hover);
+    color: var(--text);
   }
 }

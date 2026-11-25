@@ -5,18 +5,27 @@ import styles from './Header.module.scss';
 import SearchSidebar from './SearchSidebar';
 import CategorySidebar from './CategorySidebar';
 import { useTheme } from '~/context/ThemeContext';
-import { Compass, Search, Sun, Moon } from 'lucide-react';
+import { useBookmarks } from '~/context/BookmarkContext';
+import { Bookmark, Compass, Search, Sun, Moon } from 'lucide-react';
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [showHeaderMission, setShowHeaderMission] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const {
+    bookmarks,
+    isHydrated: areBookmarksHydrated,
+    isManagerOpen,
+    openManager,
+    closeManager,
+  } = useBookmarks();
   const searchButtonRef = useRef<HTMLButtonElement>(null);
   const categoryButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
 
   const handleSearchClick = () => {
+    closeManager();
     setIsCategoryOpen(false);
     setIsSearchOpen(true);
   };
@@ -27,8 +36,15 @@ export default function Header() {
   };
 
   const handleCategoryOpen = () => {
+    closeManager();
     setIsSearchOpen(false);
     setIsCategoryOpen(true);
+  };
+
+  const handleBookmarkOpen = () => {
+    setIsSearchOpen(false);
+    setIsCategoryOpen(false);
+    openManager();
   };
 
   const handleCategoryClose = () => {
@@ -41,13 +57,14 @@ export default function Header() {
       const isCommandK = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k';
       if (!isCommandK) return;
       event.preventDefault();
+      closeManager();
       setIsCategoryOpen(false);
       setIsSearchOpen(true);
     };
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, []);
+  }, [closeManager]);
 
   useEffect(() => {
     const isHome = pathname === '/';
@@ -100,6 +117,21 @@ export default function Header() {
             <span className={styles.missionText}>I work diligently to become lazy ☕</span>
           </p>
           <div className={styles.buttons}>
+            <button
+              type="button"
+              className={styles.bookmarkButton}
+              onClick={handleBookmarkOpen}
+              aria-label={`북마크 열기${areBookmarksHydrated ? `, ${bookmarks.length}개 저장됨` : ''}`}
+              aria-haspopup="dialog"
+              aria-expanded={isManagerOpen}
+              aria-controls="bookmark-manager"
+            >
+              <Bookmark size={16} fill={bookmarks.length > 0 ? 'currentColor' : 'none'} aria-hidden="true" />
+              <span className={styles.bookmarkLabel}>북마크</span>
+              {areBookmarksHydrated && bookmarks.length > 0 && (
+                <span className={styles.bookmarkCount} aria-hidden="true">{bookmarks.length}</span>
+              )}
+            </button>
             <button
               type="button"
               className={styles.exploreButton}

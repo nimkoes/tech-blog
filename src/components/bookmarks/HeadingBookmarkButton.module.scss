@@ -1,0 +1,217 @@
+.trigger {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.16s ease, color 0.16s ease, background-color 0.16s ease;
+
+  &:hover,
+  &:focus-visible,
+  &.bookmarked {
+    color: var(--primary);
+    background: var(--hover);
+    opacity: 1;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 260;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgb(2 6 23 / 45%);
+  backdrop-filter: blur(4px);
+}
+
+.dialog {
+  width: min(460px, calc(100vw - 2rem));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--background);
+  box-shadow: 0 24px 72px rgb(2 6 23 / 30%);
+  color: var(--text);
+  overflow: hidden;
+  animation: editorIn 0.16s ease-out;
+
+  header {
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+
+    p {
+      margin: 0 0 0.2rem;
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.1em;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: var(--body-large);
+    }
+
+    button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  form {
+    padding: 0 1rem 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--text-secondary);
+    font-size: var(--ui-small);
+    font-weight: var(--font-weight-medium);
+  }
+
+  input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: 0;
+    background: var(--background);
+    color: var(--text);
+    font-size: var(--body-small);
+
+    &:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 18%, transparent);
+    }
+  }
+}
+
+.location {
+  margin: 0.45rem 0 0;
+  color: var(--text-secondary);
+  font-size: var(--ui-xs);
+  line-height: var(--line-height-normal);
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.45rem;
+
+  button {
+    min-height: 40px;
+    padding: 0 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: transparent;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    cursor: pointer;
+  }
+}
+
+.actions .deleteAction {
+  color: #dc2626;
+}
+
+.actions .saveButton {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.deleteConfirm {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid color-mix(in srgb, #dc2626 35%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, #dc2626 6%, var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--text);
+  font-size: var(--body-small);
+
+  div {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  button {
+    min-height: 36px;
+    padding: 0 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--background);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .dangerButton {
+    border-color: #dc2626;
+    background: #dc2626;
+    color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .trigger {
+    width: 44px;
+    height: 44px;
+    opacity: 0.5;
+  }
+
+  .dialog {
+    width: 100%;
+  }
+
+  .actions {
+    grid-template-columns: auto 1fr auto auto;
+  }
+}
+
+@keyframes editorIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog {
+    animation: none;
+  }
+}

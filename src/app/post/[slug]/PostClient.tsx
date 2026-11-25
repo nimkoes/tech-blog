@@ -22,6 +22,7 @@ import RelativeUpdateAge from './RelativeUpdateAge';
 import ShareButton from './ShareButton';
 import GlossaryTerm from './GlossaryTerm';
 import { rehypeGlossaryTerms, type GlossaryEntry } from '~/utils/glossary';
+import HeadingBookmarkButton from '~/components/bookmarks/HeadingBookmarkButton';
 
 interface PostClientProps {
   document: PostMeta;
@@ -88,7 +89,17 @@ export default function PostClient({
       return (
         <div className={`${styles.headingRow} ${styles.headingRowMajor}`}>
           <Tag id={id} className={className}>{children}</Tag>
-          {id && text && <HeadingPermalink id={id} heading={text} />}
+          {id && text && (
+            <div className={styles.headingActions}>
+              <HeadingPermalink id={id} heading={text} />
+              <HeadingBookmarkButton
+                postSlug={document.fileName}
+                postTitle={document.title}
+                headingId={id}
+                headingText={text}
+              />
+            </div>
+          )}
         </div>
       );
     };

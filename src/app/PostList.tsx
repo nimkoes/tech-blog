@@ -7,11 +7,12 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
 // Components
 import DateTooltip from '~/components/common/DateTooltip';
-import { X } from 'lucide-react';
+import { Bookmark, X } from 'lucide-react';
 import ShareButton from './post/[slug]/ShareButton';
 
 // Utils & Context
 import { useTagContext } from '~/context/TagContext';
+import { useBookmarks } from '~/context/BookmarkContext';
 import type { PostMeta } from '~/types/content';
 
 // Styles
@@ -43,6 +44,7 @@ export default function PostList({ initialPosts }: PostListProps) {
   const {
     selectedTags, setSelectedTags, handleTagSelect
   } = useTagContext();
+  const { bookmarks, countForPost, openManager } = useBookmarks();
 
   const posts = initialPosts;
   const allowedTags = useMemo(() => new Set(posts.flatMap(post => post.tags)), [posts]);
@@ -50,6 +52,7 @@ export default function PostList({ initialPosts }: PostListProps) {
   // 목록이 프리렌더되도록 쿼리스트링은 mount 이후 window.location에서 읽는다.
   const [tagParam, setTagParam] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [isBookmarkFilterActive, setIsBookmarkFilterActive] = useState(false);
 
   useEffect(() => {
     const readTagsFromLocation = () => {
@@ -68,6 +71,11 @@ export default function PostList({ initialPosts }: PostListProps) {
 
   const clearTags = () => {
     setSelectedTags([]);
+  };
+
+  const clearFilters = () => {
+    setSelectedTags([]);
+    setIsBookmarkFilterActive(false);
   };
 
   useEffect(() => {
@@ -104,18 +112,24 @@ export default function PostList({ initialPosts }: PostListProps) {
     }
   }, [pathname, router, selectedTags, selectedTagsKey, tagsFromUrlKey]);
 
-  const filteredPosts = useMemo(
-    () => (
-      selectedTags.length > 0
-        ? posts.filter(post => selectedTags.some(tag => post.tags.includes(tag)))
-        : posts
-    ),
-    [posts, selectedTags]
+  const bookmarkedPostSlugs = useMemo(
+    () => new Set(bookmarks.map(bookmark => bookmark.postSlug)),
+    [bookmarks]
   );
+
+  const filteredPosts = useMemo(() => {
+    const tagFilteredPosts = selectedTags.length > 0
+      ? posts.filter(post => selectedTags.some(tag => post.tags.includes(tag)))
+      : posts;
+
+    return isBookmarkFilterActive
+      ? tagFilteredPosts.filter(post => bookmarkedPostSlugs.has(post.fileName))
+      : tagFilteredPosts;
+  }, [bookmarkedPostSlugs, isBookmarkFilterActive, posts, selectedTags]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
-  }, [selectedTagsKey]);
+  }, [isBookmarkFilterActive, selectedTagsKey]);
 
   const visiblePosts = filteredPosts.slice(0, visibleCount);
   const hasMore = visiblePosts.length < filteredPosts.length;
@@ -130,12 +144,24 @@ export default function PostList({ initialPosts }: PostListProps) {
 
   return (
     <>
-      <div className={styles.sectionHeading}>
+      <div id="archive" className={styles.sectionHeading}>
         <div>
-          <p>Archive</p>
-          <h2>최근 업데이트</h2>
+          <h2>Archive</h2>
         </div>
-        <Link href="/tags" className={styles.allTagsLink}>주요 토픽 보기</Link>
+        <div className={styles.sectionActions}>
+          <Link href="/tags" className={styles.allTagsLink}>주요 토픽 보기</Link>
+          <button
+            type="button"
+            className={`${styles.bookmarkFilterButton} ${isBookmarkFilterActive ? styles.bookmarkFilterActive : ''}`}
+            onClick={() => setIsBookmarkFilterActive(active => !active)}
+            aria-pressed={isBookmarkFilterActive}
+            aria-label={`북마크가 있는 게시물만 보기, 전체 북마크 ${bookmarks.length}개`}
+            title="북마크가 있는 게시물만 보기"
+          >
+            <Bookmark size={14} fill={isBookmarkFilterActive ? 'currentColor' : 'none'} aria-hidden="true" />
+            <strong>{bookmarks.length}</strong>
+          </button>
+        </div>
       </div>
       <div className={styles.filterSection}>
         <div className={styles.filterSummary}>
@@ -144,6 +170,9 @@ export default function PostList({ initialPosts }: PostListProps) {
             <span className={styles.filterSummaryMeta}>
               선택 태그 {selectedTags.length}개 중 하나라도 포함
             </span>
+          )}
+          {isBookmarkFilterActive && (
+            <span className={styles.filterSummaryMeta}>북마크가 있는 문서만 표시</span>
           )}
         </div>
         {selectedTags.length > 0 && (
@@ -175,50 +204,76 @@ export default function PostList({ initialPosts }: PostListProps) {
 
       {filteredPosts.length === 0 ? (
         <div className={styles.emptyState}>
-          <h2>선택한 태그에 맞는 문서가 없습니다.</h2>
-          <p>태그를 줄이거나 다른 태그로 다시 탐색해보세요.</p>
-          <button type="button" className={styles.emptyAction} onClick={clearTags}>
+          <h2>
+            {isBookmarkFilterActive
+              ? '현재 조건에 맞는 북마크 문서가 없습니다.'
+              : '선택한 태그에 맞는 문서가 없습니다.'}
+          </h2>
+          <p>
+            {isBookmarkFilterActive
+              ? '북마크 필터를 해제하거나 게시물에서 북마크를 추가해보세요.'
+              : '태그를 줄이거나 다른 태그로 다시 탐색해보세요.'}
+          </p>
+          <button type="button" className={styles.emptyAction} onClick={clearFilters}>
             필터 초기화
           </button>
         </div>
       ) : (
         <div className={styles.postList}>
-          {visiblePosts.map(post => (
-            <article key={post.fileName} className={styles.postCard}>
-              <h3 className={styles.postTitle}>
-                <Link href={`/post/${post.fileName}/`}>
-                  {post.title}
-                  {getIsRecentlyUpdated(post.lastModifiedDate) && (
-                    <span className={styles.newBadge}>NEW</span>
-                  )}
-                </Link>
-              </h3>
-              <p className={styles.postDescription}>{post.description}</p>
-              <div className={styles.postMeta}>
-                <DateTooltip regDate={post.regDate} lastModifiedDate={post.lastModifiedDate}>
-                  <time className={styles.postDate}>
-                    최종 수정 {post.lastModifiedDate}
-                  </time>
-                </DateTooltip>
-                <span className={styles.readingTime}>약 {post.readingTime}분</span>
-                <ShareButton title={post.title} path={`/post/${post.fileName}/`} />
+          {visiblePosts.map(post => {
+            const bookmarkCount = countForPost(post.fileName);
+            return (
+              <article
+                key={post.fileName}
+                className={`${styles.postCard} ${bookmarkCount > 0 ? styles.bookmarkedPostCard : ''}`}
+              >
+                {bookmarkCount > 0 && (
+                  <button
+                    type="button"
+                    className={styles.postBookmarkIndicator}
+                    aria-label={`${bookmarkCount}개의 북마크가 저장된 게시물`}
+                    title={`이 게시물의 북마크 ${bookmarkCount}개 보기`}
+                    onClick={() => openManager(post.title)}
+                  >
+                    <Bookmark size={14} fill="currentColor" aria-hidden="true" />
+                    <span>{bookmarkCount}</span>
+                  </button>
+                )}
+                <h3 className={styles.postTitle}>
+                  <Link href={`/post/${post.fileName}/`}>
+                    {post.title}
+                    {getIsRecentlyUpdated(post.lastModifiedDate) && (
+                      <span className={styles.newBadge}>NEW</span>
+                    )}
+                  </Link>
+                </h3>
+                <p className={styles.postDescription}>{post.description}</p>
+                <div className={styles.postMeta}>
+                  <DateTooltip regDate={post.regDate} lastModifiedDate={post.lastModifiedDate}>
+                    <time className={styles.postDate}>
+                      최종 수정 {post.lastModifiedDate}
+                    </time>
+                  </DateTooltip>
+                  <span className={styles.readingTime}>약 {post.readingTime}분</span>
+                  <ShareButton title={post.title} path={`/post/${post.fileName}/`} />
 
-                <div className={styles.postTags}>
-                  {post.tags.map(tag => (
-                    <button
-                      type="button"
-                      key={tag}
-                      className={`${styles.tagPill} ${selectedTags.includes(tag) ? styles.active : ''}`}
-                      onClick={() => handleTagSelect(tag)}
-                      aria-pressed={selectedTags.includes(tag)}
-                    >
-                      {tag}
-                    </button>
-                  ))}
+                  <div className={styles.postTags}>
+                    {post.tags.map(tag => (
+                      <button
+                        type="button"
+                        key={tag}
+                        className={`${styles.tagPill} ${selectedTags.includes(tag) ? styles.active : ''}`}
+                        onClick={() => handleTagSelect(tag)}
+                        aria-pressed={selectedTags.includes(tag)}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       )}
       {hasMore && (

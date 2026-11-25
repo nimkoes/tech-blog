@@ -11,6 +11,8 @@ import Header from "~/components/layout/Header";
 import Footer from "~/components/layout/Footer";
 import Toast from "~/components/common/Toast";
 import { TagContext } from '~/context/TagContext';
+import { BookmarkProvider } from '~/context/BookmarkContext';
+import BookmarkModal from '~/components/bookmarks/BookmarkModal';
 
 interface ClientLayoutProps {
   children: ReactNode;
@@ -48,22 +50,25 @@ export default function ClientLayout({children}: ClientLayoutProps) {
 
   return (
     <TagContext.Provider value={contextValue}>
-      <div className={styles.layout}>
-        <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
-        <Header />
-        <main id="main-content" className={styles.main} tabIndex={-1}>
-          <div className={styles.content}>
-            {children}
-          </div>
-        </main>
-        <Footer/>
-        {toastMessage && (
-          <Toast
-            message={toastMessage}
-            onClose={() => setToastMessage('')}
-          />
-        )}
-      </div>
+      <BookmarkProvider>
+        <div className={styles.layout}>
+          <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
+          <Header />
+          <main id="main-content" className={styles.main} tabIndex={-1}>
+            <div className={styles.content}>
+              {children}
+            </div>
+          </main>
+          <Footer/>
+          <BookmarkModal />
+          {toastMessage && (
+            <Toast
+              message={toastMessage}
+              onClose={() => setToastMessage('')}
+            />
+          )}
+        </div>
+      </BookmarkProvider>
     </TagContext.Provider>
   );
 }

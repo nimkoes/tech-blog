@@ -304,6 +304,13 @@
   border-bottom: 1px solid var(--border);
 }
 
+.headingActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin-right: -0.35rem;
+}
+
 .markdown > .headingRow:first-child {
   margin-top: 0.5rem;
 }
@@ -324,7 +331,6 @@
 .headingPermalink {
   width: 34px;
   height: 34px;
-  margin-right: -0.35rem;
   flex: 0 0 auto;
   border: 0;
   border-radius: 8px;
@@ -346,7 +352,9 @@
 }
 
 .headingRow:hover .headingPermalink,
-.headingRow:focus-within .headingPermalink {
+.headingRow:focus-within .headingPermalink,
+.headingRow:hover .headingActions button,
+.headingRow:focus-within .headingActions button {
   opacity: 1;
 }
 
@@ -445,8 +453,12 @@
   .headingPermalink {
     width: 44px;
     height: 44px;
-    margin-right: -0.5rem;
     opacity: 0.5;
+  }
+
+  .headingActions {
+    gap: 0;
+    margin-right: -0.5rem;
   }
 
   .headingRowMajor {
