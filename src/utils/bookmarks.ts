@@ -1,5 +1,7 @@
 export const BOOKMARK_STORAGE_KEY = 'tech-blog:bookmarks:v1';
 export const BOOKMARK_STORAGE_VERSION = 1;
+export const MAX_BOOKMARKS = 30;
+export const MAX_BOOKMARK_CUSTOM_NAME_LENGTH = 30;
 
 export interface BookmarkLocation {
   postSlug: string;
@@ -27,6 +29,12 @@ function isNonEmptyString(value: unknown): value is string {
 
 export function createDefaultBookmarkName(postTitle: string, headingText: string) {
   return `${postTitle}::${headingText}`;
+}
+
+export function normalizeBookmarkName(name: string, defaultName: string) {
+  const normalized = name.trim();
+  if (!normalized || normalized === defaultName) return defaultName;
+  return normalized.slice(0, MAX_BOOKMARK_CUSTOM_NAME_LENGTH);
 }
 
 export function getBookmarkLocationKey(location: Pick<BookmarkLocation, 'postSlug' | 'headingId'>) {
@@ -82,7 +90,9 @@ export function parseBookmarkStorage(raw: string | null): BookmarkRecord[] {
       }
     });
 
-    return Array.from(byLocation.values()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+    return Array.from(byLocation.values())
+      .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+      .slice(0, MAX_BOOKMARKS);
   } catch {
     return [];
   }

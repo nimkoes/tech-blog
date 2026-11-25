@@ -12,13 +12,23 @@ import {
 } from 'react';
 import {
   BOOKMARK_STORAGE_KEY,
+  MAX_BOOKMARKS,
   createDefaultBookmarkName,
   getBookmarkLocationKey,
+  normalizeBookmarkName,
   parseBookmarkStorage,
   serializeBookmarks,
   type BookmarkLocation,
   type BookmarkRecord,
 } from '~/utils/bookmarks';
+import type { ImportedBookmark } from '~/utils/bookmarkTransfer';
+
+interface BookmarkImportResult {
+  added: number;
+  skipped: number;
+  exceeded: boolean;
+  requestedNew: number;
+}
 
 interface BookmarkContextValue {
   bookmarks: BookmarkRecord[];
@@ -29,9 +39,9 @@ interface BookmarkContextValue {
   closeManager: () => void;
   findBookmark: (location: Pick<BookmarkLocation, 'postSlug' | 'headingId'>) => BookmarkRecord | undefined;
   countForPost: (postSlug: string) => number;
-  saveBookmark: (location: BookmarkLocation, name: string) => BookmarkRecord;
+  saveBookmark: (location: BookmarkLocation, name: string) => BookmarkRecord | null;
+  importBookmarks: (bookmarks: ImportedBookmark[]) => BookmarkImportResult;
   removeBookmarks: (ids: string[]) => BookmarkRecord[];
-  restoreBookmarks: (bookmarks: BookmarkRecord[]) => void;
 }
 
 const BookmarkContext = createContext<BookmarkContextValue | undefined>(undefined);
@@ -102,11 +112,13 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
   const saveBookmark = useCallback((location: BookmarkLocation, name: string) => {
     const now = new Date().toISOString();
     const defaultName = createDefaultBookmarkName(location.postTitle, location.headingText);
-    const normalizedName = name.trim() || defaultName;
+    const normalizedName = normalizeBookmarkName(name, defaultName);
     const locationKey = getBookmarkLocationKey(location);
     const existing = bookmarksRef.current.find(
       bookmark => getBookmarkLocationKey(bookmark) === locationKey
     );
+    if (!existing && bookmarksRef.current.length >= MAX_BOOKMARKS) return null;
+
     const saved: BookmarkRecord = existing
       ? {
           ...existing,
@@ -128,20 +140,53 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
     return saved;
   }, [commit]);
 
+  const importBookmarks = useCallback((imported: ImportedBookmark[]): BookmarkImportResult => {
+    const current = bookmarksRef.current;
+    const existingLocations = new Set(current.map(getBookmarkLocationKey));
+    const uniqueNew: ImportedBookmark[] = [];
+    let skipped = 0;
+
+    imported.forEach(bookmark => {
+      const key = getBookmarkLocationKey(bookmark);
+      if (existingLocations.has(key)) {
+        skipped += 1;
+        return;
+      }
+      existingLocations.add(key);
+      uniqueNew.push(bookmark);
+    });
+
+    if (current.length + uniqueNew.length > MAX_BOOKMARKS) {
+      return {
+        added: 0,
+        skipped,
+        exceeded: true,
+        requestedNew: uniqueNew.length,
+      };
+    }
+
+    const now = new Date().toISOString();
+    const added = uniqueNew.map(bookmark => ({
+      ...bookmark,
+      id: createBookmarkId(),
+      defaultName: createDefaultBookmarkName(bookmark.postTitle, bookmark.headingText),
+      createdAt: now,
+      updatedAt: now,
+    }));
+    commit([...added, ...current]);
+    return {
+      added: added.length,
+      skipped,
+      exceeded: false,
+      requestedNew: added.length,
+    };
+  }, [commit]);
+
   const removeBookmarks = useCallback((ids: string[]) => {
     const idSet = new Set(ids);
     const removed = bookmarksRef.current.filter(bookmark => idSet.has(bookmark.id));
     commit(bookmarksRef.current.filter(bookmark => !idSet.has(bookmark.id)));
     return removed;
-  }, [commit]);
-
-  const restoreBookmarks = useCallback((removed: BookmarkRecord[]) => {
-    const removedIds = new Set(removed.map(bookmark => bookmark.id));
-    const removedLocations = new Set(removed.map(getBookmarkLocationKey));
-    const unchanged = bookmarksRef.current.filter(
-      bookmark => !removedIds.has(bookmark.id) && !removedLocations.has(getBookmarkLocationKey(bookmark))
-    );
-    commit([...removed, ...unchanged].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)));
   }, [commit]);
 
   const value = useMemo<BookmarkContextValue>(() => ({
@@ -154,8 +199,8 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
     findBookmark,
     countForPost,
     saveBookmark,
+    importBookmarks,
     removeBookmarks,
-    restoreBookmarks,
   }), [
     bookmarks,
     closeManager,
@@ -163,10 +208,10 @@ export function BookmarkProvider({ children }: { children: ReactNode }) {
     findBookmark,
     isHydrated,
     isManagerOpen,
+    importBookmarks,
     managerInitialQuery,
     openManager,
     removeBookmarks,
-    restoreBookmarks,
     saveBookmark,
   ]);
 

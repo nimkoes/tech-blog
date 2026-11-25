@@ -1,9 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
   BOOKMARK_STORAGE_VERSION,
+  MAX_BOOKMARKS,
+  MAX_BOOKMARK_CUSTOM_NAME_LENGTH,
   createDefaultBookmarkName,
   getBookmarkLocationKey,
   isCustomBookmarkName,
+  normalizeBookmarkName,
   parseBookmarkStorage,
   serializeBookmarks,
   type BookmarkRecord,
@@ -61,5 +64,23 @@ describe('bookmark storage', () => {
   it('기본 이름과 다른 이름을 커스텀 이름으로 판단한다', () => {
     expect(isCustomBookmarkName(bookmark)).toBe(false);
     expect(isCustomBookmarkName({ ...bookmark, name: '다시 읽을 부분' })).toBe(true);
+  });
+
+  it('커스텀 이름은 최대 30자로 제한하고 기본 이름은 유지한다', () => {
+    const longCustomName = '가'.repeat(MAX_BOOKMARK_CUSTOM_NAME_LENGTH + 5);
+    expect(normalizeBookmarkName(longCustomName, bookmark.defaultName))
+      .toBe('가'.repeat(MAX_BOOKMARK_CUSTOM_NAME_LENGTH));
+    expect(normalizeBookmarkName('', bookmark.defaultName)).toBe(bookmark.defaultName);
+  });
+
+  it('저장 데이터가 최대 개수를 넘으면 최근 항목만 유지한다', () => {
+    const bookmarks = Array.from({ length: MAX_BOOKMARKS + 5 }, (_, index) => ({
+      ...bookmark,
+      id: `bookmark-${index}`,
+      headingId: `2_${index}`,
+      updatedAt: new Date(Date.UTC(2026, 10, 25, 0, 0, index)).toISOString(),
+    }));
+
+    expect(parseBookmarkStorage(serializeBookmarks(bookmarks))).toHaveLength(MAX_BOOKMARKS);
   });
 });

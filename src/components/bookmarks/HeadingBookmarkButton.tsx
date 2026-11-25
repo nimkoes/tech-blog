@@ -5,7 +5,12 @@ import { createPortal } from 'react-dom';
 import { Bookmark, Save, Trash2, X } from 'lucide-react';
 import { useBookmarks } from '~/context/BookmarkContext';
 import useBodyScrollLock from '~/hooks/useBodyScrollLock';
-import { createDefaultBookmarkName, type BookmarkLocation } from '~/utils/bookmarks';
+import {
+  createDefaultBookmarkName,
+  isCustomBookmarkName,
+  MAX_BOOKMARK_CUSTOM_NAME_LENGTH,
+  type BookmarkLocation,
+} from '~/utils/bookmarks';
 import styles from './HeadingBookmarkButton.module.scss';
 
 export default function HeadingBookmarkButton(location: BookmarkLocation) {
@@ -14,16 +19,21 @@ export default function HeadingBookmarkButton(location: BookmarkLocation) {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [confirmDelete, setConfirmDelete] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const defaultName = createDefaultBookmarkName(location.postTitle, location.headingText);
   useBodyScrollLock(isOpen);
 
   useEffect(() => setMounted(true), []);
 
   const openEditor = () => {
-    setName(existing?.name || createDefaultBookmarkName(location.postTitle, location.headingText));
+    setName(existing && isCustomBookmarkName(existing)
+      ? existing.name.slice(0, MAX_BOOKMARK_CUSTOM_NAME_LENGTH)
+      : '');
+    setErrorMessage('');
     setConfirmDelete(false);
     setIsOpen(true);
   };
@@ -71,7 +81,11 @@ export default function HeadingBookmarkButton(location: BookmarkLocation) {
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
-    saveBookmark(location, name);
+    const saved = saveBookmark(location, name);
+    if (!saved) {
+      setErrorMessage('북마크는 최대 30개까지 저장할 수 있습니다.');
+      return;
+    }
     closeEditor();
   };
 
@@ -99,16 +113,23 @@ export default function HeadingBookmarkButton(location: BookmarkLocation) {
         </header>
 
         <form onSubmit={onSubmit}>
-          <label htmlFor={`bookmark-name-${location.headingId}`}>북마크 이름</label>
+          <div className={styles.fieldLabel}>
+            <label htmlFor={`bookmark-name-${location.headingId}`}>커스텀 이름 (선택)</label>
+            <span>{name.length}/{MAX_BOOKMARK_CUSTOM_NAME_LENGTH}</span>
+          </div>
           <input
             ref={inputRef}
             id={`bookmark-name-${location.headingId}`}
             value={name}
-            onChange={event => setName(event.target.value)}
-            maxLength={160}
-            required
+            onChange={event => {
+              setName(event.target.value);
+              setErrorMessage('');
+            }}
+            maxLength={MAX_BOOKMARK_CUSTOM_NAME_LENGTH}
+            placeholder="비워두면 기본 이름을 사용합니다."
           />
-          <p className={styles.location}>{createDefaultBookmarkName(location.postTitle, location.headingText)}</p>
+          {errorMessage && <p className={styles.errorMessage} role="alert">{errorMessage}</p>}
+          <p className={styles.location}>기본 이름 · {defaultName}</p>
 
           {confirmDelete && existing ? (
             <div className={styles.deleteConfirm}>
@@ -141,7 +162,7 @@ export default function HeadingBookmarkButton(location: BookmarkLocation) {
               )}
               <span />
               <button type="button" onClick={closeEditor}>취소</button>
-              <button type="submit" className={styles.saveButton} disabled={!name.trim()}>
+              <button type="submit" className={styles.saveButton}>
                 <Save size={16} aria-hidden="true" />
                 저장
               </button>

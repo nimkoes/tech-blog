@@ -3,13 +3,32 @@
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Bookmark, Check, RotateCcw, Search, Settings, Trash2, X } from 'lucide-react';
+import {
+  Bookmark,
+  Check,
+  ClipboardCopy,
+  ClipboardPaste,
+  Pencil,
+  RotateCcw,
+  Save,
+  Search,
+  Settings,
+  Trash2,
+  X,
+} from 'lucide-react';
 import { useBookmarks } from '~/context/BookmarkContext';
 import useBodyScrollLock from '~/hooks/useBodyScrollLock';
-import { isCustomBookmarkName } from '~/utils/bookmarks';
+import {
+  createDefaultBookmarkName,
+  isCustomBookmarkName,
+  MAX_BOOKMARKS,
+  MAX_BOOKMARK_CUSTOM_NAME_LENGTH,
+  type BookmarkRecord,
+} from '~/utils/bookmarks';
+import { createBookmarkExportCode, parseBookmarkExportCode } from '~/utils/bookmarkTransfer';
 import styles from './BookmarkModal.module.scss';
 
-const DELETE_DELAY_MS = 10_000;
+const DELETE_DELAY_MS = 5_000;
 
 function normalize(value: string) {
   return value.trim().toLocaleLowerCase('ko-KR');
@@ -21,25 +40,44 @@ export default function BookmarkModal() {
     isManagerOpen,
     managerInitialQuery,
     closeManager,
+    importBookmarks,
     removeBookmarks,
+    saveBookmark,
   } = useBookmarks();
   const [mounted, setMounted] = useState(false);
   const [query, setQuery] = useState('');
   const [isSelecting, setIsSelecting] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [confirmBulkDelete, setConfirmBulkDelete] = useState(false);
+  const [isImportOpen, setIsImportOpen] = useState(false);
+  const [importText, setImportText] = useState('');
+  const [importError, setImportError] = useState('');
+  const [isImporting, setIsImporting] = useState(false);
+  const [editingBookmark, setEditingBookmark] = useState<BookmarkRecord | null>(null);
+  const [editName, setEditName] = useState('');
+  const [editError, setEditError] = useState('');
+  const [isExporting, setIsExporting] = useState(false);
+  const [transferMessage, setTransferMessage] = useState('');
   const [pendingDeletions, setPendingDeletions] = useState<Record<string, number>>({});
   const [countdownNow, setCountdownNow] = useState(0);
   const panelRef = useRef<HTMLDivElement>(null);
   const confirmDialogRef = useRef<HTMLDivElement>(null);
   const confirmCancelRef = useRef<HTMLButtonElement>(null);
+  const importDialogRef = useRef<HTMLDivElement>(null);
+  const importTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const editDialogRef = useRef<HTMLFormElement>(null);
+  const editInputRef = useRef<HTMLInputElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const confirmBulkDeleteRef = useRef(false);
+  const isImportOpenRef = useRef(false);
+  const isEditOpenRef = useRef(false);
+  const transferMessageTimerRef = useRef<number | undefined>(undefined);
   useBodyScrollLock(isManagerOpen);
 
   useEffect(() => {
     setMounted(true);
+    return () => window.clearTimeout(transferMessageTimerRef.current);
   }, []);
 
   useEffect(() => {
@@ -74,17 +112,41 @@ export default function BookmarkModal() {
   }, [confirmBulkDelete]);
 
   useEffect(() => {
+    isImportOpenRef.current = isImportOpen;
+    if (isImportOpen) {
+      requestAnimationFrame(() => importTextareaRef.current?.focus());
+    }
+  }, [isImportOpen]);
+
+  useEffect(() => {
+    isEditOpenRef.current = editingBookmark !== null;
+    if (editingBookmark) {
+      requestAnimationFrame(() => {
+        editInputRef.current?.focus();
+        editInputRef.current?.select();
+      });
+    }
+  }, [editingBookmark]);
+
+  useEffect(() => {
     if (!isManagerOpen) return;
     previousFocusRef.current = document.activeElement as HTMLElement | null;
     setQuery(managerInitialQuery);
     setIsSelecting(false);
     setSelectedIds(new Set());
     setConfirmBulkDelete(false);
+    setIsImportOpen(false);
+    setEditingBookmark(null);
+    setImportError('');
     requestAnimationFrame(() => searchRef.current?.focus());
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        if (confirmBulkDeleteRef.current) {
+        if (isEditOpenRef.current) {
+          setEditingBookmark(null);
+        } else if (isImportOpenRef.current) {
+          setIsImportOpen(false);
+        } else if (confirmBulkDeleteRef.current) {
           setConfirmBulkDelete(false);
         } else {
           closeManager();
@@ -93,9 +155,15 @@ export default function BookmarkModal() {
       }
       if (event.key !== 'Tab') return;
 
-      const focusRoot = confirmBulkDeleteRef.current ? confirmDialogRef.current : panelRef.current;
+      const focusRoot = isEditOpenRef.current
+        ? editDialogRef.current
+        : isImportOpenRef.current
+          ? importDialogRef.current
+          : confirmBulkDeleteRef.current
+            ? confirmDialogRef.current
+            : panelRef.current;
       const focusable = focusRoot?.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
       );
       if (!focusable?.length) return;
       const first = focusable[0];
@@ -143,6 +211,75 @@ export default function BookmarkModal() {
   const deleteBookmarksImmediately = (ids: string[]) => {
     removeBookmarks(ids);
     setSelectedIds(new Set());
+    const idSet = new Set(ids);
+    setPendingDeletions(current => {
+      const next = { ...current };
+      idSet.forEach(bookmarkId => delete next[bookmarkId]);
+      return next;
+    });
+  };
+
+  const showTransferMessage = (message: string) => {
+    setTransferMessage(message);
+    window.clearTimeout(transferMessageTimerRef.current);
+    transferMessageTimerRef.current = window.setTimeout(() => setTransferMessage(''), 3500);
+  };
+
+  const exportBookmarks = async () => {
+    setIsExporting(true);
+    try {
+      const code = await createBookmarkExportCode(bookmarks);
+      await navigator.clipboard.writeText(code);
+      showTransferMessage(`북마크 ${bookmarks.length}개를 클립보드에 복사했습니다.`);
+    } catch {
+      showTransferMessage('클립보드에 복사하지 못했습니다. 브라우저 권한을 확인해 주세요.');
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
+  const submitImport = async () => {
+    setIsImporting(true);
+    setImportError('');
+    try {
+      const imported = await parseBookmarkExportCode(importText);
+      const result = importBookmarks(imported);
+      if (result.exceeded) {
+        setImportError(
+          `현재 ${bookmarks.length}개에 새 북마크 ${result.requestedNew}개를 더하면 최대 ${MAX_BOOKMARKS}개를 넘습니다.`
+        );
+        return;
+      }
+
+      setIsImportOpen(false);
+      setImportText('');
+      showTransferMessage(
+        `북마크 ${result.added}개를 가져왔습니다.${result.skipped > 0 ? ` 중복 ${result.skipped}개는 유지했습니다.` : ''}`
+      );
+    } catch (error) {
+      setImportError(error instanceof Error ? error.message : '북마크를 가져오지 못했습니다.');
+    } finally {
+      setIsImporting(false);
+    }
+  };
+
+  const openBookmarkEditor = (bookmark: BookmarkRecord) => {
+    setEditName(isCustomBookmarkName(bookmark)
+      ? bookmark.name.slice(0, MAX_BOOKMARK_CUSTOM_NAME_LENGTH)
+      : '');
+    setEditError('');
+    setEditingBookmark(bookmark);
+  };
+
+  const saveEditedBookmark = () => {
+    if (!editingBookmark) return;
+    const saved = saveBookmark(editingBookmark, editName);
+    if (!saved) {
+      setEditError(`북마크는 최대 ${MAX_BOOKMARKS}개까지 저장할 수 있습니다.`);
+      return;
+    }
+    setEditingBookmark(null);
+    showTransferMessage('북마크 이름을 수정했습니다.');
   };
 
   const toggleSelection = (id: string) => {
@@ -171,6 +308,34 @@ export default function BookmarkModal() {
         <header className={styles.header}>
           <h2 id="bookmark-modal-title">북마크</h2>
           <div className={styles.headerActions}>
+            <button
+              type="button"
+              className={styles.iconButton}
+              onClick={() => {
+                setConfirmBulkDelete(false);
+                setIsSelecting(false);
+                setSelectedIds(new Set());
+                setImportText('');
+                setImportError('');
+                setIsImportOpen(true);
+              }}
+              aria-label="북마크 가져오기"
+              title="북마크 가져오기"
+            >
+              <ClipboardCopy size={18} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              className={styles.iconButton}
+              onClick={exportBookmarks}
+              disabled={bookmarks.length === 0 || isExporting}
+              aria-label={`북마크 ${bookmarks.length}개 내보내기`}
+              title="북마크를 클립보드에 복사"
+            >
+              {transferMessage.includes('클립보드에 복사했습니다') && !isExporting
+                ? <Check size={18} aria-hidden="true" />
+                : <ClipboardPaste size={18} aria-hidden="true" />}
+            </button>
             <button
               type="button"
               className={styles.iconButton}
@@ -223,8 +388,11 @@ export default function BookmarkModal() {
         </div>
 
         <div className={styles.summary}>
-          <span>{filteredBookmarks.length}개의 북마크</span>
+          <span>{filteredBookmarks.length}개의 북마크 · 저장 {bookmarks.length}/{MAX_BOOKMARKS}</span>
           {isSelecting && <strong>{selectedIds.size}개 선택</strong>}
+          {!isSelecting && transferMessage && (
+            <strong className={styles.transferMessage} role="status">{transferMessage}</strong>
+          )}
         </div>
 
         <div className={styles.listViewport}>
@@ -292,26 +460,48 @@ export default function BookmarkModal() {
                           </Link>
                         )}
                         {isPendingDeletion ? (
-                          <button
-                            type="button"
-                            className={styles.undoDeleteButton}
-                            onClick={() => cancelDeletion(bookmark.id)}
-                            aria-label={`${bookmark.name} 삭제 되돌리기, ${remainingSeconds}초 남음`}
-                            title="삭제 되돌리기"
-                          >
-                            <RotateCcw size={15} aria-hidden="true" />
-                            <span aria-hidden="true">{remainingSeconds}s</span>
-                          </button>
+                          <>
+                            <button
+                              type="button"
+                              className={styles.immediateDeleteButton}
+                              onClick={() => deleteBookmarksImmediately([bookmark.id])}
+                              aria-label={`${bookmark.name} 지금 삭제`}
+                              title="지금 삭제"
+                            >
+                              <Trash2 size={16} aria-hidden="true" />
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.undoDeleteButton}
+                              onClick={() => cancelDeletion(bookmark.id)}
+                              aria-label={`${bookmark.name} 삭제 되돌리기, ${remainingSeconds}초 남음`}
+                              title="삭제 되돌리기"
+                            >
+                              <RotateCcw size={15} aria-hidden="true" />
+                              <span aria-hidden="true">{remainingSeconds}s</span>
+                            </button>
+                          </>
                         ) : (
-                          <button
-                            type="button"
-                            className={styles.deleteButton}
-                            onClick={event => scheduleDeletion(bookmark.id, event.timeStamp)}
-                            aria-label={`${bookmark.name} 북마크 삭제`}
-                            title="북마크 삭제"
-                          >
-                            <Trash2 size={17} aria-hidden="true" />
-                          </button>
+                          <>
+                            <button
+                              type="button"
+                              className={styles.editButton}
+                              onClick={() => openBookmarkEditor(bookmark)}
+                              aria-label={`${bookmark.name} 북마크 이름 수정`}
+                              title="북마크 이름 수정"
+                            >
+                              <Pencil size={16} aria-hidden="true" />
+                            </button>
+                            <button
+                              type="button"
+                              className={styles.deleteButton}
+                              onClick={event => scheduleDeletion(bookmark.id, event.timeStamp)}
+                              aria-label={`${bookmark.name} 북마크 삭제`}
+                              title="북마크 삭제"
+                            >
+                              <Trash2 size={17} aria-hidden="true" />
+                            </button>
+                          </>
                         )}
                       </>
                     )}
@@ -356,6 +546,115 @@ export default function BookmarkModal() {
                   }}
                 >
                   삭제
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {editingBookmark && (
+          <div className={styles.confirmOverlay}>
+            <form
+              ref={editDialogRef}
+              className={styles.bookmarkEditBox}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="bookmark-name-edit-title"
+              onSubmit={event => {
+                event.preventDefault();
+                saveEditedBookmark();
+              }}
+            >
+              <header>
+                <div>
+                  <h3 id="bookmark-name-edit-title">북마크 이름 수정</h3>
+                  <p>비워두면 기본 이름으로 되돌아갑니다.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setEditingBookmark(null)}
+                  aria-label="북마크 이름 수정 닫기"
+                >
+                  <X size={18} aria-hidden="true" />
+                </button>
+              </header>
+              <div className={styles.editFieldLabel}>
+                <label htmlFor="bookmark-edit-name">커스텀 이름</label>
+                <span>{editName.length}/{MAX_BOOKMARK_CUSTOM_NAME_LENGTH}</span>
+              </div>
+              <input
+                ref={editInputRef}
+                id="bookmark-edit-name"
+                value={editName}
+                onChange={event => {
+                  setEditName(event.target.value);
+                  setEditError('');
+                }}
+                maxLength={MAX_BOOKMARK_CUSTOM_NAME_LENGTH}
+                placeholder="비워두면 기본 이름을 사용합니다."
+              />
+              <p className={styles.editLocation}>
+                기본 이름 · {createDefaultBookmarkName(editingBookmark.postTitle, editingBookmark.headingText)}
+              </p>
+              {editError && <p className={styles.importError} role="alert">{editError}</p>}
+              <div className={styles.importActions}>
+                <button type="button" onClick={() => setEditingBookmark(null)}>취소</button>
+                <button type="submit" className={styles.importButton}>
+                  <Save size={16} aria-hidden="true" />
+                  저장
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+
+        {isImportOpen && (
+          <div className={styles.confirmOverlay}>
+            <div
+              ref={importDialogRef}
+              className={styles.importBox}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="bookmark-import-title"
+              aria-describedby="bookmark-import-description"
+            >
+              <header>
+                <div>
+                  <h3 id="bookmark-import-title">북마크 가져오기</h3>
+                  <p id="bookmark-import-description">
+                    다른 브라우저에서 복사한 북마크 데이터를 붙여 넣어 주세요.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsImportOpen(false)}
+                  aria-label="북마크 가져오기 닫기"
+                >
+                  <X size={18} aria-hidden="true" />
+                </button>
+              </header>
+              <label htmlFor="bookmark-import-data">북마크 데이터</label>
+              <textarea
+                ref={importTextareaRef}
+                id="bookmark-import-data"
+                value={importText}
+                onChange={event => {
+                  setImportText(event.target.value);
+                  setImportError('');
+                }}
+                placeholder="TBM1:G:..."
+                spellCheck="false"
+              />
+              {importError && <p className={styles.importError} role="alert">{importError}</p>}
+              <div className={styles.importActions}>
+                <button type="button" onClick={() => setIsImportOpen(false)}>취소</button>
+                <button
+                  type="button"
+                  className={styles.importButton}
+                  onClick={submitImport}
+                  disabled={!importText.trim() || isImporting}
+                >
+                  {isImporting ? '확인 중…' : '가져오기'}
                 </button>
               </div>
             </div>

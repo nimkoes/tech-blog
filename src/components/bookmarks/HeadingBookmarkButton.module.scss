@@ -115,6 +115,31 @@
   overflow-wrap: anywhere;
 }
 
+.fieldLabel {
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  label {
+    margin-bottom: 0 !important;
+  }
+
+  span {
+    color: var(--text-secondary);
+    font-size: var(--ui-xs);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.errorMessage {
+  margin: 0.45rem 0 0;
+  color: #dc2626;
+  font-size: var(--ui-small);
+  line-height: var(--line-height-normal);
+}
+
 .actions {
   margin-top: 1rem;
   padding-top: 0.8rem;
